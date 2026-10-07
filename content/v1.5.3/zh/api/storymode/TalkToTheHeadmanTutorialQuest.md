@@ -24,6 +24,60 @@ description: "教程枢纽任务：先与村庄村长对话，再并行开出买
 
 第二个坑：教程村庄 ID `"village_ES3_2"` 在这里是以字面量硬编码出现的（`Settlement.CurrentSettlement.StringId == "village_ES3_2"`），换图/换村庄必须改。`TutorialPhase.Instance.SetLockTutorialVillageEnter(true/false)` 也在控制"能否离开村庄"这个全局开关。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class TalkToTheHeadmanTutorialQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/TutorialPhase/TalkToTheHeadmanTutorialQuest.cs:19`，全文 240 行。
+
+构造函数 `TalkToTheHeadmanTutorialQuest(Hero headman)`（约 `:64`），基类调用 `: base("talk_to_the_headman_tutorial_quest", null, CampaignTime.Never)`（`:65`）——任务 id 硬编码、`questGiver` 传 `null`（**虽然构造函数收了 `headman`，但基类拿到的是 null**）。存档 id 693001（`SaveableStoryModeTypeDefiner.cs:45`）。
+
+**它真正的产品是另外两条任务。** 构造函数副作用：`TutorialPhase.Instance.SetTutorialFocusSettlement(Settlement.CurrentSettlement);`（`:72`）——**直接读当前聚落，不判空**。
+
+`RegisterEvents()`（`:87`）挂两条：`CampaignEvents.OnQuestCompletedEvent`（`:89`）与 `CampaignEvents.BeforeMissionOpenedEvent`（`:90`）。
+
+对话流**四条**，挂在同一个 `"start"` 节点但用**三种不同的 priority**：`1000010`（`:96`）、`1000009`（`:103`）、`1000010`（`:106`）、`1000009`（`:113`）。四个委托：`headman_quest_conversation_start_on_condition()`（`:118`）、`headman_quest_conversation_talk_with_brother_on_condition()`（`:125`）、`headman_quest_conversation_end_on_consequence()`（`:132`）、`headman_quest_end_conversation_start_on_condition()`（`:145`）与 `headman_quest_end_conversation_start_on_consequence()`（`:151`）。
+
+**关键在 `headman_quest_conversation_end_on_consequence()`（`:132`）——一次开两条任务并推进阶段**：
+
+```csharp
+this._recruitTroopsQuest = new RecruitTroopsTutorialQuest(this._headman);   // :136
+this._recruitTroopsQuest.StartQuest();                                     // :137
+this._purchaseGrainQuest = new PurchaseGrainTutorialQuest(this._headman);  // :138
+this._purchaseGrainQuest.StartQuest();                                    // :139
+TutorialPhase.Instance.SetTutorialQuestPhase(TutorialQuestPhase.RecruitAndPurchaseStarted);  // :140
+```
+
+末尾 `headman_quest_end_conversation_start_on_consequence()`（`:151`）里的 `TutorialPhase.Instance.SetLockTutorialVillageEnter(false);`（`:153`）——**解锁村庄进入**，否则玩家会被锁在教学流程里。
+
+`OnCompleteWithSuccess()`（`:158`）同样要 `TutorialPhase.Instance.RemoveTutorialFocusSettlement();`（`:160`）。
+
+### 典型用法
+
+```csharp
+// 1) 创建：村长是必须的（要传给后续两条任务）
+TalkToTheHeadmanTutorialQuest q = new TalkToTheHeadmanTutorialQuest(
+    StoryModeManager.Current.MainStoryLine.TutorialPhase.TutorialVillageHeadman);
+q.StartQuest();
+
+// 2) 它会派生两条任务
+Debug.Print("派生：RecruitTroopsTutorialQuest + PurchaseGrainTutorialQuest");
+Debug.Print("阶段推进到 TutorialQuestPhase.RecruitAndPurchaseStarted");
+
+// 3) 村庄锁的开关
+TutorialPhase tutorial = StoryModeManager.Current.MainStoryLine.TutorialPhase;
+Debug.Print("LockTutorialVillageEnter=" + tutorial.LockTutorialVillageEnter);
+tutorial.SetLockTutorialVillageEnter(false);      // API：headman_quest_end_...:153 就是这么调的
+
+// 4) 读任务
+QuestBase b = Campaign.Current.QuestManager.GetQuest<TalkToTheHeadmanTutorialQuest>();
+Debug.Print("id=" + b.QuestId + "，存档 id=693001，QuestGiver=" + (b.QuestGiver?.Name.ToString() ?? "null"));
+```
+
+### 最容易踩的坑
+
+`headman_quest_conversation_end_on_consequence()`（`:132`）是**一次开两条任务 + 推阶段**（`:136`–`:140`），而且**没有查重、没有守卫**。同时本任务自己订阅了 `CampaignEvents.OnQuestCompletedEvent`（`:89`）→ `OnQuestCompleted`（`:164`）。你若在 mod 里重复注册这四条对话流（`InitializeQuestOnGameLoad()`（`:76`）本来就会重注册），旧的流可能仍留在对话表里，于是这个后果委托跑两次——**开两份募兵任务和两份征粮任务，四条进度日志同时刷进度**。这是本任务最容易被自己改坏的地方。
+
 ## 主要成员
 
 - `TalkToTheHeadmanTutorialQuest(Hero headman)`：构造入口。保存村长、`AddTrackedObject`、`SetDialogs()`、`InitializeQuestOnCreation()`、写起始日志、`TutorialPhase.Instance.SetTutorialFocusSettlement(Settlement.CurrentSettlement)`。

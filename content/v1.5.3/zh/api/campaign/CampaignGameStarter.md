@@ -36,6 +36,43 @@ description: "战役启动期唯一的注册入口：在 OnGameStart 拿到它�
 3. 用 `AddModel<T>(MBGameModel<T>)` 却不先确认基类模型已存在：如果没人注册过 `T`，`Initialize(model)` 收到 `null`，你的包装模型在第一次被查询时才 NRE。
 4. 复用同一个 starter 实例给多个战役——`CampaignGameStarter` 一对一对应一次新游戏启动。
 
+## 怎么用
+
+### 怎么拿到它
+
+唯一构造点在 `Campaign.Initialize` 里：`campaignGameStarter = new CampaignGameStarter(this.GameMenuManager, this.ConversationManager)`（`Campaign.cs:1952`）。紧接着它就被逐层分发出去——`SandBoxManager.Initialize(campaignGameStarter)`（`Campaign.cs:1953`）→ `GameManager.InitializeGameStarter(...)`（`Campaign.cs:1954`）→ `GameManager.OnGameStart(game, starter)`（`Campaign.cs:1960`），后者就是 mod 收到的 `MBSubModuleBase.OnGameStart` 第二个参数。所以你拿到的实例是这一局的专属对象，用完即弃；战役结束时 `Campaign.cs:1691` 之外的整张战役状态都会被丢掉，不要把 starter 或它返回的东西缓存进静态字段。
+
+在那之后，starter 上的内容被固化到两个地方：`_models` 在 `Campaign.cs:1962` 被交给 `AddGameModelsManager<GameModels>(campaignGameStarter.Models)` 变成 `Campaign.Models`；`CampaignBehaviors` 在 `Campaign.cs:1991` 变成 `CampaignBehaviorManager`。
+
+### 典型用法
+
+```csharp
+// 标准接入点：MBSubModuleBase 的 OnGameStart，starterObject 就是它
+protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
+{
+    base.OnGameStart(game, gameStarterObject);
+
+    CampaignGameStarter starter = (CampaignGameStarter)gameStarterObject;
+
+    // 1) 顶掉原生模型：先取当前生效的，再包一层（BaseModel 里有原实现）
+    var prosperity = new MyProsperityModel(starter.GetModel<DefaultSettlementProsperityModel>());
+    starter.AddModel<DefaultSettlementProsperityModel>(prosperity);
+
+    // 2) 注册行为：启动期过后引擎不再读这个集合
+    starter.RemoveBehaviors<MySupplyBehavior>();      // 先清同类型，保证 GetBehavior<T> 只命中一个
+    starter.AddBehavior(new MySupplyBehavior());
+
+    // 3) 往已有游戏菜单挂一个选项（完整签名 CampaignGameStarter.cs:115，后四个参数都有默认值）
+    starter.AddGameMenuOption("camp", "open_supply", "{=mymod_open_supply}",
+        onCondition: () => Campaign.Current.MainParty != null,
+        onConsequence: () => ScreenManager.PushScreen(new MySupplyScreen()));
+}
+```
+
+### 最容易踩的坑
+
+指望注册「晚一点再做」。`AddBehavior` 只是 `_campaignBehaviors.Add(...)`（`CampaignGameStarter.cs:48`），而这份列表只在启动期被读一次：非读档战役走 `Campaign.cs:1991` 一次性灌进 manager，读档战役走 `Campaign.cs:1997`。之后 `CampaignGameStarter` 就没有任何消费者了。后果是你在 `DailyTick` 或某个界面回调里补注册的行为不会进入 `CampaignBehaviorManager._campaignBehaviors`（`CampaignBehaviorManager.cs:29`），于是它既不会出现在 `GetCampaignBehavior<T>()` 的结果里，`OnBeforeSave`（`CampaignBehaviorManager.cs:42`）也不会调它的 `SyncData`——存完档再读，状态归零，且全程没有任何报错。模型的 `AddModel` 同理：`Campaign.Models` 在 `Campaign.cs:1962` 之后就是快照。
+
 ## 成员与调用时机
 
 **Behavior 注册**

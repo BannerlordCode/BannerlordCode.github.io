@@ -41,6 +41,53 @@ SaveManager.InitializeGlobalDefinitionContext()
 4. **容器定义遗漏**。字段是 `Dictionary<Hero, Grievance>` 这类，需要 `ConstructContainerDefinition(typeof(Dictionary<Hero, Grievance>))`；漏掉就会在保存时炸。
 5. **覆写 `Define*Types` 时不调 `base`**：通常没问题（基类实现是空的），但 `AddClassDefinition` 的 resolver 参数要按需传。
 
+## 怎么用
+
+### 怎么拿到它
+
+抽象基类，你继承它并**只**继承它。引擎不手动 `new`：`SaveableTypeDefiner.Initialize(DefinitionContext)` 是 `internal`（`SaveableTypeDefiner.cs:20`），由引擎反射枚举所有子类后注入定义上下文，再逐个调那十个 `protected internal virtual` 的 `Define*` 方法（`:26`-`:72`，基类实现全为空）。目前代码库里有 70 多个子类，其中模块级的几个是标准写法，例如 `SaveableSandBoxTypeDefiner`（`SaveableSandBoxTypeDefiner.cs:7`）、`SaveableStoryModeTypeDefiner`（`SaveableStoryModeTypeDefiner.cs:17`）、`SaveableLocalizationTypeDefiner`（`SaveableLocalizationTypeDefiner.cs:8`）。
+
+真正干活的是那批 `Add*Definition` 助手，它们全部把 `_saveBaseId + saveId` 算成最终 id（`SaveableTypeDefiner.cs:90`、`:97`、`:103`、`:132`、`:139`、`:146`、`:153`），然后转发给 `this._definitionContext`。所以你在构造函数里传的区间 id 就是「你这批定义的命名空间」。
+
+### 典型用法
+
+```csharp
+public class SaveableMyModTypeDefiner : SaveableTypeDefiner
+{
+    public SaveableMyModTypeDefiner() : base(20100) { }      // 20000 是本地化模块占的，别撞
+
+    protected override void DefineClassTypes()
+    {
+        base.AddClassDefinition(typeof(MyModData), 1, null);          // SaveableTypeDefiner.cs:101
+    }
+
+    protected override void DefineStructTypes()
+    {
+        base.AddStructDefinition(typeof(MyModStats), 1, null);        // :137
+    }
+
+    protected override void DefineEnumTypes()
+    {
+        base.AddEnumDefinition(typeof(MyModFactionKind), 1, null);    // :151
+    }
+
+    protected override void DefineContainerDefinitions()
+    {
+        base.ConstructContainerDefinition(typeof(Dictionary<string, MyModData>));   // :158
+    }
+}
+
+// 被存档的字段：类型必须在上面注册过，SaveManager.CheckSaveableTypes 才能确认它不是漏网的
+public class MyModData
+{
+    [SaveableField(1)] public int Counter;
+}
+```
+
+### 最容易踩的坑
+
+对同一个类型调用两次 `ConstructContainerDefinition`。它的实现是 `if (!this._definitionContext.HasDefinition(type)) { ...; return; }` 然后才落到 `Debug.FailedAssert("There is duplicate definition for {0}")`（`SaveableTypeDefiner.cs:160-166`）——也就是说**重复定义不会抛异常、只会打一条日志然后继续**，容器定义被静默保留成第一次那一份。后果是你以为覆盖了容器序列化规则，实际新规则从未生效，读档时旧规则解出来的对象结构与你预期不符，数据静默丢失或类型错配。而 `AddClassDefinition` 这批**没有重名检查**，重复调用会把同一个类型注册两次，行为更难预测。写完 definer 之后用 `SaveManager.CheckSaveableTypes()`（`SaveManager.cs:28`）跑一遍，确认没有类型漏在定义表之外。
+
 ## 成员与调用时机
 
 **构造**

@@ -29,6 +29,53 @@ description: "所有主线剧情任务的抽象基类：统一 SpecialQuestType�
 3. **超时文本是硬编码英文**：`"{=JTPmw3cb}You couldn't complete the quest in time."`。这是本地化键，翻译在官方语言包里，mod 无法替换这条文本而只能用同样的键。
 4. **`AddLog(text, false)`** 的 `false` 是 `showNotification`——**超时不会弹提示框**，只在日志里留一条。想让玩家立刻看到得自己再发通知。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public abstract class StoryModeQuestBase : QuestBase` 声明在 `bannerlord-1.5.3/StoryMode/StoryModeQuestBase.cs:8`，全文 44 行。**它是抽象类，拿不到实例——只有继承它的具体任务能 `new`。**
+
+构造函数是 `protected StoryModeQuestBase(string questId, Hero questGiver, CampaignTime duration) : base(questId, questGiver, duration, 0)`（`:31`→`:32`）。第四个参数 `0` 是基类 `QuestBase` 的**剩余时间显示值**，而本类又用 `IsRemainingTimeHidden` 覆写成恒 `true`（`:22`→`:26`）——两层都把时限藏起来了。`duration` 参数照旧传给基类，所以传 `CampaignTime.Never` 的任务确实不会超时。
+
+两个 override：
+
+- `SpecialQuestType`（`:12`）恒返回 `"MainStoryline"`（`:16`）。**这是判断一个 `QuestBase` 是否属于主线的最可靠办法**——`quest.SpecialQuestType == "MainStoryline"`。[AchievementsCampaignBehavior](../AchievementsCampaignBehavior) 的 `ProgressImperialBarbarianVictory` 就是靠 `quest.IsSpecialQuest && detail == Success && quest.GetType() == typeof(DefeatTheConspiracyQuestBehavior.DefeatTheConspiracyQuest)` 组合判断的（`AchievementsCampaignBehavior.cs:669`）。
+- `OnTimedOut()`（`:37`）先调 `base.OnTimedOut()`（`:39`），再 `new TextObject("{=JTPmw3cb}You couldn't complete the quest in time.", null)`（`:40`）并 `base.AddLog(textObject, false)`（`:41`）。**第二个参数是 `showNotification`，所以超时只在日志里留一条，不弹提示框。**
+
+**它没有覆写 `OnFail` 和 `OnCancel`**——这是继承它的所有主线任务失败/取消时不写任何日志的原因。
+
+### 典型用法
+
+```csharp
+// 1) 判断一个任务是不是主线任务（不需要知道具体子类）
+QuestBase q = Campaign.Current.QuestManager.Quests.FirstOrDefault(x => !x.IsFinalized);
+bool isMainStory = (q != null && q.SpecialQuestType == "MainStoryline");
+Debug.Print("是主线任务=" + isMainStory);
+
+// 2) mod 里新增一个主线任务：继承它，构造函数照抄签名
+public class MyStoryQuest : StoryMode.Quests.StoryModeQuestBase
+{
+    public MyStoryQuest(Hero questGiver)
+        : base("my_story_quest", questGiver, CampaignTime.Never)   // Never + IsRemainingTimeHidden 双重隐藏
+    {
+        InitializeQuestOnCreation();
+    }
+
+    protected override void OnTimedOut()
+    {
+        base.OnTimedOut();       // 会写入 "You couldn't complete the quest in time."
+        AddLog(new TextObject("{=MyQ1}任务超时"), true);   // 自己的文案，这里才弹提示
+    }
+}
+
+// 3) 启动
+QuestBase started = Campaign.Current.QuestManager.CreateQuest("my_story_quest");
+```
+
+### 最容易踩的坑
+
+`OnTimedOut` 里的 `base.AddLog(textObject, false)`（`:41`）——`false` 是 `showNotification`。主线任务超时**不会弹任何提示框**，只在任务日志里静默加一条硬编码英文 `{=JTPmw3cb}You couldn't complete the quest in time.`。玩家看不到「任务超时了」这个信号，mod 作者如果指望继承 `StoryModeQuestBase` 就自动获得超时提示，会发现什么都没发生。要提示就自己覆写 `OnTimedOut` 并用 `true`。
+
 ## 主要成员
 
 - `public override string SpecialQuestType { get; }`：**恒为 `"MainStoryline"`**。这是主线任务在 UI 上被归到主线分类的唯一依据，也是判断一个 `QuestBase` 是否属于主线的可靠办法。

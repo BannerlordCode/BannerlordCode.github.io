@@ -51,6 +51,56 @@ description: "教程提示箱行为：把原版四十多个零散教程按阶段
 - **priority 是手工编排的，改一个会连锁**：多个 `AddTutorial` 用同一个 priority 时，`Sort` 的相对顺序由 `MBList.Sort` 的稳定性决定，不要依赖顺序。
 - **教学期只放出了一小部分，其余全在 backup 里**。`OnTutorialListRequested` 拷的是 `AvailableTutorials`（当前队列），不是 backup——所以教学期玩家看不到备份中的教程，这是设计。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeTutorialBoxCampaignBehavior : CampaignBehaviorBase` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/CampaignBehaviors/StoryModeTutorialBoxCampaignBehavior.cs:16`，全文 228 行。
+
+注册点 `campaignGameStarter.AddBehavior(new StoryModeTutorialBoxCampaignBehavior())`（`StoryModeSubModule.cs:77`），**无条件**。取实例用 `Campaign.Current.GetCampaignBehavior<StoryModeTutorialBoxCampaignBehavior>()`，**`AvailableTutorials` 是它唯一的公开数据成员**。
+
+`RegisterEvents()`（`:37`）挂**六条**：五条 `CampaignEvents.*`（`OnSessionLaunchedEvent` `:39`、`OnTutorialCompletedEvent` `:40`、`CollectAvailableTutorialsEvent` `:41`、`OnQuestStartedEvent` `:42`、`OnQuestCompletedEvent` `:43`）加一条 `StoryModeEvents.OnTravelToVillageTutorialQuestStartedEvent`（`:44`）。
+
+教学供给的形状是**「备份 → 延迟放出」**：
+
+- `OnSessionLaunched(CampaignGameStarter campaignGameStarter)`（`:56`）开场先把全部百科/部队升级/技能/招募/劫掠/锻造等教程逐个 `BackupTutorial(tutorialTypeId, priority)`（实现在 `:190`，**每个 priority 手工指定**），最后一次性 `AddTutorial(...)` 放出。
+- `AddTutorial(string tutorialTypeId, int priority)`（`:199`）做三件事：`if (!_shownTutorials.Contains(tutorialTypeId))` 守卫（`:200`）、`new CampaignTutorial(tutorialTypeId, priority)` 并加进 `_availableTutorials`（`:202`→`:203`）、若 `_tutorialBackup` 里没有则补记（`:205`→`:207`）。
+- `BackupTutorial`（`:190`）的守卫更严：`!_shownTutorials.Contains(tutorialTypeId) && !_tutorialBackup.ContainsKey(tutorialTypeId)`（`:191`）——**已经备份过的不会被覆盖优先级**。
+
+`OnTutorialListRequested(List<CampaignTutorial> campaignTutorials)`（`:176`）是**对外供给口**：`if (!BannerlordConfig.EnableTutorialHints) return;`（`:178`→`:180`），然后设文本变量 `TUTORIAL_SETTLEMENT_NAME`（`:181`，**硬编码取 `village_ES3_2`**），最后把 `AvailableTutorials` 全部 `Add` 进调用方给的列表（`:183`→`:185`）。
+
+三个存档/会话字段：`_shownTutorials`（`:219`，`List<string>`）、`_availableTutorials`（`:222`，`readonly MBList<CampaignTutorial>`）、`_tutorialBackup`（`:225`，`Dictionary<string, int>`）。
+
+`OnQuestCompleted`（`:153`）里有一处双重条件：`TutorialQuestPhase == RecruitAndPurchaseStarted` **且** 任务类型匹配 **且** `!IsThereActiveQuestWithType(...)`（`:155`）。
+
+### 典型用法
+
+```csharp
+// 运行期读：UI 与调试工具都从 AvailableTutorials 取
+StoryModeTutorialBoxCampaignBehavior box =
+    Campaign.Current.GetCampaignBehavior<StoryModeTutorialBoxCampaignBehavior>();
+if (box != null)
+{
+    foreach (CampaignTutorial t in box.AvailableTutorials)
+    {
+        Debug.Print("已放出教程 type=" + t.TutorialType + " priority=" + t.Priority);
+    }
+}
+
+// 引擎侧的供给口就是 OnTutorialListRequested，配置开关在这里生效
+Debug.Print("教程提示开关=" + BannerlordConfig.EnableTutorialHints);
+
+// 教学村庄名被硬编码成 village_ES3_2
+Debug.Print("TUTORIAL_SETTLEMENT_NAME 指向 " + MBObjectManager.Instance.GetObject<Settlement>("village_ES3_2").Name);
+
+// 按主线阶段过滤：教学期对应的枚举
+Debug.Print("当前教学阶段=" + StoryModeManager.Current.MainStoryLine.TutorialPhase.TutorialQuestPhase);
+```
+
+### 最容易踩的坑
+
+`AddTutorial` 的守卫只看 `_shownTutorials`（`:200`），而 `_shownTutorials` 只在 `OnResetAllTutorials(ResetAllTutorialsEvent obj)`（`:213`）里被 `Clear()`（`:215` 附近）。**一旦教程已经放出（`_shownTutorials` 里有它）且玩家没触发「重置全部教程」，同一 priority 区间里再调一次 `AddTutorial` 就完全无效**——静默失败，没有报错也没有日志。而 `OnQuestStarted`（`:119`）与 `OnQuestCompleted`（`:153`）都是按任务类型分派、各自带 priority，你想在 mod 里补一条教学必须挑一个**尚未被原生放出的** priority，否则什么都不会发生。
+
 ## 主要成员
 
 - `public MBReadOnlyList<CampaignTutorial> AvailableTutorials { get; }`

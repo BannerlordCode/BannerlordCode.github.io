@@ -30,6 +30,57 @@ description: "按 StringId 缓存并暴露八个原生王国的静态查询表�
 2. `_conspiracyTroops` 里有一个 `conspiracy_commander_antiempire`，但没有 `conspiracy_commander_empire`（帝国方指挥官不在白名单里）。这看起来像原生疏漏，写 mod 时别假设两个指挥官待遇一致。
 3. `StorylineQuestHideoutHiddenDuration` 是 **12 小时的 CampaignTime**，改它会影响阴谋任务藏身处地图标记的隐藏时长。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public static class StoryModeData` 声明在 `bannerlord-1.5.3/StoryMode/StoryModeData.cs:9`，全文 265 行。静态类、无实例、无构造函数，**直接用类名访问**。它没有任何注册环节，是全模块最底层的常量与缓存层。
+
+八个王国缓存属性都是同一个模子：先看私有静态字段有没有值，有就直接返回；没有就 `foreach (Kingdom kingdom in Kingdom.All)` 找 `kingdom.StringId` 相等的那一个，缓存起来返回；找不到就 `Debug.FailedAssert(...)` 然后 `return null`。
+
+| 属性 | 找的 `StringId` | 声明行 | 断言行 |
+| --- | --- | --- | --- |
+| `NorthernEmpireKingdom` | `empire` | `:29` | `:45` |
+| `WesternEmpireKingdom` | `empire_w` | `:52` | `:68` |
+| `SouthernEmpireKingdom` | `empire_s` | `:75` | `:91` |
+| `SturgiaKingdom` | `sturgia` | `:98` | `:114` |
+| `AseraiKingdom` | `aserai` | `:121` | `:137` |
+| `VlandiaKingdom` | `vlandia` | `:144` | `:160` |
+| `BattaniaKingdom` | `battania` | `:167` | `:183` |
+| `KhuzaitKingdom` | `khuzait` | `:190` | `:206` |
+
+`IsKingdomImperial(Kingdom kingdomToCheck)`（`:12`）**不缓存**，每次都现算 `kingdomToCheck != null && kingdomToCheck.Culture == ImperialCulture`（`:14`），而 `ImperialCulture`（`:19`）本身又转发 `NorthernEmpireKingdom.Culture`（`:23`）——所以第一次调用会连带触发一次全 `Kingdom.All` 遍历。
+
+唯一的清理钩子是 `public static void OnGameEnd()`（`:218`），把八个缓存字段全部置 null（`:220`–`:227`）。它由 `StoryModeManager.Destroy()`（`StoryModeManager.cs:90`）调用，而 `Destroy` 是 `internal`，触发点是 `StoryModeSubModule.OnGameEnd`（`StoryModeSubModule.cs:40`）。**没有手动清理入口，也不该有。**
+
+### 典型用法
+
+```csharp
+// 判定帝国侧：比的是 Culture，不是 StringId
+if (StoryModeData.IsKingdomImperial(kingdom))
+{
+    Debug.Print("帝国侧，文化=" + kingdom.Culture.StringId);
+}
+
+// 八个王国缓存：第一次访问遍历全部 Kingdom，之后是 O(1)
+Kingdom battania = StoryModeData.BattaniaKingdom;
+Debug.Print("巴旦尼亚君主=" + battania.Leader.Name);
+
+// 阴谋士兵判定：读 CharacterObject.StringId，比对 29 个硬编码字面量
+if (StoryModeData.IsConspiracyTroop(prisoner.Character))
+{
+    Debug.Print("阴谋士兵不能被俘获（StoryModeBattleRewardModel:178 依赖这条）");
+}
+
+// 可写字段：藏身处战败后的冷却时间，mod 可改
+StoryModeData.StorylineQuestHideoutHiddenDuration = CampaignTime.Hours(24f);
+Debug.Print("冷却天数=" + StoryModeData.StorylineQuestHideoutHiddenDuration.ToDays);
+```
+
+### 最容易踩的坑
+
+`IsKingdomImperial` 比的是 **Culture 对象相等**，不是 `StringId`。源码链是 `kingdomToCheck.Culture == ImperialCulture`（`:14`）→ `NorthernEmpireKingdom.Culture`（`:23`）。所以任何一个 mod 只要把某个王国的 `Culture` 换成帝国文化，它就会被判成帝国侧，进而在 `SecondPhase` 的阵营分支、`StoryModeKingdomDecisionPermissionModel` 的宣战判定里走错边——而这些代码读的是同一个 `IsKingdomImperial`。要按 id 判，请直接写 `kingdom.StringId == "empire"`，别复用这个便捷函数。
+
 ## 主要成员
 
 - `static bool IsKingdomImperial(Kingdom kingdomToCheck)`：判帝国侧。内部是 `kingdomToCheck != null && kingdomToCheck.Culture == ImperialCulture`。**注意它比的是 Culture 而不是 StringId**，所以瓦兰迪亚王国的文化若是帝国文化也会算 true。传 null 安全返回 false。

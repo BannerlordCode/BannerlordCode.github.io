@@ -22,6 +22,60 @@ description: "教程潜行任务：夜间与村民对话触发潜入庄园任务
 
 坑：第一，`OnRescueMissionFailed()` 与 `OnHeadmanRescued()` 是 **public 方法，由潜行任务的行为回调调用**（`SneakIntoTheVillaMissionController`），不是事件订阅者。这两个方法必须保持 public 和精确命名，否则潜行关卡结束时的状态同步会断掉。第二，`talk_to_headman_in_villa_on_consequence` 里直接 `Mission.Current.GetMissionBehavior<SneakIntoTheVillaMissionController>().OnAfterTalkingToPrisoner()`——如果潜行关卡没加载就会 NRE。第三，它抢 `IsSettlementBusyEvent` 把村庄优先级拉到 400，其他系统（例如玩家自己的任务）在这个村庄开不了事件。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class VillagersInNeed : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/TutorialPhase/VillagersInNeed.cs:22`，全文 562 行。
+
+构造函数**无参**（约 `:99`），基类 `: base("talk_to_villagers_in_village_quest", null, CampaignTime.Never)`（`:100`）——任务 id 硬编码、`questGiver` 传 `null`、时限 `Never`。存档 id 18（`SaveableStoryModeTypeDefiner.cs:60`，属 `1`–`18` 那段连续号）。
+
+**谁创建它**：[FirstPhaseCampaignBehavior](../FirstPhaseCampaignBehavior) 的 `StartStealthTutorial()`（`:133`）在玩家离开练武场时 `new VillagersInNeed().StartQuest();`（`:135`），紧接着 `StoryModeEvents.Instance.OnStealthTutorialActivated();`（`:136`）。**创建与广播是紧挨着的两句**——任务一出生，潜行教学事件就已经广播出去了。
+
+`RegisterEvents()`（`:122`）挂**五条**：`SettlementEntered`（`:124`）、`GameMenuOpened`（`:125`）、`OnGameLoadFinishedEvent`（`:126`）、`OnMissionEndedEvent`（`:127`）、`IsSettlementBusyEvent`（`:128`，`ReferenceAction<Settlement, object, ref int>` → `IsSettlementBusy`，`:132`）。
+
+`AddGameMenus()`（`:175`）注册村庄菜单选项 `AddGameMenuOption("village", "talk_to_villager", ...)`（`:177`）。
+
+**两条对话流都挂在 `"start"` 且 priority 都是 `1000010`**（`:307`、`:311`），配六个委托：`talk_to_headman_in_villa_on_consequence()`（`:349`）、`talk_to_headman_in_villa_on_condition()`（`:356`）、`talk_to_headman_in_villa_after_talking_on_condition()`（`:367`）、`talk_to_headman_in_villa_skipped_on_condition()`（`:378`）、`talk_to_headman_in_villa_not_skipped_on_condition()`（`:384`）、`talk_to_villagers_not_skipped_on_consequence()`（`:423`）。
+
+**「跳过教学」被编进了条件委托**：`skipped` 版返回 `talk_to_headman_in_villa_on_condition() && TutorialPhase.Instance.IsSkipped`（`:380`），`not_skipped` 版返回同一个条件 `&& !TutorialPhase.Instance.IsSkipped`（`:386`）——**同一个判据的两极**。后果侧同理（`:401`、`:409`、`:465`、`:473` 都读 `IsSkipped`）。
+
+**两个公开方法是它的对外接口**：`OnRescueMissionFailed()`（`:487`）与 `OnHeadmanRescued()`（`:493`）；`TakeRewards()`（`:390`）是 private。场景入口是 `StartVillaMission()`（`:431`）。
+
+四个资源 id 常量：`StealthEquipmentId = "stealth_tutorial_set_player"`（`:529`）、`VillaSceneId = "villa_singular_c"`（`:532`）、`HeadmanId = "tutorial_npc_captive_headman"`（`:535`，public），外加 `private const string VillagerId = "tutorial_npc_questgiver_villager"`（`:538`）。
+
+`OnStartQuest()`（`:115`）按 `TutorialPhase.Instance.IsSkipped` 二选一写开场日志（`:117`）。
+
+存档三个布尔：`_talkedToVillagers`（1，`:541`）、`_failedTheMission`（2，`:545`）、`_firstConversationWithVillagerOpened`（3，`:549`）。另外三个 `_startVillaMission`（`:552`）、`_isHeadmanFollowing`（`:553`）、`_rescuedHeadman`（`:556`）**没有 `[SaveableField]`，不进存档**。
+
+### 典型用法
+
+```csharp
+// 1) 正常由 FirstPhaseCampaignBehavior.StartStealthTutorial 创建
+VillagersInNeed q = new VillagersInNeed();
+q.StartQuest();
+
+// 2) 三个公开资源 id
+Debug.Print("潜行装备=" + VillagersInNeed.StealthEquipmentId);
+Debug.Print("场景=" + VillagersInNeed.VillaSceneId);
+Debug.Print("村长=" + VillagersInNeed.HeadmanId);
+
+// 3) 对外接口：失败与营救
+Debug.Print("IsSkipped=" + StoryModeManager.Current.MainStoryLine.TutorialPhase.IsSkipped);
+Debug.Print("失败上报 OnRescueMissionFailed() / 营救上报 OnHeadmanRescued()");
+
+// 4) 村庄菜单项由它注册
+Debug.Print("菜单项 id=talk_to_villager，挂在 \"village\" 菜单下");
+
+// 5) 读任务
+QuestBase b = Campaign.Current.QuestManager.GetQuest<VillagersInNeed>();
+Debug.Print("id=" + b.QuestId + "，存档 id=18，发布者=" + (b.QuestGiver?.Name.ToString() ?? "null"));
+```
+
+### 最容易踩的坑
+
+`_startVillaMission`（`:552`）、`_isHeadmanFollowing`（`:553`）、`_rescuedHeadman`（`:556`）三个字段**没有 `[SaveableField]` 标注，不进存档**，而存档只留了 `_talkedToVillagers` / `_failedTheMission` / `_firstConversationWithVillagerOpened`（`:541`/`:545`/`:549`）。读档后「是否已救出村长」「村长是否跟随」全部回到 false——于是 `talk_to_headman_in_villa_after_talking_on_condition()`（`:367`）这类条件会重新判定为未完成，**玩家可以在读档后再触发一次村庄场景任务**。「对话发生过」存档了、「营救发生过」没存，这个不对称就是坑的根源。
+
 ## 主要成员
 
 - `VillagersInNeed()`：无参构造。`AddTrackedObject(_village)`、`SetDialogs()`、`AddGameMenus()`、`InitializeQuestOnCreation()`。

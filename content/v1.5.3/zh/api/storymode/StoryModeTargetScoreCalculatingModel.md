@@ -43,6 +43,48 @@ missionType == Army.ArmyTypes.Raider            // 只针对劫掠型军队
 - **透传属性是全局 AI 平衡旋钮**。别为了「让 AI 更聪明」随手调 `RaidingFactor`，那会同时影响主线后期和所有 mod 的 AI。
 - **`CurrentObjectiveValue(MobileParty)` 透传**：它返回一支队伍「当前正在做的事」的价值，AI 用它做切换惩罚。你若在别处强制改队伍目标，这里不会同步。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeTargetScoreCalculatingModel : TargetScoreCalculatingModel` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/StoryModeTargetScoreCalculatingModel.cs:11`，全文 103 行，十一个 override，**十个是纯透传**。
+
+注册点：`campaignGameStarter.AddModel<TargetScoreCalculatingModel>(new StoryModeTargetScoreCalculatingModel())`（`StoryModeSubModule.cs:94`），只在主线战役生效（`StoryModeSubModule.cs:23`→`:24`）。读用 `Campaign.Current.Models.TargetScoreCalculatingModel`。
+
+透传清单：`TravelingToAssignmentFactor`（`:15`→`:19`）、`BesiegingFactor`（`:25`→`:29`）、`AssaultingTownFactor`（`:35`→`:39`）、`RaidingFactor`（`:45`→`:49`）、`DefendingFactor`（`:55`→`:59`）、`GetDefensivePatrollingFactor(bool isNavalPatrolling)`（`:64`）、`GetOffensivePatrollingFactor(bool)`（`:70`）、`CalculateDefensivePatrollingScoreForSettlement(Settlement, bool, MobileParty)`（`:76`）、`CalculateOffensivePatrollingScoreForSettlement(Settlement, bool, MobileParty)`（`:82`）、`CurrentObjectiveValue(MobileParty)`（`:88`）。
+
+唯一带判断的是 `GetTargetScoreForFaction(Settlement targetSettlement, Army.ArmyTypes missionType, MobileParty mobileParty, float ourStrength)`（`:94`），条件是**四个都要成立**（`:96`）：`missionType == Army.ArmyTypes.Raider`、且 `targetSettlement != null`、且 `targetSettlement.StringId == "village_ES3_2"`、且 `TutorialPhase.Instance != null`、且 `!TutorialPhase.Instance.IsCompleted`。成立 `return 0f`（`:98`）。
+
+注意这一条比其它模型多写了 `TutorialPhase.Instance != null`（`:96`）——**它是全模块少数几个显式判了转发属性为 null 的地方**。
+
+### 典型用法
+
+```csharp
+// 运行期读
+TargetScoreCalculatingModel score = Campaign.Current.Models.TargetScoreCalculatingModel;
+
+// 复现原生判断：教学期不把掠夺目标指向教学村庄
+Settlement village = Settlement.Find("village_ES3_2");
+MobileParty raiders = Hero.MainHero.Party.Party;
+bool tutorialDone = StoryModeManager.Current.MainStoryLine.TutorialPhase.IsCompleted;
+float raiderScore = (!tutorialDone && village != null)
+    ? 0f
+    : score.GetTargetScoreForFaction(village, Army.ArmyTypes.Raider, raiders, 100f);
+Debug.Print("教学村庄掠夺评分=" + raiderScore);
+
+// 其它军队类型完全透传
+Debug.Print("攻城评分=" + score.GetTargetScoreForFaction(village, Army.ArmyTypes.Siege, raiders, 100f));
+
+// 各类系数原样透传
+Debug.Print("行军系数=" + score.TravelingToAssignmentFactor
+          + " 攻城=" + score.AssaultingTownFactor
+          + " 掠夺=" + score.RaidingFactor);
+```
+
+### 最容易踩的坑
+
+它把 `missionType == Army.ArmyTypes.Raider` 也写进了条件，所以教学村庄在**其它军队类型下分数照常**——`Besieging` 的 `Army` 打过来仍会把它当目标，只有 `Raider` 类型被屏蔽。反过来，你新建一支自定义军队类型（派生 `ArmyTypes`）去攻击教学村庄，这个模型同样不拦。屏蔽逻辑是按枚举值精确匹配的，不是「排除教学村庄」的通用规则。
+
 ## 主要成员
 
 - `GetTargetScoreForFaction(Settlement targetSettlement, Army.ArmyTypes missionType, MobileParty mobileParty, float ourStrength)`

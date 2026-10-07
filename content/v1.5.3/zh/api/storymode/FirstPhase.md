@@ -37,6 +37,59 @@ description: "收集三块龙旗碎片的第一阶段：计数、发放旗子部
 4. **`ItemRoster.AddToCounts` 直接打在 `MobileParty.MainParty`**。队伍为 null（理论上不该发生）会 NRE。
 5. **`AllPiecesCollected` 用 `==` 不用 `>=`**：见第 1 点。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class FirstPhase` 声明在 `bannerlord-1.5.3/StoryMode/StoryModePhases/FirstPhase.cs:12`，全文 129 行。**不给你 new——构造函数是 `public FirstPhase()`（`:81`），但唯一的调用者是 `MainStoryLine.CompleteTutorialPhase(bool isSkipped)` 里的 `this.FirstPhase = new FirstPhase();`（`MainStoryLine.cs:160`）。**
+
+读取走静态属性 `Instance`（`:40`），函数体只有一行 `StoryModeManager.Current.MainStoryLine.FirstPhase`（`:44`）。**教学未完成时它是 null**（`FirstPhase` 靠 `[SaveableProperty(3)]` 存在，`MainStoryLine.cs:56`），且 `Instance` 的转发链上没有任何判空。
+
+存档两项：`[SaveableProperty(1)] CollectedBannerPieceCount`（`:51`）、`[SaveableProperty(2)] FirstPhaseStartTime`（`:57`），两者都是 `private set`。
+
+三个派生成员里有一个是常量算式：`FirstPhaseEndTime`（`:62`）返回 `CampaignTime.Years(20f) + this.FirstPhaseStartTime`（`:66`），对应的常量是 `FirstPhaseDurationAsYears = 20`（`:127`）——**注意常量与算式里的 `20f` 是两份数字**，改一处不会同步。`AllPiecesCollected`（`:72`）用 `== 3` 严格相等（`:76`），对应的常量是 `NeededBannerPieceCount = 3`（`:124`）。
+
+`CollectBannerPiece()`（`:88`）的形状是「先自增，再按新值分派」：
+
+| 自增后 | 取的物品 | 附带场景通知 | 行 |
+| --- | --- | --- | --- |
+| 1 | `dragon_banner_center` | 无 | `:93`→`:95` |
+| 2 | `dragon_banner_dragonhead` | `FindingSecondBannerPieceSceneNotificationItem(Hero.MainHero)` | `:97`→`:100` |
+| 3 | `dragon_banner_handle` | `FindingThirdBannerPieceSceneNotificationItem()` | `:102`→`:105` |
+
+取到物品才 `MobileParty.MainParty.ItemRoster.AddToCounts(...)`（`:107`→`:109`），然后**无论物品是否为 null 都会** `StoryModeEvents.Instance.OnBannerPieceCollected()`（`:111`）。
+
+`MergeDragonBanner()`（`:115`）无条件从主队物品栏减三件、加一件完整的 `dragon_banner`（`:117`→`:120`）。
+
+### 典型用法
+
+```csharp
+// 标准读法：先判 null，第一阶段未推进就是 null
+FirstPhase first = StoryModeManager.Current.MainStoryLine.FirstPhase;
+if (first == null)
+{
+    Debug.Print("还在教学阶段，第一阶段尚未开始");
+    return;
+}
+
+Debug.Print("已收集=" + first.CollectedBannerPieceCount + "/" + FirstPhase.NeededBannerPieceCount);
+Debug.Print("阶段截止=" + first.FirstPhaseEndTime.ToYears + " 年（起点 " + first.FirstPhaseStartTime.ToYears + "）");
+
+// 收集一块旗片（会加物品 + 广播事件 + 可能弹场景通知）
+first.CollectBannerPiece();
+
+// 合并：调用方必须自己保证主队持有那三件，否则会减成负数
+if (first.AllPiecesCollected && first.CollectedBannerPieceCount == FirstPhase.NeededBannerPieceCount)
+{
+    first.MergeDragonBanner();
+    Debug.Print("龙旗已合成为：" + StoryModeManager.Current.MainStoryLine.DragonBanner.Name);
+}
+```
+
+### 最容易踩的坑
+
+`CollectBannerPiece()` 没有上限检查，而且它先自增再分派（`:90`→`:91`）。第四次调用时 `CollectedBannerPieceCount` 变成 4，三个 `if` 全部落空（`:93`/`:97`/`:102` 都不匹配），`itemObject` 保持 null、不加物品，**但 `:111` 的 `OnBannerPieceCollected()` 照样广播**。同时 `AllPiecesCollected` 是 `== 3` 严格相等（`:76`），所以**第四块之后它变回 false**——已经解锁的龙旗 UI 提示会被悄悄关掉。你在 mod 里加第四个旗片来源时，一定要先自己判 `CollectedBannerPieceCount < FirstPhase.NeededBannerPieceCount`。
+
 ## 主要成员
 
 - `static FirstPhase Instance { get; }`：转发 `StoryModeManager.Current.MainStoryLine.FirstPhase`。**未解锁第一阶段时为 null**，没有判空。

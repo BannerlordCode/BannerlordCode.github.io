@@ -36,6 +36,45 @@ description: "对话标签：把帝国导师 Istiana 单独认出来，让主线
 3. **`IsApplicableTo` 没有 null 检查**：`character` 为 null 时会先解引用 `ImperialMentor`（正常），再与 null 比较返回 false，不崩。但若 `ImperialMentor` 本身为 null（mod 删掉了对应 `CharacterObject`），`.CharacterObject` 就是 NRE。
 4. **无法被覆盖**：判定逻辑写死在类里。想改「谁算 Istiana」只能改源码或整个替换掉标签注册。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class IsIstianaTag : ConversationTag` 声明在 `bannerlord-1.5.3/StoryMode/IsIstianaTag.cs:9`，全文 31 行，同样没有构造函数或静态属性。代码里判定就 `new IsIstianaTag()`；运行时引擎持有的那一份由 `ConversationManager.InitializeTags()`（`TaleWorlds.CampaignSystem/Conversation/ConversationManager.cs:1139`）在遍历活动程序集时 `Activator.CreateInstance`（`:1168`）造出，再以 `StringId`（`IsIstianaTag.cs:13`，恒为 `"IsIstianaTag"`）为键 `Add` 进 `_tags`（`:1169`）。**你自己的 new 出来的实例和引擎表里那一份不是同一个对象**，只能用来做纯判定，不能拿去和引擎对象比引用。
+
+判定链只有一跳：`IsApplicableTo(CharacterObject character)`（`IsIstianaTag.cs:22`）返回 `StoryModeHeroes.ImperialMentor.CharacterObject == character`。`ImperialMentor` 在 `StoryModeObjects/StoryModeHeroes.cs:65`，函数体只有一行 `StoryModeManager.Current.StoryModeHeroes._imperialMentor`（`:69`）；而 `_imperialMentor` 是 `StoryModeHeroes` 的 `internal` 构造函数（`:114`）调 `RegisterAll()` 时用 `HeroCreator.CreateBasicHero("storymode_imperial_mentor_istiana", ...)` 建的（`:168`）。整条链的起点是 `CampaignStoryMode.DoLoadingForGameType` 在 `GameTypeLoadingStates.InitializeFirstStep` 上调用的 `StoryMode.InitializeStoryModeObjects()`（`CampaignStoryMode.cs:42`）。
+
+`StoryModeManager.Current` 本身是纯转发：`Game.Current.GameType as CampaignStoryMode` 再取 `.StoryMode`（`StoryModeManager.cs:32`→`:39`→`:42`），不是主线就返回 null。
+
+### 典型用法
+
+```csharp
+// 纯判定，不需要任何前置注册
+IsIstianaTag tag = new IsIstianaTag();
+CharacterObject speaker = CharacterObject.OneToOneConversationCharacter;
+
+// 主线之外 StoryModeManager.Current 为 null，下面这行会直接 NRE
+if (StoryModeManager.Current != null)
+{
+    Hero istiana = StoryModeHeroes.ImperialMentor;
+    Debug.Print("Istiana = " + istiana.Name + ", 标签命中：" + tag.IsApplicableTo(speaker));
+}
+
+// 引擎侧：GetApplicableTagNames 遍历的就是 InitializeTags 建的那张表
+ConversationManager cm = Campaign.Current.ConversationManager;
+foreach (string tagName in cm.GetApplicableTagNames(speaker))
+{
+    Debug.Print("当前角色命中的标签：" + tagName);   // 面对 Istiana 时含 IsIstianaTag
+}
+
+// 名字写错的后果：IsTagApplicable 会先 FailedAssert 再返回 false
+Debug.Print(cm.IsTagApplicable(IsIstianaTag.Id, speaker).ToString());
+```
+
+### 最容易踩的坑
+
+把 `IsIstianaTag` 当成「玩家是否已效忠帝国」来用。它判的只有一件事：`character` 的引用是否**恰好等于** `StoryModeHeroes.ImperialMentor.CharacterObject`（`IsIstianaTag.cs:22`）。你把标签写在普通市民 NPC 的对话变体上，它永远不成立；反过来在不该出现的对话里挂上，权重会静默加进 `FindMatchingScore` 的累加（`ConversationManager.cs:1129`），改变台词选择结果但不报错。要表达「帝国侧」语义，用 `MainStoryLineSide.IsOnImperialQuestLine`，别借用对话标签。
+
 ## 主要成员
 
 - `public override string StringId { get; }`：恒为 `"IsIstianaTag"`。**反射注册用的就是这个值**，也是对话 XML 里 `<ChoiceTag TagName="IsIstianaTag">` 要写的名字。

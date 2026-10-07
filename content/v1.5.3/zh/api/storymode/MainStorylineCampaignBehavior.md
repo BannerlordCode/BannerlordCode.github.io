@@ -54,6 +54,57 @@ typeof(AgingCampaignBehavior).GetField("_heroesYoungerThanHeroComesOfAge", Bindi
 - **`Sibling` 的 Naval 依赖**：`hero == StoryModeHeroes.LittleSister && !ModuleHelper.IsModuleActive("NavalDLC")`——只有没装海军 DLC 时妹妹才参与这套状态处理。
 - **迁移只在 `IsUpdatingGameVersion` 为真时跑**。已经是当前版本的存档跳过全部逻辑。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class MainStorylineCampaignBehavior : CampaignBehaviorBase` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/CampaignBehaviors/MainStorylineCampaignBehavior.cs:21`，全文 274 行。
+
+注册点：`campaignGameStarter.AddBehavior(new MainStorylineCampaignBehavior())`（`StoryModeSubModule.cs:59`），**无条件**（在阶段条件 `:60` 之外，且是第二条）。拿实例用 `Campaign.Current.GetCampaignBehavior<MainStorylineCampaignBehavior>()`。
+
+`RegisterEvents()`（`:24`）只挂四个，`SyncData`（`:33`）是空实现：
+
+| 事件 | 处理器 | 行 |
+| --- | --- | --- |
+| `CampaignEvents.CanHeroDieEvent` | `CanHeroDie(Hero, KillCharacterActionDetail, ref bool)` | `:26`→`:47` |
+| `CampaignEvents.OnClanChangedKingdomEvent` | `OnClanChangedKingdom(...)` | `:27`→`:38` |
+| `CampaignEvents.OnGameLoadFinishedEvent` | `OnGameLoadFinished()` | `:28`→`:70` |
+| `CampaignEvents.HeroComesOfAgeEvent` | `OnHeroComesOfAge(Hero)` | `:29`→`:61` |
+
+**`CanHeroDie` 是唯一直接改 `ref bool` 的**（`:47`），它有两个出口：拉达戈斯可以被处决（`:49`→`:52`，条件：`TutorialPhase.IsCompleted` **且** 没有在跑 `RescueFamilyQuest` **且** 没有在跑 `RebuildPlayerClanQuest` **且** `causeOfDeath == Executed`）；其它 `hero.IsSpecial` 角色（**除 `RadagosHenchman`**，`:54`）在主线未完成时 `result = false`（`:56`）。
+
+`OnGameLoadFinished`（`:70`）是**版本迁移钩子**：外层 `if (MBSaveLoad.IsUpdatingGameVersion)`（`:72`）里三段按 `MBSaveLoad.LastLoadedGameVersion` 分别与 `v1.3.13.105456`（`:74`）、`v1.2.0`（`:89`）、`v1.2.9.35367`（`:114`）比较。它对 `AgingCampaignBehavior._heroesYoungerThanHeroComesOfAge`（`:144`）和 `EducationCampaignBehavior._previousEducations` / `OnHeroComesOfAge`（`:194`、`:196`）做了**反射访问**——这三个私有成员一旦在引擎更新里改名，这里会静默失效或抛异常。
+
+`OnHeroComesOfAge`（`:61`）里有个 DLC 判断：`hero == LittleBrother || (hero == LittleSister && !ModuleHelper.IsModuleActive("NavalDLC"))`（`:63`）——装了 NavalDLC 时小妹妹不被处理。
+
+### 典型用法
+
+```csharp
+// 运行期读
+MainStorylineCampaignBehavior story =
+    Campaign.Current.GetCampaignBehavior<MainStorylineCampaignBehavior>();
+
+// CanHeroDie 的实际语义：谁不能死
+Hero elder = StoryModeHeroes.ElderBrother;
+bool canDie = elder.IsSpecial && elder != StoryModeHeroes.RadagosHenchman
+              && !StoryModeManager.Current.MainStoryLine.IsCompleted;
+Debug.Print("主线未完成时兄长理论不可死（引擎会改 ref）：" + canDie);
+
+// 拉达戈斯的例外：任务链不在跑 + 处决，才可以被处决
+QuestManager qm = Campaign.Current.QuestManager;
+bool executable = StoryModeManager.Current.MainStoryLine.TutorialPhase.IsCompleted
+    && !qm.IsThereActiveQuestWithType(typeof(StoryMode.Quests.PlayerClanQuests.RescueFamilyQuestBehavior.RescueFamilyQuest))
+    && !qm.IsThereActiveQuestWithType(typeof(StoryMode.Quests.PlayerClanQuests.RebuildPlayerClanQuest));
+Debug.Print("拉达戈斯可处决=" + executable);
+
+// 兄弟成年时调技能分配
+StoryModeHelpers.SetPlayerSiblingsSkillsIfNeeded(StoryModeHeroes.LittleBrother);
+```
+
+### 最容易踩的坑
+
+`OnGameLoadFinished` 里的三段版本迁移**都靠反射读引擎其它行为的私有字段**（`:144` 读 `AgingCampaignBehavior._heroesYoungerThanHeroComesOfAge`，`:194` 读 `EducationCampaignBehavior._previousEducations`，`:196` 调私有方法 `OnHeroComesOfAge`）。这些字段名不属于任何公开契约，引擎一次内部重构就能让旧存档迁移路径崩在 `field.GetValue(...)`。而 `MBSaveLoad.IsUpdatingGameVersion` 只在真正的版本升级读档时为真，所以**这个问题只在玩家从旧版升级时暴露，日常新档完全正常**——你在本地新开档测不出来。
+
 ## 主要成员
 
 - `public override void RegisterEvents()`

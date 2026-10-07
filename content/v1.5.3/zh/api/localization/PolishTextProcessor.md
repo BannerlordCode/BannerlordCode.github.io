@@ -49,6 +49,35 @@ description: "波兰语的性/数/格变格处理器：在俄语同款词组机�
 6. **`IsWordGroup` 里 `wordGroupIndex` 初值 -1 且用 `num > 0` 判成功**，当最短登记词长度为 0 的边界情况下会返回 false。这只在 `WordGroupsNoTags` 里有空串时才可能发生。
 7. **五张不规则词表按 `char.ToUpperInvariant(text[0])` 分桶**。首字母大小写或变音符号不同的词会走规则化兜底。
 
+## 怎么用
+
+### 怎么拿到它
+
+引擎只在切语言时造：`MBTextManager.ChangeLanguage("Polish")`（`MBTextManager.cs:37`）→ `LocalizedTextManager.CreateTextProcessorForLanguage` 用 `Type.GetType` 反射构造（`LocalizedTextManager.cs:61`、`:67`），类型名来自 `LanguageData` 配置，解析不到退回 `DefaultTextProcessor`（`:64-65`）。确认语言包挂对了没有，就调工厂打印 `GetType().Name`。
+
+手工用就 `new PolishTextProcessor()` 加基类 `Process(text)`（`LanguageSpecificTextProcessor.cs:41`）。`CultureInfoForLanguage`（`PolishTextProcessor.cs:15-21`）返回 `private static readonly CultureInfo = new CultureInfo("pl-PL")`（`:1835`）。`ClearTemporaryData`（`:24-30`）复位五份状态。
+
+三份集合状态不是字段而是**懒加载属性**：`_wordGroups`（`:1844`）、`_linkList`（`:1852`）、`_wordGroupsNoTags`（`:1848`）都没有初始化器，一律通过 `WordGroups`（`:86-97`）、`LinkList`（`:101-111`）、`WordGroupsNoTags`（`:115-125`）访问，getter 里先判 `== null` 再新建。`_curGender` 是唯一一个带初始化器的（`= WordGenderEnum.NoDeclination`，`:1839`）。
+
+### 典型用法
+
+```csharp
+// 1) 确认语言包挂载成功
+Debug.Print(LocalizedTextManager.CreateTextProcessorForLanguage("Polish").GetType().Name);
+
+// 2) 手工渲染：波兰语靠性别 token 切换词形
+var pl = new PolishTextProcessor();
+Debug.Print(pl.Process("{.m}Nasz {.f}Nasza"));
+
+// 3) 真正的通路
+MBTextManager.ChangeLanguage("Polish");
+Debug.Print(new TextObject("{=some_pl_id}").ToString());
+```
+
+### 最容易踩的坑
+
+假设「每个线程首次访问这些状态时拿到的是一个空集合」。波兰语的三份集合是懒加载属性，读一次才会 new 出来；任何绕过属性直接取字段的代码（反射、或者你自己照着字段名写的东西）在第一次访问时拿到的是 **`null`** 而不是空集合。后果是 `.Add()` / `.Clear()` 直接 NRE，而堆栈指向你的代码、不指向波兰语处理器的属性 getter，排查成本很高。外部本来也拿不到这些 `private static` 字段，唯一安全的结论是：**不要试图复用或读取它的内部状态**，要什么就自己 `new` 一个实例调 `Process`。
+
 ## 主要成员
 
 **覆写的抽象成员**

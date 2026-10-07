@@ -35,6 +35,60 @@ description: "玩家在主线中最终站到哪一边的五态枚举，是整个
 2. **没有反向值**。枚举里没有 `AntiImperialKingdom` 这种对称命名——是 `Create` / `Support` 前缀 + `Imperial` / `AntiImperial`。拼错字符串在 C# 里会编译报错，但写代码生成器或数据驱动时要小心。
 3. **`[SaveableProperty]` 与枚举 id 双重依赖**。字段用的是 `[SaveableField(1)]`（字段版），枚举用的是 `AddEnumDefinition(..., 2001, ...)`。改枚举成员顺序不会影响存档（按值存），但删掉某个值会让老存档里对应的 int 无法映射。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public enum MainStoryLineSide` 声明在 `bannerlord-1.5.3/StoryMode/MainStoryLineSide.cs:6`，全文 19 行，**只有五个值**：
+
+| 值 | 声明行 | 语义 |
+| --- | --- | --- |
+| `None` | `:9` | 尚未做出选择。由 `MainStoryLine` 构造函数写入（`MainStoryLine.cs:115`） |
+| `CreateImperialKingdom` | `:11` | 玩家成为帝国君主 |
+| `CreateAntiImperialKingdom` | `:13` | 玩家建立反帝国王国 |
+| `SupportImperialKingdom` | `:15` | 玩家效忠帝国 |
+| `SupportAntiImperialKingdom` | `:17` | 玩家效忠反帝国王国 |
+
+注意命名规律是 **`Create` / `Support` 前缀 + `Imperial` / `AntiImperial`**——没有对称的 `AntiImperialKingdom` 之类的裸命名。**默认值是 0**，即 `None`（枚举第一项）。
+
+**唯一的写入点是 `MainStoryLine.SetStoryLineSide(MainStoryLineSide side)`（`MainStoryLine.cs:140`）**，它是 `public`。写入时连带做三件事：设 `PlayerSupportedKingdom = Clan.PlayerClan.Kingdom`（`:143`）、广播 `StoryModeEvents.Instance.OnMainStoryLineSideChosen(side)`（`:144`）、对两位导师 `DisableHeroAction.Apply`（`:145`→`:146`）。存储字段是 `[SaveableField(1)] public MainStoryLineSide MainStoryLineSide;`（`MainStoryLine.cs:291`→`:292`），**字段不是属性，是 public 字段，可以直接赋值绕过所有副作用**。
+
+枚举存档 id 是 `2001`：`base.AddEnumDefinition(typeof(MainStoryLineSide), 2001, null)`（`SaveableStoryModeTypeDefiner.cs:71`）。
+
+**不要用枚举值本身判阵营，用 `MainStoryLine` 的派生属性**：`IsOnImperialQuestLine`（`MainStoryLine.cs:29`）与 `IsOnAntiImperialQuestLine`（`:39`）已经把同侧两个值合并了。
+
+### 典型用法
+
+```csharp
+// 读：走派生属性，不要自己 or 两个值
+MainStoryLine line = StoryModeManager.Current.MainStoryLine;
+if (line.IsOnAntiImperialQuestLine)      // Create + Support 都算
+{
+    Hero mentor = StoryModeHeroes.AntiImperialMentor;
+    Debug.Print("反帝国线导师=" + mentor.Name);
+}
+else if (line.IsOnImperialQuestLine)
+{
+    Debug.Print("帝国线导师=" + StoryModeHeroes.ImperialMentor.Name);
+}
+else
+{
+    Debug.Print("尚未选边，MainStoryLineSide=" + line.MainStoryLineSide);   // None
+}
+
+// 写：必须走公开方法，否则丢掉副作用
+line.SetStoryLineSide(MainStoryLineSide.CreateAntiImperialKingdom);
+// 等价于下面这句但会跳过 PlayerSupportedKingdom / 事件广播 / 禁用导师：
+// line.MainStoryLineSide = MainStoryLineSide.CreateAntiImperialKingdom;
+
+// 存档定义：id 2001
+Debug.Print(typeof(MainStoryLineSide).Name + " 的存档枚举 id = 2001");
+```
+
+### 最容易踩的坑
+
+`MainStoryLineSide` 是 **public 字段**（`MainStoryLine.cs:292`），不是属性。任何代码都能写 `line.MainStoryLineSide = MainStoryLineSide.SupportAntiImperialKingdom;` 而**完全跳过 `SetStoryLineSide`（`:140`）里的三个副作用**：`PlayerSupportedKingdom` 不会更新（于是 [StoryModeCutsceneSelectionModel](../StoryModeCutsceneSelectionModel) 判不出「玩家支持的王国」）、`OnMainStoryLineSideChosenEvent` 不广播（于是所有挂在这个事件上的行为——`AssembleEmpireQuestBehavior`、`WeakenEmpireQuestBehavior`——永远不会出任务）、两位导师也不会被禁用。**永远走 `SetStoryLineSide`。**
+
 ## 主要成员
 
 - `None`：默认初始值，由 `MainStoryLine` 构造函数写入。语义是「尚未做出选择」。

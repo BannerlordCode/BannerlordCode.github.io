@@ -39,6 +39,51 @@ PlayerEncounter.LocationEncounter.CreateAndOpenMissionController(
 4. **构造函数的 `settlement` 参数只交给基类**：基类把它存成 `Settlement { get; }`。本类自己不缓存任何状态。
 5. **`IMission` 返回类型**：方法签名返回 `IMission`，而 `OpenTrainingFieldMission` 返回 `Mission`（实现 `IMission`）。调用方若想拿到具体 `Mission` 需要转型。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class TrainingFieldEncounter : LocationEncounter` 声明在 `bannerlord-1.5.3/StoryMode/TrainingFieldEncounter.cs:13`，全文 44 行。构造函数 `TrainingFieldEncounter(Settlement settlement) : base(settlement)`（`:27`→`:28`）是唯一的创建口，函数体为空——`settlement` 只是转给基类存成 `Settlement { get; }`，本类不缓存任何东西。
+
+**它也是对象系统造的**：走 `LocationEncounter` 的 XML 注册通道，由聚落地点数据反序列化出来。你在代码里拿到的路径是 `PlayerEncounter.LocationEncounter`，而不是自己 new。
+
+真正干活的是唯一的方法 `CreateAndOpenMissionController(Location nextLocation, Location previousLocation = null, CharacterObject talkToChar = null, string playerSpecialSpawnTag = null)`（`:33`）。它先 `IMission mission = null;`（`:35`），只有 `nextLocation.StringId == "training_field"` 时才填（`:36`）：
+
+1. 场景名：`Settlement.CurrentSettlement.IsTown ? Settlement.CurrentSettlement.Town.GetWallLevel() : 1`（`:38`）——注意**墙等级被当成场景编号**直接喂给 `GetSceneName(int)`。
+2. 场景名转 Location 场景：`nextLocation.GetSceneName(num)`（`:39`）。
+3. 开场景：`StoryModeMissions.OpenTrainingFieldMission(sceneName, nextLocation, null, null)`（`:39`），返回类型 `IMission`。
+4. `return mission;`（`:41`）。**不是 `base.CreateAndOpenMissionController(...)`。**
+
+触发方是 [TrainingFieldCampaignBehavior](../TrainingFieldCampaignBehavior) 的 `OnCharacterCreationIsOver(int index)`，在 `index == 1` 且 `SkipTutorialMission == false` 时：`PlayerEncounter.LocationEncounter.CreateAndOpenMissionController(LocationComplex.Current.GetLocationWithId("training_field"), null, null, null)`（`TrainingFieldCampaignBehavior.cs:46`）。菜单选项那边在 `OnSessionLaunched` 注册的 `training_field_enter`（`TrainingFieldCampaignBehavior.cs:56`），离开类型是 `GameMenuOption.LeaveType.Mission`。
+
+### 典型用法
+
+```csharp
+// 玩家实际路径：菜单选项 -> CreateAndOpenMissionController
+// 等价于 TrainingFieldCampaignBehavior.cs:46 那一行
+Location trainingLocation = LocationComplex.Current.GetLocationWithId("training_field");
+IMission mission = PlayerEncounter.LocationEncounter.CreateAndOpenMissionController(
+    trainingLocation, null, null, null);
+if (mission != null)
+{
+    Debug.Print("训练场场景：" + trainingLocation.GetSceneName(1));
+}
+
+// 拿到具体 Mission（返回类型是 IMission，要转型才能用 Mission 的成员）
+if (mission is Mission trainingMission)
+{
+    trainingMission.EndMission();     // 原生跳过教学时走的就是 Mission.Current.EndMission()
+}
+
+// 聚落侧：Settlement 由基类 LocationEncounter 持有
+Settlement host = (PlayerEncounter.LocationEncounter as TrainingFieldEncounter)?.Settlement;
+Debug.Print("遭遇所属聚落=" + (host != null ? host.StringId : "null"));
+```
+
+### 最容易踩的坑
+
+`nextLocation.StringId != "training_field"` 时它**返回 null，而不是调用基类**（`:35`→`:41`）。所以只要 `Location` id 不是这唯一硬编码的字符串，练武场遭遇类就是个黑洞——不报错、不开场景、什么都不发生。原生代码能跑对，仅仅因为它自己传进去的就是 `LocationComplex.Current.GetLocationWithId("training_field")`（`TrainingFieldCampaignBehavior.cs:46`）。你从别处调这个方法时如果传了别的 `Location`，得到的 `IMission` 是 null，**必须判空再 `EndMission()`**，否则空引用。
+
 ## 主要成员
 
 - `public TrainingFieldEncounter(Settlement settlement)`：**唯一构造函数**，内容是 `: base(settlement)`。本类无自有字段。

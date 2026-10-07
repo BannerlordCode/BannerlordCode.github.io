@@ -42,6 +42,60 @@ PopScreen    → HandlePause() → OnPause() → HandleDeactivate() → OnDeacti
 4. **`OnIdleTick` 不是每帧**。它是引擎空闲时的补偿 tick，频率不保证。
 5. **图层顺序**：`AddLayer` 的插入顺序 + 图层自身的 localOrder 共同决定渲染与命中优先级。别指望「后加的一定在上面」——全局 order 由 `RefreshGlobalOrder` 统一计算。
 
+## 怎么用
+
+### 怎么拿到它
+
+你 `new` 它，然后交给 `ScreenManager`（`ScreenManager.cs:610`）。整个生命周期由四个 `internal` 句柄驱动，外部只能通过公开的 `Activate`/`Deactivate`（`ScreenBase.cs:232`/`:242`）间接触发：
+
+- `HandleInitialize`（`:62`）：只在 `!IsInitialized` 时置位并调 `OnInitialize`（`:67-68`）——重复调用是 no-op。
+- `HandleActivate`（`:98`）：置 `IsActive`、把 `_onReadyPending = true`（`:104`）、反向遍历 layer 激活、调 `OnActivate`（`:113`）。
+- `HandleDeactivate`（`:118`）/ `HandlePause`（`:156`）/ `HandleResume`（`:137`）。
+- `HandleFinalize`（`:74`）：`OnFinalize` 之后把每个 layer 也 `HandleFinalize`（`:86-89`），然后**把 `OnAddLayer` 和 `OnRemoveLayer` 两个事件置 null**（`:92-93`），并置 `IsFinalized = true`（`:94`）。
+
+`PushScreen` 的调用顺序是 `HandleInitialize` → `HandleActivate` → `HandleResume`（`ScreenManager.cs:626-628`），所以你在 `OnInitialize` 里可以安全拿到已经 `AddLayer` 进来的 layer（构造期加，或 `OnInitialize` 里加）。
+
+构造函数先把 `IsPaused = true`、`IsActive = false`（`:497-498`），layer 容器是 `MBList<ScreenLayer>`，每次 `AddLayer` 后会 `Sort()`（`:357`）。
+
+### 典型用法
+
+```csharp
+public class MySupplyScreen : ScreenBase
+{
+    private readonly SupplyLayer _layer;
+
+    public MySupplyScreen()
+    {
+        _layer = new SupplyLayer();          // 构造期加：此时 IsActive 还是 false，不会被激活
+        AddLayer(_layer);
+    }
+
+    protected override void OnInitialize()
+    {
+        base.OnInitialize();
+        FindLayer<SupplyLayer>().Refresh(Campaign.Current.MainParty.Settlement);
+    }
+
+    protected override void OnActivate()
+    {
+        base.OnActivate();
+        // 这里只做「准备」，不要假设控件已经有最终尺寸——布局还没跑
+        _layer.RebuildRows();
+    }
+
+    protected override void OnFrameTick(float dt) { }
+    protected override void OnFinalize() { _layer.OnScreenGone(); }
+}
+
+// 打开 / 关闭
+ScreenManager.PushScreen(new MySupplyScreen());
+ScreenManager.PopScreen();
+```
+
+### 最容易踩的坑
+
+在 `OnActivate` 里假定控件已经就绪。`HandleActivate` 只做了 `_onReadyPending = true`（`ScreenBase.cs:104`），真正的 `OnReady` 要等**下一帧** `FrameTick` 命中 `_onReadyPending` 才被调（`:179-183`）——而 `PushScreen` 在同一帧就把 `HandleActivate/HandleResume` 走完了（`ScreenManager.cs:626-628`）。后果是：在 `OnActivate` 里读控件的测量结果、写依赖最终布局的缓存，或者去拿「上一帧才填好」的数据，拿到的都是空的或过期的，而且它不报错，只表现为界面第一帧空白、第二帧才正常。要「一切就绪后」再做事，就重写 `OnReady` 而不是 `OnActivate`。
+
 ## 成员与调用时机
 
 **生命周期钩子（全部 `protected virtual`，子类覆盖）**

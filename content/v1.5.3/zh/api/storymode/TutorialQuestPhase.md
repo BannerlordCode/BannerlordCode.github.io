@@ -32,6 +32,47 @@ description: "教学阶段内部的小步进游标：从「前往村庄」到「
 2. **名字是 Started 不是 Done**。看到 `TravelToVillageStarted` 不要以为那是完成态。
 3. **`Finalized` 之后还能再设值**：`SetTutorialQuestPhase` 不做任何守卫，回退到中间态会让 `IsCompleted` 变 false，等于把「教学已完成」这个全局前提抽掉。教学期的限制逻辑（`MainStoryLine.IsPlayerInteractionRestricted`）会跟着重新生效。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class TutorialQuestPhase` 声明在 `bannerlord-1.5.3/StoryMode/StoryModePhases/TutorialQuestPhase.cs:6`，全文 23 行，**是一个纯枚举**，没有方法、没有字段。
+
+它怎么进存档的：作为 `TutorialPhase` 的一个 `[SaveableField(1)]`（`StoryModePhases/TutorialPhase.cs:287`）按值存储，同时通过 `SaveableStoryModeTypeDefiner.DefineEnumTypes()` 的 `base.AddEnumDefinition(typeof(TutorialQuestPhase), 2002, null)`（`SaveableStoryModeTypeDefiner.cs:72`）登记枚举定义 id。两处必须一致。
+
+注意 `AddEnumDefinition` 一共登记了**五个**枚举：同文件 `:71` 的 `MainStoryLineSide`（2001）、`:72` 的 `TutorialQuestPhase`（2002），以及三个各自独立的 `HideoutBattleEndState`（`:73`/`:74`/`:75` 分别给 `FindHideoutTutorialQuest` 686010、`IstianasBannerPieceQuest` 687010、`ArzagosBannerPieceQuest` 681010）。**同名不同类，必须靠 id 区分。**
+
+**唯一创建者**：`TutorialPhase` 构造函数。读写都在 [TutorialPhase](../TutorialPhase) 的 `SetTutorialQuestPhase(TutorialQuestPhase phase)` 与派生属性 `IsCompleted`（判 `== Finalized`）。
+
+消费方遍布模块：[StoryModeBanditSpawnCampaignBehavior](../StoryModeBanditSpawnCampaignBehavior)、[StoryModeIncidentModel](../StoryModeIncidentModel) 等一批模型读的是 `TutorialPhase.Instance.IsCompleted`，而不是直接比枚举值。**要问「教学到哪一步」，问 `TutorialPhase`；要问「教学完没完」，问 `IsCompleted`。**
+
+### 典型用法
+
+```csharp
+// 进度条 UI：直接把枚举映射成显示文本
+TutorialPhase tutorial = StoryModeManager.Current.MainStoryLine.TutorialPhase;
+string label;
+switch (tutorial.TutorialQuestPhase)
+{
+    case TutorialQuestPhase.None:                    label = "尚未开始"; break;
+    case TutorialQuestPhase.TravelToVillageStarted:  label = "前往村庄"; break;
+    case TutorialQuestPhase.TalkToTheHeadmanStarted: label = "与村长交谈"; break;
+    case TutorialQuestPhase.RecruitAndPurchaseStarted: label = "征粮与采购"; break;
+    case TutorialQuestPhase.LocateAndRescueTravellerStarted: label = "寻找旅行者"; break;
+    case TutorialQuestPhase.FindHideoutStarted:      label = "攻破藏身处"; break;
+    case TutorialQuestPhase.Finalized:               label = "已完成"; break;
+    default:                                          label = "未知 " + (int)tutorial.TutorialQuestPhase; break;
+}
+Debug.Print(label + "，IsCompleted=" + tutorial.IsCompleted);
+
+// 推进：走 TutorialPhase 的公开方法，不要自己改枚举
+tutorial.SetTutorialQuestPhase(TutorialQuestPhase.Finalized);
+```
+
+### 最容易踩的坑
+
+`None = -1`（`:9`）。写 `(int)phase > 0` 当作「已开始」会把刚教学完的状态算对、把初始状态也算对，但**你若拿它当数组下标或集合容量，`-1` 会直接越界或抛 `ArgumentOutOfRangeException`**。另外 `SetTutorialQuestPhase` 源码不带任何守卫，从 `Finalized` 回退到中间态是允许的——这会把 `IsCompleted` 变回 false，进而让一批模型（[StoryModeIncidentModel](../StoryModeIncidentModel)、[StoryModeBanditDensityModel](../StoryModeBanditDensityModel)）的「教学已完成」判断全部翻转，地图事件和藏身处会在玩家已经推进主线之后突然重新开放。
+
 ## 主要成员
 
 - `None = -1`：哨兵，教学尚未开始。

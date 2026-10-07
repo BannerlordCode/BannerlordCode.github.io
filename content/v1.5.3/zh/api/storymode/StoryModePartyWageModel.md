@@ -40,6 +40,53 @@ return new ExplainedNumber(50f, false, null);
 - **`StringId` 硬编码**。占位兵种换 id 就失效。
 - **不要在这里调队伍总薪资**。`GetTotalWage(MobileParty, TroopRoster, bool)` 是透传的，改它等于改全局经济平衡，与教学定价无关。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModePartyWageModel : PartyWageModel` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/StoryModePartyWageModel.cs:10`，全文 51 行，四个 override，**三个纯透传**。
+
+注册点：`campaignGameStarter.AddModel<PartyWageModel>(new StoryModePartyWageModel())`（`StoryModeSubModule.cs:95`），只在主线战役生效（`StoryModeSubModule.cs:23`→`:24`）。读用 `Campaign.Current.Models.PartyWageModel`。
+
+纯透传：`MaxWagePaymentLimit`（`:14`→`:18`）、`GetCharacterWage(CharacterObject character)`（`:23`→`:25`）、`GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false)`（`:29`→`:31`）。**注意 `GetTotalWage` 完全透传——教学期玩家的总工资照常结算**，唯一被压的是招募价。
+
+唯一带逻辑的是 `GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)`（`:35`），它的形状是**两条早退 + 一条放行**：
+
+1. 教学已完成 → `base.BaseModel.GetTroopRecruitmentCost(...)`（`:37`→`:39`）
+2. 教学未完成但 `troop.StringId != "tutorial_placeholder_volunteer"` → 也透传（`:41`→`:43`）
+3. 只有「教学未完成 **且** 就是那个占位志愿兵」才 `return new ExplainedNumber(50f, false, null)`（`:45`）
+
+`50f` 硬编码在方法体里，与文件底部的 `private const int StoryModeTutorialTroopCost = 50`（`:49`）**重复**——常量没被用上。
+
+### 典型用法
+
+```csharp
+// 运行期读：部队 UI 显示的招募价就是这个
+PartyWageModel wage = Campaign.Current.Models.PartyWageModel;
+
+CharacterObject volunteer =
+    MBObjectManager.Instance.GetObject<CharacterObject>("tutorial_placeholder_volunteer");
+bool tutorialDone = StoryModeManager.Current.MainStoryLine.TutorialPhase.IsCompleted;
+
+// 教学未完成：占位志愿兵固定 50
+ExplainedNumber cheap = wage.GetTroopRecruitmentCost(volunteer, Hero.MainHero, false);
+Debug.Print("占位兵招募价=" + cheap.Result + "（教学未完成时恒 50）");
+
+// 教学完成后：恢复基类计算，取决于部队等级与数量
+Debug.Print("教学完成后=" + wage.GetTroopRecruitmentCost(volunteer, Hero.MainHero, false).Result);
+
+// 其它士兵：教学期也透传，不受影响
+CharacterObject levy = MBObjectManager.Instance.GetObject<CharacterObject>("empire_recruited");
+Debug.Print("普通士兵=" + wage.GetTroopRecruitmentCost(levy, Hero.MainHero).Result);
+
+// 总工资完全透传
+Debug.Print("总工资=" + wage.GetTotalWage(Hero.MainHero.Party.Party, Hero.MainHero.Party.Party.TroopRoster, true).Result);
+```
+
+### 最容易踩的坑
+
+它按 **`troop.StringId == "tutorial_placeholder_volunteer"` 硬比**（`:41`）。mod 给这个占位兵改 `StringId`、或换成一个自己的 id 想复用这条 50 金的廉价教学通道，条件就不成立了，价格立刻跳回基类计算。教学任务（`RecruitTroopsTutorialQuest` → `RecruitTroopTutorialQuestTask`）是按数量达标判完成的，招募价突然变高可能直接让玩家在教学里卡住——**这是静默的行为变化，没有任何报错**。
+
 ## 主要成员
 
 - `GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)`

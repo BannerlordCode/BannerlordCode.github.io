@@ -36,6 +36,68 @@ description: "主线教学阶段的对象：记录教学进度、准备教学用
 4. **`TutorialVillageHeadman` 带 `[CachedData]`**：它是会话内缓存，**不存档**。读档后到该属性被重新填充之前可能是 null。
 5. **`IsCompleted` 是纯派生**（`TutorialQuestPhase == Finalized`），没有独立字段。改 `TutorialQuestPhase` 就能伪造完成态。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class TutorialPhase` 声明在 `bannerlord-1.5.3/StoryMode/StoryModePhases/TutorialPhase.cs:16`，全文 290 行。
+
+**它是唯一从一开始就存在的阶段**：`MainStoryLine` 构造函数里 `this.TutorialPhase = new TutorialPhase();`（`MainStoryLine.cs:116`），而 `FirstPhase`/`SecondPhase`/`ThirdPhase` 都要等前一阶段完成才 new。所以静态属性 `Instance`（`:76`）是本模块里**唯一不会因为“未推进”而返回 null 的阶段**——但它自己做了两级判空：先判 `StoryModeManager.Current == null`（`:81`→`:83`），再判 `mainStoryLine == null`（`:86`→`:88`）。非主线战役返回 null。
+
+八个公开常量把教学地标全部硬编码了：
+
+| 常量 | 值 | 行 |
+| --- | --- | --- |
+| `RestrictedModePriority` | `1000000` | `:263` |
+| `QuestVillageStringId` | `village_ES3_2` | `:266` |
+| `TrainingFieldStringId` | `tutorial_training_field` | `:269` |
+| `RadagosRaidersStringId` | `storymode_quest_raider` | `:272` |
+| `TutorialVolunteerStringId` | `tutorial_placeholder_volunteer` | `:275` |
+| `TutorialFemaleRefugeeStringId` | `storymode_quest_refugee_female` | `:278` |
+| `TutorialMaleRefugeeStringId` | `storymode_quest_refugee_male` | `:281` |
+| `TutorialHeadmanStringId` | `storymode_tutorial_headman` | `:284` |
+
+另外两个 `private const int`：`GrainAmount = 3`（`:257`）、`RecruitTroopAmount = 6`（`:260`）——分别被 `GetAndPrepareBuyProductsOptionForTutorial`（`:226`）和 `PrepareRecruitOptionForTutorial`（`:200`、`:213`）内联使用，**改常量不会改行为**。
+
+六个带 `[SaveableProperty]` 的属性：`TutorialFocusSettlement`（2，`:97`）、`TutorialFocusMobileParty`（3，`:103`）、`TalkedWithBrotherForTheFirstTime`（5，`:119`）、`LockTutorialVillageEnter`（6，`:125`）、`TutorialQuestPhase`（7，`:131`）、`IsSkipped`（8，`:137`）。`TutorialVillageHeadman` 带 `[CachedData]`（`:143`）且是 `public ... { get; set; }`——**它是唯一可写的公开属性**。
+
+`IsCompleted`（`:108`）是纯派生：`TutorialQuestPhase == TutorialQuestPhase.Finalized`（`:112`），无独立字段。
+
+存档七个成员 + `_tutorialPhaseShoppingRoster` 用 `[SaveableField(1)]`（`:287`→`:288`）。
+
+### 典型用法
+
+```csharp
+// 标准读法：它几乎总在位，但仍需判 StoryModeManager.Current
+TutorialPhase tutorial = StoryModeManager.Current.MainStoryLine.TutorialPhase;
+if (tutorial == null) { Debug.Print("非主线战役"); return; }
+
+Debug.Print("阶段=" + tutorial.TutorialQuestPhase + "，完成=" + tutorial.IsCompleted + "，跳过=" + tutorial.IsSkipped);
+
+// 推进：走公开方法
+tutorial.SetTutorialQuestPhase(TutorialQuestPhase.FindHideoutStarted);
+tutorial.PlayerTalkedWithBrotherForTheFirstTime();
+tutorial.SetLockTutorialVillageEnter(true);
+
+// 地图高亮：这两对方法是成对的
+tutorial.SetTutorialFocusSettlement(Settlement.Find(TutorialPhase.QuestVillageStringId));
+tutorial.SetTutorialFocusMobileParty(MobileParty.MainParty);
+// ...之后
+tutorial.RemoveTutorialFocusSettlement();
+tutorial.RemoveTutorialFocusMobileParty();
+
+// 铺货：教学村庄的非食物商品进内部 roster
+tutorial.InitializeTutorialVillageItemRoster();
+
+// 教学专用村长属性：可写，也是缓存
+tutorial.TutorialVillageHeadman =
+    MBObjectManager.Instance.GetObject<CharacterObject>(TutorialPhase.TutorialHeadmanStringId);
+```
+
+### 最容易踩的坑
+
+`PrepareRecruitOptionForTutorial()`（`:198`）第一行就是 `Hero hero = Settlement.CurrentSettlement.Notables[0];`（`:201`）——**直接索引，不判 `CurrentSettlement` 是否为 null、不判 `Notables` 是否为空**。它只在玩家身处教学村庄时由 [RecruitTroopsTutorialQuest](../RecruitTroopsTutorialQuest) 之类的流程调用，但你在别的上下文里手动调它，尤其是在地图上直接调，立刻 NRE。`GetAndPrepareBuyProductsOptionForTutorial`（`:222`）安全得多——它只碰 `PartyBase.MainParty`，不碰 `Settlement.CurrentSettlement`。
+
 ## 主要成员
 
 - `Settlement TutorialFocusSettlement { get; private set; }`：`[SaveableProperty(2)]`。地图上高亮的村庄。`RemoveTutorialFocusSettlement()` 清空。

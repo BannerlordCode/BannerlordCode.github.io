@@ -22,6 +22,65 @@ description: "龙旗碎片任务（反帝国线）：结构与帝国版逐行对
 
 坑与帝国版同源但有一个更明显的问题：`OnMapEventEnded` 里存在一段**括号作用域只覆盖单个 `if`** 的 heal/captivity 代码——先 `if (retreat) { ... EndCaptivityAction.ApplyByPeace(...); if (HitPoints < 50) { Heal(...) } ... return; }`，语义正确但可读性极差，移植时容易把 `return` 挪错位置。另外 `_raiderParties` 同样只增不减。`ArzagosRaiderPartyStringId` 常量声明了但实际用的是字面量拼接，改常量不生效。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class ArzagosBannerPieceQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/FirstPhase/ArzagosBannerPieceQuest.cs:22`，全文 326 行。与 [IstianasBannerPieceQuest](../IstianasBannerPieceQuest) 结构逐行对称，只换导师。
+
+构造函数 `ArzagosBannerPieceQuest(Hero questGiver, Settlement hideout)`（约 `:55`），基类调用：
+
+```csharp
+: base("arzagos_banner_piece_quest", questGiver,
+       StoryModeManager.Current.MainStoryLine.FirstPhase.FirstPhaseEndTime)
+```
+
+**任务 id 硬编码、时限取第一阶段截止**——第一阶段没开始时 NRE。存档 id 681001（`SaveableStoryModeTypeDefiner.cs:55`）。
+
+**谁创建它**：[FirstPhaseCampaignBehavior](../FirstPhaseCampaignBehavior) 的 `OnQuestCompleted`（`:65`）在上一条任务完成后 `new ArzagosBannerPieceQuest(antiImperialMentor, this.FindSuitableHideout(antiImperialMentor)).StartQuest();`（`:84`）——**藏住处由行为侧的 `FindSuitableHideout(Hero questGiver)` 选好传进来**，任务自己不挑。
+
+构造函数体走 `InitializeHideout()`（`:140`）→ `AddTrackedObject(_hideout)` → `SetDialogs()`（`:118`）→ `InitializeQuestOnCreation()` → 写起始日志（见本页「主要成员」）。
+
+`RegisterEvents()`（`:84`）挂**四条**：`MapEventEnded`（`:86`）、`GameMenuOpened`（`:87`）、`IsSettlementBusyEvent`（`:88`，`ReferenceAction<Settlement, object, ref int>` → `IsSettlementBusy`，`:93`）、`OnHideoutDeactivatedEvent`（`:89` → `OnHideoutCleared`，`:102`）。
+
+**本类嵌套着 `public enum HideoutBattleEndState`**（`:313`，四个值 `None`/`Retreated`/`Defeated`/`Victory` 在 `:316`/`:318`/`:320`/`:322`），字段 `private ArzagosBannerPieceQuest.HideoutBattleEndState _hideoutBattleEndState;`（`:310`）——**private 且不进存档**，见 [HideoutBattleEndState](../HideoutBattleEndState)。
+
+**两处调 `FirstPhase.Instance.CollectBannerPiece()`**——`:110`（藏住处被清空时）和 `:219`（菜单流程里）。这是旗片进度的唯一来源。
+
+战斗结算在 `OnMapEventEnded(MapEvent mapEvent)`（`:176`）里分派四个状态：胜利 `:182`、撤退 `:187`、复位 `:202`、战败 `:206`。战败与撤退都走「治疗 + 解囚 + 补满强盗队 + 延长藏住处冷却」的自愈流程，冷却用 `StoryModeData.StorylineQuestHideoutHiddenDuration`（`:201`、`:205`），并且**胜与败都调 `CompleteQuestWithSuccess`/`Fail` 之外还重置 `_hideoutBattleEndState`**（`:221`、`:239`、`:143`）。
+
+`HourlyTick()`（`:75`）在藏住处不再被占领或不可见时调 `InitializeHideout()` 补队。队伍由 `CreateRaiderParty(int number)`（`:157`）生成，氏族由 `GetHideoutClan(Settlement hideout)`（`:244`）选。
+
+一个战斗常量：`private const int MainPartyHealHitPointLimit = 50;`（`:289`）——**玩家主队每场最多回 50 点生命**。
+
+对话流挂 `"hero_main_options"`、priority `100`（`:120`），条件 `conversation_lord_task_given_on_condition()`（`:128`）。
+
+### 典型用法
+
+```csharp
+// 1) 正常由 FirstPhaseCampaignBehavior 创建（藏住处由行为侧选）
+Settlement hideout = Settlement.Find("some_hideout");
+ArzagosBannerPieceQuest q = new ArzagosBannerPieceQuest(StoryModeHeroes.AntiImperialMentor, hideout);
+q.StartQuest();
+
+// 2) 旗片进度
+FirstPhase first = StoryModeManager.Current.MainStoryLine.FirstPhase;
+Debug.Print("碎片=" + first.CollectedBannerPieceCount + "/" + FirstPhase.NeededBannerPieceCount);
+Debug.Print("AllPiecesCollected=" + first.AllPiecesCollected);
+
+// 3) 藏住处冷却：战败后多久能再打
+Debug.Print("藏住处隐藏时长=" + StoryModeData.StorylineQuestHideoutHiddenDuration.ToHours + " 小时");
+
+// 4) 任务生命周期钩子：OnFinalize 会收尾
+QuestBase b = Campaign.Current.QuestManager.GetQuest<ArzagosBannerPieceQuest>();
+Debug.Print("id=" + b.QuestId + "，存档 id=681001，发布者=" + b.QuestGiver?.Name);
+Debug.Print("任务完成回调：OnFinalize()（:69）");
+```
+
+### 最容易踩的坑
+
+`HideoutBattleEndState`（`:313`）在本文件里声明，但**同名的枚举在模块里有三份**（另两份分别在 `IstianasBannerPieceQuest.cs:317` 和 `FindHideoutTutorialQuest.cs:796`），各自存档 id 不同（681010 / 687010 / 686010）。而 `_hideoutBattleEndState`（`:310`）是 **private 且没有 `[SaveableField]`**——不进存档。读档后战斗结果状态回到 `None`，`IsOngoing`（`:213` 附近那条判据）会重新认为「还没打完」，**玩家可以对同一个藏去处重复触发战斗流程**。两个兄弟任务（Istiana 版、FindHideout 版）在这点上行为一致，所以这不是单点 bug 而是三条藏住处任务共有的设计取舍。
+
 ## 主要成员
 
 - `ArzagosBannerPieceQuest(Hero questGiver, Settlement hideout)`：构造入口。

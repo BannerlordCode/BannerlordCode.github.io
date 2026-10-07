@@ -22,6 +22,55 @@ description: "战役主线收尾任务：藏身处救出 Radagos 与家人，击
 
 坑非常密集。第一，它带一个 `[LoadInitializationCallback]` 的 `OnLoad`，**从 SaveId 2/3/4/5 反推旧存档里已经没有的四个 bool 字段**并映射到枚举状态。这是纯粹的向后兼容层，删掉它会让 1.x 早期的存档读不出正确阶段。第二，`InitializeQuestOnGameLoad` 里有第二段版本迁移：若 `MBSaveLoad.IsUpdatingGameVersion` 且版本早于 `v1.4.0`、状态恰好是 `HideoutTalkWithRadagosDone`、且当前正处于该藏处处的战斗，则把状态推到 `HideoutBattleInProgress`——用来修复"旧版在战斗中存档"造成的状态错位。第三，`OnCompleteWithSuccess` 与 `OnTimedOut` 完全相反：成功时让家人入族，超时时**直接 `KillCharacterAction.ApplyByRemove` 杀掉三个弟妹**。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class RescueFamilyQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/PlayerClanQuests/RescueFamilyQuestBehavior.cs:122`——**它嵌套在 `RescueFamilyQuestBehavior` 内**，完整类型名是 `RescueFamilyQuestBehavior.RescueFamilyQuest`。全文 1013 行。
+
+**别自己 new**——主线路径是 [RescueFamilyQuestBehavior](../RescueFamilyQuestBehavior) 的 `OnSettlementEntered`（`:60`）在玩家进入某个聚落时 `new RescueFamilyQuestBehavior.RescueFamilyQuest().StartQuest();`（`:76`）。存档 id 是 `3780001`（`SaveableStoryModeTypeDefiner.cs:59`）。
+
+基类调用 `: base("rescue_your_family_storymode_quest", null, CampaignTime.Never)`（`:186`）——**任务 id 硬编码、`questGiver` 传 `null`、时限 `CampaignTime.Never`**（配合基类 `IsRemainingTimeHidden = true` 双重隐藏）。
+
+**构造函数有实质副作用**：置 `FamilyRescued = true`、锁住 Radagos 的转移能力、选藏住处、补队。`OnLoad`（`:205`）带 `[LoadInitializationCallback]` 签名——读档时引擎回调它，这就是「旧存档兼容」路径。
+
+`RegisterEvents()`（`:438`）挂**八条**，是模块里订阅最多的任务：`OnSettlementLeftEvent`（`:440`）、`GameMenuOpened`（`:441`）、`SettlementEntered`（`:442`）、`HeroKilledEvent`（`:443`）、`IsSettlementBusyEvent`（`:444`）、`MapEventStarted`（`:445`）、`OnHideoutBattleCompletedEvent`（`:446`）、`OnMissionStartedEvent`（`:447`）。
+
+其中两条是 `ref` 型：`IsSettlementBusy(Settlement settlement, object asker, ref int priority)`（`:451`）用于抢占藏住处交互优先权；`public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`（`:275`）——**这个是 override，不是事件订阅**，它拦住剧情英雄在相关聚落里生成城务问题。
+
+生命周期方法齐备：`InitializeQuestOnGameLoad()`（`:233`）、`OnStartQuest()`（`:257`，先 `base.OnStartQuest()`）、`OnFinalize()`（`:267`）、`OnCompleteWithSuccess()`（`:284`）、`OnTimedOut()`（`:341`）。
+
+藏住处与队伍的准备链：`InitializeHideout()`（`:350`）→ `CheckIfHideoutIsReady()`（`:356`）→ `AddRadagosHenchmanToHideout()`（`:372`）、`CreateRaiderParty(int number, bool isBanditBossParty)`（`:399`）、`SelectTargetSettlementForSiblings()`（`:422`）。
+
+### 典型用法
+
+```csharp
+// 1) 读任务（不要 new，正常是玩家进聚落时自动创建）
+QuestBase q = Campaign.Current.QuestManager.GetQuest<RescueFamilyQuest>();
+if (q != null)
+{
+    Debug.Print("id=" + q.QuestId + "，存档 id=3780001");
+    Debug.Print("发布者=" + (q.QuestGiver?.Name.ToString() ?? "null"));   // 恒为 null
+    Debug.Print("时限=" + q.RemainingTime + "，隐藏=" + q.IsRemainingTimeHidden);
+}
+
+// 2) 家族标记写在 MainStoryLine 上，不在任务上
+MainStoryLine line = StoryModeManager.Current.MainStoryLine;
+Debug.Print("FamilyRescued=" + line.FamilyRescued + "（[SaveableField(10)]）");
+
+// 3) MainStorylineCampaignBehavior 读它做读档自愈：
+//    家族已救 + RescueFamilyQuest 不在跑 => 补状态
+Debug.Print("RescueFamilyQuest 在跑=" + Campaign.Current.QuestManager
+    .IsThereActiveQuestWithType(typeof(RescueFamilyQuestBehavior.RescueFamilyQuest)));
+
+// 4) 藏住处战斗相关
+Debug.Print("跟班 RadagosHenchman=" + StoryModeHeroes.RadagosHenchman.CharacterObject.StringId);
+```
+
+### 最容易踩的坑
+
+它的 `questGiver` 是 `null`（`:186`）。任何按发布者取英雄的代码——`q.QuestGiver.HeroObject`、`q.QuestGiver.Clan`——在这个任务上直接 NRE。这不是某一个分支的疏漏，是构造函数签名决定了所有该类任务都这样。`MainStorylineCampaignBehavior.cs:80` 用的正是 `MainStoryLine.FamilyRescued && !IsThereActiveQuestWithType(typeof(RescueFamilyQuestBehavior.RescueFamilyQuest))` 这样的组合判定来绕开它——**要按人过滤主线任务，用 `IsSpecialQuest && SpecialQuestType == "MainStoryline"`，别用 `QuestGiver`。**
+
 ## 主要成员
 
 - `public RescueFamilyQuest()`：置 `FamilyRescued = true`、锁 Radagos 的转移能力、选藏住处、补队。

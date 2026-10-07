@@ -38,6 +38,41 @@ return StoryModeHeroes.AntiImperialMentor.CharacterObject == character
 3. **`StringId` 与 `Id` 两份重复**：`"IsStoryModeMentorTag"` 出现两次，改一处会让对话 XML 静默失联。
 4. **重名风险**：`StringId` 是全局键。如果 mod 也注册了一个同名标签，`ConversationManager.InitializeTags` 里的 `_tags.Add(...)` 会因键重复抛异常，整个对话系统初始化失败。**自定义标签必须保证 `StringId` 全局唯一。**
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class IsStoryModeMentorTag : ConversationTag` 声明在 `bannerlord-1.5.3/StoryMode/IsStoryModeMentorTag.cs:9`，全文 31 行。与两个单导师标签唯一的结构差别在 `IsApplicableTo`（`IsStoryModeMentorTag.cs:22`）：它是 `AntiImperialMentor.CharacterObject == character || ImperialMentor.CharacterObject == character`，两个 `StoryModeHeroes` 静态属性**都会被求值**。
+
+拿法也一样：代码里 `new IsStoryModeMentorTag()`；引擎实例来自 `ConversationManager.InitializeTags()`（`TaleWorlds.CampaignSystem/Conversation/ConversationManager.cs:1139`）对每个 `ConversationTag` 子类的 `Activator.CreateInstance`（`:1168`），以 `StringId`（`IsStoryModeMentorTag.cs:13`，`"IsStoryModeMentorTag"`）为键 `Add` 进 `_tags`（`:1169`）。**这条 `Add` 不是幂等的**——键重复会抛 `ArgumentException`，整个对话标签表建不起来。所以自定义标签的 `StringId` 必须全局唯一，这也是不要把 `StringId` 和别的类共用同一个字符串的原因。
+
+### 典型用法
+
+```csharp
+// 单一「是不是任一导师」的判定
+IsStoryModeMentorTag mentorTag = new IsStoryModeMentorTag();
+CharacterObject npc = CharacterObject.OneToOneConversationCharacter;
+
+if (StoryModeManager.Current != null)   // || 分支两侧都会摸 StoryModeHeroes，这里必须先拦
+{
+    bool isMentor = mentorTag.IsApplicableTo(npc);
+    Debug.Print("命中任一导师标签：" + isMentor);
+    if (isMentor)
+    {
+        // 需要进一步分清是哪一位时，再单独问单导师标签
+        Debug.Print(new IsIstianaTag().IsApplicableTo(npc) ? "Istiana" : "Arzagos");
+    }
+}
+
+// 引擎侧：IsTagApplicable 走的是同一张表
+ConversationManager cm = Campaign.Current.ConversationManager;
+Debug.Print(cm.IsTagApplicable("IsStoryModeMentorTag", npc) ? "导师台词变体命中" : "被排除");
+```
+
+### 最容易踩的坑
+
+`||` 两侧没有短路保护。面对**非导师**角色时，`AntiImperialMentor` 已经求值完并为 false，才会去碰 `ImperialMentor`；也就是说每一次对话选词都会连续访问两次 `StoryModeManager.Current`。在沙盒战役里 `Current` 是 null（`StoryModeManager.cs:39` 直接 `return null`），而对话筛选在沙盒照常运行——于是在沙盒里**每一次对话选词都会崩**，而不只是主线相关的那几句。这个标签把原本「只在主线才有风险」的调用变成了全局风险。
+
 ## 主要成员
 
 - `public override string StringId { get; }`：恒为 `"IsStoryModeMentorTag"`。全局注册键。

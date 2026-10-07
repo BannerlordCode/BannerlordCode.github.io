@@ -52,6 +52,35 @@ description: "俄语的性/数/格变格处理器：性别标记设定名词的�
 5. **不规则词表按首字母分桶**（`IsIrregularWord` 用 `char.ToUpperInvariant(text[0])` 查字典）。**首字母变了就命中不了**。以小写写的中文转写词、或大写缩写的专有名词会走规则化后缀，可能出错。
 6. **`base.Process(text)` 的递归调用**（`AddSuffixWordGroup` / `WordGroupProcessor` 里）会走一遍完整的标记扫描。此时 `_doesComeFromWordGroup = true` 用来阻止无限递归——**标志位漏设会导致栈溢出**。这是实现内部的，不该由你触发，但如果你自己继承并重写就会遇到。
 
+## 怎么用
+
+### 怎么拿到它
+
+引擎只在切语言时造：`MBTextManager.ChangeLanguage("Russian")`（`MBTextManager.cs:37`）→ `LocalizedTextManager.CreateTextProcessorForLanguage` 用 `Type.GetType` 反射构造（`LocalizedTextManager.cs:61`、`:67`），类型名来自 `LanguageData` 配置，解析不到退回 `DefaultTextProcessor`（`:64-65`）。确认语言包挂对了没有，就调工厂打印 `GetType().Name`。
+
+手工用就 `new RussianTextProcessor()` 加基类 `Process(text)`（`LanguageSpecificTextProcessor.cs:41`）。`CultureInfoForLanguage`（`RussianTextProcessor.cs:15-21`）返回 `private static readonly CultureInfo = new CultureInfo("ru-RU")`（`:2443`），基类用它做 `{^}`/`{_}` 的大小写转换。`ClearTemporaryData`（`:24-30`）复位五份状态。
+
+结构上它是三组的组合：**per-thread 的可变状态**——`_curGender`（`:2447`）、`_wordGroups`（`:2452`）、`_wordGroupsNoTags`（`:2456`）、`_linkList`（`:2460`）、`_doesComeFromWordGroup`（`:2464`），全部 `[ThreadStatic]`，通过懒加载属性 `WordGroups`（`:136-147`）、`WordGroupsNoTags`（`:151-161`）、`LinkList`（`:165-175`）访问；**全进程共享的只读音系表**——`_vowels`（`:2467`，含 `а е ё и о у ы э ю я`）、`_sibilants`（`:2470`）、`_velars`（`:2473`）、`_nounTokens`（`:2476`，`.n .p .g .gp .d .dp .a .ap .i .ip .l .lp`），都是 `static readonly`。
+
+### 典型用法
+
+```csharp
+// 1) 确认语言包挂载成功
+Debug.Print(LocalizedTextManager.CreateTextProcessorForLanguage("Russian").GetType().Name);
+
+// 2) 手工渲染：名词 token 决定变格（.n 名词、.p 属格 等）
+var ru = new RussianTextProcessor();
+Debug.Print(ru.Process("{.n}дом {.p}дома"));
+
+// 3) 真正的通路
+MBTextManager.ChangeLanguage("Russian");
+Debug.Print(new TextObject("{=some_ru_id}").ToString());
+```
+
+### 最容易踩的坑
+
+把 per-thread 的可变状态和全进程共享的只读表混为一谈。只读的那几张是 `static readonly`（`:2467`/`:2470`/`:2473`/`:2476`），任何线程读到的都是同一份；而 `_wordGroups`、`_linkList`、`_doesComeFromWordGroup` 是 `[ThreadStatic]`。后果是：把俄语文本的渲染搬到 worker 线程后，音系判断仍然正确（读的是共享表），但词组上下文整个失效——`WordGroups` 属性会在那个线程上新建一个空列表（`:141-144`），于是同一个名词在后台渲染出属格、在主线程渲染出主格，两边结果不一致且都没有报错。所有含变格标记的文本都必须在主线程渲染。
+
 ## 主要成员
 
 **覆写的抽象成员**

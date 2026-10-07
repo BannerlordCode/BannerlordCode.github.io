@@ -53,6 +53,59 @@ Campaign.Current.ConversationManager.CurrentConversationIsFirst
 - **`CurrentConversationIsFirst` 的语义是「本次对话是该角色的首次」**，不是「本次游戏的第一场对话」。
 - **`start_default_for_mentors` 会覆盖掉通用 `start` 话题的其它行**，因为它注册在同一个 `start` 之后。如果 mod 也往 `start` 注册了高 priority 的行，会与之竞争。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class LordConversationsStoryModeBehavior : CampaignBehaviorBase` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/CampaignBehaviors/LordConversationsStoryModeBehavior.cs:10`，全文 65 行。
+
+注册点：`campaignGameStarter.AddBehavior(new LordConversationsStoryModeBehavior())`（`StoryModeSubModule.cs:58`）——**这是 `AddBehaviors` 的第一条**。拿实例用 `Campaign.Current.GetCampaignBehavior<LordConversationsStoryModeBehavior>()`。
+
+`RegisterEvents()`（`:13`）**只订阅一个**：`CampaignEvents.OnSessionLaunchedEvent` → `OnSessionLaunched`（`:15`）。`SyncData`（`:19`）是空实现，无字段可存。所以它是一个纯注册器：会话启动时拿到 `CampaignGameStarter`，调 `AddDialogs`（`:24`→`:26`）注册三条对话。
+
+注册的三条（`AddDialogLine`，`:30`）：
+
+| id | 接在哪个节点后 | 走哪个节点 | 条件委托 | 行 |
+| --- | --- | --- | --- | --- |
+| `anti_imperial_mentor_introduction` | `lord_introduction` | `lord_start` | `conversation_anti_imperial_mentor_introduction_on_condition` | `:32` |
+| `imperial_mentor_introduction` | `lord_introduction` | `lord_start` | `conversation_imperial_mentor_introduction_on_condition` | `:33` |
+| `start_default_for_mentors` | `start` | `lord_start` | `start_default_for_mentors_on_condition` | `:34` |
+
+三条的**优先级都是 150**——不是 `MainStoryLine.MainStoryLineDialogOptionPriority = 150`（`MainStoryLine.cs:276`）的巧合，是同一数字。
+
+两个介绍句的条件相同：`Campaign.Current.ConversationManager.CurrentConversationIsFirst && Hero.OneToOneConversationHero == StoryModeHeroes.ImperialMentor`（`:40`）/ `AntiImperialMentor`（`:51`），命中后先 `StringHelpers.SetCharacterProperties("CONVERSATION_HERO", CharacterObject.OneToOneConversationCharacter, null, false)`（`:42`、`:53`）再返回 true。第三条更宽松：`Hero.OneToOneConversationHero != null && .HasMet && (是两位导师之一)`（`:62`）。
+
+### 典型用法
+
+```csharp
+// 运行期读：这个行为只负责注册对话，实例本身没有可读状态
+LordConversationsStoryModeBehavior convos =
+    Campaign.Current.GetCampaignBehavior<LordConversationsStoryModeBehavior>();
+Debug.Print("对话注册行为在位=" + (convos != null));
+
+// 复现原生条件：与帝国导师的首次对话才放 introduction
+MainStoryLine line = StoryModeManager.Current.MainStoryLine;
+bool isFirst = Campaign.Current.ConversationManager.CurrentConversationIsFirst;
+bool withImperialMentor = isFirst && Hero.OneToOneConversationHero == StoryModeHeroes.ImperialMentor;
+Debug.Print("帝国导师介绍句=" + withImperialMentor);
+
+// 第三条：已见过任一导师的默认开场
+Hero partner = Hero.OneToOneConversationHero;
+Debug.Print("导师默认开场=" + (partner != null && partner.HasMet
+    && (partner == StoryModeHeroes.AntiImperialMentor || partner == StoryModeHeroes.ImperialMentor)));
+
+// mod 侧：注册自己的对话节点（同样在 OnSessionLaunchedEvent 里）
+CampaignEvents.OnSessionLaunchedEvent.AddNonSerializedListener(this, starter =>
+{
+    starter.AddDialogLine("my_line_id", "lord_introduction", "lord_start",
+        "{=Abc123}My custom line", null, null, 149, null);
+});
+```
+
+### 最容易踩的坑
+
+两个介绍句都要求 `CurrentConversationIsFirst`（`:40`、`:51`）——**只有一对一对话的第一次选词才放**。玩家第二次跟同一位导师对话（同一场对话里的后续轮次、或重开一场对话），介绍句不再出现，走的是第三条 `start_default_for_mentors` 或基线的普通台词。而三条的 `priority` 都硬编码 150（`:32`–`:34`），mod 若用同一个 150 注册自己的 `lord_start` 分支，排序结果依赖注册顺序而非数值大小，会出现难以复现的抢话。
+
 ## 主要成员
 
 - `public override void RegisterEvents()`

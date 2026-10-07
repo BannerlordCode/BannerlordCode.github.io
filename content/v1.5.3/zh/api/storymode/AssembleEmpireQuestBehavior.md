@@ -24,6 +24,55 @@ description: "第二阶段帝国线触发器：监听主线立场选择，开出
 
 坑：`_ratioOfSettlementToTake = 0.66f` 用的是 `MathF.Ceiling(_imperialCultureTowns * 0.66f)`。而 `OnSettlementOwnerChanged` 只在 `settlement.IsTown && settlement.Culture.StringId == "empire"` 时才计数——**城堡不计入**。如果 mod 改了帝国文化 ID 的判定（例如用 `StoryModeData.IsKingdomImperial` 之类），这个计数会与缓存值不一致，导致进度条永远到不了目标。还有：`OnSettlementOwnerChanged` 里的增减用 `settlement.OwnerClan.Kingdom == Clan.PlayerClan.Kingdom` 而不是 `RulingClan`，如果玩家自己就是统治氏族，这两者相等，能正常工作；但如果玩家不是统治氏族却把城镇划给了自己，会出现"城镇属于玩家王国但没被计入"的偏差。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class AssembleEmpireQuestBehavior : CampaignBehaviorBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/SecondPhase/AssembleEmpireQuestBehavior.cs:15`，全文 229 行——**这个文件同时装着三个类型**：`AssembleEmpireQuestBehavior`（`:15`）、`AssembleEmpireQuestBehaviorTypeDefiner`（`:38`）、以及嵌套的 `AssembleEmpireQuest`（`:54`）。
+
+行为本身极薄：`RegisterEvents()`（`:18`）只挂一条 `StoryModeEvents.OnMainStoryLineSideChosenEvent`（`:20`），`SyncData`（`:24`）是空实现——**行为无状态**。`OnMainStoryLineSideChosen(MainStoryLineSide side)`（`:29`）判 `side == MainStoryLineSide.CreateImperialKingdom || side == MainStoryLineSide.SupportImperialKingdom` 后 `new AssembleEmpireQuestBehavior.AssembleEmpireQuest(StoryModeHeroes.ImperialMentor).StartQuest();`（`:33`）。
+
+注册点是 `campaignGameStarter.AddBehavior(new AssembleEmpireQuestBehavior())`（`StoryModeSubModule.cs:83`），无条件。取实例用 `Campaign.Current.GetCampaignBehavior<AssembleEmpireQuestBehavior>()`——但**它没有任何可读成员**，真正有意义的是它启动的那个任务。
+
+同文件里 `AssembleEmpireQuestBehaviorTypeDefiner : SaveableTypeDefiner`（`:38`）构造函数只调 `: base(1002000)`（`:42`），`DefineClassTypes()`（`:47`）调基类实现后再 `AddClassDefinition` 登记嵌套的 `AssembleEmpireQuest`。**这个类引擎自动实例化，别自己 new。**
+
+### 典型用法
+
+```csharp
+// 1) 行为的唯一作用：选边时出任务
+MainStoryLine line = StoryModeManager.Current.MainStoryLine;
+if (line.IsOnImperialQuestLine && !Campaign.Current.QuestManager.Quests.Any(q => q is AssembleEmpireQuest))
+{
+    AssembleEmpireQuest quest = new StoryMode.Quests.SecondPhase.AssembleEmpireQuestBehavior.AssembleEmpireQuest(
+        StoryModeHeroes.ImperialMentor);
+    quest.StartQuest();
+}
+
+// 2) 读任务进度（百分比判据的复现）
+FirstPhase first = StoryModeManager.Current.MainStoryLine.FirstPhase;
+if (first != null)
+{
+    int imperial = 0, owned = 0;
+    foreach (Settlement s in Settlement.All)
+    {
+        if (s.IsTown && s.Culture.StringId == "empire")
+        {
+            imperial++;
+            if (s.OwnerClan.Kingdom == Clan.PlayerClan.Kingdom) owned++;
+        }
+    }
+    Debug.Print("帝国城镇 " + owned + "/" + imperial
+              + "，需要 " + MathF.Ceiling(imperial * 0.66f) + " 座才达标");
+}
+
+// 3) 存档定义：任务类 id 1002000 段
+Debug.Print(typeof(AssembleEmpireQuestBehavior).Assembly.GetName().Name + " 存档区间从 1002000 起");
+```
+
+### 最容易踩的坑
+
+它判的是 `settlement.Culture.StringId == "empire"`（`CacheSettlementCounts` 里 `:168` 附近，`Culture.StringId` 字面量），而达成条件是 `MathF.Ceiling(_imperialCultureTowns * 0.66f)`（`QuestConditionsHold`）——**注意分母只在构造那一刻算过一次**（`CacheSettlementCounts` 由构造函数调用）。也就是说 mod 在游戏中途新增或删除帝国城镇（改 Culture、毁城、重开地图）后，判据的分母**不会重算**，任务要么永远达不到、要么立刻完成。要让进度跟着地图变化，必须自己重算，不能依赖这个缓存字段。
+
 ## 主要成员
 
 - `public override void RegisterEvents()`：挂 `OnMainStoryLineSideChosenEvent`。

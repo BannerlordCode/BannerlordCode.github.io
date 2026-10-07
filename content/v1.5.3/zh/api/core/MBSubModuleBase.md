@@ -38,6 +38,57 @@ description: "所有 mod 的模块基类：30 个生命周期钩子覆盖模块�
 4. **`OnGameLoaded` vs `OnAfterGameLoaded` 用错**：前者在行为数据填充前后，行为对象可能还没恢复；后者在加载流程末尾。想安全地读世界状态用后者。
 5. **把重活放 `OnApplicationTick`**：每帧调用，没有帧预算意识。转投战役 tick 或自己的定时器。
 
+## 怎么用
+
+### 怎么拿到它
+
+**你不需要拿到它——它就是你 mod 的入口类。** 实例由 `Module` 反射创建并缓存进 `_subModuleBases`（按 `SubModuleInfo` 做键，`Module.cs:236-244` 读、`:106` 取）。你的 `SubModuleBase` 子类名必须与 `Module.xml` 里 `<SubModules>` 声明的类型名一致，否则 `GetSubModuleBase` 返回 `null`，你的回调一次都不会被调。
+
+调用顺序由 `Module` 与 `MBGameManager` 固定：
+
+1. `Module.InitializeSubModuleBases` 逐个调 `OnSubModuleLoad()`（`Module.cs:194`），全程包在 try/catch 里；
+2. 紧接着 `OnNewModuleLoaded` 逐个调 `OnNewModuleLoad()`（`Module.cs:231`）；
+3. 游戏层由 `MBGameManager` 广播：`OnGameStart` 先遍历所有 submodule 调一遍（`MBGameManager.cs:183-186`），**之后**才 `Game.Current.AddGameModelsManager<MissionGameModels>(gameStarter.Models)`（`MBGameManager.cs:187`）——模型快照在你的 `OnGameStart` 返回之后才取；
+4. 战役侧 `MBGameManager.OnNewCampaignStart` 调 `OnCampaignStart`（`MBGameManager.cs:74-77`）；
+5. 卸载时 `FinalizeSubModulesBases` 调 `OnSubModuleUnloaded()`（`Module.cs:251`）；运行期开关模块则调 `OnSubModuleActivated`（`Module.cs:1868`）/ `OnSubModuleDeactivated`。
+
+要注意修饰符不统一：`OnSubModuleLoad`、`OnGameStart`、`InitializeGameStarter`、`OnNetworkTick` 是 `protected internal virtual`（`MBSubModuleBase.cs:11`/`:46`/`:61`/`:142`），而 `OnGameLoaded`、`OnCampaignStart`、`OnGameEnd`、`DoLoading` 是 `public virtual`（`:66`/`:86`/`:122`/`:116`）——override 关键字要跟着变。
+
+### 典型用法
+
+```csharp
+public class MyModSubModule : MBSubModuleBase
+{
+    // protected internal -> 必须写 protected override
+    protected override void OnSubModuleLoad()
+    {
+        base.OnSubModuleLoad();
+        Debug.Print("[mymod] loaded");
+    }
+
+    // 注册战役扩展的唯一正确时机
+    protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
+    {
+        base.OnGameStart(game, gameStarterObject);
+        ((CampaignGameStarter)gameStarterObject).AddBehavior(new MySupplyBehavior());
+    }
+
+    // public virtual -> 必须写 public override
+    public override void OnCampaignStart(Game game, object starterObject)
+    {
+        base.OnCampaignStart(game, starterObject);
+        MySupplyBehavior b = Campaign.Current.GetCampaignBehavior<MySupplyBehavior>();
+        if (b != null) b.MarkReady();
+    }
+
+    protected override void OnNetworkTick(float dt) { }
+}
+```
+
+### 最容易踩的坑
+
+在 `OnSubModuleLoad` 里抛异常。`InitializeSubModuleBases` 的 catch 块会拼出一段可读的字符串（`Module.cs:198-207`，含模块名、DLL 名、异常类型与消息，并写进崩溃报告的 custom string，`:220`），然后执行 `throw new Exception()`（`Module.cs:221`）——**重新抛出的是一个没有任何 message、没有 inner exception 的空异常**，原始堆栈被彻底丢弃。后果是：崩溃对话框里只有引擎拼的那段文字，实际抛出的东西是个空壳；如果异常来自深层调用，你连是哪一行炸的都无从下手，而你明明在 `OnSubModuleLoad` 里写了对的代码。规矩是：`OnSubModuleLoad` 里只做不依赖游戏态的注册，绝不抛；真要报告问题就 `MBDebug.Print` 出来。
+
 ## 成员与调用时机
 
 **模块生命周期**

@@ -35,6 +35,65 @@ description: "主线专属事件总线：六个 IMbEvent 的静态门面，让 b
 
 **坑**：`RemoveListeners(object obj)` 清的是「以 obj 为 key 注册的非序列化监听」，不是全部监听。所以一个 behavior 被移除时，其它订阅者不受影响；但反过来说，如果你在一个将被复用的 behavior 实例上重复 `AddNonSerializedListener`，监听会累积。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeEvents : CampaignEventReceiver` 声明在 `bannerlord-1.5.3/StoryMode/StoryModeEvents.cs:7`，全文 149 行。它是**整个 StoryMode 的单一广播总线**，六个事件。
+
+实例怎么来：`StoryModeManager.Initialize()` 里的 `this.StoryModeEvents = new StoryModeEvents()`（`StoryModeManager.cs:84`），而 `Initialize` 被构造函数（`:70`）和 `[LoadInitializationCallback] OnLoad`（`:78`）各调一次。静态入口 `Instance`（`:11`）只是转发 `StoryModeManager.Current.StoryModeEvents`，`Current` 为 null 时返回 null（`:16`→`:18`）。
+
+订阅/退订的正规做法是把它当 `CampaignEventReceiver` 挂进战役：`StoryModeSubModule.InitializeGameStarter` 里 `campaignStoryMode.AddCampaignEventReceiver(StoryModeEvents.Instance)`（`StoryModeSubModule.cs:27`）。引擎因此在每次读档后调它的 `RegisterEvents()`。
+
+六个事件分成两种形状：
+
+| 事件 | 静态属性 | 带参触发 | 无参触发 |
+| --- | --- | --- | --- |
+| 选边 | `OnMainStoryLineSideChosenEvent` `:37` | `OnMainStoryLineSideChosen(MainStoryLineSide side)` `:46` | — |
+| 教学结束 | `OnStoryModeTutorialEndedEvent` `:53` | — | `OnStoryModeTutorialEnded()` `:62` |
+| 潜行教学激活 | `OnStealthTutorialActivatedEvent` `:69` | — | `OnStealthTutorialActivated()` `:78` |
+| 收集到旗片 | `OnBannerPieceCollectedEvent` `:85` | — | `OnBannerPieceCollected()` `:94` |
+| 阴谋激活 | `OnConspiracyActivatedEvent` `:101` | — | `OnConspiracyActivated()` `:110` |
+| 前往村庄教学开始 | `OnTravelToVillageTutorialQuestStartedEvent` `:117` | — | `OnTravelToVillageTutorialQuestStarted()` `:126` |
+
+底层字段都是 `private readonly MbEvent`，声明在 `:132`–`:147`；`RemoveListeners(object obj)`（`:25`）把六个逐个 `ClearListeners(obj)`（`:27`–`:32`），这是引擎在行为卸载时的标准清理路径。
+
+谁在触发：`SetStoryLineSide` 里 `StoryModeEvents.Instance.OnMainStoryLineSideChosen(this.MainStoryLineSide)`（`MainStoryLine.cs:144`）；`CompleteTutorialPhase` 里 `OnStoryModeTutorialEnded()`（`MainStoryLine.cs:166`）；`CompleteSecondPhase` 里 `OnConspiracyActivated()`（`MainStoryLine.cs:182`）。
+
+### 典型用法
+
+```csharp
+// mod 侧：在自己的 MBSubModuleBase.InitializeGameStarter 里挂同一个 receiver
+protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+{
+    CampaignStoryMode mode = game.GameType as CampaignStoryMode;
+    if (mode != null && StoryModeEvents.Instance != null)
+    {
+        mode.AddCampaignEventReceiver(StoryModeEvents.Instance);
+        StoryModeEvents.Instance.OnConspiracyActivatedEvent.AddNonSerializedListener(this, OnConspiracy);
+        StoryModeEvents.Instance.OnBannerPieceCollectedEvent.AddNonSerializedListener(this, OnBannerPicked);
+    }
+}
+
+// 监听方必须实现 RemoveListeners，因为引擎会调它做退订
+public override void RemoveListeners(object obj)
+{
+    StoryModeEvents.Instance.OnConspiracyActivatedEvent.RemoveListener(this, OnConspiracy);
+    StoryModeEvents.Instance.OnBannerPieceCollectedEvent.RemoveListener(this, OnBannerPicked);
+}
+
+private void OnConspiracy() => Debug.Print("阴谋激活，第二阶段刚被替换成第三阶段");
+private void OnBannerPicked() => Debug.Print("旗片 +1");
+
+// 带参的那个带的是 MainStoryLineSide，MainStoryLineSide.cs:9-17 共五个值
+StoryModeEvents.Instance.OnMainStoryLineSideChosenEvent.AddNonSerializedListener(this, OnSide);
+private void OnSide(MainStoryLineSide side) => Debug.Print("选边=" + side);
+```
+
+### 最容易踩的坑
+
+静态事件属性的 getter 每一行都在走 `StoryModeEvents.Instance`（`:41`、`:56`、`:72`、`:88`、`:104`、`:120`），而 `Instance` 走 `StoryModeManager.Current`。所以**在沙盒战役里写 `StoryModeEvents.OnConspiracyActivatedEvent.AddNonSerializedListener(...)` 会直接 NRE**，不是「订阅失败」。而在主线里还要小心另一头：静态属性每次都返回同一个底层 `MbEvent` 实例，跨读档保留订阅会指向已重建的事件总线。原生代码全在 `RegisterEvents` 里用 `AddNonSerializedListener` 正是为此——非序列化回调不会进存档，读档后由 `AddCampaignEventReceiver` 重新订阅一遍。
+
 ## 主要成员
 
 - `static StoryModeEvents Instance { get; }`：转发 `StoryModeManager.Current.StoryModeEvents`。非主线战役返回 null。

@@ -49,6 +49,33 @@ description: "意大利语的介词与冠词处理器：处理 di/in/un/a/su/l/d
 5. **`ProcessWordGroup` 只在性别标记分支里调用，且不检查空白边界**——与法语同款，不像俄语/波兰语有 `IndexOf(' ', cursorPos) == -1` 的门槛。所以「性别标记后有空格」的写法在意大利语下**仍会登记词组**。
 6. **`.l` 之外没有 `.il` / `.lo` / `.la` 的独立标记**——全靠性别标记决定。语言包里漏写性别标记时 `SetGenderInfo(text3)` 会用词组里恢复的默认值。
 
+## 怎么用
+
+### 怎么拿到它
+
+引擎只在切语言时造：`MBTextManager.ChangeLanguage("Italian")`（`MBTextManager.cs:37`）→ `LocalizedTextManager.CreateTextProcessorForLanguage` 用 `Type.GetType` 反射构造（`LocalizedTextManager.cs:61`、`:67`），类型名来自 `LanguageData` 配置，解析不到退回 `DefaultTextProcessor`（`:64-65`）。确认语言包挂对了没有，就调工厂打印 `GetType().Name`。
+
+手工用就 `new ItalianTextProcessor()` 加基类 `Process(text)`（`LanguageSpecificTextProcessor.cs:41`）。`CultureInfoForLanguage`（`ItalianTextProcessor.cs:366-372`）返回 `private static readonly CultureInfo = new CultureInfo("it-IT")`（`:1255`）。`ClearTemporaryData`（`:375-379`）清两份状态：`WordGroups`（`_wordGroups`，`:403`）和 `_curGender`（`:399`）。与德/波/俄不同，这两个字段带字段初始化器，所以不需要懒加载属性，直接就有值。
+
+### 典型用法
+
+```csharp
+// 1) 确认语言包挂载成功
+Debug.Print(LocalizedTextManager.CreateTextProcessorForLanguage("Italian").GetType().Name);
+
+// 2) 手工渲染：意大利语靠前置介词决定阴阳性
+var it = new ItalianTextProcessor();
+Debug.Print(it.Process("{.m}il {.f}la"));      // .m / .f 设定 _curGender
+
+// 3) 真正的通路
+MBTextManager.ChangeLanguage("Italian");
+Debug.Print(new TextObject("{=some_it_id}").ToString());
+```
+
+### 最容易踩的坑
+
+它的音系表是「意大利语专用」的，别把规则当成通用的。`Vowels` 只有五个（`private static char[] Vowels = new char[] { 'a', 'e', 'i', 'o', 'u' }`，`ItalianTextProcessor.cs:382`），`SpecialConsonantBeginnings` 只有一个 `s`（`:385`），而 `SpecialConsonants` 把 `"gn"`、`"ps"`、`"pn"` 当成单个音处理（`:388`）。后果是：同一条 `{.s}` 标记在英语下能命中 `Handle_ves_Suffix`/`Handle_ies_Suffix` 那一套换形（`EnglishTextProcessor.cs:53`、`:58`），在意大利语下走的是完全不同的一条分支；你拿英语验证通过的文本，切到意大利语后单复数形式可能既没被替换、也没报任何错。想跨语言验证，就得对每种语言各跑一遍 `Process`。
+
 ## 主要成员
 
 **覆写的抽象成员**

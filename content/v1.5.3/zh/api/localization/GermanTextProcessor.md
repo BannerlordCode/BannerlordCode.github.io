@@ -43,6 +43,33 @@ description: "德语的性/数/格变格处理器：区分强变化、弱变化�
 5. **`ProcessToken` 里的 `num2` 声明在 if 分支外**（`int num2;` 在 `WordGroups` 分支里赋值），C# 的 definite-assignment 让它只在 `IsWordGroup` 返回 true 时使用。这种写法在维护时容易看漏控制流。
 6. **规则表是硬编码的**，专有名词、缩写、外来词容易出错。
 
+## 怎么用
+
+### 怎么拿到它
+
+引擎只在切语言时造：`MBTextManager.ChangeLanguage("German")`（`MBTextManager.cs:37`）→ `LocalizedTextManager.CreateTextProcessorForLanguage` 用 `Type.GetType` 反射构造（`LocalizedTextManager.cs:61`、`:67`），类型名来自 `LanguageData` 配置，解析不到退回 `DefaultTextProcessor`（`:64-65`）。想确认语言包挂对了没有，就调工厂打印 `GetType().Name`。
+
+手工用就 `new GermanTextProcessor()` 加基类 `Process(text)`（`LanguageSpecificTextProcessor.cs:41`）。`CultureInfoForLanguage`（`GermanTextProcessor.cs:16-22`）返回 `private static readonly CultureInfo = new CultureInfo("de-DE")`（`:2049`），基类用它做 `{^}`/`{_}` 的单字符大小写转换。`ClearTemporaryData`（`:25-32`）清掉五份状态：`LinkList`、`WordGroups`、`WordGroupsNoTags`、`_curGender`、`_doesComeFromWordGroup`。
+
+### 典型用法
+
+```csharp
+// 1) 确认语言包挂载成功
+Debug.Print(LocalizedTextManager.CreateTextProcessorForLanguage("German").GetType().Name);
+
+// 2) 手工渲染：德语的变格依赖词组标记，{.n} 是名词
+var de = new GermanTextProcessor();
+Debug.Print(de.Process("{.n}Haus {.a}Haus"));
+
+// 3) 真正的通路
+MBTextManager.ChangeLanguage("German");
+Debug.Print(new TextObject("{=some_de_id}").ToString());
+```
+
+### 最容易踩的坑
+
+把它当成线程安全的。类里的五份可变状态**全部**带 `[ThreadStatic]`：`_curGender`（`:2053`）、`_wordGroups`（`:2058`）、`_wordGroupsNoTags`（`:2062`）、`_linkList`（`:2066`）、`_doesComeFromWordGroup`（`:2070`）。后果是：主线程渲染时累积的 `LinkList`（懒加载属性 `:92-102`）在工作线程上完全不可见——那个线程第一次访问时属性会新建一个空列表（`:96-99`）。如果你在后台线程预渲染德语文本并据此判断「这条文本有没有超链接」，结果与主线程渲染的结果不同，且不报错。要么全部在主线程渲染，要么明确接受这条链路只能拿到「无链接、无词组上下文」的结果。
+
 ## 主要成员
 
 **覆写的抽象成员**

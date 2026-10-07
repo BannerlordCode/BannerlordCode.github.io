@@ -42,6 +42,45 @@ MissionState.OpenNew(missionName, rec, handler, addDefaultMissionBehaviors, need
 3. **误以为任务期间战役 tick 还在跑**：任务压栈后，`MapState` 不再是活动状态，战役的每日/每小时 tick 停摆。任务里的时间推进靠 `MissionTimeTracker`，不靠 `CampaignTime`。
 4. **重复 `OpenNew`**：每次调用都创建一个新状态并压栈。若上一个任务没弹栈，栈会失衡。用 `PopState` / `ReplaceState` 而不是重复 push。
 
+## 怎么用
+
+### 怎么拿到它
+
+你**永远不 new 它**，而是静态入口 `public static Mission OpenNew(...)`（`MissionState.cs:320`）。它内部 `Game.Current.GameStateManager.CreateState<MissionState>()`（`:328`）拿到实例（这就是 mod 拿到 `MissionState` 的唯一途径），再调实例方法 `HandleOpenNew(missionName, rec, handler, addDefaultMissionBehaviors, needsMemoryCleanup)`（`:270`），最后 `PushState(missionState, 0)`（`:330`）。
+
+生命周期挂在 `GameState` 的四个回调上：
+- `OnInitialize`（`:46`）——`MissionState.Current = this`（`:49`）、`FirstMissionTickAfterLoading = true`（`:50`）、开全局 loading window（`:51`）。
+- `OnActivate` / `OnDeactivate`（`:64`/`:71`）——转发给 `CurrentMission.OnMissionStateActivate()`（`:67`）/ `OnMissionStateDeactivate()`（`:74`）。
+- `OnTick`（`:88`）——按 `CurrentMission.CurrentState` 分流：还在 `NewlyCreated`/`Initializing` 就 `TickLoading`（`:99-105`），进入 `Continuing` 或已 `MissionEnded` 才跑正式 tick（`:107`）。
+- `OnFinalize`（`:55`）——`CurrentMission.OnMissionStateFinalize(CurrentMission.NeedsMemoryCleanup)`（`:58`）后把 `CurrentMission` 和 `MissionState.Current` 都置 null（`:59-60`）。**`CurrentMission` 在 `OnFinalize` 之后就不可用了**，任何持有它的静态引用都会变成 null。
+
+运行期读当前任务：`MissionState.Current`（`:23`）→ `.CurrentMission`（`:28`）；名字在 `MissionName`（`:33`），暂停标志 `Paused` 是可写的（`:43`），`Handler`（`:18`）是 `IMissionSystemHandler` 的注入点（`:285-290`）。
+
+### 典型用法
+
+```csharp
+// 1) 开任务：handler 返回你的 behavior 集合，其余交给引擎
+Mission mission = MissionState.OpenNew(
+    "mymod_duel",
+    new MissionInitializerRecord("mymod_map", "day", "mymod_ground"),
+    m => new MissionBehavior[] { new MyDuelLogic() });
+
+// 2) 任务运行中读状态
+MissionState state = MissionState.Current;          // 可能为 null —— 不在任务里时
+if (state != null && !state.Paused)
+    Debug.Print(state.MissionName + " / ended=" + state.CurrentMission.MissionEnded);
+
+// 3) 结束任务
+state.CurrentMission.EndMission();
+
+// 4) 延迟断开（联机大厅流程）
+MissionState.Current.BeginDelayedDisconnectFromMission();   // :383
+```
+
+### 最容易踩的坑
+
+把 `MissionState.CurrentMission` 缓存进静态字段再用。`OnFinalize` 会把它置成 `null`（`MissionState.cs:59`）并同时把 `MissionState.Current` 置 null（`:60`），而这两步之前才刚跑完 `CurrentMission.OnMissionStateFinalize(...)`（`:58`）——那一刻任务内部的 behavior、agent、场景都已经释放完了。后果是：你在 A 任务里缓存的 `CurrentMission`，等玩家进入 B 任务时非 null 但早已 finalize（`Mission.Current` 被置空、原生资源 `ClearUnreferencedResources` 已执行，`Mission.cs:1143`），后续调用会踩到已释放的状态，表现是随机崩溃而不是干净的 null 引用。每次用都重新读 `MissionState.Current?.CurrentMission`。
+
 ## 成员与调用时机
 
 - `static MissionState Current`：当前活动状态，任务外为 null。

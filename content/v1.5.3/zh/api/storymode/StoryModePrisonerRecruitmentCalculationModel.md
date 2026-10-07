@@ -35,6 +35,51 @@ description: "俘虏招募模型：教学阶段未完成时，主力军队伍里
 - **AI 队伍完全不受影响。** 若你的 mod 用 AI 队伍做类似平衡实验，别参考本模型的行为。
 - **`withoutItemCost` 之类的可选参数不在这里**，参数列表固定三个，签名被源码锁死。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModePrisonerRecruitmentCalculationModel : PrisonerRecruitmentCalculationModel` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/StoryModePrisonerRecruitmentCalculationModel.cs:9`，全文 51 行，六个 override，**五个纯透传**。
+
+注册点：`campaignGameStarter.AddModel<PrisonerRecruitmentCalculationModel>(new StoryModePrisonerRecruitmentCalculationModel())`（`StoryModeSubModule.cs:104`），只在主线战役生效（`StoryModeSubModule.cs:23`→`:24`）。读用 `Campaign.Current.Models.PrisonerRecruitmentCalculationModel`。
+
+纯透传：`CalculateRecruitableNumber(PartyBase party, CharacterObject character)`（`:12`）、`GetConformityNeededToRecruitPrisoner(CharacterObject character)`（`:28`）、`GetPrisonerRecruitmentMoraleEffect(PartyBase party, CharacterObject character, int num)`（`:34`）、`IsPrisonerRecruitable(PartyBase party, CharacterObject character, out int conformityNeeded)`（`:40`）、`ShouldPartyRecruitPrisoners(PartyBase party)`（`:46`）。
+
+唯一带逻辑的是 `GetConformityChangePerHour(PartyBase party, CharacterObject character)`（`:18`）：`party == PartyBase.MainParty && !StoryModeManager.Current.MainStoryLine.TutorialPhase.IsCompleted` 时 `return new ExplainedNumber(0f, false, null)`（`:20`→`:22`），否则透传（`:24`）。
+
+这里有两个要点：
+
+1. 判的是 **`PartyBase.MainParty` 引用相等**，不是 `MobileParty.MainParty`——只保护玩家自己。
+2. `IsPrisonerRecruitable`（`:40`）是**透传的**，没有同样判断。教学期玩家的俘虏仍然「可招募」，只是每小时顺从度增量为 0，导致永远达不到门槛。这是有意的：AI 队伍和教学引导照常，只是玩家被卡住。
+
+### 典型用法
+
+```csharp
+// 运行期读
+PrisonerRecruitmentCalculationModel recruit =
+    Campaign.Current.Models.PrisonerRecruitmentCalculationModel;
+
+CharacterObject prisoner = MBObjectManager.Instance.GetObject<CharacterObject>("empire_recruited");
+PartyBase main = PartyBase.MainParty;
+
+// 复现原生：教学期玩家队伍每小时顺从度增量 0
+ExplainedNumber perHour = recruit.GetConformityChangePerHour(main, prisoner);
+Debug.Print("每小时顺从度=" + perHour.Result);
+
+// 「可招募」仍返回 true，但达标门槛永远到不了
+int needed;
+Debug.Print("可招募=" + recruit.IsPrisonerRecruitable(main, prisoner, out needed)
+          + "，需要顺从度=" + needed);
+
+// AI 队伍完全不受影响：party != PartyBase.MainParty 走透传
+MobileParty ai = MobileParty.CreateParty(PartyTemplateManager.DefaultMilitiaPartyTemplate);
+Debug.Print("AI 队伍每小时=" + recruit.GetConformityChangePerHour(ai.Party, prisoner).Result);
+```
+
+### 最容易踩的坑
+
+它只把**每小时增量**归零，没有碰 `IsPrisonerRecruitable`（`:40`）。结果是教学期玩家的俘虏管理界面上「可招募」按钮照常亮着、所需顺从度数字照常显示，但顺从度永远停在 0 不动——玩家点下去才发现永远不够。这不是 bug 是设计，但如果你写 mod 让教学期也能正常招募，光覆写这个模型不够，必须同时覆写 `IsPrisonerRecruitable` 和 `GetConformityChangePerHour` 两个方法。
+
 ## 主要成员
 
 - `GetConformityChangePerHour(PartyBase party, CharacterObject character)`

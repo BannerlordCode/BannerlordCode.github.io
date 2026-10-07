@@ -38,6 +38,45 @@ if (Settlement.CurrentSettlement != null && Settlement.CurrentSettlement.IsTrain
 3. **`SettlementComponent` 只有一个槽位**。一个聚落只能挂一种组件。别的模组给 `tutorial_training_field` 挂了不同类型的组件，`IsTrainingField()` 立刻变 false——**这两个方法互相干扰**，且没有报错。
 4. **命名空间容易搞混**：`StoryMode.Extensions` 里有一个类就叫 `Extensions`。写 `using StoryMode.Extensions;` 之后，文件里所有扩展方法都可见，可能与别的扩展撞名。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public static class Extensions` 声明在 `bannerlord-1.5.3/StoryMode/Extensions/Extensions.cs:7`，全文 22 行，只有两个方法。静态类无实例，**你不用「拿到」它**：`using StoryMode.Extensions;` 把扩展方法引进来，在任意 `Settlement` 上直接点出来就行。两个方法本体都在 `Settlement.SettlementComponent` 上开一刀——`IsTrainingField` 是 `settlement.SettlementComponent is TrainingField`（`Extensions.cs:10`→`:12`），`TrainingField` 是 `as TrainingField`（`:16`→`:18`）。
+
+被切的 `TrainingField` 类型在 `bannerlord-1.5.3/StoryMode/TrainingField.cs:11` 声明，继承 `SettlementComponent`，XML 侧可读三个属性：`background_crop_position`（`:29`）、`background_mesh`（`:33`）、`wait_mesh`（`:37`），覆写 `Deserialize` 读进 `SettlementComponent` 基类字段。
+
+它能被识别是因为 `CampaignStoryMode.BeforeRegisterTypes` 把这个类型注册进了对象系统：`objectManager.RegisterType<TrainingField>("TrainingField", "TrainingFields", 1U, true, false)`（`CampaignStoryMode.cs:33`）。**这就是唯一的落地点**——没有注册，`SettlementComponent` 的 XML 反序列化产不出 `TrainingField` 实例，两个扩展方法就永远返回 false/null。
+
+判定之后真正的消费方是遭遇菜单：[StoryModeEncounterGameMenuModel](../StoryModeEncounterGameMenuModel) 命中练武场时返回 `"training_field_menu"` 并把 `startBattle`、`joinBattle` 都置 false。
+
+### 典型用法
+
+```csharp
+using StoryMode.Extensions;
+using TaleWorlds.CampaignSystem.Settlements;
+
+// 遍历所有聚落筛出练武场：先判类型再取，避免二次 as
+foreach (Settlement s in Settlement.All)
+{
+    if (!s.IsTrainingField()) continue;          // Extensions.cs:10
+    TrainingField field = s.TrainingField();     // Extensions.cs:16，此时必定非 null
+    Debug.Print("练武场：" + s.StringId + " 背景网格=" + field.BackgroundMeshName);
+}
+
+// 按 id 直接取：tutorial_training_field 是 CampaignStoryMode 里写死的那座
+Settlement training = Settlement.Find("tutorial_training_field");
+if (training != null && training.IsTrainingField())
+{
+    // 只有确认是 TrainingField 才敢解引用
+    Debug.Print("墙等级=" + training.Town.GetWallLevel());
+}
+```
+
+### 最容易踩的坑
+
+`IsTrainingField()` 与 `TrainingField()` 是两次独立的 `SettlementComponent` 读取，中间没有任何东西保证聚落状态不变。在菜单回调或场景切换这类会重建聚落数据的位置，先 `IsTrainingField()` 再 `TrainingField()`，第二次可能已经是 null——紧接着解引用就崩。**连续两次调用请合成一次**：`if (settlement.TrainingField() is TrainingField field)`，`as` 同时完成了判空和取值，行为等价但只有一次读取。
+
 ## 主要成员
 
 - `public static bool IsTrainingField(this Settlement settlement)`：**恒不判空 `settlement`**——传 null 会在 `.SettlementComponent` 处 NRE。内部是 `settlement.SettlementComponent is TrainingField`。

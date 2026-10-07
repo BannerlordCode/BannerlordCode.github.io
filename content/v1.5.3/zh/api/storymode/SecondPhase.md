@@ -49,6 +49,53 @@ CreateConspiracyClan()                → 新建氏族 + 对敌对王国宣战
 5. **`CreateConspiracyClan` 硬编码了阵营分支**：按 `IsOnImperialQuestLine` 决定氏族叫 Valdros 还是 Zarvethi、文化取 battania 还是 empire、旗色与图案字串不同。它同时对**所有**敌对王国宣战，没有上限。
 6. **任务类型不允许连续重复**：`_conspiracyQuestTypes.GetRandomElementWithPredicate<Type>(t => t != _lastConspiracyQuest.GetType())`。只有三种类型，所以两次不会撞同一个。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class SecondPhase` 声明在 `bannerlord-1.5.3/StoryMode/StoryModePhases/SecondPhase.cs:20`，全文 234 行。构造函数 `public SecondPhase()`（`:95`）是 public，但**唯一的调用者是 `MainStoryLine.CompleteFirstPhase()` 里的 `this.SecondPhase = new SecondPhase();`（`MainStoryLine.cs:174`）**——第一阶段一完成它就被 new 出来。读取走静态 `Instance`（`:68`→`:72`），第一阶段未完成时为 null。
+
+构造函数一口气做完四件事（`:96`→`:104`）：设初值（`LastConspiracyQuestCreationTime = CampaignTime.Never`、`ConspiracyStrength = 1000f`、`_stopConspiracyAttempts = 0`、`_lastConspiracyQuest = null`）、`InitializeConspiracyQuestTypes()`（`:101`，实现在 `:114`，硬编码三个任务类型 `DestroyRaidersConspiracyQuest` / `ConspiracyBaseOfOperationsDiscoveredConspiracyQuest` / `DisruptSupplyLinesConspiracyQuest`，`:118`→`:120`）、`SetTransferableOfConspiracyTroops()`（`:102`，实现在 `:125`）、`CreateConspiracyClan()`（`:103`，实现在 `:189`）。
+
+**`OnSessionLaunched()`（`:107`）会在每次会话启动时把前两件事重做一遍**（`:109`→`:110`），但**不重做 `CreateConspiracyClan`**——阴谋氏族只在构造那一刻创建一次。`MainStoryLine.OnSessionLaunched` 只设 `DragonBanner`（`MainStoryLine.cs:122`→`:124`），所以 `SecondPhase.OnSessionLaunched` 是**从外部单独调用**的，不是自动的。
+
+存档四项：`[SaveableProperty(1)] LastConspiracyQuestCreationTime`（`:79`）、`[SaveableProperty(5)] ConspiracyStrength`（`:85`）、`[SaveableProperty(6)] ConspiracyClan`（`:91`）、`[SaveableField(3)] _stopConspiracyAttempts`（`:224`）、`[SaveableField(4)] _lastConspiracyQuest`（`:228`）。**`_conspiracyQuestTypes`（`:232`）不存档**，所以读档后必须靠 `OnSessionLaunched` 重建。
+
+`CreateNextConspiracyQuest()`（`:174`）是整个第二阶段的引擎：随机选类型（首次随机，之后用 `GetRandomElementWithPredicate<Type>(t => t != _lastConspiracyQuest.GetType())` 避免连续重复，`:176`），`_stopConspiracyAttempts++`（`:177`），拼参数数组 `["conspiracy_quest_" + 次数, 导师Hero]`（`:178`→`:182`），然后 `Activator.CreateInstance(type, array)`（`:183`）——**任务 id 是运行时拼的**——`StartQuest()`（`:184`），最后 `TriggerConspiracy()`（`:185`）。
+
+`IncreaseConspiracyStrength()`（`:148`）加 `2.777777f`（`:150`，与常量 `DailyConspiracyChange` 同值，`:218`），封顶 2000（`:151`→`:153`），**并且封顶后每次调用都会再调 `ActivateConspiracy()`**（`:155`→`:157`）。
+
+### 典型用法
+
+```csharp
+// 标准读法：第一阶段未完成则 null
+SecondPhase second = StoryModeManager.Current.MainStoryLine.SecondPhase;
+if (second == null)
+{
+    Debug.Print("第二阶段未开始（第一阶段未完成）");
+    return;
+}
+
+Debug.Print("阴谋强度=" + second.ConspiracyStrength + "/" + SecondPhase.MaxConspiracyStrength);
+Debug.Print("阴谋氏族=" + second.ConspiracyClan.Name + "，文化=" + second.ConspiracyClan.Culture.StringId);
+Debug.Print("上次出任务=" + second.LastConspiracyQuestCreationTime);
+
+// 推进：交给 CreateNextConspiracyQuest，别自己 new 任务
+// 它会反射造任务 + StartQuest + TriggerConspiracy，并发事件
+second.CreateNextConspiracyQuest();
+
+// 会话启动时的必要重建（_conspiracyQuestTypes 不存档）
+second.OnSessionLaunched();
+
+// 读任务列表：三类只有三种，且不会连续重复
+Debug.Print("当前阴谋任务=" + Campaign.Current.QuestManager
+    .Quests.Count(q => q.SpecialQuestType == "MainStoryline"));
+```
+
+### 最容易踩的坑
+
+`CreateNextConspiracyQuest` 用 `Activator.CreateInstance(type, array)`（`:183`）反射构造，参数固定是 `(string questId, Hero questGiver)`。**三个任务类的构造函数签名必须一字不差**，否则 `MissingMethodException` 在运行时才抛——而且这个调用发生在 `SecondPhaseCampaignBehavior` 的触发流程里，玩家看到的是任务没出现而不是报错。反过来，你若新增第四种阴谋任务类型，只改 `InitializeConspiracyQuestTypes`（`:114`）不够，还要保证它的构造函数能吃这两个参数。
+
 ## 主要成员
 
 - `static SecondPhase Instance { get; }`：转发 `StoryModeManager.Current.MainStoryLine.SecondPhase`。**第一阶段未完成时为 null**。

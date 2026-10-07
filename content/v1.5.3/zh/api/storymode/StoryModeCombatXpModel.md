@@ -29,6 +29,51 @@ description: "战斗经验结算模型：命中一次给多少经验、武器对
 - **别在训练场用 `GetXpFromHit` 做其它用途。** 返回的是全零 `ExplainedNumber`，基于经验值的解锁/成就触发会全部失灵。
 - **`MissionTypeEnum missionType` 参数在 StoryMode 层不被使用。** 它只在透传基类时起作用。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeCombatXpModel : CombatXpModel` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/StoryModeCombatXpModel.cs:12`，全文 46 行，四个 override。
+
+注册点：`campaignGameStarter.AddModel<CombatXpModel>(new StoryModeCombatXpModel())`（`StoryModeSubModule.cs:97`），只在主线战役生效（`StoryModeSubModule.cs:23`→`:24`）。读用 `Campaign.Current.Models.CombatXpModel`。
+
+唯一带判断的是 `GetXpFromHit(CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop, PartyBase attackerParty, int damage, bool isFatal, CombatXpModel.MissionTypeEnum missionType)`（`:31`）：`Settlement.CurrentSettlement != null && Settlement.CurrentSettlement.IsTrainingField()` 成立时直接 `return new ExplainedNumber(0f, false, null)`（`:33`→`:35`）——**第三个参数是 null，意味着经验值没有任何来源说明，UI 上不会显示条目**。不成立则 `base.BaseModel.GetXpFromHit(...)`（`:37`）。
+
+判定用的是 `StoryMode.Extensions` 里的 `Settlement.IsTrainingField()` 扩展（`Extensions.cs:10`），也就是 `SettlementComponent is TrainingField`。
+
+纯透传的三个：`CaptainRadius`（`:16`）、`GetSkillForWeapon(WeaponComponentData weapon, bool isSiegeEngineHit)`（`:25`）、`GetXpMultiplierFromShotDifficulty(float shotDifficulty)`（`:41`）。
+
+### 典型用法
+
+```csharp
+// 运行期读：这就是战斗结算实际问的那个模型
+CombatXpModel xpModel = Campaign.Current.Models.CombatXpModel;
+
+// 复现原生判断：在练武场里打人不给经验
+bool inTrainingField = Settlement.CurrentSettlement != null
+                       && Settlement.CurrentSettlement.SettlementComponent is TrainingField;
+if (inTrainingField)
+{
+    ExplainedNumber zero = new ExplainedNumber(0f, false, null);
+    Debug.Print("练武场经验归零，说明为空：" + (zero.GetTooltip() == null));
+}
+
+// 正常战斗：透传回 SandBox 计算
+ExplainedNumber gain = xpModel.GetXpFromHit(
+    Hero.MainHero.CharacterObject,          // attackerTroop
+    Hero.MainHero.CharacterObject,          // captain
+    Hero.MainHero.CharacterObject,          // attackedTroop（实战传入被击者的 CharacterObject）
+    Hero.MainHero.Party.Party,              // attackerParty
+    40,                                     // damage
+    false,                                  // isFatal
+    CombatXpModel.MissionTypeEnum.MeleeCombat);
+Debug.Print(gain.Result);
+```
+
+### 最容易踩的坑
+
+它判的是 `Settlement.CurrentSettlement`（当前所在聚落），**不是战斗发生的地点**。藏身处战斗、村庄遭遇战里 `Settlement.CurrentSettlement` 可能正好是 `tutorial_training_field`（玩家站在那儿点"接战"），于是这次藏身处战斗的战斗经验被整个归零——而条件里的 `!= null` 判空只挡住了「不在聚落里」，挡不住「在练武场聚落里但实际在打藏身处」。反过来，在野外打劫完全不给压制的经验。想改地点判定就得重写这个 override，用 `Mission.Current` 的场景类型换掉 `Settlement.CurrentSettlement`。
+
 ## 主要成员
 
 - `GetXpFromHit(CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop, PartyBase attackerParty, int damage, bool isFatal, CombatXpModel.MissionTypeEnum missionType)`

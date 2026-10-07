@@ -20,6 +20,43 @@ description: "开局村庄教学任务：让玩家在当前村庄招满 4 名士
 
 坑有两个，都很小但很致命。第一，构造期用 `Settlement.CurrentSettlement` 作为招募地点，而**构造发生时玩家正在和村长对话**，此时 `Settlement.CurrentSettlement` 恰好就是新手村庄，所以"碰巧"是对的；但读档分支里写死成 `Settlement.Find("village_ES3_2")`。也就是说这个任务被硬绑死在开局村庄上，mod 换地图或换村庄一定出错。第二，读档分支同样必须成对调用 `AddTaskBehaviorsOnGameLoad` + `InitializeTaskOnLoad`，而 `InitializeTaskOnLoad` 第三个参数（settlement）在这次调用里显式传了硬编码字符串——这正是为了让 `_recruitSettlement` 非空，避免玩家在野外招募被误判为有效。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class RecruitTroopsTutorialQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/TutorialPhase/RecruitTroopsTutorialQuest.cs:12`，全文 100 行——**很短，因为活都在子任务里**。
+
+构造函数 `RecruitTroopsTutorialQuest(Hero questGiver)`（约 `:35`），基类 `: base("recruit_troops_tutorial_quest", questGiver, CampaignTime.Never)`（`:36`）。**注意与教学链上其他任务不同——这里 `questGiver` 是真的传进去的**（不是 null），因为它由 [TalkToTheHeadmanTutorialQuest](../TalkToTheHeadmanTutorialQuest) 用村长 `Hero` 创建（`TalkToTheHeadmanTutorialQuest.cs:136`）。存档 id 692001（`SaveableStoryModeTypeDefiner.cs:47`）。
+
+**它真正的逻辑是一个子任务**：`private readonly RecruitTroopTutorialQuestTask _recruitTroopTutorialQuestTask`（`[SaveableField(1)]`，`:96`→`:97`），在构造函数里造好并 `AddTask(...)`。数量来自 `public const int RecruitTroopAmount = 4;`（`:93`）。
+
+三个委托把子任务接回任务：`DoesRecruitedTroopSatifyRecruitTroopTask(CharacterObject troop)`（`:62`）是传给子任务的筛选谓词、`RecruitTaskOnSuccess()`（`:68`）是 `onSucceed` 回调、`HourlyTick()`（`:57`）驱动检查。
+
+`InitializeQuestOnGameLoad()`（`:49`）负责读档后把目标数量与谓词重新注入子任务——因为 [RecruitTroopTutorialQuestTask](../RecruitTroopTutorialQuestTask) 的 `_targetRecruitAmount` 和 `_recruitTypeConditions` **都不进存档**。
+
+### 典型用法
+
+```csharp
+// 1) 正常由 TalkToTheHeadmanTutorialQuest 的对话后果创建
+Hero headman = StoryModeManager.Current.MainStoryLine.TutorialPhase.TutorialVillageHeadman;
+RecruitTroopsTutorialQuest q = new RecruitTroopsTutorialQuest(headman);
+q.StartQuest();      // 教程日志里的「招募 4 人」进度条随 AddTask 出现
+
+// 2) 目标数量是公开常量
+Debug.Print("目标=" + RecruitTroopsTutorialQuest.RecruitTroopAmount);
+
+// 3) 筛选谓词（源码 :62 的语义）：只认教学占位志愿兵
+Debug.Print("只统计 " + TutorialPhase.TutorialVolunteerStringId);   // tutorial_placeholder_volunteer
+
+// 4) 读任务
+QuestBase b = Campaign.Current.QuestManager.GetQuest<RecruitTroopsTutorialQuest>();
+Debug.Print("id=" + b.QuestId + "，存档 id=692001，发布者=" + b.QuestGiver?.Name);
+```
+
+### 最容易踩的坑
+
+`questGiver` 是**村长本人**，而他读自 `TutorialPhase.TutorialVillageHeadman`——那个属性带 `[CachedData]`（`TutorialPhase.cs:143`）且是 `public ... { get; set; }`，**是会话内缓存、不进存档**。读档后到它被重新填充之前可能是 null，于是 `new RecruitTroopsTutorialQuest(null)` 造出的任务发布者为 null，任何按 `QuestGiver` 取英雄的代码在这条任务上 NRE——而 [TravelToVillageTutorialQuest](../TravelToVillageTutorialQuest) 那种 `questGiver` 恒为 null 的任务反而不容易踩到。
+
 ## 主要成员
 
 - `RecruitTroopsTutorialQuest(Hero questGiver)`：构造入口，`questGiver` 传给基类作为任务发布者（只影响任务列表显示和 `DiscussDialogFlow` 的默认条件）。建一条 0→4 的离散日志，再造 `RecruitTroopTutorialQuestTask` 并 `AddTask`。

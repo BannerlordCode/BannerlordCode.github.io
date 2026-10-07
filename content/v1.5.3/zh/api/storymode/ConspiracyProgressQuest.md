@@ -22,6 +22,76 @@ description: "第二阶段常驻任务：每天累积阴谋强度并刷新任务
 
 坑：`Title` 里的变量名很容易读反——`_isImperialSide` 为真（即玩家在帝国任务线上）时标题填的是 `ANTIIMPERIAL_MENTOR`，文案是"XXX 的阴谋"。这是**语义正确**的：玩家在帝国线上时，正在对付的阴谋属于反帝国导师。另一处坑：`OnClanChangedKingdom` 只在 `oldKingdom == PlayerSupportedKingdom` 时取消——玩家中途加入另一个王国是允许的，只有主动离开支持对象才算反悔。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class ConspiracyProgressQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/SecondPhase/ConspiracyProgressQuest.cs:15`，全文 177 行。
+
+**它不是阴谋任务，是「阴谋强度进度条」任务。** 三个判据：
+
+- 类型名带 `Behavior` 的误导：`QuestId` 硬编码为 `"conspiracy_quest_campaign_behavior"`（`:73`）——这是从行为类名字抄来的，**与实际功能无关**。
+- 构造函数**无参**：`public ConspiracyProgressQuest()`（约 `:72`），基类调用 `: base("conspiracy_quest_campaign_behavior", null, CampaignTime.Never)`（`:73`）——**`questGiver` 传 null、时限 `Never`**。
+- 核心副作用在构造函数的第二句：`SecondPhase.Instance.TriggerConspiracy();`（`:75`）——**new 出来就会广播「阴谋开始」**并把 `LastConspiracyQuestCreationTime` 置为 `CampaignTime.Now`（`SecondPhase.cs:140`）。
+
+**谁创建它**：[SecondPhaseCampaignBehavior](../SecondPhaseCampaignBehavior) 的 `DailyTick()`（`:67`）在某个计数条件下 `new ConspiracyProgressQuest().StartQuest();`（`:74`）。
+
+`OnStartQuest()`（`:108`）建那条离散进度日志：
+
+```csharp
+base.AddDiscreteLog(this._startQuestLogText,
+    new TextObject("{=1LrHV647}Conspiracy Strength", null),
+    (int)SecondPhase.Instance.ConspiracyStrength,   // 初值
+    2000,                                           // 目标（硬编码）
+    null, false);
+```
+
+**目标值 2000 是字面量**，与 `SecondPhase.MaxConspiracyStrength = 2000`（`SecondPhase.cs:217`）是两处独立的数字。
+
+`DailyTick()`（`:132`）是引擎本体：`SecondPhase.Instance.IncreaseConspiracyStrength();`（`:134`）然后 `_startQuestLog.UpdateCurrentProgress((int)ConspiracyStrength)`（`:135`）——**每天涨 `2.777777f`，涨到 2000 就封顶并 `ActivateConspiracy()`**（`SecondPhase.cs:150`→`:157`）。
+
+`RegisterEvents()`（`:90`）挂三条：`CampaignEvents.OnQuestCompletedEvent`（`:92`）、`StoryModeEvents.OnConspiracyActivatedEvent`（`:93`）、`CampaignEvents.OnClanChangedKingdomEvent`（`:94`）。
+
+`OnConspiracyActivated()`（`:148`）最短：`base.CompleteQuestWithTimeOut(null);`（`:150`）——**阴谋激活 = 这个进度条超时结束**。
+
+`OnFinalize()`（`:119`）是整个第二阶段的收尾器：遍历 `QuestManager.Quests.ToList<QuestBase>()`（`:121`），对每个满足 `typeof(ConspiracyQuestBase) == questBase.GetType().BaseType && questBase.IsOngoing` 的任务调 `CompleteQuestWithCancel(new TextObject("{=YJxCbbpd}Conspiracy is activated!", null))`（`:123`→`:125`）。
+
+存档只有 `_startQuestLog`（`[SaveableField(2)]`，`:173`→`:174`）。
+
+### 典型用法
+
+```csharp
+// 1) 正常由行为创建；手动 new 也会触发 TriggerConspiracy()
+ConspiracyProgressQuest q = new ConspiracyProgressQuest();
+q.StartQuest();
+
+// 2) 强度进度（注意进度条目标是硬编码 2000）
+SecondPhase second = StoryModeManager.Current.MainStoryLine.SecondPhase;
+if (second != null)
+{
+    Debug.Print("Conspiracy Strength " + (int)second.ConspiracyStrength + " / " + SecondPhase.MaxConspiracyStrength);
+    Debug.Print("日增=" + SecondPhase.DailyConspiracyChange);
+}
+
+// 3) 确认哪些阴谋任务会被 OnFinalize 取消
+foreach (QuestBase quest in Campaign.Current.QuestManager.Quests.ToList<QuestBase>())
+{
+    if (typeof(ConspiracyQuestBase) == quest.GetType().BaseType && quest.IsOngoing)
+    {
+        Debug.Print("将被取消：" + quest.QuestId);
+    }
+}
+
+// 4) 读任务
+QuestBase pq = Campaign.Current.QuestManager.GetQuest<ConspiracyProgressQuest>();
+Debug.Print("id=" + pq.QuestId + "，发布者=" + (pq.QuestGiver?.Name.ToString() ?? "null")
+          + "，剩余时间=" + pq.RemainingTime);
+```
+
+### 最容易踩的坑
+
+`ConspiracyProgressQuest` 的 `QuestId` 是 `"conspiracy_quest_campaign_behavior"`（`:73`），**而三个真正的阴谋任务用的是 `"conspiracy_quest_" + 次数`**（`SecondPhase.cs:180`）。两者只差中段，但如果你按 `QuestId.StartsWith("conspiracy_quest_")` 写匹配，进度条任务**也会被算进去**——然后你在遍历时把它当成一条需要完成的阴谋任务去处理。要区分就比类型：`ConspiracyProgressQuest` 是 `StoryModeQuestBase` 子类，三个阴谋任务是 `ConspiracyQuestBase` 子类，继承链不同。
+
 ## 主要成员
 
 - `ConspiracyProgressQuest()`：无参构造，任务 ID 是 `conspiracy_quest_campaign_behavior`（沿用了行为类的命名，别被误导），核心副作用是 `SecondPhase.Instance.TriggerConspiracy()`。

@@ -29,6 +29,44 @@ description: "保存阶段的上下文：遍历带 SaveableField/SaveablePropert
 3. **看到 `FailedAssert` 就以为存档失败**：它是**警告路径**，收集满 4 条才停。通常意味着某个字段类型没注册——去跑 `SaveManager.CheckSaveableTypes()`。
 4. **`RootObject` 与 `SaveData` 只在保存期间有效**：保存结束后 `SaveData` 被交给驱动写盘，此后不该再读。
 
+## 怎么用
+
+### 怎么拿到它
+
+你从不自己 new：全代码库唯一构造点是 `SaveManager.Save` 里那一句 `new SaveContext(SaveManager._definitionContext)`（`SaveManager.cs:90`），紧接着就 `saveContext.Save(target, metaData, out text2)`（`SaveManager.cs:92`），成功后把 `saveContext.SaveData` 交给 driver（`:96`）。所以它的生命周期只有一次存档那么长。
+
+内部流水线在 `Save(object target, MetaData metaData, out string errorMessage)`（`SaveContext.cs:298`）里，顺序固定：记 `RootObject = target`（`:309`）→ `CollectObjects()`（`:312`）→ 分配对象/容器数组（`:313-314`）→ `CollectSaveDatas()`（`:317`）→ `WriteObjects()` / `WriteContainers()`（`:318-319`）→ `WriteHeaders` + `WriteAllStrings`（`:320-321`）→ `SaveData = new GameData(array3, array4, array, array2)`（`:322`）。
+
+构造函数就预分配了五个各 131072 容量的集合（`:64-69`）——这是 mod 加字段时最直接的内存开销来源。`CollectSaveDatas()` 会用 `TWParallel.ForWithoutRenderThread(..., 16)` 并行遍历对象与容器（`:85-91`、`:105-111`），所以它内部**会看到非主线程**。
+
+### 典型用法
+
+```csharp
+// 1) 正常路径：由 SaveManager 驱动，mod 只需要能回答「我这份数据有多脏」
+var ctx = new SaveContext(new DefinitionContext());
+string error;
+bool ok = ctx.Save(myRootObject, metaData, out error);
+if (ok)
+{
+    GameData data = ctx.SaveData;      // SaveContext.cs:22
+    Debug.Print("objects=" + data.ObjectData.Length + " containers=" + data.ContainerData.Length);
+}
+
+// 2) 写侧只写，读侧不写：用 IDataStore.IsSaving/IsLoading 分支（IDataStore.cs:13/17）
+if (dataStore.IsSaving) counter = 0;
+dataStore.SyncData("mymod_counter", ref counter);      // 唯一签名：IDataStore.cs:9
+
+// 3) 确认这份 GameData 写得对不对
+Debug.Print("total=" + data.TotalSize + " equalToSelf=" + data.IsEqualTo(data));
+
+// 4) 性能统计默认关闭
+Debug.Print(SaveContext.EnableSaveStatistics);   // SaveContext.cs:52-58 硬编码返回 false
+```
+
+### 最容易踩的坑
+
+在存档过程中调用 `ReportSaveIntegrityDrift` 指望它抛异常。实现只做了两件事：`Debug.Print` 一行，然后在 `lock` 里把消息存进列表、**但只保留前 4 条**（`SaveContext.cs:31-33`），最后调 `Debug.FailedAssert`（`:36`）——正式构建里不抛。后果是你在 debug 构建里靠断言发现「旧存档缺字段」，发布后那条提示就彻底消失，第 5 条之后的消息连记录都没有。想让自己也知道存档里有哪些字段读不回来，就自己在 `SyncData` 里往 `dataStore` 之外的地方写一行日志，别依赖这个计数器。
+
 ## 成员与调用时机
 
 - `SaveContext(DefinitionContext definitionContext)`：绑定类型定义。由 `SaveManager.Save` 调用。

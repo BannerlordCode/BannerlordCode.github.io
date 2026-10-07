@@ -32,6 +32,45 @@ description: "过场动画选择模型：玩家支持的王国覆灭时改播主
 - **这个模型不管王国覆灭本身是否发生。** 它只是过场动画的选择器；「哪些王国允许被消灭」由 [StoryModeKingdomDecisionPermissionModel](../StoryModeKingdomDecisionPermissionModel) 和 [ThirdPhaseCampaignBehavior](../ThirdPhaseCampaignBehavior) 决定。
 - **别指望改它能改台词。** 它只决定播哪一个 `SceneNotificationData` 实例；文本内容在游戏文本表里。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeCutsceneSelectionModel : CutsceneSelectionModel` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/StoryModeCutsceneSelectionModel.cs:10`，全文 22 行，**全文只有一个 override**。
+
+注册点：`campaignGameStarter.AddModel<CutsceneSelectionModel>(new StoryModeCutsceneSelectionModel())`（`StoryModeSubModule.cs:107`），只在主线战役生效（`StoryModeSubModule.cs:23`→`:24`）。读用 `Campaign.Current.Models.CutsceneSelectionModel`。
+
+`GetKingdomDestroyedSceneNotification(Kingdom kingdom)`（`:13`）的唯一分支是 `StoryModeManager.Current.MainStoryLine.PlayerSupportedKingdom == kingdom`（`:15`）——**引用相等**，因为 `PlayerSupportedKingdom` 是在 `MainStoryLine.SetStoryLineSide` 里赋的 `Clan.PlayerClan.Kingdom`（`MainStoryLine.cs:143`），带 `[SaveableProperty(8)]`（`MainStoryLine.cs:74`）。成立时 `return new SupportedFactionDefeatedSceneNotificationItem(kingdom, StoryModeManager.Current.MainStoryLine.IsOnImperialQuestLine)`（`:17`）；第二个参数是 `bool`，用来区分「玩家支持的王国」与主线是否走帝国线。
+
+不成立则 `base.BaseModel.GetKingdomDestroyedSceneNotification(kingdom)`（`:19`）。调用方是场景通知选择流程，在王国覆灭结算时触发。
+
+### 典型用法
+
+```csharp
+// 运行期读
+CutsceneSelectionModel cutscene = Campaign.Current.Models.CutsceneSelectionModel;
+
+// 模拟「玩家支持的王国被灭掉」这条路径
+MainStoryLine line = StoryModeManager.Current.MainStoryLine;
+Kingdom target = line.PlayerSupportedKingdom;
+if (target != null)
+{
+    SceneNotificationData data = cutscene.GetKingdomDestroyedSceneNotification(target);
+    Debug.Print("玩家支持的王国=" + target.StringId + "，通知类型=" + data.GetType().Name);
+    // 原生播放入口（见 SandBox/CampaignBehaviors/DefaultCutscenesCampaignBehavior.cs:125）
+    MBInformationManager.ShowSceneNotification(data);
+}
+
+// 非支持王国走基类：注意 base.BaseModel 才是 SandBox 那个
+Kingdom other = Kingdom.Find("vlandia");
+SceneNotificationData fallback = cutscene.GetKingdomDestroyedSceneNotification(other);
+Debug.Print("非支持王国通知类型=" + fallback.GetType().Name);
+```
+
+### 最容易踩的坑
+
+`PlayerSupportedKingdom == kingdom` 是**引用相等**。`PlayerSupportedKingdom` 只在 `MainStoryLine.SetStoryLineSide` 被赋值一次（`MainStoryLine.cs:143`），那之后玩家所属氏族的王国如果因为分家、附庸、叛离而变动，这个引用不会跟着更新——它指向的是**选边那一瞬间的 `Clan.PlayerClan.Kingdom` 对象**。一旦玩家换到另一个王国，本该走基类普通通知的场景仍会走进 `SupportedFactionDefeatedSceneNotificationItem` 分支，播错过场动画。mod 里若需要跟随当前王国，用 `Clan.PlayerClan.Kingdom` 自己判，不要复用这个缓存字段。
+
 ## 主要成员
 
 - `GetKingdomDestroyedSceneNotification(Kingdom kingdom)`

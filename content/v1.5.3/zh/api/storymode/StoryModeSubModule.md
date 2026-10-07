@@ -47,6 +47,54 @@ WeakenEmpireQuest / AssembleEmpireQuest / DefeatTheConspiracyQuest / RescueFamil
 - **模型覆盖是「后加的赢」**：18 个 `AddModel<T>` 全在这里执行。mod 要覆盖 StoryMode 的模型，必须 `SubModuleLoadOrder` 更晚。
 - **`OnGameEnd` 里调 `StoryModeManager.Current.Destroy()`**，而 `Destroy()` 是 `internal`，只 `StoryModeData.OnGameEnd()` 清缓存。这条链只在主线战役下成立。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeSubModule : MBSubModuleBase` 声明在 `bannerlord-1.5.3/StoryMode/StoryModeSubModule.cs:18`，全文 111 行。**你拿不到「官方那一份」——它是模块加载器实例化的**：引擎扫描程序集里所有 `MBSubModuleBase` 子类并 new 出自己那份。mod 能做的是写一个同样继承 `MBSubModuleBase` 的类，在自己的 `InitializeGameStarter` 里追加注册。
+
+唯一入口是 `InitializeGameStarter(Game game, IGameStarter gameStarterObject)`（`:21`）。它第一件事就是 `game.GameType as CampaignStoryMode` 并判空（`:23`→`:24`），**不是主线战役就整段跳过**。所以「StoryMode 的所有行为和模型都只在主线存在」这一条完全由这行决定。
+
+判空通过后依次四步：`AddCampaignEventReceiver(StoryModeEvents.Instance)`（`:27`）、`AddGameMenus`（`:28`，实现在 `:45`）、`AddModels`（`:29`，实现在 `:89`，`AddModel<>` 共 18 条，`:91`–`:108`）、`AddBehaviors`（`:30`，实现在 `:56`）。卸载路径是 `OnGameEnd`（`:35`），在 `game.GameType is CampaignStoryMode && StoryModeManager.Current != null` 时调 `StoryModeManager.Current.Destroy()`（`:40`），后者转调 `StoryModeData.OnGameEnd()`（`StoryModeManager.cs:90`）。
+
+`AddBehaviors` 里的注册是**有条件的**：`MainStoryLine.IsCompleted` 为 false 时（`:60`）才依次加 `TutorialPhaseCampaignBehavior`（`:64`）、`FirstPhaseCampaignBehavior`（`:68`）、`SecondPhaseCampaignBehavior`（`:72`）、`ThirdPhaseCampaignBehavior`（`:74`），每个还有各自的阶段完成度前置判断（`:62`、`:66`、`:70`）。而 `TrainingFieldCampaignBehavior`（`:76`）、`StoryModeTutorialBoxCampaignBehavior`（`:77`）、`StoryModeCharacterCreationCampaignBehavior`（`:78`）、`StoryModeBanditSpawnCampaignBehavior`（`:79`）、`AchievementsCampaignBehavior`（`:81`）、`WeakenEmpireQuestBehavior`（`:82`）、`AssembleEmpireQuestBehavior`（`:83`）、`DefeatTheConspiracyQuestBehavior`（`:84`）、`RescueFamilyQuestBehavior`（`:85`）是无条件注册的。
+
+### 典型用法
+
+```csharp
+// mod 侧：把自己的行为/模型挂到同一个时机，主线以外不注册
+public class MyStoryModeHook : MBSubModuleBase
+{
+    protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+    {
+        if (!(game.GameType is CampaignStoryMode mode)) return;   // 与 StoryModeSubModule.cs:23 同一条判据
+        CampaignGameStarter starter = (CampaignGameStarter)gameStarterObject;
+        starter.AddBehavior(new MyBannerEffectBehavior());
+        starter.AddModel<PartyWageModel>(new MyPartyWageModel());
+    }
+}
+
+// 读取侧：证明 :82-:85 那几条行为确实已注册进战役
+if (StoryModeManager.Current != null)
+{
+    DefeatTheConspiracyQuestBehavior defeat =
+        Campaign.Current.GetCampaignBehavior<DefeatTheConspiracyQuestBehavior>();
+    if (defeat != null)
+    {
+        Debug.Print("主线已完成=" + StoryModeManager.Current.MainStoryLine.IsCompleted);
+    }
+}
+
+// 反例：MainStoryLine.IsCompleted 为 true 时 TutorialPhaseCampaignBehavior 根本没注册
+TutorialPhaseCampaignBehavior tutorial =
+    Campaign.Current.GetCampaignBehavior<TutorialPhaseCampaignBehavior>();
+Debug.Print(tutorial == null ? "阶段已完成，行为不在战役里" : "教学行为在位");
+```
+
+### 最容易踩的坑
+
+以为 `AddBehaviors` 里那十几行都是无条件注册的。`TutorialPhaseCampaignBehavior`、`FirstPhaseCampaignBehavior`、`SecondPhaseCampaignBehavior`、`ThirdPhaseCampaignBehavior` 四个都被 `MainStoryLine.IsCompleted` 和各自的阶段完成度包着（`:60`–`:74`）。主线走完后它们**一个都不在** `Campaign` 里，此时 `Campaign.Current.GetCampaignBehavior<TutorialPhaseCampaignBehavior>()` 返回 null，紧接着解引用就崩。写依赖这些行为的 mod 时，先判 null；不要因为「原生代码里写得很直白」就以为它一定存在。
+
 ## 主要成员
 
 - `protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)`：唯一的注册点。内部把 `IGameStarter` 转型成 `CampaignGameStarter` 后依次调四个私有方法。

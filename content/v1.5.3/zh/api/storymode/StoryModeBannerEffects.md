@@ -35,6 +35,47 @@ description: "龙旗旗帜特效的注册表：运行时造出一个 BannerEffec
 3. **不能重复注册**：`RegisterPresumedObject` 若 id 已被占用（重复 `new StoryModeBannerEffects()`），行为取决于 `MBObjectManager` 实现——大概率抛异常或静默覆盖。别试图 new 第二个。
 4. **构造函数是 `public`**（与 [StoryModeHeroes](../StoryModeHeroes) 的 `internal` 不同），意味着 mod **能** new 一个出来，但那样只会得到一份没人引用的孤儿对象。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeBannerEffects` 声明在 `bannerlord-1.5.3/StoryMode/StoryModeObjects/StoryModeBannerEffects.cs:7`，全文 50 行。静态类外观不是——它是个普通类，构造函数是 `public StoryModeBannerEffects()`（`:20`），内部调 `this.RegisterAll()`（`:22`，实现在 `:26`）：
+
+- `this._dragonBannerEffect = this.Create("dragon_banner_effect")`（`:28`）
+- `Create`（`:33`）走 `Game.Current.ObjectManager.RegisterPresumedObject<BannerEffect>(new BannerEffect(stringId))`（`:35`）——**向全局对象管理器登记一个新对象**
+- `RegisterAll` 紧接着调 `InitializeAll()`（`:29`，实现在 `:39`），把效果初始化成三段全空值：`Initialize("{=!}Not Implemented.", "{=!}Not Implemented.", 0f, 0f, 0f, EffectIncrementType.Invalid)`（`:41`），文案用的是 `private const string NotImplementedText`（`:45`）。
+
+**唯一的取用入口是静态属性 `DragonBannerEffect`**（`:11`），函数体只有一行 `StoryModeManager.Current.StoryModeBannerEffects._dragonBannerEffect`（`:15`）——注意它每次访问都重新读一遍，不缓存。
+
+对象本身只有一个创建者：`StoryModeManager.InitializeStoryModeObjects()`（`StoryModeManager.cs:94`）里的 `new StoryModeBannerEffects()`，而那个 internal 方法只被 `CampaignStoryMode.DoLoadingForGameType` 的 `InitializeFirstStep` 分支调（`CampaignStoryMode.cs:42`）。属性 `StoryModeBannerEffects` 在 `StoryModeManager.cs:65`，**不进存档**。
+
+因为构造函数是 `public`，mod 确实能 new——但那样只会向 `MBObjectManager` 多登记一个 `"dragon_banner_effect"` 而没人引用它。
+
+### 典型用法
+
+```csharp
+// 标准读法：先确认战役与初始化都完成了
+if (Game.Current.GameType is CampaignStoryMode mode && mode.StoryMode.StoryModeBannerEffects != null)
+{
+    BannerEffect effect = StoryModeBannerEffects.DragonBannerEffect;
+    Debug.Print("龙旗特效 StringId=" + effect.StringId);
+}
+
+// 使用效果：BannerEffect 是 sealed class（TaleWorlds.Core/BannerEffect.cs:8），
+// 只能读它的三档加成，不能继承覆写
+BannerEffect dragon = StoryModeBannerEffects.DragonBannerEffect;
+Debug.Print("增量类型=" + dragon.IncrementType + " 一档加成=" + dragon.GetBonusAtLevel(1)
+    + " 文案=" + dragon.GetDescription(1));
+
+// 合并后的完整龙旗物品在 MainStoryLine 上（不进存档，只在会话启动时取一次）
+ItemObject full = StoryModeManager.Current.MainStoryLine.DragonBanner;   // MainStoryLine.cs:90，赋值在 :124
+Debug.Print(full.Name.ToString());
+```
+
+### 最容易踩的坑
+
+`InitializeAll()` 把三个数值参数全写成 `0f`、`0f`、`0f`，`EffectIncrementType` 写的是 `Invalid`（`:41`）。这不是占位待填——它是**这个版本里龙旗特效的真实状态**：常量 `NotImplementedText`（`:45`）的字面量就是 `{=!}Not Implemented.`，明说了未实现。你如果指望 `DragonBannerEffect` 在主线拿到龙旗时自动播放一段特效，实际结果是拿到一个三档加成全为 `0f`、`IncrementType` 为 `Invalid` 的效果对象。而 `BannerEffect` 本身是 `public sealed class`（`TaleWorlds.Core/BannerEffect.cs:8`），**你也不能继承它来覆写 `Initialize`**。想在 mod 里给龙旗配真实的加成，唯一可行的路是用 `Game.Current.ObjectManager` 按自己的 StringId 另建一个 `BannerEffect` 实例并单独 `Initialize`，然后在旗物品的解析处改指向。
+
 ## 主要成员
 
 - `static BannerEffect DragonBannerEffect { get; }`：**唯一的取用入口**。转发到 `StoryModeManager.Current.StoryModeBannerEffects._dragonBannerEffect`。非主线战役 NRE。
@@ -47,6 +88,8 @@ description: "龙旗旗帜特效的注册表：运行时造出一个 BannerEffec
 
 ## 使用示例
 
+<!-- xml-id-unverifiable: v1.5.3 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.5.3 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 // 1) 取龙旗特效（先确认是主线战役且加载完成）
 StoryModeManager manager = StoryModeManager.Current;

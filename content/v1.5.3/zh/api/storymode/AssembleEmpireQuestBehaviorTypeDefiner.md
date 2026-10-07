@@ -22,6 +22,47 @@ Bannerlord 的存档不是反射式的，而是**由开发者手写 `SaveableTyp
 
 坑：这个类的两个数字都是**公开的存档 ABI 契约**。改 `1002000` 或改类内 id `1`，所有旧存档都会在加载时报"未知类型"而不是静默失败——好的一面是不会数据损坏，坏的一面是 mod 作者根本改不得。三个第二阶段/第三阶段的 definer 用的是完全不同的编号区间（1002000 / 1005000 / 16000），这说明每个剧情行为都各自划了一块号。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class AssembleEmpireQuestBehaviorTypeDefiner : SaveableTypeDefiner` 声明在 `bannerlord-1.5.3/StoryMode/Quests/SecondPhase/AssembleEmpireQuestBehavior.cs:38`——**它与被它登记的任务类在同一个文件里**。全文 229 行，但这个类型本身只有两样东西。
+
+**引擎自动实例化它，你不要 new。** `SaveableTypeDefiner` 由模块加载器扫描构造，唯一构造函数 `AssembleEmpireQuestBehaviorTypeDefiner()`（`:41`，无参）只做 `: base(1002000)`（`:42`）——**`1002000` 是存档 id 区间基数**，这个文件里的类型 id 从这里排。
+
+`protected override void DefineClassTypes()`（`:47`）调基类实现之后，再 `AddClassDefinition(typeof(AssembleEmpireQuestBehavior.AssembleEmpireQuest), ...)` 登记嵌套的任务类。**这是存档系统能读回该任务对象的唯一原因**——没登记的类型存不进档。
+
+同文件里还有两个类型，引用时注意完整名：
+
+| 类型 | 声明行 | 说明 |
+| --- | --- | --- |
+| `AssembleEmpireQuestBehavior` | `:15` | 宿主 `CampaignBehaviorBase`，选边时创建任务 |
+| `AssembleEmpireQuestBehaviorTypeDefiner`（本页） | `:38` | 存档定义器 |
+| `AssembleEmpireQuest` | `:54` | 嵌套任务类，继承 `StoryModeQuestBase` |
+
+全模块五个存档定义器的基数各不相同，**它们是各自独立的 id 空间，不要混算**：`AssembleEmpireQuestBehaviorTypeDefiner` = `1002000`（`:42`）、`WeakenEmpireQuestBehaviorTypeDefiner` = `1005000`（`WeakenEmpireQuestBehavior.cs:40`）、`DefeatTheConspiracyQuestBehaviorTypeDefiner` = `16000`、`RebuildPlayerClanQuestBehaviorTypeDefiner` = `4140000`、模块级 [SaveableStoryModeTypeDefiner](../SaveableStoryModeTypeDefiner) = `320000`。
+
+### 典型用法
+
+```csharp
+// 不要 new。只用它做「确认存档定义」的事实核对：
+
+// 1) 确认嵌套任务类型已登记（源码里 AddClassDefinition 的目标）
+Type questType = typeof(StoryMode.Quests.SecondPhase.AssembleEmpireQuestBehavior.AssembleEmpireQuest);
+Debug.Print("任务类型=" + questType.FullName + "，由 1002000 段定义器登记");
+
+// 2) 确认定义器本身（构造函数 public，但引擎才是真正的使用者）
+SaveableTypeDefiner definer = new StoryMode.Quests.SecondPhase.AssembleEmpireQuestBehaviorTypeDefiner();
+Debug.Print("存档 id 基数=" + definer.Id);
+
+// 3) 反例：给任务类加字段后不更新这里，读档会丢
+//    症状：存档能写，读回时任务对象为 null 或抛 SaveableTypeNotFoundException
+```
+
+### 最容易踩的坑
+
+它登记的是**嵌套类**，源码里写的是带外层类前缀的 `typeof(...)`。你把 `AssembleEmpireQuest` 挪到别的文件、或者重命名外层类，这行编译不过；而如果只是改任务类的**字段**而不动这里，编译照过、存档照写，**读档时该字段静默丢失**。因为 `DefineClassTypes` 是 `protected override`，mod 无法从外部补登记——只能自己写一个 `SaveableTypeDefiner`，并注意别撞上已有的 id 段。
+
 ## 主要成员
 
 - `AssembleEmpireQuestBehaviorTypeDefiner()`：无参构造，只调 `base(1002000)` 设定全局类型 id。这是唯一能修改"注册信息"的地方——但它同时也是最不该改的地方。

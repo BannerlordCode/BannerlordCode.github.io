@@ -39,6 +39,36 @@ description: "一句文本对应的全部音频路径的只读包装：由 Local
 5. **不缓存、不随机**。同一个 `VoiceObject` 每次问都是同一个列表。要做「这句台词随机挑一条」得自己写，且**不要写进 `VoiceObject`（它是共享的、多个会话可能同时持有）**。
 6. **与 `TextObject` 无直接引用**。`VoiceObject` 不知道对应的文本；关联靠 [LocalizedVoiceManager](../LocalizedVoiceManager) 字典的 key。
 
+## 怎么用
+
+### 怎么拿到它
+
+你**永远不要自己造**——构造函数是 `private`（`VoiceObject.cs:21`），`AddVoicePath` 也是 `private`（`:27`）。唯一的生产入口是静态工厂 `public static VoiceObject Deserialize(XmlNode node, string modulePath)`（`:47`），它内部 `new VoiceObject()` 然后遍历子节点，遇到名为 `Voice` 的就把 `modulePath + "/" + path` 拼进去（`:51-58`）。
+
+它唯一的消费者是 `LocalizedVoiceManager`：加载语言时 `VoiceObject.Deserialize(xmlNode3, keyValuePair.Value)`（`LocalizedVoiceManager.cs:99`），同 id 再次出现则往已有对象上 `AddVoicePaths` 追加（`:95`）。查询走 `MBTextManager.TryGetVoiceObject`（`MBTextManager.cs:406`），它对 id 为 `!` 的文本回落到 token 递归查找（`:432-447`）。
+
+### 典型用法
+
+```csharp
+// 1) 由引擎的对话系统驱动：拿到当前语音语言下的配音
+if (MBTextManager.TryGetVoiceObject(currentSentence, out VoiceObject vo, out string vocalizationId))
+{
+    foreach (string relativePath in vo.VoicePaths)          // 形如 "ModulePath/SubDir/file.wav"
+        Debug.Print(relativePath);
+}
+
+// 2) 查不到时的行为：GetLocalizedVoice 打一行 Debug.Print 后返回 null
+VoiceObject missing = LocalizedVoiceManager.GetLocalizedVoice("no_such_id");   // null，不是异常
+
+// 3) 想知道哪些语言有配音：只有配了 VoiceXmlPathsAndModulePaths 的才算
+foreach (string lang in LocalizedVoiceManager.GetVoiceLanguageIds())
+    Debug.Print(lang);
+```
+
+### 最容易踩的坑
+
+把 `VoicePaths` 当成「完整可播放路径」拼到程序目录里去。它存的是 **XML 里写的相对路径加上模块路径前缀**（`VoiceObject.cs:40`：`modulePath + "/" + xmlNode.Attributes["path"].InnerText`），路径用 `/` 分隔、不做平台分隔符归一化，也不校验文件是否存在。后果是同一个 `VoicePath` 在 Windows 上要你自己换成 `\\` 才能交给 `File`，而在 Linux/macOS 上照抄没问题；同时 `AddVoicePaths` 只在加载时累加（`:27-30`），路径写错的条目会一直留在列表里直到真正播放时才失败。想要「能不能播」这个结论，只能自己去 `File.Exists` 验一遍。
+
 ## 主要成员
 
 - `public MBReadOnlyList<string> VoicePaths { get; }`：**唯一的 public 属性**。返回内部 `MBList<string>` 的只读视图。遍历它拿音频文件的相对路径（模块目录 + xml 里写的 `path`）。空列表是合法状态。

@@ -38,6 +38,43 @@ Campaign.Models.SettlementProsperityModel → MyProsperityModel 实例
 3. **递归调用**：`BaseModel` 链如果被环状注册（A 的 BaseModel 是 B，B 的 BaseModel 是 A）会栈溢出。正常不会发生，但两个 mod 互相包装时要小心。
 4. **把 `Initialize` 当构造用**：它是包装器专用的，不要在自己的构造函数里调。
 
+## 怎么用
+
+### 怎么拿到它
+
+它永远由引擎实例化，你自己只写子类。实例是在 `CampaignGameStarter.AddModel<T>(MBGameModel<T>)`（`CampaignGameStarter.cs:95`）的**调用栈里**产生的：`T model = this.GetModel<T>()`（`:97`）→ `gameModel.Initialize(model)`（`:98`）→ `_models.Add(gameModel)`（`:99`）。也就是说 `Initialize` 由这个重载替你调，你不该在别处再调一次。`Initialize` 本身是 `public`（`MBGameModel.cs:14`），纯粹是为了让这个调用能编译。
+
+`BaseModel` 的访问级别是 `private protected`（`MBGameModel.cs:11`，getter 是 `protected`、setter 是 `private`），含义是：只有从 `MBGameModel<T>` 派生的类型、在**它自己的成员方法里**才能读。外部调用方拿到的是 `MBGameModel<T>` 而不是 `T`，所以拿不到它。
+
+### 典型用法
+
+```csharp
+// 包装型：在原模型上打补丁，而不是整个替换
+public class MyProsperityModel : MBGameModel<DefaultSettlementProsperityModel>
+{
+    public override int GetProsperity(Settlement settlement)
+    {
+        int vanilla = BaseModel.GetProsperity(settlement);   // BaseModel 在这里可见
+        return vanilla + (settlement.IsFortification ? 20 : 0);
+    }
+
+    // 只有在不想依赖原模型时，才用无参构造绕开它
+    public MyProsperityModel() { }
+}
+
+// 注册：重载会自己去取当前生效的 DefaultSettlementProsperityModel 并 Initialize
+protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
+{
+    base.OnGameStart(game, gameStarterObject);
+    ((CampaignGameStarter)gameStarterObject)
+        .AddModel<DefaultSettlementProsperityModel>(new MyProsperityModel());
+}
+```
+
+### 最容易踩的坑
+
+写了继承自 `MBGameModel<T>` 的类，却把实例存起来以后**不经过** `AddModel<T>` 使用（或者在 `OnGameStart` 之外才注册）。后果是 `Initialize` 永远不被调，`BaseModel` 停在 `default(T)` 也就是 `null`——`GetModel<T>` 在无人注册时是直接返回 `default(T)` 的（`CampaignGameStarter.cs:85`），`Initialize(null)` 不抛异常也不打日志。于是注册、存档、界面全都正常，**只有第一次真正调用到你重写的方法时才会 NRE**，堆栈指向你的方法而不是注册处，排查成本极高。要避开就两条：永远用 `AddModel<T>` 重载，或者在自己的构造里就把 `BaseModel` 用不上的路径写清楚、不读它。
+
 ## 成员与调用时机
 
 - `private protected T BaseModel { protected get; private set; }`：**只读**访问的原模型引用。派生类里读它来决定「走原逻辑还是覆盖逻辑」。

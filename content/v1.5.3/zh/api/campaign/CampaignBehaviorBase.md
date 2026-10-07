@@ -35,6 +35,52 @@ description: "战役行为组件的抽象基类：只需实现 RegisterEvents �
 4. **在 `SyncData` 里访问 `Campaign.Current` 做复杂计算**：存档时它会跑，读档时也会跑，读档阶段世界对象可能还没全部恢复。
 5. **用 `GetCampaignBehavior<T>()` 而不判空**：兄弟 mod 没装时返回 `default(T)`。
 
+## 怎么用
+
+### 怎么拿到它
+
+它不是单例：每次新游戏或每次读档，`CampaignGameStarter.AddBehavior`（`CampaignGameStarter.cs:48`）收集的每一个实例都会被原样交给 `new CampaignBehaviorManager(...)`（`Campaign.cs:1991`）或 `InitializeCampaignBehaviors`（`Campaign.cs:1997`）。也就是说**你 new 出来的对象就是引擎用的那个对象**，中间没有克隆。要拿到别人已经注册好的实例，走基类上的静态方法 `CampaignBehaviorBase.GetCampaignBehavior<T>()`（`CampaignBehaviorBase.cs:24`），它内部转给 `Campaign.Current.GetCampaignBehavior<T>()`（`CampaignBehaviorBase.cs:26`）。
+
+两个构造函数选哪个有实际后果：`CampaignBehaviorBase(string stringId)`（`:9`）让你显式给存档标识；无参的那个（`:15`）把 `GetType().Name` 塞进 `StringId`。
+
+### 典型用法
+
+```csharp
+public class MySupplyBehavior : CampaignBehaviorBase
+{
+    // 无参基类构造函数会把 nameof(MySupplyBehavior) 当作 StringId；想自定义就改用 : base("mymod_supply")
+    private MBCampaignEvent _dailyEvent;
+
+    public override void RegisterEvents()
+    {
+        _dailyEvent = CampaignPeriodicEventManager.CreatePeriodicEvent(CampaignTime.Days(1f), CampaignTime.Hours(6f));
+        _dailyEvent.AddHandler(OnDailySupplyTick);
+    }
+
+    private void OnDailySupplyTick(MBCampaignEvent campaignEvent, params object[] delegateParams) { }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        // key 用字符串常量；写侧与读侧必须完全一致，否则读档后字段静默停在默认值
+        bool isLoading = dataStore.IsLoading;
+        int pending;
+        dataStore.SyncData("mymod_supply_pending", ref pending);
+        if (isLoading)
+            PendingShipments = pending;
+    }
+
+    public int PendingShipments { get; private set; }
+}
+
+// 别的类里按类型要它
+MySupplyBehavior behavior = CampaignBehaviorBase.GetCampaignBehavior<MySupplyBehavior>();
+Debug.Print("pending = " + behavior.PendingShipments);
+```
+
+### 最容易踩的坑
+
+`StringId` 是整个存档里 behavior 的主键：用无参构造函数时它是类型名（`CampaignBehaviorBase.cs:17`），而 `CampaignBehaviorDataStore.SaveBehaviorData` 直接拿它当字典键（`CampaignBehaviorDataStore.cs:21`），撞键时会 `Debug.FailedAssert("trying to save multiple behaviors with the same stringid: ...")` 并**用后来的覆盖先来的**（`:24-28`）。后果是：两个同名（或你没改 `StringId` 的重复）behavior 存完档，读回来时先注册的那个 `SyncData` 拿到的是空数据，内部状态归零，而且正式构建里那句 assert 只打日志不抛异常，你完全看不出哪里错了。永远显式传一个带 mod 前缀的 string。
+
 ## 成员与调用时机
 
 - `protected CampaignBehaviorBase()`：无参构造，`StringId` 为 `null`。简单的行为用它。

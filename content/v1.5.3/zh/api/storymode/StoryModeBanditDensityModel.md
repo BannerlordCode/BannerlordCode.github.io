@@ -39,6 +39,60 @@ description: "全局压住强盗生成密度：主线限制玩家交互的阶段
 - **透传成员不是「未实现」。** `GetMaximumTroopCountForHideoutMission`、`GetMinimumTroopCountForHideoutMission`、`IsPositionInsideNavalSafeZone` 这些全部原样转发给 `BaseModel`，它们仍然生效——只是不再是 StoryMode 的责任。
 - **`BaseModel` 可能是原版也可能是别人的模型。** 再次强调 `GetModel<T>()` 倒序查找，后注册者赢。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeBanditDensityModel : BanditDensityModel` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/StoryModeBanditDensityModel.cs:9`，全文 145 行。
+
+注册点：`campaignGameStarter.AddModel<BanditDensityModel>(new StoryModeBanditDensityModel())`（`StoryModeSubModule.cs:91`），同样只在主线战役里生效（`StoryModeSubModule.cs:23`→`:24`）。读用 `Campaign.Current.Models.BanditDensityModel`，拿到的是 StoryMode 版，基类内部用 `base.BaseModel` 透传回 SandBox。
+
+十三个 override 里**只有五个带主线判断**，其余全是纯透传：
+
+| 成员 | 声明行 | 教学限制下返回 |
+| --- | --- | --- |
+| `NumberOfMaximumBanditPartiesAroundEachHideout` | `:13` | `0`（`:19`） |
+| `NumberOfMaximumBanditPartiesInEachHideout` | `:27` | `0`（`:33`） |
+| `NumberOfMaximumHideoutsAtEachBanditFaction` | `:41` | `0`（`:47`） |
+| `NumberOfInitialHideoutsAtEachBanditFaction` | `:55` | `0`（`:61`） |
+| `GetMaxSupportedNumberOfLootersForClan(Clan clan)` | `:130` | `0`（`:134`） |
+
+判据统一是 `StoryModeManager.Current.MainStoryLine.IsPlayerInteractionRestricted`——也就是「教学未完成 **且** 还没选边」（`MainStoryLine.cs:19`→`:23`）。
+
+纯透传的那八个：`NumberOfMinimumBanditPartiesInAHideoutToInfestIt`（`:69`）、`NumberOfMinimumBanditTroopsInHideoutMission`（`:79`）、`NumberOfMaximumTroopCountForFirstFightInHideout`（`:89`）、`NumberOfMaximumTroopCountForBossFightInHideout`（`:99`）、`SpawnPercentageForFirstFightInHideoutMission`（`:109`）、`GetMaximumTroopCountForHideoutMission(MobileParty, bool)`（`:118`）、`IsPositionInsideNavalSafeZone(CampaignVec2)`（`:124`）、`GetMinimumTroopCountForHideoutMission(MobileParty, bool)`（`:140`）。**注意最后三个方法没有主线分支，藏身处战斗规模在教学期照常生效。**
+
+### 典型用法
+
+```csharp
+// 运行期读
+BanditDensityModel density = Campaign.Current.Models.BanditDensityModel;
+Debug.Print("每个藏身处周边最多队伍=" + density.NumberOfMaximumBanditPartiesAroundEachHideout);
+
+// 直接问「现在是不是被限制」：教学未完成且未选边
+MainStoryLine line = StoryModeManager.Current.MainStoryLine;
+if (line.IsPlayerInteractionRestricted)
+{
+    Debug.Print("限制中：藏身处不会刷新，掠夺者上限为 0");
+}
+
+// mod 侧覆写：想在主线之外也压制藏身处，自己注册
+public class MyBanditDensityModel : BanditDensityModel
+{
+    public override int NumberOfMaximumBanditPartiesAroundEachHideout
+        => StoryModeManager.Current != null
+            && StoryModeManager.Current.MainStoryLine.IsPlayerInteractionRestricted
+            ? 0 : BaseModel.NumberOfMaximumBanditPartiesAroundEachHideout;
+}
+
+// 战斗规模类成员是透传的，教学期也照常算
+MobileParty raiders = MobileParty.CreateParty(PartyTemplateManager.DefaultRaiderPartyTemplate);
+Debug.Print("藏身处最少守军=" + density.GetMinimumTroopCountForHideoutMission(raiders, true));
+```
+
+### 最容易踩的坑
+
+看到「教学期藏身处归零」就以为藏去处整个死掉了。归零的只有**刷新上限和掠夺者数量**这五个（`:13`、`:27`、`:41`、`:55`、`:130`），而 `NumberOfInitialHideoutsAtEachBanditFaction` 虽然也返 0，它只影响新藏处处的**初始生成数**；已经在地图上存在的藏出处不会被清掉，`GetMinimumTroopCountForHideoutMission`（`:140`）和 `GetMaximumTroopCountForHideoutMission`（`:118`）更是完全没有主线分支。玩家仍然能撞进已经存在的藏出处并打完一场。想彻底关掉，得同时限制这几个方法。
+
 ## 主要成员
 
 - `NumberOfMaximumBanditPartiesAroundEachHideout` / `NumberOfMaximumBanditPartiesInEachHideout` / `NumberOfMaximumHideoutsAtEachBanditFaction` / `NumberOfInitialHideoutsAtEachBanditFaction`（`int` 属性）

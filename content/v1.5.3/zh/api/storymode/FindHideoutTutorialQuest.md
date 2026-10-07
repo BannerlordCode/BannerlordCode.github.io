@@ -22,6 +22,64 @@ description: "教程的核心战斗任务：打掉强盗藏身处、决定与 Ra
 
 坑非常密集。第一，`_mainPartyTroopBackup` 是**故意用来"偷走"玩家部队再还回去**的：进入藏身处前把主队所有非英雄兵种存进 `_mainPartyTroopBackup` 并留在原地（教程要保证玩家必须带够 4 人硬打），战斗结束后从强盗队的 `PrisonRoster` 里把它们捞回来。任何时候这个列表为空或漏掉某个兵种，玩家就会永久掉兵。第二，`OnGameLoadFinished` 会把所有藏身处队伍裁到 4 人，这是防止旧存档里强盗队规模超标。第三，`InitializeQuestOnGameLoad` 里还有一段针对 `MBSaveLoad.LastLoadedGameVersion < v1.1.1` 的**旧版本迁移补丁**，把 Radagos 重新塞回 BOSS 队——这类历史兼容代码不要试图"清理"，它们是真实存档需要。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class FindHideoutTutorialQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/TutorialPhase/FindHideoutTutorialQuest.cs:29`，全文 809 行——**本文件是模块里最长的教学文件**。
+
+构造函数 `FindHideoutTutorialQuest(Settlement hideout)`（约 `:56`），基类 `: base("find_hideout_tutorial_quest", null, CampaignTime.Never)`（`:57`）——任务 id 硬编码、`questGiver` 传 `null`、时限 `Never`。存档 id 686001（`SaveableStoryModeTypeDefiner.cs:49`），枚举 id 686010（`:73`）。
+
+构造函数第一句有副作用：`TutorialPhase.Instance.SetTutorialFocusSettlement(this._hideout);`（`:74`）——**直接传字段，未判空**。
+
+`RegisterEvents()`（`:83`）挂**四条**：`GameMenuOpened`（`:85`）、`MapEventEnded`（`:86`）、`MobilePartyDestroyed`（`:87`）、`OnGameLoadFinishedEvent`（`:88`）。
+
+**三个公开 override 都是 `ref` 型拦截器**——这是本类最有辨识度的形状：
+
+| 方法 | 声明行 | 用途 |
+| --- | --- | --- |
+| `public override void OnHeroCanDieInfoIsRequested(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)` | `:92` | 藏身处战斗里的剧情英雄不能死 |
+| `public override void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)` | `:101` | 剧情英雄不能被交易 |
+| `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)` | `:110` | 剧情英雄不生成城务问题 |
+
+**这三个不是事件订阅，而是基类的虚方法覆写**——引擎在每次询问时都会问一遍，任务不在跑就自动失效，不需要 `RemoveListener`。
+
+队伍生成走 `InitializeHideout()`（`:171`）与 `CreateRaiderParty(int number, bool isBanditBossParty)`（`:207`）。
+
+**本类嵌套着 `public enum HideoutBattleEndState`**（`:796`，值在 `:799`/`:801`/`:803`/`:805`），字段 `private FindHideoutTutorialQuest.HideoutBattleEndState _hideoutBattleEndState;`（`:787`）——**private 且不进存档**。这一份的存档枚举 id 是 **686010**，另两份是 681010（Arzagos 版）与 687010（Istiana 版）。
+
+战斗结果被用作**跨菜单的状态中转**：源码里比对点密集分布在 `:366`（`== None` 且当前聚落是藏住处，且菜单 id 不是 `"radagos_hideout"` 也不是 `"brother_chest_menu"`）、`:370`（`== Victory` 且已与拉达戈斯交谈）、`:375`/`:426`/`:441`（`== Defeated` 或 `== Retreated`）、`:437`（菜单 id 为 `"radagos_hideout"` 且 `== Retreated`）。写入点 `:604`（Victory）、`:608`（Retreated）、`:612`（Defeated）；复位点 `:67`、`:461`、`:564`、`:638`、`:676`。
+
+派生判定「是否还能继续打」是 `base.IsOngoing && this._hideoutBattleEndState == FindHideoutTutorialQuest.HideoutBattleEndState.None`（`:632`）。
+
+### 典型用法
+
+```csharp
+// 1) 创建：藏住处必须先选好
+FindHideoutTutorialQuest q = new FindHideoutTutorialQuest(someHideoutSettlement);
+q.StartQuest();
+
+// 2) 三个 ref 拦截器在任务跑着时自动生效，无需手动订阅
+Debug.Print("任务在跑=" + q.IsOngoing);
+Debug.Print("此时剧情英雄不能死、不能被交易、不能生成城务问题");
+
+// 3) 跨菜单状态中转：菜单 id 是判据之一
+Debug.Print("藏身处菜单 id：radagos_hideout / brother_chest_menu 被特殊排除");
+
+// 4) 判定能否继续打（源码 :632 的语义）
+bool canRetry = q.IsOngoing;   // 状态为 None 时才为真，状态是 private 读不到
+Debug.Print("可继续打=" + canRetry);
+
+// 5) 读任务
+QuestBase b = Campaign.Current.QuestManager.GetQuest<FindHideoutTutorialQuest>();
+Debug.Print("id=" + b.QuestId + "，存档 id=686001，分类=" + b.SpecialQuestType);
+Debug.Print("枚举存档 id：FindHideout 版=686010，Arzagos 版=681010，Istiana 版=687010");
+```
+
+### 最容易踩的坑
+
+`_hideoutBattleEndState`（`:787`）**是 private 且没有 `[SaveableField]`，不进存档**。读档后它回到 `None`，于是 `:632` 的 `IsOngoing && state == None` 重新为真——**玩家可以在同一个藏身处重复触发完整的战斗 + 菜单流程**，而 `MapEventEnded`（`:86`）会再次把状态写成 Victory/Retreated/Defeated。这不是单点疏漏：三个藏身处任务（Arzagos / Istiana / FindHideout）都是同样处理，所以读档后重复战斗是这一整类任务的共有行为，不是某一个的 bug。
+
 ## 主要成员
 
 - `FindHideoutTutorialQuest(Settlement hideout)`：构造入口。设 `_activeHideoutStringId`、造队伍、注册菜单、写日志、`SetTutorialFocusSettlement`。

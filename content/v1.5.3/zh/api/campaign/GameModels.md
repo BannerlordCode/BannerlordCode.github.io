@@ -43,6 +43,40 @@ Campaign.Current.Models
 3. **用 `AddModel` 而不用 `AddModel<T>`**：`AddModel(GameModel)` 注册的裸模型没有 `BaseModel`；要「改一点、其余走原实现」必须用 `AddModel<T>(MBGameModel<T>)` 重载。
 4. **注册顺序靠运气**：如果你的 `SubModuleLoadOrder` 小于原生模块，覆盖会被原生模型压在后面而静默失效。注册后立刻读一次属性验证。
 
+## 怎么用
+
+### 怎么拿到它
+
+读法只有一条：`Campaign.Current.Models`（`Campaign.cs:557`），类型是 `GameModels`（`GameModels.cs:9`）。实例是引擎在战役启动期造的——`Campaign.Initialize` 里 `this._gameModels = base.CurrentGame.AddGameModelsManager<GameModels>(campaignGameStarter.Models)`（`Campaign.cs:1962`），输入正是 starter 上那份模型列表。
+
+这个 `GameModels` 是 `sealed`（`GameModels.cs:9`），你继承不了。它的构造函数 `public GameModels(IEnumerable<GameModel> inputComponents)`（`:777`）只做一件事：把约 130 个 `base.GetGameModel<T>()` 结果逐个赋给编译期属性——从 `CharacterDevelopmentModel`（`:646`）一直到 `FerryModel`（`:772`），每个都是 `{ get; private set; }`。**绑定只发生这一次**，构造之后再往 starter 加模型不会重新绑定。
+
+### 典型用法
+
+```csharp
+// 1) 读模型：全是编译期属性，直接点
+PartySpeedModel speed = Campaign.Current.Models.PartySpeedCalculatingModel;
+SettlementProsperityModel prosperity = Campaign.Current.Models.SettlementProsperityModel;
+CampaignTimeModel time = Campaign.Current.Models.CampaignTimeModel;
+
+// 2) 枚举全部已注册模型（GameModelsManager.cs:31）
+foreach (GameModel m in Campaign.Current.Models.GetGameModels())
+    Debug.Print(m.GetType().Name);
+
+// 3) 覆盖其中一项：仍然走 starter 的 AddModel<T> 包装重载
+protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
+{
+    base.OnGameStart(game, gameStarterObject);
+    var starter = (CampaignGameStarter)gameStarterObject;
+    starter.AddModel<SettlementProsperityModel>(
+        new MyProsperityModel(starter.GetModel<SettlementProsperityModel>()));
+}
+```
+
+### 最容易踩的坑
+
+假设「某个模型没注册就会有人报个错」。构造函数里那 130 行 `GetGameModel<T>()` **没有任何 null 检查**（`GameModels.cs:646`-`:772`），而 `GameModelsManager.GetGameModel<T>` 在找不到时返回 `default(T)` 也就是 null（`GameModelsManager.cs:27`）。后果是：漏注册一个模型不会在启动期报错，而是让 `Campaign.Current.Models.XXXModel` 变成 null，直到某个游戏逻辑第一次调它的方法才 NRE——堆栈指向使用点而不是注册点，排查时看不出「其实是少注册了一个模型」。注册后立刻逐个自查一遍：`starter.GetModel<你要的那个基类>() != null`，并确认自己的 `SubModuleLoadOrder` 排在 SandBox 之后（`SandBoxManager.cs:306` 是原生那笔注册）。
+
 ## 成员与调用时机
 
 **属性（126 个，按域抽样）**

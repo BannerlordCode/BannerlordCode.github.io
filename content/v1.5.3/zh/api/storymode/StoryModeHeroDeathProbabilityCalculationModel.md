@@ -37,6 +37,57 @@ return base.BaseModel.CalculateHeroDeathProbability(hero);
 - **`IsCompleted` 是主线总完成标志。** 教程阶段、教学后但主线未完，都属于「保护中」。
 - **不要试图在这里做难度调节。** 改成 0.05f 之类的小数值在语义上是「有 5% 概率兄长在第三章战死」，属于破坏主线，不是难度调整。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeHeroDeathProbabilityCalculationModel : HeroDeathProbabilityCalculationModel` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/StoryModeHeroDeathProbabilityCalculationModel.cs:9`，全文 21 行，**全文只有一个 override**。
+
+注册点：`campaignGameStarter.AddModel<HeroDeathProbabilityCalculationModel>(new StoryModeHeroDeathProbabilityCalculationModel())`（`StoryModeSubModule.cs:100`），只在主线战役生效（`StoryModeSubModule.cs:23`→`:24`）。读用 `Campaign.Current.Models.HeroDeathProbabilityCalculationModel`。
+
+`CalculateHeroDeathProbability(Hero hero)`（`:12`）只有一条分支：`hero == StoryModeHeroes.ElderBrother && !StoryModeManager.Current.MainStoryLine.IsCompleted`（`:14`）——**引用相等**，且两个条件都要成立。成立 `return 0f`（`:16`），否则 `base.BaseModel.CalculateHeroDeathProbability(hero)`（`:18`）。
+
+注意它保护的是**三个剧情角色里的一个**：只有 `ElderBrother`。`StoryModeAgentDecideKilledOrUnconsciousModel` 保护的是 `ElderBrother` + `Radagos` + `RadagosHenchman`（`StoryModeAgentDecideKilledOrUnconsciousModel.cs:16`）——两处名单不一致，这是事实，不是笔误。
+
+调用方是**地图事件结算流程**：谁在这场战斗里死了。参数可以是任意英雄，源码没有判空。
+
+### 典型用法
+
+```csharp
+// 运行期读：地图事件结算实际问的就是这个
+HeroDeathProbabilityCalculationModel model =
+    Campaign.Current.Models.HeroDeathProbabilityCalculationModel;
+
+// 兄长在主线未完成前必不死
+bool storyDone = StoryModeManager.Current.MainStoryLine.IsCompleted;
+Debug.Print("兄长死亡概率=" + model.CalculateHeroDeathProbability(StoryModeHeroes.ElderBrother)
+          + "，主线已完成=" + storyDone);
+
+// 对照：Radagos 在这里没有任何保护，走基类概率
+float radagos = model.CalculateHeroDeathProbability(StoryModeHeroes.Radagos);
+Debug.Print("拉达戈斯死亡概率=" + radagos);
+
+// mod 侧覆写：把名单补齐
+public class MyHeroDeathModel : HeroDeathProbabilityCalculationModel
+{
+    public override float CalculateHeroDeathProbability(Hero hero)
+    {
+        if (StoryModeManager.Current == null) return base.CalculateHeroDeathProbability(hero);
+        Hero radagos = StoryModeHeroes.Radagos;
+        if ((hero == StoryModeHeroes.ElderBrother || hero == radagos)
+            && !StoryModeManager.Current.MainStoryLine.IsCompleted)
+        {
+            return 0f;
+        }
+        return base.CalculateHeroDeathProbability(hero);
+    }
+}
+```
+
+### 最容易踩的坑
+
+它只保护 `ElderBrother`，而且是**引用相等**——`hero == StoryModeHeroes.ElderBrother`。mod 替换或复制了兄长这个 `Hero`（比如换模型、克隆 NPC），保护立刻失效，主线角色在该死的战斗里会真的死掉，而任务继续推进到下一阶段时才发现剧情英雄不见了。反过来，`base.CalculateHeroDeathProbability(hero)` 这条透传路径**不判空**，你传 null 进去就会在基类里 NRE——这个模型对参数没有任何容错。
+
 ## 主要成员
 
 - `CalculateHeroDeathProbability(Hero hero)`

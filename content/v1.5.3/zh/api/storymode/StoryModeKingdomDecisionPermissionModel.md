@@ -42,6 +42,56 @@ description: "王国决策许可模型：第三阶段的反对派王国之间禁
 - **禁战是双向对称的，停战是交叉的。** 宣战判定要求两边都在反对派；停战判定是一边反对派一边盟友。别把两个条件写混。
 - **吞并、驱逐、改政策、选王全部透传。** 「剧情期间王国不许改政策」这种想法不能靠本模型实现，它压根没拦这几项。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeKingdomDecisionPermissionModel : KingdomDecisionPermissionModel` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/StoryModeKingdomDecisionPermissionModel.cs:12`，全文 75 行，七个 override，**四个纯透传、一个带宣战封锁、一个带和平封锁**。
+
+注册点：`campaignGameStarter.AddModel<KingdomDecisionPermissionModel>(new StoryModeKingdomDecisionPermissionModel())`（`StoryModeSubModule.cs:96`），只在主线战役生效（`StoryModeSubModule.cs:23`→`:24`）。读用 `Campaign.Current.Models.KingdomDecisionPermissionModel`。
+
+纯透传：`IsPolicyDecisionAllowed(PolicyObject policy)`（`:15`）、`IsAnnexationDecisionAllowed(Settlement annexedSettlement)`（`:21`）、`IsExpulsionDecisionAllowed(Clan expelledClan)`（`:27`）、`IsKingSelectionDecisionAllowed(Kingdom kingdom)`（`:33`）、`IsStartAllianceDecisionAllowedBetweenKingdoms(Kingdom, Kingdom, out TextObject)`（`:70`）。
+
+两个带剧情封锁的（都要**先判 `ThirdPhase != null`**，否则直接 NRE）：
+
+`IsWarDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`（`:39`）——取 `ThirdPhase.OppositionKingdoms`（`:43`），若 `kingdom1` 和 `kingdom2` **都在**列表里（`IndexOf(...) >= 0` 两两组合，`:44`），则 `reason = GameTexts.FindText("str_kingdom_diplomacy_war_truce_disabled_reason_story", null)`（`:46`）并 `return false`（`:47`）。
+
+`IsPeaceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`（`:54`）——同时取 `OppositionKingdoms`（`:58`）和 `AllyKingdoms`（`:59`），若**一个在敌对表、另一个在盟友表**（两个方向的组合用 `||` 连，`:60`），用同一个文本键并 `return false`（`:61`→`:62`）。
+
+被否决时 `reason` 一定是那句剧情文案；放行时走基类并由基类填 `reason`（`:50`、`:66`）。
+
+### 典型用法
+
+```csharp
+// 运行期读
+KingdomDecisionPermissionModel perm = Campaign.Current.Models.KingdomDecisionPermissionModel;
+
+// 复现宣战封锁：两个敌对王国之间不能宣战（需 ThirdPhase 已存在）
+if (StoryModeManager.Current.MainStoryLine.ThirdPhase != null)
+{
+    TextObject why;
+    bool allowed = perm.IsWarDecisionAllowedBetweenKingdoms(
+        StoryModeManager.Current.MainStoryLine.ThirdPhase.OppositionKingdoms[0],
+        StoryModeManager.Current.MainStoryLine.ThirdPhase.OppositionKingdoms[1],
+        out why);
+    Debug.Print("允许宣战=" + allowed + " 原因=" + why);
+}
+
+// 和平封锁：敌对 x 盟友 组合被拒
+ThirdPhase third = StoryModeManager.Current.MainStoryLine.ThirdPhase;
+TextObject peaceReason;
+bool peace = perm.IsPeaceDecisionAllowedBetweenKingdoms(
+    third.OppositionKingdoms[0], third.AllyKingdoms[0], out peaceReason);
+Debug.Print("允许和谈=" + peace + " 原因=" + peaceReason);
+
+// 四个纯透传的方法照常可用
+Debug.Print("能否选王=" + perm.IsKingSelectionDecisionAllowed(StoryModeData.BattaniaKingdom));
+```
+
+### 最容易踩的坑
+
+它把**敌对王国之间的停战也一并封了**。看方法名 `IsWarDecisionAllowedBetweenKingdoms` 只觉得是「不许宣战」，但同一份 `OppositionKingdoms` 也被 `IsPeaceDecisionAllowedBetweenKingdoms` 拿去当「不许结盟」的理由表（`:60`）——两个敌对王国既不能开战也不能停战。终局阶段一旦有多个敌对王国，它们之间的外交通道被这个模型彻底锁死，且 `reason` 只有同一句文案，UI 上看不出到底是宣战还是和谈被拒。
+
 ## 主要成员
 
 - `IsWarDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`

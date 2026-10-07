@@ -42,6 +42,57 @@ description: "城镇/村庄名望数量模型：教学阶段未完成时，教�
 - **返回 0 不会清除已有名望。** 它只影响「该生成多少」的查询。已经存在的名望要靠 [TutorialPhaseCampaignBehavior](../TutorialPhaseCampaignBehavior) 的 `KillCharacterAction.ApplyByRemove` 清理。
 - **教学结束后本模型完全透明**，形同不存在。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeNotableSpawnModel : NotableSpawnModel` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/StoryModeNotableSpawnModel.cs:9`，全文 21 行，**全文只有一个 override**。
+
+注册点：`campaignGameStarter.AddModel<NotableSpawnModel>(new StoryModeNotableSpawnModel())`（`StoryModeSubModule.cs:99`），只在主线战役生效（`StoryModeSubModule.cs:23`→`:24`）。读用 `Campaign.Current.Models.NotableSpawnModel`。
+
+`GetTargetNotableCountForSettlement(Settlement settlement, Occupation occupation)`（`:12`）的唯一分支是 `!StoryModeManager.Current.MainStoryLine.TutorialPhase.IsCompleted && settlement.StringId == "village_ES3_2"`（`:14`）——**两个条件同时成立**才 `return 0`（`:16`）。不成立走 `base.BaseModel.GetTargetNotableCountForSettlement(settlement, occupation)`（`:18`）。
+
+也就是说：**教学未完成期间，教学村庄 `village_ES3_2` 一个名望都不生成，其它村庄和教学完成后的这座村庄完全不受影响**。第二个参数 `occupation` 在分支里根本没用到。
+
+调用方是名望生成与再平衡流程；教学阶段收尾时（`TutorialPhaseCampaignBehavior`）也会被主动调用来一次性补齐差额，所以教学结束后这座村庄的名望会一次性出现。
+
+### 典型用法
+
+```csharp
+// 运行期读
+NotableSpawnModel notable = Campaign.Current.Models.NotableSpawnModel;
+
+// 复现原生判断
+Settlement village = Settlement.Find("village_ES3_2");
+bool tutorialDone = StoryModeManager.Current.MainStoryLine.TutorialPhase.IsCompleted;
+if (!tutorialDone && village != null)
+{
+    Debug.Print("教学村庄目标名望数=" + notable.GetTargetNotableCountForSettlement(village, Occupation.Artisan));
+}
+
+// 教学结束后同一个查询恢复基类结果
+Debug.Print("目标=" + notable.GetTargetNotableCountForSettlement(village, Occupation.Artisan)
+          + "，另一村庄目标=" + notable.GetTargetNotableCountForSettlement(Settlement.Find("village_EP1_1"), Occupation.Farmer));
+
+// mod 侧覆写：推广到更多村庄
+public class MyNotableSpawnModel : NotableSpawnModel
+{
+    public override int GetTargetNotableCountForSettlement(Settlement settlement, Occupation occupation)
+    {
+        if (!StoryModeManager.Current.MainStoryLine.TutorialPhase.IsCompleted
+            && settlement.StringId.StartsWith("village_ES"))
+        {
+            return 0;
+        }
+        return base.GetTargetNotableCountForSettlement(settlement, occupation);
+    }
+}
+```
+
+### 最容易踩的坑
+
+它压的是**目标数量**而不是已有数量。教学未完成时返回 0，只意味着再平衡流程不会**新增**名望；已经存在的名望不会被清掉。你在教程阶段通过存档改数或 mod 往 `village_ES3_2` 塞了名望，教学期它们照常存在、照常交互，模型完全不管。想在教学期彻底清空这座村庄的名望，得自己遍历 `settlement.Notables` 显式移除，模型这一层做不到。
+
 ## 主要成员
 
 - `GetTargetNotableCountForSettlement(Settlement settlement, Occupation occupation)`

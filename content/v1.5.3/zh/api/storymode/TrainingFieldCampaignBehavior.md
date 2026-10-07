@@ -61,6 +61,58 @@ StoryModeManager.Current.MainStoryLine.IsPlayerInteractionRestricted
 - **`training_field_menu` 的 id 被 [StoryModeEncounterGameMenuModel](../StoryModeEncounterGameMenuModel) 以字符串方式引用**，两处硬编码同一个字面量。
 - **`game_menu_training_field_on_init` 会 `Campaign.Current.GameMenuManager.MenuLocations.Clear()`**——全局清空菜单位置，这是训练场专属菜单必须的，但任何依赖其它菜单 location 的 mod 会受影响。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class TrainingFieldCampaignBehavior : CampaignBehaviorBase` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/CampaignBehaviors/TrainingFieldCampaignBehavior.cs:21`，全文 233 行。
+
+注册点：`campaignGameStarter.AddBehavior(new TrainingFieldCampaignBehavior())`（`StoryModeSubModule.cs:76`），**无条件**——不在 `IsCompleted` 条件块里，所以整个存档期都在。取实例用 `Campaign.Current.GetCampaignBehavior<TrainingFieldCampaignBehavior>()`。
+
+`RegisterEvents()`（`:29`）挂**三条**：`OnSessionLaunchedEvent`（`:31`）、`OnMissionEndedEvent`（`:32`）、`OnCharacterCreationIsOverEvent`（`:33`）。`SyncData`（`:24`）是**空实现**——本类没有任何字段进存档。
+
+**`OnCharacterCreationIsOver(int index)`（`:37`）是进入训练场的唯一入口**：在 `index == 1`（`:39`）且 `!SkipTutorialMission`（`:41`）时，做四件事——`Settlement.Find("tutorial_training_field")`（`:43`）、`MobileParty.MainParty.Position = settlement.Position;`（`:44`，直接传送）、`EncounterManager.StartSettlementEncounter(MobileParty.MainParty, settlement)`（`:45`）、`PlayerEncounter.LocationEncounter.CreateAndOpenMissionController(LocationComplex.Current.GetLocationWithId(TrainingFieldLocationId), null, null, null)`（`:46`）。**然后无条件 `this.SkipTutorialMission = false;`（`:48`）复位。**
+
+`OnSessionLaunched(CampaignGameStarter campaignGameStarter)`（`:53`）注册一个菜单两个选项：`AddGameMenu("training_field_menu", ...)`（`:55`）、`AddGameMenuOption(..., "training_field_enter", ..., LeaveType.Mission, ...)`（`:56`）、`AddGameMenuOption(..., "training_field_leave", ..., LeaveType.Leave, ...)`（`:61`）。**同一个菜单还注册了一整段兄长对话**（`:66`–`:91`，约二十条 `AddDialogLine`/`AddPlayerLine`）。
+
+**`OnMissionEnded(IMission mission)`（`:95`）是收尾闸门**：训练场任务结束且 `_completeTutorial` 为真时调 `StoryModeManager.Current.MainStoryLine.CompleteTutorialPhase(true);`（`:99`）——**`true` 表示「按跳过处理」，会把 `TutorialPhase.IsSkipped` 置真**（`TutorialPhase.cs:176`）。
+
+`public bool SkipTutorialMission;`（`:215`）是唯一的公开字段，公开就是为了让外部决定「下次别进训练场」。其余四个字段 `_completeTutorial`（`:221`）、`_askedAboutRaiders1`（`:224`）、`_askedAboutRaiders2`（`:227`）、`_talkedWithBrotherForTheFirstTime`（`:230`）都是私有 bool，**全部不进存档**。
+
+场景 Location 的 id 是 `private const string TrainingFieldLocationId = "training_field";`（`:218`）——与 [TrainingFieldEncounter](../TrainingFieldEncounter) 里 `nextLocation.StringId == "training_field"` 的判据（`TrainingFieldEncounter.cs:36`）是同一份契约。
+
+五个 `out TextObject` 点击条件委托：`storymode_skip_tutorial_from_conversation_clickable_condition`（`:170`）、`storymode_asked_about_raiders_1_clickable_condition`（`:183`）、`storymode_asked_about_raiders_2_clickable_condition`（`:190`）。
+
+### 典型用法
+
+```csharp
+// 运行期读
+TrainingFieldCampaignBehavior tf =
+    Campaign.Current.GetCampaignBehavior<TrainingFieldCampaignBehavior>();
+Debug.Print("行为在位=" + (tf != null) + "，SkipTutorialMission=" + tf.SkipTutorialMission);
+
+// 唯一公开字段：阻止下一次进入训练场
+tf.SkipTutorialMission = true;      // 下次 OnCharacterCreationIsOver(1) 会跳过（:41 守卫）
+
+// Location id 契约：与 TrainingFieldEncounter 共享同一份字符串
+Debug.Print("Location id=" + "training_field");
+
+// 菜单由它在 OnSessionLaunched 注册
+Debug.Print("菜单 training_field_menu，选项 training_field_enter / training_field_leave");
+
+// 收尾语义：CompleteTutorialPhase(true) 会置 IsSkipped
+TutorialPhase tutorial = StoryModeManager.Current.MainStoryLine.TutorialPhase;
+Debug.Print("IsSkipped=" + tutorial.IsSkipped + "（训练场任务结束即置真）");
+
+// 练武场聚落的传送目标
+Settlement field = Settlement.Find("tutorial_training_field");
+Debug.Print("训练场聚落=" + field?.StringId + "，组件=" + (field?.SettlementComponent?.GetType().Name ?? "null"));
+```
+
+### 最容易踩的坑
+
+`OnMissionEnded`（`:95`）在训练场任务结束时调的是 `CompleteTutorialPhase(true)`（`:99`）——**那个 `true` 是 `isSkipped`**，`TutorialPhase.CompleteTutorial` 会直接 `this.IsSkipped = isSkipped;`（`TutorialPhase.cs:176`）。于是**从练武场正常打完教学也会被标成「跳过」**，而 [StoryModeBanditSpawnCampaignBehavior](../StoryModeBanditSpawnCampaignBehavior) 的 `OnTutorialEnded` 恰恰只在 `TutorialPhase.Instance.IsSkipped` 为真时才调 `SpawnInitialBanditsAndLooters()`（`:23`→`:25`）。两个条件拼在一起的结果是：正常打完训练的存档会额外跑一次初始藏出处与掠夺者生成。想避免就得自己覆写 `OnMissionEnded`，不能靠 `SkipTutorialMission`（它只管「进不进」，不管「怎么算完成」）。
+
 ## 主要成员
 
 - `public bool SkipTutorialMission`

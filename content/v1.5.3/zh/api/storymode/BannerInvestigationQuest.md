@@ -22,6 +22,52 @@ description: "第一阶段调查任务：在打完一场战役后向 10 位帝�
 
 坑：`UpdateAllNoblesDead` 里的 `num >= 9` 而不是 `>= 10`，因为真正的完成判定在 `talk_with_quest_noble_consequence` 里用 `_talkedNotablesQuestLog.CurrentProgress == _talkedNotablesQuestLog.Range`。日志是 0→10 的离散条，`HasBeenCompleted` 之外的等值判断意味着**超额完成（日志被别处改写）会卡住**。另外 `talk_with_any_noble_continue_condition` 里用 `SetCharacterProperties("HERO", ..., textObject, false)` 传了一个**未初始化的局部 `textObject`**（编译器能过是因为 out 参数），实际依赖 `MBTextManager.SetTextVariable("NOBLE_ANSWER", textObject, false)` 的副作用——这段代码很脆，改动时务必保留调用顺序。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class BannerInvestigationQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/FirstPhase/BannerInvestigationQuest.cs:17`，全文 689 行——**本文件里最长的字符串常量清单就在这里**。
+
+构造函数**无参**（约 `:60`），基类 `: base("investigate_neretzes_banner_quest", null, StoryModeManager.Current.MainStoryLine.FirstPhase.FirstPhaseEndTime)`（`:61`）——任务 id 硬编码、`questGiver` 传 `null`、**时限取第一阶段截止**（第一阶段未开始则 NRE）。存档 id 684001（`SaveableStoryModeTypeDefiner.cs:50`）。
+
+**谁创建它**：[FirstPhaseCampaignBehavior](../FirstPhaseCampaignBehavior) 的 `OnStoryModeTutorialEnded()`（`:146`）——与 `RebuildPlayerClanQuest` 同一句里连开（`RebuildPlayerClanQuest.cs:148`）。
+
+`RegisterEvents()`（`:78`）挂**四条**：`CampaignEvents.HeroKilledEvent`（`:80` → `OnHeroKilled`，`:223`）、`OnPartyRemovedEvent`（`:81` → `OnPartyRemoved`，`:550`）、`MobilePartyCreated`（`:82` → `OnPartySpawned`，`:559`）、`OnPartyLeaderChangedEvent`（`:83` → `OnPartyLeaderChanged`，`:87`）。**三条围绕队伍、一条围绕杀人**——它靠监视一支调查队伍的行动来推进。
+
+`InitializeNotablesToTalkList()`（`:106`）是本类的核心：把一批贵族填进 `Dictionary<Hero, bool> _noblesToTalk`（`[SaveableField(1)]`，`:673`）。**名单是 20 个 `private const string`**，从 `:616` 的 `MonchugStringId = "lord_6_1"` 一路到 `:670` 的 `RhagaeaStringId = "lord_1_14"`，覆盖 `lord_1` 到 `lord_6`。目标数量 `private const int NotablesToTalkAmount = 10;`（`:613`）——**名单 20 个但只要谈 10 个**。
+
+`OnStartQuest()`（`:215`）建进度日志。对话委托：`talk_about_mentors_condition()`（`:513`）、`talk_with_quest_noble_condition()`（`:523`）、`talk_with_quest_noble_consequence()`（`:529`）。
+
+存档四项：`_noblesToTalk`（1）、`_allNoblesDead`（2，`:677`）、`_battleSummarized`（3，`:681`）、`_talkedNotablesQuestLog`（4，`:685`）。
+
+### 典型用法
+
+```csharp
+// 1) 正常由教学结束时的行为创建
+BannerInvestigationQuest q = new BannerInvestigationQuest();
+q.StartQuest();
+
+// 2) 名单逻辑：20 个候选里要谈 10 个
+Debug.Print("候选贵族 20 个，目标 " + BannerInvestigationQuest.NotablesToTalkAmount + " 个（常量 private，读日志看进度）");
+
+// 3) 完成条件一：全灭
+Debug.Print("_allNoblesDead 走 [SaveableField(2)]");
+
+// 4) 完成条件二：战斗已结算
+Debug.Print("_battleSummarized 走 [SaveableField(3)]");
+
+// 5) 与它同批开出的另一条任务
+Debug.Print("同批还有 RebuildPlayerClanQuest（FirstPhaseCampaignBehavior.cs:148）");
+
+// 6) 读任务
+QuestBase b = Campaign.Current.QuestManager.GetQuest<BannerInvestigationQuest>();
+Debug.Print("id=" + b.QuestId + "，存档 id=684001，发布者=" + (b.QuestGiver?.Name.ToString() ?? "null"));
+```
+
+### 最容易踩的坑
+
+20 个候选贵族的 id 全是 **`private const string` 字面量**（`:616`–`:670`），逐个硬写 `lord_6_1`、`lord_5_3`、`lord_1_14`……`InitializeNotablesToTalkList()`（`:106`）靠它们定位。这批 id 指向帝国系统里的固定贵族，**mod 删掉或改名其中任何一个，`Hero` 查找就可能返回 null**——而这些常量是 private，外部既读不到也无法替你判空。症状是任务进度不再推进但不报错。名单分散在 55 行里且无注释，核对时要按 `lord_N_M` 的编号规律通读，不能只看其中几条。
+
 ## 主要成员
 
 - `BannerInvestigationQuest()`：无参构造，`_allNoblesDead = false`，不注册事件（事件在 `RegisterEvents`）。

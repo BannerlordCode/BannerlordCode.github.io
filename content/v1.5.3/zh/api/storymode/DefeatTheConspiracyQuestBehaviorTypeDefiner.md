@@ -20,6 +20,45 @@ Bannerlord 的存档类型系统是手写的显式注册表：每个模块在 `M
 
 值得注意的是**编号 16000 是整个存档表里最小的一批号**——第二阶段用了 1002000 / 1005000，教程后的氏族重建用了 4140000。第三阶段之所以用小号，是因为它是原版最早写的那批代码。它也说明号段不是按语义分区的，**不能靠编号大小推断优先级或版本新旧**。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class DefeatTheConspiracyQuestBehaviorTypeDefiner : SaveableTypeDefiner` 声明在 `bannerlord-1.5.3/StoryMode/Quests/ThirdPhase/DefeatTheConspiracyQuestBehavior.cs:469`——**它与被它登记的两个类型在同一个 947 行文件里**。全文 947 行，但这个类型本身只有两样东西。
+
+**引擎自动实例化，别 new。** 唯一构造函数 `DefeatTheConspiracyQuestBehaviorTypeDefiner()`（`:471`，无参）只做 `: base(16000)`（`:473`）——`16000` 是这个 id 段的基数，**是全模块五个存档定义器里最小的**（对比：`AssembleEmpireQuestBehaviorTypeDefiner` = `1002000`、`WeakenEmpireQuestBehaviorTypeDefiner` = `1005000`、`RebuildPlayerClanQuestBehaviorTypeDefiner` = `4140000`、模块级 `SaveableStoryModeTypeDefiner` = `320000`）。
+
+`protected override void DefineClassTypes()`（`:478`）只有**两条** `AddClassDefinition`：
+
+```csharp
+base.AddClassDefinition(typeof(DefeatTheConspiracyQuestBehavior.OppositionData), 1, null);   // :480
+base.AddClassDefinition(typeof(DefeatTheConspiracyQuestBehavior.DefeatTheConspiracyQuest), 2, null);  // :481
+```
+
+两条都是**嵌套类**，都用带外层类前缀的 `typeof(...)` 写法，编号 1 和 2 在 `16000` 段内。
+
+被登记的 `DefeatTheConspiracyQuest`（`:486`）继承 `StoryModeQuestBase`，存档时由它把 `OppositionData` 一起带进 `collectedObjects`——**两个类型必须成对登记**，少登记 `OppositionData` 的话，读档时敌对王国数据会丢。
+
+### 典型用法
+
+```csharp
+// 不要 new。只用于确认存档事实：
+
+// 1) 确认两个被登记的嵌套类型
+Debug.Print(typeof(StoryMode.Quests.ThirdPhase.DefeatTheConspiracyQuestBehavior.OppositionData).FullName + " -> id 1");
+Debug.Print(typeof(StoryMode.Quests.ThirdPhase.DefeatTheConspiracyQuestBehavior.DefeatTheConspiracyQuest).FullName + " -> id 2");
+
+// 2) 确认 id 段基数
+SaveableTypeDefiner definer = new StoryMode.Quests.ThirdPhase.DefeatTheConspiracyQuestBehaviorTypeDefiner();
+Debug.Print("存档 id 基数=" + definer.Id + "（16000，与 320000 / 1002000 / 1005000 / 4140000 是不同空间）");
+
+// 3) 反例：给 OppositionData 加字段后不更新这里 -> 读档丢数据，编译与写入都正常
+```
+
+### 最容易踩的坑
+
+它登记的两个都是**嵌套类**，源码里写的是带外层类前缀的 `typeof(...)`。你把 `DefeatTheConspiracyQuest` 挪到别的文件、或重命名外层行为类，这行就编译不过；而如果只是给 `OppositionData` 加成员而不动这里，**编译照过、存档照写、读档静默丢字段**。因为 `DefineClassTypes` 是 `protected override`，mod 无法从外部补登记——只能自己写 `SaveableTypeDefiner` 并避开已有 id 段，而本模块的 `16000` 段只用了 1 和 2，是最容易被误撞进去的区间。
+
 ## 主要成员
 
 - `DefeatTheConspiracyQuestBehaviorTypeDefiner()`：无参构造，`base(16000)` 声明全局 id。

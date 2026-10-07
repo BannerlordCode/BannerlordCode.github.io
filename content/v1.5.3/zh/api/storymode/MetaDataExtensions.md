@@ -48,6 +48,45 @@ metaData.TryGetValue("Modules", out text)
 4. **两个方法都只读不写**：想在 mod 里标记自己的存档状态，`MetaData` 有 `Add(key, value)` 和索引器 setter，但那是 `TaleWorlds.SaveSystem` 的 API，不在本类。
 5. **`TryGetValue` 不是索引器**：`MetaData` 两者都有（本类的代码用的是 `TryGetValue`），但索引器在缺键时返回 null 而 `TryGetValue` 返回 false。用错会得到 null 参与后续比较。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public static class MetaDataExtensions` 声明在 `bannerlord-1.5.3/StoryMode/Extensions/MetaDataExtensions.cs:7`，全文 38 行，两个扩展方法都挂在 `TaleWorlds.SaveSystem.MetaData` 上。静态类无需实例化。
+
+`MetaData` 的实例从哪来：存档系统的 `[LoadInitializationCallback]` 签名会带一个 `MetaData` 参数。本模块里的调用点是 `StoryModeManager.OnLoad(MetaData metaData)`（`StoryModeManager.cs:76`）——读档时引擎回调它，参数就是这个战役存档的元数据。想在自己的 mod 里读到同样的东西，就在任一 `[LoadInitializationCallback]` 方法里声明 `MetaData` 参数，或从 `SaveManager` 侧拿。
+
+两个方法的读法不同：`HasStoryMode`（`:10`）先判 `metaData != null`，再 `TryGetValue("Modules", out text)`，然后把值按 `';'` 切成数组，用 `string.Equals(..., StringComparison.OrdinalIgnoreCase)` 逐段比 `"StoryMode"`（`:16`→`:21`）。`AreAchievementsDisabled`（`:30`）只做一次 `TryGetValue("AchievementsDisabled", out text)` 再 `int.TryParse` 并要求 `== 1`（`:32`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.SaveSystem;
+
+// 声明在带 [LoadInitializationCallback] 的方法签名上，metaData 由引擎注入
+[LoadInitializationCallback]
+private void OnLoad(MetaData metaData, ObjectLoadData loadData)
+{
+    if (metaData.HasStoryMode())                       // MetaDataExtensions.cs:10
+    {
+        Debug.Print("这是主线战役存档");
+    }
+    if (metaData.AreAchievementsDisabled())            // MetaDataExtensions.cs:30
+    {
+        Debug.Print("AchievementsDisabled = 1");
+    }
+}
+
+// 也可以先判再调，两者对 null 都安全（HasStoryMode 判了 null，
+// AreAchievementsDisabled 靠 `metaData != null &&` 短路）
+MetaData header = SaveManager.LoadMetaData();
+Debug.Print("HasStoryMode=" + header.HasStoryMode() + ", AchDisabled=" + header.AreAchievementsDisabled());
+```
+
+### 最容易踩的坑
+
+用 `HasStoryMode()` 当作「战役是主线」的运行时判断。它读的只是存档头里 `"Modules"` 这个分号分隔串里有没有 `StoryMode` 字样（`:16`→`:21`）。任何 mod 改写元数据、或者玩家手改了存档头，这个返回值就会和 `StoryModeManager.Current` 的真实结果不一致——而后者才是运行时真相（`StoryModeManager.cs:39` 靠 `Game.Current.GameType as CampaignStoryMode` 判定）。**用 `HasStoryMode()` 做持久化标记可以，用它做逻辑分支会骗你。**
+
 ## 主要成员
 
 - `public static bool HasStoryMode(this MetaData metaData)`：读 `"Modules"`，按 `;` 切分后逐段做 `OrdinalIgnoreCase` 比较。`metaData` 为 null 或键不存在 → false。

@@ -32,6 +32,51 @@ description: "所有玩法模型的抽象根类：没有成员，只有类型标
 3. **在 Core 层引用 CampaignSystem 类型**：`GameModel` 在 `TaleWorlds.Core`，方向是 Core → 无依赖。任何模型实现都引用 CampaignSystem 才正常，Core 不引用 CampaignSystem。
 4. **以为基类空就没有抽象方法约束**：没有约束意味着你可以注册任何 `GameModel` 子类进 starter，引擎不会报错——只有真正被查询时才发现类型不匹配。
 
+## 怎么用
+
+### 怎么拿到它
+
+它是个**没有任何成员的抽象标记类**（`GameModel.cs:6-8`），没有构造函数可调——它只有一个无参的隐式构造。mod 要产生一个 `GameModel`，唯一的路径是继承它，然后在 `MBSubModuleBase.OnGameStart` 期间注册进去：`CampaignGameStarter.AddModel(GameModel)`（`CampaignGameStarter.cs:89`）或包装型的 `AddModel<T>(MBGameModel<T>)`（`CampaignGameStarter.cs:95`）。
+
+注册完从哪读？两处：
+- 注册期自查：`CampaignGameStarter.GetModel<T>()`（`CampaignGameStarter.cs:75`），它从 `_models` 末尾往前扫，所以**最后注册的那个生效**。
+- 运行期消费：`Campaign.Current.Models`（`Campaign.cs:557`）返回 `GameModels`（`GameModels.cs:9`）。但 `GameModels` 上的属性是编译期写死的（`MapVisibilityModel`、`InformationRestrictionModel`……每个都是 `{ get; private set; }`），而 `GameModelsManager.GetGameModel<T>()` 是 `protected`（`GameModelsManager.cs:17`），mod 从外部根本调不到。**所以你自己注册的自定义模型必须自己在注册时把实例存成静态字段**，运行期再从那个字段读。
+
+### 典型用法
+
+```csharp
+public class MySettlementProsperityModel : GameModel
+{
+    public int GetProsperity(Settlement settlement) { return 500; }
+}
+
+// 自己的模型自己持有：GameModels 上没有它的属性，外部也调不到 protected 的 GetGameModel<T>
+internal static class MyModels
+{
+    public static MySettlementProsperityModel Prosperity;
+}
+
+// 2) 在启动期注册
+protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
+{
+    base.OnGameStart(game, gameStarterObject);
+    CampaignGameStarter starter = (CampaignGameStarter)gameStarterObject;
+
+    MyModels.Prosperity = new MySettlementProsperityModel();
+    starter.AddModel(MyModels.Prosperity);        // 裸模型：完全替换
+
+    // 注册完立刻自查，确认自己的确实排在最后
+    Debug.Print("override ok = " + (starter.GetModel<MySettlementProsperityModel>() != null));
+}
+
+// 3) 运行期从自己存的字段读；原生模型则走 Campaign.Current.Models 的编译期属性
+MySettlementProsperityModel model = MyModels.Prosperity;
+```
+
+### 最容易踩的坑
+
+依赖「先注册先生效」。查找是从列表**末尾往前**遍历的（`CampaignGameStarter.cs:77-80`，`GameModelsManager.cs:19-26`），所以是后注册的赢。如果你的模块 `SubModuleLoadOrder` 排在原生模块之前，你注册的原生模型替身会被原生的悄悄盖掉——运行时完全正常，只是你的实现从来没被调用过，而 `GetGameModel<T>` 在无人注册时返回 `default(T)` 即 `null`（`GameModelsManager.cs:27`）也不报错。注册完必须显式自查一次：`starter.GetModel<MyModel>()` 非空才算成功，或者用 `SubModuleLoadOrder` 保证自己排在后面。
+
 ## 成员与调用时机
 
 无成员。作为基类使用时：

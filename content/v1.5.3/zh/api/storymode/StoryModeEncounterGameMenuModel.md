@@ -34,6 +34,53 @@ description: "遭遇战对话菜单模型：训练场、剧情限制期、以及
 - **`GetEncounteredPartyBase` 返回 null 会 NRE。** 直接解引用 `.Settlement`，没有判空；野外无聚落的遭遇靠这个方法自身保证非空。
 - **训练场判定看组件类型不看聚落名**，与 [StoryModeCombatXpModel](../StoryModeCombatXpModel) 用的是同一套 `IsTrainingField()`。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeEncounterGameMenuModel : EncounterGameMenuModel` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/StoryModeEncounterGameMenuModel.cs:13`，全文 77 行，六个 override，**五个纯透传**。
+
+注册点：`campaignGameStarter.AddModel<EncounterGameMenuModel>(new StoryModeEncounterGameMenuModel())`（`StoryModeSubModule.cs:92`），只在主线战役生效（`StoryModeSubModule.cs:23`→`:24`）。读用 `Campaign.Current.Models.EncounterGameMenuModel`。
+
+核心 `GetEncounterMenu(PartyBase attackerParty, PartyBase defenderParty, out bool startBattle, out bool joinBattle)`（`:16`）的第一句就取遭遇地点：`MapEventHelper.GetEncounteredPartyBase(attackerParty, defenderParty).Settlement`（`:18`）。然后是**四条互斥分支**，按顺序判定：
+
+| 顺序 | 条件 | 返回菜单 | `startBattle`/`joinBattle` | 行 |
+| --- | --- | --- | --- | --- |
+| 1 | 遭遇地点非 null 且 `SettlementComponent is TrainingField` | `"training_field_menu"` | 都 false | `:20`→`:24` |
+| 2 | `MainStoryLine.IsPlayerInteractionRestricted` | `"storymode_game_menu_blocker"` | 都 false | `:26`→`:30` |
+| 3 | `SecondPhase != null` 且 `SecondPhase.ConspiracyClan` 等于攻守任一方的 `MapFaction` | 取决于商队匹配，见下 | | `:32` |
+| 4 | 其它 | `base.BaseModel.GetEncounterMenu(...)` | 由基类填 | `:48` |
+
+第 3 条内部还分两支：用 `FirstOrDefault(q => !q.IsFinalized && q.GetType() == typeof(DisruptSupplyLinesConspiracyQuest))` 找未完成的商队任务（`:34`），若它的 `ConspiracyCaravan == defenderParty.MobileParty` 则走基类菜单、保留任务交互（`:35`→`:37`）；否则 `return "encounter"` 并把 `startBattle = joinBattle = true`（`:41`→`:43`）。
+
+纯透传：`GetGenericStateMenu()`（`:54`）、`GetNewPartyJoinMenu(MobileParty newParty)`（`:60`）、`GetRaidCompleteMenu()`（`:66`）、`IsPlunderMenu(string menuId)`（`:72`）。
+
+两个菜单由对应行为注册：`training_field_menu` 在 [TrainingFieldCampaignBehavior](../TrainingFieldCampaignBehavior) 的 `OnSessionLaunched`（`TrainingFieldCampaignBehavior.cs:55`），`storymode_game_menu_blocker` 在 [TutorialPhaseCampaignBehavior](../TutorialPhaseCampaignBehavior)。
+
+### 典型用法
+
+```csharp
+// 运行期读：遭遇流程实际问的就是这个
+EncounterGameMenuModel menu = Campaign.Current.Models.EncounterGameMenuModel;
+
+// 复现原生分支：教学期且尚未选边 -> 阻断菜单
+bool startBattle, joinBattle;
+string id = menu.GetEncounterMenu(Hero.MainHero.Party.Party, target.Party, out startBattle, out joinBattle);
+Debug.Print("菜单=" + id + " 可开战=" + startBattle + " 可加入=" + joinBattle);
+
+// 两个 out 必须都用：基类分支才会给它们赋值
+// 训练场：两个开关都是 false
+Settlement training = Settlement.Find("tutorial_training_field");
+Debug.Print("训练场是阻断菜单=" + (training != null && training.SettlementComponent is TrainingField));
+
+// 纯透传成员
+Debug.Print("劫掠完成菜单=" + menu.GetRaidCompleteMenu() + "，是否劫掠菜单=" + menu.IsPlunderMenu("plunder"));
+```
+
+### 最容易踩的坑
+
+第 3 条分支里 `ConspiracyClan` 是和 `attackerParty.MapFaction` / `defenderParty.MapFaction` 比**引用相等**（`:32`），而且只在这一条里比。也就是说阴谋氏族以外的队伍打阴谋氏族就走基类，完全不特殊。更要紧的是第 2 条：它排在第 3 条**前面**，所以教学未完成且尚未选边时，即便对手是阴谋商队，拿到的也是 `storymode_game_menu_blocker` 而不是任务交互菜单。分支顺序是行为的一部分——你把这两条调换位置，阴谋商队的护送交互就会在教学期提前开放。
+
 ## 主要成员
 
 - `GetEncounterMenu(PartyBase attackerParty, PartyBase defenderParty, out bool startBattle, out bool joinBattle)`

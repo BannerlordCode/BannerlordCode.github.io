@@ -38,6 +38,55 @@ description: "队伍人数上限模型：给主线阴谋任务造出的商队和
 - **驻军人数（`CalculateGarrisonPartySizeLimit`）与本层无关**，它是另一个成员，透传。想限制驻军得覆写那一个。
 - **`IsMobilePartyCreatedForQuest` 依赖行为实例存在**。若第三阶段相关行为被 mod 从 `AddBehaviors` 里去掉，这个分支静默失效，队伍回落到基类上限。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModePartySizeLimitModel : PartySizeLimitModel` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/StoryModePartySizeLimitModel.cs:16`，全文 116 行，十一个成员，**九个纯透传**。
+
+注册点：`campaignGameStarter.AddModel<PartySizeLimitModel>(new StoryModePartySizeLimitModel())`（`StoryModeSubModule.cs:102`），只在主线战役生效（`StoryModeSubModule.cs:23`→`:24`）。读用 `Campaign.Current.Models.PartySizeLimitModel`。调用方是队伍 UI、战斗生成与 AI——会被反复、高频询问。
+
+一个私有惰性属性是这里的枢纽：`DefeatTheConspiracyQuestBehavior`（`:30`）先看私有字段 `_defeatTheConspiracyQuestBehavior`（`:34`→`:36`），没有就 `Campaign.Current.GetCampaignBehavior<DefeatTheConspiracyQuestBehavior>()` 取一次并缓存（`:38`→`:39`）。**缓存了就不再更新**——行为被移除后这个字段仍指旧实例。
+
+`GetPartyMemberSizeLimit(PartyBase party, bool includeDescriptions = false)`（`:86`）是唯一带主线逻辑的公开方法，`party.IsMobile`（`:88`）才进，两条主线特判按顺序：
+
+1. 阴谋补给商队：`FirstOrDefault(q => !q.IsFinalized && q.GetType() == typeof(DisruptSupplyLinesConspiracyQuest))`（`:90`），若该任务的 `ConspiracyCaravan != null && ConspiracyCaravan.Party == party`（`:94`）→ `return new ExplainedNumber((float)questBase.CaravanPartySize, false, null)`（`:96`）。**人数由任务数据决定，不是队伍自身属性。**
+2. 讨伐阴谋任务队伍：`DefeatTheConspiracyQuestBehavior != null && ....IsMobilePartyCreatedForQuest(party.MobileParty)`（`:99`）→ `return new ExplainedNumber(600f, false, null)`（`:101`），**600 是硬编码**。
+
+纯透传九个：`MinimumNumberOfVillagersAtVillagerParty`（`:20`）、`CalculateGarrisonPartySizeLimit(Settlement, bool)`（`:44`）、`FindAppropriateInitialRosterForMobileParty(MobileParty, PartyTemplateObject)`（`:50`）、`FindAppropriateInitialShipsForMobileParty(...)`（`:56`）、`GetAssumedPartySizeForLordParty(Hero, IFaction, Clan)`（`:62`）、`GetClanTierPartySizeEffectForHero(Hero)`（`:68`）、`GetIdealVillagerPartySize(Village)`（`:74`）、`GetNextClanTierPartySizeEffectChangeForHero(Hero)`（`:80`）、`GetPartyPrisonerSizeLimit(PartyBase, bool)`（`:108`）。
+
+### 典型用法
+
+```csharp
+// 运行期读
+PartySizeLimitModel limit = Campaign.Current.Models.PartySizeLimitModel;
+
+// 玩家队伍：走基类（无阴谋任务指向它）
+Debug.Print("主队人数上限=" + limit.GetPartyMemberSizeLimit(PartyBase.MainParty, true).Result);
+
+// 找到阴谋商队队伍：上限由任务数据决定
+QuestBase q = Campaign.Current.QuestManager.Quests
+    .FirstOrDefault(x => !x.IsFinalized && x.GetType() == typeof(StoryMode.Quests.SecondPhase.ConspiracyQuests.DisruptSupplyLinesConspiracyQuest));
+if (q is DisruptSupplyLinesConspiracyQuest caravan)
+{
+    MobileParty p = caravan.ConspiracyCaravan;
+    if (p != null)
+    {
+        Debug.Print("商队人数上限=" + limit.GetPartyMemberSizeLimit(p.Party, false).Result
+                  + "（任务数据 CaravanPartySize=" + caravan.CaravanPartySize + "）");
+    }
+}
+
+// 讨伐阴谋行为可从模型里反查（就是那个私有惰性属性的公开等价物）
+DefeatTheConspiracyQuestBehavior behavior =
+    Campaign.Current.GetCampaignBehavior<DefeatTheConspiracyQuestBehavior>();
+Debug.Print("讨伐行为在位=" + (behavior != null));
+```
+
+### 最容易踩的坑
+
+`GetPartyMemberSizeLimit` 的两条主线特判返回的都是 **`new ExplainedNumber(x, false, null)`**——第三个参数是 `null`，意思是没有来源说明。队伍 UI 上的上限数字会正常显示，但点开明细时看不到「为什么是这个数」，玩家和 mod 作者都无法从界面分辨这是主线特判还是常规计算。另外 `DefeatTheConspiracyQuestBehavior` 惰性属性缓存后不再刷新：读档换存档或行为被 `RemoveBehavior` 移除后，这个模型仍然拿着旧行为实例去调 `IsMobilePartyCreatedForQuest`，判定结果可能与实际战役状态脱节。
+
 ## 主要成员
 
 - `GetPartyMemberSizeLimit(PartyBase party, bool includeDescriptions = false)`

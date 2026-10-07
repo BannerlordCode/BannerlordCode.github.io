@@ -55,6 +55,35 @@ if (token == ".l" || token == ".L")
 5. **`SetGender` 用 `if` 链不是 `switch`**，最后一个分支是 `if (!(token == ".NP")) return; _curGender = ...NeuterPlural;`。加新 token 时要记得改最后这个反写形式。
 6. **`CultureInfoForLanguage` 返回静态 `CultureInfo`**（西班牙语 locale），对 `{^}` / `{_}` 的大小写规则是正确的。
 
+## 怎么用
+
+### 怎么拿到它
+
+引擎只在切语言时造：`MBTextManager.ChangeLanguage("Spanish")`（`MBTextManager.cs:37`）→ `LocalizedTextManager.CreateTextProcessorForLanguage` 用 `Type.GetType` 反射构造（`LocalizedTextManager.cs:61`、`:67`），类型名来自 `LanguageData` 配置，解析不到退回 `DefaultTextProcessor`（`:64-65`）。确认语言包挂对了没有，就调工厂打印 `GetType().Name`。
+
+手工用就 `new SpanishTextProcessor()` 加基类 `Process(text)`（`LanguageSpecificTextProcessor.cs:41`）。`CultureInfoForLanguage`（`SpanishTextProcessor.cs:122-128`）返回 `private static readonly CultureInfo = new CultureInfo("es-es")`（`:183`）。`ClearTemporaryData`（`:131-134`）只做一件事——`_curGender = WordGenderEnum.NoDeclination`，因为它是这个类里唯一的可变状态（`[ThreadStatic]`，`:137-138`）。
+
+它做的事很少：`ProcessToken`（`:12-23`）只识别两样——性别 token（走 `GenderTokens.TokenList.Contains(token)` 再 `SetGender`，`:14-17`）和定冠词 `{.l}` / `{.L}`（`:18-22`，处理完顺手把 `_curGender` 复位）。缩写表 `Contractions`（`:141`，`de + el → "l "` 这类）是 `static readonly` 的共享表。
+
+### 典型用法
+
+```csharp
+// 1) 确认语言包挂载成功
+Debug.Print(LocalizedTextManager.CreateTextProcessorForLanguage("Spanish").GetType().Name);
+
+// 2) 手工渲染：性别 token + 定冠词
+var es = new SpanishTextProcessor();
+Debug.Print(es.Process("{.m}el {.f}la"));    // .m / .f 记录 _curGender，{.l} 据此选冠词
+
+// 3) 真正的通路
+MBTextManager.ChangeLanguage("Spanish");
+Debug.Print(new TextObject("{=some_es_id}").ToString());
+```
+
+### 最容易踩的坑
+
+因为英语下 `{.s}` 能把名词换成复数（`EnglishTextProcessor.cs:30`-`:73`），就以为 `{.s}` 在所有语言下通用。西班牙语的 `ProcessToken`（`SpanishTextProcessor.cs:12-23`）里没有 `s` 分支，可基类仍然会把整个 `{.s}` 段从输出里删掉——`Process` 循环读到 `{` 后先 `ReadFirstToken` 把游标推过整个标记（`LanguageSpecificTextProcessor.cs:73`），只在 `IsPostProcessToken` 为真时才调 `ProcessTokenInternal`（`:74-77`），否则什么都不追加。后果是：西班牙语下 `{.s}` 不报错、不留痕，只是**标记连同它包裹的内容一起消失**，句子静默少一块，而你在日志里找不到任何线索。跨语言复用文本前，先对每种语言各跑一遍 `Process` 对照输出。
+
 ## 主要成员
 
 **覆写的抽象成员**

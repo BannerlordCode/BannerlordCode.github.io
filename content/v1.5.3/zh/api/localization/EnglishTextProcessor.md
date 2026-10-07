@@ -38,6 +38,37 @@ description: "英语的复数、冠词与所有格处理器：把 {a}/{A} 变成
 5. **`HandleApostrophe` 硬编码了 ASCII 115 判断 `s`**，且会临时移除结尾的 `</b></a>` 标签、处理完再补回。链接文字里的撇号所有格能工作，但如果你自己往输出里塞了别的后缀，这段逻辑会误判。
 6. **`CultureInfoForLanguage` 返回 `CultureInfo.InvariantCulture`**。对英语这是正确的。
 
+## 怎么用
+
+### 怎么拿到它
+
+不用自己造。它就是 `MBTextManager` 的**默认语言处理器**：字段初始化就是 `private static LanguageSpecificTextProcessor _languageProcessor = new EnglishTextProcessor()`（`MBTextManager.cs:503`）。`MBTextManager.ChangeLanguage("English")` 会重建一个新的同类型实例（`MBTextManager.cs:41`），所以你在任何时刻拿到的都是当次语言加载后的那一个，静态持有旧实例没有意义。
+
+想确认当前生效的是不是它：`MBTextManager.GetActiveTextLanguageIndex() == 0` 是间接办法，更直接的是看 `ActiveTextLanguage`（`MBTextManager.cs:509` 的 `_activeTextLanguageId` 默认 `"English"`）。
+
+它自己也做实活：`ProcessToken`（`EnglishTextProcessor.cs:13`）不是空实现，处理两类标记——`{.a}`/`{.A}` 按下一个字符是不是元音决定输出 `an` 还是 `a`（`:16-25`），以及 `{.s}`（`:30`）：把 `outputString` 里最后一个词取出来（`:34-43`），依次试 `HandleIrregularNouns`（`:48`）、`Handle_ves_Suffix`（`:53`）、`Handle_ies_Suffix`（`:58`）、`Handle_es_Suffix`（`:63`）、`Handle_s_Suffix`（`:68`），都不匹配就把那个 `s` 直接追加回去（`:73`）。不规则名词表是实例字段 `IrregularNouns`（`:336`，`man`→`men`、`footman`→`footmen` 这种）。注意 `token[1]` 这个下标意味着 token 至少两个字符，也就是标记必须写成 `{.s}` 而不是 `{s}`——单字符 token 会在 `:15` 直接越界。
+
+### 典型用法
+
+```csharp
+// 1) 英语下的冠词与复数，全部由这个处理器在渲染时处理（标记形如 {.s}）
+Debug.Print(new TextObject("a{.s}footman attacked the {.a} castle").ToString());
+// 输出里 the 前面的冠词由 CheckNextCharIsVowel 决定 a / an，footman 被 IrregularNouns 改成 footmen
+
+// 2) 自己 new 一个，用来对比「语言后处理做了什么」
+var en = new EnglishTextProcessor();
+string a = en.Process("a{.s}box");                  // s 标记被吃掉并替换成复数形式
+string b = new DefaultTextProcessor().Process("a{.s}box");   // 对照：什么都不做
+Debug.Print(a + " | " + b);
+
+// 3) 开发期定位问题
+MBTextManager.LocalizationDebugMode = true;
+```
+
+### 最容易踩的坑
+
+`{.s}` 的替换是**回写**到 `outputString` 里的：它通过 `outputString.Replace(text, text2, num, length)` 改写已经输出的最后一个词（`EnglishTextProcessor.cs:50`、`:55`、`:60`、`:65`、`:70`）。这意味着它只能处理「紧跟在已输出内容后面」的那个词；如果你在句首、在标点之后，或者中间插了别的标记（`{.link}`、`{.l}`），它抓到的是错误的词并替换之。后果是界面出现莫名其妙的复数错位（比如 `men` 出现在不该复数的位置），而你完全看不出是哪一个 token 干的。规避办法：把 `{.s}` 紧贴名词写，别写成 `{.s} box`，也不要在 `{.s}` 和名词之间夹任何标记。
+
 ## 主要成员
 
 **覆写的抽象成员**

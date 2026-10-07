@@ -32,6 +32,43 @@ description: "战役事件总线的静态门面：248 个 IMbEvent 属性覆盖�
 3. **无参委托用 `Action`，带参委托注意泛型顺序**。`AiHourlyTickEvent` 的 handler 签名是 `void H(MobileParty, PartyThinkParams)`，写错参数个数编译期能过（lambda 推断），运行时不派发，最容易出「静默不触发」。
 4. **回调是同步调用链**。某个监听者抛异常会中断后续监听者。自己的回调要自己包 try/catch。
 
+## 怎么用
+
+### 怎么拿到它
+
+静态入口一层层转发到当前战役的实例：`CampaignEvents.OnHeroKilledEvent` 这类属性 → `CampaignEvents.Instance._heroKilled`（例：`CampaignEvents.cs:3797`）→ `private static CampaignEvents Instance => Campaign.Current.CampaignEvents`（`:36-41`）。实例是 `Campaign.OnInitialize` 建的：`this.CampaignEvents = new CampaignEvents()`（`Campaign.cs:1937`），紧接着被塞进 dispatcher 的接收者列表（`:1939`）。
+
+它本身是个 `CampaignEventReceiver` 子类（`CampaignEvents.cs:32`），持有 **264 个 `public static IMbEvent...` 属性**（例如 `OnBeforeSaveEvent` `:3793`、`HourlyTickEvent` `:2301`、`AiHourlyTickEvent` `:2518`），对应 264 个 `readonly MbEvent` 实例（例：`_quarterHourlyTickEvent` `:5191`、`_onBeforeSaveEvent` `:5470`）。调用侧则是它继承来的那 264 个 `public override void OnXxx(...)`，每个都 `Instance._xxxEvent.Invoke(...)`（例 `:3804`）。
+
+订阅只有一条路：`IMbEvent.AddNonSerializedListener(object owner, Action action)`——无参 `MbEvent` 的实现在 `MbEvent.cs:9`，它**头插**进单链表（`:11-14`）。带参数的用 `MbEvent<T...>` 的对应重载。
+
+### 典型用法
+
+```csharp
+public class MyBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        // 无参事件
+        CampaignEvents.HourlyTickEvent.AddNonSerializedListener(this, OnHourly);
+
+        // 带参事件：签名必须与 MbEvent<T...> 完全一致
+        CampaignEvents.OnHeroKilledEvent.AddNonSerializedListener(this, OnHeroKilled);
+    }
+
+    private void OnHourly() { }
+
+    private void OnHeroKilled(Hero victim, Hero killer,
+        KillCharacterAction.KillCharacterActionDetail detail, bool showNotification) { }
+
+    // 引擎行为被移除时会统一调 RemoveListeners（CampaignBehaviorManager.cs:100）
+}
+```
+
+### 最容易踩的坑
+
+用同一个 owner 调两次 `AddNonSerializedListener`，只指望一次 `RemoveListeners` 能全清。`MbEvent.ClearListeners`（`MbEvent.cs:34`）→ `ClearListenerOfList` 只定位**第一个**匹配的 owner（`:42-50`），然后把它从链表里摘掉就结束了（`:51-67`）——它不继续找第二个。后果是：behavior 的 `RegisterEvents` 被执行两次（这在 `CampaignBehaviorManager.AddBehavior` 那条路上真的会发生，见 [CampaignBehaviorManager](../../campaign-ext/CampaignBehaviorManager)），你再调一次 `RemoveListeners(this)` 只会摘掉一条，剩下的那个 handler 继续每 tick 跑，读到的是已从 `_campaignBehaviors` 里移除的 behavior 的状态。要么保证 `RegisterEvents` 只跑一次，要么按 owner 分开注册并逐次清理。
+
 ## 成员与调用时机
 
 **周期与生命周期（最常用）**

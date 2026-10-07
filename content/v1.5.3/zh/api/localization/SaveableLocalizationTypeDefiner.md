@@ -38,6 +38,42 @@ description: "本地化模块向存档系统登记 TextObject 与 Dictionary<str
 4. **`saveBaseId(20000)` 与 `AddClassDefinition` 的 id 1 是两个不同的东西**。前者是号段起点，后者是 `TextObject` 在号段内的偏移。真正的 save id 是 `20000 + 1`。**id 一旦发布不能改**。
 5. **新增字段只能用新 id**。改 `TextObject` 的 `[SaveableField]` id 等于换字段，旧存档读不回来。1.5.3 里 `TextObject` 只有 `Value(1)` 和 `Attributes(2)` 两个持久化成员。
 
+## 怎么用
+
+### 怎么拿到它
+
+不要自己 `new`。它是存档系统反射枚举的类型定义器，引擎在扫描可保存类型时会一并实例化。你能碰到的公开面只有构造函数 `public SaveableLocalizationTypeDefiner() : base(20000)`（`SaveableLocalizationTypeDefiner.cs:11-14`）——`20000` 是传给基类的 id 区间起点，本地化模块独占这一段。定义内容在两个 protected override 里：`DefineClassTypes()`（`:17-20`）只注册一条 `AddClassDefinition(typeof(TextObject), 1, null)`；`DefineContainerDefinitions()`（`:23-26`）只注册 `ConstructContainerDefinition(typeof(Dictionary<string, TextObject>))`。
+
+真正产生效果的是**基类**：`SaveableTypeDefiner` 的抽象成员是这三个（`DefineClassTypes` / `DefineContainerDefinitions` 以及构造函数里的区间 id），基类由引擎遍历调用。
+
+### 典型用法
+
+```csharp
+// 1) 确认 TextObject 确实在存档里：[SaveableLocalizationTypeDefiner.cs:19] 注册了它，id 为 1
+var gold = 1000;
+dataStore.SyncData("settlement_gold", ref gold);      // 值类型照常存
+
+// 2) TextObject 类型的字段能被存下来，是因为上面那条 AddClassDefinition
+TextObject label = new TextObject("{=some_id}");
+dataStore.SyncData("custom_label", ref label);
+
+// 3) Dictionary<string, TextObject> 容器同样被声明为可保存（:25）
+//    所以直接把一张 TextObject 表塞进存档是可行的
+
+// 4) 自定义类型要进存档，走同样的写法：继承 SaveableTypeDefiner，
+//    构造函数给一个和 20000 不冲突的区间 id，DefineClassTypes 里 AddClassDefinition
+public class MyModTypeDefiner : SaveableTypeDefiner
+{
+    public MyModTypeDefiner() : base(20100) { }
+    protected override void DefineClassTypes() { base.AddClassDefinition(typeof(MyModData), 1, null); }
+    protected override void DefineContainerDefinitions() { }
+}
+```
+
+### 最容易踩的坑
+
+给自定义 `SaveableTypeDefiner` 选一个和 `20000`（`SaveableLocalizationTypeDefiner.cs:12`）重叠的区间 id。存档里同一个类型只能有一处定义，两处同时存在时后扫描到的会覆盖前面的映射，后果是这个类型的字段在读档时被当成另一个类型反序列化——表现为数据变成默认/null，或者直接抛类型不匹配的异常，而且堆栈指向引擎的存档层，看不出是你的 definer 撞了号。选一个明显高于 20000 的独占数字。
+
 ## 主要成员
 
 - `SaveableLocalizationTypeDefiner()`：默认构造函数，唯一的工作是 `: base(20000)` —— **声明本模块的 save 号段起点是 20000**。基类会在构造流程中反调用两个 define 方法。

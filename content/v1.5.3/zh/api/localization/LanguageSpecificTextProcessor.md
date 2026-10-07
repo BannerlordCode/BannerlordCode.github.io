@@ -39,6 +39,43 @@ description: "语言级文本后处理的抽象基类：在语法展开之后把
 5. **`{%}` 的 marker 是全局静态的 `[ThreadStatic] List<int>`**。它是「两个 marker 夹一段转小写」的成对语义，**只写一个 `{%}` 会把后面全部文本转小写**（`ProcessLowerCaseMarkers` 的 else 分支）。
 6. **不要在 `ProcessToken` 里修改 `sourceText` 或做超出 `cursorPos` 的假设**。`cursorPos` 是 `ref`，具体子类靠它回跳（俄语/波兰语处理链接时会 `cursorPos -= LinkEndingLength` 再 `+=` 回来）。乱动会破坏扫描位置。
 
+## 怎么用
+
+### 怎么拿到它
+
+抽象基类，三个抽象成员必须全部实现：`ProcessToken`（`LanguageSpecificTextProcessor.cs:12`）、`CultureInfoForLanguage`（`:16`）、`ClearTemporaryData`（`:19`）。**引擎自己从不 new 具体子类**，只通过 `MBTextManager.ChangeLanguage` → `LocalizedTextManager.CreateTextProcessorForLanguage` 反射造（`MBTextManager.cs:41`，工厂在 `LocalizedTextManager.cs:54-68`）。工厂用的是 `Type.GetType(languageData.TextProcessor)`（`LocalizedTextManager.cs:61`）——不带程序集限定名，靠 `LanguageData` 里配置的字符串解析；解析不到就 `Debug.FailedAssert` 然后退回 [DefaultTextProcessor](../DefaultTextProcessor)（`:64-65`）。
+
+想手工用它的完整语义，直接 `new` 你的子类再调 `Process(text)`（`:41`）即可——`Process` 是 public 但**不是 virtual**，你只能调、不能覆盖。
+
+### 典型用法
+
+```csharp
+// 1) 继承并实现三个成员
+public class MyModLanguageProcessor : LanguageSpecificTextProcessor
+{
+    public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)
+    {
+        if (token == ".mymod")                       // 只有以 '.' 开头的标记才会走到这里
+            outputString.Append("!");
+    }
+
+    public override CultureInfo CultureInfoForLanguage => new CultureInfo("zh-CN");
+
+    public override void ClearTemporaryData() { }
+}
+
+// 2) 手工跑一遍完整流程：传进去的是已经翻译好的文本
+var proc = new MyModLanguageProcessor();
+string result = proc.Process("hello{.mymod} world");   // "hello! world"
+
+// 3) 引擎接管：在模块初始化阶段切语言
+MBTextManager.ChangeLanguage("MyModLang");
+```
+
+### 最容易踩的坑
+
+以为覆盖 `ProcessToken` 就能接管所有 `{}` 标记。做不到：基类在 `ProcessTokenInternal` 里先把 `{^}`、`{_}`、`{%%}` 三个两字符标记自己处理掉（`LanguageSpecificTextProcessor.cs:90`/`:104`/`:120`），你的 `ProcessToken` 只在剩下的分支被调用（`:125`），而进入它的前提是 `IsPostProcessToken` 判定 token 以 `.` 开头（`:195-198`）。后果是：语言包里的 `{.a}`（冠词）、`{.plural}` 这类标记你永远收不到，而 `{^}`/`{_}` 的大小写转换又固定走基类、用的还是你自己的 `CultureInfoForLanguage`（`:99`、`:113`）——排错时会看到「我的处理器明明被调用了却什么都没改」，然后以为是标记写错了。
+
 ## 主要成员
 
 **抽象成员（子类必须实现）**

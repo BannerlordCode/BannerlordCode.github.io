@@ -65,6 +65,60 @@ _isConspiracySetUpStarted
 - **`DailyTick` 的 10 天计数是硬编码**且 `_conspiracyQuestTriggerDayCounter` 进存档。读档后从存档值继续，不会重跑。
 - **`OnGameLoaded` 遍历的是 `CustomParties`**，只覆盖自定义队伍。常规强盗队不在此列。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class SecondPhaseCampaignBehavior : CampaignBehaviorBase` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/CampaignBehaviors/SecondPhaseCampaignBehavior.cs:15`，全文 158 行。
+
+**注册是条件式的**：`campaignGameStarter.AddBehavior(new SecondPhaseCampaignBehavior())`（`StoryModeSubModule.cs:72`）包在 `if (!MainStoryLine.IsCompleted)`（`StoryModeSubModule.cs:60`）与 `if (!MainStoryLine.IsSecondPhaseCompleted)`（`:70`）里。第二阶段完成后不再注册。
+
+`RegisterEvents()`（`:25`）挂**八条**：七条 `CampaignEvents.*`（`WeeklyTickEvent` `:27`、`OnQuestStartedEvent` `:28`、`DailyTickEvent` `:29`、`OnSessionLaunchedEvent` `:30`、`OnGameLoadedEvent` `:31`、`OnGameEarlyLoadedEvent` `:32`、`KingdomCreatedEvent` `:33`）加一条 `StoryModeEvents.OnConspiracyActivatedEvent`（`:34`）。
+
+**主循环是周 tick**。`WeeklyTick()`（`:45`）取出 `SecondPhase instance = SecondPhase.Instance;`（`:48`），然后在一串条件下调 `SecondPhase.Instance.CreateNextConspiracyQuest();`（`:52`）——条件涉及 `_isConspiracySetUpStarted`、`MainStoryLine.ThirdPhase == null`、`ConspiracyStrength < 2000f`、`LastConspiracyQuestCreationTime`。
+
+`DailyTick()`（`:67`）负责进度条任务：在某个计数条件下 `new ConspiracyProgressQuest().StartQuest();`（`:74`）。
+
+`OnGameEarlyLoaded(CampaignGameStarter campaignGameStarter)`（`:115`）里有一句自愈：`if (SecondPhase.Instance != null && SecondPhase.Instance.ConspiracyClan == null) SecondPhase.Instance.CreateConspiracyClan();`（`:117`→`:119`）——**读档后阴谋氏族丢失就重建**。
+
+`OnConspiracyActivated()`（`:133`）配合 `IsThereActiveConspiracyQuest()`（`:139`）做收尾判断。
+
+存档两个计数器：`_conspiracyQuestTriggerDayCounter`（`:152`）与 `_isConspiracySetUpStarted`（`:155`）。
+
+### 典型用法
+
+```csharp
+// 运行期读；第二阶段完成后为 null
+SecondPhaseCampaignBehavior sp =
+    Campaign.Current.GetCampaignBehavior<SecondPhaseCampaignBehavior>();
+SecondPhase second = StoryModeManager.Current.MainStoryLine.SecondPhase;
+
+if (sp != null && second != null)
+{
+    Debug.Print("阴谋强度=" + second.ConspiracyStrength + "/" + SecondPhase.MaxConspiracyStrength);
+    Debug.Print("上次出任务=" + second.LastConspiracyQuestCreationTime);
+
+    // 手动推进一次（等价于 WeeklyTick 内部做的事）
+    // second.CreateNextConspiracyQuest();
+
+    // 读档自愈路径：ConspiracyClan 为 null 时引擎会重建
+    Debug.Print("阴谋氏族=" + (second.ConspiracyClan?.Name.ToString() ?? "null，读档后将重建"));
+}
+
+// 三类阴谋任务只有三种，且不会连续重复
+foreach (QuestBase q in Campaign.Current.QuestManager.Quests)
+{
+    if (!q.IsFinalized && q.GetType().Name.Contains("ConspiracyQuest"))
+    {
+        Debug.Print("阴谋任务：" + q.QuestId);
+    }
+}
+```
+
+### 最容易踩的坑
+
+`OnGameEarlyLoaded`（`:115`）里的 `SecondPhase.Instance.CreateConspiracyClan();`（`:119`）是一条**读档自愈分支**，它存在的唯一前提是 `ConspiracyClan` 会变成 null。而 `ConspiracyClan` 带 `[SaveableProperty(6)]`（`SecondPhase.cs:91`）、存档里是完整对象引用——正常读档不该丢。真正会触发这条分支的是**旧存档升级或存档损坏**：此时 `SecondPhase` 存在但 `ConspiracyClan` 为 null，于是重建一个。而 `CreateConspiracyClan`（`SecondPhase.cs:189`）会 `DeclareWarAction.ApplyByQuest` 向所有敌对王国宣战（`:209`）——**在读档瞬间重跑一遍宣战**。若旧存档里玩家已经和某些王国打过一轮，这次重建会再宣一次。
+
 ## 主要成员
 
 - `public SecondPhaseCampaignBehavior()`

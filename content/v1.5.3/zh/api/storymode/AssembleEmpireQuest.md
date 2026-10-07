@@ -22,6 +22,64 @@ description: "第二阶段帝国线目标任务：任务日志上显示已占领
 
 坑：`OnClanChangedKingdom` 里只处理了"玩家离开自己支持的王国"→ 取消任务 + `CancelSecondAndThirdPhase()`，**没有**处理"玩家加入另一个王国后继续占地"的情况。所以玩家换主效忠对象后，进度仍然按新王国的城镇算（因为判定用的是 `Clan.PlayerClan.Kingdom`），语义已经漂移了。另一个坑是 `_ownedByPlayerImperialTowns` 与 `_imperialCultureTowns` 都没有 `[SaveableField]`——它们靠 `InitializeQuestOnGameLoad()` 里的 `CacheSettlementCounts()` 全量重算，所以**只对存档、跨版本时行为正确**；但如果 mod 在运行期动态创造/销毁帝国城镇而没有触发归属变更事件，计数会永久偏差。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class AssembleEmpireQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/SecondPhase/AssembleEmpireQuestBehavior.cs:54`——**它嵌套在 `AssembleEmpireQuestBehavior` 类内**，完整类型名是 `AssembleEmpireQuestBehavior.AssembleEmpireQuest`。全文 229 行，一个文件里还带着宿主行为和存档定义器。
+
+创建入口是唯一构造函数 `AssembleEmpireQuest(Hero questGiver)`（`:77`），基类调用 `: base("assemble_empire_quest", questGiver, CampaignTime.Never)`（`:78`）——**任务 id 硬编码、时限是 `Never`（与基类 `IsRemainingTimeHidden = true` 一起构成双重隐藏）**。
+
+构造函数体（`:80`→`:85`）：`_assembledEmpire = false`（`:80`）、`CacheSettlementCounts()`（`:81`）、`SetDialogs()`（`:82`）、`InitializeQuestOnCreation()`（`:83`），最后建一条离散日志（`:84`），初值取当前拥有数、目标取 `MathF.Ceiling((float)this._imperialCultureTowns * 0.66f)`。
+
+比例常量是 `private const float _ratioOfSettlementToTake = 0.66f;`（`:221`）——**但代码里直接写了字面量 `0.66f`**，常量本身没被引用。
+
+`RegisterEvents()`（`:107`）挂三条：`CampaignEvents.OnSettlementOwnerChangedEvent`（`:109`）、`StoryModeEvents.OnConspiracyActivatedEvent`（`:110`）、`CampaignEvents.OnClanChangedKingdomEvent`（`:111`）。
+
+`HourlyTick()`（`:142`）只做一件事：`if (QuestConditionsHold()) SuccessQuest();`（`:143`→`:144`）——**达标判定是轮询式，不是事件驱动**。
+
+`QuestConditionsHold()`（`:178`）= `_ownedByPlayerImperialTowns >= MathF.Ceiling((float)_imperialCultureTowns * 0.66f)`（`:180`）。`SuccessQuest()`（`:184`）写日志 `"{=sJeYHMGG}You have unified the Empire."`、完成任务、置 `_assembledEmpire = true`（`:187`）、调 `SecondPhase.Instance.ActivateConspiracy();`（`:189`）。
+
+失败路径是**事件驱动**的：`OnConspiracyActivated()`（`:151`）在 `!_assembledEmpire` 时 `CompleteQuestWithFail(new TextObject("{=80NOk1Ee}You could not unify the Empire.", null))`（`:153`→`:154`）——**阴谋被别条线激活就算你输**。
+
+`CacheSettlementCounts()`（`:160`）遍历 `Settlement.All`，只数 `settlement.IsTown && settlement.Culture.StringId == "empire"`，并在其中 `settlement.OwnerClan.Kingdom == Clan.PlayerClan.Kingdom` 时累加第二个计数。**它由构造函数（`:81`）和 `InitializeQuestOnGameLoad`（`:98`）各调一次**，中途不再重算。
+
+存档只有 `_numberOfCapturedSettlementsLog`（`[SaveableField(1)]`，`:224`→`:225`）——三个计数字段都不进存档，读档后靠 `CacheSettlementCounts()` 重算。
+
+### 典型用法
+
+```csharp
+// 1) 宿主行为在选边时创建它；mod 里也可以手动创建
+AssembleEmpireQuest quest = new StoryMode.Quests.SecondPhase.AssembleEmpireQuestBehavior.AssembleEmpireQuest(
+    StoryModeHeroes.ImperialMentor);
+quest.StartQuest();
+
+// 2) 复现进度判据
+int imperial = 0, owned = 0;
+foreach (Settlement s in Settlement.All)
+{
+    if (s.IsTown && s.Culture.StringId == "empire")
+    {
+        imperial++;
+        if (s.OwnerClan.Kingdom == Clan.PlayerClan.Kingdom) owned++;
+    }
+}
+int goal = MathF.Ceiling(imperial * 0.66f);
+Debug.Print("Conquered Settlements " + owned + "/" + goal + "（帝国城镇总数 " + imperial + "）");
+
+// 3) 读任务状态
+QuestBase q = Campaign.Current.QuestManager.GetQuest<AssembleEmpireQuest>();
+Debug.Print("id=" + q.QuestId + "，时限=" + q.RemainingTime + "，隐藏=" + q.IsRemainingTimeHidden);
+
+// 4) 冲突判定：别被别条线抢先
+SecondPhase second = StoryModeManager.Current.MainStoryLine.SecondPhase;
+Debug.Print("阴谋强度=" + second.ConspiracyStrength + "（涨到 2000 会激活，激活后本任务判失败）");
+```
+
+### 最容易踩的坑
+
+达标是**每小时轮询一次**（`HourlyTick`→`:142`→`:144`），而失败是**事件驱动**（`OnConspiracyActivated`→`:151`）。两个时序不对称：玩家攻下最后一座帝国城镇后，如果 `SecondPhase.ConspiracyStrength` 先涨到 2000 并 `ActivateConspiracy()`，`OnConspiracyActivated` 先跑，`_assembledEmpire` 还是 false，任务直接判失败——哪怕城镇已经够了。想避免这个竞争，mod 里要么在 `ActivateConspiracy` 之前主动检查任务状态，要么自己接管计时。
+
 ## 主要成员
 
 - `public AssembleEmpireQuest(Hero questGiver)`：任务 ID `assemble_empire_quest`，`questGiver` 传的是帝国导师。无时限。构造时缓存城镇计数、`SetDialogs()`、`InitializeQuestOnCreation()`。

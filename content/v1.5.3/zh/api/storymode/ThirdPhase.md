@@ -8,7 +8,7 @@ description: "主线终局阶段：记录敌对与盟友王国，并在打败阴
 **Module:** StoryMode
 **Type:** `public class ThirdPhase`
 **Base:** `System.Object`
-**Source:** `bannerlord-1.5.3/StoryMode/ThirdPhase.cs`
+**Source:** `bannerlord-1.5.3/StoryMode/StoryModePhases/ThirdPhase.cs`
 
 ## 概述
 
@@ -49,6 +49,57 @@ Fail/FailWithBetrayal   → EndActivity("CompleteMainQuest", Failed)
 3. **两个列表都是 `MBList<Kingdom>` 且 `readonly`**：源码无法重新赋值，只能增删。想整体重置得反射。
 4. **没有 null 守卫**：`AddOppositionKingdom(null)` 会把 null 塞进列表，`OppositionKingdoms` 里出现 null 后遍历方容易 NRE。
 5. **列表可重复**：同一个王国能 `AddAllyKingdom` 两次。检查成员关系时要用 `Contains` 而不是索引。
+
+## 怎么用
+
+### 怎么拿到它
+
+`public class ThirdPhase` 声明在 `bannerlord-1.5.3/StoryMode/StoryModePhases/ThirdPhase.cs:12`，全文 124 行。
+
+**本类没有 `Instance` 属性**——`TutorialPhase`、`FirstPhase`、`SecondPhase` 都有，它没有。唯一读法是走 `StoryModeManager.Current.MainStoryLine.ThirdPhase`，而它在第二阶段完成前是 null（靠 `[SaveableProperty(5)]` 存在，`MainStoryLine.cs:68`）。
+
+唯一的创建者是 `MainStoryLine.CompleteSecondPhase()` 里的 `this.ThirdPhase = new ThirdPhase();`（`MainStoryLine.cs:181`），紧随其后就是 `StoryModeEvents.Instance.OnConspiracyActivated();`（`MainStoryLine.cs:182`）和 `RemoveBehavior<SecondPhaseCampaignBehavior>()`（`:183`）。
+
+构造函数 `public ThirdPhase()`（`:72`）只建两个空 `MBList<Kingdom>`（`:74`→`:75`）并把 `IsCompleted` 置 false（`:76`）。
+
+四个改状态的方法：`AddAllyKingdom(Kingdom kingdom)`（`:80`）、`AddOppositionKingdom(Kingdom kingdom)`（`:86`）、`RemoveOppositionKingdom(Kingdom kingdom)`（`:92`）——注意**没有 `RemoveAllyKingdom`**，盟友只能加不能删。两个列表都是 `private readonly MBList<Kingdom>`（`:117`→`:118`、`:121`→`:122`），对外只暴露只读视图 `OppositionKingdoms`（`:53`→`:57`）和 `AllyKingdoms`（`:63`→`:67`）。
+
+`CompleteThirdPhase(QuestBase.QuestCompleteDetails defeatTheConspiracyQuestCompleteDetail)`（`:98`）**第一句就是 `this.IsCompleted = true;`（`:100`），在判断结算细节之前**。之后按细节分派 `ActivityManager.EndActivity("CompleteMainQuest", ...)`：`Success` → `ActivityOutcome.Completed`（`:101`→`:103`）；`Timeout`/`Cancel`/`Invalid` → `Abandoned`（`:105`→`:107`）；`Fail`/`FailWithBetrayal` → `Failed`（`:109`→`:111`）。最后**无条件** `Campaign.Current.CampaignBehaviorManager.RemoveBehavior<ThirdPhaseCampaignBehavior>();`（`:113`）。
+
+存档只有 `IsCompleted`（`[SaveableProperty(3)]`，`:48`），两个王国列表用 `[SaveableField(1)]`/`[SaveableField(2)]`（`:117`、`:121`）。
+
+### 典型用法
+
+```csharp
+// 唯一读法：SecondPhase 未完成则 null
+MainStoryLine line = StoryModeManager.Current.MainStoryLine;
+ThirdPhase third = line.ThirdPhase;
+if (third == null)
+{
+    Debug.Print("终局阶段未开始");
+    return;
+}
+
+Debug.Print("已完成=" + third.IsCompleted);
+Debug.Print("敌对王国=" + third.OppositionKingdoms.Count + "，盟友=" + third.AllyKingdoms.Count);
+
+// 登记关系：这两个方法由剧情流程调用，mod 可复用
+third.AddOppositionKingdom(StoryModeData.BattaniaKingdom);
+third.AddAllyKingdom(StoryModeData.SturgiaKingdom);
+
+// 只读视图：只能读，不能 Add（MBReadOnlyList）
+foreach (Kingdom k in third.OppositionKingdoms)
+{
+    Debug.Print("敌对：" + k.StringId + " 可被废除=" + !third.OppositionKingdoms.Contains(k));
+}
+
+// 结算：注意 IsCompleted 无条件为 true，结局信息只在 ActivityManager 里
+third.CompleteThirdPhase(QuestBase.QuestCompleteDetails.Success);
+```
+
+### 最容易踩的坑
+
+`IsCompleted = true` 在 `CompleteThirdPhase` 的**第一句**（`:100`），先于对 `defeatTheConspiracyQuestCompleteDetail` 的任何分支。所以**任务失败、超时、取消、无效结算一律把第三阶段标记为完成**——`MainStoryLine.IsCompleted`（`MainStoryLine.cs:79`→`:83`）随之变 true，而它正是 `StoryModeSubModule.AddBehaviors`（`StoryModeSubModule.cs:60`）决定是否还注册四个阶段行为的那个条件。想区分「真胜利」只能自己读 `ThirdPhaseCampaignBehavior` 结算时传进来的那个 `QuestCompleteDetails`，或者去查 `ActivityManager` 的结局。
 
 ## 主要成员
 

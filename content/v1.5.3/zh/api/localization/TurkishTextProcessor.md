@@ -42,6 +42,35 @@ description: "土耳其语的元音和谐与音变后缀处理器：按词干的
 5. **`Vowels` 含 `ı` 和 `ö` / `ü`**，而 `BackVowels` 只含 `a ı o u`。土耳其语特有的 `ğ` 不在 `Vowels` 里，`IsVowel('ğ')` 返回 false——**这会影响「词干末字符是 ğ」时的后缀选择**。如果语言包里的词干以 `ğ` 结尾，处理器可能判成辅音从而选错后缀元音。
 6. **不支持复合后缀的元音和谐链式匹配**。土耳其语有 `lardan`（ ablative + plural）这种多后缀叠加，需要在语言包里显式标记，处理器不会自动拆解。
 
+## 怎么用
+
+### 怎么拿到它
+
+引擎只在切语言时造：`MBTextManager.ChangeLanguage("Turkish")`（`MBTextManager.cs:37`）→ `LocalizedTextManager.CreateTextProcessorForLanguage` 用 `Type.GetType` 反射构造（`LocalizedTextManager.cs:61`、`:67`），类型名来自 `LanguageData` 配置，解析不到退回 `DefaultTextProcessor`（`:64-65`）。确认语言包挂对了没有，就调工厂打印 `GetType().Name`。
+
+手工用就 `new TurkishTextProcessor()` 加基类 `Process(text)`（`LanguageSpecificTextProcessor.cs:41`）。`CultureInfoForLanguage`（`TurkishTextProcessor.cs:686-692`）返回 `TurkishTextProcessor._cultureInfo`。`ClearTemporaryData`（`:695-698`）只清一件事——`LinkList`（唯一的 `[ThreadStatic]` 字段，`:746-747`）。
+
+它的音系表是土耳其语专用的，数量也比其它语言多得多：`Vowels` 八个含点无点区分（`:704`）、`BackVowels`（`:707`）、`BackNumbers`（`:710`）、`FrontVowels`（`:713`）、`OpenVowels`（`:716`）、`ClosedVowels`（`:719`）、`Consonants`（`:722`）、`UnvoicedConsonants`（`:730`）、`HardUnvoicedConsonants`（`:733`）、`NonMutatingWord`（`:736`）。
+
+### 典型用法
+
+```csharp
+// 1) 确认语言包挂载成功
+Debug.Print(LocalizedTextManager.CreateTextProcessorForLanguage("Turkish").GetType().Name);
+
+// 2) 手工渲染：土耳其语的元音和谐靠上面那批表
+var tr = new TurkishTextProcessor();
+Debug.Print(tr.Process("bir {.link}kitap"));    // .link 会被 LinkList 收集起来
+
+// 3) 真正的通路
+MBTextManager.ChangeLanguage("Turkish");
+Debug.Print(new TextObject("{=some_tr_id}").ToString());
+```
+
+### 最容易踩的坑
+
+类里有两个看起来都是「当前语言 CultureInfo」的字段，只有一个是真的。`private static CultureInfo _cultureInfo = new CultureInfo("tr-TR")`（`:750`）是 `CultureInfoForLanguage` 真正返回的那个；另一个 `private static CultureInfo _curCultureInfo = CultureInfo.InvariantCulture`（`:701`）看着像「运行期当前语言」，但**全文件只有这一行声明、没有任何读取点**（`ClearTemporaryData`（`:695-698`）也没碰它），它是死字段。后果是你若按名字推断去用它做数字或日期格式化，会永远拿到 `InvariantCulture`——土耳其语的逗号小数点不会生效。顺带一提 `_cultureInfo` 在八个语言处理器里是**唯一没加 `readonly`** 的（其余如 `FrenchTextProcessor.cs:631`、`GermanTextProcessor.cs:2049` 都是 `static readonly`）。要拿当前语言文化，唯一正确入口是 `CultureInfoForLanguage`。
+
 ## 主要成员
 
 **覆写的抽象成员**

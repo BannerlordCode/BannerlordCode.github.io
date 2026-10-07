@@ -33,6 +33,49 @@ description: "战斗结算时决定被击中的 Agent 是倒地昏迷还是直�
 - **`return 0f` 不是「概率低一点」，是关闭。** 想微调而不是关停，必须自己实现插值，不要靠返回极小值绕过。
 - **教学阶段规则不区分敌我。** 判断用的是 `effectedAgent.Team.Side` 的存活人数，友军规模一大，全场都不会死人。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeAgentDecideKilledOrUnconsciousModel : AgentDecideKilledOrUnconsciousModel` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/StoryModeAgentDecideKilledOrUnconsciousModel.cs:10`，全文 27 行，只有**一个**方法 `GetAgentStateProbability(...)`（`:13`）。
+
+拿法：**不要 new**。注册点在 `StoryModeSubModule.AddModels`，`campaignGameStarter.AddModel<AgentDecideKilledOrUnconsciousModel>(new StoryModeAgentDecideKilledOrUnconsciousModel())`（`StoryModeSubModule.cs:101`）。这行在 `InitializeGameStarter` 里、且只在 `game.GameType as CampaignStoryMode != null` 时执行（`StoryModeSubModule.cs:23`→`:24`）。战役跑起来之后，所有人拿到的都是 `Campaign.Current.Models.AgentDecideKilledOrUnconsciousModel`——被基类包了一层，基类内部 `base.BaseModel` 才是 SandBox 的原实现。
+
+调用方是**战斗内**流程：谁被打、被打得多重、用的什么武器，返回被击者进「死亡」还是「昏迷」的概率，以及 `out useSurgeryProbability`。源码里直接摸了两个外部状态：`effectedAgent.Character.IsHero`（`:16`）和 `Mission.Current.GetMemberCountOfSide(effectedAgent.Team.Side)`（`:20`）。
+
+三条短路规则：`useSurgeryProbability = 1f` 先无条件设上（`:15`）；剧情三人组（`ElderBrother` / `Radagos` / `RadagosHenchman`）且主线未完成 → 返 `0f`（必不死，`:16`→`:18`）；教学未完成且被击方所在边人数 > 4 → 返 `0f`（`:20`→`:22`）。都不命中才 `base.BaseModel.GetAgentStateProbability(...)`（`:24`）。
+
+### 典型用法
+
+```csharp
+// 覆盖点：只要 AgentDecideKilledOrUnconsciousModel 就接管，不要 new 本类
+public class MyAgentStateModel : AgentDecideKilledOrUnconsciousModel
+{
+    public override float GetAgentStateProbability(
+        Agent affectorAgent, Agent effectedAgent, DamageTypes damageType,
+        WeaponFlags weaponFlags, out float useSurgeryProbability)
+    {
+        float vanilla = BaseModel.GetAgentStateProbability(
+            affectorAgent, effectedAgent, damageType, weaponFlags, out useSurgeryProbability);
+        // 原生 StoryMode 版在 :15 先把 useSurgeryProbability 定成 1f
+        return effectedAgent.Character.IsHero ? 0f : vanilla;
+    }
+}
+
+// 运行期读当前生效的值（已被 StoryModeSubModule.cs:101 换成 StoryMode 版）
+AgentDecideKilledOrUnconsciousModel model =
+    Campaign.Current.Models.AgentDecideKilledOrUnconsciousModel;
+Debug.Print(model is StoryMode.GameComponents.StoryModeAgentDecideKilledOrUnconsciousModel
+    ? "主线版已生效" : "其他实现");
+
+// BattleSideEnum 与 Team.Side 决定第二个教学期规则
+Debug.Print("敌方人数=" + Mission.Current.GetMemberCountOfSide(BattleSideEnum.Defender));
+```
+
+### 最容易踩的坑
+
+`useSurgeryProbability` 是 `out` 参数，而源码在**任何分支里都没给它赋非默认值**——只在开头写了一次 `useSurgeryProbability = 1f;`（`:15`），两个 `return 0f` 的早退路径也带着这个值出去。也就是说「永不死」并不代表「不治疗」：调用方拿到的手术概率仍然是 1。你在派生类里覆写这个方法时如果先 `return 0f` 再忘写 `out` 赋值，C# 会要求你写，但很容易随手写 0，而原生语义是 1。
+
 ## 主要成员
 
 - `public override float GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, WeaponFlags weaponFlags, out float useSurgeryProbability)`

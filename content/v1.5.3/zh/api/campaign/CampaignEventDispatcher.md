@@ -32,6 +32,44 @@ description: "战役事件的广播中转站：把 CampaignEvents 上的每一�
 3. **异常穿透**：接收者抛异常会中断本轮广播，后面的接收者收不到回调。生产环境必须自己 try/catch。
 4. **误以为分发器是「事件源」**：它不产生事件，`CampaignEvents.XxxEvent.Invoke()` 才产生。你调用 `Instance.OnHeroKilled(...)` 是**手动广播**，会重复触发所有接收者。
 
+## 怎么用
+
+### 怎么拿到它
+
+`CampaignEventDispatcher.Instance`（`CampaignEventDispatcher.cs:37`）——它是个转发属性：`Campaign.Current == null` 时返回 `null`，否则返回 `campaign.CampaignEventDispatcher`（`:41-47`）。实例是 `Campaign.OnInitialize` 建的，种子接收者三个：`new CampaignEventDispatcher(new CampaignEventReceiver[] { CampaignEvents, IssueManager, QuestManager })`（`Campaign.cs:1939`）。
+
+追加接收者的公开入口是 `Campaign.AddCampaignEventReceiver(CampaignEventReceiver)`（`Campaign.cs:1929`），它转给 `CampaignEventDispatcher.AddCampaignEventReceiver`（`CampaignEventDispatcher.cs:57`）——实现是**整个复制一份新数组**再放末尾（`:59-66`），所以每次追加都有一次 O(n) 拷贝。原生模块就是这么挂自己的：`StoryModeSubModule.cs:27` 传的是 `StoryModeEvents.Instance`。
+
+它自己是最大的那个接收者（`public class CampaignEventDispatcher : CampaignEventReceiver`，`CampaignEventDispatcher.cs:33`），264 个 `public override void OnXxx` 每个都写成同一段形状：把 `this._eventReceivers` 取到局部变量，然后 `for` 循环依次转发（例 `:81-85` 的 `OnPlayerBodyPropertiesChanged`）。取局部变量是为了在遍历中途有人追加接收者也不会炸。
+
+### 典型用法
+
+```csharp
+// 1) 读当前实例：不在战役里就是 null
+CampaignEventDispatcher dispatcher = CampaignEventDispatcher.Instance;
+
+// 2) 追加自己的接收者：campaign 存在之后（OnGameStart 里）才能调
+public override void OnGameStart(Game game, IGameStarter gameStarterObject)
+{
+    base.OnGameStart(game, gameStarterObject);
+    Campaign.Current.AddCampaignEventReceiver(new MyStoryEventReceiver());
+}
+
+// 3) 自己作为接收者实现：只需要覆写关心的那几十个之一，其余是空的 virtual
+public class MyStoryEventReceiver : CampaignEventReceiver
+{
+    public override void OnHeroKilled(Hero victim, Hero killer,
+        KillCharacterAction.KillCharacterActionDetail detail, bool showNotification)
+    {
+        Debug.Print(victim.Name + " died");
+    }
+}
+```
+
+### 最容易踩的坑
+
+在战役启动之前访问 `CampaignEventDispatcher.Instance`。它是转发属性（`:41`），`Campaign.Current` 为 null 时直接返回 `null` 而不是抛异常。后果是你在 `MBSubModuleBase.OnSubModuleLoad` 或更早的静态初始化里缓存了它，缓存到 null；或者反过来，你在那种时机判断 `!= null` 于是得出「事件系统没准备好」的结论、提前 return，结果这一局再也没人挂上监听。真正的挂载时机是 `OnGameStart`——那时 `Campaign.cs:1939` 早已执行完毕；`Campaign.Current` 也会在战役结束时被置 null（`Campaign.cs:1694`），所以每次用都要重新读，不要缓存。
+
 ## 成员与调用时机
 
 **静态入口**

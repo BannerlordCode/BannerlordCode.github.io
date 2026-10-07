@@ -35,6 +35,75 @@ description: "主线状态机：把教学、第一、第二、第三阶段串成
 - **`IsPlayerInteractionRestricted` 是「教程没完 且 还没选边」**。选边之后立刻变 false。如果 mod 让玩家提前选边/tutorial 被跳过，限制语义会和你预期不同。
 - `GetTutorialScores()` 返回的是**副本**，改它不会写回；写回必须走 `SetTutorialScores`。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class MainStoryLine` 声明在 `bannerlord-1.5.3/StoryMode/MainStoryLine.cs:15`，全文 310 行。**构造函数是 `public MainStoryLine()`（`:113`），但唯一调用者是 `StoryModeManager` 构造函数里的 `this.MainStoryLine = new MainStoryLine();`（`StoryModeManager.cs:71`）和读档回调 `OnLoad`。**
+
+读取一律走 `StoryModeManager.Current.MainStoryLine`（**它没有 `Instance` 属性**）。
+
+构造函数（`:113`→`:119`）做四件事：`MainStoryLineSide = MainStoryLineSide.None`（`:115`）、`new TutorialPhase()`（`:116`）、`new Dictionary<string, float>()`（`:117`）、`FamilyRescued = false`（`:118`）。
+
+四个派生属性全部是**读 `MainStoryLine` 自己的字段**，而不是读阶段是否完成：
+
+| 属性 | 实现 | 行 |
+| --- | --- | --- |
+| `IsPlayerInteractionRestricted` | `!TutorialPhase.IsCompleted && !IsOnImperialQuestLine && !IsOnAntiImperialQuestLine` | `:19`→`:23` |
+| `IsOnImperialQuestLine` | `MainStoryLineSide == CreateImperialKingdom \|\| == SupportImperialKingdom` | `:29`→`:33` |
+| `IsOnAntiImperialQuestLine` | `MainStoryLineSide == CreateAntiImperialKingdom \|\| == SupportAntiImperialKingdom` | `:39`→`:43` |
+| `IsCompleted` | `ThirdPhase != null && ThirdPhase.IsCompleted` | `:79`→`:83` |
+| `IsFirstPhaseCompleted` | `SecondPhase != null` | `:94`→`:98` |
+| `IsSecondPhaseCompleted` | `ThirdPhase != null` | `:104`→`:108` |
+
+注意 `IsCompleted`（`:83`）**绕过了 `this`，重新去读静态 `StoryModeManager.Current.MainStoryLine`**——非主线战役里它会 NRE，而同类的 `IsOnImperialQuestLine` 用的是 `this.MainStoryLineSide`，安全。
+
+四个阶段推进方法各带副作用，不只是赋值：
+
+- `CompleteTutorialPhase(bool isSkipped)`（`:157`）→ `TutorialPhase.CompleteTutorial(isSkipped)`（`:159`）、`new FirstPhase()`（`:160`）、`GetCampaignBehavior<TutorialPhaseCampaignBehavior>()` 非空则 `FinalizeTutorialPhase()`（`:161`→`:165`）、`StoryModeEvents.Instance.OnStoryModeTutorialEnded()`（`:166`）、`FirstPhase.CollectBannerPiece()`（`:167`，**教学结束就送第一块旗片**）、`RemoveBehavior<TutorialPhaseCampaignBehavior>()`（`:168`）
+- `CompleteFirstPhase()`（`:172`）→ `new SecondPhase()`（`:174`）、`RemoveBehavior<FirstPhaseCampaignBehavior>()`（`:175`）
+- `CompleteSecondPhase()`（`:179`）→ `new ThirdPhase()`（`:181`）、`OnConspiracyActivated()`（`:182`）、`RemoveBehavior<SecondPhaseCampaignBehavior>()`（`:183`）
+- `CancelSecondAndThirdPhase()`（`:187`）→ 按需移除两个行为（`:191`、`:193`），**但从不创建阶段**
+
+`SetStoryLineSide(MainStoryLineSide side)`（`:140`）除赋值外还做三件事：`this.PlayerSupportedKingdom = Clan.PlayerClan.Kingdom;`（`:143`）、`StoryModeEvents.Instance.OnMainStoryLineSideChosen(...)`（`:144`）、`DisableHeroAction.Apply` 两位导师（`:145`→`:146`）。
+
+五个公开常量：`MainStoryLineDialogOptionPriority = 150`（`:276`）、`DragonBannerItemStringId = "dragon_banner"`（`:279`）、三块碎片 id（`:282`、`:285`、`:288`）。
+
+存档字段版 `[SaveableField]`：`MainStoryLineSide`（1，`:291`）、`ImperialMentorSettlement`（6，`:295`）、`AntiImperialMentorSettlement`（7，`:299`）、`_tutorialScores`（9，`:303`）、`FamilyRescued`（10，`:307`）。
+
+### 典型用法
+
+```csharp
+// 标准入口
+MainStoryLine line = StoryModeManager.Current.MainStoryLine;
+
+Debug.Print("教学=" + line.TutorialPhase.IsCompleted
+          + "，第一阶段=" + (line.FirstPhase != null)
+          + "，第二阶段=" + (line.SecondPhase != null)
+          + "，终局=" + (line.ThirdPhase != null));
+
+// 三个派生属性的语义差别
+Debug.Print("交互受限=" + line.IsPlayerInteractionRestricted);   // 教学未完 且 未选边
+Debug.Print("帝国线=" + line.IsOnImperialQuestLine + "，反帝国线=" + line.IsOnAntiImperialQuestLine);
+Debug.Print("第一阶段完成=" + line.IsFirstPhaseCompleted);          // 其实是「SecondPhase != null」
+
+// 教程评分：写入与读取都是拷贝，外部改不到内部字典
+line.SetTutorialScores(new Dictionary<string, float> { { "MyMetric", 1f } });
+Dictionary<string, float> copy = line.GetTutorialScores();
+Debug.Print("评分项=" + copy.Count + "（改 copy 不影响内部）");
+
+// 家族营救标记
+Debug.Print("FamilyRescued=" + line.FamilyRescued);
+
+// 选边：会连带设 PlayerSupportedKingdom、广播事件、禁用导师 AI
+line.SetStoryLineSide(MainStoryLineSide.CreateAntiImperialKingdom);
+Debug.Print("支持王国=" + line.PlayerSupportedKingdom.StringId);
+```
+
+### 最容易踩的坑
+
+`IsCompleted`（`:83`）的实现绕过了 `this`，直接写 `StoryModeManager.Current.MainStoryLine.ThirdPhase != null && StoryModeManager.Current.MainStoryLine.ThirdPhase.IsCompleted`。这意味着**它不能在 `StoryModeManager.Current` 为 null 时安全调用**——而同一类的 `IsOnImperialQuestLine`（`:33`）、`IsPlayerInteractionRestricted`（`:23`）都只用 `this` 字段，完全安全。你在沙盒战役或主菜单阶段写 `mainStoryLine.IsCompleted` 会崩，而写 `mainStoryLine.IsOnImperialQuestLine` 不会——同一个类里两种安全级别。
+
 ## 主要成员
 
 - `TutorialPhase TutorialPhase { get; private set; }`：`[SaveableProperty(2)]`。构造函数就存在，永不为 null。

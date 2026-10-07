@@ -22,6 +22,66 @@ description: "第一阶段主线中枢：集齐 3 块龙旗碎片，然后分别
 
 坑有三处。第一，`OnBannerPieceCollected` 里 `firstPhase` 可能为 null（`StoryModeManager.Current.MainStoryLine.FirstPhase` 在某些读档时机为空），原版用 null 检查直接 return，但**此时日志已经更新过了**——意味着会出现"进度条动了但没有触发后续追踪"的中间态。第二，`GetImperialMentorEndQuestDialog` / `GetAntiImperialMentorEndQuestDialog` 都是 `PlayerSpecialOption` 入口，条件要求 `AllPiecesCollected && !已跟该导师谈过`；玩家**可以两个都谈**，此时日志会根据对方是否已谈给出不同文案，然后同时开出 `CreateKingdomQuest` 和 `SupportKingdomQuest` 两个任务。第三，`OnQuestCompleted` 只认 `quest is CreateKingdomQuest || quest is SupportKingdomQuest`——如果 mod 用别的方式推进主线，这个任务会永远挂着。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class AssembleTheBannerQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/FirstPhase/AssembleTheBannerQuest.cs:18`，全文 435 行。
+
+构造函数**无参**（约 `:127`），基类调用有个关键点：
+
+```csharp
+: base("assemble_the_banner_story_mode_quest", null,
+       StoryModeManager.Current.MainStoryLine.FirstPhase.FirstPhaseEndTime)
+```
+
+`questGiver` 传 `null`，**时限取的是 `FirstPhase.FirstPhaseEndTime`**（即 `CampaignTime.Years(20f) + FirstPhaseStartTime`，`FirstPhase.cs:62`→`:66`）——**所以第一阶段没开始时 new 它会直接 NRE**。存档 id 683001（`SaveableStoryModeTypeDefiner.cs:51`）。
+
+**谁创建它**：两个「见导师」任务在对话里承诺救帝国时，各自的 `ActivateAssembleTheBannerQuest()` 查重后 `new AssembleTheBannerQuest().StartQuest();`——`MeetWithIstianaQuest.cs:149` 与 `MeetWithArzagosQuest.cs:149` 两处**逐行相同**，两边都带 `!Quests.Any(q => q is AssembleTheBannerQuest)` 守卫。
+
+`RegisterEvents()`（`:146`）挂**两条**：`StoryModeEvents.OnBannerPieceCollectedEvent`（`:148`）、`CampaignEvents.OnQuestCompletedEvent`（`:149`）。
+
+`OnStartQuest()`（`:153`）建离散进度日志，**目标是字面量 `3`**（`:156`）：`AddDiscreteLog(_startQuestLog, new TextObject("{=xL3WGYsw}Collected Pieces", null), FirstPhase.Instance.CollectedBannerPieceCount, 3, null, false)`——与常量 `FirstPhase.NeededBannerPieceCount = 3`（`FirstPhase.cs:124`）是两处独立数字。
+
+`OnBannerPieceCollected()`（`:166`）刷进度（`:168`），并在 `FirstPhase.Instance.AllPiecesCollected`（`:169`）时推进对话链。`OnCompleteWithSuccess()`（`:160`）与 `OnTimedOut()`（`:225`）都要 `RemoveRemainingBannerPieces()`（`:232`）——**回收还没捡的碎片**。它还覆写了 `public override void OnFailed()`（`:211`）与 `public override void OnCanceled()`（`:218`）——这是少数几个主线任务主动覆写失败/取消的。
+
+对话流挂 `"lord_start"`、priority **150**（`:251`，与 `MainStoryLine.MainStoryLineDialogOptionPriority = 150` 同值）。三条流：主线入口 `AssembleBannerConditionDialogCondition()`（`:264`，要求对话对象是任一导师 **且** `!AllPiecesCollected`，`:266`）、`GetAntiImperialMentorEndQuestDialog()`（`:288`，条件含 `AllPiecesCollected && !_talkedWithAntiImperialMentor`，`:292`）、`GetImperialMentorEndQuestDialog()`（`:340`，对称，`:344`）。
+
+**任务的最终产品是另外两条**：`GetAntiImperialQuests()`（`:320`）开 `new CreateKingdomQuest(AntiImperialMentor).StartQuest();`（`:335`）或 `new SupportKingdomQuest(AntiImperialMentor).StartQuest();`（`:336`）；`GetImperialQuests()`（`:372`）开帝国版（`:387`→`:388`）。
+
+存档三项：`_startLog`（1，`:423`）、`_talkedWithImperialMentor`（2，`:427`）、`_talkedWithAntiImperialMentor`（3，`:431`）。
+
+### 典型用法
+
+```csharp
+// 1) 正常由两位导师的对话后果创建（带查重）
+if (!Campaign.Current.QuestManager.Quests.Any(q => q is AssembleTheBannerQuest))
+{
+    new AssembleTheBannerQuest().StartQuest();
+}
+
+// 2) 时限来源（务必在第一阶段已开始之后）
+FirstPhase first = StoryModeManager.Current.MainStoryLine.FirstPhase;
+if (first != null)
+{
+    Debug.Print("阶段截止=" + first.FirstPhaseEndTime.ToYears + " 年");
+    Debug.Print("碎片进度=" + first.CollectedBannerPieceCount + "/" + FirstPhase.NeededBannerPieceCount);
+    Debug.Print("AllPiecesCollected=" + first.AllPiecesCollected);
+}
+
+// 3) 它会派生哪条：取决于你跟哪位导师谈
+Debug.Print("帝国线 -> CreateKingdomQuest / SupportKingdomQuest（帝国导师）");
+Debug.Print("反帝国线 -> 同两种（反帝国导师）");
+
+// 4) 读任务
+QuestBase b = Campaign.Current.QuestManager.GetQuest<AssembleTheBannerQuest>();
+Debug.Print("id=" + b.QuestId + "，存档 id=683001，发布者=" + (b.QuestGiver?.Name.ToString() ?? "null"));
+```
+
+### 最容易踩的坑
+
+它是**两个入口任务共用的同一个类**，而 [_talkedWithImperialMentor]（`:427`）与 [_talkedWithAntiImperialMentor]（`:431`）两个存档位决定了走哪条对话流。问题是 `AssembleBannerConditionDialogCondition()`（`:264`）的判据是「对话对象是任一导师 **且** 碎片还没齐」（`:266`）——它**不看主线立场**。玩家先跟帝国导师聊（`_talkedWithImperialMentor` 置 true，派生帝国任务）再跟反帝国导师聊，`AllPiecesCollected` 已为 true，`AntiImperial` 那条流也会放行（`:292`），于是**两条终局任务同时被开出来**。源码没有互斥守卫。
+
 ## 主要成员
 
 - `AssembleTheBannerQuest()`：无参构造。两个 bool 置 false，不注册事件（事件在 `RegisterEvents` 里挂）。

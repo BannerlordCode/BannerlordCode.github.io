@@ -36,6 +36,44 @@ description: "战役周期事件的调度中枢：把 MBCampaignEvent 挂到战�
 3. 在 `TickPeriodicEvents` 派生的原生回调（如聚落每日 tick）里改聚落经济——这个回调发生在 `DailyTickEvent` 之后，会与你自己的每日逻辑产生顺序依赖。
 4. 把 `DeltaHours` 当帧时间用：它是**距上次调度的小时数**，暂停时为 0。
 
+## 怎么用
+
+### 怎么拿到它
+
+不用也不能自己 new：构造函数是 `internal CampaignPeriodicEventManager()`（`CampaignPeriodicEventManager.cs:36`），唯一调用点是 `Campaign.CreateManagers` 里的 `this._campaignPeriodicEventManager = new CampaignPeriodicEventManager()`（`Campaign.cs:596`）。字段 `_campaignPeriodicEventManager` 也是 private，外部完全拿不到它。
+
+**mod 实际用的是它上面的静态工厂** `public static MBCampaignEvent CreatePeriodicEvent(CampaignTime triggerPeriod, CampaignTime initialWait)`（`CampaignPeriodicEventManager.cs:294`）——它构造一个 [MBCampaignEvent](../MBCampaignEvent) 并塞进 `Campaign.Current.CustomPeriodicCampaignEvents`（`:297`），那个列表随后由 `SignalPeriodicEvents` 反向遍历并 `CheckUpdate()`（`:326-330`）。
+
+初始化发生在 `Campaign.CreateLists` 尾部调 `InitializeTickers()`（`Campaign.cs:919`），它把 `MinimumPeriodicEventInterval` 定为 `CampaignTime.Hours(0.05f)`（`CampaignPeriodicEventManager.cs:85`）并给 20 多个内部 ticker 绑上对象列表。驱动入口全部是 `internal`，由 `Campaign.RealTick` 调：`OnTick(this._dt)`（`Campaign.cs:1191`）、`MobilePartyHourlyTick()`（`:1194`）、`TickPeriodicEvents()`（`:1198`）、`TickPartialHourlyAi()`（`:1213`）。
+
+两个时间增量是私有计算属性：`DeltaHours`（`:17`）与 `DeltaDays`（`:27`），都读 `CampaignTime.DeltaTime`——注意 AI 部分小时 ticker 用的倍率是 `0.99`（`:261`-`:269`），故意留出 1% 的错峰。
+
+### 典型用法
+
+```csharp
+public class MySupplyBehavior : CampaignBehaviorBase
+{
+    private MBCampaignEvent _daily;
+
+    public override void RegisterEvents()
+    {
+        // 静态工厂：同时进入 Campaign 的驱动列表
+        _daily = CampaignPeriodicEventManager.CreatePeriodicEvent(
+            CampaignTime.Days(1f), CampaignTime.Hours(6f));
+        _daily.AddHandler(OnDaily);
+    }
+
+    private void OnDaily(MBCampaignEvent ev, params object[] args) { }
+
+    // 想调粒度：最低就是 0.05 小时 ≈ 3 游戏分钟，再密不会被推进
+    //（MinimumPeriodicEventInterval，CampaignPeriodicEventManager.cs:85）
+}
+```
+
+### 最容易踩的坑
+
+以为「周期越短越好」。`SignalPeriodicEvents` 只在 `_lastGameTime + MinimumPeriodicEventInterval` 已经过去时才推进一次（`:323`），并把 `_lastGameTime` 一次性推到 `CampaignTime.Now`（`:325`）。后果是你把周期设成 `CampaignTime.Hours(0.01f)` 之类，行为是「大约每 3 游戏分钟跑一次」，而不是你写的那个频率；而且每次推进都会遍历并 `CheckUpdate` 整个 `CustomPeriodicCampaignEvents` 列表（`:326-330`），周期越密、列表越长，每帧的固定开销越大。要更细的粒度，正确做法不是加密 `CreatePeriodicEvent`，而是自己在 `DailyTick` 里判断 `CampaignTime.Now` 与上次执行时间的差值。
+
 ## 成员与调用时机
 
 - `static MBCampaignEvent CreatePeriodicEvent(CampaignTime triggerPeriod, CampaignTime initialWait)`：唯一的 public API。内部 `new MBCampaignEvent(...)` 后立刻加进 `Campaign.Current.CustomPeriodicCampaignEvents` 并返回。**必须传两个 `CampaignTime`，在战役启动完成后调用。**

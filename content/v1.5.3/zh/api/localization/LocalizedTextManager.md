@@ -41,6 +41,37 @@ this.LoadSubModules(modules, false);                                 // 最后�
 5. **语言 id 存在三套命名**：`StringId`（语言包内部 id，如 `"English"`）、`Title`（显示名，如 `"English"` / `"Türkçe"`）、`SupportedIsoCodes`（ISO 码，如 `"tr"`）。`GetLocalizationCodeOfISOLanguageCode` 是 ISO → StringId 的唯一转换入口。传错了 `GetLanguageTitle` 会拿 Title 去比对，永远匹配不上。
 6. **`ChangeLanguage` 是命令行功能**（`CommandLineArgumentFunction("change_language", "localization")`），不是给 mod 用的运行时 API。菜单切语言走的是 `MBTextManager.ChangeLanguage` 再触发 UI 重建。
 
+## 怎么用
+
+### 怎么拿到它
+
+纯静态类，唯一入口是 `MBTextManager.ChangeLanguage(language)`（`MBTextManager.cs:37`）——它最后一步就是 `LocalizedTextManager.LoadLanguage(_activeTextLanguageId)`（`MBTextManager.cs:44`）。`LoadLanguage(string)`（`LocalizedTextManager.cs:232-240`）先 `_gameTextDictionary.Clear()`（`:234`）再转私有重载（`:243`）。
+
+私有重载 `LoadLanguage(LanguageData)`（`:243-284`）的顺序很重要：第一件事是 `MBTextManager.ResetFunctions()`（`:245`），然后遍历 `language.XmlPaths` 逐个读 XML（`:248-250`）。英语语言会跳过 `<strings>` 读取（`:247` 的 `flag = stringId != "English"` 加 `:257` 的判断），但 `<functions>` 无条件读（`:268-279`），每条 `<function functionName=... functionBody=...>` 都调 `MBTextManager.SetFunction`（`:276`）。
+
+XML 路径本身来自 `LoadLocalizationXmls`（`:90`）/ `AddLocalizationXml`（`:122`），也就是模块加载期收集的。
+
+### 典型用法
+
+```csharp
+// 1) 查一条译文（miss 时返回 null，不抛异常）
+string zh = LocalizedTextManager.GetTranslatedText("简体中文", "rhausic_hello");
+
+// 2) 列出当前配置里可选的语言（developmentMode=false 会滤掉未完工语言）
+foreach (string id in LocalizedTextManager.GetLanguageIds(false))
+    Debug.Print(id + " => " + LocalizedTextManager.GetLanguageTitle(id));
+
+// 3) 语言下标：切语言时它变，TextObject 的 token 缓存靠它失效
+int idx = LocalizedTextManager.GetLanguageIndex("简体中文");
+
+// 4) 开发期校验语言包：返回一份文本报告
+string report = LocalizedTextManager.CheckValidity(new System.Collections.Generic.List<string>());
+```
+
+### 最容易踩的坑
+
+在你的语言 XML 顶层结构不完整时切语言。解析循环硬取 `xmlDocument.ChildNodes[1].FirstChild`（`LocalizedTextManager.cs:253`），没有先检查 `ChildNodes.Count`——只有一个顶层节点就直接 `IndexOutOfRangeException`；而这条异常发生在 `MBTextManager.ChangeLanguage` 的调用栈里（`MBTextManager.cs:44`），会把整个切语言动作打断。后果是：玩家在设置界面选你的语言时游戏直接崩，而崩溃点在引擎内部，跟你的 XML 文件看不出关系。另外 `DeserializeStrings` 遇到没有属性的 `<string>` 节点会主动 `throw new TWXmlLoadException("Node attributes are null!")`（`:291`）。保证每个语言 XML 的根节点下有完整的 `<strings>` / `<functions>` 子节点，并逐个用 `CheckValidity` 验一遍。
+
 ## 主要成员
 
 **常量**

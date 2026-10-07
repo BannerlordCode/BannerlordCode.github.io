@@ -29,6 +29,42 @@ description: "behavior 的注册表与存档同步器：持有全部 CampaignBeh
 3. **`RemoveBehavior<T>()` 只移除第一个匹配**，并调用 `CampaignEventDispatcher.Instance.RemoveListeners(t)`。如果 behavior 的事件是用静态 lambda 订阅的，`RemoveListeners` 摘不干净。
 4. **`GetBehavior<T>()` 返回 `default(T)`**（不是抛异常），调用方必须判空。
 
+## 怎么用
+
+### 怎么拿到它
+
+mod 不需要、也不应该自己 `new` 它。全代码库唯一的构造点是 `Campaign.Initialize` 里的 `new CampaignBehaviorManager(campaignGameStarter.CampaignBehaviors)`（`Campaign.cs:1991`），而且只在 `_gameLoadingType != SavedCampaign` 的分支里执行。读档走的是另一条路：manager 本身作为 `Campaign` 的被收集对象写进存档（`Campaign.cs:2514`），反序列化出一个**旧实例**，再用本局 starter 的行为列表重新灌一次（`InitializeCampaignBehaviors`，`Campaign.cs:1997`），随后才 `LoadBehaviorData()`（`Campaign.cs:1998`）和 `RegisterEvents()`（`Campaign.cs:1999`）。
+
+对外的入口是 `Campaign.CampaignBehaviorManager`（`Campaign.cs:202`，类型是 `ICampaignBehaviorManager`）以及两个泛型便捷方法 `Campaign.Current.GetCampaignBehavior<T>()`（`Campaign.cs:1317`）/ `GetCampaignBehaviors<T>()`（`Campaign.cs:1323`），后两者只是转发到 `_campaignBehaviorManager.GetBehavior<T>()`（`CampaignBehaviorManager.cs:62`）。
+
+`RegisterEvents()` 的调用时机在新战役与读档两条路上不同：新战役是在 `OnNewCampaignStart` 尾部调一次（`Campaign.cs:2210`），读档是在 `Campaign.cs:1999` 调。都发生在 behavior 的存档数据同步之外。
+
+### 典型用法
+
+```csharp
+// 1) 注册：在 OnGameStart 里把 behavior 交给 starter，事件由引擎在稍后统一注册
+protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
+{
+    base.OnGameStart(game, gameStarterObject);
+    ((CampaignGameStarter)gameStarterObject).AddBehavior(new MySupplyBehavior());
+}
+
+// 2) 取用：behavior 跑起来之后按类型查它
+MySupplyBehavior mine = Campaign.Current.GetCampaignBehavior<MySupplyBehavior>();
+Debug.Print("[supply] pending = " + mine.PendingShipments);   // 后半句是你自己 behavior 上的成员
+
+// 3) 基类上的静态快捷方式，语义与上面完全等价（内部就是 Campaign.Current.GetCampaignBehavior<T>()）
+MySupplyBehavior same = CampaignBehaviorBase.GetCampaignBehavior<MySupplyBehavior>();
+
+// 4) 要一批同类型实例时用另一个重载（内部是 OfType<T>()，返回惰性序列，别在遍历中增删）
+foreach (MySupplyBehavior b in Campaign.Current.GetCampaignBehaviors<MySupplyBehavior>())
+    Debug.Print("[supply] " + b.StringId);
+```
+
+### 最容易踩的坑
+
+在 `CampaignGameStarter.AddBehavior`（`CampaignGameStarter.cs:48`）和 `CampaignBehaviorManager.AddBehavior`（`CampaignBehaviorManager.cs:85`）之间搞混两者的注册语义。后者**在加入的当场**就调 `campaignBehavior.RegisterEvents()`（`CampaignBehaviorManager.cs:88`），前者只是把对象塞进 list，事件要等到 `Campaign.cs:2210` 或 `Campaign.cs:1999` 才统一注册。如果你在 `OnGameStart` 里先走 starter、又在战役运行期再走一次 manager，behavior 的 `RegisterEvents` 就被执行了两遍——而 `MBCampaignEvent.AddHandler` 只是 `List.Add`、不去重（`MBCampaignEvent.cs:41`），于是同一个 handler 每个 tick 都会跑两遍，表现是数值翻倍或事件日志出现两次。
+
 ## 成员与调用时机
 
 - `CampaignBehaviorManager(IEnumerable<CampaignBehaviorBase> inputComponents)`：战役启动时由引擎构造。会顺带订阅 `OnBeforeSaveEvent`。

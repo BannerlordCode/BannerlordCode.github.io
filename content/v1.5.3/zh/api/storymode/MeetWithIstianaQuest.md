@@ -22,6 +22,68 @@ description: "第一阶段首个任务：找到并说服帝国阵营导师 Istia
 
 坑：`_metImperialMentor` 这个字段名和它的实际语义相反——它表示"导师还等着再问你一次"，而不是"玩家已经见过 Istiana"。真正的"见过"是 `Hero.MainHero` 侧的 `SetHasMet()`。跨读档时如果玩家在对话中途存档，`_metImperialMentor` 仍是 false，会重开第一个 flow（完整长对话）而不是续上。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class MeetWithIstianaQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/FirstPhase/MeetWithIstianaQuest.cs:15`，全文 182 行。
+
+创建入口是唯一构造函数 `MeetWithIstianaQuest(Settlement settlement)`（`:65`），基类调用：
+
+```csharp
+: base("meet_with_istiana_story_mode_quest", null,
+       StoryModeManager.Current.MainStoryLine.FirstPhase.FirstPhaseEndTime)
+```
+
+三点值得注意：**任务 id 是硬编码字符串**、**`questGiver` 传的是 `null`**（`:66`——发布者留空，任务列表里没有发布者头像）、**时长取的是 `FirstPhase.FirstPhaseEndTime` 而不是 `CampaignTime.Never`**（`FirstPhase.cs:62`→`:66`，即 `CampaignTime.Years(20f) + FirstPhaseStartTime`）。同时它**覆写了 `IsRemainingTimeHidden` 为 `false`**（`:56`→`:60`）——这是全模块少数几个让主线任务显示剩余时间的类，与基类恒 `true` 相反。
+
+**谁创建它**：不在本文件里。宿主是 [FirstPhaseCampaignBehavior](../FirstPhaseCampaignBehavior) 的 `OnQuestCompleted`——它按 `quest is XxxQuest` 类型分支串链，`MeetWithIstianaQuest` 构造完并 `StartQuest()` 后，才轮到下一条。
+
+构造函数体（`:68`→`:73`）依次：`_metImperialMentor = false`、`SetDialogs()`、`HeroHelper.SpawnHeroForTheFirstTime(StoryModeHeroes.ImperialMentor, settlement)`（`:70`，把导师放进指定聚落）、`AddTrackedObject(settlement)`（`:71`）、`AddTrackedObject(StoryModeHeroes.ImperialMentor)`（`:72`）、`AddLog(this._startQuestLog, false)`（`:73`）。
+
+三个 `TextObject` 都是**私有属性形式的 getter，每次访问重新 new 并注入文本变量**：
+
+- `_startQuestLog`（`:19`）注入 `HERO`（`:24`）和 `SETTLEMENT`（`:25`，取 `StoryModeHeroes.ImperialMentor.CurrentSettlement.EncyclopediaLinkWithName`）
+- `_endQuestLog`（`:32`）只注入 `HERO`（`:37`）
+- `Title`（`:44`）只注入 `HERO`（`:49`）——文案 `"{=Y6SqyQwn}Meet with {HERO.NAME}"`，与 `MeetWithArzagosQuest` **共用同一句模板**
+
+`SetDialogs()`（`:88`）注册**两条** `AddDialogFlow`（`:90`、`:126`），都挂在 `"lord_start"` 节点、优先级都 `110`。第一条的分支后果：承诺救帝国 → `ActivateAssembleTheBannerQuest`（`:105`）；没想好 → `_metImperialMentor = true` + `SetHasMet()`（`:119`→`:120`）。两条流里「已想好」的结局都是 `Campaign.Current.ConversationManager.ConversationEndOneShot += base.CompleteQuestWithSuccess;`（`:113`、`:134`）——**任务是在对话结束那一刻才完成，不是选词那一刻**。
+
+`ActivateAssembleTheBannerQuest()`（`:145`）先查重：`!Campaign.Current.QuestManager.Quests.Any<QuestBase>(q => q is AssembleTheBannerQuest)`（`:147`），没有才 `new AssembleTheBannerQuest().StartQuest();`（`:149`）。
+
+`InitializeQuestOnGameLoad()`（`:77`）只调 `SetDialogs()`（`:79`）——读档后重新注册对话流。`HourlyTick()`（`:83`）是空实现。
+
+存档只有 `_metImperialMentor`（`[SaveableField(1)]`，`:179`→`:180`）。
+
+### 典型用法
+
+```csharp
+// 1) 正常由剧情链创建：new + StartQuest()
+Settlement mentorTown = StoryModeManager.Current.MainStoryLine.ImperialMentorSettlement;
+if (mentorTown != null && !Campaign.Current.QuestManager.Quests.Any(q => q is MeetWithIstianaQuest))
+{
+    MeetWithIstianaQuest quest = new MeetWithIstianaQuest(mentorTown);
+    quest.StartQuest();
+}
+
+// 2) 读任务状态：唯一持久化的字段就是 _metImperialMentor
+QuestBase q = Campaign.Current.QuestManager.GetQuest<MeetWithIstianaQuest>();
+if (q != null)
+{
+    // Title 是 getter，每次重新注入文本变量
+    Debug.Print(q.Title.ToString() + "，剩余时间隐藏=" + q.IsRemainingTimeHidden);
+    Debug.Print("跟踪对象数=" + q.TrackedObjects.Count);
+}
+
+// 3) 时限的真正来源
+FirstPhase first = StoryModeManager.Current.MainStoryLine.FirstPhase;
+Debug.Print("任务截止=" + first.FirstPhaseEndTime.ToYears + " 年（阶段起点 " + first.FirstPhaseStartTime.ToYears + "）");
+```
+
+### 最容易踩的坑
+
+基类调用的第三个参数是 `FirstPhase.FirstPhaseEndTime`（`:66`）——**而 `FirstPhase` 在教学未完成时是 `null`**，直接解引用会 NRE。也就是说这个构造函数只能在 `MainStoryLine.CompleteTutorialPhase` 之后被调。此外 `questGiver` 传的是 `null`（`:66`），所以 `quest.QuestGiver` 为 null：任何按发布者过滤任务的 UI 或 mod 代码（例如 `quest.QuestGiver.HeroObject`）会在这个任务上崩——主线第一个「见导师」任务就是这么特殊。
+
 ## 主要成员
 
 - `MeetWithIstianaQuest(Settlement settlement)`：构造入口。置 `_metImperialMentor = false`、`SetDialogs()`、把 Istiana 放进指定定居点、`AddTrackedObject` 两个对象、写起始日志。

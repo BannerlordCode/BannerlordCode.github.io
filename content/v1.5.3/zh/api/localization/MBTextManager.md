@@ -40,6 +40,42 @@ description: "文本渲染的执行引擎：持有当前语言处理器与全局
 6. **`GetLocalizedText` 用的两个 `StringBuilder` 是 `[ThreadStatic]`**，而语言处理器（俄语、波兰语的 `WordGroups` 等）是普通静态字段。前者线程安全后者不安全，整体只在主线程用是唯一安全假设。
 7. **`DiscardAnimationTags` / `GetConversationAnimations` 是给对话系统用的**，`GetConversationAnimations` 内部硬编码了 4 个槽位（`ib` / `if` / `rb` / `rf`）并返回固定长度 4 的数组。它的输入是**已经渲染完成的字符串**（`to.CopyTextObject().ToString()`），所以必须在语言处理器跑完之后调。
 
+## 怎么用
+
+### 怎么拿到它
+
+纯静态类，没有构造入口。字段初始化时就绪：`TextContext`（`MBTextManager.cs:500`）、`_languageProcessor = new EnglishTextProcessor()`（`:503`）、`_activeTextLanguageId = "English"`（`:509`）。所以在你自己的任何静态初始化里都能安全调用 `SetTextVariable`——不需要等战役开始。
+
+第一次真正的初始化发生在 `MBTextManager.ChangeLanguage(language)`（`:37`）：它按顺序做四件事——重建 `_languageProcessor = LocalizedTextManager.CreateTextProcessorForLanguage(language)`（`:41`）、写 `_activeTextLanguageId`（`:42`）、写 `_activeTextLanguageIndex`（`:43`）、最后 `LocalizedTextManager.LoadLanguage(...)` 重载翻译表（`:44`）。语言不在配置里则 `Debug.FailedAssert("Invalid language", ...)` 后返回 `false`（`:47-48`）。
+
+变量写入的落点是 `MBTextManager.TextContext.SetTextVariable`（`:165`、`:175`）。`TextContext` 本身是 `private static readonly`（`:500`），外部拿不到实例，只能经由这些静态方法间接使用。
+
+### 典型用法
+
+```csharp
+// 1) 灌全局变量（引擎自身有上千处这么用）
+MBTextManager.SetTextVariable("MYMOD_PRICE", 1250);
+MBTextManager.SetTextVariable("MYMOD_TRAITS", 0, "brave");   // 数组重载，落成 "MYMOD_TRAITS:0"
+MBTextManager.SetTextVariable("MYMOD_HINT", new TextObject("{=some_id}"));
+
+// 2) 确认某个语言装了没有再切；切完要重建 UI
+if (MBTextManager.LanguageExistsInCurrentConfiguration("Turkish", true))
+{
+    MBTextManager.ChangeLanguage("Turkish");
+    ScreenManager.PopScreen();
+}
+
+// 3) 文本语言与语音语言是两套，切语音语言不报错
+MBTextManager.TryChangeVoiceLanguage("English");
+
+// 4) 开发期确认一条 UI 文本来自哪个 id（结果会带 "(id) " 前缀）
+MBTextManager.LocalizationDebugMode = true;
+```
+
+### 最容易踩的坑
+
+看到 `SetTextVariable` 的第三个参数 `sendClients` 就以为它在联机里同步。1.5.3 的两个主重载（`MBTextManager.cs:159` 和 `:169`）收下这个参数后**一次也没有使用**——`:161-165` 和 `:171-175` 只做了 null 检查和 `TextContext.SetTextVariable`。其余重载更是直接硬编码传 `false`（`:182`、`:189`、`:200`、`:211`）。后果是联机对战时服务器设的变量根本不会下发到客户端，客户端界面里的 `{MYMOD_PRICE}` 保持未展开的原样，而且没有任何报错或日志。变量同步必须另走网络层，不要依赖这个参数。
+
 ## 主要成员
 
 **当前语言状态**

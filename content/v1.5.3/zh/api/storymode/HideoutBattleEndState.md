@@ -20,6 +20,55 @@ description: "第一阶段碎片任务内嵌的四值枚举，用来把藏身处
 
 这就是它作为状态机的核心约束：`None` 是一个**被复用的终态**，不是"未开始"。任何基于 `HideoutBattleEndState == None` 写额外逻辑的代码，都会在玩家每次打开城镇/村庄菜单时误触发。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public enum HideoutBattleEndState` 声明在 `bannerlord-1.5.3/StoryMode/Quests/FirstPhase/ArzagosBannerPieceQuest.cs:313`（嵌套在 `ArzagosBannerPieceQuest` 内，全文 324 行），四个值 `None`（`:316`）、`Retreated`（`:318`）、`Defeated`（`:320`）、`Victory`（`:322`）。
+
+**它没有独立存储**——字段是宿主任务里的 `private ArzagosBannerPieceQuest.HideoutBattleEndState _hideoutBattleEndState;`（`ArzagosBannerPieceQuest.cs:310`），私有、没进存档，只能靠宿主任务读写。拿实例的唯一途径是从一个 `ArzagosBannerPieceQuest` 上读——**但该字段是 private，mod 拿不到**，只能读枚举值。
+
+**最重要的一件事：这个名字在模块里有三份，彼此无关。**
+
+| 宿主类 | 声明位置 | 存档枚举 id |
+| --- | --- | --- |
+| `ArzagosBannerPieceQuest` | `FirstPhase/ArzagosBannerPieceQuest.cs:313` | 681010（`SaveableStoryModeTypeDefiner.cs:75`） |
+| `IstianasBannerPieceQuest` | `FirstPhase/IstianasBannerPieceQuest.cs:317` | 687010（`:74`） |
+| `FindHideoutTutorialQuest` | `TutorialPhase/FindHideoutTutorialQuest.cs:796` | 686010（`:73`） |
+
+三个 id 由 `base.AddEnumDefinition(typeof(XxxQuest.HideoutBattleEndState), <id>, null)` 分别登记。**值名相同（`None`/`Retreated`/`Defeated`/`Victory`）但类型不同、存档 id 不同**，把 A 任务的枚举塞进 B 任务不会编译报错（如果都是 `int` 参与比较的话），但语义和存档都对不上。
+
+宿主的写入点在战斗结算回调里：`ArzagosBannerPieceQuest.cs:107`→`:109`（胜利）、`:182`（胜利）、`:187`（撤退）、`:206`（战败）；复位在 `:65`、`:143`、`:202`、`:221`、`:239`。
+
+### 典型用法
+
+```csharp
+// 枚举值只在宿主任务内部流转；mod 侧要做的是读日志/判断战斗结果
+ArzagosBannerPieceQuest quest = Campaign.Current.QuestManager
+    .GetQuest<ArzagosBannerPieceQuest>();
+if (quest != null && !quest.IsFinalized)
+{
+    // 该任务的战斗没结束 -> 玩家还能再打一次藏身处
+    Debug.Print("Arzagos 藏住处任务进行中");
+}
+
+// 存档 id 是判别「这是哪一份」的唯一可靠依据
+Debug.Print("Arzagos 版 HideoutBattleEndState 存档枚举 id = 681010");
+Debug.Print("Istiana 版 = 687010，FindHideout 版 = 686010，三者不通用");
+
+// 通用写法：直接看战斗结果，而不是依赖这三个枚举
+MapEvent mapEvent = PlayerEncounter.Battle?.MapEvent;
+if (mapEvent != null)
+{
+    bool won = mapEvent.Winner == mapEvent.PlayerSide;
+    Debug.Print("藏身处战斗胜=" + won + "，敌方=" + mapEvent.GetMapEventSide(mapEvent.DefeatedSide).Parties.Count);
+}
+```
+
+### 最容易踩的坑
+
+三个同名枚举的 `None` 都是 0，于是**比较时互相兼容**。你写 `if (someInt == (int)HideoutBattleEndState.Victory)` 时编译器不拦你，但那个 int 到底来自哪份枚举取决于宿主是哪个任务。用 [StoryModeData](../StoryModeData) 的 `StorylineQuestHideoutHiddenDuration` 去重置藏住处攻击时间时（`ArzagosBannerPieceQuest.cs:201`、`:205`），如果把状态判断写成另一份枚举的比较，实际效果取决于两者的字面值恰好相同——一旦某个任务给枚举加了成员，顺序一变就全错。**判断藏住处战斗结果请读 `MapEvent`，不要跨任务复用这三个枚举。**
+
 ## 主要成员
 
 - `None`：构造期初始值，也是每次处理完战斗后的复位值。

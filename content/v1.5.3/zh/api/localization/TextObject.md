@@ -32,6 +32,36 @@ description: "游戏里所有可翻译文本的载体：既保存 `{=ID}英文�
 5. **`ToString()` 与 `ToStringWithoutClear()` 的区别是「跑不跑语言处理器的清理」**。前者传 `shouldClear: true`，会在渲染完调 `_languageProcessor.ClearTemporaryData()`；后者不调，用于管线内部对变量文本做二次解析（见 `TextProcessingContext.GetVariableValue`）。你自己在渲染中途递归调 `ToString()` 是安全的，但自己去调 `ToStringWithoutClear()` 会让语言处理器的临时状态（俄语/波兰语的词组缓存、性别标记）泄漏到下一次渲染。
 6. **`_internalId` 是 `[CachedData]`，读档时由 `[LoadInitializationCallback] OnLoad` 重新分配**。反序列化出来的对象和新建对象一样拿到新序号，所以哈希值跨读档不稳定——任何把 `TextObject` 存进长期 `Dictionary` 的代码都要在读档后重建。
 
+## 怎么用
+
+### 怎么拿到它
+
+直接 `new`。三个公开构造函数：`TextObject(string value, Dictionary<string, object> attributes = null)`（`TextObject.cs:78`）、`TextObject(int, ...)`（`:86`）、`TextObject(float, ...)`（`:92`）。`int`/`float` 重载只是先 `value.ToString()` 再转给 `string` 重载（`:87`、`:93`）。还有一个私有无参构造（`:70`，只给 `GetEmpty()` 用）。构造过程不做任何解析，只是记下 `Value`、`Attributes`，并领一个自增 `_internalId`（`:82`）。
+
+渲染只有一个入口：`ToString()`（`:205`）→ `MBTextManager.ProcessTextToString(this, true)`（`:210`）。第一次调用时才按语言 tokenize 原文并缓存（`GetCachedTokens`，`:131`），缓存键是 `MBTextManager.GetActiveTextLanguageIndex()`（`:135`）。
+
+### 典型用法
+
+```csharp
+// 1) 从语言包取一条现成文本
+TextObject greeting = new TextObject("{=rhausic_games_hello}");
+
+// 2) 挂实例级变量：写进自己的 Attributes，不污染全局表
+TextObject line = new TextObject("{=rhausic_hello} {NAME}，你带了 {COUNT} 个{? plural:兵}。")
+    .SetTextVariable("NAME", hero.Name)
+    .SetTextVariable("COUNT", 3);
+
+// 3) 渲染：UI 系统内部也是这么干的
+string rendered = line.ToString();
+
+// 4) 判断空值：构造一个就够，不要写 if (textObject.Value == null)
+bool blank = TextObject.IsNullOrEmpty(line);
+```
+
+### 最容易踩的坑
+
+以为语法写错会抛异常让你看到堆栈。不会——`ToString()` 整个包在 `try/catch` 里（`TextObject.cs:208-216`），捕获后返回的是一个拼接好的诊断字符串 `"Error at id: " + GetID() + ". Lang: " + ActiveTextLanguage`（`:214`）。后果是语言包里写错一个 `{...}` 表达式（比如变格用错、变量名不存在）时，游戏不会崩、不会断点、不会有红色异常，而是**把那句英文诊断当成正文显示在界面上**；正式构建里它连日志都不打一行。同样被吞掉的还有 `ToStringWithoutClear()`（`:221`）。开发期想看日志必须自己开 `MBTextManager.LocalizationDebugMode` 并盯 `Debug.Print` 输出。
+
 ## 主要成员
 
 **字段与属性**

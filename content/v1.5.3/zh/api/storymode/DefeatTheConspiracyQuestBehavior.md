@@ -22,6 +22,57 @@ description: "第三阶段总控：阴谋激活时组建对立王国、凭空造
 
 坑非常关键。第一，它给玩家支持的王国调 `ChangeRelationAction.ApplyPlayerRelation(leader, -10, true, true)`——**主线终局会主动扣玩家和某些王国领袖的关系**。第二，造出的新氏族 ID 是 `"main_storyline_clan_" + clanName + "_" + 同名计数`，这个**命名依赖当时地图上已有的氏族名**，旧存档读回来如果地图已变可能撞名。第三，`_partiesCreatedForQuest` 存档但造出来的英雄与氏族**本身不进这个列表**，如果它们在读档后已被其它系统清理，`HourlyTick` 的 `OppositionKingdoms.IsEmpty` 判定仍会正常收尾——但过程中可能出现"目标王国还在、援军却没了"的空转。第四，`TroopLimitPerNewClanParty = 600` 这个 public 常量在 `InitializeFinalPhase` 里**并没有被引用**，是给 mod 调参用的钩子。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class DefeatTheConspiracyQuestBehavior : CampaignBehaviorBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/ThirdPhase/DefeatTheConspiracyQuestBehavior.cs:24`，全文 947 行——**这是模块里最长的文件之一，一个文件里装着四个类型**：行为本身（`:24`）、嵌套的 `OppositionData`、`DefeatTheConspiracyQuestBehaviorTypeDefiner`（`:469`）、嵌套的 `DefeatTheConspiracyQuest`（`:486`）。
+
+注册点：`campaignGameStarter.AddBehavior(new DefeatTheConspiracyQuestBehavior())`（`StoryModeSubModule.cs:84`），**无条件**——不在阶段条件块里，所以整个存档期都在。取实例用 `Campaign.Current.GetCampaignBehavior<DefeatTheConspiracyQuestBehavior>()`。
+
+**唯一公开方法就是你要的那个**：`public bool IsMobilePartyCreatedForQuest(MobileParty mobileParty)`（`:27`），函数体是 `this._partiesCreatedForQuest.Contains(mobileParty)`（`:30`）——`List<MobileParty>.Contains`，**引用相等**。
+
+它被外部模型消费：[StoryModePartySizeLimitModel](../StoryModePartySizeLimitModel) 通过一个私有惰性属性缓存住这个行为（`StoryModePartySizeLimitModel.cs:30`→`:38`），然后调 `IsMobilePartyCreatedForQuest(party.MobileParty)`（`:99`）——命中就 `return new ExplainedNumber(600f, false, null)`（`:101`）。**`600` 正是本文件里的 `public const int TroopLimitPerNewClanParty = 600;`（`:409`）。**
+
+`RegisterEvents()`（`:53`）挂三条：`StoryModeEvents.OnConspiracyActivatedEvent`（`:55`）、`CampaignEvents.HourlyTickEvent`（`:56`）、`CampaignEvents.MobilePartyDestroyed`（`:57`）。主流程在 `protected void InitializeFinalPhase()`（`:109`），末尾 `defeatTheConspiracyQuest.StartQuest();`（`:169`）。`HourlyTick()`（`:76`）、`OnConspiracyActivated()`（`:70`）、`OnMobilePartyDestroyed(MobileParty mobileParty, PartyBase destroyerParty)`（`:61`）是三条推进线。
+
+存档字段带公开可见性：`InitialWarScore`（`[SaveableField(10)]`，`:452`→`:453`）、`ReinforcedWarScore`（20，`:456`→`:457`）、`QuestLog`（30，`:460`→`:461`）、`LastPeaceOfferDate`（40，`:464`→`:465`），私有的是 `_hasBeenFinalized`（`:403`）与 `_partiesCreatedForQuest`（`:406`）。战斗统计文案在 `ShowGameStatistics()`（`:392`），每个新领主 `TroopCountPerNewLord = 200`（`:400`）。
+
+### 典型用法
+
+```csharp
+// 1) 公开入口：判断某个队伍是不是本行为为终局任务造的
+DefeatTheConspiracyQuestBehavior def =
+    Campaign.Current.GetCampaignBehavior<DefeatTheConspiracyQuestBehavior>();
+if (def != null && StoryModeManager.Current.MainStoryLine.ThirdPhase != null)
+{
+    Debug.Print("任务队伍 600 上限常量=" + DefeatTheConspiracyQuestBehavior.TroopLimitPerNewClanParty);
+
+    // 玩家在终局里造出来的领主队伍
+    foreach (MobileParty p in Settlement.All
+                 .Where(s => s.IsFortification)
+                 .Select(s => s.Siege?.BesiegerParty)
+                 .Where(p => p != null))
+    {
+        if (def.IsMobilePartyCreatedForQuest(p))
+        {
+            Debug.Print(p.Name + " 是终局任务队伍，上限 " + def.TroopLimitPerNewClanParty);
+        }
+    }
+}
+
+// 2) 与玩家队伍人数上限的关系（复现 StoryModePartySizeLimitModel 的分支）
+PartySizeLimitModel limit = Campaign.Current.Models.PartySizeLimitModel;
+Debug.Print("主队人数上限=" + limit.GetPartyMemberSizeLimit(PartyBase.MainParty, true).Result);
+
+// 3) 终局进度字段是公开的，可直接读
+Debug.Print("初始战争分=" + def.InitialWarScore + "，上次和谈=" + def.LastPeaceOfferDate);
+```
+
+### 最容易踩的坑
+
+`IsMobilePartyCreatedForQuest`（`:27`）用 `List<MobileParty>.Contains`（`:30`），是**引用相等**；而 `_partiesCreatedForQuest`（`:406`）**没有 `[SaveableField]` 标注**——它不进存档。读档后这个列表由 `InitializeFinalPhase` 重新填充，在那之前 `IsMobilePartyCreatedForQuest` 对任何队伍都返回 false，于是 [StoryModePartySizeLimitModel](../StoryModePartySizeLimitModel) 的 `600` 人上限分支**在读档初期不生效**，队伍人数暂时走基类计算，队伍 UI 上的数字会在读档后跳一次。
+
 ## 主要成员
 
 - `public override void RegisterEvents()`：挂 `OnConspiracyActivatedEvent`、`CampaignEvents.HourlyTickEvent`、`MobilePartyDestroyed`。

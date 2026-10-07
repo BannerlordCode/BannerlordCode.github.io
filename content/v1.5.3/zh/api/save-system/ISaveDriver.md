@@ -35,7 +35,45 @@ description: "存档读写的后端抽象：8 个方法把对象图数据落盘�
 4. **`GetSaveGameFileNames` 与 `GetSaveGameFileInfos` 顺序/内容不一致**：列表界面会显示错乱。两者必须来自同一份数据源。
 5. **存档版本号硬编码**：`Save(string saveName, int version, ...)` 里的 `version` 由 `SaveManager` 传（当前是 1），不要自己改语义。
 
-## 成员与调用时机
+## 怎么用
+
+### 怎么拿到它
+
+接口，mod 要实现它。三个内置实现：`FileDriver`（`FileDriver.cs:11`，落盘到 `.sav`）、`AsyncFileSaveDriver`（`AsyncFileSaveDriver.cs:8`）、`InMemDriver`（`InMemDriver.cs:9`）。引擎自己走的是 `Game.SaveAux`（`Game.cs:320`）里传进来的那个 driver 参数（`Game.cs:326`），mod 一般不碰存档按钮，只是通过 `IsWorkingAsync()`（`ISaveDriver.cs:32`）知道当前是不是还在后台写。
+
+八个成员分成三组：**写**只有 `Save`（`:11`），返回 `Task<SaveResultWithMessage>`；**枚举**是 `GetSaveGameFileInfos()`（`:14`）和 `GetSaveGameFileNames()`（`:17`）；**单档操作**是 `LoadMetaData`（`:20`）、`Load`（`:23`，返回 `LoadData`）、`Delete`（`:26`）、`IsSaveGameFileExists`（`:29`）。`SaveManager` 对它们的调用是固定的（`SaveManager.cs:96` 调 `Save`、`SaveManager.cs:160` 调 `Load`、`SaveManager.cs:145` 调 `LoadMetaData`），所以自定义 driver 时这几个都要自己转发。
+
+### 典型用法
+
+```csharp
+// 1) 想确认存档写完没有：读 IsWorkingAsync，而不是阻塞在 Task 上
+if (!driver.IsWorkingAsync())
+    Debug.Print(driver.GetSaveGameFileNames().Length + " saves");
+
+// 2) 先读元数据再决定要不要读整档（LoadMetaData 比 Load 便宜）
+MetaData md = SaveManager.LoadMetaData(saveName, driver);      // SaveManager.cs:143
+LoadData data = driver.Load(saveName);                          // 返回 LoadData，再交给 LoadResult 链路
+
+// 3) 自己实现一个内存 driver 时，Save 要真的完成任务，否则 SaveManager 只会返回 IsContinuing=true
+public class MyMemDriver : ISaveDriver
+{
+    public Task<SaveResultWithMessage> Save(string saveName, int version, MetaData metaData, GameData gameData)
+        => Task.FromResult(new SaveResultWithMessage(SaveResult.Success, "ok"));
+    public SaveGameFileInfo[] GetSaveGameFileInfos() => Array.Empty<SaveGameFileInfo>();
+    public string[] GetSaveGameFileNames() => Array.Empty<string>();
+    public MetaData LoadMetaData(string saveName) => new MetaData();
+    public LoadData Load(string saveName) => null;
+    public bool Delete(string saveName) => true;
+    public bool IsSaveGameFileExists(string saveName) => false;
+    public bool IsWorkingAsync() => false;
+}
+```
+
+### 最容易踩的坑
+
+让 `Save` 返回一个「还没完成」的 `Task` 就当成功。`SaveManager.Save` 检查 `task.IsCompleted`（`SaveManager.cs:97`）：已完成且 `SaveResult == Success` 才算成功（`:99-101`），没完成就走 `SaveOutput.CreateContinuing(task)`（`:113`），由 `Game.SaveAux` 存进 `_currentActiveSaveData` 等回调（`Game.cs:332`）。后果是你的 driver 如果永远返回一个 `Task` 却从没完成，存档**永远停在「正在保存」**——游戏继续跑，界面上的保存提示不消失，也没有任何异常。反过来，如果 `Task` 已经完成但 `SaveResult` 不是 `Success`，会走 `SaveOutput.CreateFailed`（`:105-108`），那一刻才算失败。
+
+## 主要成员
 
 - `Task<SaveResultWithMessage> Save(string saveName, int version, MetaData metaData, GameData gameData)`：**异步**写盘。`saveName` 不含扩展名（由系统加 `.sav`）。返回的 Task 结果里有 `SaveResult` 与消息。**被 `SaveManager.Save` 调用**；自定义「立即存档」按钮也走这里。
 - `SaveGameFileInfo[] GetSaveGameFileInfos()`：列出所有存档及其元信息（名称、时间、缩略图等）。存档选择界面用。

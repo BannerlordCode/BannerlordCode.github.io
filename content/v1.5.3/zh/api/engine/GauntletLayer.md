@@ -36,6 +36,52 @@ ScreenBase
 4. **在 `Update` 里改控件树**。输入分发过程中改树会当帧不一致。UI 更新放 ViewModel 的 tick，交给下一帧渲染。
 5. **`shouldClear` 语义**：构造时决定是否清空底层渲染目标。半透明叠加层用 `true` 会把下层内容清掉。
 
+## 怎么用
+
+### 怎么拿到它
+
+你 `new` 它，然后 `ScreenBase.AddLayer(layer)`（`ScreenBase.cs:344`）。构造函数 `GauntletLayer(string name, int localOrder, bool shouldClear = false)`（`GauntletLayer.cs:86`）已经把渲染链搭好了：`TwoDimensionView.CreateTwoDimension(name)`（`:91`）→ `TwoDimensionEnginePlatform`（`:97`）→ `TwoDimensionContext`（`:98`）→ `InitializeContext()`（`:99`），后者填上 `UIContext`（`:25`）。`shouldClear = true` 会开 `ViewRenderOptions.ClearColor` 并设成白色（`:92-96`）。
+
+之后靠两个方法把界面内容挂上去：`LoadMovie(string movieName, ViewModel dataSource)`（`:130`）返回一个 `GauntletMovieIdentifier` 句柄，`GetMovieIdentifier(movieName)`（`:117`）用来复用/查询，`ReleaseMovie(identifier)`（`:154`）用来释放。取回 movie 就是 `identifier.Movie`。
+
+生命周期跟着 `ScreenLayer` 走（`ScreenLayer.cs:93` 构造、`:153`/`:159` 激活停用、`:207` 终结）；`GauntletLayer` 覆写了 `OnFinalize`（`GauntletLayer.cs:230`）——它先 `ClearContext()`（`:232`），然后**检查每个 movie 是否已释放**，还有没释放的就 `Debug.FailedAssert("Movie was not released before finalizing layer: ...")`（`:235-238`）。
+
+### 典型用法
+
+```csharp
+public class MySupplyLayer : GauntletLayer
+{
+    private GauntletMovieIdentifier _root;
+
+    public MySupplyLayer()
+        : base("MySupplyLayer", 0)          // localOrder 决定同屏内的上下顺序
+    {
+        _root = LoadMovie("MySupplyLayer", new MySupplyVM());
+    }
+
+    protected override void OnFinalize()
+    {
+        // 必须在 base 之前手动释放：否则引擎会打 "Movie was not released before finalizing layer"
+        ReleaseMovie(_root);
+        base.OnFinalize();
+    }
+}
+
+// 挂到屏幕上
+public class MySupplyScreen : ScreenBase
+{
+    public MySupplyScreen()
+    {
+        AddLayer(new MySupplyLayer());
+        FindLayer<MySupplyLayer>();            // ScreenBase.cs:396，找不到返回 null
+    }
+}
+```
+
+### 最容易踩的坑
+
+依赖引擎在屏幕关闭时帮你释放 movie。它不会。`OnFinalize` 只是**遍历检查**——只要还有 `IsLoaded` 的 movie 就打一条 `Debug.FailedAssert`（`GauntletLayer.cs:235-238`），然后照样继续 `TwoDimensionView.ManualInvalidate()` 和 `base.OnFinalize()`（`:240-241`）。而 `ReleaseMovie` 找不到句柄时同样只是 assert（`:166`）不做任何事。后果是：每次打开关闭这个界面都泄漏一份 `IGauntletMovie` 与它的 prefab 资源，反复几次后显存/内存明显上涨、`TwoDimensionView` 的渲染开销也变高，而日志在正式构建里连那行 assert 都不显示。释放必须自己在 `OnFinalize` 里显式做，并且要放在 `base.OnFinalize()` **之前**。
+
 ## 成员与调用时机
 
 **构造与资源**

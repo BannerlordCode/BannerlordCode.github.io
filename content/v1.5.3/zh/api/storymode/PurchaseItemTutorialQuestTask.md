@@ -22,6 +22,61 @@ description: "教程用的『买够 N 个指定物品』子任务：挂一个交
 
 第二个坑是它**只统计买入方向**。回调签名里 `soldItems` 被完全忽略，玩家从行商人手里卖出同种物品不会推进进度；如果 mod 想做"买卖都算"，得自己写一份而不是指望这个类。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class PurchaseItemTutorialQuestTask : QuestTaskBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/QuestTasks/PurchaseItemTutorialQuestTask.cs:10`，全文 107 行。
+
+**它不是任务，是一个「任务内的子目标」**。创建入口是唯一构造函数 `PurchaseItemTutorialQuestTask(Action onSucceed, int targetItemAmount, ItemObject item, JournalLog progressLog = null)`（`:13`），基类调用是 `: base(null, onSucceed, null, null)`（`:14`）——前三个参数（`quest`、`onFailed`、`onAbandoned` 之类）全传 null，**它自己不处理失败/放弃**。
+
+真正的注册发生在 `SetReferences()`（`:30`）：`CampaignEvents.PlayerInventoryExchangeEvent.AddNonSerializedListener(this, ...)`（`:32`）。**这是读档后的钩子**——引擎在每次读档后对每个 `QuestTask` 调它，所以你必须走 `QuestBase.AddTask(...)` 把任务挂到某个 `StoryModeQuestBase` 上（[PurchaseGrainTutorialQuest](../PurchaseGrainTutorialQuest) 就是这么干的），让它跟着任务一起被引擎管理。
+
+`PlayerInventoryExchange(List<ValueTuple<ItemRosterElement, int>> purchasedItems, List<ValueTuple<ItemRosterElement, int>> soldItems, bool isTrading)`（`:36`）的逻辑：先判 `base.IsActive`（`:38`），然后遍历 **`purchasedItems` 而不是 `soldItems`**（`:40`），用 `itemRosterElement.EquipmentElement.Item == this._item`（`:43`）做**引用相等**比较，累加 `Amount`（`:45`→`:47`）。达标时先 `progressLog.UpdateCurrentProgress(this._targetItemAmount)`（`:53`，写的是**目标值**而非实际值），再 `base.Finish(QuestTaskBase.FinishStates.Success)` 并 `break`（`:55`→`:56`）；未达标则写实际累计值（`:61`）。
+
+存档两项：`_progressLog` 用 `[SaveableField(1)]`（`:94`），`_purchasedItemAmount` 用 `[SaveableField(2)]`（`:104`）。**`_targetItemAmount` 和 `_item` 不存档**——所以读档后必须由 `InitializeTaskOnLoad(int targetItemAmount, ItemObject item)`（`:23`→`:26`）重新注入，否则任务会用默认的 0 去比。
+
+### 典型用法
+
+```csharp
+// 1) 宿主任务里造并挂上
+public class MyGrainQuest : StoryModeQuestBase
+{
+    private PurchaseItemTutorialQuestTask _task;
+
+    public MyGrainQuest(Hero questGiver) : base("my_grain_quest", questGiver, CampaignTime.Never)
+    {
+        ItemObject grain = DefaultItems.Grain;
+        JournalLog log = CreateLog("[MyLogId]买入 2 {GRAIN}", 0, 2);
+        log.Active = true;
+
+        _task = new PurchaseItemTutorialQuestTask(OnBoughtEnough, 2, grain, log);
+        AddTask(_task);                        // 引擎随后会调 SetReferences()
+        InitializeQuestOnCreation();
+    }
+
+    private void OnBoughtEnough()
+    {
+        Campaign.Current.QuestManager.EndQuest(Quest);
+    }
+
+    // 2) 读档：目标值与物品不存档，必须重新注入
+    [LoadInitializationCallback]
+    private void OnLoad(MetaData metaData, ObjectLoadData loadData)
+    {
+        _task.InitializeTaskOnLoad(2, DefaultItems.Grain);
+    }
+}
+
+// 运行时验证：比较用的是引用相等
+ItemObject grain = DefaultItems.Grain;
+Debug.Print("Grain 引用=" + grain.StringId + "，加购 2 单位即达标");
+```
+
+### 最容易踩的坑
+
+两个坑叠在一起。**第一**，目标物品用 `itemRosterElement.EquipmentElement.Item == this._item`（`:43`）做引用相等——mod 通过 `GameObjectManager.CreateItem` 造出来的「另一个麦子」引用不同，`PurchaseGrainTutorialQuest` 就永远收不到进度，而且没有任何报错。**第二**，`_targetItemAmount` 与 `_item` **不进存档**（只有 `_progressLog` 和 `_purchasedItemAmount` 进），`InitializeTaskOnLoad`（`:23`）漏调时目标值是 0，第一次购买就立刻 `Finish`（`:48` 的 `>= 0` 恒真）。
+
 ## 主要成员
 
 - `PurchaseItemTutorialQuestTask(Action onSucceed, int targetItemAmount, ItemObject item, JournalLog progressLog = null)`：唯一的构造入口。`onSucceed` 是达标回调，必传；`progressLog` 传 `null` 时本类不更新任何任务日志，只完成不显示。基类四个参数（dialogFlow/onFailed/onCanceled）本类一律传 `null`，因为教程子任务不需要对话也不需要失败回调。

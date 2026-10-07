@@ -22,6 +22,58 @@ description: "阴谋任务之一：先清掉三支本地强盗队，再与阴谋
 
 坑：`OnQuestSucceeded` 里 `this._targetSettlement.Town.Security += 5f` **无条件访问 `.Town`**——如果目标碰巧是一个城堡（`DetermineTargetSettlement` 明确允许 `IsTown || IsCastle`），这里会抛 `NullReferenceException`。这是本类最严重的实现缺陷。第二个坑是 `_banditFaction` 的确定：`GetBanditTypeForSettlement` 先找最近藏处，再按文化找 `Clan.BanditFactions`，找不到就随机取一个——在原版地图上通常能匹配到，但自定义地图上可能拿到 `looters` 这种通用氏族。第三，`HourlyTick` 里的"主动来找玩家"逻辑会在强盗队实力超过主队 1.2 倍且玩家不在定居点内时强行 `GetActionForEngagingParty`，这是**游戏主动攻击玩家**，mod 里必须保留这个逃生阀否则玩家永远躲得掉。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class DestroyRaidersConspiracyQuest : ConspiracyQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/SecondPhase/ConspiracyQuests/DestroyRaidersConspiracyQuest.cs:24`，全文 780 行，三种阴谋任务里最长的一种。
+
+**不要自己 new——它是反射造出来的。** [SecondPhase](../SecondPhase) 的 `CreateNextConspiracyQuest()` 把类型写进 `_conspiracyQuestTypes`（`SecondPhase.cs:119`），然后 `Activator.CreateInstance(type, array)`（`:183`）传两个参数：运行时拼出的任务 id `"conspiracy_quest_" + 次数`（`:180`）和导师 Hero（`:181`）。构造函数签名 `public DestroyRaidersConspiracyQuest(string questId, Hero questGiver)`（`:222`）就是为这个反射准备的——**你手写 `new` 也能跑，但任务 id 不会自动编号。**
+
+基类调用 `: base(questId, questGiver)`（`:223`）→ [ConspiracyQuestBase](../ConspiracyQuestBase) 的 `: base(questId, questGiver, CampaignTime.DaysFromNow(21f), 0)`（`ConspiracyQuestBase.cs:67`），**时限固定 21 天**。
+
+构造函数体（`:224`→`:228`）建两个 `List<MobileParty>(3)`、用 `DetermineTargetSettlement()`（`:305`）定目标城镇、用 `GetBanditTypeForSettlement(Settlement settlement)`（`:440`）定强盗氏族。**它不生成队伍**——队伍在 `InitializeQuestOnLoad`（`:260`）/ `OnStartQuest`（`:293`）里通过 `InitializeRaiders()`（`:356`）、`DetermineClosestHideouts()`（`:366`）、`SpawnRaiderPartyAtHideout(Settlement hideout, bool isSpecialParty = false)`（`:385`）生成。
+
+四个抽象成员的 override：`SideNotificationText`（`:108`）、`StartMessageLogFromMentor`（`:91`）、`StartLog`（`:78`）、`ConspiracyStrengthDecreaseAmount`（`:48`）。`Title` 文案是 `"{=DfiACGay}Destroy Raiders"`（`:42`）。
+
+`RegisterEvents()`（`:238`）挂四条：`CampaignEvents.HeroPrisonerTaken`（`:240`）、`MobilePartyDestroyed`（`:241`）、`GameMenuOpened`（`:242`）、`MapEventEnded`（`:243`）。结局分三条：`OnQuestSucceeded()`（`:602`）、`OnQuestFailedByDefeat()`（`:616`）、`OnQuestFailed()`（`:624`），以及覆写的 `OnTimedOut()`（`:644`）。三种结局文案分别写在 `:136`、`:146`、`:168` 附近。
+
+两个进度日志：`JournalLog _regularPartiesProgressTracker`（`[SaveableField(4)]`，`:756`）与 `_specialPartyProgressTracker`（`[SaveableField(5)]`，`:760`）。生成数量常量 `NumberOfRegularRaidersToSpawn = 3`（`:741`）。
+
+成功奖励四个各 `5`：`QuestSuccededRelationBonus`（`:726`）、`QuestSucceededSecurityBonus`（`:729`）、`QuestSuceededProsperityBonus`（`:732`）、`QuestSuceededRenownBonus`（`:735`）；失败惩罚 `QuestFailedRelationPenalty = -5`（`:738`）。
+
+### 典型用法
+
+```csharp
+// 1) 反射创建（正常路径）
+SecondPhase second = StoryModeManager.Current.MainStoryLine.SecondPhase;
+second.CreateNextConspiracyQuest();
+
+// 2) 判在跑的是哪一类（比 BaseType，别比 GetType）
+foreach (QuestBase q in Campaign.Current.QuestManager.Quests)
+{
+    if (q.IsOngoing && q.GetType().BaseType == typeof(ConspiracyQuestBase))
+    {
+        Debug.Print(q.QuestId + " 标题=" + q.Title + "，剩余=" + q.RemainingTime);
+        if (q is DestroyRaidersConspiracyQuest raiders)
+        {
+            Debug.Print("  目标城镇=" + raiders.Title + "，需清 3 支常规队 + 1 支特殊队");
+        }
+    }
+}
+
+// 3) 常量与奖励
+Debug.Print("常规队数量=" + DestroyRaidersConspiracyQuest.NumberOfRegularRaidersToSpawn);
+Debug.Print("成功四奖各 5；失败关系 -5");
+
+// 4) 强度扣减的落点在基类
+Debug.Print("完成一条扣 ConspiracyStrengthDecreaseAmount，当前=" + second.ConspiracyStrength);
+```
+
+### 最容易踩的坑
+
+它的队伍是 `readonly List<MobileParty>` 里的**运行时对象引用**（`_regularRaiderParties`（`:748`）、`_specialRaiderParty`（`:752`）、`_directedRaidersToEngagePlayer`（`:776`），全部带 `[SaveableField]`）。存档系统会把它们当对象图保存，但**这些队伍是被 `SpawnRaiderPartyAtHideout`（`:385`）动态生成的**，不是 `MobileParty.CreateParty` 之外的持久实体。读档后若 `InitializeQuestOnLoad`（`:260`）的重建逻辑与存档里的引用不一致，`MobilePartyDestroyed`（`:241`）计数就会对不上——表现为任务永远清不完或直接判失败。你若在 mod 里删掉其中一支队伍，剩下的计数不会再补。
+
 ## 主要成员
 
 - `DestroyRaidersConspiracyQuest(string questId, Hero questGiver)`：构造入口。建三个列表/字段，确定目标城镇与强盗氏族。**`questId` 必须由调用方提供**——它不是固定字符串。

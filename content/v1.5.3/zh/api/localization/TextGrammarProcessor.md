@@ -45,6 +45,32 @@ foreach (TextExpression textExpression in dataRepresentation.RootExpressions)
 4. **`parent` 传 null 会改变变量解析结果**。`TextProcessingContext` 的 `GetRawTextVariable` 在 `parent == null` 时直接跳过实例变量表，退到全局表。手工构造调用（本类唯一的公共入口）很容易踩到。
 5. **它对语言是盲的**。语法层解析出的是语言中立的中间表示（`FieldExpression` / `FunctionCall` / `ConditionExpression` / `SelectionExpression` 等），真正的变格、复数、冠词全在之后的 `_languageProcessor.Process(text)`。**在语法里写 `{.MP}` 不会被本类理解，它只是原样留给语言处理器**。
 
+## 怎么用
+
+### 怎么拿到它
+
+静态类，只有一个方法 `public static string Process(MBTextModel dataRepresentation, TextProcessingContext textContext, TextObject parent = null)`（`TextGrammarProcessor.cs:11`），`parent` 有默认值。引擎内部由 `MBTextManager.Process` 调用；外部想直接调它，卡点同样在入参——`MBTextModel` 没有公开的生产途径（`MBTextParser` 是 `internal`，`MBTextParser.cs:9`）。
+
+它每次调用都用 `MBStringBuilder` 并在 `:14` 初始化、在 `:27` 用 `ToStringAndRelease()` 归还（pool 归还语义，不是 `using`），所以返回的字符串是池化缓冲的内容，取到后立刻用、不要跨帧保存。
+
+### 典型用法
+
+```csharp
+// 典型形态：遍历根表达式逐个求值再拼接
+// 这段就是 TextGrammarProcessor.Process 的实现（TextGrammarProcessor.cs:11-28）
+// mod 通常不直接调它，而是让渲染链路走一遍：
+string rendered = new TextObject("{s=ok}").ToString();
+
+// 真要自己解析一段固定文本，只能绕开 MBTextParser：
+// 它是 internal（MBTextParser.cs:9），所以从外部这一步做不到，
+// 只能确认结果：
+Debug.Print(rendered);
+```
+
+### 最容易踩的坑
+
+表达式求值抛异常或返回 `null` 时，不会中断也不会向上传播。实现里对 `textExpression == null` 的分支只调 `MBTextManager.ThrowLocalizationError("Exp should not be null!")`（`TextGrammarProcessor.cs:24`），而它的实现只是 `Debug.FailedAssert(...)`（`MBTextManager.cs:228-231`）。后果是语言包里一条语法写错的句子**丢掉了那一小段文字、其余部分照常显示**，正式构建里连日志都不打——你只会看到界面上某个词莫名消失，而不是任何报错。调试本地化时用 `MBTextManager.LocalizationDebugMode` 配合日志，不要指望异常。
+
 ## 主要成员
 
 - `static string Process(MBTextModel dataRepresentation, TextProcessingContext textContext, TextObject parent = null)`：**本类唯一的成员**。遍历 `dataRepresentation.RootExpressions`，对每个非 null 表达式调 `EvaluateString(textContext, parent)` 并把结果 `.ToString()` 后追加到池化的 `MBStringBuilder`，最后 `ToStringAndRelease()` 返回完整字符串。`parent` 默认 `null`，表示没有实例变量上下文。返回值可能是空串（所有表达式都求值成空），也可能是 `[标记]` 尚未展开的半成品——它不保证输出是最终译文。

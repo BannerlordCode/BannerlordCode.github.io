@@ -54,6 +54,52 @@ StoryMode 的角色创建和原版完全不同：没有旗帜编辑器、没有�
 - **`_focusToAdd` / `_skillLevelToAdd` / `_attributeLevelToAdd` 三个字段被读取但只用于 `MBTextManager.SetTextVariable("EXP_VALUE", _skillLevelToAdd)`**，其余两个在源码里没被实际消费。
 - **`ApplyCulture` 只改弟妹的文化**，父母与兄长的文化在 `FinalizeParentsAndLittleSiblings` / `FinalizeMainHeroAndElderBrother` 里各自处理，三处分散。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeCharacterCreationCampaignBehavior : CampaignBehaviorBase, ICharacterCreationContentHandler` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/CampaignBehaviors/StoryModeCharacterCreationCampaignBehavior.cs:16`，全文 655 行，是模块里最大的行为之一。
+
+注册点：`campaignGameStarter.AddBehavior(new StoryModeCharacterCreationCampaignBehavior())`（`StoryModeSubModule.cs:78`），无条件。取实例用 `Campaign.Current.GetCampaignBehavior<StoryModeCharacterCreationCampaignBehavior>()`。
+
+**它同时是一个内容提供器**——因为实现了 `ICharacterCreationContentHandler`。这意味着它不是被引擎反射调用，而是**被角色创建流程主动问**：`InitializeCharacterCreationStages(CharacterCreationManager characterCreationManager)`（`:136`）和 `InitializeData(CharacterCreationManager characterCreationManager)`（`:143`）由引擎在 `OnCharacterCreationInitialized`（`:127`）时调用。
+
+`RegisterEvents()`（`:34`）挂三个：`CampaignEvents.OnCharacterCreationInitializedEvent`（`:36`）、`CampaignEvents.OnCharacterCreationIsOverEvent`（`:37`）、`CampaignEvents.OnGameLoadFinishedEvent`（`:38`）。`SyncData`（`:69`）——但类里有三个非序列化字段 `_focusToAdd = 1`（`:646`）、`_skillLevelToAdd = 10`（`:649`）、`_attributeLevelToAdd = 1`（`:652`），**它们没有 `[SaveableField]`，不进存档**。
+
+核心是两个「家庭故事」方法：`UpdateHomeSettlementsOfFamily()`（`:84`）和 `FinalizeFamilyStory()`（`:100`），都由 `OnCharacterCreationIsOver(int index)`（`:74`）在特定 index 上触发。玩家家庭成员由 `FinalizeParentsAndLittleSiblings`（`:540`）与 `FinalizeMainHeroAndElderBrother`（`:603`）落定，后者还调 `CreateSibling(Hero hero, BodyProperties motherBodyProperties, BodyProperties fatherBodyProperties, uint seed)`（`:627`）。
+
+「逃出」叙事的 9 个 `NarrativeMenuOption` 各自成对：`GetXxxNarrativeOptionArgs` + `XxxOnCondition` + `XxxOnSelect`——被镇压的强盗（`:312`/`:326`/`:332`）、箭（`:350`/`:364`/`:370`）、马（`:388`/`:402`/`:408`）、被欺骗（`:426`/`:440`/`:446`）、越狱（`:464`/`:478`/`:484`）、临时工事（`:502`/`:516`/`:522`）。它们由 `ModifyParentMenu`（`:233`）→ `AddEscapeMenu`（`:255`）→ `AddEscapeNarrativeMenuOptions`（`:295`）串起来。
+
+三个叙事角色常量：`BrotherNarrativeCharacterStringId = "brother_character"`（`:640`）、`PlayerEscapeNarrativeCharacterStringId = "player_escape_character"`（`:643`）。
+
+### 典型用法
+
+```csharp
+// 运行期读
+StoryModeCharacterCreationCampaignBehavior ccb =
+    Campaign.Current.GetCampaignBehavior<StoryModeCharacterCreationCampaignBehavior>();
+Debug.Print("角色创建行为在位=" + (ccb != null));
+
+// 它同时是 ICharacterCreationContentHandler：确认接口实现
+ICharacterCreationContentHandler handler = ccb;
+Debug.Print("实现了内容接口=" + (handler != null));
+
+// 叙事角色 StringId（对应 TaleWorlds.CampaignSystem 的叙事角色定义）
+Debug.Print("兄长叙事角色=" + "brother_character");
+Debug.Print("玩家逃跑叙事角色=" + "player_escape_character");
+
+// 家庭英雄的最终落定（CreateSibling 由引擎在角色创建结束时调用）
+foreach (Hero h in new[] { StoryModeHeroes.ElderBrother, StoryModeHeroes.LittleBrother, StoryModeHeroes.LittleSister })
+{
+    Debug.Print(h.Name + " 归属=" + (h.Clan?.Name.ToString() ?? "无氏族")
+              + "，所在=" + (h.CurrentSettlement?.StringId ?? "地图上"));
+}
+```
+
+### 最容易踩的坑
+
+`_focusToAdd` / `_skillLevelToAdd` / `_attributeLevelToAdd`（`:646`、`:649`、`:652`）三个字段**没有 `[SaveableField]` 标注**，`SyncData`（`:69`）也不碰它们。默认值是 `1 / 10 / 1`——家庭成员出生时的专注、技能、属性加值。读档后它们回到默认值，而 `OnGameLoadFinished`（`:42`）并不会重建。你在游戏中途改这三个字段，读档后改动消失，`CreateSibling`（`:627`）产出的兄弟属性又变回初始值。
+
 ## 主要成员
 
 - `public override void RegisterEvents()`

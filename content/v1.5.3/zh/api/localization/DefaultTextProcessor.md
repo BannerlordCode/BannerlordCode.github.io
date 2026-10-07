@@ -31,6 +31,29 @@ description: "不做任何语言处理的兜底处理器：三个成员全是空
 4. **`ClearTemporaryData` 空实现是安全的**，因为 `ProcessToken` 不写任何状态。这反而是它作为兜底的一个优点。
 5. **不要拿它当「不做语言处理的处理器」自己 new 来调试**。想跳过语言处理阶段，引擎里的入口是 `MBTextManager.ProcessWithoutLanguageProcessor`（internal），不是换成一个 `DefaultTextProcessor`——后者仍会跑基类的 `{^}` `{_}` `{%}` 处理。
 
+## 怎么用
+
+### 怎么拿到它
+
+不要自己 `new` 用——它是**兜底实现**：`LocalizedTextManager.CreateTextProcessorForLanguage` 在两种情况下返回它——语言数据里没有配处理器，或 `TextProcessor` 字段为 `null`（`LocalizedTextManager.cs:57-60`）；以及 `Type.GetType` 解析失败时（`:62-65`）。也就是说，一个语言「配置缺失或类型名写错」的表现就是静默变成这个空处理器。
+
+它的三个 override 全是空实现：`ProcessToken` 空（`DefaultTextProcessor.cs:11-13`）、`ClearTemporaryData` 空（`:26-28`），`CultureInfoForLanguage` 固定返回 `CultureInfo.InvariantCulture`（`:17-23`）。
+
+### 典型用法
+
+```csharp
+// 1) 确认某个语言实际会用什么处理器（走的是和引擎一样的工厂）
+LanguageSpecificTextProcessor proc = LocalizedTextManager.CreateTextProcessorForLanguage("Zh");
+Debug.Print(proc.GetType().Name);            // 打出 MyZhProcessor 还是 DefaultTextProcessor
+
+// 2) 直接用来看「不做语言后处理」的效果
+string raw = new DefaultTextProcessor().Process("hello{.plural}world");
+```
+
+### 最容易踩的坑
+
+把它当成「英语处理器」或「通用英语后处理器」使用。`CultureInfoForLanguage` 写死 `CultureInfo.InvariantCulture`（`DefaultTextProcessor.cs:21`），而基类处理 `{^}`/`{_}` 时正是用这个属性做大小写转换（`LanguageSpecificTextProcessor.cs:99`、`:113`）。后果是：一旦语言数据里你的处理器类型名写错（拼错命名空间、mod 程序集没被 `Type.GetType` 看见），游戏不会给玩家任何「找不到处理器」的提示，只会在 `Debug.FailedAssert` 之后（`LocalizedTextManager.cs:64`）让所有 `{.plural}`、`{.a}`、变格标记**保持原样不展开**，界面上直接露出 `{!s}` 这类花括号。你会误以为是语言包写错了。校验办法就是上面那段 `CreateTextProcessorForLanguage` 打印类型名。
+
 ## 主要成员
 
 - `override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`：**空实现**。基类调它来解释每一个 `{.标记}`，它什么都不做——不追加任何输出，也不移动游标（`cursorPos` 保持基类读 token 后的位置）。**语言包里所有 `{.xxx}` 到此被永久丢弃。**

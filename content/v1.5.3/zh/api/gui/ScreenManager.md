@@ -35,6 +35,41 @@ description: "静态界面栈管理器：Push/Pop/Replace 界面、驱动每帧 
 4. **在 `ScreenBase.OnTick` 里改栈**。当前 tick 正在遍历，插入/移除会导致当帧行为不确定。用 `LateTick` 或延迟一帧。
 5. **缓存 `TopScreen`**：它是栈顶的快照，栈一变就过期。
 
+## 怎么用
+
+### 怎么拿到它
+
+纯静态类，不需要实例，mod 全程用 `ScreenManager.xxx(...)` 调。引擎侧先把渲染引擎接进来：`public static void Initialize(IScreenManagerEngineConnection engineInterface)`（`ScreenManager.cs:154`），并准备好两个集合——屏幕栈 `_screenList`（`ObservableCollection<ScreenBase>`，`:1209`）和全局层 `_globalLayers`（`ObservableCollection<GlobalLayer>`，`:1212`），两者都挂了变更通知（`OnScreenListChanged`，`:1082`；`OnGlobalListChanged`，`:1126`）。
+
+改栈有五个入口，语义各不相同：`SetAndActivateRootScreen`（`:524`）、`CleanAndPushScreen`（`:545`）、`PushScreen`（`:610`）、`PopScreen`（`:639`）、`ReplaceTopScreen`（`:484`）；另有 `CleanScreens`（`:672`）清空栈。查询面是 `TopScreen`（`:124`）、`FocusedLayer`（`:129`）、`FirstHitLayer`（`:134`）。
+
+全局层另走一套：`AddGlobalLayer(layer, isFocusable)`（`:212`）/ `RemoveGlobalLayer(layer, finalizeLayer = true)`（`:199`）——全局层不随 screen 栈推入弹出，浮在所有屏幕之上。
+
+### 典型用法
+
+```csharp
+// 1) 压栈：栈非空时旧屏先 Pause，若还是 Active 再 Deactivate（ScreenManager.cs:619-623）
+ScreenManager.PushScreen(new MySupplyScreen());
+
+// 2) 弹栈：Pause -> Deactivate -> Finalize -> 移出（ScreenManager.cs:648-657）
+ScreenManager.PopScreen();
+
+// 3) 替换栈顶而不是压栈：返回上一个屏幕时不会多出一层历史
+ScreenManager.ReplaceTopScreen(new MyConfirmScreen());
+
+// 4) 查询
+ScreenBase top = ScreenManager.TopScreen;
+MySupplyScreen supply = top as MySupplyScreen;
+if (supply != null) supply.RefreshFromCampaign();
+
+// 5) 浮层：常驻，不进 screen 栈
+ScreenManager.AddGlobalLayer(new MyToastLayer(), true);
+```
+
+### 最容易踩的坑
+
+从非主线程调 `PushScreen` / `PopScreen`。两个方法开头都做了 `if (!TWParallel.IsMainThread()) Debug.FailedAssert("Screen should be changed from main thread", ...)`（`ScreenManager.cs:612-615`、`:641-644`）——但 `FailedAssert` **不会中止执行**，紧接着的 `_screenList.Add(screen)`（`:625`）/`_screenList.Remove(...)`（`:657`）照跑。后果是栈在 worker 线程上被改，而 `_screenList` 是 `ObservableCollection`、带变更回调 `OnScreenListChanged`（`:1082`）会去刷全局层排序。表现是偶发的界面错乱或崩溃，而不是每次都报「不在主线程」——那行 assert 在正式构建里根本不弹。任何 `ScreenManager` 调用都回到主线程做。
+
 ## 成员与调用时机
 
 **栈操作**

@@ -22,6 +22,67 @@ description: "教程用的『招募 N 个士兵』子任务：按可调用谓词
 
 第二个坑：`_recruitTypeConditions` 是委托，**不参与序列化**。读档后如果宿主没有重新传入，它就是 `null`，下一次招募事件会直接 `NullReferenceException`。这是新手教程里最容易崩的地方。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class RecruitTroopTutorialQuestTask : QuestTaskBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/QuestTasks/RecruitTroopTutorialQuestTask.cs:10`，全文 104 行。
+
+同样是「任务内的子目标」。唯一构造函数 `RecruitTroopTutorialQuestTask(Action onSucceed, int targetRecruitAmount, Func<CharacterObject, bool> recruitTypeConditions, Settlement recruitSettlement = null, JournalLog progressLog = null)`（`:13`），基类同样 `: base(null, onSucceed, null, null)`（`:14`）——**不处理失败/放弃**。
+
+`SetReferences()`（`:32`）是读档钩子，挂 `CampaignEvents.OnUnitRecruitedEvent`（`:34`）。
+
+`OnUnitRecruited(CharacterObject character, int amount)`（`:38`）的三个条件全在**一个 `if` 里用 `&&`**（`:40`）：`base.IsActive`、`this._recruitSettlement == null || Settlement.CurrentSettlement == this._recruitSettlement`、`this._recruitTypeConditions(character)`。第三个条件**无条件调用**——传 null 委托就 NRE。
+
+达标时先写 `progressLog.UpdateCurrentProgress(this._targetRecruitAmount)`（`:48`，写目标值）、`base.Finish(QuestTaskBase.FinishStates.Success)`、`return`（`:50`→`:51`）；未达标写实际累计（`:58`）。
+
+注意聚落条件的语义：**`_recruitSettlement` 为 null 表示「不限制地点」**（`:40` 的 `== null ||`）；非 null 时用 `Settlement.CurrentSettlement ==` **引用相等**——玩家在野外招募就不计数。
+
+存档只有 `_progressLog`（`[SaveableField(1)]`，`:97`）和 `_recruitedTroopAmount`（`[SaveableField(2)]`，`:101`）。**`_targetRecruitAmount`、`_recruitTypeConditions`、`_recruitSettlement` 全都不存档**，读档后靠 `InitializeTaskOnLoad(int targetRecruitAmount, Func<CharacterObject, bool> recruitTypeConditions, Settlement recruitSettlement = null)`（`:24`→`:28`）重新注入。
+
+### 典型用法
+
+```csharp
+// 宿主任务里造并挂上（[RecruitTroopsTutorialQuest](../RecruitTroopsTutorialQuest) 就是这样）
+public class MyRecruitQuest : StoryModeQuestBase
+{
+    private RecruitTroopTutorialQuestTask _task;
+
+    public MyRecruitQuest(Hero questGiver) : base("my_recruit_quest", questGiver, CampaignTime.Never)
+    {
+        Settlement village = Settlement.Find(TutorialPhase.QuestVillageStringId);
+        JournalLog log = CreateLog("[MyLogId]招募 4 名{!}[ recruits]", 0, 4);
+        log.Active = true;
+
+        // 委托负责筛「什么兵算」
+        Func<CharacterObject, bool> onlyVillager = c =>
+            c != null && c.StringId == TutorialPhase.TutorialVolunteerStringId;
+
+        _task = new RecruitTroopTutorialQuestTask(OnRecruitedEnough, 4, onlyVillager, village, log);
+        AddTask(_task);
+        InitializeQuestOnCreation();
+    }
+
+    private void OnRecruitedEnough() => Campaign.Current.QuestManager.EndQuest(Quest);
+
+    // 读档：三个参数都不存档，必须重灌
+    [LoadInitializationCallback]
+    private void OnLoad(MetaData metaData, ObjectLoadData loadData)
+    {
+        _task.InitializeTaskOnLoad(4,
+            c => c != null && c.StringId == TutorialPhase.TutorialVolunteerStringId,
+            Settlement.Find(TutorialPhase.QuestVillageStringId));
+    }
+}
+
+// 运行时验证：地点用引用相等，野外招募不计数
+Debug.Print("聚落条件=" + (Settlement.CurrentSettlement == Settlement.Find(TutorialPhase.QuestVillageStringId)));
+```
+
+### 最容易踩的坑
+
+`_recruitSettlement` 是**引用相等**判断（`Settlement.CurrentSettlement == this._recruitSettlement`，`:40`），而 `_targetRecruitAmount` / `_recruitTypeConditions` / `_recruitSettlement` **都不进存档**。读档后只调 `InitializeTaskOnLoad` 恢复了一部分（比如只传了目标数量而漏了委托），`this._recruitTypeConditions(character)` 就是对 null 调 `Invoke` —— 直接 `NullReferenceException`，且发生在玩家第一次招募的瞬间，看起来像随机崩溃。三个参数要么全恢复，要么全都不恢复。
+
 ## 主要成员
 
 - `RecruitTroopTutorialQuestTask(Action onSucceed, int targetRecruitAmount, Func<CharacterObject,bool> recruitTypeConditions, Settlement recruitSettlement = null, JournalLog progressLog = null)`：构造入口。`recruitSettlement` 传 `null` 表示"任何地方招募都算"。基类四个参数同样全部传 `null`。

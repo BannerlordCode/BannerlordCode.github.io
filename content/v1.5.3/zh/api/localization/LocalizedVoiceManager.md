@@ -36,6 +36,33 @@ description: "语音配音路径的加载与查询：把各模块 voice xml 里�
 5. **voice 语言与文本语言是两套**。用 `MBTextManager.ChangeLanguage` 切文本语言**不会**重新加载配音；必须显式调 `TryChangeVoiceLanguage`。
 6. **`GetLocalizedVoice` 只按 id 查当前语言**。和 `LocalizedTextManager.GetTranslatedText` 一样，没有「按指定语言查」的能力。
 
+## 怎么用
+
+### 怎么拿到它
+
+静态类，不需要实例。它自己会填满：`MBTextManager.TryChangeVoiceLanguage`（`MBTextManager.cs:58`）内部调 `LocalizedVoiceManager.LoadLanguage(_activeVoiceLanguageId)`（`MBTextManager.cs:63`），后者 `internal static void LoadLanguage(string languageId)`（`LocalizedVoiceManager.cs:39`）先 `_voiceObjectDictionary.Clear()`（`:41`）再按 `LanguageData.GetLanguageData(languageId)` 加载（`:42-46`）。加载链的终点是私有重载 `LoadLanguage(LanguageData)`（`:70-106`），它遍历 `language.VoiceXmlPathsAndModulePaths`，找 `<VoiceOvers>` 节点（`:81-86`），再对其下每个 `<VoiceOver id=...>` 建或追加 `VoiceObject`（`:90-102`）。
+
+`_voiceObjectDictionary` 是 `private static readonly`（`:109`），外部拿不到，只能经由 `GetLocalizedVoice`（`:13`）查。
+
+### 典型用法
+
+```csharp
+// 1) 文本语言与语音语言是两套：先确认语音语言可用，再切
+if (LocalizedVoiceManager.GetVoiceLanguageIds().Contains("English"))
+    MBTextManager.TryChangeVoiceLanguage("English");    // 返回 false 时静默，不 assert
+
+// 2) 给一条对话文本找配音（对话系统内部也是这么走的）
+if (MBTextManager.TryGetVoiceObject(sentenceText, out VoiceObject vo, out string vocalizationId))
+{
+    string path = Campaign.Current.Models.VoiceOverModel.GetSoundPathForCharacter(character, vo);
+    SoundManager.PlaySound(path);
+}
+```
+
+### 最容易踩的坑
+
+混用「文本语言」和「语音语言」两个概念。它们是独立的两套数据：文本语言走 `MBTextManager.ChangeLanguage` → `LocalizedTextManager`（`MBTextManager.cs:44`），语音语言走 `TryChangeVoiceLanguage` → `LocalizedVoiceManager`（`MBTextManager.cs:63`）。后果是切了文本语言后，`GetLocalizedVoice(id)` 查的仍然是**上一个**语音语言的字典（`LoadLanguage` 在 `:41` 把字典整体清掉重填），配音要么错语言要么查不到；而且 `TryChangeVoiceLanguage` 失败时只返回 `false`、连 `Debug.FailedAssert` 都不打（`MBTextManager.cs:60-66`），不像 `ChangeLanguage` 会断言（`:47`）。要换配音语言必须单独调一次 `TryChangeVoiceLanguage`。
+
 ## 主要成员
 
 - `static VoiceObject GetLocalizedVoice(string id)`：按文本 id 取配音对象。**找不到返回 `null` 并 `Debug.Print` 一行日志**。这是唯一对外的查询入口。

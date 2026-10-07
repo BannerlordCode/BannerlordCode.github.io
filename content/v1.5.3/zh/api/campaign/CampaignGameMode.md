@@ -32,6 +32,32 @@ description: "战役模式的三值枚举：None / Campaign / Tutorial。它决�
 3. 在 mod 的自定义战役工厂里传 `None`，结果 `Models` 大面积为 null，症状是「进游戏第一步就 NRE，堆栈指向某个 Model 属性」。
 4. 拿它当存档字段：它没有 `[SaveableField]`，也不需要，因为每次启动都会重新构造。
 
+## 怎么用
+
+### 怎么拿到它
+
+它只有一个读取点：`Campaign.Current.GameMode`（`Campaign.cs:542`，带 `[SaveableProperty(37)]`，setter 是 private）。值在战役对象构造那一刻就定死——构造函数签名是 `public Campaign(CampaignGameMode gameMode, AdvancedStartOptionsData startOptions)`（`Campaign.cs:581`），全代码库只有三个 `new Campaign` 调用点：正常新游戏与开局设置界面都传 `CampaignGameMode.Campaign`（`SandBoxViewSubModule.cs:320`、`GauntletCampaignStartingOptionsView.cs:89`），编辑器场景传 `CampaignGameMode.Tutorial`（`EditorSceneMissionManager.cs:45`）。`None` 没有任何调用点使用。
+
+因为它是存档字段（`Campaign.cs:542`），读档后它会从存档恢复，不需要重新判断。
+
+### 典型用法
+
+```csharp
+// 判定当前是不是完整战役：原生代码的通行写法
+bool inFullCampaign = Campaign.Current.GameMode == CampaignGameMode.Campaign;
+
+// 教程战役里要跳过的东西，就用反向判断
+if (Campaign.Current.GameMode != CampaignGameMode.Campaign)
+    return;
+
+// 场景初始化时把玩法开关写进 mission 组件（原生 SandBoxMissions.cs:54 就是这么用的）
+PlayingInCampaignMode = (Campaign.Current.GameMode == CampaignGameMode.Campaign);
+```
+
+### 最容易踩的坑
+
+用 `!=` 把 `None` 和 `Tutorial` 一起放行，或者反过来只判 `== Campaign` 就以为覆盖了全部情况。后果是教程战役里少跑了一大块逻辑：`SandBoxHelpers.cs:126`、`SandBoxHelpers.cs:154` 用的是 `!= Campaign` 直接 early-return，而 `SandBox/CampaignBehaviors/BoardGameCampaignBehavior.cs:220`、`ClanMemberRolesCampaignBehavior.cs:196` 也都是 `!= Campaign`。你如果只写 `if (GameMode == Tutorial) return;`，`None` 这条路径会被漏掉，而官方约定是把它当非战役处理。另外这个值不能自己改——setter 是 private，想在运行时切模式没有任何受支持的入口。
+
 ## 成员与调用时机
 
 - `None`：未指定 / 纯数据战役。`GameModels` 不会装配玩法模型，除非你自己往 starter 里 `AddModel`。读 `Campaign.Current.Models.*` 前必须判空。

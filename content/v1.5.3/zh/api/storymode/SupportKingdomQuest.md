@@ -22,6 +22,60 @@ description: "第一阶段终局任务之二：把龙旗交给某位现有君主
 
 坑：`CheckConditionToSupportKingdom` 要求玩家**已经加入**该王国的 `Clan.PlayerClan.Kingdom == Hero.OneToOneConversationHero.Clan.Kingdom`。对话选项虽然可见，但点不动，鼠标悬停显示"你应该先加入 {KINGDOM_NAME}"。也就是说流程是"先跟君主谈条件 → 加入 → 再回来交旗"。另一处坑：`IsPlayerTheRulerOfAKingdom()` 里调了 `MBTextManager.SetTextVariable("FACTION", ...)` 但**丢弃了返回值**也不保存引用，是一句没有可见效果的副作用调用。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class SupportKingdomQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/FirstPhase/SupportKingdomQuest.cs:16`，全文 371 行。
+
+构造函数在 `:16` 之后的下一行（`:20`），基类调用与 [CreateKingdomQuest](../CreateKingdomQuest) **逐行对称**：
+
+```csharp
+: base("main_storyline_support_kingdom_quest_"
+       + ((StoryModeHeroes.ImperialMentor == questGiver) ? "1" : "0"),
+       questGiver,
+       StoryModeManager.Current.MainStoryLine.FirstPhase.FirstPhaseEndTime)
+```
+
+**任务 id 由发布者拼出** `"1"`/`"0"`，且在 `: base(...)` 参数里就引用了 `StoryModeHeroes.ImperialMentor`——非主线战役或第一阶段未开始时，构造函数第一行就 NRE。存档 id 680001（`SaveableStoryModeTypeDefiner.cs:56`）。
+
+**谁创建它**：[AssembleTheBannerQuest](../AssembleTheBannerQuest) 的 `GetAntiImperialQuests()`（`:320`）里 `new SupportKingdomQuest(AntiImperialMentor).StartQuest();`（`:336`）与 `GetImperialQuests()`（`:372`）里帝国版（`:388`）。**与 `CreateKingdomQuest` 二选一。**
+
+`RegisterEvents()`（`:329`）只挂**一条**：`StoryModeEvents.OnMainStoryLineSideChosenEvent`（`:331`）→ `MainStoryLineChosen(MainStoryLineSide chosenSide)`（`:315`）。**它不订阅 `ClanTierIncrease`、`OnSettlementOwnerChangedEvent`、`OnPartySizeChangedEvent`**——那些是 `CreateKingdomQuest` 的。与「建国」相比，「效忠」几乎没有进度要求，判定走对话流与 `OnKingdomSupported`。
+
+**五条对话流**分两组：君王侧 `GetImperialKingDialogueFlow()`（`:139`）、`GetAntiImperialKingDialogueFlow()`（`:164`）；导师侧 `GetImperialMentorDialogueFlow()`（`:189`）、`GetAntiImperialMentorDialogueFlow()`（`:218`），由 `SetDialogs()`（`:132`）装配。
+
+四个判据方法值得注意：`IsPlayerTheRulerOfAKingdom()`（`:246`）、`CheckPlayerCanDeclareBannerOwnershipClickableCondition(out TextObject explanation)`（`:257`）、`CheckConditionToSupportKingdom(out TextObject explanation)`（`:269`）——**后两个是带 `out TextObject` 的点击可用性判定**，与 [ConspiracyBaseOfOperationsDiscoveredConspiracyQuest](../ConspiracyBaseOfOperationsDiscoveredConspiracyQuest) 同款形状。
+
+存档只有一项：`_isImperial`（`[SaveableField(1)]`，`:367`）。**没有进度日志**——因为它没有进度。
+
+### 典型用法
+
+```csharp
+// 1) 正常由 AssembleTheBannerQuest 的终局对话流创建（与 CreateKingdomQuest 二选一）
+SupportKingdomQuest q = new SupportKingdomQuest(StoryModeHeroes.AntiImperialMentor);
+q.StartQuest();
+
+// 2) 任务 id 由发布者决定——可据此反查是哪条线
+Debug.Print("帝国导师 -> main_storyline_support_kingdom_quest_1");
+Debug.Print("反帝国导师 -> main_storyline_support_kingdom_quest_0");
+
+// 3) 唯一的公开判据（源码 :246）
+Debug.Print("玩家是否为某国君主=" + (Hero.MainHero.IsKingdomLeader));
+
+// 4) 与 CreateKingdomQuest 的对照：本任务没有进度日志，只有 _isImperial 一个存档位
+QuestBase b = Campaign.Current.QuestManager.GetQuest<SupportKingdomQuest>();
+Debug.Print("id=" + b.QuestId + "，存档 id=680001，发布者=" + b.QuestGiver?.Name);
+
+// 5) 只订阅了选边事件
+MainStoryLine line = StoryModeManager.Current.MainStoryLine;
+Debug.Print("当前立场=" + line.MainStoryLineSide);
+```
+
+### 最容易踩的坑
+
+它**只订阅 `OnMainStoryLineSideChosenEvent`**（`:331`）一条，没有 `HourlyTick` 之外的任何进度推进（`HourlyTick()`（`:324`）存在但极简）。这意味着**任务一旦开出，玩家的后续行为对它的完成度几乎没有影响**——真正的完成判定压在四条对话流的 `out TextObject` 条件委托里（`:257`、`:269`）。你 mod 里写 UI 想显示「任务进度」时找不到可读字段是正常的：**它没有进度日志，只有 `_isImperial` 一个存档位（`:367`）**。想读进度就得去问 `Clan.PlayerClan.Kingdom`。
+
 ## 主要成员
 
 - `SupportKingdomQuest(Hero questGiver)`：构造入口。任务 ID 用 `((StoryModeHeroes.ImperialMentor == questGiver) ? "1" : "0")` 拼出；`_isImperial` 决定日志文案与注册哪两套对话流；`InitializeQuestOnCreation()`。

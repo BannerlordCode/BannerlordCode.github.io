@@ -22,6 +22,70 @@ description: "第三阶段每个敌对王国对应一个战争进度任务：按
 
 坑：这个除法**没有分母为 0 的保护**。在极端情况下（强化后战分数恰好等于初始值的一半）进度条会得到 `Infinity` 或 `NaN`，而 `UpdateCurrentProgress` 接受浮点转 int，可能得到 `int.MinValue`。第二个坑是 `UpdateWarProgressWithKingdom` 只在"不在地图事件中、不在攻城事件中、没被俘"时**弹出和谈**——也就是说玩家在野外遭遇战里永远拿不到和谈窗口，会被认为还在"打仗"。第三个，`OppositionData` 是 `[SaveableField(110)]`，而 `LastPeaceOfferDate` 初值为 `CampaignTime.Zero`（`ElapsedDaysUntilNow` 极大），所以第一个小时就能谈。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class DefeatTheConspiracyQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/ThirdPhase/DefeatTheConspiracyQuestBehavior.cs:486`——**嵌套在 `DefeatTheConspiracyQuestBehavior` 内**，完整类型名 `DefeatTheConspiracyQuestBehavior.DefeatTheConspiracyQuest`。全文 947 行。
+
+构造函数 `DefeatTheConspiracyQuest(string questId, Kingdom oppositionKingdom)`（约 `:613`），基类调用在**参数里就做了一次三目判断**：
+
+```csharp
+: base(questId,
+       StoryModeManager.Current.MainStoryLine.IsOnImperialQuestLine
+           ? StoryModeHeroes.ImperialMentor
+           : StoryModeHeroes.AntiImperialMentor,
+       CampaignTime.Never)
+```
+
+**注意 `questGiver` 不是直接传进来的，而是按主线立场现算的导师**（`:614`）——任务 id 也由外部给定。时限 `Never`。
+
+**谁创建它**：宿主行为 `DefeatTheConspiracyQuestBehavior.InitializeFinalPhase()`（`:109`）末尾 `defeatTheConspiracyQuest.StartQuest();`（`:169`）。
+
+存档定义 id 是 2（`DefeatTheConspiracyQuestBehaviorTypeDefiner.cs` 的 `DefineClassTypes` 登记，基数 16000）。
+
+`RegisterEvents()`（`:851`）挂**四条**：`KingdomDestroyedEvent`（`:853` → `OnKingdomDestroyed`，`:807`）、`OnQuestCompletedEvent`（`:854` → `OnCampaignQuestCompleted`，`:870`）、`OnSettlementOwnerChangedEvent`（`:855` → `SettlementOwnerChanged`，`:880`）、`OnClanChangedKingdomEvent`（`:856` → `OnClanChangedKingdom`，`:860`）。**全部围绕「领土与王国归属变化」**——这就是战争分的更新来源。
+
+战争分三层算：`HourlyTick()`（`:633`）→ `UpdateWarProgressWithKingdom()`（`:639`）→ `CalculateWarScoreForKingdom(Kingdom kingdom)`（`:824`）→ `GetWarScoreOfSettlement(Settlement settlement)`（`:836`）。外加一个公开方法 `public void CalculateReinforcedWarScore()`（`:903`）——**这是它唯一的公开方法**。
+
+王国覆灭流程：`OnKingdomDefeated(Kingdom kingdom, bool makePeace = true)`（`:702`）→ `DefectClansOfKingdomToKingdom(Kingdom defectorKingdom, Kingdom targetKingdom)`（`:786`），并由 `InitializeKingdomDefeatedPopUp(Kingdom kingdom)`（`:654`）弹场景通知。
+
+进度条量程常量 `private const int ProgressTrackerRange = 100;`（`:935`）。两个关键存档位：`_oppositionKingdom`（`[SaveableField(100)]`，`:938`→`:939`）与 `DefeatTheConspiracyQuestBehavior.OppositionData _oppositionData`（`[SaveableField(110)]`，`:942`→`:943`）。
+
+### 典型用法
+
+```csharp
+// 1) 正常由宿主行为在终局初始化时创建
+ThirdPhase third = StoryModeManager.Current.MainStoryLine.ThirdPhase;
+if (third != null && third.OppositionKingdoms.Count > 0)
+{
+    DefeatTheConspiracyQuestBehavior.DefeatTheConspiracyQuest q =
+        new DefeatTheConspiracyQuestBehavior.DefeatTheConspiracyQuest("defeat_conspiracy", third.OppositionKingdoms[0]);
+    q.StartQuest();
+}
+
+// 2) 唯一的公开方法：重算加强后的战争分（源码 :903）
+Debug.Print("ReinforcedWarScore=" + Campaign.Current
+    .GetCampaignBehavior<DefeatTheConspiracyQuestBehavior>().ReinforcedWarScore);
+
+// 3) 发布者按立场现算，不由外部传入
+MainStoryLine line = StoryModeManager.Current.MainStoryLine;
+Debug.Print("发布者=" + (line.IsOnImperialQuestLine
+    ? StoryModeHeroes.ImperialMentor.Name : StoryModeHeroes.AntiImperialMentor.Name));
+
+// 4) 战争分与终局封锁互相咬合
+KingdomDecisionPermissionModel perm = Campaign.Current.Models.KingdomDecisionPermissionModel;
+Debug.Print("敌对王国间禁止宣战（StoryModeKingdomDecisionPermissionModel）");
+
+// 5) 读任务
+QuestBase b = Campaign.Current.QuestManager.GetQuest<DefeatTheConspiracyQuestBehavior.DefeatTheConspiracyQuest>();
+Debug.Print("id=" + b.QuestId + "，分类=" + b.SpecialQuestType);
+```
+
+### 最容易踩的坑
+
+它的构造函数签名是 `(string questId, Kingdom oppositionKingdom)`——**没有 `Hero questGiver` 参数**，而基类调用里又现算了一个导师（`:614`）。所以 [SecondPhase](../SecondPhase) 那套 `Activator.CreateInstance(type, array)` 的反射路径**不能用于这个任务**（参数个数对不上），它只能由宿主行为直接 new。这两个类名字相近但注册路径完全不同：`DefeatTheConspiracyQuestBehavior` 在 `StoryModeSubModule.cs:84` 无条件注册，而任务本体由 `InitializeFinalPhase()`（`:109`）在终局初始化时创建。你 mod 里想在终局前预置这条任务，照抄 `CreateNextConspiracyQuest` 的反射写法会直接 `MissingMethodException`。
+
 ## 主要成员
 
 - `public DefeatTheConspiracyQuest(string questId, Kingdom oppositionKingdom)`：任务 ID 由外部给定，`questGiver` 按立场选导师，`CampaignTime.Never`。`SetDialogs()`（空）+ `InitializeQuestOnCreation()`。

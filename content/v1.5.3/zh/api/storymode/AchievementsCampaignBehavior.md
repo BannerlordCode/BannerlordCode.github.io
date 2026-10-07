@@ -45,6 +45,57 @@ description: "成就系统行为：监听三十余种战役事件，把进度写
 - **`AchievementManager.SetStat` 是全局写入**，没有任何 mod 命名空间隔离。两个 mod 用同名 statId 会互相覆盖。
 - **mod 若新增战役事件并想驱动成就，必须自己写 `SetStat`**，不会自动进入这个行为。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class AchievementsCampaignBehavior : CampaignBehaviorBase` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/CampaignBehaviors/AchievementsCampaignBehavior.cs:30`，全文 1117 行，是本模块最大的一个行为。
+
+注册点：`campaignGameStarter.AddBehavior(new AchievementsCampaignBehavior())`（`StoryModeSubModule.cs:81`），**无条件注册**（不在 `:60`–`:75` 的阶段条件里）。拿实例用 `Campaign.Current.GetCampaignBehavior<AchievementsCampaignBehavior>()`。引擎在每次读档后调 `RegisterEvents()`（`:39`），那里挂了三十二条 `AddNonSerializedListener`，其中三十条是 `CampaignEvents.*`，最后两条是 `StoryModeEvents.OnStoryModeTutorialEndedEvent`（`:73`）和 `StoryModeEvents.OnBannerPieceCollectedEvent`（`:74`）。
+
+存档只有一项：`dataStore.SyncData<bool>("_deactivateAchievements", ref this._deactivateAchievements)`（`:33`）。三十多个 `_cached*` 字段**全都不存档**——它们在 `OnNewGameCreatedPartialFollowUpEnd`（`:227`）或 `OnGameLoadFinished` 里从成就系统回填。
+
+三条与 StoryMode 直接相关的统计：
+
+| 统计 id | 来源 | 行 |
+| --- | --- | --- |
+| `AssembledDragonBanner` | `StoryModeEvents.OnBannerPieceCollectedEvent` → `ProgressAssembledDragonBanner`，判 `FirstPhase != null && FirstPhase.AllPiecesCollected` | `:74`→`:658`→`:660` |
+| `BarbarianVictory` / `ImperialVictory` | `OnQuestCompletedEvent`（`:55`）→ `ProgressImperialBarbarianVictory`，判 `quest.GetType() == typeof(DefeatTheConspiracyQuestBehavior.DefeatTheConspiracyQuest)` 且按 `MainStoryLineSide` 二选一 | `:667`→`:671` |
+| `RadagosDefeatedInDuel` | 公开方法 `OnRadagosDuelWon()`，**由外部调用** | `:460` |
+
+战斗内的两个统计不走 `CampaignEvents`，而是在 `OnMissionStarted`（`:404`）里 new 一个私有嵌套类 `AchievementMissionLogic : MissionLogic`（`:1079`）并 `Mission.Current.AddMissionBehavior(...)`（`:407`），它覆写 `OnAgentRemoved`（`:1089`）和 `OnScoreHit`（`:1100`）再回调到 `OnAgentRemoved`（`:421`）/ `OnAgentHit`（`:411`）。
+
+关掉机制：`DeactivateAchievements(TextObject reason = null, bool showMessage = true, bool temporarily = false)`（`:880`）会 `CampaignEventDispatcher.Instance.RemoveListeners(this)`（`:883`）并把 `_deactivateAchievements` 置真（`:882`），此后 `SetStatInternal`（`:902`）里的 `AchievementManager.SetStat` 全部被跳过（`:904`→`:906`）。
+
+### 典型用法
+
+```csharp
+// 运行期读
+AchievementsCampaignBehavior ach =
+    Campaign.Current.GetCampaignBehavior<AchievementsCampaignBehavior>();
+if (ach != null && StoryModeManager.Current != null)
+{
+    // 公开方法：外部流程（拉达戈斯决斗结算）主动上报
+    Debug.Print("可直接调用的上报方法：OnRadagosDuelWon()");
+
+    // 关掉整套统计：会 RemoveListeners(this)，不可逆（除非重读档）
+    // ach.DeactivateAchievements(new TextObject("{=XyZ1}成就已关闭"), true, false);
+}
+
+// 成就系统的总开关判定（公开，源码逻辑照抄）
+DumpIntegrityCampaignBehavior integrity =
+    Campaign.Current.CampaignBehaviorManager.GetBehavior<DumpIntegrityCampaignBehavior>();
+Debug.Print("成就系统可用=" + (integrity != null));
+
+// StoryMode 专属统计的判定条件复现
+FirstPhase first = StoryModeManager.Current.MainStoryLine.FirstPhase;
+Debug.Print("龙旗已拼齐=" + (first != null && first.AllPiecesCollected));
+```
+
+### 最容易踩的坑
+
+`DeactivateAchievements` 里的 `CampaignEventDispatcher.Instance.RemoveListeners(this)`（`:883`）是**全局广播取消**：它从所有事件分发器上抹掉以 `this` 为 key 的监听，不只是 `CampaignEvents`。调完之后三十二条订阅全部失效，且 `RegisterEvents()` **不会**在同一个会话里重新跑（只在读档时跑），`_deactivateAchievements` 本身又已经进了存档。所以一旦在运行中关掉再读档，行为重新注册了但 `SetStatInternal` 仍被 `:904` 的开关挡住——统计从此静默。想恢复只能删存档字段。
+
 ## 主要成员
 
 - `public override void RegisterEvents()`

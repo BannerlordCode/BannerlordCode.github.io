@@ -34,6 +34,43 @@ description: "官方默认的城镇繁荣度与村庄炉灶增长模型：用 Ex
 4. **在模型里做缓存**：模型每次调用都读世界状态，缓存会在读档后失效。
 5. **`ExplainedNumber` 的说明项要带文本**：`Add(value, text, null)` 的第二个参数就是 UI 展示的字符串，填 null 会得到一个没有标签的修正项。
 
+## 怎么用
+
+### 怎么拿到它
+
+它没有实例，只有一堆常量。注册点唯一：`SandBoxManager.Initialize`（战役启动期）里 `gameStarter.AddModel<SettlementProsperityModel>(new DefaultSettlementProsperityModel())`（`SandBoxManager.cs:306`）——注意注册的是**抽象基类** `SettlementProsperityModel`，这个类只是它的默认实现。
+
+读它的唯一入口是 `Campaign.Current.Models.SettlementProsperityModel`（`GameModels.cs:703` 绑定，`Campaign.cs:557` 暴露），拿到的是 `SettlementProsperityModel`。两个 override 的实参：`CalculateProsperityChange(Town fortification, bool includeDescriptions = false)`（`DefaultSettlementProsperityModel.cs:18`）和 `CalculateHearthChange(Village village, bool includeDescriptions = false)`（`:26`），都返回 `ExplainedNumber`。`includeDescriptions = false` 时逐项文本不会写进结果，`:38` 那条 hearth 判定也一样会把描述置空。
+
+### 典型用法
+
+```csharp
+// 1) 直接调用（includeDescriptions=true 才能拿到界面上的逐项解释）
+ExplainedNumber change = Campaign.Current.Models.SettlementProsperityModel
+    .CalculateProsperityChange(town, includeDescriptions: true);
+Debug.Print("prosperity delta = " + change.ResultNumber);
+
+// 2) 打包替换：BaseModel 里留着原实现，只调 super 之外的部分
+public class MyProsperityModel : MBGameModel<SettlementProsperityModel>
+{
+    public override ExplainedNumber CalculateHearthChange(Village village, bool includeDescriptions = false)
+    {
+        ExplainedNumber r = BaseModel.CalculateHearthChange(village, includeDescriptions);
+        if (village.Bound?.Town != null && village.Bound.Town.IsFortification)
+            r.Add(0.5f, new TextObject("fortified hearth bonus"), null);
+        return r;
+    }
+}
+
+// 3) 注册：类型参数填抽象基类，实现填你的子类
+((CampaignGameStarter)gameStarterObject)
+    .AddModel<SettlementProsperityModel>(new MyProsperityModel());
+```
+
+### 最容易踩的坑
+
+忘了 `includeDescriptions` 默认是 `false`，然后去读结果里的逐项文本。两个方法各自新建 `ExplainedNumber(0f, includeDescriptions, null)`（`:20`、`:28`）——第二个参数直接决定它收不收集描述；`:38` 那条 hearth 分支甚至连 `result.Add` 的说明文本都只在开启时才带得上。后果是 `ResultNumber` 完全正确，但界面上繁荣度变化那一栏的明细一行都不显示，或者显示成空白；更糟的是你在调试时反复检查加法逻辑怎么都找不到问题，因为数字是对的。要拿明细就必须显式传 `includeDescriptions: true`。
+
 ## 成员与调用时机
 
 - `ExplainedNumber CalculateProsperityChange(Town fortification, bool includeDescriptions = false)`：城镇繁荣度日变化。城镇每日 tick 与 AI 评估聚落价值时调用。`fortification` 为 null 会直接崩在内部逻辑上。

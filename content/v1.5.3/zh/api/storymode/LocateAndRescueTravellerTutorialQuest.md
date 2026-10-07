@@ -22,6 +22,50 @@ description: "教程战斗任务：反复生成三支强盗队教玩家打劫/�
 
 坑很多，逐条说。第一，`OnGameMenuOpened` 里有一大段**无条件**的自愈逻辑：只要打开任何菜单，就把主队和哥哥补血到 50、把被俘状态解开、把哥哥强行 `AddHeroToPartyAction` 加回主队。这是硬编码的教学作弊，任何 mod 想让教程有真实风险都会撞上。第二，`SpawnRaiderParties` 依赖 `_defeatedRaiderPartyCount` 作为循环起点，所以玩家打赢一支后**不会立刻补上一支**——只在离开定居点时才会重新生成。第三，`DespawnRaiderParties` 会连 `MapTracker` 一起清掉，这个顺序不能颠倒。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class LocateAndRescueTravellerTutorialQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/TutorialPhase/LocateAndRescueTravellerTutorialQuest.cs:25`，全文 478 行。
+
+构造函数**无参**（约 `:48`），基类 `: base("locate_and_rescue_traveler_tutorial_quest", null, CampaignTime.Never)`（`:49`）——任务 id 硬编码、`questGiver` 传 `null`、时限 `Never`。存档 id 688001（`SaveableStoryModeTypeDefiner.cs:48`）。
+
+构造函数第一句有副作用：`TutorialPhase.Instance.SetTutorialFocusSettlement(Settlement.Find("village_ES3_2"));`（`:62`）——**`village_ES3_2` 在这里是字面量硬编码**，而不是用 `TutorialPhase.QuestVillageStringId`（`TutorialPhase.cs:266`）。两处指向同一个聚落但不是同一份定义。
+
+`RegisterEvents()`（`:66`）挂三条：`CampaignEvents.GameMenuOpened`（`:68`）、`OnSettlementLeftEvent`（`:69`）、`MapEventEnded`（`:70`）。
+
+任务内部自己造强盗队列表（见本页「主要成员」对构造函数的描述），并按 `MobileParty.MainParty.MemberRoster.TotalManCount` 决定下一步——**这是一个「按队伍规模分支」的教学任务**，玩家人少时要先回村庄补人。
+
+对话流程由 `SetDialogs()` 注册，条件委托读 `TutorialPhase` 的阶段与 `IsSkipped` 状态。完成路径 `OnCompleteWithSuccess()`（`:333`）会清掉地图高亮（与 `TravelToVillageTutorialQuest`、`TalkToTheHeadmanTutorialQuest` 同一套纪律）。
+
+### 典型用法
+
+```csharp
+// 1) 创建：无参，直接 new
+LocateAndRescueTravellerTutorialQuest q = new LocateAndRescueTravellerTutorialQuest();
+q.StartQuest();
+
+// 2) 目标村庄：这里用的是字面量，不是常量
+Debug.Print("目标村庄=" + MBObjectManager.Instance.GetObject<Settlement>("village_ES3_2").StringId);
+Debug.Print("对应常量 TutorialPhase.QuestVillageStringId = " + TutorialPhase.QuestVillageStringId);
+
+// 3) 队伍规模决定分支
+Debug.Print("主队人数=" + MobileParty.MainParty.MemberRoster.TotalManCount + "（>=4 才走后续）");
+
+// 4) 地图高亮由 TutorialPhase 持有，完成时要卸
+TutorialPhase tutorial = StoryModeManager.Current.MainStoryLine.TutorialPhase;
+Debug.Print("高亮=" + tutorial.TutorialFocusSettlement?.StringId);
+tutorial.RemoveTutorialFocusSettlement();
+
+// 5) 读任务
+QuestBase b = Campaign.Current.QuestManager.GetQuest<LocateAndRescueTravellerTutorialQuest>();
+Debug.Print("id=" + b.QuestId + "，存档 id=688001，分类=" + b.SpecialQuestType);
+```
+
+### 最容易踩的坑
+
+`Settlement.Find("village_ES3_2")`（`:62`）的返回值**直接传给 `SetTutorialFocusSettlement`，没有判空**。mod 删掉或改名了教学村庄时 `Find` 返回 null，地图高亮被写成 null——之后所有「去教学村庄」的条件（`TravelToVillageTutorialQuest`、`TalkToTheHeadmanTutorialQuest`、本任务）会一起静默失效。**教学村庄 id 是整个教学链的隐式契约**，动它要同步四处硬编码。
+
 ## 主要成员
 
 - `LocateAndRescueTravellerTutorialQuest()`：无参构造。建 `_raiderParties` 列表、`SetDialogs()`、`AddGameMenus()`、`InitializeQuestOnCreation()`，`SetTutorialFocusSettlement(village_ES3_2)`，若主队 ≥4 人则 `SpawnRaiderParties()`。

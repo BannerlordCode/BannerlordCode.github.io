@@ -32,6 +32,39 @@ description: "单局战役的战略层总控：持有 CampaignObjectManager 里�
 3. 直接给 `Hero.Gold` 赋值绕过 `GiveGoldAction`。字段直写不会触发 `CampaignEvents`，AI 和 UI 都拿不到通知。
 4. 在 `_dt == 0`（游戏暂停、菜单打开）时假设 DailyTick 也会跑——`Tick()` 里 `TickPeriodicEvents` 被 `_dt > 0f` 包住，不会触发。
 
+## 怎么用
+
+### 怎么拿到它
+
+唯一入口是 `public static Campaign Current { get; private set; }`（`Campaign.cs:536`）——setter 是 private，值只能由 `new Campaign(CampaignGameMode gameMode, AdvancedStartOptionsData startOptions)`（`:581`）这条路径产生（三个调用点：`SandBoxViewSubModule.cs:320`、`GauntletCampaignStartingOptionsView.cs:89` 传 `Campaign`，`EditorSceneMissionManager.cs:45` 传 `Tutorial`）。战役结束时 `Campaign.Current = null`（`:1694`）。
+
+初始化在 `Initialize` 里，顺序是硬依赖的：`new CampaignGameStarter(...)`（`:1952`）→ `SandBoxManager.Initialize(starter)`（`:1953`，**模型在这里注册**）→ `GameManager.InitializeGameStarter(...)`（`:1954`）→ `GameManager.OnGameStart(game, starter)`（`:1960`，**你的 mod 回调在这里**）→ `SetBasicModels` + `AddGameModelsManager<GameModels>(starter.Models)`（`:1961-1962`，模型快照在此固化）→ 非读档分支 `new CampaignBehaviorManager(starter.CampaignBehaviors)`（`:1991`）；读档分支走 `OnGameLoaded`（`:1996`）→ `InitializeCampaignBehaviors`（`:1997`）→ `LoadBehaviorData`（`:1998`）→ `RegisterEvents`（`:1999`）。`CampaignBehaviorManager` 自己是在更早的 `OnInitialize` 里建的（`:1939`），新战役时被整个替换。
+
+### 典型用法
+
+```csharp
+// 1) 唯一正确的取法：每次现取，不要缓存
+if (Campaign.Current == null) return;             // 不在战役里（主菜单、任务中、战役已结束）
+Campaign campaign = Campaign.Current;
+
+// 2) 启动期注册：此时 starter 还没被固化
+protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
+{
+    base.OnGameStart(game, gameStarterObject);
+    ((CampaignGameStarter)gameStarterObject).AddBehavior(new MySupplyBehavior());
+}
+
+// 3) 运行期查询
+MySupplyBehavior mine = Campaign.Current.GetCampaignBehavior<MySupplyBehavior>();
+GameModels models = Campaign.Current.Models;
+CampaignGameMode mode = Campaign.Current.GameMode;      // Campaign.cs:542，带 [SaveableProperty(37)]
+GameMenu menu = Campaign.Current.GameMenuManager.FindMenu("camp");   // Campaign.cs:553
+```
+
+### 最容易踩的坑
+
+把 `Campaign.Current` 缓存成静态字段。战役结束时会执行 `Campaign.Current = null`（`Campaign.cs:1694`，在 `Destroy` 里），而 `Destroy` 同时把 behavior 列表清空（`:1691`）、`MBTextManager.ClearAll()`（`:1685`）、`ConversationManager.Clear()`（`:1684`）。后果是：从上一局带过去的静态引用要么变成 null（判空绕过、静默不干活），要么在 `Destroy` 与新一局构造之间的窗口里指向一个正在被拆的对象。典型症状是「进主菜单后 mod 的东西还在跑」或「开第二局时 mod 崩在构造函数里」。一律现取：`Campaign.Current?.GetCampaignBehavior<T>()`。
+
 ## 成员与调用时机
 
 **静态与全局**

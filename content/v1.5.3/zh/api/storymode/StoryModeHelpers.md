@@ -45,6 +45,54 @@ foreach (SkillObject skill in Skills.All)
 3. **`HeroDeveloper` 可能未初始化**：`SetInitialSkillLevel` 在 `HeroDeveloper` 为 null 时会崩。`ClearSkills` 是否顺带初始化 `HeroDeveloper`，源码没保证——这也是为什么 `ElderBrother` 在 `StoryModeHeroes` 里专门调了一次 `HeroDeveloper.ResetCharacterStats()`。
 4. **`Skills.All` 每帧遍历**：在 `DailyTick` 里对一堆英雄调它就是纯浪费。这个方法只该在「角色刚被创建 / 刚加入队伍」时调一次。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public static class StoryModeHelpers` 声明在 `bannerlord-1.5.3/StoryMode/StoryModeHelpers.cs:10`，全文 36 行。静态类、**只有一个成员** `public static void SetPlayerSiblingsSkillsIfNeeded(Hero hero)`（`:13`）——所以「怎么拿到它」就是 `using StoryMode;` 后直接类名调用，不需要实例、不需要注册。
+
+方法的形状是「探测 → 归零 → 重填」：
+
+1. 探测：遍历 `Skills.All`（`:16`），一旦发现 `hero.GetSkillValue(skillObject) == 0`（`:18`）就置 `flag = true` 并 `break`（`:20`→`:21`）。**只要有一项技能为 0 就进入重建分支**，不是全零才重建。
+2. 取默认值：`Campaign.Current.Models.HeroCreationModel.GetDefaultSkillsForHero(hero)`（`:26`）——**无判空**，`Campaign.Current` 与 `Models.HeroCreationModel` 任一为 null 就 NRE。
+3. `hero.ClearSkills();`（`:27`）——先全清。
+4. 逐项 `hero.HeroDeveloper.SetInitialSkillLevel(valueTuple.Item1, valueTuple.Item2)`（`:30`）。
+5. `hero.HeroDeveloper.InitializeHeroDeveloper(CampaignOptions.AutoAllocateClanMemberPerks)`（`:32`）。
+
+第 4 步依赖 `hero.HeroDeveloper` 已经存在——源码没有保证，只在 [StoryModeHeroes](../StoryModeHeroes) 的 `RegisterAll` 里给兄长显式调过一次 `HeroDeveloper.ResetCharacterStats()`（`StoryModeHeroes.cs:150`）作为前置。
+
+唯一的调用方是 [MainStorylineCampaignBehavior](../MainStorylineCampaignBehavior) 的 `OnHeroComesOfAge`（`MainStorylineCampaignBehavior.cs:61`→`:65`）——且条件很窄：`hero == LittleBrother || (hero == LittleSister && !ModuleHelper.IsModuleActive("NavalDLC"))`（`:63`）。读档迁移路径 `HandlePlayerSiblingsStatesOnLoad` 也会调（`:173`）。
+
+### 典型用法
+
+```csharp
+// 标准调用：英雄成年时、或读档迁移后
+Hero brother = StoryModeHeroes.LittleBrother;
+bool needsRebuild = false;
+foreach (SkillObject skill in Skills.All)
+{
+    if (brother.GetSkillValue(skill) == 0) { needsRebuild = true; break; }
+}
+if (needsRebuild)
+{
+    StoryModeHelpers.SetPlayerSiblingsSkillsIfNeeded(brother);
+    Debug.Print("已重填默认技能");
+}
+
+// 验证结果：重新扫一遍，看还有没有 0
+foreach (SkillObject skill in Skills.All)
+{
+    Debug.Print(skill.StringId + "=" + brother.GetSkillValue(skill));
+}
+
+// 只在战役内安全：Campaign.Current 和 Models.HeroCreationModel 都无判空
+Debug.Print("默认技能来源=" + Campaign.Current.Models.HeroCreationModel.GetDefaultSkillsForHero(brother).Count);
+```
+
+### 最容易踩的坑
+
+它的触发条件是「**有任意一项技能为 0**」（`:18`），不是「全部为 0」。给兄长加一个新技能点、或某个 mod 新增了 `Skills.All` 里的技能项而新英雄没有该技能——只要有一格是 0，这个方法就会 `hero.ClearSkills()`（`:27`）把**已经练出来的全部技能清零**，然后按 `HeroCreationModel` 的默认值重填。玩家会突然发现自己的角色被洗点了，而且没有确认、没有提示。你在给剧情英雄改技能后必须重扫一遍，确认没有 0，否则下次调它就是一次洗点。
+
 ## 主要成员
 
 - `static void SetPlayerSiblingsSkillsIfNeeded(Hero hero)`：唯一的成员。传入 null 会在 `hero.GetSkillValue` 处 NRE，**没有判空**。见上文心智模型的三步流程与陷阱。

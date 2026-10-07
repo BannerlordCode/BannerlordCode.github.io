@@ -56,6 +56,59 @@ if (behavior != null)
 - **只在 `IsSkipped` 为真时补种**。正常打完教程的玩家走的是主线脚本铺设的路径，这里什么都不做。
 - **`RemoveListeners` 之后本行为永久静默**。读档会重新 `RegisterEvents`，此时若 `IsCompleted` 为真则直接不订阅。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeBanditSpawnCampaignBehavior : CampaignBehaviorBase` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/CampaignBehaviors/StoryModeBanditSpawnCampaignBehavior.cs:9`，全文 47 行，只有三个方法。**这是全模块最短的行为之一。**
+
+注册点：`campaignGameStarter.AddBehavior(new StoryModeBanditSpawnCampaignBehavior())`（`StoryModeSubModule.cs:79`），无条件。拿实例用 `Campaign.Current.GetCampaignBehavior<StoryModeBanditSpawnCampaignBehavior>()`。
+
+**它存在的唯一理由是那个条件订阅**（`:14`）：
+
+```csharp
+if (!TutorialPhase.Instance.IsCompleted)
+{
+    StoryModeEvents.OnStoryModeTutorialEndedEvent.AddNonSerializedListener(this, new Action(this.OnTutorialEnded));
+}
+```
+
+教学已完成时它一个事件都不订阅，行为彻底退化为空壳。`SyncData`（`:43`）是**空实现**——没有任何字段要存档。
+
+`OnTutorialEnded()`（`:21`）只做两件事：若 `TutorialPhase.Instance.IsSkipped` 为真则调 `SpawnInitialBanditsAndLooters()`（`:23`→`:25`），然后**无条件** `CampaignEventDispatcher.Instance.RemoveListeners(this)`（`:27`）把自己从事件总线上摘掉。
+
+`SpawnInitialBanditsAndLooters()`（`:31`）并不自己生成强盗，它**委托给基类的行为**：`Campaign.Current.GetCampaignBehavior<BanditSpawnCampaignBehavior>()`（`:33`），非空时连续调三个方法（`:36`→`:38`）：`InitializeInitialHideouts()`、`SpawnBanditsAroundHideoutAtNewGame()`、`SpawnLootersAtNewGame()`。
+
+### 典型用法
+
+```csharp
+// 运行期读
+StoryModeBanditSpawnCampaignBehavior spawn =
+    Campaign.Current.GetCampaignBehavior<StoryModeBanditSpawnCampaignBehavior>();
+TutorialPhase tutorial = StoryModeManager.Current.MainStoryLine.TutorialPhase;
+Debug.Print("教学已完成=" + tutorial.IsCompleted + "，跳过=" + tutorial.IsSkipped);
+
+// 教学未完成且正常打完（未跳过）时：行为已订阅 OnStoryModeTutorialEndedEvent，
+// 但 OnTutorialEnded 不会调 SpawnInitialBanditsAndLooters（:23 要求 IsSkipped）
+// 藏出处与掠夺者由 SandBox 的 BanditSpawnCampaignBehavior 按正常新游戏流程生成。
+
+// 教学未完成且被跳过时：额外补一次初始生成
+if (!tutorial.IsCompleted && tutorial.IsSkipped)
+{
+    BanditSpawnCampaignBehavior core = Campaign.Current.GetCampaignBehavior<BanditSpawnCampaignBehavior>();
+    if (core != null)
+    {
+        core.InitializeInitialHideouts();
+        core.SpawnBanditsAroundHideoutAtNewGame();
+        core.SpawnLootersAtNewGame();
+    }
+}
+```
+
+### 最容易踩的坑
+
+它只在 **`IsSkipped` 为真**时才补生成（`:23`）。正常打完教学的玩家永远走不到 `SpawnInitialBanditsAndLooters`，藏出处和掠夺者完全交给 `BanditSpawnCampaignBehavior` 的常规新游戏流程。也就是说跳过的玩家会比正常玩家**多一次**初始生成调用——如果 mod 改过 `BanditSpawnCampaignBehavior`，两批玩家的藏出处数量会不一致。另外 `RemoveListeners(this)`（`:27`）是全局广播取消，这个行为一次性就摘干净，不会重复触发。
+
 ## 主要成员
 
 - `public override void RegisterEvents()`

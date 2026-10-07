@@ -51,6 +51,60 @@ if (!MainStoryLine.IsFirstPhaseCompleted)    campaignGameStarter.AddBehavior(new
 - **任务链是硬编码的类型分支**，没有优先级、没有失败分支。改动 quest 类型名会整条链断掉。
 - **弹窗路径依赖 `TutorialPhase.Instance.IsSkipped`**，正常打完教程的玩家永远看不到这一段。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class FirstPhaseCampaignBehavior : CampaignBehaviorBase` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/CampaignBehaviors/FirstPhaseCampaignBehavior.cs:24`，全文 261 行。
+
+**注册是条件式的**：`campaignGameStarter.AddBehavior(new FirstPhaseCampaignBehavior())`（`StoryModeSubModule.cs:68`）包在 `if (!MainStoryLine.IsCompleted)`（`:60`）与 `if (!MainStoryLine.IsFirstPhaseCompleted)`（`:66`）两层里。第一阶段完成后这个行为**不再注册**，`GetCampaignBehavior<FirstPhaseCampaignBehavior>()` 返回 null。
+
+`RegisterEvents()`（`:27`）挂**九条**，是本模块订阅最多的行为：四条 `StoryModeEvents.*`（`OnBannerPieceCollectedEvent` `:35`、`OnStoryModeTutorialEndedEvent` `:36`、`OnMainStoryLineSideChosenEvent` `:37`，加上 `CampaignEvents` 侧的六条）。
+
+它实际做的事分四组：
+
+- **导师入城**：`OnNewGameCreatedPartialFollowUpEnd`（`:55`）给两位导师找聚落、预留房屋；`SpawnMentorsIfNeeded()`（`:102`）在玩家进入其中一座城镇时把导师作为游荡 NPC 加进 `Location`；`FindSuitableHideout(Hero questGiver)`（`:202`）为藏住处任务选址。
+- **任务链**：`OnQuestCompleted`（`:65`）按 `quest is XxxQuest` 串链，具体出任务的四行是 `:71`（`new MeetWithIstianaQuest(...ImperialMentorSettlement).StartQuest()`）、`:72`（Arzagos 版）、`:78`（`new IstianasBannerPieceQuest(imperialMentor, this.FindSuitableHideout(imperialMentor))`）、`:84`（`ArzagosBannerPieceQuest` 版）。`OnStoryModeTutorialEnded()`（`:146`）另起 `RebuildPlayerClanQuest`（`:148`）与 `BannerInvestigationQuest`（`:149`）。`StartStealthTutorial()`（`:133`）开 `new VillagersInNeed().StartQuest();`（`:135`）并广播 `OnStealthTutorialActivated()`（`:136`）。
+- **旗片与藏身处**：`OnBannerPieceCollected()`（`:153`）按 `FirstPhase.Instance.CollectedBannerPieceCount` 等于 1 / 2 / 3 分派（`:156`、`:160`、`:164`），并有 `FirstPhase.Instance == null` 守卫（`:156`）。
+- **选边与改名**：`OnMainStoryLineSideChosen(MainStoryLineSide side)`（`:172`）、`SelectClanName()`（`:181`）、`OnChangeClanNameDone(string newClanName)`（`:187`）、`OpenBannerSelectionScreen(Action endAction)`（`:196`）。
+
+存档三个字段：`_imperialMentorHouse`（`:252`）、`_antiImperialMentorHouse`（`:255`）、`_popUpShowed`（`:258`）。
+
+### 典型用法
+
+```csharp
+// 运行期读；第一阶段完成后为 null
+FirstPhaseCampaignBehavior fp =
+    Campaign.Current.GetCampaignBehavior<FirstPhaseCampaignBehavior>();
+if (fp != null && StoryModeManager.Current.MainStoryLine.FirstPhase != null)
+{
+    // 旗片进度的分派依据
+    Debug.Print("旗片数=" + StoryModeManager.Current.MainStoryLine.FirstPhase.CollectedBannerPieceCount);
+
+    // 潜行教学是否已被触发过（_popUpShowed）
+    Debug.Print("MainStoryLine.IsFirstPhaseCompleted="
+              + StoryModeManager.Current.MainStoryLine.IsFirstPhaseCompleted);
+}
+
+// 任务链的可见结果
+foreach (QuestBase q in Campaign.Current.QuestManager.Quests)
+{
+    if (!q.IsFinalized && q.SpecialQuestType == "MainStoryline")
+    {
+        Debug.Print("在跑的主线任务：" + q.QuestId + "（发布者 " + q.QuestGiver?.Name + "）");
+    }
+}
+
+// 导师所在聚落：SetMentorSettlements 写入，读这两处
+MainStoryLine line = StoryModeManager.Current.MainStoryLine;
+Debug.Print("帝国导师=" + line.ImperialMentorSettlement?.StringId
+          + "，反帝国导师=" + line.AntiImperialMentorSettlement?.StringId);
+```
+
+### 最容易踩的坑
+
+它订阅了九条事件却**没有一条是「读档安全」的幂等检查**——`OnQuestCompleted`（`:65`）里的四行 `new XxxQuest(...).StartQuest();`（`:71`、`:72`、`:78`、`:84`）**无条件执行，没有 `Quests.Any(q => q is XxxQuest)` 查重**。对比同文件里 `MeetWithIstianaQuest.ActivateAssembleTheBannerQuest`（`MeetWithIstianaQuest.cs:147`）是有查重的。也就是说引擎若重复派发 `OnQuestCompleted`，这里会重复开任务；而 `SyncData`（`:41`）只存三个字段，没有任何「已发过哪些任务」的记录，读档后也无从判断。
+
 ## 主要成员
 
 - `public override void RegisterEvents()`

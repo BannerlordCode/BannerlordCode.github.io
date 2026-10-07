@@ -33,6 +33,45 @@ description: "战役行为的最小契约：一个 RegisterEvents() 方法。实
 2. **`RegisterEvents()` 里做重初始化**（new 一堆子对象）。这个方法在每次读档都会跑，重初始化会丢掉你刚恢复的状态。
 3. **同名不同源**：`CampaignBehaviorBase` 有一个 `static T GetCampaignBehavior<T>()`，接口没有。写工具类时别混用。
 
+## 怎么用
+
+### 怎么拿到它
+
+它不能 `new`，也没有任何静态入口——整个接口只有一个成员 `void RegisterEvents()`（`ICampaignBehavior.cs:9`）。你拿到它只有两种方式：
+
+- 实现它：`CampaignBehaviorBase : ICampaignBehavior`（`CampaignBehaviorBase.cs:6`），所有原生 behavior 都是这么写的，例如 `AlleyCampaignBehavior : CampaignBehaviorBase, IAlleyCampaignBehavior, ICampaignBehavior`（`AlleyCampaignBehavior.cs:31`）—— 基类已经实现了接口，重复列出只是作者的习惯。
+- 作为窄化类型查询：用 `Campaign.Current.GetCampaignBehavior<T>()`（`Campaign.cs:1317`），把 `T` 写成你自己声明的窄接口（`IAlleyCampaignBehavior : ICampaignBehavior` 这类），而不是 `ICampaignBehavior` 本身。`GetBehavior<T>` 用 `is T` 匹配（`CampaignBehaviorManager.cs:69`），写成 `ICampaignBehavior` 会拿到列表里第一个实例，类型不对。
+
+注意引擎**从不**通过 `ICampaignBehavior` 调用：`CampaignBehaviorManager.RegisterEvents` 遍历时把元素当作 `CampaignBehaviorBase` 引用（`CampaignBehaviorManager.cs:35`）。也就是说，单独实现 `ICampaignBehavior` 而不继承 `CampaignBehaviorBase` 的类，进不了 manager，也不会被存档。
+
+### 典型用法
+
+```csharp
+// 1) 声明你自己的窄接口，这样外部拿到的静态类型是有用的
+public interface IMySupplyCampaignBehavior : ICampaignBehavior
+{
+    int PendingShipments { get; }
+}
+
+// 2) 实现它，同时继承基类（基类已实现 ICampaignBehavior，不要漏掉 SyncData）
+public class MySupplyBehavior : CampaignBehaviorBase, IMySupplyCampaignBehavior
+{
+    public int PendingShipments { get; private set; }
+
+    public override void RegisterEvents() { /* 挂 CampaignEvents / MBCampaignEvent */ }
+
+    public override void SyncData(IDataStore dataStore) { }
+}
+
+// 3) 消费方按窄接口查询，命中的是列表里第一个实现了该接口的 behavior
+IMySupplyCampaignBehavior supply = Campaign.Current.GetCampaignBehavior<IMySupplyCampaignBehavior>();
+Debug.Print("pending = " + supply.PendingShipments);
+```
+
+### 最容易踩的坑
+
+把 `ICampaignBehavior` 当成 `CampaignBehaviorBase` 的替代品来写，只实现接口、不继承基类。后果是这个类不会被 `CampaignGameStarter.AddBehavior` 的类型体系接住（该方法签名要求 `CampaignBehaviorBase`，`CampaignGameStarter.cs:48`），`CampaignBehaviorManager.RegisterEvents` 也永远不会调到它（`CampaignBehaviorManager.cs:35` 的循环变量是 `CampaignBehaviorBase`）——表现就是代码编译通过、behavior 被注册进去，但 `RegisterEvents` 一次都不执行，所有事件静默不生效，且没有报错。
+
 ## 成员与调用时机
 
 - `void RegisterEvents()`：唯一的成员。语义是「订阅你需要的战役事件」。由 [CampaignBehaviorManager](../../campaign-ext/CampaignBehaviorManager) 的 `RegisterEvents()` 遍历调用，或由 `CampaignGameStarter.AddBehavior` 间接调用（后者要求参数是 `CampaignBehaviorBase`）。**在这里订阅时务必以宿主对象 `this` 作为 `AddNonSerializedListener` 的第一个参数**，保证读档后能整体解绑。

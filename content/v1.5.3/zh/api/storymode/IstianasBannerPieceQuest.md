@@ -22,6 +22,49 @@ description: "龙旗碎片任务（帝国线）：在藏身处击败强盗即可
 
 坑：`_hideout.Hideout.IsInfested` 是所有补队逻辑的开关。`HourlyTick` 里只要藏身处不再"被占领"或者不可见，就调 `InitializeHideout()` 重新塞两支队。这意味着**玩家把强盗全清了但没触发胜利分支时，队伍会在下一个小时回来**。另外 `IsSettlementBusy` 把这个藏身处的占用优先级拉到 400，保证没有别的系统抢走它。`RaiderPartySize = 10` 这个常量其实没被用到——实际放 5 人（`AddToCounts(bandit, 5, ...)`），所以别把它当难度参数。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class IstianasBannerPieceQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/FirstPhase/IstianasBannerPieceQuest.cs:22`，全文约 330 行。与 [ArzagosBannerPieceQuest](../ArzagosBannerPieceQuest) 结构逐行对称，只换导师。
+
+构造函数 `IstianasBannerPieceQuest(Hero questGiver, Settlement hideout)`（见本页「主要成员」），基类调用 `: base(..., questGiver, StoryModeManager.Current.MainStoryLine.FirstPhase.FirstPhaseEndTime)`——**任务 id 硬编码、时限取第一阶段截止**，第一阶段没开始时 NRE。存档 id 687001（`SaveableStoryModeTypeDefiner.cs:54`）。
+
+**谁创建它**：[FirstPhaseCampaignBehavior](../FirstPhaseCampaignBehavior) 的 `OnQuestCompleted`（`:65`）里 `new IstianasBannerPieceQuest(imperialMentor, this.FindSuitableHideout(imperialMentor)).StartQuest();`——**藏住处由行为侧的 `FindSuitableHideout(Hero questGiver)` 选好传进来**。
+
+`RegisterEvents()` 挂四条 `CampaignEvents.*`：`MapEventEnded`、`GameMenuOpened`、`IsSettlementBusyEvent`（`ReferenceAction<Settlement, object, ref int>`）、`OnHideoutDeactivatedEvent`。旗片进度由 `FirstPhase.Instance.CollectBannerPiece()` 推进，战斗结算分派四个状态（胜利 / 撤退 / 复位 / 战败），战败与撤退走同一套自愈流程，冷却用 `StoryModeData.StorylineQuestHideoutHiddenDuration`（`:206`、`:210`）。
+
+**本类嵌套着 `public enum HideoutBattleEndState`**（`:317`，值在 `:320`/`:322`/`:324`/`:326`），存档枚举 id 是 **687010**（`SaveableStoryModeTypeDefiner.cs:74`）——**注意它与 `ArzagosBannerPieceQuest` 的 681010、`FindHideoutTutorialQuest` 的 686010 是三个不同的登记**。
+
+对话流挂 `"hero_main_options"`、priority `100`。
+
+### 典型用法
+
+```csharp
+// 1) 正常由 FirstPhaseCampaignBehavior 创建
+IstianasBannerPieceQuest q = new IstianasBannerPieceQuest(
+    StoryModeHeroes.ImperialMentor, someHideoutSettlement);
+q.StartQuest();
+
+// 2) 旗片进度
+FirstPhase first = StoryModeManager.Current.MainStoryLine.FirstPhase;
+Debug.Print("碎片=" + first.CollectedBannerPieceCount + "/" + FirstPhase.NeededBannerPieceCount);
+
+// 3) 藏住处冷却
+Debug.Print("藏住处隐藏时长=" + StoryModeData.StorylineQuestHideoutHiddenDuration.ToHours + " 小时");
+
+// 4) 三份同名枚举的存档 id（互不通用）
+Debug.Print("Istiana 版 = 687010，Arzagos 版 = 681010，FindHideout 版 = 686010");
+
+// 5) 读任务
+QuestBase b = Campaign.Current.QuestManager.GetQuest<IstianasBannerPieceQuest>();
+Debug.Print("id=" + b.QuestId + "，存档 id=687001，发布者=" + b.QuestGiver?.Name);
+```
+
+### 最容易踩的坑
+
+它与 `ArzagosBannerPieceQuest` 会在**同一个存档里共存的可能**——两条任务的旗片都往同一个 `FirstPhase.Instance.CollectedBannerPieceCount` 上加，而旗片总数是 3。你在 mod 里把 `FindSuitableHideout` 改成对两位导师返回**同一座藏住处**，两支强盗队就会在同一个 `Hideout` 里打架；两边的 `HideoutBattleEndState`（`:317` 与 `ArzagosBannerPieceQuest.cs:313`）各写各的私有字段，互不通知，于是**一座藏住处可能同时被判成「已被 Arzagos 线清空」和「Istiana 线尚未开始」**。
+
 ## 主要成员
 
 - `IstianasBannerPieceQuest(Hero questGiver, Settlement hideout)`：构造入口。`InitializeHideout()` → `AddTrackedObject(_hideout)` → `SetDialogs()` → `InitializeQuestOnCreation()` → 写日志。

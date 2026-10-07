@@ -20,6 +20,52 @@ description: "阴谋任务之二：五天后刷出一支沿七城镇路线运粮
 
 坑非常密集。第一，`_questStartTime` 是 `[SaveableField(3)]` 的 `CampaignTime`，所以倒计时跨读档正确，但**商队 `null` 与"还没生成"是同一个状态**——`DailyTick` 只判 `== null`，如果商队被打掉后 `DestroyPartyAction` 已执行但字段没置 null（`MapEventEnded` 里是先 `DestroyPartyAction` 再 `BattleWon`，字段保持非 null），任务就直接结束了不会重生第二支，这是符合设计的。第二，`CaravanPartySize` 会随玩家势力成长：`GetQuestDifficultyMultiplier()` 把领地数、总实力、声望、同伴数、商队数、主队人数、玩家等级全部折算进去，上限 1.0。第四，`QuestFromSettlement` 是 `_caravanTargetSettlements[0]`、`QuestToSettlement` 是**最后一个**——但如果 `GetNextSettlement` 中途返回 null 并被塞进数组，后面 `OnSettlementEntered` 里的 `_caravanTargetSettlements[num]` 就会越界。这是 `GetNextSettlement` 三级降级都失败时的真实隐患。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class DisruptSupplyLinesConspiracyQuest : ConspiracyQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/SecondPhase/ConspiracyQuests/DisruptSupplyLinesConspiracyQuest.cs:24`，全文 555 行。
+
+**不要自己 new——反射造出来的。** [SecondPhase](../SecondPhase) 把它写进 `_conspiracyQuestTypes`（`SecondPhase.cs:120`），`Activator.CreateInstance(type, array)`（`:183`）传 `("conspiracy_quest_" + 次数, 导师Hero)`。构造函数 `public DisruptSupplyLinesConspiracyQuest(string questId, Hero questGiver)`（`:162`），基类 `: base(questId, questGiver)`（`:163`）→ [ConspiracyQuestBase](../ConspiracyQuestBase) 写死 21 天时限（`ConspiracyQuestBase.cs:67`）。
+
+构造函数体（`:164`→`:179`）是**七站路线规划**：`this._questStartTime = CampaignTime.Now;`（`:164`），`list.Add(this.GetQuestFromSettlement())`（`:167`，实现在 `:181`），然后 `for (int i = 1; i <= 6; i++) list.Add(this.GetNextSettlement(list));`（`:168`→`:171`，实现在 `:241`）——**起点加 6 站，共 7 个聚落**。结果存进 `_caravanTargetSettlements` 数组（`:173`→`:176`），最后 `base.AddTrackedObject(this.QuestFromSettlement)`（`:178`）。
+
+四个抽象成员 override：`SideNotificationText`（`:38`）、`StartMessageLogFromMentor`（`:50`）、`StartLog`（`:65`）、`ConspiracyStrengthDecreaseAmount`（`:80`）。`Title` 文案 `"{=y150haHv}Disrupt Supply Lines"`（`:32`）。
+
+`RegisterEvents()`（`:323`）挂三条：`CampaignEvents.SettlementEntered`（`:325`）、`OnSettlementLeftEvent`（`:326`）、`MapEventEnded`（`:327`）——**进度是靠商队进出聚落驱动的，不是轮询**。
+
+**本任务有两个被其它系统认出来的公开属性**：`ConspiracyCaravan` 与 `CaravanPartySize`。[StoryModePartySizeLimitModel](../StoryModePartySizeLimitModel) 用 `FirstOrDefault(q => !q.IsFinalized && q.GetType() == typeof(DisruptSupplyLinesConspiracyQuest))` 找到它（`:90`），命中且 `ConspiracyCaravan.Party == party`（`:94`）就返回 `new ExplainedNumber((float)questBase.CaravanPartySize, false, null)`（`:96`）——**商队人数上限完全由任务数据决定**。[StoryModeEncounterGameMenuModel](../StoryModeEncounterGameMenuModel) 也用**精确类型匹配**找到它（`:34`）来决定走基类菜单还是强制开战（`:37`/`:41`）。
+
+另外它每次商队移动都发一条地图通知：`NewMapNoticeAdded(new ConspiracyQuestMapNotification(this, textObject))`（`:403`）。
+
+### 典型用法
+
+```csharp
+// 1) 反射创建（正常路径）
+StoryModeManager.Current.MainStoryLine.SecondPhase.CreateNextConspiracyQuest();
+
+// 2) 精确定位这一类型的任务（源码就是这么找的）
+QuestBase found = Campaign.Current.QuestManager.Quests
+    .FirstOrDefault(q => !q.IsFinalized && q.GetType() == typeof(DisruptSupplyLinesConspiracyQuest));
+if (found is DisruptSupplyLinesConspiracyQuest caravan && caravan.ConspiracyCaravan != null)
+{
+    Debug.Print("商队=" + caravan.ConspiracyCaravan.Name
+              + "，任务数据人数上限=" + caravan.CaravanPartySize);
+    // 该商队同时被人数上限与遭遇菜单特殊对待
+    Debug.Print("实际队伍=" + caravan.ConspiracyCaravan.Party.PartySize);
+}
+
+// 3) 路线：起点 + 6 站
+Debug.Print("起点=" + caravan.QuestFromSettlement.StringId);
+
+// 4) 21 天时限的来源
+Debug.Print("时限常量=" + SecondPhase.ConspiracyQuestDurationAsDays + " 天");
+```
+
+### 最容易踩的坑
+
+它被另外两个模型用 **`q.GetType() == typeof(DisruptSupplyLinesConspiracyQuest)` 精确匹配**（`StoryModePartySizeLimitModel.cs:90`、`StoryModeEncounterGameMenuModel.cs:34`），**不是 `is`、不是 `BaseType` 比较**。你在 mod 里写一个继承它的子类（或把它改名换命名空间），这两个模型立刻找不到它：商队不再受 600/任务人数上限保护，遭遇时也不再保留任务交互，而是被强制开战。两个 `? :` 分支都退化到 `else`——静默失效，没有日志。
+
 ## 主要成员
 
 - `DisruptSupplyLinesConspiracyQuest(string questId, Hero questGiver)`：构造入口。记录 `_questStartTime = CampaignTime.Now`，规划七站路线，`AddTrackedObject(QuestFromSettlement)`。

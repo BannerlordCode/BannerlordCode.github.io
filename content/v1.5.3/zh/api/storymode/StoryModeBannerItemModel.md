@@ -32,6 +32,55 @@ description: "控制主线龙旗作为战利品出现：教学期不产出、教
 - **改 `GetBannerItemLevelForHero` 无效于防漏。** 它只是透传，控制的是等级取值，跟龙旗没关系。
 - **教学期空列表 ≠ 没有战利品。** 调用方通常只是「没有可选旗」，其它金币/俘虏/装备战利品照给。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeBannerItemModel : BannerItemModel` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/StoryModeBannerItemModel.cs:11`，全文 47 行，四个 override 加一个私有谓词。
+
+注册点：`campaignGameStarter.AddModel<BannerItemModel>(new StoryModeBannerItemModel())`（`StoryModeSubModule.cs:103`），只在主线战役生效（`StoryModeSubModule.cs:23`→`:24`）。读用 `Campaign.Current.Models.BannerItemModel`。
+
+核心是私有 `IsItemDragonBanner(ItemObject item)`（`:30`），它按 `StringId` 硬比四个值：`"dragon_banner"`、`"dragon_banner_center"`、`"dragon_banner_dragonhead"`、`"dragon_banner_handle"`（`:32`）。**四个 id 与 [MainStoryLine](../MainStoryLine) 的四个 `public const string` 完全一致**（`MainStoryLine.cs:279`–`:288`）。
+
+四个 override 的分工：
+
+| 方法 | 声明行 | 处理 |
+| --- | --- | --- |
+| `GetPossibleRewardBannerItems()` | `:14` | 教学未完成 → 返空表（`:16`→`:18`）；否则 `WhereQ` 滤掉龙旗四件（`:20`） |
+| `CanBannerBeUpdated(ItemObject item)` | `:24` | 龙旗直接 false，否则 `&&` 基类结果（`:26`） |
+| `GetPossibleRewardBannerItemsForHero(Hero hero)` | `:36` | `WhereQ` 滤掉龙旗四件（`:38`） |
+| `GetBannerItemLevelForHero(Hero hero)` | `:42` | 纯透传（`:44`） |
+
+`WhereQ` 是 `TaleWorlds.LinQuick` 的扩展（`:7`）。注意 `GetPossibleRewardBannerItemsForHero`（`:36`）**没有教学分支**——教学期它照样返回列表，只是把龙旗滤掉。
+
+### 典型用法
+
+```csharp
+// 运行期读
+BannerItemModel banners = Campaign.Current.Models.BannerItemModel;
+
+// 教学未完成：候选表为空
+IEnumerable<ItemObject> rewards = banners.GetPossibleRewardBannerItems();
+Debug.Print("候选旗数量=" + rewards.Count());
+
+// 教学完成后：枚举候选，龙旗四件已被剔除
+foreach (ItemObject item in banners.GetPossibleRewardBannerItems())
+{
+    Debug.Print(item.StringId + " 等级=" + banners.GetBannerItemLevelForHero(Hero.MainHero));
+}
+
+// 龙旗不可升级：CanBannerBeUpdated 恒 false
+ItemObject dragon = Game.Current.ObjectManager.GetObject<ItemObject>("dragon_banner");
+Debug.Print("龙旗可升级=" + banners.CanBannerBeUpdated(dragon));
+
+// 指定英雄的候选旗（无教学分支）
+Debug.Print("兄长候选旗数=" + banners.GetPossibleRewardBannerItemsForHero(StoryModeHeroes.ElderBrother).Count());
+```
+
+### 最容易踩的坑
+
+它是按 **`ItemObject.StringId` 硬比**来识别龙旗的（`:32`），不是按物品类型或是否在主线旗物品栏里。你复制一个 `dragon_banner` 出来、改了 `StringId`，它就不再被过滤——于是龙旗会出现在王国旗赏赐的候选池里，而它的 `BannerEffect` 是三档全零、`IncrementType` 为 `Invalid` 的空效果（[StoryModeBannerEffects](../StoryModeBannerEffects)），玩家拿到的是一个什么都不加的旗。反过来，mod 若把某个正常旗物品的 `StringId` 改成这四个之一，它会被无声地从候选池里剔除，没有任何报错。
+
 ## 主要成员
 
 - `GetPossibleRewardBannerItems()`

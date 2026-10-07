@@ -43,6 +43,33 @@ description: "法语的性数标记与冠词/介词联动处理器：处理 le/l
 5. **`ProcessWordGroup` 在性别标记分支里被无条件调用**，即使当前位置不满足「紧贴名词」的条件。所以词组登记可能包含不符合直觉的条目——但 `IsWordGroup` 是最长匹配，实际影响有限。
 6. **`ResetGender` 在性别分支里被调用**，但函数末尾还有一次 `_isPlural = false; _curGender = NoDeclination;`。两层清理并存，不要以为只清一次。
 
+## 怎么用
+
+### 怎么拿到它
+
+引擎只在切语言时造它：`MBTextManager.ChangeLanguage("French")`（`MBTextManager.cs:37`）→ `LocalizedTextManager.CreateTextProcessorForLanguage("French")`（`:41`），工厂用 `Type.GetType(languageData.TextProcessor)` 反射构造（`LocalizedTextManager.cs:61`、`:67`），类型名来自 `LanguageData` 的配置，解析不到就退回 `DefaultTextProcessor`（`:64-65`）。**想确认当前语言包到底挂上了哪个处理器，就调这个工厂并打印 `GetType().Name`**——它是唯一一个能这么问的入口。
+
+要手工用就 `new FrenchTextProcessor()` 再调基类的 `Process(text)`（`LanguageSpecificTextProcessor.cs:41`）。它的 `CultureInfoForLanguage`（`FrenchTextProcessor.cs:506-512`）返回 `private static readonly CultureInfo = new CultureInfo("fr-FR")`（`:631`）。`ClearTemporaryData`（`:515-520`）把三份 `[ThreadStatic]` 状态复位：`_wordGroups` 清空（`:527`）、`_isPlural = false`（`:535`）、`_curGender = NoDeclination`（`:531`）。
+
+### 典型用法
+
+```csharp
+// 1) 确认语言包挂载成功
+Debug.Print(LocalizedTextManager.CreateTextProcessorForLanguage("French").GetType().Name);
+
+// 2) 手工渲染一条法语：定冠词随性别变化
+var fr = new FrenchTextProcessor();
+Debug.Print(fr.Process("{.m}le{.f}la"));      // .m / .f 是性别标记，SetGender 记录 _curGender
+
+// 3) 真正的通路还是渲染链路
+MBTextManager.ChangeLanguage("French");
+Debug.Print(new TextObject("{=some_fr_id}").ToString());
+```
+
+### 最容易踩的坑
+
+以为法语的元音表就是 `a e i o u`。实际是 `private static char[] Vowels = new char[] { 'a', 'e', 'i', 'o', 'u', 'h' }`（`FrenchTextProcessor.cs:523`），把哑音 `h` 也算进去了，而这个表正是省音判断用的：`Vowels.Contains(char.ToLower(sourceText[cursorPos]))`（`:169`）。后果是 `heure`、`héros`、`hôtel` 这类 `h` 哑音词会被判成元音开头，冠词走 `_articleVowelStart = "l'"`（`:541`）那一支而不是 `le`（`:538`）。语言包里所有 `h` 开头的词条冠词都会与预期不同，而且不会有任何警告。
+
 ## 主要成员
 
 **覆写的抽象成员**

@@ -36,6 +36,57 @@ description: "一段 MBText 文本的语法树根节点容器：只持有一个 
 3. **节点列表可空**。`TextGrammarProcessor` 里显式判 `textExpression != null`，遇到 null 调 `ThrowLocalizationError`。解析器产生 null 节点是可能的（异常恢复路径），所以这个判空不是多余的。
 4. **同一个实例可能被多次求值**（函数体就是），所以它必须是**只读复用**的。别在外部拿到引用后往里加节点——`AddRootExpression` 虽然 internal，但引擎内部有地方会这么做（比如 `MultiStatement` 重组）。
 
+## 怎么用
+
+### 怎么拿到它
+
+不能自己构造出有内容的东西。构造函数是隐式公开的，但容器字段 `_rootExpressions` 是 `internal`（`MBTextModel.cs:27`），唯一的写入入口 `AddRootExpression` 也是 `internal`（`:21`），读取入口 `RootExpressions` 同样 `internal`（`:12`）。外部能拿到一个**已经填好**的 `MBTextModel` 只有两条路：
+
+- `MBTextManager.SetFunction(funcName, functionBody)`（`MBTextManager.cs:215`）内部做 `MBTextParser.Parse(MBTextManager.Tokenizer.Tokenize(functionBody))`（`:217`）并把结果塞进上下文。但取回来的唯一公开方法是 `TextProcessingContext.GetFunctionBody`（`TextProcessingContext.cs:368`），而那个上下文是私有的（`MBTextManager.cs:500`）。
+- 自己解析：`MBTextParser.Parse(tokenizer.Tokenize(text))`，然后交给 `TextGrammarProcessor.Process`（`TextGrammarProcessor.cs:11`）。
+
+### 典型用法
+
+```csharp
+// 1) 解析一段 MBText 语法，得到模型
+List<MBTextToken> tokens = MBTextManager.Tokenizer.Tokenize("{s=hello} {NAME}!");
+MBTextModel model = MBTextParser.Parse(tokens);          // Tokenizer 是 internal，外部需自备实例
+
+// 2) 用一个自己建的上下文求值；parent 传 null 表示变量只从上下文取
+string result = TextGrammarProcessor.Process(model, new TextProcessingContext());
+```
+
+### 最容易踩的坑
+
+把 `MBTextModel` 当成可以缓存/复用的中间结果，实际它对求值上下文没有绑定、但你的用法很容易踩到「缓存时机」这个坑。真正的问题在另一头：外部**根本拿不到已经解析好的模型**——`RootExpressions` 是 `internal`（`MBTextModel.cs:12`），所以你既不能遍历它来检查语法树里有哪些表达式，也不能把它序列化下来跨存档保存。后果是想做「预编译一批本地化文本以省开销」时，唯一办法是自己持有 `Tokenizer` 和 `MBTextParser.Parse` 的结果并每次重新求值——而 `MBTextParser` 本身也在 `TaleWorlds.Localization` 命名空间外拿不到更多东西。要省开销请改走 [TextObject](../TextObject) 那侧的 `CacheTokens()`（`TextObject.cs:147`），那才是为重复渲染准备的缓存。
+
+## 怎么用
+
+### 怎么拿到它
+
+从外部**造不出一个有内容的实例**，这是本页最需要先知道的事。构造是隐式公开的，但写入容器只有 `internal void AddRootExpression`（`MBTextModel.cs:21`），读取容器只有 `internal MBReadOnlyList<TextExpression> RootExpressions`（`:12`）。填充它的两个函数也都在程序集外：`MBTextParser` 是 `internal class`（`MBTextParser.cs:9`），唯一的入口 `internal static MBTextModel Parse(List<MBTextToken>)` 是 `internal`（`MBTextParser.cs:702`）；`Tokenizer` 是 `internal sealed class`（`Tokenizer.cs:8`），而 `MBTextManager.Tokenizer` 字段本身也是 `internal static readonly`（`MBTextManager.cs:529`）。
+
+引擎内部生产它的只有两处，都发生在同一条渲染管线上：`MBTextManager.Process` 把 token 解析成模型交给 [TextGrammarProcessor](../TextGrammarProcessor)，以及 `MBTextManager.SetFunction`（`MBTextManager.cs:217`）。取出来也没有对外通路——`MBTextManager.TextContext` 是 `private static`（`MBTextManager.cs:500`）。
+
+所以对 mod 而言它是一个「只读、不可构造、不可持久化」的中间产物：你可以调 `TextGrammarProcessor.Process`，但**永远拿不到能传进去的 `MBTextModel`**。
+
+### 典型用法
+
+```csharp
+// 外部能观察到的唯一用法：注册一个命名函数体，由语言包调用它
+MBTextManager.SetFunction("MYMOD_UPPER", "{^}");
+
+// 剩下的交给渲染链路——你无法手动驱动 TextGrammarProcessor.Process，
+// 因为没有一个 public 途径能拿到 MBTextModel 实例：
+// MBTextParser.Parse 是 internal（MBTextParser.cs:702），Tokenizer 是 internal sealed（Tokenizer.cs:8）。
+// 可验证的只有渲染结果：
+Debug.Print(new TextObject("{MYMOD_UPPER}abc").ToString());   // 引擎内部完成 parse + evaluate
+```
+
+### 最容易踩的坑
+
+试图做「预编译本地化文本以省掉每帧 parse」这类优化，然后发现 `RootExpressions` 是 `internal`（`MBTextModel.cs:12`），既读不了也存不了，`MBTextManager.Tokenizer` 同样是 `internal`（`MBTextManager.cs:529`）。后果是这个方向在 1.5.3 根本走不通，强行用反射绕过去的代码在别的 mod 先一步解析同一批文本时会造成重复解析且无任何节省。真正为重复渲染准备的缓存是 [TextObject](../TextObject) 那侧的 `CacheTokens()`（`TextObject.cs:147`）和它的语言下标失效判断（`TextObject.cs:135`），从那里入手。
+
 ## 主要成员
 
 - `internal MBReadOnlyList<TextExpression> RootExpressions { get; }`：根表达式列表的只读视图。这是 [TextGrammarProcessor](../TextGrammarProcessor) 唯一的输入。**internal**。

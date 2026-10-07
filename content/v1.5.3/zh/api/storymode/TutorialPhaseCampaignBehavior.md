@@ -59,6 +59,61 @@ if (!MainStoryLine.TutorialPhase.IsCompleted)
 - **`CompleteTutorialPhase(true)` 的实参含义是「跳过教程」**，由 `TrainingFieldCampaignBehavior` 的 `_completeTutorial` 决定，不要传错。
 - **`Campaign.Current.IssueManager.ToggleAllIssueTracks(false)` 在 `DailyTick` 里无条件调用** —— 教学期内的问题追踪全关。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class TutorialPhaseCampaignBehavior : CampaignBehaviorBase` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/CampaignBehaviors/TutorialPhaseCampaignBehavior.cs:28`，全文 573 行。
+
+**注册是条件式的，且是双重条件**：`campaignGameStarter.AddBehavior(new TutorialPhaseCampaignBehavior())`（`StoryModeSubModule.cs:64`）包在 `if (!MainStoryLine.IsCompleted)`（`:60`）与 `if (!MainStoryLine.TutorialPhase.IsCompleted)`（`:62`）里。**教学一完成，这个行为就不再注册**，`GetCampaignBehavior<TutorialPhaseCampaignBehavior>()` 返回 null。反过来，`MainStoryLine.CompleteTutorialPhase` 末尾还会显式 `Campaign.Current.CampaignBehaviorManager.RemoveBehavior<TutorialPhaseCampaignBehavior>();`（`MainStoryLine.cs:168`）——**移除路径有两条**，注册条件和主动移除。
+
+`RegisterEvents()`（`:31`）挂**十一条**，是模块里订阅最多的事件型行为：五条常规事件（`TickEvent` `:34`、`OnQuestCompletedEvent` `:35`、`OnSettlementLeftEvent` `:36`、`SettlementEntered` `:38`、`DailyTickEvent` `:39`）、四个生命周期（`OnNewGameCreatedPartialFollowUpEvent` `:33`、`OnGameLoadedEvent` `:37`、`OnGameLoadFinishedEvent` `:40`、`OnCharacterCreationIsOverEvent` `:41`），以及**两条 `ref` 型拦截**（`CanHaveCampaignIssuesEvent` `:42`、`CanHeroMarryEvent` `:43`）。
+
+`Tick(float dt)`（`:88`）是**箭头指示器**：只在 `TutorialFocusSettlement == null && TutorialFocusMobileParty == null` 时提前返回（`:90`），否则按有聚落优先（`:96`→`:98`）或队伍（`:101`→`:103`）算距离并画箭头。**`CampaignEvents.TickEvent` 是每帧触发的**，所以这段是热路径。
+
+`OnGameLoaded`（`:194`）负责给村长改名：`TutorialPhase.Instance.TutorialVillageHeadman = settlement.Notables[0];`（`:204`）、比对首名是否等于 `{=Sb46O8WO}Orthos`（`:205`）、必要时 `SetName`（`:209`）、注入 `HEADMAN` 文本变量（`:210`）。
+
+`public void FinalizeTutorialPhase()`（`:215`）是**唯一公开方法**，由 `MainStoryLine.CompleteTutorialPhase` 在删行为前调用（`MainStoryLine.cs:161`→`:164`，且带 `!= null` 守卫）。它内部 `RemoveTutorialFocusSettlement()`（`:271`）并判断 `TutorialQuestPhase == Finalized && !IsSkipped`（`:280`）。
+
+潜行教学出口：`ShowStealthTutorialInquiry()`（`:291`）→ `StartStealthTutorial()`（`:299`）里 `new VillagersInNeed().StartQuest();`（`:301`）+ `StoryModeEvents.Instance.OnStealthTutorialActivated();`（`:302`）——**与 `FirstPhaseCampaignBehavior.StartStealthTutorial` 是同一段逻辑的两处副本**。
+
+`CanHeroMarry(Hero hero, ref bool result)`（`:154`）的判据是 `!TutorialPhase.Instance.IsCompleted && hero.Clan == Clan.PlayerClan`（`:156`）——**教学期禁止玩家氏族成员结婚**。`CanHaveCampaignIssuesInfoIsRequested`（`:144`）同理拦城务问题。`OnGameLoadFinished`（`:128`）里也直接写了 `"village_ES3_2"` 字面量（`:130`）。
+
+### 典型用法
+
+```csharp
+// 运行期读；教学完成后为 null
+TutorialPhaseCampaignBehavior tp =
+    Campaign.Current.GetCampaignBehavior<TutorialPhaseCampaignBehavior>();
+TutorialPhase tutorial = StoryModeManager.Current.MainStoryLine.TutorialPhase;
+
+if (tp != null)
+{
+    // 箭头指示器读的就是这两个属性（TickEvent 每帧跑）
+    Debug.Print("高亮聚落=" + tutorial.TutorialFocusSettlement?.StringId);
+    Debug.Print("高亮队伍=" + tutorial.TutorialFocusMobileParty?.Name);
+    if (tutorial.TutorialFocusSettlement != null)
+    {
+        float d = tutorial.TutorialFocusSettlement.GatePosition.Distance(MobileParty.MainParty.Position);
+        Debug.Print("距教学村庄城门距离=" + d);
+    }
+}
+
+// 唯一公开方法：教学收尾（MainStoryLine 会自动调，mod 一般不用）
+// tp.FinalizeTutorialPhase();
+
+// 教学期被禁用的两件事
+Debug.Print("IsCompleted=" + tutorial.IsCompleted);
+Debug.Print("教学期禁止玩家氏族成员结婚、禁止生成城务问题");
+
+// 读任务
+Debug.Print("教学村庄=" + TutorialPhase.QuestVillageStringId + "（源码另有字面量副本 :130）");
+```
+
+### 最容易踩的坑
+
+`RegisterEvents()`（`:31`）挂 `CampaignEvents.TickEvent`（`:34`）——**每帧触发**。`Tick(float dt)`（`:88`）里两处 `.Position.Distance(...)`（`:98`、`:103`）会在高亮期间每帧各算一次浮点距离，高亮清除后靠 `:90` 的双重 null 守卫提前返回。你在 mod 里调 `TutorialPhase.SetTutorialFocusSettlement` 却忘了配对调 `RemoveTutorialFocusSettlement`，这个每帧开销就**永久留在战役里**。注意 `TutorialPhase.CompleteTutorial(bool)`（`TutorialPhase.cs:171`）会自动清掉高亮（`:174`→`:175`），但那只在完成教学时发生。
+
 ## 主要成员
 
 - `public override void RegisterEvents()`

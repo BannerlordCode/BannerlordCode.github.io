@@ -35,6 +35,48 @@ description: "对话标签：把反帝国导师 Arzagos 单独认出来，是 Is
 3. **`StringId` 与 `Id` 两份重复字面量**：都是 `"IsArzagosTag"`，必须同步。改一处会让对话 XML 找不到标签，表现为「台词永远不出现」且无报错。
 4. **对象是全战役单例**：反射只 new 一次。别往里加状态。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class IsArzagosTag : ConversationTag` 声明在 `bannerlord-1.5.3/StoryMode/IsArzagosTag.cs:9`，全文 31 行：没有构造函数、没有静态属性、没有任何注册接口。所以**在代码里要判定就直接 `new IsArzagosTag()`**，它无状态，`IsApplicableTo`（`IsArzagosTag.cs:22`）只做一次引用比较。
+
+运行时引擎持有的那一份不由你创建。`ConversationManager.InitializeTags()`（`TaleWorlds.CampaignSystem/Conversation/ConversationManager.cs:1139`）遍历 `ModuleHelper.GetActiveGameAssemblies()`（`:1143`），对每个 `ConversationTag` 子类做 `Activator.CreateInstance`（`:1168`），再用 `StringId` 做键 `Add` 进 `_tags`（`:1169`）。要让标签真正生效，落点是**对话 XML**：在 `GameText` 变体上写 `<ChoiceTag TagName="IsArzagosTag">`；在 C# 里 new 一个并不会挂到引擎的表上。
+
+被判定的是哪一号角色也要看清。`FindMatchingScore`（`ConversationManager.cs:1119`）只接收调用方传来的那**一个** `CharacterObject`，而调用方通常传的是 `CharacterObject.OneToOneConversationCharacter` 或某个 `leader.CharacterObject`（见 `TaleWorlds.CampaignSystem/CampaignBehaviors/LordConversationsCampaignBehavior.cs:74`）。也就是说标签判的是「被传进来那个角色是不是 Arzagos」，不是「玩家此刻在跟谁说话」。
+
+`StoryModeHeroes.AntiImperialMentor` 是转发属性（`StoryModeObjects/StoryModeHeroes.cs:75`→`:79`），最终取 `StoryModeManager.Current.StoryModeHeroes._antiImperialMentor`；该字段在 `StoryModeHeroes` 的 `internal` 构造函数（`:114`）调用 `RegisterAll()` 时由 `HeroCreator.CreateBasicHero("storymode_imperial_mentor_arzagos", ...)` 落定（`:169`）。触发点是 `CampaignStoryMode.DoLoadingForGameType` 在 `GameTypeLoadingStates.InitializeFirstStep` 上调 `StoryMode.InitializeStoryModeObjects()`（`CampaignStoryMode.cs:42`）。
+
+### 典型用法
+
+```csharp
+// 代码里判定：直接 new，无需注册
+IsArzagosTag tag = new IsArzagosTag();
+CharacterObject partner = CharacterObject.OneToOneConversationCharacter;
+
+// 只有主线战役安全：AntiImperialMentor 依赖 StoryModeManager.Current
+if (Campaign.Current is CampaignStoryMode mode && mode.StoryMode.StoryModeHeroes != null)
+{
+    Debug.Print("IsArzagosTag 命中 Arzagos：" + tag.IsApplicableTo(partner));
+    Debug.Print("注册键 StringId = " + tag.StringId);
+}
+
+// 引擎侧查询走的是 InitializeTags 建好的单例表，不要拿自己 new 的去比对身份
+ConversationManager cm = Campaign.Current.ConversationManager;
+foreach (string tagName in cm.GetApplicableTagNames(partner))
+{
+    if (tagName == IsArzagosTag.Id)
+    {
+        Debug.Print("对话对象就是 Arzagos，这条变体可以命中");
+    }
+}
+Debug.Print(cm.IsTagApplicable("IsArzagosTag", partner) ? "变体参与计分" : "变体被压到 float.MinValue");
+```
+
+### 最容易踩的坑
+
+以为标签判断的是「玩家正在跟谁对话」。`FindMatchingScore` 只把调用方给的那一个 `CharacterObject` 喂给 `IsApplicableTo`，没有第二个参数、没有玩家侧判定。你把 `<ChoiceTag TagName="IsArzagosTag">` 挂到「玩家是 Arzagos」那一侧的条件上，运行时永远不会命中：`FindMatchingTextOrNull` 的分数初值就是 `float.MinValue`（`ConversationManager.cs:1099`），选不中就原样返回 null，台词安静地消失，控制台没有任何报错。
+
 ## 主要成员
 
 - `public override string StringId { get; }`：恒为 `"IsArzagosTag"`。反射注册键，也是对话 XML 里 `ChoiceTag.TagName` 要写的名字。

@@ -22,6 +22,51 @@ description: "教程后的氏族重建任务：同时推进金钱 2000、部队�
 
 更大的坑是完成判定：`if (四个都 >= 目标 && !this._finishQuest) { this._finishQuest = true; CompleteQuestWithSuccess(); }`。`_finishQuest` 是**唯一的不存档字段**。因此在"达成条件 → 调用完成 → 存档"这个窗口里读档，`_finishQuest` 会退回 false，但日志进度已经是满的——下一次任意事件触发时会再次调用 `CompleteQuestWithSuccess()`。这是重复结算的来源。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class RebuildPlayerClanQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/PlayerClanQuests/RebuildPlayerClanQuest.cs:14`，全文 280 行。
+
+**无参构造**：`public RebuildPlayerClanQuest()`（`:99`），基类调用 `: base("rebuild_player_clan_storymode_quest", null, CampaignTime.Never)`（`:100`）——**任务 id 硬编码、`questGiver` 传 null、时限 `Never`**。构造函数体只有两句：`_finishQuest = false`（`:102`）、`SetDialogs()`（`:103`）。
+
+**谁创建它**：[FirstPhaseCampaignBehavior](../FirstPhaseCampaignBehavior) 的 `OnStoryModeTutorialEnded()`（`:146`）在教学结束时 `new RebuildPlayerClanQuest().StartQuest();`（`:148`）。
+
+`RegisterEvents()`（`:113`）挂**七条**，全是 `CampaignEvents.*`：`HeroOrPartyTradedGold`（`:115`）、`SettlementEntered`（`:116`）、`OnSettlementLeftEvent`（`:117`）、`MapEventEnded`（`:118`）、`OnTroopRecruitedEvent`（`:119`）、`RenownGained`（`:120`）、`NewCompanionAdded`（`:121`）。
+
+七个事件处理器几乎全是空壳——`HeroOrPartyTradedGold`（`:147`）、`OnSettlementEntered`（`:159`）、`OnSettlementLeft`（`:165`）、`OnMapEventEnded`（`:171`）、`OnTroopRecruited`（`:177`）、`OnRenownGained`（`:183`）、`OnNewCompanionAdded`（`:189`）——它们存在只是为了给引擎一个订阅点，真正的进度计算集中在 `UpdateProgresses()`（`:195`），由 `HourlyTick()`（`:153`）驱动。
+
+四个目标全是常量：`GoldGoal = 2000`（`:249`）、`ClanTierRenownGoal = 50`（`:252`）、`RenownReward = 25`（`:255`）、`HiredCompanionGoal = 1`（`:258`），加上**静态属性 `_partySizeGoal`**——它返回 `Campaign.Current.Models.BanditDensityModel.GetMinimumTroopC...`（见本页「主要成员」），**不是常量，是从模型现算的**。
+
+`UpdateProgresses()`（`:195`）对四条进度日志各做一次「封顶」写值，然后判四项目标是否全达标，达标且 `!_finishQuest` 时置 `_finishQuest = true` 并 `CompleteQuestWithSuccess()`——**这个布尔是防重复触发的唯一闸门**。
+
+存档四条进度日志：`_goldGoalLog`（`[SaveableField(1)]`，`:264`）、`_partySizeGoalLog`（2，`:268`）、`_clanTierGoalLog`（3，`:272`）、`_hireCompanionGoalLog`（4，`:276`）。**`_finishQuest`（`:261`）没有 `[SaveableField]` 标注，不进存档。**
+
+### 典型用法
+
+```csharp
+// 1) 手动创建（正常是教学结束时由行为创建）
+RebuildPlayerClanQuest q = new StoryMode.Quests.PlayerClanQuests.RebuildPlayerClanQuest();
+q.StartQuest();
+
+// 2) 复现四项目标（UpdateProgresses 的判据）
+Debug.Print("金币 " + Hero.MainHero.Gold + "/2000");
+Debug.Print("队伍 " + PartyBase.MainParty.MemberRoster.TotalManCount + "（目标来自模型，非常量）");
+Debug.Print("声望 " + (int)Clan.PlayerClan.Renown + "/50");
+Debug.Print("同伴 " + Clan.PlayerClan.Companions.Count + "/1");
+
+// 3) 目标值确实被封顶写值
+Debug.Print("满金币写法 = (Gold > 2000) ? 2000 : Gold");
+
+// 4) 读任务
+QuestBase b = Campaign.Current.QuestManager.GetQuest<RebuildPlayerClanQuest>();
+Debug.Print("id=" + b.QuestId + "，发布者=" + (b.QuestGiver?.Name.ToString() ?? "null"));
+```
+
+### 最容易踩的坑
+
+`_finishQuest`（`:261`）**没有 `[SaveableField]`，不进存档**，而它是 `UpdateProgresses` 里防重复完成的唯一闸门（`&& !this._finishQuest`）。读档后它回到 false——如果玩家在存档前刚满足条件、任务已完成，读档后 `HourlyTick` 再次调 `UpdateProgresses`，四项目标仍然达标，于是**对已 Finalize 的任务再调一次 `CompleteQuestWithSuccess()`**。反过来，你若在读档后手工把某项指标推高而 `_finishQuest` 为 false，任务会立刻完成。
+
 ## 主要成员
 
 - `RebuildPlayerClanQuest()`：无参构造，`_finishQuest = false`、`SetDialogs()`（空实现）。

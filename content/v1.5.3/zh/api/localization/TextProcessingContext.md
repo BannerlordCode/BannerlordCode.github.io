@@ -34,6 +34,33 @@ description: "一次文本渲染期间的变量与语法函数作用域：既保
 5. **`CallFunction` 的参数栈用完必须弹**。源码里 push 之后无论走哪条分支都 `Pop()` 两次，逻辑上是安全的——但如果你自己继承了 `TextExpression` 并在 `EvaluateString` 里再调 `CallFunction` 而中途抛异常，栈会失衡，后续所有函数调用全部错位。**不要继承或包装 `TextExpression`**。
 6. **`_variables` 用 `CaseInsensitiveComparer`**，但 `_functions` 用默认比较器。变量名大小写不敏感，函数名大小写敏感——这个不对称在写语言包时容易搞混。
 
+## 怎么用
+
+### 怎么拿到它
+
+类声明是 `public class TextProcessingContext`（`TextProcessingContext.cs:12`），没有显式构造函数，所以 `new TextProcessingContext()` 从任何程序集都能编译。但**造一个空实例对你几乎没有用**：填充它的唯一入口 `SetTextVariable` 是 `internal`（`:15`），读取入口 `GetRawTextVariable`（`:21`）、`GetVariableValue`（`:36`）、`GetArrayAccess`（`:83`）也全是 `internal`，清理入口 `ClearAll` 同样是 `internal`（`:406`）。只有函数相关的 `SetFunction`（`:356`）、`GetFunctionBody`（`:368`）、`ResetFunctions`（`:362`）、`GetFunctionParam`（`:376`）是 public，而喂给 `SetFunction` 的 `MBTextModel` 外部也造不出来。
+
+真正被使用的那一个实例是 `MBTextManager` 里的 `private static readonly TextProcessingContext TextContext = new TextProcessingContext()`（`MBTextManager.cs:500`）。你只能通过 `MBTextManager.SetTextVariable` 间接写它、通过 `TextObject.ToString()` 间接读它、通过 `MBTextManager.ClearAll()`（`MBTextManager.cs:153-155`）间接清它。引擎在战役销毁时清过一次（`Campaign.cs:1685`）。
+
+### 典型用法
+
+```csharp
+// 1) 官方途径：往全局上下文写变量，语言包用同名 tag 引用（大小写不敏感）
+MBTextManager.SetTextVariable("MYMOD_GOLD", settlement.SettlementGold);
+
+// 2) 自建独立上下文：只能用来管理函数体，变量表填不进去
+var myContext = new TextProcessingContext();
+myContext.ResetFunctions();                       // public
+MBTextModel body = myContext.GetFunctionBody("x"); // public；没注册过就返回 null
+
+// 3) 读一个自己写进去的函数参数（只在函数体被求值时有意义）
+TextObject p0 = myContext.GetFunctionParam("$0");
+```
+
+### 最容易踩的坑
+
+以为全局变量名区分大小写。`_variables` 用的是 `new Dictionary<string, TextObject>(new CaseInsensitiveComparer())`（`TextProcessingContext.cs:412`），所以 `{MYMOD_GOLD}`、`{mymod_gold}`、`{MyMod_Gold}` 是同一个键。后果是两个不同的 mod（或你的两套逻辑）只要大小写不一致就会互相覆盖对方的值，语言包里引用哪个名字都能取到同一个 `TextObject`，从界面结果完全看不出冲突。给全局变量统一用全大写加 mod 前缀的写法，并且假定它必然是全局共享的命名空间。
+
 ## 主要成员
 
 **函数注册（public）**

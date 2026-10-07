@@ -42,7 +42,47 @@ foreach (var err in _definitionContext.Errors) Debug.Print(err);   // 定义冲�
 3. **`Save` 是同步阻塞的**（内部等 `driver.Save` 的 Task）。别在 tick 里手动触发存档。
 4. **`CheckSaveableTypes()` 返回「有 `[SaveableField]` 但类型没定义」的清单**。开发期拿它当 lint 用，比等存档失败再查快得多。
 
-## 成员与调用时机
+## 怎么用
+
+### 怎么拿到它
+
+静态类，不需要实例。两个真正被引擎调用的入口是：
+
+- 存：`Game.SaveAux`（`Game.cs:320`）先让每个 `GameHandler` 走 `OnBeforeSave()`（`Game.cs:324`），再调 `SaveManager.Save(this, metaData, saveName, driver)`（`Game.cs:326`）。根对象就是 `Game` 自己。
+- 读：`MBSaveLoad.cs:149` 调 `SaveManager.Load(saveName, saveDrive, true)`，第三个参数 `loadAsLateInitialize: true`。
+
+类型定义表由 `InitializeGlobalDefinitionContext()` 建：`new DefinitionContext()` 然后 `FillWithCurrentTypes()`，并把 `Errors` 逐条 `Debug.Print`（`SaveManager.cs:19-24`）。它只在 `_definitionContext == null` 时自动调一次（`SaveManager.cs:73-76`）；而**读档路径每次都新建一张表**（`SaveManager.cs:158-159`），不复用存档那张。
+
+### 典型用法
+
+```csharp
+// 1) 存：走 SaveManager，返回值决定后续
+SaveOutput output = SaveManager.Save(Game.Current, metaData, "my_save", driver);
+if (output.IsContinuing)
+    Game.Current.OnSaveCompleted(output, onCompleted);        // SaveManager.cs:99-113 决定 IsContinuing
+else if (output.Result != SaveResult.Success)
+    Debug.Print("save failed: " + output.Result);
+
+// 2) 读：必须带 driver；两个重载只差 loadAsLateInitialize
+LoadResult result = SaveManager.Load("my_save", driver);
+if (result.Successful)
+    object root = result.Root;                            // 根对象就是 Game（LoadResult.cs:13）
+else
+    Debug.Print("load failed");
+
+// 3) 调试：找出哪些 [SaveableField] 字段的类型还没有存档定义
+foreach (Type missing in SaveManager.CheckSaveableTypes())
+    Debug.Print("no save definition: " + missing.FullName);
+
+// 4) 读档途中才需要为 true（延迟初始化）
+LoadResult late = SaveManager.Load("my_save", driver, loadAsLateInitialize: true);
+```
+
+### 最容易踩的坑
+
+把 `Load` 当成同步一次性完成的。`SaveManager.Load` 在结束前把 `SaveManager.OperatingVersion` 复位成 `ApplicationVersion.Empty`（`SaveManager.cs:181`），而 `ShouldResolveConflicts()` 读的就是配套的 `_isLoading` 标志（`SaveManager.cs:137-140`）。后果是：你在自己的 `IDataStore` 实现里依赖 `ShouldResolveConflicts()` 判断当前是读还是写，必须**只在 `SyncData` 被调用的那一小段时间内**问它；一旦 `Load` 返回、你把 `LoadResult` 存到别处稍后再处理，`_isLoading` 已经复位成 `false`，读到的是「不是加载中」，于是你的 resolver 走了写入分支，读出来的数据被当成新值。读档处理要在 `LoadResult` 返回的当场做完。
+
+## 主要成员
 
 - `static void InitializeGlobalDefinitionContext()`：重建全局类型定义上下文。**在注册新的 `SaveableTypeDefiner` 之后、第一次存档之前调用**。游戏启动时已自动调用过一次。
 - `static List<Type> CheckSaveableTypes()`：反射扫描所有已加载程序集，返回「字段/属性带 `[SaveableField]`/`[SaveableProperty]` 但其类型没有定义」的类型清单。返回空列表说明定义完整。**纯诊断用**，正常运行时不调用。

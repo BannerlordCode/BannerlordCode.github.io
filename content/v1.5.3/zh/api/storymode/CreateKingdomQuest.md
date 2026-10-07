@@ -22,6 +22,61 @@ description: "第一阶段终局任务之一：追踪玩家氏族等级、部队
 
 坑：`CheckPlayerClanDiplomaticState` 是全类最绕的地方。它要区分"玩家建国了"（`newKingdom.RulingClan == Clan.PlayerClan`）和"玩家只是加入了别人的王国"（`RulingClan != Clan.PlayerClan`）。后者必须直接 return，否则一旦玩家先建了帝国王国、后又加入反帝国王国，会被误判为"已完成"。另外"离王国"分支里的 `_hasPlayerCreatedKingdom` 复位**只把标志翻回去，不删已完成日志**——日志通过 `_leftKingdomLog` 变量记录并 `RemoveLog` 撤销。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class CreateKingdomQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/FirstPhase/CreateKingdomQuest.cs:17`，全文 445 行。
+
+构造函数 `CreateKingdomQuest(Hero questGiver)`（约 `:156`），基类调用有个**在基类参数里就做判断**的写法：
+
+```csharp
+: base("main_storyline_create_kingdom_quest_"
+       + ((StoryModeHeroes.ImperialMentor == questGiver) ? "1" : "0"),
+       questGiver,
+       StoryModeManager.Current.MainStoryLine.FirstPhase.FirstPhaseEndTime)
+```
+
+**任务 id 由「发布者是不是帝国导师」拼出来**——`"1"` 或 `"0"`。这是全模块唯一一处**在 `: base(...)` 参数里就引用 `StoryModeHeroes` 静态属性**的写法，而那个属性要 `StoryModeManager.Current` 非空（`StoryModeHeroes.cs:65`→`:69`），所以第一阶段未开始 + 非主线战役时，构造函数的**第一行**就 NRE。存档 id 580001（`SaveableStoryModeTypeDefiner.cs:57`）。
+
+**谁创建它**：[AssembleTheBannerQuest](../AssembleTheBannerQuest) 的两条终局对话流——`GetAntiImperialQuests()`（`:320`）里 `new CreateKingdomQuest(StoryModeHeroes.AntiImperialMentor).StartQuest();`（`:335`），`GetImperialQuests()`（`:372`）里 `new CreateKingdomQuest(StoryModeHeroes.ImperialMentor).StartQuest();`（`:387`）。**与 `SupportKingdomQuest` 二选一。**
+
+`RegisterEvents()`（`:331`）挂**五条**：`ClanTierIncrease`（`:333`）、`OnSettlementOwnerChangedEvent`（`:334`）、`OnClanChangedKingdomEvent`（`:335`）、`OnPartySizeChangedEvent`（`:336`）、`StoryModeEvents.OnMainStoryLineSideChosenEvent`（`:337`）。**五条各对应一项要求**。
+
+两个要求常量：`PartySizeRequirement = 100`（`:411`）、`SettlementCountRequirement = 1`（`:414`）。
+
+**四条进度日志**各带一个 `[SaveableField]`：`_clanTierRequirementLog`（4，`:429`）、`_partySizeRequirementLog`（5，`:433`）、`_settlementOwnershipRequirementLog`（6，`:437`）、`_clanIndependenceRequirementLog`（7，`:441`）。另有 `_hasPlayerCreatedKingdom`（2，`:417`）、`_leftKingdomLog`（9，`:421`）、`_playerCreatedKingdom`（10，`:425`）。立场位 `_isImperial` 是 `readonly bool`（1，`:407`→`:408`）——**存档按值存，构造时定死**。
+
+`CheckPlayerClanDiplomaticState(Kingdom newKingdom)`（`:233`）是外交状态校验，由 `OnClanChangedKingdom`（`:224`）调用。`MainStoryLineChosen(MainStoryLineSide chosenSide)`（`:320`）监听选边。
+
+### 典型用法
+
+```csharp
+// 1) 正常由 AssembleTheBannerQuest 的终局对话流创建（与 SupportKingdomQuest 二选一）
+CreateKingdomQuest q = new CreateKingdomQuest(StoryModeHeroes.AntiImperialMentor);
+q.StartQuest();
+
+// 2) 任务 id 由发布者决定——可以据此反查是哪条线
+Debug.Print("帝国导师 -> main_storyline_create_kingdom_quest_1");
+Debug.Print("反帝国导师 -> main_storyline_create_kingdom_quest_0");
+
+// 3) 两条数值要求
+Debug.Print("队伍人数要求=" + CreateKingdomQuest.PartySizeRequirement);
+Debug.Print("城镇数要求=" + CreateKingdomQuest.SettlementCountRequirement);
+
+// 4) 五条事件各管一项：氏族等级、城镇归属、换王国、队伍规模、选边
+Debug.Print("主队人数=" + MobileParty.MainParty.MemberRoster.TotalManCount);
+Debug.Print("玩家氏族等级=" + Clan.PlayerClan.Tier);
+
+// 5) 读任务
+QuestBase b = Campaign.Current.QuestManager.GetQuest<CreateKingdomQuest>();
+Debug.Print("id=" + b.QuestId + "，存档 id=580001，发布者=" + b.QuestGiver?.Name);
+```
+
+### 最容易踩的坑
+
+`_isImperial` 是 **`readonly bool` 且带 `[SaveableProperty(1)]`**（`:407`→`:408`）——它在**构造函数里定死一次**，但 [StoryModeCutsceneSelectionModel](../StoryModeCutsceneSelectionModel) 判的是 `MainStoryLine.PlayerSupportedKingdom == kingdom`（引用相等）。这两个判据在「玩家选边后换过王国」时会分叉：任务日志按 `_isImperial` 显示帝国侧文案，而场景通知按当前王国对象判断。mod 里读 `_isImperial` 无法（private），只能看任务 id 尾部的 `"1"`/`"0"`——**那是唯一可靠的外部信号。**
+
 ## 主要成员
 
 - `CreateKingdomQuest(Hero questGiver)`：构造入口。设 `_isImperial`、`SetDialogs()`、按 `_isImperial` 决定初始日志文案、统计玩家符合条件城堡数、写入各日志、`InitializeQuestOnCreation()`、`CheckPlayerClanDiplomaticState(Clan.PlayerClan.Kingdom)`。

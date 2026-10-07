@@ -22,6 +22,44 @@ description: "第二阶段反帝国线触发器：立场为反帝国时开出帝
 
 坑：`QuestConditionsHold()` 里直接访问三个静态属性，**任何一个为 null 都会崩**。在 mod 把某个帝国王国彻底 `DestroyKingdomAction` 掉之后，`StoryModeData.NorthernEmpireKingdom` 是否还返回有效对象取决于 `StoryModeData` 的缓存逻辑——如果它返回 null，`HourlyTick` 每小时抛一次异常。这也是为什么第三阶段的 `DefeatTheConspiracyQuest` 在处理最后一个王国时反而**复活**其他王国（`ReactivateKingdom`）：它需要那些对象仍然活着。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class WeakenEmpireQuestBehavior : CampaignBehaviorBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/SecondPhase/WeakenEmpireQuestBehavior.cs:13`，全文 179 行——**同样一个文件装三个类型**：`WeakenEmpireQuestBehavior`（`:13`）、`WeakenEmpireQuestBehaviorTypeDefiner`（`:36`）、嵌套的 `WeakenEmpireQuest`（`:52`）。
+
+行为极简：`RegisterEvents()`（`:16`）只挂 `StoryModeEvents.OnMainStoryLineSideChosenEvent`（`:18`），`SyncData`（`:22`）空实现。`OnMainStoryLineSideChosen(MainStoryLineSide side)`（`:27`）判反帝国侧后 `new WeakenEmpireQuestBehavior.WeakenEmpireQuest(StoryModeHeroes.AntiImperialMentor).StartQuest();`（`:31`）。
+
+注册点 `campaignGameStarter.AddBehavior(new WeakenEmpireQuestBehavior())`（`StoryModeSubModule.cs:82`），无条件。**与 [AssembleEmpireQuestBehavior](../AssembleEmpireQuestBehavior) 完全对称**，只是站另一边。
+
+`WeakenEmpireQuestBehaviorTypeDefiner : SaveableTypeDefiner`（`:36`）构造函数只 `: base(1005000)`（`:40`），`DefineClassTypes()`（`:45`）登记嵌套的 `WeakenEmpireQuest`。
+
+### 典型用法
+
+```csharp
+// 1) 行为的唯一作用：选边时出任务
+MainStoryLine line = StoryModeManager.Current.MainStoryLine;
+if (line.IsOnAntiImperialQuestLine && !Campaign.Current.QuestManager.Quests.Any(q => q is WeakenEmpireQuest))
+{
+    WeakenEmpireQuest quest = new StoryMode.Quests.SecondPhase.WeakenEmpireQuestBehavior.WeakenEmpireQuest(
+        StoryModeHeroes.AntiImperialMentor);
+    quest.StartQuest();
+}
+
+// 2) 读判据：三个帝国王国的城镇总数 < 4
+Debug.Print("北方=" + StoryModeData.NorthernEmpireKingdom.Towns.Count
+          + " 西方=" + StoryModeData.WesternEmpireKingdom.Towns.Count
+          + " 南方=" + StoryModeData.SouthernEmpireKingdom.Towns.Count);
+Debug.Print("三项之和小于 4 即达标");
+
+// 3) 注意判据不统计玩家自己的城镇归属，只数「还剩几座」
+Debug.Print("玩家城镇数不参与判定，毁城/易主才会改变总数");
+```
+
+### 最容易踩的坑
+
+判据 `QuestConditionsHold()`（`:145`）是 `StoryModeData.NorthernEmpireKingdom.Towns.Count + WesternEmpireKingdom.Towns.Count + SouthernEmpireKingdom.Towns.Count < 4`（`:148`）——**它数的是帝国还剩几座城，和玩家占了几座完全无关**。玩家的反帝国阵营只要四处随便攻城（不必是帝国城镇）把帝国总数压到 3，任务就完成了。反之 `StoryModeData.NorthernEmpireKingdom` 是按 `StringId == "empire"` 找的（`StoryModeData.cs:39`），mod 若改了帝国的 `StringId`，`StoryModeData` 会走到 `Debug.FailedAssert` 并返回 null（`:45`），这里直接 NRE。
+
 ## 主要成员
 
 - `public override void RegisterEvents()`：挂 `OnMainStoryLineSideChosenEvent`。

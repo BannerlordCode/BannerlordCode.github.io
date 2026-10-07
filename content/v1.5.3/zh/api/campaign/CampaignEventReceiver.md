@@ -37,6 +37,50 @@ description: "284 个虚方法组成的战役回调契约：继承它就能用 o
 3. **`Tick(float dt)` 里做重活**：这是每帧调用的虚方法。1.5.3 里 `Tick` 由 `CampaignEventDispatcher.Tick` 每帧广播。
 4. **依赖 override 之间的调用顺序**：分发器是按 `_eventReceivers` 数组顺序遍历的，数组顺序 = 注册顺序，不同模块的相对顺序不可控。
 
+## 怎么用
+
+### 怎么拿到它
+
+你**继承它**，然后把它挂进 dispatcher：构造函数无参（隐式），两个挂载点——`Campaign.AddCampaignEventReceiver(receiver)`（`Campaign.cs:1929`，走 `CampaignEventDispatcher.cs:57`），或者更常见的间接做法：让 [CampaignEvents](../CampaignEvents) 这类具体接收者在 `Invoke` 时自己调你的方法。
+
+基类只声明不实现：264 个 `public virtual void OnXxx(...)` 全是空体（例：`OnCharacterCreationIsOver` `:40`、`OnHeroLevelledUp` `:45`、`RemoveListeners` `:35`），你只覆写关心的那几个。基类的 `RemoveListeners(object o)` 同样是空的（`:35-37`）——**它不自动替你取消任何订阅**。
+
+两种参数风格并存：回调式（`OnHeroLevelledUp(Hero hero, bool shouldNotify = true)` `:45`，你想加什么条件都行）和查询式（`CanKingdomBeDiscontinued(Kingdom kingdom, ref bool result)` `:889` 这类，`ref` 是输入初值也是输出）。查询式的语义是引擎先给一个 `result`，每个接收者可以改它——改动会传给后续接收者。
+
+### 典型用法
+
+```csharp
+// 1) 回调式：收到事件就做事
+public class MyStoryEventReceiver : CampaignEventReceiver
+{
+    public override void OnHeroLevelledUp(Hero hero, bool shouldNotify = true)
+    {
+        if (hero == Hero.MainHero)
+            MBTextManager.SetTextVariable("MYMOD_HERO_LEVEL", hero.Level);
+    }
+
+    // 2) 查询式：改 ref 参数影响后续所有接收者
+    public override void CanHeroDie(Hero hero,
+        KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)
+    {
+        if (hero.IsInvolvedInMyQuest && hero.HitPoints > 1)
+            result = false;                 // 这个英雄本次死不了
+    }
+
+    // 3) 自己订阅的东西要自己清：基类的 RemoveListeners 是空的
+    public void Subscribe(CampaignEvents evts) { evts.OnQuestStartedEvent.AddNonSerializedListener(this, OnQuest); }
+    public void Unsubscribe(CampaignEvents evts) { evts.OnQuestStartedEvent.ClearListeners(this); }
+    private void OnQuest(QuestBase quest) { }
+}
+
+// 挂上去
+Campaign.Current.AddCampaignEventReceiver(new MyStoryEventReceiver());
+```
+
+### 最容易踩的坑
+
+以为覆写了 `RemoveListeners` 就能自动退订。实际上基类实现是空体（`CampaignEventReceiver.cs:35-37`），它的唯一用途是让 `CampaignEventDispatcher.RemoveListeners(o)` 把请求转发给每个接收者（`CampaignEventDispatcher.cs:69-76`）——而 `CampaignBehaviorManager.RemoveBehavior<T>` 正是靠这条路径去摘 behavior 的监听（`CampaignBehaviorManager.cs:100`）。如果你在自己的接收者里用 `CampaignEvents.XXXEvent.AddNonSerializedListener(this, ...)` 订了事件，却把退订代码写进 `RemoveListeners` 里就完事大吉——那只能摘掉那个具体事件，不是全部。后果是 behavior 被移除后它的事件监听还活着，每个 tick 照跑，读的是已经不在战役里的对象，表现为数值莫名增长或偶发崩溃。退订要么逐事件显式写，要么让订阅方始终是同一个长生命周期对象。
+
 ## 成员与调用时机
 
 **周期性回调**

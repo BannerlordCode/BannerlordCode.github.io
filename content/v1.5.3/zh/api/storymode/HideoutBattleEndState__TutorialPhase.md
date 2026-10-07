@@ -20,6 +20,56 @@ description: "教程藏身处战斗的四种结局标记：None / Retreated / De
 
 因此 `None` 既是"还没打"也是"已经处理完了"。如果你的 mod 复用了这个模式，**不要把 `None` 当作"无操作"的信号**去写额外逻辑，否则每次玩家打开村庄菜单都会误触发。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public enum HideoutBattleEndState` 声明在 `bannerlord-1.5.3/StoryMode/Quests/TutorialPhase/FindHideoutTutorialQuest.cs:796`（嵌套在 `FindHideoutTutorialQuest` 内），四个值 `None`（`:799`）、`Retreated`（`:801`）、`Defeated`（`:803`）、`Victory`（`:805`）。
+
+**它没有独立存储**——宿主字段是 `private FindHideoutTutorialQuest.HideoutBattleEndState _hideoutBattleEndState;`（`FindHideoutTutorialQuest.cs:787`），private 且不进存档。
+
+**同名枚举在模块里有三份，id 各不相同**：
+
+| 宿主类 | 声明行 | 存档枚举 id |
+| --- | --- | --- |
+| `FindHideoutTutorialQuest`（本页这一份） | `FindHideoutTutorialQuest.cs:796` | 686010（`SaveableStoryModeTypeDefiner.cs:73`） |
+| `IstianasBannerPieceQuest` | `IstianasBannerPieceQuest.cs:317` | 687010（`:74`） |
+| `ArzagosBannerPieceQuest` | `ArzagosBannerPieceQuest.cs:313` | 681010（`:75`） |
+
+这一份的特殊之处是它被**跨菜单事件**用来做状态中转：宿主在藏身处战斗结算时写入，然后在 `OnGameMenu` 一类回调里反复比对并决定菜单走向。源码里的比对点：`:366`（`== None` 且当前聚落是藏住处且菜单 id 不是 `"radagos_hideout"` 也不是 `"brother_chest_menu"`）、`:370`（`== Victory` 且已与拉达戈斯交谈）、`:375`（`== Defeated` 或 `== Retreated`）、`:437`（菜单 id 是 `"radagos_hideout"` 且 `== Retreated`）。写入点在 `:604`（Victory）、`:608`（Retreated）、`:612`（Defeated）；复位在 `:67`、`:461`、`:564`、`:638`、`:676`。
+
+判定「能否结束」的派生条件是 `base.IsOngoing && this._hideoutBattleEndState == FindHideoutTutorialQuest.HideoutBattleEndState.None`（`:632`）——**只有还处于 None 才算未打完**。
+
+### 典型用法
+
+```csharp
+// 枚举在宿主任务内部；mod 侧从任务状态反推
+FindHideoutTutorialQuest quest = Campaign.Current.QuestManager
+    .GetQuest<FindHideoutTutorialQuest>();
+if (quest != null)
+{
+    // IsOngoing 且状态为 None 才能继续打（:632 的语义）
+    Debug.Print("藏身处任务在跑=" + quest.IsOngoing);
+    Debug.Print("隐藏藏身处=" + (Settlement.CurrentSettlement != null
+        && Settlement.CurrentSettlement.IsHideout));
+}
+
+// 存档枚举 id 是判别「哪一份」的唯一可靠依据
+Debug.Print("FindHideout 版 = 686010，Istiana 版 = 687010，Arzagos 版 = 681010");
+Debug.Print("枚举定义登记处：SaveableStoryModeTypeDefiner.DefineEnumTypes()");
+
+// 战斗冷却由 StoryModeData 统一控制
+if (Settlement.CurrentSettlement != null && Settlement.CurrentSettlement.Hideout != null)
+{
+    Debug.Print("下次攻击时间=" + Settlement.CurrentSettlement.Hideout.GetNextPossibleAttackTime()
+        + "，冷却时长=" + StoryModeData.StorylineQuestHideoutHiddenDuration.ToHours + " 小时");
+}
+```
+
+### 最容易踩的坑
+
+这一份的跨菜单比对依赖**当前聚落**：`Settlement.CurrentSettlement != null && Settlement.CurrentSettlement == this._hideout`（`:366`）以及 `Settlement.CurrentSettlement.IsTown ? Settlement.CurrentSettlement.Town.GetWallLevel() : 1`（`TrainingFieldEncounter.cs:38` 同款写法）。在菜单回调这种「玩家已经离开聚落」的时机里 `Settlement.CurrentSettlement` 可能是 null，比对直接失败——源码本身用 `!= null` 挡住了（`:366`），但你在自己的回调里复刻这段逻辑时很容易漏掉这个判空。
+
 ## 主要成员
 
 - `None`：初始值与重置值。表示"没有待处理的战斗结果"。

@@ -34,6 +34,46 @@ description: "按游戏时间重复触发的轻量定时器：Campaign 的 Daily
 3. **忘记 `DeletePeriodicEvent()`**：事件还挂在 `CustomPeriodicCampaignEvents` 上，管理器每轮都遍历它并 `CheckUpdate`，长期开着就是稳定开销与潜在的状态复活。
 4. **回调里改时间线**：`RunHandlers` 是同步 for 循环，`CheckUpdate` 是 while 循环。在回调里删除自己（`DeletePeriodicEvent`）是安全的，`isEventDeleted` 会在下一轮 while 判断时终止；但在回调里 `AddHandler` 会让本轮 `handlers.Count` 变大，新回调**可能当轮就被执行**。
 
+## 怎么用
+
+### 怎么拿到它
+
+周期事件不要自己 `new`，用工厂：`CampaignPeriodicEventManager.CreatePeriodicEvent(CampaignTime triggerPeriod, CampaignTime initialWait)`（`CampaignPeriodicEventManager.cs:294`）。它做的事只有一件但很关键——`Campaign.Current.CustomPeriodicCampaignEvents.Add(mbcampaignEvent)`（`:297`）。**只有进了这个列表的事件才会被驱动**：`SignalPeriodicEvents` 反向遍历该列表调 `CheckUpdate()`（`CampaignPeriodicEventManager.cs:326-330`）。原生代码全都走这条工厂，例如战役自己的三个 tick 事件（`Campaign.cs:1244`、`1251`、`1258`）和 `Army` 的（`Army.cs:334`、`336`）。
+
+`MBCampaignEvent` 有两个构造函数。带周期参数的那个（`MBCampaignEvent.cs:32`）会设 `NextTriggerTime = CampaignTime.Now + InitialWait` 并把 `isEventDeleted` 置 false；只传名字的那个（`:26`）**只设 description**，`TriggerPeriod` 和 `NextTriggerTime` 都留在默认值上——它只能用来做「非周期的一次性触发」容器（`MapScreen.cs:2192` 那种用法）。
+
+驱动频率受一个下限约束：`MinimumPeriodicEventInterval` 被设成 `CampaignTime.Hours(0.05f)`（`CampaignPeriodicEventManager.cs:85`），`SignalPeriodicEvents` 只有在这个间隔过去后才推进一次（`:323`）。所以比 3 游戏分钟更密的周期是拿不到的。
+
+### 典型用法
+
+```csharp
+public class MySupplyBehavior : CampaignBehaviorBase
+{
+    private MBCampaignEvent _dailyEvent;
+
+    public override void RegisterEvents()
+    {
+        // 工厂：同时把事件挂进 Campaign 的驱动列表
+        _dailyEvent = CampaignPeriodicEventManager.CreatePeriodicEvent(
+            triggerPeriod: CampaignTime.Days(1f),
+            initialWait: CampaignTime.Hours(6f));
+
+        _dailyEvent.AddHandler(OnDailySupplyTick);
+    }
+
+    private void OnDailySupplyTick(MBCampaignEvent campaignEvent, params object[] delegateParams) { }
+
+    public void StopTicking()
+    {
+        _dailyEvent.DeletePeriodicEvent();   // 标 isEventDeleted，下一轮 SignalPeriodicEvents 里被移出列表
+    }
+}
+```
+
+### 最容易踩的坑
+
+`AddHandler` 传方法组时 `Unregister(object instance)`（`MBCampaignEvent.cs:56`）能工作，一旦你改成传 lambda 就静默失效：它的实现是逐个比较 `handlers[i].Target == instance`（`:60`），而 lambda 的 `Target` 是编译器生成的闭包对象，不是你的 behavior `this`。后果是这个 handler 在战役剩下的全部时间里仍然每个周期都触发——behavior 已经 `Unregister` 了、`Campaign.cs:1691` 也把 behavior 列表清空了，但事件照样跑，读到的是已被丢弃的对象状态，表现为难以复现的幽灵数值增长。要停就调 `DeletePeriodicEvent()`（`:79`），别依赖 `Unregister`。
+
 ## 成员与调用时机
 
 - `MBCampaignEvent(CampaignTime triggerPeriod, CampaignTime initialWait)`：正式构造函数。`initialWait` 是首次触发前的等待时间，`NextTriggerTime = CampaignTime.Now + initialWait`。**这才是要用的那个**。

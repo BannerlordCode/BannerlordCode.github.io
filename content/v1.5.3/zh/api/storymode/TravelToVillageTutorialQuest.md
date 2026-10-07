@@ -22,6 +22,50 @@ description: "教程首个任务：引导玩家北上去村庄，沿途生成四
 
 坑集中在两处。第一是 `DailyTick` 里给每支难民队补 2 粮食，防止玩家因为"和难民打架抢粮"之外的原因让它们饿死饿死导致地图上出现异常；这条每日循环会一直跑到任务完成。第二是 `OnCompleteWithSuccess` 里 `DestroyPartyAction.Apply(null, party)` 一次性清掉四支队伍——**只在这里清**，如果任务被取消或超时（`CampaignTime.Never` 所以不会超时），难民队会永久留在地图上。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class TravelToVillageTutorialQuest : StoryModeQuestBase` 声明在 `bannerlord-1.5.3/StoryMode/Quests/TutorialPhase/TravelToVillageTutorialQuest.cs:27`，全文 257 行。
+
+**无参构造**（约 `:64`），基类调用 `: base("travel_to_village_tutorial_quest", null, CampaignTime.Never)`（`:65`）——任务 id 硬编码、`questGiver` 传 `null`、时限 `Never`。存档 id 694001（`SaveableStoryModeTypeDefiner.cs:44`）。
+
+**它是教学链条的第一环，构造函数有实质副作用**：`StoryModeEvents.Instance.OnTravelToVillageTutorialQuestStarted();`（`:76`）——**new 出来就广播教学开始**；`TutorialPhase.Instance.SetTutorialFocusSettlement(this._questVillage);`（`:81`）把目标村庄设为地图高亮。目标就是 `TutorialPhase.QuestVillageStringId`（`TutorialPhase.cs:266`，值 `village_ES3_2`）。
+
+队伍常量 `private const int RefugePartyCount = 4;`（`:246`），对应字段 `private readonly MobileParty[] _refugeeParties`（`[SaveableField(2)]`，`:253`→`:254`）——**是数组不是 List**，由 `CreateRefugeeParties()`（`:186`）填充。目标村庄 `_questVillage` 带 `[SaveableField(1)]`（`:249`→`:250`）。
+
+`RegisterEvents()`（`:130`）挂三条：`CampaignEvents.GameMenuOpened`（`:132`）、`CampaignEvents.BeforeMissionOpenedEvent`（`:133`）、`StoryModeEvents.OnTravelToVillageTutorialQuestStartedEvent`（`:134`）——**第二条与第三条让它自订阅自己广播的那个事件**（处理函数 `OnTravelToVillageTutorialQuestStarted()`，`:176`）。
+
+对话流两条：`CreateDialogFlow("start", 1000010)`（`:99`）、`CreateDialogFlow("start", 1000020)`（`:105`）。三个委托：`news_about_raiders_condition()`（`:112`）、`news_about_raiders_consequence()`（`:118`）、`talk_with_brother_consequence()`（`:124`）。
+
+两个带守卫的钩子：`OnGameMenuOpened`（`:138`）要求 `!TutorialPhase.Instance.IsCompleted && Settlement.CurrentSettlement == null && PlayerEncounter.EncounteredParty != null`（`:140`），并额外排除菜单 id `"encounter_meeting"`；`OnCompleteWithSuccess()`（`:209`）末尾 `TutorialPhase.Instance.RemoveTutorialFocusSettlement();`（`:216`）——**必须卸掉地图高亮**。
+
+### 典型用法
+
+```csharp
+// 1) 正常由教学流程创建；无参，直接 new 即可
+TravelToVillageTutorialQuest q = new TravelToVillageTutorialQuest();
+q.StartQuest();
+
+// 2) 目标村庄是教学专用常量
+Debug.Print("目标村庄=" + TutorialPhase.QuestVillageStringId);   // village_ES3_2
+
+// 3) 地图高亮由 TutorialPhase 持有
+TutorialPhase tutorial = StoryModeManager.Current.MainStoryLine.TutorialPhase;
+Debug.Print("高亮聚落=" + tutorial.TutorialFocusSettlement?.StringId);
+
+// 4) 读任务
+QuestBase b = Campaign.Current.QuestManager.GetQuest<TravelToVillageTutorialQuest>();
+Debug.Print("id=" + b.QuestId + "，存档 id=694001，分类=" + b.SpecialQuestType);
+
+// 5) 完成时必须卸高亮
+tutorial.RemoveTutorialFocusSettlement();
+```
+
+### 最容易踩的坑
+
+`OnGameMenuOpened`（`:138`）的守卫里含 `Settlement.CurrentSettlement == null`（`:140`）——它只在**玩家不在任何聚落里**时才介入。但同一个方法还要读 `args.MenuContext.GameMenu.StringId`（`:140`），而菜单上下文与聚落状态的更新时机不同步。你 mod 里复刻这段守卫时若去掉 `Settlement.CurrentSettlement` 的判空，就会在菜单打开瞬间直接 NRE——症状是玩家打开任意村庄菜单就崩。
+
 ## 主要成员
 
 - `TravelToVillageTutorialQuest()`：无参构造。定位 `village_ES3_2`，把它和村长都 `AddTrackedObject`，分配 `MobileParty[4]`，弹 inquiry（回调里触发 `StoryModeEvents` 的开场事件），`SetDialogs()`、`InitializeQuestOnCreation()`、写起始日志、`SetTutorialFocusSettlement`、最后 `CreateRefugeeParties()`。

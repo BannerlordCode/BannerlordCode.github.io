@@ -32,6 +32,51 @@ description: "战斗/对话场景的运行时容器：持有场景、队伍、Ag
 5. **`RetreatMission` / `SurrenderMission` 的副作用**：会触发整条胜负判定链，直接改战役结果。mod 里慎用。
 6. **`Mission` 是 `sealed`**：不能继承。要扩展就写 `MissionBehavior` 或 `MissionLogic`。
 
+## 怎么用
+
+### 怎么拿到它
+
+**不要自己 `new`**。唯一的构造点是 `MissionState.CreateMission`（`MissionState.cs:264`）里的 `new Mission(rec, this, needsMemoryCleanup)`（`:266`），而它又只被 `MissionState.HandleOpenNew`（`:270`）调用。对外的入口是静态工厂 `public static Mission OpenNew(string missionName, MissionInitializerRecord rec, InitializeMissionBehaviorsDelegate handler, bool addDefaultMissionBehaviors = true, bool needsMemoryCleanup = true)`（`MissionState.cs:320`），它做四件事：`Game.Current.OnMissionIsStarting(...)`（`:327`）→ `GameStateManager.CreateState<MissionState>()`（`:328`）→ `HandleOpenNew`（`:329`）→ `PushState(missionState, 0)`（`:330`）。
+
+`Mission.Current` 是在 `Initialize()` 里第一次被赋值的（`Mission.cs:608`），而 `Initialize()` 由 `MissionState.LoadMission` 调（`MissionState.cs:260`）。所以 `OpenNew` 返回的那一刻 `Mission.Current` **还可能是上一个任务的实例**；要当前任务用 `MissionState.Current.CurrentMission`。销毁时 `OnMissionStateFinalize` 把它置 null（`Mission.cs:1142`）。
+
+注册 behavior 有两条等价入口：`HandleOpenNew` 传给 `handler` 委托返回的集合会被 `AddBehaviorsToMission` 分类后交给 `CurrentMission.InitializeStartingBehaviors(logics, others, networks)`（`MissionState.cs:299-306`）；或者自己 `Mission.AddMissionBehavior`（`Mission.cs:4542`），它会回填 `missionBehavior.Mission = this`（`:4545`）、按 `BehaviorType` 分流进 `MissionLogics` 或 `_otherMissionBehaviors`（`:4546-4557`），最后调 `OnCreated()`（`:4558`）。
+
+模块级的挂钩点是 `MBSubModuleBase.OnMissionBehaviorInitialize(Mission)`（`MBSubModuleBase.cs:127`），由 `Mission.AfterStart` 在所有已有 behavior 的 `OnBehaviorInitialize` 之后广播（`Mission.cs:3562-3569`）。
+
+### 典型用法
+
+```csharp
+// 1) 开一个任务：在 InitializeMissionBehaviorsDelegate 里交出你的 behavior
+Mission mission = MissionState.OpenNew(
+    missionName: "mymod_duel",
+    rec: new MissionInitializerRecord(mapName, "day", "mymod_battle_ground"),
+    handler: m => new MissionBehavior[]
+    {
+        new MyDuelLogic(),        // : MissionLogic
+        new MyRespawnHandler(),  // : MissionBehavior
+    });
+
+// 2) 任务跑起来后拿当前实例（不要用 Mission.Current，OpenNew 之后它还没更新）
+Mission cur = MissionState.Current.CurrentMission;
+Team enemy = Mission.GetTeam(TeamSideEnum.Enemy);
+
+// 3) 模块级挂钩：在 OnMissionBehaviorInitialize 里往已有任务里插 behavior
+public override void OnMissionBehaviorInitialize(Mission mission)
+{
+    base.OnMissionBehaviorInitialize(mission);
+    if (!mission.HasMissionBehavior<MyRespawnHandler>())
+        mission.AddMissionBehavior(new MyRespawnHandler());
+}
+
+// 4) 用完要自己摘掉（引擎在 OnMissionStateFinalize 里会全部清，但提前摘更安全）
+mission.RemoveMissionBehavior(myHandler);   // 会先调 OnRemoveBehavior，Mission.cs:4578
+```
+
+### 最容易踩的坑
+
+在 `MBSubModuleBase.OnMissionBehaviorInitialize` 里无条件 `AddMissionBehavior`，又不先查重。这个回调每个任务都会广播一遍（`Mission.cs:3566-3569`），而 `AddMissionBehavior` 不会做重复检测——它直接 `MissionBehaviors.Add`（`:4544`）。后果是同一个 handler 实例被挂上多次、每次 tick 都跑多份；更麻烦的是它在 `OnMissionBehaviorInitialize` 时 `MissionBehaviors` 里的对象已经被 `OnBehaviorInitialize` 过一轮（`:3562-3565`），你后加的那个只会被调 `OnCreated`、永远不会收到那一次的 `OnBehaviorInitialize`，状态初始化顺序直接错乱。查重用 `Mission.HasMissionBehavior<T>()`（`:2505`）或 `GetMissionBehavior<T>()`（`:4562`），先查再加。
+
 ## 成员与调用时机
 
 **全局与状态**

@@ -36,6 +36,55 @@ description: "战后奖励与战利品结算模型：屏蔽全部海战相关内
 - **`default(ExplainedNumber)` 的描述项为空。** 依赖 `ExplainedNumber` 的 UI 面板在教学期可能显示空白而不是「0」。
 - **透传成员别重复实现。** `CalculateInfluenceGain`、`CalculateMoraleGainVictory`、`GetLootedItemFromTroop` 等二十个都走 `BaseModel`，重复覆写只会让链变得更长更难查。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeBattleRewardModel : BattleRewardModel` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/StoryModeBattleRewardModel.cs:16`，全文 181 行，**二十一个 override 里只有四个带主线逻辑，其余十七个纯透传**。
+
+注册点：`campaignGameStarter.AddModel<BattleRewardModel>(new StoryModeBattleRewardModel())`（`StoryModeSubModule.cs:93`），只在主线战役生效（`StoryModeSubModule.cs:23`→`:24`）。读用 `Campaign.Current.Models.BattleRewardModel`。调用方是地图事件结算流程——每场战斗结束、算奖罚时都会问一遍。
+
+四个非透传 override：
+
+| 方法 | 声明行 | 行为 |
+| --- | --- | --- |
+| `CalculateRenownGain(...)` | `:49` | 教学未完成且 `winnerParty == PartyBase.MainParty` → `return default(ExplainedNumber)`（`:51`→`:53`）。注意不是 `new ExplainedNumber(0f,...)`，而是 **`default`**，即 `Result` 为 0 且内部集合为 null |
+| `CalculateShipDamageAfterDefeat(Ship ship)` | `:59` | 恒 `return 0f;`（`:61`）——海战船损直接归零 |
+| `DistributeDefeatedPartyShipsAmongWinners(...)` | `:65` | 恒返 `new MBReadOnlyList<KeyValuePair<Ship, MapEventParty>>()` 空表（`:67`） |
+| `GetLootPrisonerChances(MBReadOnlyList<MapEventParty> winnerParties, TroopRosterElement prisonerElement)` | `:131` | 阴谋士兵 → 给每个胜方都填 `0f` 概率（`:133`→`:140`）；否则透传（`:142`） |
+| `CanTroopBeTakenPrisoner(CharacterObject troop)` | `:176` | `!StoryModeData.IsConspiracyTroop(troop) && 基类`（`:178`）——阴谋士兵不可被俘 |
+
+五个而非四个：`GetLootPrisonerChances` 和 `CanTroopBeTakenPrisoner` 两处都靠 [StoryModeData](../StoryModeData) 的 `IsConspiracyTroop`（读 29 个硬编码 `StringId`）。
+
+海战那两条（`:59`、`:65`）是**无条件覆盖，没有任何主线前提**——只要装了 StoryMode 模块就生效，不分战役进度。
+
+### 典型用法
+
+```csharp
+// 运行期读
+BattleRewardModel reward = Campaign.Current.Models.BattleRewardModel;
+
+// 复现原生：教学期主队打赢不给声望
+ExplainedNumber renown = reward.CalculateRenownGain(
+    PartyBase.MainParty, 100f, 1f, 1f, true);
+Debug.Print("声望=" + renown.Result);   // 教学期为 default(ExplainedNumber)
+
+// 阴谋士兵不可被俘
+CharacterObject commander = MBObjectManager.Instance.GetObject<CharacterObject>("conspiracy_commander_antiempire");
+Debug.Print("可被俘=" + reward.CanTroopBeTakenPrisoner(commander));   // false
+
+// 海战伤害与分配恒为 0 / 空表
+Debug.Print("船损=" + reward.CalculateShipDamageAfterDefeat(ship)
+          + "，分配表长度=" + reward.DistributeDefeatedPartyShipsAmongWinners(mapEvent, ships, winners).Count);
+
+// 纯透传成员照常可用
+Debug.Print("战败金币损失=" + reward.CalculateGoldLossAfterDefeat(Hero.MainHero));
+```
+
+### 最容易踩的坑
+
+`CalculateRenownGain` 早退时返回的是 **`default(ExplainedNumber)`**（`:53`），不是 `new ExplainedNumber(0f, false, null)`。`ExplainedNumber` 的结构体字段在这里全为零值，包括内部的说明文本集合。调用方若在拿到结果后无条件读 `.GetTooltip()` 或遍历说明项，会在教学期 NRE——而其它所有模型（例如 [StoryModeCombatXpModel](../StoryModeCombatXpModel)、[StoryModePrisonerRecruitmentCalculationModel](../StoryModePrisonerRecruitmentCalculationModel)）早退时都规规矩矩 `new ExplainedNumber(0f, false, null)`。这就是这个 override 的独有风险。
+
 ## 主要成员
 
 - `CalculateRenownGain(PartyBase winnerParty, float renownValueOfBattleForWinnerSide, float contributionShareOfWinnerParty, float renownMultiplierForWinnerSide, bool includeDescriptions)`

@@ -33,6 +33,52 @@ description: "非战斗场景的通用经验倍率模型：英雄当前身处训
 - **与战斗经验模型是两回事。** 战斗命中经验走 [StoryModeCombatXpModel](../StoryModeCombatXpModel)，那里用的是 `Settlement.CurrentSettlement`（玩家的当前聚落），与本模型的 `hero.CurrentSettlement`（该英雄自己的聚落）不是同一个对象。队伍成员被派驻别处时两者结论会不同。
 - **`hero` 参数允许为 null。** 调用方会传空英雄（做批量计算时），保护已写在源码里，自行调用时别自己先解引用。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class StoryModeGenericXpModel : GenericXpModel` 声明在 `bannerlord-1.5.3/StoryMode/GameComponents/StoryModeGenericXpModel.cs:9`，全文 21 行，**全文只有一个 override**。
+
+注册点：`campaignGameStarter.AddModel<GenericXpModel>(new StoryModeGenericXpModel())`（`StoryModeSubModule.cs:98`），只在主线战役生效（`StoryModeSubModule.cs:23`→`:24`）。读用 `Campaign.Current.Models.GenericXpModel`。
+
+`GetXpMultiplier(Hero hero)`（`:12`）的判据是两段短路：先 `((hero != null) ? hero.CurrentSettlement : null) != null`（`:14`），再 `hero.CurrentSettlement.IsTrainingField()`（`:14`）。两个条件都成立才 `return 0f`（`:16`），否则 `base.BaseModel.GetXpMultiplier(hero)`（`:18`）。判定用的是 `StoryMode.Extensions` 的扩展（`Extensions.cs:10`）。
+
+注意第一段的写法：**它对 `hero` 判空、对 `CurrentSettlement` 判空，但对扩展方法内部的 `settlement` 不判**——`IsTrainingField()` 直接 `settlement.SettlementComponent`（`Extensions.cs:12`）。这里安全纯粹是因为上一段已经保证了非空。
+
+调用方是经验结算流程，典型触发点是技能提升、教练训练、领主关注等非战斗经验的倍率计算。
+
+### 典型用法
+
+```csharp
+// 运行期读
+GenericXpModel xp = Campaign.Current.Models.GenericXpModel;
+
+// 复现原生判定：英雄当前停在练武场 -> 倍率 0
+Hero brother = StoryModeHeroes.ElderBrother;
+float multiplier = xp.GetXpMultiplier(brother);
+Debug.Print("兄长当前聚落=" + (brother.CurrentSettlement?.StringId ?? "无")
+          + "，非战斗经验倍率=" + multiplier);
+
+// null 输入是合法且安全的：返回基类结果
+Debug.Print("null 英雄倍率=" + xp.GetXpMultiplier(null));
+
+// mod 侧覆写
+public class MyGenericXpModel : GenericXpModel
+{
+    public override float GetXpMultiplier(Hero hero)
+    {
+        // 原生判的是 hero.CurrentSettlement，不是 MobileParty.MainParty.CurrentSettlement
+        return hero != null && hero.CurrentSettlement != null
+               && hero.CurrentSettlement.IsVillage() ? 0f
+            : BaseModel.GetXpMultiplier(hero);
+    }
+}
+```
+
+### 最容易踩的坑
+
+判据是 **`hero.CurrentSettlement`** 而不是「队伍在哪」。`Hero.CurrentSettlement` 只有英雄本人身处城镇/村庄时才有值——带着队伍路过村庄、在地图上停在城外，英雄的 `CurrentSettlement` 往往是 null，此时倍率照常生效。你看到「玩家在练武场里，经验却还在涨」就是这个原因：真正住在练武场的是主队，倍率没被压住；而如果某个英雄因为任务或 AI 恰好 `CurrentSettlement` 落在练武场，它自己的经验就被永久归零了——这个模型不区分是谁的经验。
+
 ## 主要成员
 
 - `GetXpMultiplier(Hero hero)`

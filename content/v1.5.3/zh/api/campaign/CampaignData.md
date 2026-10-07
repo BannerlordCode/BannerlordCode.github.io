@@ -32,6 +32,36 @@ description: "战役层的字符串常量目录：出生点 tag、文化 stringI
 3. **`CultureNeutral` / 各 Hideout 文化**不是可选装饰，而是 bandit 团体的文化归属；改它会让整个 bandit 派系换语言。
 4. 用颜色数组长度做循环上界：1.5.3 里每种文化的数组长度是官方决定的，mod 加长会导致非官方英雄外观不一致。
 
+## 怎么用
+
+### 怎么拿到它
+
+纯静态常量表，没有任何构造与生命周期。唯一不是 `const` 的是 `NeutralFactionName`（`CampaignData.cs:11`，`static TextObject`），其余 100 多个全是 `public const string` / `public const int` / `public const uint` / `public const char`，加上六组 `static readonly uint[]` 英雄布料色（`:473`、`:480`、`:487`、`:494`、`:501`、`:508`）。编译期就定下来了，运行期改不了。
+
+它们是给 **XML 与内容脚本用的**：spawnpoint 标签（`MainHeroTag = "main_hero"` `:23`、`MerchantTag = "sp_merchant"` `:125`）、文化 id（`CultureEmpire = "empire"` `:356`）、地点 id（`LocationCenter = "center"` `:407`）、地点内部区块（`LocationTavern = "tavern"` `:419`）、装备更新标签（`BattleEquipmentUpdateTag = "battle"` `:518`）。C# 侧唯一直接读它的两处是 `CampaignData.NeutralFactionName` 当作无名氏势力的兜底名字（`DisbandPartyAction.cs:40`、`TeleportHeroAction.cs:96`）。
+
+### 典型用法
+
+```csharp
+// 1) 在内容里引用这些常量，而不是手写字符串
+string spotId = CampaignData.MerchantTag;
+string culture = CampaignData.CultureVlandia;
+string inside = CampaignData.LocationTavern;
+
+// 2) 无名势力：名字的兜底
+Clan realClan = party.ActualClan;
+TextObject who = realClan != null ? realClan.Name : CampaignData.NeutralFactionName;
+text.SetTextVariable("CLAN_NAME", who);      // DisbandPartyAction.cs:40 就是这么写的
+
+// 3) 英雄布料色（static readonly 数组，别改内容）
+uint[] vlandia = CampaignData.VlandiaHeroClothColors;
+uint picked = vlandia[heroIdx % vlandia.Length];    // 必须自己处理越界，数组是公开可变的
+```
+
+### 最容易踩的坑
+
+拿这些 tag 去比较 `Settlement.SettlementType` 或 `Hero.CharacterTier` 之类的枚举。它们是**内容侧字符串**，与任何游戏枚举都不对应，写错了编译器不会报错。后果最典型的是把 `spawnpoint` 前缀当成语义标记——`PlayerTag = "spawnpoint_player"`（`:26`）与 `PlayerOutsideTag = "spawnpoint_player_outside"`（`:32`）在 XML 里是**不同的** spawnpoint，但在字符串前缀上只差一个后缀；你如果写 `tag.StartsWith("spawnpoint_player")` 匹配，两者都会被命中，于是「城外出生点」被当成「城内出生点」用，NPC 直接刷在地图上。另外那些 `static readonly uint[]` 数组（`:473` 等）是**公开可变的**，引擎不会保护你，索引越界同样是运行期崩。
+
 ## 成员与调用时机
 
 **出生点 tag（角色生成）**

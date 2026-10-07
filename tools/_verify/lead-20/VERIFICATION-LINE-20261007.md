@@ -1185,3 +1185,48 @@ Layer 3 宽形态：13,202 条标记，随手抽 2 条 = 2 条假阳性 ⇒ 精�
 > 只说明它跑了，不说明它发现了什么。
 
 **⇒ 本线据此刻意拒绝把 `layer1_flagged=2746`、`layer3=13,202/4,708` 当作缺陷数上报 —— 这不是谨慎，是纪律。**
+
+---
+
+## 37. ✅ 门禁回绿（10:27:00Z）· 病灶已修且**修法经核实正确**
+
+```
+UTC 2026-10-07T10:27:00Z   node tools/audit-links.mjs   sha256_16=efa042c2c32fed59（自带）
+FILES=39039 · TOTAL_LINKS=149778 · BROKEN_LINKS=0 · FILES_WITH_BROKEN=0 · RESOLVE_NEITHER=2 · RESOLVE_STATIC=2
+增量：CHANGED_FILES=4 · CHANGED_LINKS=43 · BROKEN_LINKS=0（exit 0）
+（RESOLVE_NEITHER 16 → 2，回到回归前水平）
+```
+
+### 病灶四样对照
+```
+content/v1.3.0/zh/api/campaign/DefaultTournamentModel.md
+  size    19266 → 19122
+  sha256  6e7819e883e4834d → 847ffebd843c49dd
+  mtime   18:19:25 → 18:26:19     （10:24:13Z 报红 ⇒ 约 2 分钟内修完）
+  git diff --stat  1 file changed, 263 insertions(+), 94 deletions(-)
+```
+
+### ★ 本线核了【修法正确】而非只是「门禁不报错」
+```
+314: `[TournamentCampaignBehavior](../TournamentCampaignBehavior)`                                 ← 同桶 ✓
+315: `[TournamentManager](../TournamentManager)`                                                   ← 同桶 ✓
+317: `[ArenaPracticeFightMissionController](../../campaign-ext/ArenaPracticeFightMissionController)` ← 跨桶，深度对 ✓
+⇒ 逐条实测目标页存在 ⇒ 【是改对了路径口径，不是把链接删掉换绿】。
+```
+**⇒ 本线纪律：报「已修复」时必须核【修法本身】，否则「删掉链接换绿」与「修对」不可区分。**
+
+---
+
+## 38. ★ 路径口径三类坑（本会话实测三例，建议进判据文档）
+
+```
+① 命名空间路径当页面路由（14 条，本日）
+   例：../TournamentGames/TournamentCampaignBehavior · ../SandBox/Missions/…/ArenaPracticeFightMissionController
+② `.md` 后缀（8 条，本日）
+   例：[X](../Foo.md) —— 目标页存在、../ 深度也对，唯一错是后缀
+③ 桶名写错（6 条，本日）
+   例：../../api/campaign/SaveManager —— 真身在 api/save-system/（5 条）与 api/campaign-ext/（1 条）
+⇒ 三者共同点：**路径看着合理 · 目标真实存在 · 只有【路径口径】错**
+⇒ 【形态检查抓不到，只有解析式门禁能抓。】
+```
+**⇒ 建议判据：凡「目标存在、形态合理、仍不可达」的断链，优先怀疑【路径口径】而非【目标缺失】。**

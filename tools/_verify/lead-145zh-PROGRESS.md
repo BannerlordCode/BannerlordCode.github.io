@@ -335,3 +335,37 @@ JUDGE total=5 pass=4 fail=1
 
 **5 页均已在** `_index.md` 机械子页清单（行 1620 / 1915 / 2819 / 2919 / 1280）⇒ 不需补父索引链。
 
+### 9.1 b02 批前读数（冻结，2026-10-07T06:58Z）—— 本批的【负向对照】
+
+```
+$ node tools/_verify/lead-145zh-judge.mjs --manifest tools/_verify/lead-145zh-b02.pages.txt
+JUDGE total=5 pass=0 fail=5
+# 两个口径（必须分开报）: deep_pass=0/5 · tier=handwritten_deep=0/5
+```
+
+| 页 | 字节 | 当前 H2 |
+| --- | ---: | --- |
+| InitializeWorkshopAction | 969 | 方法 / 使用示例 / 参见 |
+| MakeHeroFugitiveAction | 879 | 方法 / 使用示例 / 参见 |
+| SiegeAftermathAction | 1,186 | 方法 / 使用示例 / 参见 |
+| StartMercenaryServiceAction | 953 | 方法 / 使用示例 / 参见 |
+| GainRenownAction | 848 | 方法 / 使用示例 / 参见 |
+
+⇒ **尺必须在批前判 0/5。** 若开工时批前不是 0/5 ⇒ 尺或清单有问题，先查这个再开工。
+⇒ 批后目标 `pass=5/5`；若 boss 裁定 (b)，则 `deepPass` 可能为 0/5 —— **两个数都要报。**
+
+### 9.2 b02 派单 brief（停机期准备产物）
+
+`tools/_verify/lead-145zh-b02.BRIEF.md` —— 含：解禁三前置 / **无跨页链接政策（boss-3 #12289）已写进 brief** /
+七节判据 / 五页已核实源码事实与调用点 / 负向对照 / worker 单元划分 / 尺与回报格式 / 两条纪律。
+**解禁后直接按此 brief 派单，不需要重新准备。**
+
+### 9.3 当前阻塞（只差两件）
+
+1. boss-3 对「政策 #12289 vs `deep_pass`」的 **(a) 窄豁免** / **(b) 接受不可达** 裁定；
+2. 全站 `BROKEN_LINKS=0 / FILES_WITH_BROKEN=0`
+   （2026-10-07T06:58Z 实测 `39 / 2`，**两个文件全在 `content/v1.3.0/zh/api/campaign/`，不在本线**）。
+
+停机期间 **不动 `content/`**。两个 b01 worker 已 `team_cancel`（不抱空闲 worker 等无期限解禁）；
+解禁后按 §5 重建。
+

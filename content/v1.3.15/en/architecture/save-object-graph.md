@@ -162,7 +162,9 @@ hero2.Party = party;
 // Example SaveableTypeDefiner subclass
 public class MyTypeDefiner : SaveableTypeDefiner
 {
-    public MyTypeDefiner(DefinitionContext context) : base(context) { }
+    // The base constructor is protected SaveableTypeDefiner(int saveBaseId) (SaveableTypeDefiner.cs:13)
+    // ⇒ it takes a base id, not a DefinitionContext
+    public MyTypeDefiner() : base(1001) { }
 
     protected override void DefineClassTypes()
     {

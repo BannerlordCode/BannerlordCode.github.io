@@ -7,6 +7,8 @@ description: "Bannerlord 的 Module 是什么：一个含 SubModule.xml 与程�
 
 > 模块系统回答 mod 的第一个工程问题：**我的代码什么时候被执行？** 答案是：游戏按 `SubModule.xml` 装载模块，再在正确的阶段回调你派生的 `MBSubModuleBase`。
 
+> 节 schema：本页采用 6 节（按出现顺序）：一句话定位 ｜ 心智模型 ｜ 真实最小示例 ｜ 依赖图 ｜ 风险段 ｜ 导航
+
 ## 一句话定位
 
 一个 Bannerlord「模块（Module）」就是一个**带 `SubModule.xml` 和若干 `.dll` 的文件夹**；游戏按依赖顺序把它们加载进来，每个模块通过唯一的 `MBSubModuleBase` 派生类钩入生命周期——你的 mod 不是一堆散落的 DLL，而是被这套装载流程编排好时序的一段代码。

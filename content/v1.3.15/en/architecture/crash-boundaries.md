@@ -10,6 +10,8 @@ Use with the [Developer Task Roadmap](../developer-roadmap): the roadmap shows t
 
 ---
 
+> Section schema: this page uses 13 sections (in document order): ↑ Parent Navigation | 🔀 Sibling Navigation | Boundary map | 1. Saves: SaveId, Sync vs SaveableField, load order | 2. World changes: must go through Action.Apply | 3. Campaign event timing vs inside / outside Mission | 4. Agent / Mission lifecycle | 5. MBObjectManager registration | 6. SubModule load phases | 7. Model replacement | 8. UI / ViewModel lifetime | Quick checklist | See also
+
 ## ↑ Parent Navigation
 
 - [🏠 Version home](../../)

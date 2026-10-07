@@ -4,6 +4,8 @@ description: Bannerlord v1.3.0 / v1.3.15 / v1.4.5 module comparison
 ---
 # Version Delta — Module Comparison
 
+> Section schema: this page uses 7 sections (in document order): Mental Model | Module counts | v1.3.0 → v1.3.15 changes | v1.3.15 → v1.4.5 changes | 1.4.5 Class-Level API Change Summary | Migration advice | See also
+
 ## Mental Model
 
 Treat `Version Delta — Module Comparison` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.

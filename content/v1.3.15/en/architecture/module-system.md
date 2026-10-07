@@ -11,6 +11,8 @@ description: MBSubModuleBase lifecycle, module loading, registering Campaign/Mis
 
 ---
 
+> Section schema: this page uses 10 sections (in document order): ↑ Parent Navigation | 🔀 Sibling Navigation | ↓ Downstream Links | Lifecycle phases | Hook guide | Registering behaviors | SubModule.xml — the mod's identity card | Loading flow | Key classes | See also
+
 ## ↑ Parent Navigation
 
 - [🏠 Home](../../)

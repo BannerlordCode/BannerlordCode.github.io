@@ -8,6 +8,8 @@ description: How to read official content modules and the native layer; what to 
 > This site is a **modder handbook**, not a prose dump of every official campaign script and Native export.  
 > This page defines: when you hit **SandBox / StoryMode / Native**, what to read, what to write, and what is forbidden.
 
+> Section schema: this page uses 13 sections (in document order): One-line role | Three surfaces | Mental model | When to read SandBox source | Runnable SandBox chain | When to read StoryMode | When to touch Native | On-site presentation rules (mandatory) | Link to development tasks | Maintenance notes | ↑ Parent Navigation | ↔ Sibling Navigation | See also
+
 ## One-line role
 
 Separate three surfaces that *look* like business APIs but should not all get generic deep pages, and point readers back to the **managed hubs** they should depend on.

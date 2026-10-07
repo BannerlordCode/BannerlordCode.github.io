@@ -6,6 +6,8 @@ description: Bannerlord SDK architecture hub — module map, loading flow, save 
 
 > Treat architecture as a **map**, not a parts list. This page shows how a mod flows through the SDK and which doc to read next.
 
+> Section schema: this page uses 9 sections (in document order): One-sentence map | ↑ Parent Navigation | 🌳 Tree Navigation | 🔀 Sibling Navigation | ↓ Child Navigation | Decision Tree | Layer Cheat Sheet | Parent Navigation | Child Pages
+
 ## One-sentence map
 
 ```

@@ -6,6 +6,8 @@ description: Bannerlord SDK full module map, layered architecture, and mod devel
 
 > This is a **developer roadmap**, not a module list. It answers three questions: why each layer exists, when you need it, and how to jump to the API docs.
 
+> Section schema: this page uses 8 sections (in document order): In one sentence | ↑ Parent Navigation | 🔀 Sibling Navigation | Layered diagram | Decision table: I want to... | Data flow: from XML to the screen | Key class links | Version delta quick reference
+
 ## In one sentence
 
 Bannerlord's managed code is a **strictly layered** set of `TaleWorlds.*` assemblies:

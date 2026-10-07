@@ -6,6 +6,8 @@ description: "如何阅读 SandBox、StoryMode、Native 三个模块：Native �
 
 > 这三个模块定位不同，混为一谈会浪费时间。本页给出「该读什么、不该读什么、读完回到哪」。
 
+> 节 schema：本页采用 5 节（按出现顺序）：一句话职责 ｜ 心智模型：阅读优先级 ｜ 各模块的读法 ｜ 可运行的 SandBox 链路 ｜ 参见
+
 ## 一句话职责
 
 - **SandBox**：官方范例模块（`Modules.SandBox`），承载大量可参考的 Behavior / Quest / 对话实现。学「怎么做」的最佳样本。

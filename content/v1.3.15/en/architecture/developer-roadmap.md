@@ -6,6 +6,8 @@ description: I want to do X → dependency chain → entry classes and docs. Tas
 
 > Pick a task, then follow the dependency chain. This page is a **task hub**, not a class inventory. Many class pages are still stubs (coverage RED). Prefer architecture pages, guides, and existing deep_pass gold pages for real mental models.
 
+> Section schema: this page uses 8 sections (in document order): How to use this page | ↑ Parent Navigation | 🔀 Sibling Navigation | Task table: I want to... | Dependency chains (read order) | Suggested first hour | Coverage / deep_pass relationship | Quick entry links
+
 ## How to use this page
 
 1. Find your row in the task table  

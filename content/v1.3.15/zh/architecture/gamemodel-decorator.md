@@ -7,6 +7,8 @@ description: "Bannerlord 的 GameModel 装饰模式：CampaignGameStarter.AddMod
 
 > GameModel 装饰模式回答 mod 的核心扩展问题：**怎么改游戏规则而不重写整个系统？** 答案是：把新模型套在旧模型外面，只重写你关心的方法，其余委托给 `BaseModel`。
 
+> 节 schema：本页采用 5 节（按出现顺序）：一句话定位 ｜ 心智模型 ｜ 真实最小示例 ｜ 常见误用 ｜ 导航
+
 ## 一句话定位
 
 `MBGameModel<T>` 是一个**装饰器基类**：mod 派生它、重写少数方法、通过 `CampaignGameStarter.AddModel<T>` 注册，游戏引擎用 `GetModel<T>()` 从装饰链尾部取出最外层模型——你改的是「最外面那层皮」，原模型仍在链内被委托调用。

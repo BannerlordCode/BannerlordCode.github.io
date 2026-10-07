@@ -7,6 +7,8 @@ description: "Mechanical internals and mod integration handbook for the Campaign
 
 > The previous page, [Campaign Event System](../campaign-event-system), explained "how the three classes collaborate". This page answers the more engineering-focused questions: **how listeners are stored at the bottom, how to write subscription code, when events fire, and which events you can subscribe to**. After reading this page you should be able to write a Behavior that never double-subscribes, never leaks listeners, and knows exactly when each event fires.
 
+> Section schema: this page uses 11 sections (in document order): One-Line Positioning | Mental Model | Common Event Catalog (Signatures Verified in 1.3.15) | How To Use: Complete Behavior Example | Dependency Graph (Clickable) | ⚠ Risk & Crash Boundaries | When to Use / When Not to | Full Event Index | ↑ Parent Navigation | ↔ Sibling Navigation | ↓ Related API Pages
+
 ## One-Line Positioning
 
 `CampaignEvents` is the Campaign layer's **static event facade**: mods subscribe via `CampaignEvents.XxxEvent.AddNonSerializedListener(this, handler)`, and the game kernel fires events via `CampaignEventDispatcher.Instance.OnXxx()`. Under the hood, each event is a linked list of listeners organized by owner.

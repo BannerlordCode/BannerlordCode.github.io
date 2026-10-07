@@ -8,6 +8,8 @@ description: Bannerlord v1.3.0 / v1.3.15 / v1.4.5 模块差异、破坏性 API �
 
 ---
 
+> 节 schema：本页采用 9 节（按出现顺序）：↑ Parent Navigation ｜ 🔀 Sibling Navigation ｜ 模块数量 ｜ v1.3.0 → v1.3.15 ｜ v1.3.15 → v1.4.5 ｜ 类级破坏性变化速览（1.3.15 → 1.4.5） ｜ 迁移检查清单 ｜ 迁移建议 ｜ 参见
+
 ## ↑ Parent Navigation
 
 - [🏠 首页 / Home](../../)

@@ -7,6 +7,8 @@ description: Bannerlord 1.3.15 new save system architecture
 **Namespace**: TaleWorlds.SaveSystem
 **Version**: 1.3.15 (NEW - Does not exist in 1.3.0)
 
+> Section schema: this page uses 12 sections (in document order): Overview | Mental Model | Module Structure | Core Classes | Save Attributes | Save Flow | Load Flow | ISaveDriver Interface | MetaData Structure | Auto-Generated Code | Save File Format | 1.3.0 vs 1.3.15 Comparison
+
 ## Overview
 
 TaleWorlds.SaveSystem is a new modular save system added in version 1.3.15. In 1.3.0, save logic was scattered across modules, but 1.3.15 unified it into a dedicated system with 100+ .cs files.

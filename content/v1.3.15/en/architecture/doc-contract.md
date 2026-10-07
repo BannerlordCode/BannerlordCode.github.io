@@ -12,6 +12,8 @@ Chinese is primary where a matching page exists. This English page is the author
 
 ---
 
+> Section schema: this page uses 12 sections (in document order): ↑ Parent Navigation | 🔀 Sibling Navigation | Gold reference pages (quality floor) | 1. Sacred rules H1–H9 (non-negotiable) | 2. Deep page MUST (one FAIL = incomplete) | 3. Family cluster page MUST | 4. Auto-reject list | 5. R1 scope and noise | 6. Tools: banned vs allowed | 7. Link and formatting rules | 8. Reviewer flow | 9. Success line
+
 ## ↑ Parent Navigation
 
 - [Architecture index](./)

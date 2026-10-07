@@ -6,6 +6,8 @@ description: "Managed-Native 互操作边界：IMB* 接口、引擎回调、何�
 
 > Bannerlord 引擎分两层：托管层（`TaleWorlds.*`，C#，本站主要文档对象）与原生层（C++，RE 桥）。本页讲清边界，避免 mod 直接踩原生。
 
+> 节 schema：本页采用 5 节（按出现顺序）：心智模型 ｜ 何时需要翻 Native ｜ 日常应桥回的托管 API ｜ 风险 ｜ 参见
+
 ## 心智模型
 
 ```

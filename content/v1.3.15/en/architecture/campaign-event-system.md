@@ -7,6 +7,8 @@ description: "Mental model for the Campaign-layer pub/sub event bus: how Campaig
 
 > The event system answers a mod's second core question: **the world changed — how do I know?** Answer: don't poll. Subscribe to `CampaignEvents` static events, and the game notifies you when a hero dies, a settlement changes hands, war is declared, or a save completes.
 
+> Section schema: this page uses 11 sections (in document order): One-Line Positioning | Mental Model | How to Use: A Mod's Real Integration | Save Events: Three Hooks | Dependency Graph (Clickable) | ⚠ Risk & Crash Boundaries | When to Use / When Not to | Full Event Index | ↑ Parent Navigation | ↔ Sibling Navigation | ↓ Related API Pages
+
 ## One-Line Positioning
 
 `CampaignEvents` is the Campaign layer's **central publish/subscribe (pub/sub) event bus** — it translates "something important happened in the world" into a single broadcast with a typed payload, so mods can react to changes without scanning the entire world every second.

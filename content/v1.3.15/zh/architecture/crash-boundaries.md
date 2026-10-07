@@ -4,6 +4,8 @@ description: "Bannerlord 模组最常见的离奇崩溃与坏档，按所属架�
 ---
 # 崩溃与存档边界
 
+> 节 schema：本页采用 11 节（按出现顺序）：一句话定位 ｜ 心智模型：崩溃与坏档分两类，落在不同层 ｜ 1. 存档：SyncData vs SaveableField、加载顺序、自定义字段坏档 ｜ 2. 世界变更必须走 *Action.Apply（直接改字段 → 坏档 / 不同步） ｜ 3. Campaign 事件时机 vs Mission 内外（Mission 里读 Campaign 状态的风险） ｜ 4. Agent / Mission 生命周期（Mission.Current == null、Agent 死后引用、teardown 后访问） ｜ 5. MBObjectManager 注册（未注册对象被引用 → 崩溃） ｜ 6. SubModule 加载阶段（错误阶段 new Game / 访问未初始化服务） ｜ 7. Model 替换（空替换 / 错误阶段替换 → 行为丢失） ｜ 8. UI / ViewModel 寿命（跨 Mission 持有 VM、错误线程更新） ｜ 导航
+
 ## 一句话定位
 
 大多数「只有我的 mod 崩溃 / 打开旧档就坏」并不是引擎 bug，而是**对生命周期与序列化契约的误用**。本页把高频失败模式按它所属的架构层归类，每条都给可对照的真实代码片段，是类页「风险」段的总索引。

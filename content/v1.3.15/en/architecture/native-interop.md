@@ -4,6 +4,8 @@ description: How Bannerlord C# managed code calls into TaleWorlds.Native.dll via
 ---
 # Managed-Native Interop
 
+> Section schema: this page uses 10 sections (in document order): Mental model | Where the native source lives | Call flow | Common managed to native calls | Native interface index | Native 1.3.15 source reference index | When to touch the native layer | Related guides | ↑ Parent navigation | ↓ Child pages
+
 ## Mental model
 
 Bannerlord engine has two layers:

@@ -6,6 +6,8 @@ description: Bannerlord SDK 架构入口 — 模块地图、加载流程、存�
 
 > **把架构当作一张交通图，而不是一张零件清单。**  本文告诉你：一个 mod 从启动到存档会经过哪些系统、为什么要经过它们、以及下一步该读哪一页。
 
+> 节 schema：本页采用 9 节（按出现顺序）：一句话地图 ｜ ↑ 上级导航 / Parent Navigation ｜ 🌳 树状导航 / Tree Navigation ｜ 🔀 同级导航 / Sibling Navigation ｜ ↓ 子级导航 / Child Navigation — 架构文档 ｜ 🧭 决策树：我想做… → 读哪一页？ ｜ 层次速记 / Layer Cheat Sheet ｜ ↑ 上级导航 ｜ ↓ 子页面目录
+
 ## 一句话地图
 
 ```

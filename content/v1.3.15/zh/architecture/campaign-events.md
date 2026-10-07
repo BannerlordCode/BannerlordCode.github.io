@@ -7,6 +7,8 @@ description: "CampaignEvents 事件总线的机械原理与 mod 接入手册：M
 
 > 上一页 [战役事件系统](../campaign-event-system) 讲清了「三个类如何协作」；本页回答更工程化的问题：**监听器在底层怎么存、订阅代码怎么写、事件在什么时机触发、哪些事件可以订阅**。读完本页你应该能独立写出一个不会重复订阅、不会漏退订、知道每个事件何时触发的 Behavior。
 
+> 节 schema：本页采用 11 节（按出现顺序）：一句话定位 ｜ 心智模型 ｜ 常见事件目录（1.3.15 已核实签名） ｜ 怎么用：完整 Behavior 示例 ｜ 依赖图（可点击） ｜ ⚠ 风险与崩溃边界 ｜ 何时用 / 何时不要用 ｜ 完整事件索引 ｜ ↑ 上级导航 ｜ ↔ 同级导航 ｜ ↓ 相关 API 页面
+
 ## 一句话定位
 
 `CampaignEvents` 是战役层的**静态事件门面（facade）**：mod 通过 `CampaignEvents.XxxEvent.AddNonSerializedListener(this, handler)` 订阅，游戏内核通过 `CampaignEventDispatcher.Instance.OnXxx()` 触发；底层每个事件是一条按 owner 组织的监听器链表。

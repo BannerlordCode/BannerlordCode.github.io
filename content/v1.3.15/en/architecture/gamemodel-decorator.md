@@ -7,6 +7,8 @@ description: "Bannerlord's GameModel decorator pattern: how CampaignGameStarter.
 
 > The GameModel decorator pattern answers a mod's core extension question: **how do I change game rules without rewriting the entire system?** Answer: wrap a new model around the old one, override only the methods you care about, and delegate the rest to `BaseModel`.
 
+> Section schema: this page uses 5 sections (in document order): One-sentence positioning | Mental model | Real minimal example | Common misuse | Navigation
+
 ## One-sentence positioning
 
 `MBGameModel<T>` is a **decorator base class**: a mod derives from it, overrides a few methods, registers via `CampaignGameStarter.AddModel<T>`, and the game engine retrieves the outermost model via `GetModel<T>()` — you modify "the outermost layer of skin" while the original model remains in the chain, reachable through delegation.

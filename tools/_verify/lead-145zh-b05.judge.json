@@ -1,0 +1,297 @@
+{
+  "judgedAt": "2026-10-07T08:59:31.118Z",
+  "judgeSha256": "127ee75ae9c20d938da532e9dab04a3d05c094e1413e34b3318c824c1749a672",
+  "mode": "require",
+  "total": 5,
+  "pass": 5,
+  "deepPass": 5,
+  "tierDeep": 5,
+  "crossCheckAgree": null,
+  "results": [
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/AchievementsCampaignBehavior.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J3_src_tree": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5\\Bannerlord.Source",
+        "J3_src_unavailable": null,
+        "J3_citations": 2,
+        "J3_bare_resolved": 35,
+        "J3_checked_total": 37,
+        "J3_uncheckable_no_tree": 0,
+        "J3_bad": [],
+        "J4_bare_line_refs": 0,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J11_trailing_slash": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=5",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=5",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 13124,
+        "J8_h2h3": 21,
+        "J9_csharp_lines": 58
+      },
+      "fail": [],
+      "warn": [],
+      "pass": true
+    },
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/ActionCampaignOptionData.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J3_src_tree": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5\\Bannerlord.Source",
+        "J3_src_unavailable": null,
+        "J3_citations": 7,
+        "J3_bare_resolved": 19,
+        "J3_checked_total": 26,
+        "J3_uncheckable_no_tree": 0,
+        "J3_bad": [],
+        "J4_bare_line_refs": 0,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J11_trailing_slash": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=4",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=4",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 8495,
+        "J8_h2h3": 14,
+        "J9_csharp_lines": 45
+      },
+      "fail": [],
+      "warn": [],
+      "pass": true
+    },
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/ActionNotes.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J3_src_tree": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5\\Bannerlord.Source",
+        "J3_src_unavailable": null,
+        "J3_citations": 4,
+        "J3_bare_resolved": 0,
+        "J3_checked_total": 4,
+        "J3_uncheckable_no_tree": 0,
+        "J3_bad": [],
+        "J4_bare_line_refs": 0,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J11_trailing_slash": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=3",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=3",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 7510,
+        "J8_h2h3": 10,
+        "J9_csharp_lines": 27
+      },
+      "fail": [],
+      "warn": [],
+      "pass": true
+    },
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/Add1000GoldCheat.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J3_src_tree": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5\\Bannerlord.Source",
+        "J3_src_unavailable": null,
+        "J3_citations": 5,
+        "J3_bare_resolved": 0,
+        "J3_checked_total": 5,
+        "J3_uncheckable_no_tree": 0,
+        "J3_bad": [],
+        "J4_bare_line_refs": 0,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J11_trailing_slash": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=3",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=3",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 5394,
+        "J8_h2h3": 10,
+        "J9_csharp_lines": 39
+      },
+      "fail": [],
+      "warn": [],
+      "pass": true
+    },
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/Add100InfluenceCheat.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J3_src_tree": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5\\Bannerlord.Source",
+        "J3_src_unavailable": null,
+        "J3_citations": 5,
+        "J3_bare_resolved": 0,
+        "J3_checked_total": 5,
+        "J3_uncheckable_no_tree": 0,
+        "J3_bad": [],
+        "J4_bare_line_refs": 0,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J11_trailing_slash": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=3",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=3",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 5715,
+        "J8_h2h3": 10,
+        "J9_csharp_lines": 46
+      },
+      "fail": [],
+      "warn": [],
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+# ⚠ CORRECTION — READ THIS BEFORE USING THE REPORT BELOW
+
+**Added by lead-20 at 2026-10-07T10:15Z, after the report was committed (`a2fd18e329`).**
+
+## The report measured an implementation that was NEVER COMMITTED
+
+```
+templates/macros/page-navigation.html  — every committed version references ONLY
+                                          data/navigation.json (152 KB)
+  cc39aaf811  10-01 21:34:25  ⇒ navigation.json (152 KB)
+  cb7b700718  10-01 15:19:41  ⇒ navigation.json (152 KB)
+  b3ed3b1d87  08-03 18:48:15  ⇒ navigation.json (152 KB)
+  HEAD (now)                  ⇒ navigation.json (152 KB)
+templates/ working tree = clean (git status --porcelain -- templates/ = empty)
+```
+**⇒ The variant this report measured — `load_data(path="data/page-navigation.json")` (18.8 MB) as the
+macro's first statement — existed only as an UNCOMMITTED WORKING-TREE STATE (the withdrawn "R2"
+implementation). It is not in any commit.**
+
+## What therefore does NOT hold for the current implementation
+
+| claim in this report | status |
+|---|---|
+| macro line 10 loads 18.8 MB `page-navigation.json` unconditionally | **INVALID for HEAD** — HEAD loads 152 KB `navigation.json` **inside `{% if parent_path %}`** with an `is defined` guard |
+| ~39,039 × 18.8 MB deep clone per build | **INVALID for HEAD** |
+| A avg 162.3 s / B avg 71.5 s / delta 90.8 s / 65.4 ms per page | **measures the withdrawn R2 variant only** |
+| full-site projection ≈ 42.6 min | **INVALID for HEAD** |
+
+## What still stands
+
+- **Call-site topology**: `page_navigation::render(...)` is still invoked from `page.html` and
+  `section.html`, so the macro is still reached by every leaf and section page. Only the **cost inside**
+  the macro changed.
+- **Coverage finding (323 routes)**: still valid — it is a property of the **data file**
+  `data/page-navigation.json` vs the page corpus, independent of whether templates read it.
+  All 323 missing are newer than the JSON (staleness, not a generation bug); 3 further routes
+  (`xml-reference/bugs`) legitimately have no prev/next as singletons.
+
+## Why this happened (and it is the same failure I had just diagnosed elsewhere)
+
+Earlier the same session I established that a **never-committed** ruler version (`3dc897bc`) had judged a
+frozen batch. I then failed to apply that lesson here: I read the macro from the working tree, derived a
+structural conclusion from it, and reported it — without checking `git status -- templates/` or reading
+the **committed** version.
+
+**Rule (Boss, adopted):** *once the carrier of a defect is withdrawn, every measurement of that carrier
+is simultaneously invalidated. Before concluding anything about an implementation, confirm it is
+**currently on disk and committed** — `git status -- <carrier>` plus reading the file itself.*

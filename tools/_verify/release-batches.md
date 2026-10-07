@@ -90,8 +90,10 @@ content/v1.4.5/zh/api/campaign-ext/AccessLimitationReason.md
 | 批 1 | `9ab98aa8dd5e42651c45ff047aabaedbb53b3def` | 4 | 0 | worker-195（lead-21 发布线） | 干净落地，message 为 `content(v1.3.15): 修订 architecture 双语架构页（action-family / ui-three-layers）` |
 | 批 2 | `da1dfa7461285f57facfe64aa6c4b25c52630581` | 3 | 2 | lead-145zh 线（并发碰撞） | 批 2 的 3 个 content 文件被 lead-145zh 线连同其 2 个 tools 文件（`tools/_verify/lead-145zh-PROGRESS.md`、`tools/_verify/lead-145zh-judge.mjs`）一起提交，message 不描述内容；内容正确；未改写历史 |
 | 批 3 | `749f45f8de34f91adf6ac837a82476daa884edd6` | 3 | 0 | worker-195（lead-21 发布线） | 干净落地，message 为 `content(v1.3.0/v1.3.15): 批 3——角色成长模型 zh 页与存档对象图架构双语页` |
+| 批 4 | `9556f3662d70140681bac971246956961bf59448` | 2 | 0 | worker-195（lead-21 发布线） | 干净落地，message 为 `content(v1.3.15): correct the save-object-graph pages' false ISaveable.Write/Read claims` |
 
 **push 记录：**
 
 - lead-21 push：origin/main `62a2d25b0478a615b428aa54855e6377641eabe8` → `5dee108247479cfc6be3ae6c15891990519ddd4b`（6 个提交，含批 1 的 `9ab98aa8dd` 与批 2 的 `da1dfa7461`）。
 - worker-195 push：origin/main `5dee108247479cfc6be3ae6c15891990519ddd4b` → 本提交（fast-forward，携带本地 3 个未推提交：`87cd609fb`（lead-145zh）、`749f45f8de`（批 3）、本提交）。
+- 更正（2026-10-07）：worker-195 的 push 实际携带 4 个提交——`87cd609fb`、`749f45f8de`（批 3）、`7a95c2cd8b`（lead-145zh，push 前并发产生）、`954a828514`（收尾）。上文写的「3 个」是写入时的状态，实测为 4。

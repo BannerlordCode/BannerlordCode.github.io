@@ -181,6 +181,43 @@ clanToFound.Banner = clanBanner;
 5. **`BannerVisual` 需要活动游戏**：`BannerVisual` 的 `get` 调用 `Game.Current.CreateBannerVisual(this)`。在战役/任务之外的上下文（如无头工具、菜单早期）访问它可能拿到 null 或失败。只做数据搬运（读/写 `BannerCode`、改色）不需要它。
 6. **`Banner` 不入 `MBObjectManager`**：它是普通 `public class`，没有 `StringId`、不是 `MBObjectBase`。不要用 `MBObjectManager.Instance.GetObject<Banner>` 去取——没有这种入口，运行时会找不到。
 
+## 怎么用
+
+**怎么拿到（这里是生产端，不是读取端）。** 本体在 `bannerlord-1.3.15/TaleWorlds.Core/Banner.cs:10`，声明 `public class Banner`（**不继承 `MBObjectBase`**）。上面「如何获取 Banner」讲的是「怎么读到一个现成的」，这里讲的是「引擎在哪里 `new` 它」—— 这是两件事。
+
+全树只有两个生产模式，都能在 1.3.15 的 `TaleWorlds.CampaignSystem/Clan.cs` 的反序列化路径里看到（`Clan.cs:1200-1207`）：
+
+```csharp
+if (node.Attributes.get_ItemOf("banner_key") != null) {
+    this._banner = new Banner();
+    this._banner.Deserialize(node.Attributes.get_ItemOf("banner_key").Value);
+} else {
+    this._banner = Banner.CreateRandomClanBanner(base.StringId.GetDeterministicHashCode());
+}
+```
+
+**分支 A 是「空构造 + 立刻反序列化」，分支 B 是「直接走静态工厂」。** 也就是说引擎自己从不用裸 `new Banner()` 的产物 —— 它总是紧跟着一次 `Deserialize`。`Deserialize` 之后紧跟的三行 `GetPrimaryColor()` / `GetSecondaryColor()` / `GetFirstIconColor()` 之所以能安全执行，正是因为反序列化已经把 `_bannerDataList` 填好了。
+
+**这直接给出了安全顺序**：`new Banner()` → **必须** `Deserialize(code)` 或 `AddIconData(...)` → 之后才能读任何颜色/网格 getter。
+
+**一段可直接跑的三行填充**（用 `AddIconData` 逐条建，而不是碰内部表）：
+
+```csharp
+Banner b = new Banner();
+b.AddIconData(new BannerData(0, colorId, colorId, Vec2.One, Vec2.Zero, false, false, 0f));
+Debug.Print(b.Serialize(), 0);
+```
+
+**`BannerData` 的构造函数有八个必填参数，没有默认值、没有便捷重载**（`BannerData.cs:184`：`int meshId, int colorId, int colorId2, Vec2 size, Vec2 position, bool drawStroke, bool mirror, float rotationValue`），另一个重载只是拷贝构造。**所以「手工建一条旗标」这件事本身比想象中啰嗦 —— 这也正是引擎在 `Clan.cs:1200` 宁可走 `Deserialize` 也不手工建的原因。**
+
+第一行的 `AddIconData` 写进去的是**索引 0 的背景项**（约定索引 0 为背景、1 起为图标）。
+
+`AddIconData(BannerData)`（`Banner.cs:296`）的方法体有个硬上限：`if (this._bannerDataList.Count < 33) { this._bannerCode = null; this._bannerDataList.Add(iconData); }`。**所以加到 33 条之后会被静默丢弃**，没有任何返回值告诉你。
+
+**它是「自失效缓存」式的。** 每次 `AddIconData` 第一句都是 `this._bannerCode = null;` —— 缓存的 `BannerCode` 立刻作废，下次读 `BannerCode`（`Banner.cs:14`）时才重新序列化。**所以你改了 `_bannerDataList`（通过任何公开 mutator）之后，不要复用之前读出来的 `BannerCode` 字符串。**
+
+**最常见的坑（拿到之后的第一件事）：空表越界。** `new Banner()` 造出的旗 `_bannerDataList` 为空，任何 `GetPrimaryColorId`、`GetBackgroundMeshId`、`GetIconColorId`、`GetIconSize` 等都会 `IndexOutOfRangeException` —— 而且**栈顶指向引擎内部的 getter，不是你的 `new` 那一行**，看起来像是引擎坏了。务必先 `AddIconData` 或 `Deserialize` 填充，或用工厂方法。这条已在「风险与崩溃边界」第 1 条展开。
+
 ## 依赖图
 
 **上游（本对象依赖谁）**

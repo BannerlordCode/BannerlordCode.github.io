@@ -19,7 +19,7 @@ description: TaleWorlds.Native.dll v1.3.15 反编译函数地址索引
 | 已索引函数 | 11,095 |
 | 首个函数 | `FUN_180001000` |
 | 最后函数 | `FUN_180a21db0` |
-| 完整列表 | [COMPLETE-FUNCTIONS.md](./) |
+| 完整列表 | [ALL-FUNCTIONS-LIST.txt](../ALL-FUNCTIONS-LIST.txt) |
 | 源码文件 | `TaleWorlds.Native.dll.c` |
 | 头文件声明 | `TaleWorlds.Native.dll.h` |
 

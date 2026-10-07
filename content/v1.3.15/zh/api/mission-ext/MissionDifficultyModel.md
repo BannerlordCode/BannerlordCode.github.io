@@ -42,6 +42,72 @@ description: "任务侧的战斗难度钩子：唯一一个抽象方法，按受
 - 你想要一个*战役级*的难度设置。那是经 `Campaign.Current.Models` 访问的战役自己的难度模型，本钩子并不会查它。
 - 你需要事后从 Behavior 里修改伤害。请在 [MissionBehavior](../../mission/MissionBehavior/) 的 `OnAgentHit`/`OnEndMissionInternal` 里做，不要在模型里。
 
+## 怎么用
+
+### 怎么拿到它
+
+**这个类型没有实例可拿——你要做的是实现它的一个子类并注册进去。** 声明是 `public abstract class MissionDifficultyModel : MBGameModel<MissionDifficultyModel>`（`bannerlord-1.3.15/TaleWorlds.MountAndBlade/ComponentInterfaces/MissionDifficultyModel.cs:7`），整个类型只有一个抽象成员 `GetDamageMultiplierOfCombatDifficulty`（`:10`）。它不是 Behavior，没有 `AddMissionBehavior` 那种挂载点。
+
+注册入口是模型注册表的方法 `void AddModel<T>(MBGameModel<T> gameModel) where T : GameModel`（`TaleWorlds.Core/IGameStarter.cs:13`，实现在 `TaleWorlds.MountAndBlade/BasicGameStarter.cs:47-52`）。实现体三步，都是链式的：
+
+- `T model = this.GetModel<T>();`（`:49`）——`GetModel<T>` 反向扫描 `_models`（`BasicGameStarter.cs:29-33`），所以它拿到的是**当前最后一个已注册的同类型模型**，也就是你将要包裹的那一个。
+- `gameModel.Initialize(model);`（`:50`）——把上一层交给你。
+- `this._models.Add(gameModel);`（`:51`）——追加到链尾。
+
+消费端是**一次性绑定**：`MissionGameModels` 的构造器（`MissionGameModels.cs:123-129`）先 `MissionGameModels.Current = this;`（`:126`）再调 `this.GetSpecificGameBehaviors();`（`:127`），后者在 `MissionGameModels.cs:104` 执行 `this.MissionDifficultyModel = base.GetGameModel<MissionDifficultyModel>();`。也就是说**绑定只在那一个时刻发生一次**，之后注册的东西永远不会进入这个字段；任务结束时由 `MissionGameModels.Clear()`（`:132-135`）把 `Current` 置回 `null`。
+
+运行时你唯一该用的读取口是 `Mission.GetDamageMultiplierOfCombatDifficulty(Agent victimAgent, Agent attackerAgent = null)`（`Mission.cs:6420`），它在 `:6422` 判模型非 null 后转发（`:6424`），模型缺失时 `return 1f;`（`:6426`）。
+
+### 典型用法
+
+写一个**随战场态势缩放玩家所受伤害**的模型：主 agent 附近友军越少，受到的伤害越被压低。注意每个 API 都在本树里核过——`GetNearbyAllyAgents(Vec2 center, float radius, Team team, MBList<Agent> agents)` 在 `Mission.cs:6598`，`IsMainAgent` / `IsFriendOf` 是 `Agent` 上的成员（原版实现在 `DefaultMissionDifficultyModel.cs:16` 与 `:24` 就是这么读的）：
+
+```csharp
+using TaleWorlds.Library;
+using TaleWorlds.MountAndBlade;
+using TaleWorlds.MountAndBlade.ComponentInterfaces;
+
+public class AllyDensityDifficultyModel : MissionDifficultyModel
+{
+    // 复用同一个 list：GetNearbyAllyAgents 会先 Clear 它
+    private readonly MBList<Agent> _allyScratch = new MBList<Agent>();
+
+    public override float GetDamageMultiplierOfCombatDifficulty(
+        Agent victimAgent, Agent attackerAgent = null)
+    {
+        // 归一化照抄原版 DefaultMissionDifficultyModel.cs:13：坐骑要归到骑手
+        Agent victim = victimAgent.IsMount ? victimAgent.RiderAgent : victimAgent;
+        if (victim == null || !victim.IsMainAgent)
+        {
+            return 1f;
+        }
+
+        Mission mission = Mission.Current;
+        if (mission == null)
+        {
+            return 1f;
+        }
+
+        // 注意：这是一次 native 范围查询，会在每一次命中结算中途发生。
+        // 真的在意性能就把半径放大，或改成按「当前存活友军数」这类缓存量判断
+        mission.GetNearbyAllyAgents(
+            victim.GetWorldPosition().AsVec2, 8f, victim.Team, this._allyScratch);
+
+        // 只减伤，不减到 0 —— 0f 会让受击者无敌，负值会把血量推向负数
+        float relief = 0.7f - 0.02f * this._allyScratch.Count;
+        return relief > 0.5f ? relief : 0.5f;
+    }
+}
+```
+
+`attackerAgent` 在这个实现里故意不读——它默认 `null`，而投射物与环境伤害路径本来就不总会提供它，所以不依赖它是安全的选择。
+
+### 最容易踩的坑
+
+**`MBGameModel<T>.BaseModel` 是 `private protected`，你跨程序集的派生类根本读不到它。** 声明是 `private protected T BaseModel { protected get; private set; }`（`TaleWorlds.Core/MBGameModel.cs:11`），`protected` 部分受 `private` 约束——只有**本程序集内**的派生类能访问。后果：想「在原版难度上再乘一个系数」，直写 `this.BaseModel.GetDamageMultiplierOfCombatDifficulty(...)` **编译不过**；而绕过编译（反射或自己再存一份实例）会让每一次命中结算都多一次反射开销，并且一旦你漏了 `override Initialize(T baseModel)`，缓存下来的就是 `null`，症状是**战斗中途随机抛 NullReferenceException**，而不是一条能指向根因的错误——因为出问题的位置在命中结算管线内部，和「我注册了一个模型」这件事看起来毫无关系。正确写法只有一条：`override Initialize(T baseModel)` 把参数收进自己的私有字段（泛型 `AddModel<T>` 会在注册那一刻替你调用它，`BasicGameStarter.cs:50`）。
+
+顺带一个容易一起踩的点：`IGameStarter` 有**两个** `AddModel` 重载，而非泛型的 `AddModel(GameModel gameModel)`（`BasicGameStarter.cs:41-44`）只做 `_models.Add(gameModel)`，**不调用 `Initialize`**。用它注册同样会让 `BaseModel` 永远停在 null。
+
 ## 依赖关系
 
 - [MissionCombatMechanicsHelper](../MissionCombatMechanicsHelper/) — 返回的乘数在伤害管线里的活消费者。

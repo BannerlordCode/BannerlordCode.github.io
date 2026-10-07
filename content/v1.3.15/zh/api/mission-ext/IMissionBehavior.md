@@ -41,6 +41,45 @@ description: "每个任务扩展点都实现的空标记接口——`Mission.Get
 - 你想要 agent 侧的扩展点。那些是扩展了本标记的能力接口（`IAgentStateDecider`、`IPlayerInputEffector` 等）。
 - 你想要战役侧的扩展。那是 [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase/)，属于完全独立的生命周期。
 
+## 怎么用
+
+### 怎么拿到它
+
+**你永远拿不到它的实例——它是一个纯编译期约束。** `public interface IMissionBehavior`（`bannerlord-1.3.15/TaleWorlds.MountAndBlade/IMissionBehavior.cs:6`）的接口体是空的（`:7-8`），零成员、零默认实现、零静态工厂。它存在的唯一理由就是给一条泛型签名当约束：`Mission.GetMissionBehavior<T>() where T : class, IMissionBehavior`（`Mission.cs:4389`）。
+
+运行时的真实链路是这样接起来的：**`MissionBehavior : IMissionBehavior`**（`MissionBehavior.cs:11`）——`public abstract class MissionBehavior : IMissionBehavior`——再往上 **`MissionLogic : MissionBehavior`**（`MissionLogic.cs:9`）。所以你派生自 `MissionBehavior` 或 `MissionLogic` 时就已经实现了这个标记，**写不写 `: IMissionBehavior` 都不影响可发现性**；反过来，单独写 `: IMissionBehavior` 得到的东西引擎找得到，但什么回调也没有。
+
+在 `bannerlord-1.3.15` 整棵托管树里 `IMissionBehavior` 共命中 21 行、分布在 21 个文件（其中 1 行是它自己的声明），全部是「某类型 `: IMissionBehavior`」或泛型约束里的引用。
+
+### 典型用法
+
+标记接口的价值在**发现原版组件**上——`IMissionAgentSpawnLogic : IMissionBehavior`（`IMissionAgentSpawnLogic.cs:8`），所以引擎自己的增援生成逻辑同样能被 `GetMissionBehavior` 捞出来。读的时候只碰接口上有的成员，不要转成任何具体生成类：
+
+```csharp
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public static bool ReinforcementsStillRunning(Mission mission, BattleSideEnum side)
+{
+    // 约束只要求 class + IMissionBehavior，所以能力接口完全可以直接当 T 用
+    IMissionAgentSpawnLogic spawnLogic = mission.GetMissionBehavior<IMissionAgentSpawnLogic>();
+    if (spawnLogic == null)
+    {
+        // 未命中时方法体返回 default(T)（Mission.cs:4399），而 class 约束保证那就是 null
+        return false;
+    }
+
+    return spawnLogic.IsSideSpawnEnabled(side)    // IMissionAgentSpawnLogic.cs:17
+        && !spawnLogic.IsSideDepleted(side);     // IMissionAgentSpawnLogic.cs:21
+}
+```
+
+它内部是 `for (int i = 0; i < this.MissionBehaviors.Count; i++)` 的**正向线性扫描**，逐个做 `this.MissionBehaviors[i] as T`（`Mission.cs:4391-4398`）——所以它是 O(n) 且**首个匹配即返回**，不是「挑一个最合适的」。
+
+### 最容易踩的坑
+
+**引擎确实提供了一个存在性检查方法，但它的约束不是这个标记接口，所以它对能力接口用不了。** `Mission.HasMissionBehavior<T>()`（`Mission.cs:2447`）的声明是 `public bool HasMissionBehavior<T>() where T : MissionBehavior`——约束落在**具体基类**上，不是 `IMissionBehavior`。后果：`mission.HasMissionBehavior<IAgentStateDecider>()` 这行**编译直接失败**（CS0456 之类的约束不满足），而它在引擎内部只是 `return this.GetMissionBehavior<T>() != null;`（`Mission.cs:2449`）——也就是说它能做的事，你的代码用 `GetMissionBehavior<T>() != null` 一行就能做，而且对能力接口同样成立。写 mod 的探测逻辑时不要去照抄那个看起来更省事的 `HasMissionBehavior` 形状：**查行为基类用它，查能力接口只能自己写 `!= null`。**
+
 ## 依赖关系
 
 - [MissionBehavior](../../mission/MissionBehavior/) — 实现了 `IMissionBehavior` 并提供全部回调的抽象类；你真正该派生的基类。

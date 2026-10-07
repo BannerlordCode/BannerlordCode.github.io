@@ -1133,6 +1133,85 @@ J3 20+17+32+11+14 = 94，每页 bad=0 · pass=5/5 · deep_pass=5/5 · tier=5/5
 ```
 **累计口径（lead-20 与我共同声明）：b01–b04 = 20 页 · 20/20 · 477 条引用全部核界 · 语义正确性 0/477 已核。**
 
+---
+
+## 27. ★★ 我报的 `7/2` 是错的：峰值 `22/3` —— 错因是【把两次运行拼成一个数】
+
+### 27.1 lead-20 的复算（逐次）
+
+```
+08:13:34Z   0 / 0
+~08:33Z    22 / 3     ← 峰值（我整份漏了第三个文件）
+08:36:31Z  14 / 2
+08:37:38Z   0 / 0     ← 回绿
+```
+**我漏掉的文件**：`v1.3.0/zh/api/campaign/DefaultCharacterDevelopmentModel.md`（8 条）。
+**⇒ 若全组按 `7/2` 行动，会漏掉 8 条。**
+
+### 27.2 ★ 错因（比「漏一个文件」更具体）
+
+我**一次 shell 调用里跑了两次门禁**，然后把两次的输出拼成了一个数：
+```bash
+node tools/audit-links.mjs | grep -E "^BROKEN_LINKS|^FILES_WITH_BROKEN"          # 第 1 次
+node tools/audit-links.mjs | sed -n '/FILES_WITH_BROKEN/,$p' | grep -E "^## "     # 第 2 次
+```
+```
+第 1 次：BROKEN_LINKS=7   FILES_WITH_BROKEN=1
+第 2 次：（明细）两个文件各 (7)  ⇒ FILES_WITH_BROKEN=2
+⇒ 我把第 1 次的 7 与第 2 次的 2 拼成了「7/2」
+```
+**而且 `(7)` 是每个文件的【去重 href 数】，两个文件各 7 ⇒ 实际 14 条。**
+**⇒ 我报的 `7` 与明细的 `2×7` 本来就自相矛盾，我没看出来。**
+
+### 27.3 新规矩（比「更小心」可靠）
+
+```
+① 一个数 = 一次运行。禁止把两次调用的输出拼成一个读数。
+② 报门禁必须【同一运行内】同时取 BROKEN_LINKS / FILES_WITH_BROKEN / 明细，并核对三者自洽
+   （明细 2 个文件各 7 条而 BROKEN_LINKS 写 7 ⇒ 立即停下查，不要报出去）。
+③ 语料有活跃写入者时，两次运行就是两个状态（与「采样 vs 状态」同一件事）。
+④ 正确做法：node tools/audit-links.mjs > /tmp/gate.txt 2>&1，然后【只从这个文件】取所有数。
+```
+
+### 27.4 lead-20 的第二、三类缺陷（我完全没报）
+
+```
+A · 桶名写错（6 条）：campaign → save-system（5）· campaign → campaign-ext（1）
+B · 少一层 ../（1 条）
+C · ★ 多余的 .md 后缀（8 条）：4 个目标 ×2 处   ← 我整份没报
+```
+**C 的判读最有价值**：那 4 个目标**就在同目录**、`../` 深度**也是对的**、**唯一错的是那个 `.md`**。
+**⇒ 三类各有各的修法；把 C 当 A 修（去改桶名）会把正确的深度改坏。**
+已把「不要写 `.md` 后缀」加进 b05 两个 worker 的 brief（并注明今天刚有 8 条因此转红）。
+
+### 27.5 ★ lead-20 对自己工具的收窄（我照改）
+
+```
+changed set = git diff --name-only HEAD ∪ git ls-files --others --exclude-standard
+⇒ 已提交但含断链的文件既不是 modified 也不是 untracked ⇒ 被排除 ⇒ 报 0 ⇒ 【假绿】
+⇒ 只要在跑它之前 commit，它就对刚提交的那批断链完全失明。
+```
+**正确用法（已写进 b05 brief）：**
+```
+写完 → 跑 audit-changed-links.mjs（未提交，看得见）→ 修到 0 → 【然后才 commit】
+全站 audit-links.mjs 仍是唯一权威。它是「便宜的自检」，不是「替代门禁」。
+```
+
+---
+
+## 28. b05 已派单（2026-10-07T08:40Z）
+
+**批前单次运行读数**：`BROKEN_LINKS=0 / FILES_WITH_BROKEN=0 / 明细行数=0`（**三者自洽**）
+**b05 批前**：`pass=0/5 · deep_pass=0/5` · 20 页冻结 sha 全部一致 · orphans=0
+
+| 单元 | worker | 页 |
+| --- | --- | --- |
+| W-L | worker-200 | AchievementsCampaignBehavior（935 行）· ActionCampaignOptionData（24 行） |
+| W-M | worker-201 | ActionNotes（33 行 enum）· Add1000GoldCheat（21 行）· Add100InfluenceCheat（21 行） |
+
+**两个 brief 均已内联**：源文件 + 声明行、七节 H2、`description` 必须改写、`参见`≥2 条、正文不写链接（J10）、
+叶子无尾斜杠（J11）、形态按页面深度、**不要写 `.md` 后缀**、以及「先跑增量工具再 commit」。
+
 **已派 `worker-175`（#13161）**做 b01 的 4 页收尾（6 处字符串替换），brief 里明确列出**不许动**的
 `](../../campaign/)` 与 `](../)`。
 

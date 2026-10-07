@@ -1739,6 +1739,23 @@ AgentBehaviorGroup.md        (b06)          → 6 条
 一个在【提出者自己的线上】与【另一条线上】都抓到真缺陷的判据，才是判据。
 ```
 
+### 37.6 b06 = 5/5（**暂不宣告冻结**）
+
+```
+PASS  Add100RenownCheat 10,115B · AddCraftingMaterialsCheat 12,675B · AdditionType 14,129B
+PASS  AgentAlarmStateEnum 11,924B · AgentBehaviorGroup 16,851B
+JUDGE total=5 pass=5 fail=0 · deep_pass=5/5 · tier=5/5
+```
+**★ 但 `AgentBehaviorGroup.md` 上有 6 条 `J13` 警告，而它正是 worker-211 正在修的三页之一。**
+**⇒ 选择【等修完再一次宣告干净】，不留 REV 2。**
+
+**⇒ 一个记账区分（重要）：**
+```
+b01/b02：宣告时 J13 【不存在】 ⇒ 属「凭据口径不足」 ⇒ 修完需 REV 2 重宣告
+b06    ：宣告时 J13 【已存在】 ⇒ 明知有警告就不发凭据 ⇒ 修完一次宣告
+```
+**⇒ 「同一判据在批次宣告之后才出现」与「宣告之前已存在」是两种不同的记账，不应混为一谈。**
+
 **已派 `worker-175`（#13161）**做 b01 的 4 页收尾（6 处字符串替换），brief 里明确列出**不许动**的
 `](../../campaign/)` 与 `](../)`。
 

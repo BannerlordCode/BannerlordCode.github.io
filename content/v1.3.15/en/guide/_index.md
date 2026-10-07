@@ -313,6 +313,7 @@ For new projects, v1.3.15 is recommended.
 - [Official Modding Forum](https://forums.taleworlds.com/)
 
 <!-- BEGIN SECTION INDEX -->
+> 共 11 个子页
 
 ## Parent Navigation
 
@@ -329,5 +330,10 @@ For new projects, v1.3.15 is recommended.
 - [Mission System](./mission-system)
 - [Save System Guide](./save-system-guide)
 - [Troubleshooting](./troubleshooting)
+
+### M
+
+- [mod-workflow](./mod-workflow)
+- [modder-journey](./modder-journey)
 
 <!-- END SECTION INDEX -->

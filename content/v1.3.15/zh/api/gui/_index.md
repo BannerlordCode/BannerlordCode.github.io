@@ -44,6 +44,7 @@ description: Gauntlet UI 系统类参考目录
 | TaleWorlds.GauntletUI.Data | [ViewBindCommandInfo](./ViewBindCommandInfo) | 描述 Movie 数据层发现的命令绑定。 | ViewModel 绑定期间。 |
 
 <!-- BEGIN SECTION INDEX -->
+> 共 58 个子页
 
 ## ↑ 上级导航
 
@@ -78,6 +79,7 @@ description: Gauntlet UI 系统类参考目录
 
 - [EmptyWidget](./EmptyWidget)
 
+- [Brush](./Brush)
 ### G
 
 - [GamepadNavigationHelper](./GamepadNavigationHelper)
@@ -163,4 +165,5 @@ description: Gauntlet UI 系统类参考目录
 - [WidgetInstantiationResultExtensionData](./WidgetInstantiationResultExtensionData)
 
 
+- [Widget](./Widget)
 <!-- END SECTION INDEX -->

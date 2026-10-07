@@ -33,6 +33,7 @@ description: 战斗扩展类（MissionBehavior/AgentComponent 等）参考目录
 在稳定运行层面,这些行为派生类大多运行在引擎托管边界内,错误的生命周期钩子或跨线程访问可能触发崩溃;相关约束与边界划分详见 [崩溃边界](../../architecture/crash-boundaries/)。
 
 <!-- BEGIN SECTION INDEX -->
+> 共 1635 个子页
 
 ## ↑ 上级导航
 

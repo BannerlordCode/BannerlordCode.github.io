@@ -20,6 +20,7 @@ Use these APIs to compose or inspect UI content. Use `ViewModel` for data and `G
 | TaleWorlds.GauntletUI.Data | [ViewBindCommandInfo](./ViewBindCommandInfo) | Describes a command binding discovered by the movie data layer. | During view-model binding. |
 
 <!-- BEGIN SECTION INDEX -->
+> 共 58 个子页
 
 ## Parent Navigation
 
@@ -54,6 +55,7 @@ Use these APIs to compose or inspect UI content. Use `ViewModel` for data and `G
 
 - [EmptyWidget](./EmptyWidget)
 
+- [Brush](./Brush)
 ### G
 
 - [GamepadNavigationHelper](./GamepadNavigationHelper)
@@ -139,4 +141,5 @@ Use these APIs to compose or inspect UI content. Use `ViewModel` for data and `G
 - [WidgetInstantiationResultExtensionData](./WidgetInstantiationResultExtensionData)
 
 
+- [Widget](./Widget)
 <!-- END SECTION INDEX -->

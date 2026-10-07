@@ -19,6 +19,7 @@ Use these types when a movie needs a typed data source. Create them from the own
 | TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard | [BattleResultType](./BattleResultType) | Labels the result category shown by the mission scoreboard. | After a mission reports its result. |
 
 <!-- BEGIN SECTION INDEX -->
+> 共 42 个子页
 
 ## Parent Navigation
 

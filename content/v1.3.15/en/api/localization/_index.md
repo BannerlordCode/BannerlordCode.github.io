@@ -3,6 +3,7 @@ title: "localization index"
 description: Localization system class reference index
 ---
 <!-- BEGIN SECTION INDEX -->
+> 共 52 个子页
 
 ## Parent Navigation
 

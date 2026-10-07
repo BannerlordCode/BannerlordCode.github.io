@@ -36,6 +36,7 @@ description: Core / Library 相关扩展类参考目录
 在崩溃边界上，本桶的 `ViewModel`/`InformationManager` 属纯客户端表现层、不应触发存档异常，而 `Equipment`/`ItemObject` 等数据模型一旦破坏会直接进入存档路径。关于哪些类型可安全在边界外使用、哪些必须受 `try/catch` 保护，参见架构文档 [崩溃边界](../../architecture/crash-boundaries/)。
 
 <!-- BEGIN SECTION INDEX -->
+> 共 528 个子页
 
 ## ↑ 上级导航
 

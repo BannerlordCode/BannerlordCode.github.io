@@ -47,6 +47,7 @@ Welcome to the Bannerlord v1.3.15 modding documentation (Chinese).
 ```
 
 <!-- BEGIN SECTION INDEX -->
+> 共 6 个子页
 
 ## ↑ 上级导航
 

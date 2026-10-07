@@ -31,6 +31,7 @@ description: TaleWorlds.MountAndBlade 战斗系统类参考目录
 由于 `Agent`/`Mission` 是高频实时对象，其生命周期极易成为崩溃源头（如 `Mission.Current` 为空时访问、Agent 已销毁仍持有引用）；相关崩溃边界与最佳实践见 `../../architecture/crash-boundaries/`。
 
 <!-- BEGIN SECTION INDEX -->
+> 共 58 个子页
 
 ## ↑ 上级导航
 

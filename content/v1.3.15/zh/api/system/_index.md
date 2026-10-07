@@ -34,6 +34,7 @@ system 桶只负责「桥与底座」，不负责业务。SubModule 的加载阶
 另一方面，任何穿越边界时的失败（如 P/Invoke 异常、句柄泄漏）都属于崩溃边界范畴，详见 `../../architecture/crash-boundaries/`。写 SubModule 时你几乎不会直接引用这里，但若要理解「对象为何能跨模块共享」「为何不能随便长期持有引用」，必须回到本桶。
 
 <!-- BEGIN SECTION INDEX -->
+> 共 26 个子页
 
 ## ↑ 上级导航
 

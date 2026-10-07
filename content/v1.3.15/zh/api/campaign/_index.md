@@ -37,6 +37,7 @@ campaign 与 `campaign-ext` 是"数据"与"逻辑框架"的配对：`campaign-ex
 本模块存在明确的崩溃与存档损坏风险，主要来自两类操作：一是**绕过 Action 直接改名册**——给部队加英雄必须用 `AddHeroToPartyAction`/`TakePrisonerAction`，否则英雄的 `PartyBelongedTo` 等状态不会更新；二是**在错误时机/上下文访问依赖 `Campaign.Current` 的属性**（如 `PartyBase.PartySizeLimit`、`EstimatedStrength`、`Culture`），在 `Campaign.Current == null` 或 `MapFaction == null` 时调用会抛 `NullReferenceException`。`MapEvent`/`MapEventSide` 更是瞬态字段，事件结束即变 `null`，不可当作长期状态缓存。具体规避清单见 [崩溃边界](../../architecture/crash-boundaries/)。
 
 <!-- BEGIN SECTION INDEX -->
+> 共 52 个子页
 
 ## ↑ 上级导航
 
@@ -153,4 +154,6 @@ campaign 与 `campaign-ext` 是"数据"与"逻辑框架"的配对：`campaign-ex
 - [WorkshopData](./WorkshopData)
 
 
+- [MapEvent](./MapEvent)
+- [Town](./Town)
 <!-- END SECTION INDEX -->

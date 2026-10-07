@@ -33,6 +33,7 @@ description: TaleWorlds.SaveSystem 存档系统类参考目录
 想理解整条链路与防坏档规范，见 [存档系统架构](../../architecture/save-system/)（定义收集、驱动、版本迁移的全貌），以及 [崩溃边界](../../architecture/crash-boundaries/) 中关于存档损坏模式（id 冲突、类型漂移、半截写盘）的剖析——它们与上面 `LocalSaveId` 契约的约束直接对应。
 
 <!-- BEGIN SECTION INDEX -->
+> 共 109 个子页
 
 ## ↑ 上级导航
 
@@ -204,4 +205,5 @@ description: TaleWorlds.SaveSystem 存档系统类参考目录
 - [ZipExtensions](./ZipExtensions)
 
 
+- [MetaDataExtensions](./MetaDataExtensions)
 <!-- END SECTION INDEX -->

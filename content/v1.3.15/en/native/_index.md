@@ -87,6 +87,7 @@ If you need to trace from managed interfaces into `TaleWorlds.Native.dll` v1.3.1
 4. **Thread safety** - Native interfaces accessed via static fields, be careful of threading
 
 <!-- BEGIN SECTION INDEX -->
+> 共 7 个子页
 
 ## Parent Navigation
 

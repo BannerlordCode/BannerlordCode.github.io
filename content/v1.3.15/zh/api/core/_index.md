@@ -95,6 +95,7 @@ description: TaleWorlds.Core 核心数据类型类参考目录，含模块心智
 关于崩溃与异常边界——MBException 家族如何被捕获与上报——详见架构文档 [崩溃边界](../../architecture/crash-boundaries/)；若想从零理解一个 Mod 如何通过 `MBSubModuleBase` 接入引擎，可回看 [模块系统](../../architecture/module-system/)。
 
 <!-- BEGIN SECTION INDEX -->
+> 共 3 个子页
 
 ## ↑ 上级导航
 
@@ -108,5 +109,9 @@ description: TaleWorlds.Core 核心数据类型类参考目录，含模块心智
 - [MBSubModuleBase](./MBSubModuleBase)
 - [Module](./Module)
 
+
+### I
+
+- [ItemObject](./ItemObject)
 
 <!-- END SECTION INDEX -->

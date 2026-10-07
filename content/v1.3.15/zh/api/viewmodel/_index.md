@@ -41,6 +41,7 @@ description: ViewModel 视图模型类参考目录
 | TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard | [BattleResultType](./BattleResultType) | 标识任务记分板显示的战斗结果类别。 | Mission 报告结果之后。 |
 
 <!-- BEGIN SECTION INDEX -->
+> 共 42 个子页
 
 ## ↑ 上级导航
 

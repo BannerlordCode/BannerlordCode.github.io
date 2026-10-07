@@ -1,6 +1,18 @@
 {%- import "macros/sidebar.html" as sidebar -%}
-{%- set current_url = page.permalink | default(value=section.permalink) -%}
-{%- set lang = page.lang | default(value=section.lang) | default(value=config.default_language) -%}
-<aside class="sidebar">
-  {{ sidebar::render_nav(current_url=current_url, lang=lang) }}
+<aside id="sidebar" class="sidebar" aria-label="{% if shell_lang == 'zh' %}文档目录{% else %}Documentation{% endif %}">
+  <div class="sidebar-head">
+    <a class="brand" href="{{ get_url(path='@/_index.md') }}">
+      {%- if config.extra.logo %}
+      <img src="{{ config.extra.logo }}" alt="">
+      {%- else %}
+      <span class="brand-mark" aria-hidden="true">B</span>
+      {%- endif %}
+      <span class="brand-text">{{ config.title }}</span>
+    </a>
+    <form class="nav-search" role="search" action="{{ current_url | safe }}" method="get">
+      <label class="sr-only" for="nav-filter">{% if shell_lang == 'zh' %}搜索文档{% else %}Search docs{% endif %}</label>
+      <input id="nav-filter" type="search" name="q" placeholder="{% if shell_lang == 'zh' %}搜索文档{% else %}Search docs{% endif %}" autocomplete="off">
+    </form>
+  </div>
+  {{ sidebar::render_nav(current_url=current_url, lang=shell_lang) }}
 </aside>

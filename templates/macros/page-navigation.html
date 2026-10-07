@@ -1,55 +1,20 @@
-{# Render leaf/section navigation from Zola's already-loaded section pages. The
-   generator-backed JSON remains the freshness/audit contract, while this
-   runtime path avoids parsing a multi-megabyte map for every rendered page.
-
-   Parent resolution, verified against the Aug 22 build in public/:
-   - leaf page  : page.ancestors | last   == the direct parent section
-                  (e.g. public/v1.3.0/en/api/core/Module/index.html -> ~/v1.3.0/en/api/core/)
-   - section    : section.ancestors | last == the direct parent section
-                  (e.g. public/v1.3.0/en/index.html         -> ~/v1.3.0/)
-   - site root  : ancestors == []         -> no parent nav, by design
-   For a section the siblings are its parent's subsections, not pages. #}
+{# Parent and related links only. Scanning every sibling in Tera is quadratic
+   on the large API sections and pushes a full build past GitHub's 6 hour limit. #}
 {%- macro render(current_url, lang) -%}
-  {%- set_global resolved_parent = "" -%}
-  {%- if page is defined -%}
-    {%- for ancestor in page.ancestors -%}
-      {%- set_global resolved_parent = ancestor -%}
-    {%- endfor -%}
-  {%- elif section is defined and section.ancestors | length > 0 -%}
-    {%- set_global resolved_parent = section.ancestors | last -%}
-  {%- endif -%}
-  {%- if resolved_parent -%}
-    {%- set parent_section = get_section(path=resolved_parent) -%}
-    {%- set_global previous_sibling = false -%}
-    {%- set_global next_sibling = false -%}
-    {%- set_global found_current = false -%}
-    {%- if page is defined -%}
-      {%- for sibling in parent_section.pages -%}
-        {%- if found_current and not next_sibling -%}
-          {%- set_global next_sibling = sibling -%}
-        {%- elif sibling.path == current_url -%}
-          {%- set_global found_current = true -%}
-        {%- elif not found_current -%}
-          {%- set_global previous_sibling = sibling -%}
-        {%- endif -%}
-      {%- endfor -%}
-    {%- elif section is defined -%}
-      {%- for sibling_path in parent_section.subsections -%}
-        {%- set sibling = get_section(path=sibling_path) -%}
-        {%- if found_current and not next_sibling -%}
-          {%- set_global next_sibling = sibling -%}
-        {%- elif sibling_path == current_url -%}
-          {%- set_global found_current = true -%}
-        {%- elif not found_current -%}
-          {%- set_global previous_sibling = sibling -%}
-        {%- endif -%}
-      {%- endfor -%}
-    {%- endif -%}
+  {%- set_global parent_path = "" -%}
+  {%- for ancestor in page.ancestors -%}
+    {%- set_global parent_path = ancestor -%}
+  {%- endfor -%}
+  {%- if parent_path -%}
+    {%- set parent_section = get_section(path=parent_path) -%}
     {%- set navigation = load_data(path="data/navigation.json") -%}
-    {# Guarded like the `is defined` idiom below: version trees with no entry in
-       navigation.json (v1.4.6 / v1.5.3) have no parent route to index. #}
-    {%- if navigation.routes[parent_section.path] is defined -%}
-      {%- set related_parent = navigation.routes[parent_section.path] -%}
+    {%- set_global route_key = parent_section.path -%}
+    {%- if not (navigation.routes[route_key] is defined) -%}
+      {%- set_global route_key = "/" ~ parent_section.path -%}
+    {%- endif -%}
+    {%- set_global related_parent = false -%}
+    {%- if navigation.routes[route_key] is defined -%}
+      {%- set_global related_parent = navigation.routes[route_key] -%}
     {%- endif -%}
     <nav class="page-navigation" aria-label="{% if lang == 'zh' %}页面导航{% else %}Page navigation{% endif %}">
       <div class="page-navigation-row">
@@ -57,20 +22,8 @@
           <span class="page-navigation-label">{% if lang == 'zh' %}父级{% else %}Parent{% endif %}</span>
           <a href="{{ parent_section.path | safe }}">{{ parent_section.title }}</a>
         </div>
-        <div class="page-navigation-siblings">
-          {% if previous_sibling %}
-            <a rel="prev" href="{{ previous_sibling.path | safe }}">&larr; {{ previous_sibling.title }}</a>
-          {% else %}
-            <span class="page-navigation-disabled" aria-disabled="true">&larr; {% if lang == 'zh' %}已是第一项{% else %}First item{% endif %}</span>
-          {% endif %}
-          {% if next_sibling %}
-            <a rel="next" href="{{ next_sibling.path | safe }}">{{ next_sibling.title }} &rarr;</a>
-          {% else %}
-            <span class="page-navigation-disabled" aria-disabled="true">{% if lang == 'zh' %}已是最后一项{% else %}Last item{% endif %} &rarr;</span>
-          {% endif %}
-        </div>
       </div>
-      {% if related_parent is defined and related_parent.children is defined and related_parent.children | length > 0 %}
+      {% if related_parent and related_parent.children is defined and related_parent.children | length > 0 %}
         <div class="page-navigation-related">
           <span class="page-navigation-label">{% if lang == 'zh' %}相关入口{% else %}Related{% endif %}</span>
           {% for related_route in related_parent.children %}

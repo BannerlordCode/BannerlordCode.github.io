@@ -1,149 +1,79 @@
 {% import "macros/sidebar.html" as sidebar %}
+{%- set current_url = page.path | default(value=section.path) | default(value="/") -%}
+{%- set path_parts = current_url | split(pat="/") -%}
+{%- set url_lang = path_parts | nth(n=2) | default(value="") -%}
+{%- set_global shell_lang = lang -%}
+{%- if url_lang == "zh" or url_lang == "en" -%}
+  {%- set_global shell_lang = url_lang -%}
+{%- endif -%}
 <!DOCTYPE html>
-<html lang="{{ lang }}">
+<html lang="{{ shell_lang }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{%- block title %}{{ config.title }}{% endblock %}</title>
   <meta name="description" content="{%- block description %}{{ config.description }}{% endblock %}">
   {% block head %}{% endblock %}
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #1a1a1a;
-      --muted: #666666;
-      --accent: #646cff;
-      --border: #e5e5e5;
-      --code-bg: #f4f4f4;
-      --sidebar-width: 260px;
-      --nav-height: 56px;
-    }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background: var(--bg);
-    }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
-    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
-    pre code { background: transparent; padding: 0; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
-    th { background: #fafafa; }
-
-    .top-nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: var(--nav-height);
-      border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      padding: 0 1.25rem;
-      gap: 1.5rem;
-      z-index: 100;
-    }
-    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
-    .top-nav .brand img { height: 24px; width: 24px; }
-    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
-    .top-nav .menu a { color: var(--text); font-weight: 500; }
-    .top-nav .menu a.active { color: var(--accent); }
-    .top-nav .dropdown { position: relative; }
-    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
-    .top-nav .dropdown[open] summary { color: var(--accent); }
-    .top-nav .dropdown-menu {
-      position: absolute; top: 100%; left: 0; min-width: 180px;
-      background: #fff; border: 1px solid var(--border); border-radius: 8px;
-      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
-    }
-    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
-    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
-
-    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
-    .sidebar {
-      width: var(--sidebar-width);
-      border-right: 1px solid var(--border);
-      padding: 1.25rem;
-      position: fixed;
-      top: var(--nav-height); bottom: 0; left: 0;
-      overflow-y: auto;
-      font-size: 0.92rem;
-    }
-    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
-    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
-    .sidebar a.active { color: var(--accent); font-weight: 600; }
-    .sidebar .group { margin-bottom: 0.75rem; }
-    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
-    .sidebar .group-items { padding-left: 0.9rem; }
-
-    .breadcrumb { font-size: 0.85rem; color: var(--muted); margin: 0 0 1rem; line-height: 1.5; }
-    .breadcrumb a { color: var(--muted); }
-    .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
-    .breadcrumb span[aria-hidden] { color: #bbb; margin: 0 0.15rem; }
-    .breadcrumb .current { color: var(--text); font-weight: 600; }
-
-    .page-navigation {
-      border-top: 1px solid var(--border);
-      margin-top: 2rem;
-      padding-top: 1rem;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-    .page-navigation-row,
-    .page-navigation-related {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.65rem 1rem;
-    }
-    .page-navigation-row { justify-content: space-between; }
-    .page-navigation-parent,
-    .page-navigation-siblings,
-    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
-    .page-navigation-label { font-weight: 600; color: var(--text); }
-    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
-    .page-navigation-related { margin-top: 0.65rem; }
-
-    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
-    .main h1 { font-size: 2rem; margin-top: 0; }
-
-    @media (max-width: 768px) {
-      .sidebar { display: none; }
-      .main { margin-left: 0; padding: 1.25rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="{{ get_url(path='shell.css', cachebust=true) }}">
 </head>
 <body>
+  <input id="nav-toggle" class="nav-check" type="checkbox">
   {% include "partials/topnav.html" %}
-  <div class="layout">
-    {%- set current_url = page.path | default(value=section.path) | default(value="/") -%}
-    <aside class="sidebar">
-      {{ sidebar::render_nav(current_url=current_url, lang=lang) }}
-    </aside>
+  <div class="shell">
+    {% include "partials/sidebar.html" %}
+    <label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
     <main class="main">
       {% block content %}{% endblock %}
     </main>
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      function normalize(p) {
-        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
-      }
-      var here = normalize(location.pathname);
-      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
-        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
-        if (path && path === here) {
-          a.classList.add('active');
-          var details = a.closest && a.closest('details');
-          if (details) details.open = true;
+      function decodeMarkdown(b64) {
+        try {
+          var raw = atob(b64);
+          var bytes = new Uint8Array(raw.length);
+          for (var i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
+          return new TextDecoder('utf-8').decode(bytes);
+        } catch (e) {
+          return null;
         }
+      }
+      function stripFrontmatter(md) {
+        return md.replace(/^(---|\+\+\+)\r?\n[\s\S]*?\r?\n\1\r?\n?/, '');
+      }
+      document.querySelectorAll('.copy-md-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var md = decodeMarkdown(btn.getAttribute('data-md-source'));
+          if (md !== null) md = stripFrontmatter(md);
+          if (md === null || md === '') {
+            btn.textContent = btn.getAttribute('data-failed-text');
+            setTimeout(function () {
+              btn.textContent = btn.getAttribute('data-default-text');
+            }, 2000);
+            return;
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(md).then(function () {
+              btn.textContent = btn.getAttribute('data-copied-text');
+              setTimeout(function () {
+                btn.textContent = btn.getAttribute('data-default-text');
+              }, 2000);
+            }).catch(function () {
+              btn.textContent = btn.getAttribute('data-failed-text');
+              setTimeout(function () {
+                btn.textContent = btn.getAttribute('data-default-text');
+              }, 2000);
+            });
+          } else {
+            btn.textContent = btn.getAttribute('data-failed-text');
+            setTimeout(function () {
+              btn.textContent = btn.getAttribute('data-default-text');
+            }, 2000);
+          }
+        });
       });
     });
   </script>
+  <script src="{{ get_url(path='shell.js', cachebust=true) }}"></script>
 </body>
 </html>

@@ -33,15 +33,15 @@ CampaignEventDispatcher.Instance.OnXxx(args)   ← 分发器：扇出给所有 r
         └──→ QuestManager（原生 receiver）
 ```
 
-| 类 | 角色 | 谁持有 | mod 怎么用 |
-|----|------|--------|------------|
-| `CampaignEventReceiver` | **契约**：定义全部 `OnXxx` 虚方法 + `RemoveListeners` | — | 继承它来写自定义 receiver（少见） |
-| `CampaignEventDispatcher` | **分发器**：把每次 `OnXxx` 扇出给所有已注册 receiver | `Campaign.Current.CampaignEventDispatcher` | 不直接用；游戏内核通过它调用 |
-| `CampaignEvents` | **中央 hub**：持有 ~274 个 `IMbEvent<T>` 静态属性 + 转发逻辑 | `Campaign.Current.CampaignEvents` | **订阅它的静态事件属性** |
+| 类 | 角色 | 谁持有 | mod 怎么用 | 声明处 |
+|----|------|--------|------------|--------|
+| `CampaignEventReceiver` | **契约**：定义全部 `OnXxx` 虚方法 + `RemoveListeners` | — | 继承它来写自定义 receiver（少见） | `CampaignEventReceiver.cs:32` |
+| `CampaignEventDispatcher` | **分发器**：把每次 `OnXxx` 扇出给所有已注册 receiver | `Campaign.Current.CampaignEventDispatcher` | 不直接用；游戏内核通过它调用 | `CampaignEventDispatcher.cs:33` |
+| `CampaignEvents` | **中央 hub**：持有 ~274 个 `IMbEvent<T>` 静态属性 + 转发逻辑 | `Campaign.Current.CampaignEvents` | **订阅它的静态事件属性** | `CampaignEvents.cs:32` |
 
 ### 关键事实
 
-1. **你永远不会 `new CampaignEvents()`**。它没有公共构造函数。mod 直接访问 `CampaignEvents.HeroKilledEvent` 这样的**静态属性**即可。
+1. **你永远不会 `new CampaignEvents()`**。它没有公共构造函数。mod 直接访问 `CampaignEvents.HeroKilledEvent` 这样的**静态属性**即可。实例由 `Campaign` 持有（`Campaign.cs:611`）。
 2. **事件不是序列化的**。`AddNonSerializedListener` 注册的 lambda 闭包不写入存档。但承载它的 `CampaignBehaviorBase` 是战役对象的一部分——读档后 `CampaignBehaviorManager` 会重建行为并再次调用 `RegisterEvents()`，lambda 重新挂上。
 3. **事件是同步的**。handler 跑在触发它的那次战役 tick 内，抛异常会打断整条 tick 链路。
 4. **事件是通知，不是入口**。改变世界要走对应的 `*Action.Apply`，而不是在 handler 里直接改字段。
@@ -50,7 +50,7 @@ CampaignEventDispatcher.Instance.OnXxx(args)   ← 分发器：扇出给所有 r
 
 ```
 Campaign 创建
-  └─ CreateCampaignEvents()
+  └─ CreateCampaignEvents()（`Campaign.cs:1197`）
        ├─ new CampaignEvents()
        ├─ new CampaignEventDispatcher({ CampaignEvents, IssueManager, QuestManager })
        └─ Campaign.Current.CampaignEvents = 实例

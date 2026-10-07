@@ -33,15 +33,15 @@ CampaignEventDispatcher.Instance.OnXxx(args)   ← Dispatcher: fans out to all r
         └──→ QuestManager (native receiver)
 ```
 
-| Class | Role | Held by | How mods use it |
-|-------|------|---------|-----------------|
-| `CampaignEventReceiver` | **Contract**: defines all `OnXxx` virtual methods + `RemoveListeners` | — | Inherit it to write a custom receiver (rare) |
-| `CampaignEventDispatcher` | **Dispatcher**: fans out each `OnXxx` call to all registered receivers | `Campaign.Current.CampaignEventDispatcher` | Not used directly; the game kernel calls through it |
-| `CampaignEvents` | **Central hub**: holds ~274 `IMbEvent<T>` static properties + forwarding logic | `Campaign.Current.CampaignEvents` | **Subscribe to its static event properties** |
+| Class | Role | Held by | How mods use it | Declaration |
+|-------|------|---------|------------------|-------------|
+| `CampaignEventReceiver` | **Contract**: defines all `OnXxx` virtual methods + `RemoveListeners` | — | Inherit it to write a custom receiver (rare) | `CampaignEventReceiver.cs:32` |
+| `CampaignEventDispatcher` | **Dispatcher**: fans out each `OnXxx` call to all registered receivers | `Campaign.Current.CampaignEventDispatcher` | Not used directly; the game kernel calls through it | `CampaignEventDispatcher.cs:33` |
+| `CampaignEvents` | **Central hub**: holds ~274 `IMbEvent<T>` static properties + forwarding logic | `Campaign.Current.CampaignEvents` | **Subscribe to its static event properties** | `CampaignEvents.cs:32` |
 
 ### Key Facts
 
-1. **You never `new CampaignEvents()`.** It has no public constructor. Mods access static properties like `CampaignEvents.HeroKilledEvent` directly.
+1. **You never `new CampaignEvents()`.** It has no public constructor. Mods access static properties like `CampaignEvents.HeroKilledEvent` directly. The instance is held by `Campaign` (`Campaign.cs:611`).
 2. **Events are not serialized.** Lambda closures registered via `AddNonSerializedListener` are not written to the save file. But the `CampaignBehaviorBase` that owns them is part of the campaign object — after loading, `CampaignBehaviorManager` rebuilds behaviors and calls `RegisterEvents()` again, re-attaching the lambdas.
 3. **Events are synchronous.** Handlers run inside the campaign tick that triggered them; an uncaught exception breaks the entire tick chain.
 4. **Events are notifications, not entry points.** To change the world, call the corresponding `*Action.Apply` — don't mutate fields directly in a handler.
@@ -50,7 +50,7 @@ CampaignEventDispatcher.Instance.OnXxx(args)   ← Dispatcher: fans out to all r
 
 ```
 Campaign created
-  └─ CreateCampaignEvents()
+  └─ CreateCampaignEvents() (`Campaign.cs:1197`)
        ├─ new CampaignEvents()
        ├─ new CampaignEventDispatcher({ CampaignEvents, IssueManager, QuestManager })
        └─ Campaign.Current.CampaignEvents = instance

@@ -1,0 +1,19 @@
+# N=5 sampled=2026-10-07T08:33:00Z frozen=lead-145zh-b05 v1.4.5/zh campaign-ext (alphabetical continuation)
+# 来源：b04 之后的同字母序续页。
+# 选取规则（四条过滤，全部用项目自己的规则）：
+#   ① 列 content/v1.4.5/zh/api/campaign-ext/*.md（排除 _index.md），按文件名排序
+#   ② 跳过 census tier = handwritten_deep
+#   ③ 跳过 tools/lib/handwritten-policy.mjs classifyPage() = noise
+#   ④ 跳过 isR1TargetType() = false（boss-3 #13810 裁定 (i)：全写作线强制执行）
+#
+# 尺：sha256 127ee75ae9c20d938da532e9dab04a3d05c094e1413e34b3318c824c1749a672（对 b05 起生效）
+#   ★ 该版本已修 SRC_ROOT 硬编码：源码根按【页面所在版本树】推导，且【绝不静默回退】。
+#   本批 5 页均为 v1.4.5 ⇒ 用 bannerlord-1.4.5/Bannerlord.Source。
+#   ⚠ 注意：其中 3 页的源码在 Modules.StoryMode / Modules.SandBox 子目录下（也在该源根内，递归可找到）。
+#
+# 每行必须可解析为仓库相对路径；本清单只被 lead-145zh 消费，worker 不得改写。
+content/v1.4.5/zh/api/campaign-ext/AchievementsCampaignBehavior.md
+content/v1.4.5/zh/api/campaign-ext/ActionCampaignOptionData.md
+content/v1.4.5/zh/api/campaign-ext/ActionNotes.md
+content/v1.4.5/zh/api/campaign-ext/Add1000GoldCheat.md
+content/v1.4.5/zh/api/campaign-ext/Add100InfluenceCheat.md

@@ -1079,6 +1079,60 @@ b02 / b03 / b04 同上
 作用域≠全树（缺①）· files vs occurrences（缺②）· `body B` vs `file B`（缺②）·
 `sed \| grep -n` 编输出流行号（缺③）· 「291 条引用」低报（缺②，裸引用未计）。
 
+---
+
+## 26. b05 已冻结（**未派单**）+ 一次别线的红门禁
+
+### 26.1 b05 冻结
+
+`tools/_verify/lead-145zh-b05.pages.txt` · **N=5** · 采样 2026-10-07T08:33:00Z ·
+sha256 `3278c62c586fa3a478ad640a2dc87a014c78af7d6966b4da960e69fbce63d643`
+
+| # | 页 | 字节 | 源码 |
+| --- | --- | ---: | --- |
+| 1 | AchievementsCampaignBehavior | 4,299B | `Modules.StoryMode/…/AchievementsCampaignBehavior.cs`（935 行）类 `:29` |
+| 2 | ActionCampaignOptionData | 1,614B | `bin/…ViewModelCollection/ActionCampaignOptionData.cs`（24 行）类 `:5` |
+| 3 | ActionNotes | 933B | `bin/TaleWorlds.CampaignSystem/ActionNotes.cs`（33 行）enum `:3` |
+| 4 | Add1000GoldCheat | 1,559B | `Modules.SandBox/SandBox/Sandbox/Add1000GoldCheat.cs`（21 行）类 `:8` |
+| 5 | Add100InfluenceCheat | 1,627B | 同上形态（21 行） |
+
+**批前读数 `pass=0/5 · deep_pass=0/5`**（负向对照正确）· 5 页均在父索引 · 每页 `J3 tree=bannerlord-1.4.5\Bannerlord.Source`（**版本树推导已生效**）
+**⇒ 未派单**：批前门禁是红的（见 §26.2），按「门禁是 deploy 前置」与 boss-3 上次的硬停机先例，**等回绿再派**。
+
+### 26.2 ★ 红门禁（7/1）—— **不是本线**，且是**两条不同的缺陷**
+
+```
+BROKEN_LINKS=7   FILES_WITH_BROKEN=2
+## v1.3.15/en/architecture/save-object-graph.md  (7)
+## v1.3.15/zh/architecture/save-object-graph.md  (7)
+本线命中：0
+```
+**新回归**（约 5 分钟前全站还是 0/0）· 属 `lead-22` 的 architecture 线。
+
+**缺陷 A：桶名写错（6 条）。** 页在 `zh/architecture/`，写 `../../api/campaign/X` ——
+**形态对这个页面深度是【正确】的**；错的是桶：
+```
+5 条 → 应为 ../../api/save-system/X   （SaveManager / SaveContext / LoadContext / DefinitionContext / SaveableTypeDefiner）
+1 条 → 应为 ../../api/campaign-ext/SaveableCampaignTypeDefiner
+```
+**缺陷 B：少一层 `../`（1 条）。** 第 174 行 `[Campaign 子系统](../api/campaign/)` ⇒
+从 `zh/architecture/` 解析到 `zh/architecture/api/campaign/`（不存在）⇒ 应为 `../../api/campaign/`。
+
+**⇒ 两个缺陷各有各的修法，不是同一个 bug 的两份拷贝。**
+**⇒ 且这两页用的是【正确的】`../../api/<桶>/X` 形态** ⇒ 对 boss-3 的架构线结论是个修正：
+**架构线的问题不是「形态错」，而是「桶名写错 + 一处少一层」。** 别让 `lead-22` 按「形态错」去改（会把 6 条正确的形态改坏）。
+**⇒ 本线未越界**：没自己改（不是我的线且两页正在被写），只把精确修法清单交给 lead-20 转达。
+
+### 26.3 lead-20 对 b04 的独立复核：通过
+
+```
+判分器 sha de0720022f13c2ea → 一致 · 5 页 sha256 → 5/5 一致 · file_B/body_B 两列 → 5/5 一致
+J3 20+17+32+11+14 = 94，每页 bad=0 · pass=5/5 · deep_pass=5/5 · tier=5/5
+--cross-check AGREE · U+FFFD 0（正控制=1）· dotSlash/indexLink/csPage=0 · 尾斜杠数 == 回程链接数（1/1/1/2/2）
+孤儿 total_pages=39039 orphans=0 by_tree={}
+```
+**累计口径（lead-20 与我共同声明）：b01–b04 = 20 页 · 20/20 · 477 条引用全部核界 · 语义正确性 0/477 已核。**
+
 **已派 `worker-175`（#13161）**做 b01 的 4 页收尾（6 处字符串替换），brief 里明确列出**不许动**的
 `](../../campaign/)` 与 `](../)`。
 

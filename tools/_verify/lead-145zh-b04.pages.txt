@@ -1,0 +1,26 @@
+# N=5 sampled=2026-10-07T08:16:00Z frozen=lead-145zh-b04 v1.4.5/zh campaign-ext (alphabetical continuation)
+# 来源：b03 之后的同字母序续页。
+# 选取规则（四条过滤，全部用项目自己的规则，不用我的判断）：
+#   ① 列 content/v1.4.5/zh/api/campaign-ext/*.md（排除 _index.md），按文件名排序
+#   ② 跳过 census tier = handwritten_deep
+#   ③ 跳过 tools/lib/handwritten-policy.mjs classifyPage() = noise
+#   ④ 跳过 isR1TargetType() = false（★ boss-3 #13810 裁定 (i)：全写作线强制执行）
+# 实测背景：campaign-ext 共 3,666 页，非 deep 3,434 页。
+#
+# ★ 本批的结构特点（重要，派单已内联）：前 4 页是同一个源文件里的【嵌套类型】
+#   TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementAccessModel.cs（92 行）：
+#     AccessLevel              enum  :9    （NoAccess :11 / LimitedAccess :12 / FullAccess :13）
+#     AccessMethod             enum  :16   （None :18 / Direct :19 / ByRequest :20）
+#     AccessLimitationReason   enum  :23   （None :25 / HostileFaction :26 / RelationshipWithOwner :27 /
+#                                            CrimeRating :28 / VillageIsLooted :29 / Disguised :30 /
+#                                            ClanTier :31 / LocationEmpty :32）
+#     AccessDetails            struct :66  （字段 :68 / :70 / :72 / :74 / :76 / :78）
+#   ⇒ 它们【没有独立源文件】，引用必须写成 `SettlementAccessModel.cs:N`。
+#   第 5 页是独立类型：Settlements.Locations/AccompanyingCharacter.cs（81 行）。
+#
+# 每行必须可解析为仓库相对路径；本清单只被 lead-145zh 消费，worker 不得改写。
+content/v1.4.5/zh/api/campaign-ext/AccessDetails.md
+content/v1.4.5/zh/api/campaign-ext/AccessLevel.md
+content/v1.4.5/zh/api/campaign-ext/AccessLimitationReason.md
+content/v1.4.5/zh/api/campaign-ext/AccessMethod.md
+content/v1.4.5/zh/api/campaign-ext/AccompanyingCharacter.md

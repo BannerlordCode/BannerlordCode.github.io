@@ -17,8 +17,13 @@
 //         ⚠ 归并方向是【把缺判成有】，是本仓最危险的一类合并 ⇒ 故本判分器
 //          **额外打印实际命中的是哪个别名**，让「参见已齐」可审计而不是隐形。
 //         若打印出 `via=依赖关系` 而页里没有 `参见`，读的人应当知道那是别名命中。
-//   J3 引用边界: 页内每条 `X.cs:N` 的 N <= (wc -l X.cs)，且文件存在（源码根 ../bannerlord-1.4.5）
-//   J4 裸行号: 未落文件名的 `:N` 引用数（WARN）
+//   J3 引用边界: 页内每条 `X.cs:N` 的 N <= (wc -l X.cs)，且文件存在（源码根 ../bannerlord-1.4.5）。
+//       ★ 2026-10-07 扩展（lead-20 #13908 的论据）：【裸 `:N` 是承前的】——
+//         它指同一页上文最近一个完整 `X.cs:N` 的同一个文件。
+//         ⇒ J3 现在按文档顺序跟踪【当前文件】，把裸 `:N` 归到它并核界。
+//         这比「要求把 71 处裸引用改成完整形态」好：它【不改内容】，而是【补上尺的覆盖面】。
+//   J4 裸行号: 【归不到文件】的裸 `:N`（即出现在任何完整引用之前）才判 FAIL。
+//       携带上下文后能核界的裸引用不算缺陷（它们只是写法简短）。
 //   J5 链接形态: 正文不得出现 `](./`；不得直接链 `_index.md`；`_index.md` 自身豁免
 //   J5R ★ 链接解析: 页内每条 markdown 链接必须真的能解析（见下方「解析算法是副本」）
 //   J10 ★ 链接位置: markdown 链接只允许出现在【参见族】与【导航】小节里。
@@ -258,28 +263,41 @@ function judge(pageRel, mode) {
   out.checks.J2_see_via = seeMatched;
   if (missing.length) out.fail.push(`J2 missing=${missing.join(',')}`);
 
-  // J3
-  const cited = [...text.matchAll(/([A-Za-z_][\w.]*\.cs):(\d+)/g)].map((m) => ({ file: m[1], line: Number(m[2]) }));
-  const bad = [];
-  for (const c of cited) {
-    const key = basename(c.file, '.cs');
-    const hits = buildSrcIndex().get(key);
-    if (!hits || !hits.length) { bad.push(`${c.file}:${c.line} (source-not-found)`); continue; }
-    if (!hits.some((h) => c.line <= lineCount(h))) {
-      bad.push(`${c.file}:${c.line} (out-of-range, max=${Math.max(...hits.map(lineCount))})`);
+  // J3 / J4（J3 跟踪「当前文件」把裸 :N 一并核界；J4 只判【归不到文件】的裸引用）
+  const REF_RE = /([A-Za-z_][\w.]*\.cs):(\d+)|(?<![A-Za-z0-9_.]):(\d+)(?![0-9])/g;
+  const fullRefs = [];
+  const bareResolved = [];
+  const bareUnresolved = [];
+  let currentFile = null;
+  for (const m of text.matchAll(REF_RE)) {
+    if (m[1]) {
+      currentFile = m[1];
+      fullRefs.push({ file: m[1], line: Number(m[2]) });
+    } else if (currentFile) {
+      bareResolved.push({ file: currentFile, line: Number(m[3]) });
+    } else {
+      bareUnresolved.push(Number(m[3]));
     }
   }
-  out.checks.J3_citations = cited.length;
+  const bad = [];
+  const check = (c, kind) => {
+    const key = basename(c.file, '.cs');
+    const hits = buildSrcIndex().get(key);
+    if (!hits || !hits.length) { bad.push(`${c.file}:${c.line} (${kind}: source-not-found)`); return; }
+    if (!hits.some((h) => c.line <= lineCount(h))) {
+      bad.push(`${c.file}:${c.line} (${kind}: out-of-range, max=${Math.max(...hits.map(lineCount))})`);
+    }
+  };
+  for (const c of fullRefs) check(c, 'full');
+  for (const c of bareResolved) check(c, 'bare-resolved');
+  out.checks.J3_citations = fullRefs.length;
+  out.checks.J3_bare_resolved = bareResolved.length;
+  out.checks.J3_checked_total = fullRefs.length + bareResolved.length;
   out.checks.J3_bad = bad;
-  if (bad.length) out.fail.push(`J3 bad-citations=${bad.length}`);
+  if (bad.length) out.fail.push(`J3 bad-citations=${bad.length} [${bad.slice(0, 4).join('; ')}]`);
 
-  // J4
-  const bareRe = /(?<![A-Za-z0-9_.]):(\d{1,5})(?![0-9])/g;
-  const bare = [...text.matchAll(bareRe)].filter(
-    (m) => !/\.cs$|\.md$/.test(text.slice(Math.max(0, m.index - 40), m.index).trimEnd().slice(-4))
-  ).length;
-  out.checks.J4_bare_line_refs = bare;
-  if (bare > 0) out.warn.push(`J4 bare-line-refs=${bare}（须写成 \`X.cs:N\`）`);
+  out.checks.J4_bare_line_refs = bareUnresolved.length;
+  if (bareUnresolved.length) out.fail.push(`J4 bare-line-refs=${bareUnresolved.length}（无前文文件上下文，无法核界）[${bareUnresolved.slice(0, 6).join(',')}]`);
 
   // J5
   if (!isIndex) {
@@ -456,7 +474,7 @@ console.log(`# judge mtime  = ${statSync(fileURLToPath(import.meta.url)).mtime.t
 const results = pages.map((p) => judge(p, mode));
 for (const r of results) {
   console.log(`${r.pass ? 'PASS' : 'FAIL'}  ${r.page}`);
-  console.log(`      J1 fffd=${r.checks.J1_fffd} · J2 missing=[${(r.checks.J2_missing || []).join(',')}] · J3 cites=${r.checks.J3_citations} bad=${(r.checks.J3_bad || []).length} · J4 bare=${r.checks.J4_bare_line_refs}`);
+  console.log(`      J1 fffd=${r.checks.J1_fffd} · J2 missing=[${(r.checks.J2_missing || []).join(',')}] · J3 checked=${r.checks.J3_checked_total} (full=${r.checks.J3_citations} + bare-resolved=${r.checks.J3_bare_resolved}) bad=${(r.checks.J3_bad || []).length} · J4 uncheckable-bare=${r.checks.J4_bare_line_refs}`);
   console.log(`      J5 dotSlash=${r.checks.J5_dot_slash ?? 'n/a'} indexLinks=${r.checks.J5_index_links ?? 'n/a'} · J5R unresolved=${(r.checks.J5R_unresolved || []).length} · J10 stray=${(r.checks.J10_stray_links || []).length} · J11 trailSlash=${(r.checks.J11_trailing_slash || []).length} · J8 ${r.checks.J8_bodyBytes}B/${r.checks.J8_h2h3} · J9 csharp=${r.checks.J9_csharp_lines}`);
   console.log(`      J6=${r.checks.J6_classifyPage?.status} · deepPass=${r.checks.deepPass} · tier=${r.checks.tier} · J7 markers=${(r.checks.J7_gen_markers || []).length}`);
   if (r.checks.J2_h2?.length) console.log(`      H2: ${r.checks.J2_h2.join(' | ')}`);

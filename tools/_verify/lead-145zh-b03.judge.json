@@ -1,0 +1,278 @@
+{
+  "judgedAt": "2026-10-07T08:17:35.172Z",
+  "judgeSha256": "d844164e7bd02c58205964dffb9159b593b7d768fe7aa11ab1164f02e5c523ba",
+  "mode": "require",
+  "total": 5,
+  "pass": 5,
+  "deepPass": 5,
+  "tierDeep": 5,
+  "crossCheckAgree": null,
+  "results": [
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/AcceptCallToWarAgreementDecision.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J3_citations": 1,
+        "J3_bad": [],
+        "J4_bare_line_refs": 42,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J11_trailing_slash": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=6",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=6",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 15250,
+        "J8_h2h3": 29,
+        "J9_csharp_lines": 39
+      },
+      "fail": [],
+      "warn": [
+        "J4 bare-line-refs=42（须写成 `X.cs:N`）"
+      ],
+      "pass": true
+    },
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/AcceptCallToWarAgreementDecisionOutcome.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J3_citations": 1,
+        "J3_bad": [],
+        "J4_bare_line_refs": 10,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J11_trailing_slash": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=4",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=4",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 8659,
+        "J8_h2h3": 17,
+        "J9_csharp_lines": 40
+      },
+      "fail": [],
+      "warn": [
+        "J4 bare-line-refs=10（须写成 `X.cs:N`）"
+      ],
+      "pass": true
+    },
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/AcceptCallToWarOfferMapNotification.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J3_citations": 1,
+        "J3_bad": [],
+        "J4_bare_line_refs": 19,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J11_trailing_slash": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=5",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=5",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 8877,
+        "J8_h2h3": 16,
+        "J9_csharp_lines": 37
+      },
+      "fail": [],
+      "warn": [
+        "J4 bare-line-refs=19（须写成 `X.cs:N`）"
+      ],
+      "pass": true
+    },
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/AcceptCallToWarOfferNotificationItemVM.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J3_citations": 0,
+        "J3_bad": [],
+        "J4_bare_line_refs": 0,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J11_trailing_slash": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=4",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=4",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 6385,
+        "J8_h2h3": 11,
+        "J9_csharp_lines": 20
+      },
+      "fail": [],
+      "warn": [],
+      "pass": true
+    },
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/AcceptingCallToWarAgreementDecisionItemVM.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J3_citations": 0,
+        "J3_bad": [],
+        "J4_bare_line_refs": 0,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J11_trailing_slash": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=5",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=5",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 6912,
+        "J8_h2h3": 12,
+        "J9_csharp_lines": 14
+      },
+      "fail": [],
+      "warn": [],
+      "pass": true
+    }
+  ]
+}

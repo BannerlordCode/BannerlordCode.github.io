@@ -157,7 +157,7 @@ hero2.Party = party;
 
 ```csharp
 // 官方范本 SaveableCampaignTypeDefiner：
-//   :41  class 声明    :44  无参构造    :50  override DefineClassTypes()    :52  AddClassDefinition(typeof(Army), 3, null)
+//   SaveableCampaignTypeDefiner.cs:41  class 声明    SaveableCampaignTypeDefiner.cs:44  无参构造    SaveableCampaignTypeDefiner.cs:50  override DefineClassTypes()    SaveableCampaignTypeDefiner.cs:52  AddClassDefinition(typeof(Army), 3, null)
 public class MyTypeDefiner : SaveableTypeDefiner
 {
     // 基类构造是 protected SaveableTypeDefiner(int saveBaseId)（SaveableTypeDefiner.cs:13）

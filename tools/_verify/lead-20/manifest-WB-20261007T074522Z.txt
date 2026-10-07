@@ -1,0 +1,13 @@
+content/v1.3.0/zh/api/campaign/DefaultEncounter.md
+content/v1.3.0/zh/api/campaign/DefaultCharacterStatsModel.md
+content/v1.3.0/zh/api/campaign/DefaultPartyTradeModel.md
+content/v1.3.0/zh/api/campaign/DefaultArmyManagementCalculationModel.md
+content/v1.3.0/zh/api/campaign/DefaultClanFinanceModel.md
+content/v1.4.5/zh/api/campaign-ext/SiegeAftermathAction.md
+content/v1.4.5/zh/api/campaign-ext/MakeHeroFugitiveAction.md
+content/v1.4.5/zh/api/campaign-ext/EndMercenaryServiceAction.md
+content/v1.4.5/zh/api/campaign-ext/DisableHeroAction.md
+content/v1.4.5/zh/api/campaign-ext/DestroyShipAction.md
+content/v1.4.5/zh/api/campaign-ext/GainRenownAction.md
+content/v1.4.5/zh/api/campaign-ext/StartMercenaryServiceAction.md
+content/v1.4.5/zh/api/campaign-ext/InitializeWorkshopAction.md

@@ -157,12 +157,18 @@ const DEEP_BODY_MIN_BYTES = 2500;
 const LINK_FAMILY_REASONS = ['dependency-section-no-links', 'weak-deps'];
 const FFFD = '\uFFFD';
 
-// ---- 源码索引（每棵树一份，按需构建） -------------------------------------
+// ---- 源码索引（每棵树一份，按需构建） ----
+//   ★ 同时建【全路径索引】与【basename 索引】，并记录重名 basename。
+//   lead-20 #15073 已验证重名风险不是理论：全树 8,583 个 .cs 里有 187 个重名 basename
+//   （MissionState.cs 一个就有 6 个：421/408/356/410/410/412 行）。
+//   按 basename 单一定位会：① 归到错的文件 ② 从而对行号做出错误判定（两个方向都会错）。
+//   ⇒ 规则：全路径优先 → basename 兜底且仅在唯一时可用 → 重名时报 ambiguous，【不猜】。
 const SRC_INDEX_BY_ROOT = new Map();
 function buildSrcIndex(root) {
-  if (!root) return new Map();
+  if (!root) return { byBase: new Map(), bySuffix: [] };
   if (SRC_INDEX_BY_ROOT.has(root)) return SRC_INDEX_BY_ROOT.get(root);
-  const idx = new Map();
+  const byBase = new Map();
+  const bySuffix = [];
   const stack = [root];
   while (stack.length) {
     const dir = stack.pop();
@@ -173,10 +179,12 @@ function buildSrcIndex(root) {
       if (e.isDirectory()) { stack.push(p); continue; }
       if (!e.name.endsWith('.cs')) continue;
       const key = e.name.slice(0, -3);
-      if (!idx.has(key)) idx.set(key, []);
-      idx.get(key).push(p);
+      if (!byBase.has(key)) byBase.set(key, []);
+      byBase.get(key).push(p);
+      bySuffix.push({ rel: toPosix(p).replace(toPosix(root) + '/', ''), abs: p, base: key });
     }
   }
+  const idx = { byBase, bySuffix };
   SRC_INDEX_BY_ROOT.set(root, idx);
   return idx;
 }
@@ -412,13 +420,29 @@ function judge(pageRel, mode) {
   out.checks.J3_src_unavailable = src.reason;
   const bad = [];
   let uncheckable = 0;
+  let ambiguous = 0;
+  const resolveSource = (c) => {
+    const base = basename(c.file, '.cs');
+    const hits = srcIndex.byBase.get(base);
+    if (!hits || !hits.length) return { kind: 'not-found' };
+    if (hits.length === 1) return { kind: 'ok', abs: hits[0] };
+    // 重名 ⇒ 尝试用引用里的【路径片段】消歧（页面常写 `Dir/File.cs`）
+    const rel = toPosix(c.file);
+    if (rel.includes('/')) {
+      const tail = rel.replace(/^.*?([A-Za-z_][\w.]*(?:\/[\w.]+)*\.cs)$/, '$1');
+      const cand = srcIndex.bySuffix.filter((s) => s.rel.endsWith(tail));
+      if (cand.length === 1) return { kind: 'ok', abs: cand[0].abs };
+      if (cand.length > 1) return { kind: 'ambiguous', n: cand.length };
+    }
+    return { kind: 'ambiguous', n: hits.length };
+  };
   const check = (c, kind) => {
     if (!src.root) { uncheckable++; return; }   // ★ 绝不静默回退到别的树
-    const key = basename(c.file, '.cs');
-    const hits = srcIndex.get(key);
-    if (!hits || !hits.length) { bad.push(`${c.file}:${c.line} (${kind}: source-not-found)`); return; }
-    if (!hits.some((h) => c.line <= lineCount(h))) {
-      bad.push(`${c.file}:${c.line} (${kind}: out-of-range, max=${Math.max(...hits.map(lineCount))})`);
+    const r = resolveSource(c);
+    if (r.kind === 'not-found') { bad.push(`${c.file}:${c.line} (${kind}: source-not-found)`); return; }
+    if (r.kind === 'ambiguous') { ambiguous++; return; }   // ★ 重名不猜
+    if (c.line > lineCount(r.abs)) {
+      bad.push(`${c.file}:${c.line} (${kind}: out-of-range, max=${lineCount(r.abs)})`);
     }
   };
   for (const c of fullRefs) check(c, 'full');
@@ -430,6 +454,7 @@ function judge(pageRel, mode) {
   out.checks.J3_checked_total = fullRefs.length + bareResolved.length + bareSubject.length;
   out.checks.J3_uncheckable_no_tree = uncheckable;
   out.checks.J3_unattributable_bare = bareUnresolved.length;
+  out.checks.J3_ambiguous_basename = ambiguous;
   out.checks.J3_bad = bad;
   if (src.reason) {
     out.fail.push(`J3 cannot bounds-check: ${src.reason} ⇒ ${uncheckable} refs UNCHECKABLE（本尺绝不静默用别的版本树顶替）`);
@@ -642,7 +667,7 @@ console.log(`# judge mtime  = ${statSync(fileURLToPath(import.meta.url)).mtime.t
 const results = pages.map((p) => judge(p, mode));
 for (const r of results) {
   console.log(`${r.pass ? 'PASS' : 'FAIL'}  ${r.page}`);
-  console.log(`      J1 fffd=${r.checks.J1_fffd} · J2 missing=[${(r.checks.J2_missing || []).join(',')}] · J3 tree=${r.checks.J3_src_tree || ('UNCHECKABLE:' + r.checks.J3_src_unavailable)} subject=${r.checks.J3_subject_file || '-'} checked=${r.checks.J3_checked_total} (full=${r.checks.J3_citations} + inBlock=${r.checks.J3_bare_resolved} + subject=${r.checks.J3_bare_unique_file}) bad=${(r.checks.J3_bad || []).length} · J4 unattributable=${r.checks.J4_bare_line_refs}`);
+  console.log(`      J1 fffd=${r.checks.J1_fffd} · J2 missing=[${(r.checks.J2_missing || []).join(',')}] · J3 tree=${r.checks.J3_src_tree || ('UNCHECKABLE:' + r.checks.J3_src_unavailable)} subject=${r.checks.J3_subject_file || '-'} checked=${r.checks.J3_checked_total} (full=${r.checks.J3_citations} + inBlock=${r.checks.J3_bare_resolved} + subject=${r.checks.J3_bare_unique_file}) bad=${(r.checks.J3_bad || []).length} ambiguous=${r.checks.J3_ambiguous_basename} · J4 unattributable=${r.checks.J4_bare_line_refs}`);
   console.log(`      J5 dotSlash=${r.checks.J5_dot_slash ?? 'n/a'} indexLinks=${r.checks.J5_index_links ?? 'n/a'} · J5R unresolved=${(r.checks.J5R_unresolved || []).length} · J10 stray=${(r.checks.J10_stray_links || []).length} · J11 trailSlash=${(r.checks.J11_trailing_slash || []).length} · J8 ${r.checks.J8_bodyBytes}B/${r.checks.J8_h2h3} · J9 csharp=${r.checks.J9_csharp_lines}`);
   console.log(`      J6=${r.checks.J6_classifyPage?.status} · deepPass=${r.checks.deepPass} · tier=${r.checks.tier} · J7 markers=${(r.checks.J7_gen_markers || []).length}`);
   if (r.checks.J2_h2?.length) console.log(`      H2: ${r.checks.J2_h2.join(' | ')}`);

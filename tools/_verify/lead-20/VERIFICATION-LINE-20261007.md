@@ -256,3 +256,55 @@ Extensions__TaleWorlds_Core · DependantModules        ← 配置键 / 模块字
 ⑤ 语义正确性       守【描述是否属实】     —— ★ 机械不可覆盖，只有人眼
 ```
 **任何一道绿都不代表另外三道绿。** 本日全部误判都来自把其中一道的绿当成全部。
+
+---
+
+## 13. b05 复核：通过 · 且独立复算了 lead-18 的整张覆盖率表（逐格一致）
+
+**判分器 sha 实测 `ff5e35e7b60cb811`（35481 B / mtime 17:06），与 lead-18 声明一致。**
+
+```
+BATCH  CHECKED  FULL  INBLOCK  SUBJECT  BAD  UNATTRIB
+b01        127    127        0        0    0         0
+b02        182    166        3       13    0         0
+b03         74      6        6       62    0         0
+b04         94     88        4        2    0         0
+b05         77     23       13       41    0         0
+TOTAL      554    410       26      118    0         0
+```
+**lead-18 报 TOTAL = `554 / 410 / 26 / 118 / 0 / 0` —— 逐格一致。**
+⇒ **b01–b05：554 条引用全部核界、越界 0、无法归属 0。**
+（口径边界：①边界全量已核 ②语义正确性 0/554 **未核** ③形态可达性全量已核）
+
+### 归属规则的修前/修后（我报的 12 条假阳性 → 0）
+```
+127ee75a  bare-resolved 规则: J3 checked=25 (full=9 + bare-resolved=16)  bad=12 · unattributable=0
+3dc897bc  同块规则:          J3 checked=14 (full=9 + inBlock=5)          bad=1  · unattributable=11
+ff5e35e7  主语文件规则:      J3 checked=25 (full=9 + inBlock=3 + subject=13) bad=0 · unattributable=0
+                             subject=Campaign.cs
+```
+该页现在仍 FAIL，但只剩两条**口径不适用**项，**无引用类缺陷**：
+`J2 missing=[关键成员,导航]`（Boss 裁定：七节模板仅新页）· `J10 links-outside-see/nav=1`（lead-18 线内政策，跨线不适用）。
+
+### 新归属规则（lead-18 采纳本线建议后落成三条）
+```
+① 本块单一文件 ⇒ 用块上下文
+② 否则 ⇒ 用页面主语源文件（全仓 97.6% 的页声明了它）
+③ 都不行 ⇒ 报 unattributable，【不猜】
+```
+**⇒ 这正是本线 §9 提出的「无法确定时报 UNCHECKABLE 而不是猜」。**
+
+### 第 9 种「数不可复核」成因（本轮新增）
+lead-18 的主语文件正则带了 `$` 锚定，而语料写作 `` `...cs`（935 行）`` —— 行尾还有「（N 行）」⇒ `$` 不匹配 ⇒ 多页 `subject=-` ⇒ **33 条本可归属的裸引用被误报 unattributable**（b05 一度 5/5→3/5）。
+**⇒ 第 9 种：锚定假设（`^`/`$`）与语料实际形态不符。** 其处置顺序正确：先怀疑自己的正则，而非先改内容。
+
+### basename 定位风险（已验证，非推测）
+本线重跑 b05 时按 basename `find` 抓到 **7 个文件而非 5 个**（`ActionNotes.md`、`ActionCampaignOptionData.md` 在 campaign-ext / campaign / viewmodel 三桶下均存在）。
+**⇒ 用 basename 定位在多桶重名时会错配，从而对行号做出错误判定（双向）。** 全仓约 187 个重名 basename；`MissionState.cs` 一个就有 6 个（421/408/356/410/410/412）。
+**⇒ 正确顺序：全路径优先 → basename 兜底 → 都不行报 unattributable。**
+
+### 跨线可用判据（lead-18 广播，本线采纳）
+```
+J5R 与 J3   = 跨线通用
+J2 / J10 / J11 = 仅 lead-18 本线（别线读它们应记「不适用」，不是「不合格」）
+```

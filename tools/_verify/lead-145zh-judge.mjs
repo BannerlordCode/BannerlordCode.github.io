@@ -79,7 +79,33 @@ import { classifyPage } from '../lib/handwritten-policy.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = resolve(HERE, '..', '..');
-const SRC_ROOT = resolve(REPO, '..', 'bannerlord-1.4.5', 'Bannerlord.Source');
+const SRC_ROOT_V145 = resolve(REPO, '..', 'bannerlord-1.4.5', 'Bannerlord.Source');
+// ★★ 源码根必须【按页面所在版本树推导】（lead-20 #14162 查出的洞）
+//   旧实现把 SRC_ROOT 硬编码为 1.4.5 ⇒ 对其它版本树的页会拿错的树核界。
+//   lead-20 量化：全仓 16,307 条引用里 8,349 条（51.2%）不属于 v1.4.5。
+//   后果两个方向都会错：一条 v1.3.15 页的 `MissionState.cs:400` 真实在界内（408 行），
+//   用 1.4.5 的树（356 行）会得【假 FAIL】；反之也会得【假 PASS】。
+//   实测（2026-10-07）各树布局不同：
+//     bannerlord-1.4.5/Bannerlord.Source/bin/**   ← 只有 1.4.5 有 Bannerlord.Source 这一层
+//     bannerlord-1.3.0/**  bannerlord-1.3.15/**  bannerlord-1.4.6/**  bannerlord-1.4.7/**  bannerlord-1.5.3/**
+//   ⇒ 本尺【绝不静默回退到别的树】：推不出源根就报 UNCHECKABLE，而不是拿 1.4.5 顶替。
+function versionOf(pageRel) {
+  const m = toPosix(pageRel).match(/^content\/(v[\d.]+)\//);
+  return m ? m[1] : null;
+}
+const SRC_ROOT_CACHE = new Map();
+function srcRootFor(pageRel) {
+  const ver = versionOf(pageRel);
+  if (!ver) return { root: null, reason: 'page-not-under-content-<ver>' };
+  if (SRC_ROOT_CACHE.has(ver)) return SRC_ROOT_CACHE.get(ver);
+  const base = resolve(REPO, '..', 'bannerlord-' + ver.replace(/^v/, ''));
+  let out;
+  if (!existsSync(base)) out = { root: null, reason: `no-source-tree-for-${ver}` };
+  else if (existsSync(join(base, 'Bannerlord.Source'))) out = { root: join(base, 'Bannerlord.Source'), reason: null };
+  else out = { root: base, reason: null };
+  SRC_ROOT_CACHE.set(ver, out);
+  return out;
+}
 const CONTENT_ROOT = process.env.LEAD145ZH_CONTENT_ROOT
   ? resolve(REPO, process.env.LEAD145ZH_CONTENT_ROOT)
   : join(REPO, 'content');
@@ -105,13 +131,13 @@ const DEEP_BODY_MIN_BYTES = 2500;
 const LINK_FAMILY_REASONS = ['dependency-section-no-links', 'weak-deps'];
 const FFFD = '\uFFFD';
 
-// ---- 源码索引 --------------------------------------------------------------
-let SRC_INDEX = null;
-function buildSrcIndex() {
-  if (SRC_INDEX) return SRC_INDEX;
-  SRC_INDEX = new Map();
-  if (!existsSync(SRC_ROOT)) return SRC_INDEX;
-  const stack = [SRC_ROOT];
+// ---- 源码索引（每棵树一份，按需构建） -------------------------------------
+const SRC_INDEX_BY_ROOT = new Map();
+function buildSrcIndex(root) {
+  if (!root) return new Map();
+  if (SRC_INDEX_BY_ROOT.has(root)) return SRC_INDEX_BY_ROOT.get(root);
+  const idx = new Map();
+  const stack = [root];
   while (stack.length) {
     const dir = stack.pop();
     let entries;
@@ -121,11 +147,12 @@ function buildSrcIndex() {
       if (e.isDirectory()) { stack.push(p); continue; }
       if (!e.name.endsWith('.cs')) continue;
       const key = e.name.slice(0, -3);
-      if (!SRC_INDEX.has(key)) SRC_INDEX.set(key, []);
-      SRC_INDEX.get(key).push(p);
+      if (!idx.has(key)) idx.set(key, []);
+      idx.get(key).push(p);
     }
   }
-  return SRC_INDEX;
+  SRC_INDEX_BY_ROOT.set(root, idx);
+  return idx;
 }
 const lineCountCache = new Map();
 function lineCount(abs) {
@@ -279,10 +306,16 @@ function judge(pageRel, mode) {
       bareUnresolved.push(Number(m[3]));
     }
   }
+  const src = srcRootFor(pageRel);
+  const srcIndex = buildSrcIndex(src.root);
+  out.checks.J3_src_tree = src.root ? src.root.replace(toPosix(REPO) + '/../', '') : null;
+  out.checks.J3_src_unavailable = src.reason;
   const bad = [];
+  let uncheckable = 0;
   const check = (c, kind) => {
+    if (!src.root) { uncheckable++; return; }   // ★ 绝不静默回退到别的树
     const key = basename(c.file, '.cs');
-    const hits = buildSrcIndex().get(key);
+    const hits = srcIndex.get(key);
     if (!hits || !hits.length) { bad.push(`${c.file}:${c.line} (${kind}: source-not-found)`); return; }
     if (!hits.some((h) => c.line <= lineCount(h))) {
       bad.push(`${c.file}:${c.line} (${kind}: out-of-range, max=${Math.max(...hits.map(lineCount))})`);
@@ -293,8 +326,13 @@ function judge(pageRel, mode) {
   out.checks.J3_citations = fullRefs.length;
   out.checks.J3_bare_resolved = bareResolved.length;
   out.checks.J3_checked_total = fullRefs.length + bareResolved.length;
+  out.checks.J3_uncheckable_no_tree = uncheckable;
   out.checks.J3_bad = bad;
-  if (bad.length) out.fail.push(`J3 bad-citations=${bad.length} [${bad.slice(0, 4).join('; ')}]`);
+  if (src.reason) {
+    out.fail.push(`J3 cannot bounds-check: ${src.reason} ⇒ ${uncheckable} refs UNCHECKABLE（本尺绝不静默用别的版本树顶替）`);
+  } else if (bad.length) {
+    out.fail.push(`J3 bad-citations=${bad.length} [${bad.slice(0, 4).join('; ')}]`);
+  }
 
   out.checks.J4_bare_line_refs = bareUnresolved.length;
   if (bareUnresolved.length) out.fail.push(`J4 bare-line-refs=${bareUnresolved.length}（无前文文件上下文，无法核界）[${bareUnresolved.slice(0, 6).join(',')}]`);
@@ -474,7 +512,7 @@ console.log(`# judge mtime  = ${statSync(fileURLToPath(import.meta.url)).mtime.t
 const results = pages.map((p) => judge(p, mode));
 for (const r of results) {
   console.log(`${r.pass ? 'PASS' : 'FAIL'}  ${r.page}`);
-  console.log(`      J1 fffd=${r.checks.J1_fffd} · J2 missing=[${(r.checks.J2_missing || []).join(',')}] · J3 checked=${r.checks.J3_checked_total} (full=${r.checks.J3_citations} + bare-resolved=${r.checks.J3_bare_resolved}) bad=${(r.checks.J3_bad || []).length} · J4 uncheckable-bare=${r.checks.J4_bare_line_refs}`);
+  console.log(`      J1 fffd=${r.checks.J1_fffd} · J2 missing=[${(r.checks.J2_missing || []).join(',')}] · J3 tree=${r.checks.J3_src_tree || ('UNCHECKABLE:' + r.checks.J3_src_unavailable)} checked=${r.checks.J3_checked_total} (full=${r.checks.J3_citations} + bare-resolved=${r.checks.J3_bare_resolved}) bad=${(r.checks.J3_bad || []).length} · J4 uncheckable-bare=${r.checks.J4_bare_line_refs}`);
   console.log(`      J5 dotSlash=${r.checks.J5_dot_slash ?? 'n/a'} indexLinks=${r.checks.J5_index_links ?? 'n/a'} · J5R unresolved=${(r.checks.J5R_unresolved || []).length} · J10 stray=${(r.checks.J10_stray_links || []).length} · J11 trailSlash=${(r.checks.J11_trailing_slash || []).length} · J8 ${r.checks.J8_bodyBytes}B/${r.checks.J8_h2h3} · J9 csharp=${r.checks.J9_csharp_lines}`);
   console.log(`      J6=${r.checks.J6_classifyPage?.status} · deepPass=${r.checks.deepPass} · tier=${r.checks.tier} · J7 markers=${(r.checks.J7_gen_markers || []).length}`);
   if (r.checks.J2_h2?.length) console.log(`      H2: ${r.checks.J2_h2.join(' | ')}`);

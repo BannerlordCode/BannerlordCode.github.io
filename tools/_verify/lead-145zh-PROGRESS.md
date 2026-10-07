@@ -1002,6 +1002,83 @@ lead-20 #14059 ⑥：
 **⇒ 两批连续出现「嵌套类型无独立源文件」这个形态**（b03 的 `…Outcome`、b04 的前 4 页）⇒ 派单必须内联
 「源文件 + 声明行」，否则 worker 会去找不存在的独立文件（b03/b04 都有 worker 报告过「源文件路径不对」）。
 
+---
+
+## 25. ★★ 尺上一个大洞已修：`SRC_ROOT` 硬编码（lead-20 #14162 查出）
+
+### 25.1 洞
+
+```js
+// 旧实现（错）
+const SRC_ROOT = resolve(REPO, '..', 'bannerlord-1.4.5', 'Bannerlord.Source');
+```
+**它对所有页都用 1.4.5 的树。** lead-20 数了全仓引用分布：
+```
+v1.3.0 5814 · v1.3.15 1344 · v1.4.5 7958 · v1.4.6 506 · v1.4.7 27 · v1.5.3 658
+TOTAL=16307   NON_1.4.5=8349   ← 51.2%
+```
+**两个方向都会错**（实例 `MissionState.cs:400`）：
+```
+1.3.0 421 行 → IN_RANGE      1.4.5 356 行 → OUT_OF_RANGE   ← 旧尺用这棵
+1.3.15 408 行 → IN_RANGE     1.4.6/1.4.7 410 → IN_RANGE   1.5.3 412 → IN_RANGE
+```
+⇒ v1.3.15 页的真在界内引用会被判**假 FAIL**；反向会得**假 PASS**。
+
+### 25.2 实测各树布局不同（比「换个目录名」多一层）
+
+```
+bannerlord-1.4.5/Bannerlord.Source/bin/**   ← 只有 1.4.5 有 Bannerlord.Source 这一层
+bannerlord-1.3.0/**  bannerlord-1.3.15/**  bannerlord-1.4.6/**  bannerlord-1.4.7/**  bannerlord-1.5.3/**
+```
+
+### 25.3 修法：按页面版本树推导 + **绝不静默回退**
+
+```
+从 content/<ver>/ 推 → ../bannerlord-<ver>
+  有 Bannerlord.Source ⇒ 用它；否则用该目录本身
+  树不存在 / 页面不在 content/<ver>/ 下 ⇒ 报 UNCHECKABLE，【不拿 1.4.5 顶替】
+```
+**实测（新尺）：**
+```
+v1.3.0 页  → J3 tree=bannerlord-1.3.0
+v1.3.15 页 → J3 tree=bannerlord-1.3.15
+v1.5.3 页  → J3 tree=bannerlord-1.5.3
+非 content/<ver>/ 页 → J3 tree=UNCHECKABLE:page-not-under-content-<ver>
+                        ✗ J3 cannot bounds-check: … ⇒ 1 refs UNCHECKABLE
+```
+**⇒ 「绝不静默回退」是要点**：回退会产出一个**看起来正常的假读数**——本会话已踩过三次同类形态。
+
+### 25.4 ★ 无判定影响已证（b01–b04 不受影响）
+
+```
+b01 5/5 · deep_pass=5/5 · tier=5/5    （尺改前 = 改后）
+b02 / b03 / b04 同上
+```
+⇒ 它们全部是 `v1.4.5/zh` 页，树本来就匹配。**lead-20 的「不需重跑 b01–b04」判断正确。**
+
+### 25.5 尺 sha 归属（按 §22.1 冻结规矩）
+
+| 尺 sha | 适用 |
+| --- | --- |
+| `05c2a522adbc1183` | b01/b02 冻结读数（覆盖面仅含完整引用） |
+| `d844164e7bd02c58` | b03 首版冻结（3/74 覆盖） |
+| **`de0720022f13c2ea`** | **b03 REV2 / b04 冻结读数（74/74、94/94）** |
+| `127ee75ae9c20d93` | **【对 b05 及以后生效】**——本次 SRC_ROOT 修法 |
+
+**⇒ b01–b04 的 sha 归属未被污染。**
+
+### 25.6 建议上升为通式（已发 lead-20）
+
+```
+报一个数，必须同时报：① 范围（哪棵树/哪个桶/哪些语言）
+                      ② 单位（files / occurrences / body B / file B）
+                      ③ 怎么数出来的（可复算命令）
+三条缺一，那个数就是不可复核的数。
+```
+**本会话所有被顶回来的数，都缺其中至少一条：**
+作用域≠全树（缺①）· files vs occurrences（缺②）· `body B` vs `file B`（缺②）·
+`sed \| grep -n` 编输出流行号（缺③）· 「291 条引用」低报（缺②，裸引用未计）。
+
 **已派 `worker-175`（#13161）**做 b01 的 4 页收尾（6 处字符串替换），brief 里明确列出**不许动**的
 `](../../campaign/)` 与 `](../)`。
 

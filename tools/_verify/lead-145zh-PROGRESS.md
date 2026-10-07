@@ -143,6 +143,7 @@ v1.4.5/zh/api 的 862 张 deep 页里，单节占比：
 | 批次 | 清单 | 行数 | 冻结时刻 | 完成页数 | 七节齐全数 | 引用数 | BROKEN_LINKS 批前→批后 | orphans 批前→批后 | 未完成项 |
 | --- | --- | ---: | --- | ---: | ---: | ---: | --- | --- | --- |
 | b01 | `tools/_verify/lead-145zh-b01.pages.txt` | 5 | 2026-10-07T06:32:54Z | **4** | 4（七节齐全） | 86（20+29+31+6） | 0 → 39（**b01 贡献 0**，见 §5） | 0 → 0 | `InitializeWorkshopAction.md` 未开始（停机令） |
+| b02 | `tools/_verify/lead-145zh-b02.pages.txt` | 5 | 2026-10-07T06:52:00Z | 派单中（07:16Z） | — | — | 0 → 待测 | 0 → 待测 | — |
 
 ### b01 干预记录 ①（2026-10-07T06:42Z）— ★ 一次【归因错】，已自我更正
 
@@ -368,4 +369,57 @@ JUDGE total=5 pass=0 fail=5
 
 停机期间 **不动 `content/`**。两个 b01 worker 已 `team_cancel`（不抱空闲 worker 等无期限解禁）；
 解禁后按 §5 重建。
+
+---
+
+## 10. boss-3 #12561 裁定落地（2026-10-07T07:1xZ）
+
+### 10.1 裁定内容
+
+| # | 裁定 | 我做了什么 |
+| --- | --- | --- |
+| ① | **七节契约是【前向】的，不要拿它回溯量旧页** | 已记入本台账；新页仍按七节执行（不改尺）。不把「六节齐全数」当旧页质量指标 |
+| ① | **接受 see/依赖槽别名族** `依赖关系\|依赖图\|参见\|依赖`，出处 `DISPATCH-TEMPLATE.md §0.0` 共现证据 | 已编进 `J2`；因为该归并方向是【把缺判成有】，尺现在**每页打印 `J2 参见族 via=[…]`**，让别名命中可审计而非隐形 |
+| ② | 两条机制写进 brief + 判分器说明，**并抄给另两条写作线** | 判分器头部 + b02 brief §0.5 已写；**新建 `tools/_verify/ACTIVATION-MECHANICS.md` 作为载体**（**未**编辑 `DISPATCH-TEMPLATE.md`——它正被三条线消费，该模板 §5 要求先告知或写副本）。已请 boss-3 转发（我够不到别的 lead） |
+| ③ | 断点结论接受 | 已记档 |
+| ④ | 批次形态认可 | 已记档 |
+| ⑤ | **每批收尾仍要报 `audit-links` 批前/批后两套数** | 已执行（见 §8 / 批次记录表） |
+
+### 10.2 新增两道防线（裁定之后、派单之前）
+
+**防线 A：对照扩到 1 正向 + 7 负向。** 放宽一条判据后必须同时证明「新允许的形态能过」与「仍禁止的形态还挂」：
+
+| 夹具 | 期望 | 实测 |
+| --- | --- | --- |
+| `JudgeFixture` | PASS | **PASS** |
+| `JudgeAliasSee`（用 `## 依赖关系`） | PASS | **PASS**（别名放宽生效） |
+| `JudgeNoSee`（整个参见族删掉） | FAIL J2+J6 | **FAIL**（放宽没削弱检查） |
+| `JudgeBadHeading` | FAIL J2 | FAIL `J2 missing=导航` |
+| `JudgeBadCitation` | FAIL J3 | FAIL `J3 bad-citations=2` |
+| `JudgeBadLinkForm` | FAIL J5+J5R | FAIL |
+| `JudgeBadMarker` | FAIL J7 | FAIL |
+| `JudgeBadUnresolved` | FAIL J5R ONLY | FAIL（只有 J5R 能咬住） |
+
+**防线 B：测试钩子联锁。** 我把夹具专用钩子 `LEAD145ZH_CONTENT_ROOT` 误带进 b01 验收，
+尺给出 **`pass=0 fail=5` 而 `deep_pass` 仍 4/5** —— 一个**看起来完全正常、没有一行在报警**的错误读数。
+⇒ 尺现在在「钩子已设置 且 验收对象是真实 `content/` 路径」时**直接拒跑（exit 2）**并打印原因。
+三条对照：钩子+content/ → `REFUSING`；钩子+夹具 → 正常 PASS；无钩子+content/ → 正常 4/5。
+
+---
+
+## 11. b02 派单（2026-10-07T07:16Z）
+
+**解禁条件均达成**：① `BROKEN_LINKS=0 / FILES_WITH_BROKEN=0`（批前实测）；③ #12561 已到，且其 ⑤ 重申政策 #12289 继续生效 ⇒ 本批走 `--links off`，**两个口径分开报**。
+
+| 单元 | worker | 页 |
+| --- | --- | --- |
+| W-C | worker-163（#12610） | InitializeWorkshopAction · MakeHeroFugitiveAction · SiegeAftermathAction |
+| W-D | worker-164（#12609） | StartMercenaryServiceAction · **GainRenownAction（修复项）** |
+
+**派单已内联**：5 个源码文件的正文 / 声明行 / 调用点 / 事件链全部写进 brief
+（上一轮教训：派单方内联已核实事实，比要求 worker 自行核验更能把产出推过终点）。
+并明确告知 worker：**本批政策下拿不到 `deep_pass`，不要为了凑它去加链接。**
+
+**批前负向对照（已冻结）**：`pass=0/5 · deep_pass=0/5`，五页全为轻页 `方法/使用示例/参见`，848–1,186B。
+**批后目标**：`pass=5/5`；`deepPass` 可能为 0/5（政策所致）—— **两个数都要报。**
 

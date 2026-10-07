@@ -1,0 +1,392 @@
+{
+ "campaign-ext/BanditDensityModel.md": {
+  "owner": "worker-36",
+  "form": "B 只改一行",
+  "at": "事后补记",
+  "verified": "每个恰好 +1 -1，非 File: 字段改动 0 行"
+ },
+ "campaign-ext/ChangePlayerCharacterAction.md": {
+  "owner": "worker-36",
+  "form": "B 只改一行",
+  "at": "事后补记",
+  "verified": "每个恰好 +1 -1，非 File: 字段改动 0 行"
+ },
+ "campaign-ext/IMbEvent.md": {
+  "owner": "worker-36",
+  "form": "B 只改一行",
+  "at": "事后补记",
+  "verified": "每个恰好 +1 -1，非 File: 字段改动 0 行"
+ },
+ "campaign-ext/MbEvent.md": {
+  "owner": "worker-36",
+  "form": "B 只改一行",
+  "at": "事后补记",
+  "verified": "每个恰好 +1 -1，非 File: 字段改动 0 行"
+ },
+ "campaign-ext/MessageContractCreator.md": {
+  "owner": "worker-36",
+  "form": "B 只改一行",
+  "at": "事后补记",
+  "verified": "每个恰好 +1 -1，非 File: 字段改动 0 行"
+ },
+ "campaign-ext/MessageContractHandler.md": {
+  "owner": "worker-36",
+  "form": "B 只改一行",
+  "at": "事后补记",
+  "verified": "每个恰好 +1 -1，非 File: 字段改动 0 行"
+ },
+ "campaign-ext/ReferenceIMBEvent.md": {
+  "owner": "worker-36",
+  "form": "B 只改一行",
+  "at": "事后补记",
+  "verified": "每个恰好 +1 -1，非 File: 字段改动 0 行"
+ },
+ "campaign-ext/ReferenceMBEvent.md": {
+  "owner": "worker-36",
+  "form": "B 只改一行",
+  "at": "事后补记",
+  "verified": "每个恰好 +1 -1，非 File: 字段改动 0 行"
+ },
+ "campaign-ext/WeakNativeObjectReference.md": {
+  "owner": "worker-36",
+  "form": "B 只改一行",
+  "at": "事后补记",
+  "verified": "每个恰好 +1 -1，非 File: 字段改动 0 行"
+ },
+ "core-extra/EnumHelper.md": {
+  "owner": "worker-36",
+  "form": "B 只改一行",
+  "at": "事后补记",
+  "verified": "每个恰好 +1 -1，非 File: 字段改动 0 行"
+ },
+ "mission-ext/MPPerkCondition.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "mission-ext/MissionObjectiveTarget.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/AcceptCallToWarOfferNotificationItemVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/AcceptingCallToWarAgreementDecisionItemVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ActionCampaignOptionData.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ActionOptionDataVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ActionVisualOrder.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/AgentInteractionInterfaceVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/AlleyLeaderDiedMapNotificationItemVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/AlleyUnderAttackMapNotificationItemVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/AllianceOfferNotificationItemVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ArmyCohesionBoostedByPlayerEvent.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ArmyCreationNotificationItemVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ArmyDispersionItemVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ArmyManagementBoostEventVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ArmyManagementItemVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ArmyManagementSortControllerVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ArmyManagementVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ArmyMenuOverlayVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/AttributeBoundSkillItemVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/AuxiliaryKeyGroupVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/AuxiliaryKeyOptionVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/BannerBuilderCategoryVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/BattleResultType.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/CampaignOptionsControllerVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/CampaignOptionsManager.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ClanCardSelectionInfo.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ClanCardSelectionItemInfo.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ClanCardSelectionItemPropertyInfo.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/DecisionTypes.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/DescriptionType.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/GameMenuItemCreationData.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/InputKeyItemVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/IssueQuestFlags.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemClanComparer.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemComparerBase.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_GameMenu_TournamentLeaderboard.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Armies.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Clans.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Diplomacy.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_WeaponCrafting_Smelting.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemCostComparer.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemDistanceComparer.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemNameComparer.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_GameMenu_TournamentLeaderboard.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_Inventory.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Armies.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Clans.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_WeaponCrafting_Smelting.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemOwnerComparer.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemShipCountComparer.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemStrengthComparer.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemTypeComparer.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_Inventory.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_WeaponCrafting_Smelting.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/JournalLogIndex.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/MenuOverlayContextList.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/MissionHintInteractionItemVM.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/MouseState.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/OrderOfBattleUIHelper.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/TooltipRefresherCollection.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/TroopItemFormationIndexComparer.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ },
+ "viewmodel/VisualOrderExecutionParameters.md": {
+  "owner": "worker-43",
+  "form": "B 只改一行",
+  "at": "事后补记"
+ }
+}

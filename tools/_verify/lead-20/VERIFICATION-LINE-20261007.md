@@ -658,3 +658,56 @@ DefineTypes 1 处【否定句】（zh:27「`DefineTypes` 这个方法不存在�
 ```
 **⇒ ⑤ 的处置是本条最重要的**：**不要假装它被覆盖了。** 任何「全绿」读数都不蕴含 ⑤。
 **⇒ 今日全部误判都来自「把一道判据的绿当成覆盖了全部」。**
+
+---
+
+## 24. Layer 0（语言级一致性）：已派 W-E，但**本线实测警告 —— 其「假阳性近乎零」尚未证实**
+
+### 本线早先做过一个**近似 Layer 0** 的检查（继承声明 vs 源码声明），结果 45/89 不匹配
+```
+PAGES_WITH_CLAIM=178 · CLAIMS=89 · MATCHED=44 · MISMATCHED=45 · UNRESOLVED=19
+⇒ 51% 不匹配率过高 ⇒ 抽 3 条人工核源码，【3 条全部是本线的假阳性，页面都是对的】
+```
+**逐条证据：**
+```
+CASE 1  content/v1.3.0/zh/api/campaign/Town.md:16
+  页：「`Town` 是所有封地的 [Settlement] 组件。它继承自 `Fief`，而 `Fief` 又…」
+  源：bannerlord-1.3.0/.../Settlements/Town.cs:22 = public class Town : Fief        ⇒ 页面正确
+  本线检查器报「claims SettlementComponent」—— 抓的是同段提到的【另一个类】
+
+CASE 2  content/v1.3.15/zh/api/campaign-ext/PerkObject.md:10
+  页：「**Base:** `PropertyObject`（再继承自 `MBObjectBase`）」
+  源：bannerlord-1.3.15/.../PerkObject.cs:11 = public sealed class PerkObject : PropertyObject   ⇒ 页面正确
+  本线检查器把【祖父类】当直接基类
+
+CASE 3  content/v1.3.15/zh/api/campaign-ext/QuestManager.md:74
+  页：「…类型等于 `type` 或继承自 `type` 且 `IsOngoing`…」
+  ⇒ 泛型类型参数的散文，不是类继承声明；本线检查器把 `type` 当类名
+```
+
+### ★ 结论：假阳性的来源**不在语言规则，在「页面那句话说的是哪个类」**
+Boss 的理由「语言规则不是启发式，是语法约束」对**语言规则**成立，对**页面自然语言的解析**不成立。
+**⇒ Layer 0 的假阳性率必须实测，不得假定。** 三种须防护的机制：
+```
+① 配对错类（目标类必须取自做出该断言的那个从句，不能取自邻近句）
+② 间接 vs 直接基类（「再继承自 X」不是直接基类断言）
+③ 散文/泛型记号（type / T / TValue 不是类名）
+```
+**⇒ 本线判读：Layer 0 值得做（它守的缝隙是真的），但其价值完全取决于假阳性率。** 两种结果都会如实上报。
+
+### 派给 W-E 的要求（含 Boss 规格 + 本线三条防护）
+```
+· 语言级矛盾清单（static class 不能有基类 / abstract 不能 new / interface 不能有实例字段 /
+  enum 不能有方法体 / struct 不能继承类 / sealed 不能被子类化 / 构造函数≠泛型方法 / property≠method）
+· 【本层单独触发数】+【与 Layer 1/2 的重叠数】
+· 【本层在真实语料上的假阳性率，抽 ≥30 条】
+· 【本线加】报告如何处理上述三种机制
+· 【反向控制】SaveableCampaignTypeDefiner.cs:52（行号对、标识符对、描述错）
+  ⇒ Layer 0 【应该抓不到】；抓到即假阳性
+```
+
+### 子串膨胀倍数也随树变化（补 §23）
+```
+Register 子串→词边界膨胀：1.3.0 = 78× · 1.3.15 = 62× · 1.4.5 = 7.8× · 1.4.6+ = 7.6×
+⇒ 「62 倍」是 bannerlord-1.3.15 专有；引用该数字必须带版本树
+```

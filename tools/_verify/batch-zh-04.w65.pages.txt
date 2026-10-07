@@ -1,0 +1,24 @@
+# 清单 · batch-zh-04.w65 · N_before = 22 · 采样时刻 2026-10-04T22:44:35.657Z (lead-6 采样)
+# 口径：非注释行全部为仓库相对路径（§DISPATCH 三）
+content/v1.4.5/zh/api/campaign/QuestStates.md
+content/v1.4.5/zh/api/campaign/RaidModel.md
+content/v1.4.5/zh/api/campaign/RomanceCampaignBehavior.md
+content/v1.4.5/zh/api/campaign/SettlementAccessModel.md
+content/v1.4.5/zh/api/campaign/SettlementEconomyModel.md
+content/v1.4.5/zh/api/campaign/SettlementFoodModel.md
+content/v1.4.5/zh/api/campaign/SettlementGarrisonModel.md
+content/v1.4.5/zh/api/campaign/SettlementLoyaltyModel.md
+content/v1.4.5/zh/api/campaign/SettlementMenuOverlayModel.md
+content/v1.4.5/zh/api/campaign/SettlementMilitiaModel.md
+content/v1.4.5/zh/api/campaign/SettlementPatrolModel.md
+content/v1.4.5/zh/api/campaign/SettlementProsperityModel.md
+content/v1.4.5/zh/api/campaign/SettlementSecurityModel.md
+content/v1.4.5/zh/api/campaign/SettlementTaxModel.md
+content/v1.4.5/zh/api/campaign/SettlementValueModel.md
+content/v1.4.5/zh/api/campaign/SmithingModel.md
+content/v1.4.5/zh/api/campaign/StanceType.md
+content/v1.4.5/zh/api/campaign/TradeActionLog.md
+content/v1.4.5/zh/api/campaign/TradeAgreement.md
+content/v1.4.5/zh/api/campaign/TraitObject.md
+content/v1.4.5/zh/api/campaign/VolunteerModel.md
+content/v1.4.5/zh/api/campaign/WorkshopData.md

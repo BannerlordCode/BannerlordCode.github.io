@@ -1,0 +1,78 @@
+# 全版本 zh/api 分档表 · 七节口径
+# 判据 = tools/_verify/DISPATCH-TEMPLATE.md 〇.1（lead-5 表，只读） · 节数 = 7 · 快照时点 = 2026-10-04T23:03:07.211Z
+# 口径：叶页已排除 _ 前缀；tier1 = 6/7 且缺「怎么用」；tier2 = ≤5/7（真写）
+# ★ 两列并列，不合并成「便宜」——（boss #8614）
+
+version	bucket	叶页	空壳	非空壳	tier1	tier2	已有怎么用	插入点一致性
+v1.3.0	campaign	1355	957	398	0	372	26	n/a (tier1=0)
+v1.3.0	campaign-ext	1216	855	361	0	335	26	n/a (tier1=0)
+v1.3.0	core	2	0	2	0	2	0	n/a (tier1=0)
+v1.3.0	core-extra	520	397	123	0	85	38	n/a (tier1=0)
+v1.3.0	engine	204	151	53	0	52	1	n/a (tier1=0)
+v1.3.0	gameplay	15	8	7	0	7	0	n/a (tier1=0)
+v1.3.0	gui	181	105	76	0	75	1	n/a (tier1=0)
+v1.3.0	localization	54	46	8	0	8	0	n/a (tier1=0)
+v1.3.0	mission	52	37	15	0	15	0	n/a (tier1=0)
+v1.3.0	mission-ext	1103	776	327	0	307	20	n/a (tier1=0)
+v1.3.0	system	45	9	36	0	36	0	n/a (tier1=0)
+v1.3.0	viewmodel	433	403	30	0	29	1	n/a (tier1=0)
+v1.3.15	campaign	52	30	22	0	16	6	n/a (tier1=0)
+v1.3.15	campaign-ext	2835	2211	624	3	578	43	2/3@第2位:一句话职责 (2 variants)
+v1.3.15	core	3	1	2	0	2	0	n/a (tier1=0)
+v1.3.15	core-extra	527	428	99	3	86	10	2/3@第2位:心智模型 (2 variants)
+v1.3.15	engine	204	134	70	0	68	2	n/a (tier1=0)
+v1.3.15	gui	58	45	13	0	5	8	n/a (tier1=0)
+v1.3.15	localization	52	39	13	10	2	1	uniform@第2位:心智模型
+v1.3.15	mission	58	43	15	0	15	0	n/a (tier1=0)
+v1.3.15	mission-ext	1633	1009	624	0	620	4	n/a (tier1=0)
+v1.3.15	save-system	109	0	109	0	11	98	n/a (tier1=0)
+v1.3.15	system	25	22	3	0	3	0	n/a (tier1=0)
+v1.3.15	viewmodel	42	38	4	0	2	2	n/a (tier1=0)
+v1.4.5	campaign	1361	841	520	0	362	158	n/a (tier1=0)
+v1.4.5	campaign-ext	3666	2750	916	3	864	49	2/3@第2位:一句话职责 (2 variants)
+v1.4.5	core	5	1	4	0	3	1	n/a (tier1=0)
+v1.4.5	core-extra	536	405	131	2	98	31	1/2@第2位:心智模型 (2 variants)
+v1.4.5	engine	204	152	52	0	50	2	n/a (tier1=0)
+v1.4.5	gameplay	18	3	15	0	3	12	n/a (tier1=0)
+v1.4.5	gui	321	245	76	0	67	9	n/a (tier1=0)
+v1.4.5	localization	54	28	26	0	6	20	n/a (tier1=0)
+v1.4.5	mission	77	31	46	0	17	29	n/a (tier1=0)
+v1.4.5	mission-ext	2311	1485	826	0	804	22	n/a (tier1=0)
+v1.4.5	save-system	109	56	53	0	6	47	n/a (tier1=0)
+v1.4.5	system	69	23	46	0	46	0	n/a (tier1=0)
+v1.4.5	viewmodel	605	566	39	0	37	2	n/a (tier1=0)
+v1.4.6	campaign	9	0	9	0	0	9	n/a (tier1=0)
+v1.4.6	campaign-ext	3	0	3	0	0	3	n/a (tier1=0)
+v1.4.6	core	2	0	2	0	0	2	n/a (tier1=0)
+v1.4.6	core-extra	47	0	47	0	0	47	n/a (tier1=0)
+v1.4.6	engine	1	0	1	0	0	1	n/a (tier1=0)
+v1.4.6	gui	5	0	5	0	0	5	n/a (tier1=0)
+v1.4.6	localization	1	0	1	0	0	1	n/a (tier1=0)
+v1.4.6	mission	4	0	4	0	0	4	n/a (tier1=0)
+v1.4.6	mission-ext	3	0	3	0	0	3	n/a (tier1=0)
+v1.4.6	save-system	5	0	5	0	0	5	n/a (tier1=0)
+v1.4.7	campaign	5	0	5	0	0	5	n/a (tier1=0)
+v1.4.7	campaign-ext	2	0	2	0	0	2	n/a (tier1=0)
+v1.4.7	core	2	0	2	0	0	2	n/a (tier1=0)
+v1.4.7	core-extra	2	0	2	0	0	2	n/a (tier1=0)
+v1.4.7	engine	2	0	2	0	0	2	n/a (tier1=0)
+v1.4.7	gui	3	0	3	0	0	3	n/a (tier1=0)
+v1.4.7	mission	4	0	4	0	0	4	n/a (tier1=0)
+v1.4.7	save-system	3	0	3	0	0	3	n/a (tier1=0)
+v1.5.3	campaign	12	0	12	0	0	12	n/a (tier1=0)
+v1.5.3	campaign-ext	2	0	2	0	0	2	n/a (tier1=0)
+v1.5.3	core	1	0	1	0	0	1	n/a (tier1=0)
+v1.5.3	core-extra	3	0	3	0	0	3	n/a (tier1=0)
+v1.5.3	engine	1	0	1	0	0	1	n/a (tier1=0)
+v1.5.3	gui	2	0	2	0	0	2	n/a (tier1=0)
+v1.5.3	localization	19	0	19	0	0	19	n/a (tier1=0)
+v1.5.3	mission	2	0	2	0	0	2	n/a (tier1=0)
+v1.5.3	save-system	4	0	4	0	0	4	n/a (tier1=0)
+v1.5.3	storymode	92	0	92	0	0	92	n/a (tier1=0)
+
+## 静默门 —— 与其它线重叠的版本
+  lead-8 领地 = v1.3.0/zh 整棵树 ⇒ v1.3.0 的任何桶与它重叠
+  lead-5/lead-8 正在写的桶需再确认（我未逐一线核对，静默门=未确认）
+
+## 本项目（lead-6）当前活动范围 = v1.4.5/zh/api
+  其余版本的 zh 桶在本表内仅供排期参考，未经协商不得写入

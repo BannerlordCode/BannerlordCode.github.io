@@ -1,0 +1,36 @@
+# tools/_check_shell_banner.mjs — CITED BUCKET
+# a page in this file carries >=1 backticked `Something.cs:NNN` citation and therefore is
+# NOT a machine stub. It is deep-written and still carries the generator's description:
+# line. Calling it hand-written would be a different unverified claim.
+# scanned: content/v1.3.0/en/api/campaign-ext   leaves: 1216
+# en: 30   zh: 0   total: 30
+content/v1.3.0/en/api/campaign-ext/AdoptHeroAction.md
+content/v1.3.0/en/api/campaign-ext/SandboxAgentApplyDamageModel.md
+content/v1.3.0/en/api/campaign-ext/SandboxAgentDecideKilledOrUnconsciousModel.md
+content/v1.3.0/en/api/campaign-ext/SandboxAgentStatCalculateModel.md
+content/v1.3.0/en/api/campaign-ext/SandboxApplyWeatherEffectsModel.md
+content/v1.3.0/en/api/campaign-ext/SandboxAutoBlockModel.md
+content/v1.3.0/en/api/campaign-ext/SandboxBattleBannerBearersModel.md
+content/v1.3.0/en/api/campaign-ext/SandboxBattleInitializationModel.md
+content/v1.3.0/en/api/campaign-ext/SandboxBattleMoraleModel.md
+content/v1.3.0/en/api/campaign-ext/SandboxBattleSpawnModel.md
+content/v1.3.0/en/api/campaign-ext/SandboxMissionDifficultyModel.md
+content/v1.3.0/en/api/campaign-ext/SandboxStrikeMagnitudeModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModeAgentDecideKilledOrUnconsciousModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModeBanditDensityModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModeBannerItemModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModeBattleRewardModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModeCombatXpModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModeCutsceneSelectionModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModeEncounterGameMenuModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModeGenericXpModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModeHeroDeathProbabilityCalculationModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModeIncidentModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModeKingdomDecisionPermissionModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModeNotableSpawnModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModePartySizeLimitModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModePartyWageModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModePrisonerRecruitmentCalculationModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModeTargetScoreCalculatingModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModeTroopSupplierProbabilityModel.md
+content/v1.3.0/en/api/campaign-ext/StoryModeVoiceOverModel.md

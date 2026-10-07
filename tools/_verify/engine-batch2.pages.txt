@@ -1,0 +1,5 @@
+# engine 批次2（剩余）
+# N_before = 0
+# sampled_at = 2026-10-04T22:53:26.248Z
+# scope = content/v1.4.5/zh/api/engine/**  (判据见 DISPATCH-TEMPLATE 〇 与 〇之二)
+# 以下每行都是可解析的仓库相对路径

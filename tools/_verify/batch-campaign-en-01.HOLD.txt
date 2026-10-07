@@ -1,0 +1,27 @@
+# 暂缓（非无主）：他条线有未提交改动，criteria ③ 排除。不因「不在已交卷清单里」而重新排入。
+content/v1.3.0/en/api/campaign/DefaultAgeModel.md
+content/v1.3.0/en/api/campaign/DefaultAlleyModel.md
+content/v1.3.0/en/api/campaign/DefaultAllianceModel.md
+content/v1.3.0/en/api/campaign/DefaultArmyManagementCalculationModel.md
+content/v1.3.0/en/api/campaign/DefaultBanditDensityModel.md
+content/v1.3.0/en/api/campaign/DefaultBannerItemModel.md
+content/v1.3.0/en/api/campaign/DefaultBarterModel.md
+content/v1.3.0/en/api/campaign/DefaultBattleCaptainModel.md
+content/v1.3.0/en/api/campaign/DefaultBattleRewardModel.md
+content/v1.3.0/en/api/campaign/DefaultBodyPropertiesModel.md
+content/v1.3.0/en/api/campaign/DefaultBribeCalculationModel.md
+content/v1.3.0/en/api/campaign/DefaultBuildingConstructionModel.md
+content/v1.3.0/en/api/campaign/DefaultBuildingEffectModel.md
+content/v1.3.0/en/api/campaign/DefaultBuildingModel.md
+content/v1.3.0/en/api/campaign/DefaultBuildingScoreCalculationModel.md
+content/v1.3.0/en/api/campaign/DefaultCampaignShipDamageModel.md
+content/v1.3.0/en/api/campaign/DefaultCampaignShipParametersModel.md
+content/v1.3.0/en/api/campaign/DefaultCampaignTimeModel.md
+content/v1.3.0/en/api/campaign/DefaultCaravanModel.md
+content/v1.3.0/en/api/campaign/DefaultCharacterDevelopmentModel.md
+content/v1.3.0/en/api/campaign/DefaultCharacterStatsModel.md
+content/v1.3.0/en/api/campaign/Town.md
+content/v1.3.0/en/api/campaign/Village.md
+content/v1.3.15/en/api/campaign/PartyBase.md
+content/v1.3.15/en/api/campaign/Town.md
+content/v1.4.5/en/api/campaign/PartyBase.md

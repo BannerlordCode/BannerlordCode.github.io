@@ -1,0 +1,26 @@
+# 清单 · batch-zh-03 · N_before = 24 · 采样时刻 2026-10-04T22:44:35.653Z (lead-6 采样)
+# 口径：非注释行全部为仓库相对路径（§DISPATCH 三）
+content/v1.4.5/zh/api/campaign/AcceptCallToWarAgreementDecision.md
+content/v1.4.5/zh/api/campaign/AgingCampaignBehavior.md
+content/v1.4.5/zh/api/campaign/AiMilitaryBehavior.md
+content/v1.4.5/zh/api/campaign/Alliance.md
+content/v1.4.5/zh/api/campaign/AllianceCampaignBehavior.md
+content/v1.4.5/zh/api/campaign/AllianceModel.md
+content/v1.4.5/zh/api/campaign/ArmyDispersionReasonEnumResolver.md
+content/v1.4.5/zh/api/campaign/ArmyManagementCalculationModel.md
+content/v1.4.5/zh/api/campaign/ArmyNeedsSuppliesIssueBehavior.md
+content/v1.4.5/zh/api/campaign/ArtisanCantSellProductsAtAFairPriceIssueBehavior.md
+content/v1.4.5/zh/api/campaign/ArtisanNotableTypeTag.md
+content/v1.4.5/zh/api/campaign/ArtisanOverpricedGoodsIssueBehavior.md
+content/v1.4.5/zh/api/campaign/AseraiTag.md
+content/v1.4.5/zh/api/campaign/AtmosphereGrid.md
+content/v1.4.5/zh/api/campaign/AttackingTag.md
+content/v1.4.5/zh/api/campaign/AttractedToPlayerTag.md
+content/v1.4.5/zh/api/campaign/Attributes.md
+content/v1.4.5/zh/api/campaign/BackstoryCampaignBehavior.md
+content/v1.4.5/zh/api/campaign/BanditDensityModel.md
+content/v1.4.5/zh/api/campaign/BanditInteractionsCampaignBehavior.md
+content/v1.4.5/zh/api/campaign/BanditSpawnCampaignBehavior.md
+content/v1.4.5/zh/api/campaign/BannerCampaignBehavior.md
+content/v1.4.5/zh/api/campaign/BannerEditorState.md
+content/v1.4.5/zh/api/campaign/BannerItemModel.md

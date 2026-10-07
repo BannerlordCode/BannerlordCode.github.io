@@ -1,0 +1,15 @@
+# zh 合格页六节齐全度普查（决定 zh 第一批是「补一节」还是「真写」）
+# 命令：
+#   git status --porcelain -- content            -> ③（两侧同为仓库相对路径）
+#   遍历 content/v*/zh/api/<bucket>/*.md，排除 _ 前缀：
+#     ①  ! /^##\s*(?:How to use|怎么用|如何使用|用法|使用方式)\s*$/im
+#     ②  /[\w\.]+\.cs:\d+/  ||  /(?<![A-Za-z0-9_.\/}])\s:\d+/
+#     ③  路径不在 git status 输出中
+#   六节各计 1/0，命中任一别名即算有：
+#     overview  Overview|概述|简介|导言
+#     mental    Mental Model|Mental model|心智模型|思维模型
+#     members   Key members|Key Members|关键成员|成员|核心成员|成员说明
+#     example   Example|Examples|使用示例|示例|示例用法|用法示例|代码示例
+#     risks     Risks|Risk|风险|风险与边界|边界|注意事项|坑
+#     howto     How to use|怎么用|如何使用|用法|使用方式
+# ⚠ 第一版探针把 example 判成 8/198，那是【判据坏了】（甲）不是语料没有（乙）：

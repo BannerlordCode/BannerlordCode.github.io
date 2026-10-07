@@ -1,0 +1,36 @@
+# 清单 · batch-zh-06（补节档 B · 重排版）· N_before = 30 · 采样时刻 2026-10-04T23:33:41.152Z
+# 排序规则（boss #8949）：★ 用该页 h2 标题的【原始条数】排序，不许用「命中词表几个」。
+#   词表只用来读懂标题是什么意思，不用来数有几节；数节数直接数 ^## 开头的行。
+# 本版剔除了 5 页英文形态页（One-line job…，实为 7 节齐全）—— 它们属档 A，不进档 B。
+# ★ 不使用已作废的 〇.1。
+# 口径：非注释行全部为仓库相对路径（§DISPATCH 三）
+content/v1.4.5/zh/api/campaign-ext/DestroyShipAction.md
+content/v1.4.5/zh/api/campaign-ext/DisableHeroAction.md
+content/v1.4.5/zh/api/campaign-ext/EndMercenaryServiceAction.md
+content/v1.4.5/zh/api/campaign-ext/IncreaseSettlementHealthAction.md
+content/v1.4.5/zh/api/campaign-ext/InitializeWorkshopAction.md
+content/v1.4.5/zh/api/campaign-ext/MakeHeroFugitiveAction.md
+content/v1.4.5/zh/api/campaign-ext/MakePregnantAction.md
+content/v1.4.5/zh/api/campaign-ext/SellGoodsForTradeAction.md
+content/v1.4.5/zh/api/campaign-ext/SellItemsAction.md
+content/v1.4.5/zh/api/campaign-ext/SiegeAftermathAction.md
+content/v1.4.5/zh/api/campaign-ext/StartMercenaryServiceAction.md
+content/v1.4.5/zh/api/campaign-ext/BattleResultPartyData.md
+content/v1.4.5/zh/api/campaign-ext/BattleSimulationMapView.md
+content/v1.4.5/zh/api/campaign-ext/BoardGameHelper.md
+content/v1.4.5/zh/api/campaign-ext/ConversationAnimData.md
+content/v1.4.5/zh/api/campaign-ext/ConversationCharacterData.md
+content/v1.4.5/zh/api/campaign-ext/ConversationViewManager.md
+content/v1.4.5/zh/api/campaign-ext/DefaultMusicInstrumentData.md
+content/v1.4.5/zh/api/campaign-ext/DragCarrierWidget.md
+content/v1.4.5/zh/api/campaign-ext/EditorAttribute.md
+content/v1.4.5/zh/api/campaign-ext/EmbarkDisembarkData.md
+content/v1.4.5/zh/api/campaign-ext/EnemyAgentAIDeactivationMissionLogic.md
+content/v1.4.5/zh/api/campaign-ext/FadeData.md
+content/v1.4.5/zh/api/campaign-ext/FontData.md
+content/v1.4.5/zh/api/campaign-ext/GauntletHeirSelectionPopupView.md
+content/v1.4.5/zh/api/campaign-ext/GauntletMapBarView.md
+content/v1.4.5/zh/api/campaign-ext/GauntletMapBattleSimulationView.md
+content/v1.4.5/zh/api/campaign-ext/GauntletMapCampaignOptionsView.md
+content/v1.4.5/zh/api/campaign-ext/GauntletMapCheatsView.md
+content/v1.4.5/zh/api/campaign-ext/GauntletMapConversationView.md

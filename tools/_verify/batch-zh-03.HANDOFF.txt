@@ -1,0 +1,13 @@
+# 批 3（campaign 桶）· 交接与范围声明
+
+## 范围偏离（boss #8016 裁定：保留记录，不追回）
+boss 裁的是【收尾本桶 = 批 2 剩余 6 页】（AiVisitSettlementBehavior 811 行单独拆出）
+lead-6 扩为 24 页（+18 页本桶 tier1），属【自判断，未另行报批】
+=> 方向与裁定一致且产出更多，但下一次读账的人必须能看出这 18 页是自判断，不是 boss 派的
+
+## 页集
+  batch-zh-03.pages.txt  24 页（6 遗留 + 18 新增 tier1）· 仓库根 24/24 可解析
+  batch-zh-03.HOLD.txt    AiVisitSettlementBehavior.md（单独留出，未派）
+
+## campaign 桶终态（批 3 交卷后由 lead-6 回填）
+  tier1 落地 X/135 · 未做 Y（逐页列路径）

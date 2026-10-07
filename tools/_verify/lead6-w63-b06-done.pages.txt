@@ -1,0 +1,5 @@
+content/v1.4.5/zh/api/campaign-ext/GainRenownAction.md
+content/v1.4.5/zh/api/campaign-ext/GainKingdomInfluenceAction.md
+content/v1.4.5/zh/api/campaign-ext/MakePregnantAction.md
+content/v1.4.5/zh/api/campaign-ext/SellItemsAction.md
+content/v1.4.5/zh/api/campaign-ext/SellGoodsForTradeAction.md

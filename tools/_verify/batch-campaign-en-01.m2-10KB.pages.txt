@@ -1,0 +1,7 @@
+content/v1.4.5/en/api/campaign/AlliedLordTag.md
+content/v1.4.5/en/api/campaign/AmoralTag.md
+content/v1.4.5/en/api/campaign/AnyNotableTypeTag.md
+content/v1.4.5/en/api/campaign/ArmyCreationMapNotification.md
+content/v1.4.5/en/api/campaign/ArtisanNotableTypeTag.md
+content/v1.4.5/en/api/campaign/AttackingTag.md
+content/v1.4.5/en/api/campaign/Attributes.md

@@ -1,0 +1,35 @@
+# lead-8 — worker removal log (one line per removal, written in the same turn)
+# written 2026-10-04T21:24:15Z
+#
+# A removal reason of IDLE is not a failure and must be written differently from BLOCKED.
+# A blank line here means the worker never delivered and the reason is unknown - fix that.
+#
+worker     removed-at     reason   unit delivered            pages-in-unit  landed-now
+worker-48   2026-10-04 IDLE     me-unit-01.pages.txt               50           50
+worker-54   2026-10-04 IDLE     replacemodel-v1.3.0-02.txt            50           50
+worker-55   2026-10-04 IDLE     replacemodel-v1.3.0-01.txt            50            0
+worker-56   2026-10-04 IDLE     replacemodel-v1.3.0-01.txt            50            0
+
+# workers removed earlier, same session, recorded retroactively:
+worker-33   2026-10-04  IDLE    audit of v1.4.7/en delivered (19 unchanged / 3 enriched / 1 defect reported)
+worker-44   2026-10-04  IDLE    me-unit-01 delivered, 50 pages landed
+worker-45   2026-10-04  IDLE    12 pages written before its sub-delegation proved unavailable; no unit delivered
+worker-46   2026-10-04  IDLE    seconds after start, no unit assigned to it in the end
+worker-49   2026-10-04  IDLE    mi-unit-01 delivered, 50 pages landed
+worker-50   2026-10-04  IDLE    mi-unit-05 delivered, 50 pages landed
+worker-51   2026-10-04  IDLE    replacemodel-01 attempted; its 50 pages were re-landed by 55 and 56
+worker-52   2026-10-04  IDLE    replacemodel-02 delivered, 50 pages landed
+worker-53   2026-10-04  IDLE    finished worker-51 unit: examples expanded to the 4-line frame
+worker-54   2026-10-04  IDLE    replacemodel-02 How to use, 50 pages landed
+worker-55   2026-10-04  IDLE    subtractive pass, 287+214 lines removed
+worker-56   2026-10-04  IDLE    authoring pass, Overview+Mental Model on 50 pages
+#
+# NOTE on reading this file: the "landed-now" column counts pages carrying a 怎么用 / How to use
+# heading. That is NOT a delivery measure for the subtractive or authoring units (55, 56), which
+# deliberately do not add that heading. See tools/_verify/lead-8-touched.txt for the same caveat.
+
+# 2026-10-04 removals (rule: one line in the same turn as the removal)
+# worker      reason   unit                              pages        note
+worker-59    IDLE     b1-core-extra-u01 (39 listed)      8 of 39 landed idle-stopped on live collision; 23 went to another writer
+worker-60    IDLE     b2-*-mission-ext + dup repair      8 landed, 4 repaired self-corrected a stale-snapshot count; no mission-ext Tier1 left
+worker-61    IDLE     add-v1.3.0-zh-api-campaign-ext-u01 25/25 landed  1732 lines added 0 deleted; 4 self-caught fabricated APIs

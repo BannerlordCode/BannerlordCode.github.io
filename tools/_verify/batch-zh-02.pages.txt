@@ -1,0 +1,32 @@
+# 清单 · batch-zh-02 · N_before = 30 · 采样时刻 2026-10-04T22:44:35.652Z (lead-6 采样)
+# 口径：非注释行全部为仓库相对路径（§DISPATCH 三）
+content/v1.4.5/zh/api/campaign/AcceptCallToWarAgreementDecision.md
+content/v1.4.5/zh/api/campaign/AcceptCallToWarOfferMapNotification.md
+content/v1.4.5/zh/api/campaign/ActionNotes.md
+content/v1.4.5/zh/api/campaign/AgeModel.md
+content/v1.4.5/zh/api/campaign/AgingCampaignBehavior.md
+content/v1.4.5/zh/api/campaign/AiArmyMemberBehavior.md
+content/v1.4.5/zh/api/campaign/AiBehavior.md
+content/v1.4.5/zh/api/campaign/AIBehaviorData.md
+content/v1.4.5/zh/api/campaign/AiEngagePartyBehavior.md
+content/v1.4.5/zh/api/campaign/AiLandBanditPatrollingBehavior.md
+content/v1.4.5/zh/api/campaign/AiMilitaryBehavior.md
+content/v1.4.5/zh/api/campaign/AIMoveToNearestLandBehavior.md
+content/v1.4.5/zh/api/campaign/AiPartyThinkBehavior.md
+content/v1.4.5/zh/api/campaign/AiPatrollingBehavior.md
+content/v1.4.5/zh/api/campaign/AiVisitSettlementBehavior.md
+content/v1.4.5/zh/api/campaign/Alley.md
+content/v1.4.5/zh/api/campaign/AlleyUnderAttackMapNotification.md
+content/v1.4.5/zh/api/campaign/Alliance.md
+content/v1.4.5/zh/api/campaign/AllianceCampaignBehavior.md
+content/v1.4.5/zh/api/campaign/AllianceModel.md
+content/v1.4.5/zh/api/campaign/AllianceOfferMapNotification.md
+content/v1.4.5/zh/api/campaign/AlliedLordTag.md
+content/v1.4.5/zh/api/campaign/AmoralTag.md
+content/v1.4.5/zh/api/campaign/AnchorPoint.md
+content/v1.4.5/zh/api/campaign/AntiEmpireConspiracyBeginsSceneNotificationItem.md
+content/v1.4.5/zh/api/campaign/AnyNotableTypeTag.md
+content/v1.4.5/zh/api/campaign/ArmyCreationLogEntry.md
+content/v1.4.5/zh/api/campaign/ArmyCreationMapNotification.md
+content/v1.4.5/zh/api/campaign/ArmyDispersionLogEntry.md
+content/v1.4.5/zh/api/campaign/ArmyDispersionMapNotification.md

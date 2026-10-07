@@ -1,0 +1,183 @@
+=== content/v1.4.5/zh/api/campaign/AiVisitSettlementBehavior.md
+  ns=  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors/AiVisitSettlementBehavior.cs:16  public class AiVisitSettlementBehavior : CampaignBehaviorBase
+  H2: 概述 > 心智模型 > 何时使用 / 何时不要使用 > 依赖图 > 风险 > 成员说明 > 示例 > 参见
+  CALLSITES files=1 (showing up to 8)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/SandBoxManager.cs:122  gameStarter.AddBehavior(new AiVisitSettlementBehavior());
+=== content/v1.4.5/zh/api/campaign/BarterGroup.md
+  ns=TaleWorlds.CampaignSystem.BarterSystem  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/BarterGroup.cs:3  public abstract class BarterGroup
+  H2: 概述 > 心智模型 > 关键成员 > 真实示例 > 风险与边界 > 跨版本提示 > 依赖关系
+  CALLSITES files=11 (showing up to 8)
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Barter/BarterVM.cs:19  private readonly List<Dictionary<BarterGroup, MBBindingList<BarterItemVM>>> _barterList;
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Barter/BarterVM.cs:23  private readonly Dictionary<BarterGroup, MBBindingList<BarterItemVM>> _leftList;
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultDiplomacyModel.cs:1004  public override IEnumerable<BarterGroup> GetBarterGroups()
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultDiplomacyModel.cs:1006  return new BarterGroup[6]
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/DiplomacyModel.cs:132  public abstract IEnumerable<BarterGroup> GetBarterGroups();
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem.Barterables/Barterable.cs:51  public BarterGroup Group { get; protected set; }
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem.Barterables/Barterable.cs:95  public void Initialize(BarterGroup barterGroup, bool isContextDependent)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/BarterData.cs:21  private List<BarterGroup> _barterGroups;
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/BarterData.cs:48  foreach (BarterGroup barterGroup in _barterGroups)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/DefaultsBarterGroup.cs:3  public class DefaultsBarterGroup : BarterGroup
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/FiefBarterGroup.cs:3  public class FiefBarterGroup : BarterGroup
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/GoldBarterGroup.cs:3  public class GoldBarterGroup : BarterGroup
+=== content/v1.4.5/zh/api/campaign/BarterModel.md
+  ns=  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BarterModel.cs:7  public abstract class BarterModel : MBGameModel<BarterModel>
+  H2: 概述 > 心智模型 > 何时使用 / 何时不要使用 > 依赖图 > 风险 > 成员说明 > 示例 > 参见
+  CALLSITES files=4 (showing up to 8)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBarterModel.cs:10  public class DefaultBarterModel : BarterModel
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem.Barterables/ItemBarterable.cs:42  return MathF.Round(Campaign.Current.Models.BarterModel.GetBarterPenalty(faction, this, _otherHero, _otherParty).ResultNumber * (fl
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/BarterManager.cs:232  int num = Campaign.Current.Models.BarterModel.CalculateOverpayRelationIncreaseCosts(otherHero, _overpayAmount);
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/BarterManager.cs:251  CampaignTime value = CampaignTime.Now + CampaignTime.Days(Campaign.Current.Models.BarterModel.BarterCooldownWithHeroInDays);
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/GameModels.cs:21  public BarterModel BarterModel { get; private set; }
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/GameModels.cs:322  BarterModel = GetGameModel<BarterModel>();
+=== content/v1.4.5/zh/api/campaign/Barterable.md
+  ns=TaleWorlds.CampaignSystem.BarterSystem.Barterables  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem.Barterables/Barterable.cs:9  public abstract class Barterable
+  H2: 概述 > 心智模型 > 关键成员 > 真实示例 > 风险与边界 > 跨版本提示 > 依赖关系
+  CALLSITES files=32 (showing up to 8)
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Barter/BarterItemVM.cs:25  private List<Barterable> _incompatibleItems = new List<Barterable>();
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Barter/BarterItemVM.cs:27  public Barterable Barterable;
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Barter/BarterVM.cs:856  foreach (Barterable barterable in _barterData.GetBarterables())
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Barter/BarterVM.cs:864  foreach (Barterable barterable2 in args.GetBarterables())
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors/FiefBarterBehavior.cs:29  Barterable barterable = new FiefBarterable(allFief.Settlement, args.OffererHero, args.OtherHero);
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors/FiefBarterBehavior.cs:34  Barterable barterable2 = new FiefBarterable(allFief.Settlement, args.OtherHero, args.OffererHero);
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors/GoldBarterBehavior.cs:23  Barterable barterable = new GoldBarterable(args.OffererHero, args.OtherHero, args.OffererParty, args.OtherParty, val);
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors/GoldBarterBehavior.cs:25  Barterable barterable2 = new GoldBarterable(args.OtherHero, args.OffererHero, args.OtherParty, args.OffererParty, val2);
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors/ItemBarterBehavior.cs:103  Barterable barterable = new ItemBarterable(args.OffererHero, args.OtherHero, args.OffererParty, args.OtherParty, elementCopyAtInde
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors/ItemBarterBehavior.cs:113  Barterable barterable2 = new ItemBarterable(args.OtherHero, args.OffererHero, args.OtherParty, args.OffererParty, elementCopyAtInd
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors/SetPrisonerFreeBarterBehavior.cs:37  Barterable barterable = new SetPrisonerFreeBarterable(item.HeroObject, args.OffererHero, args.OffererParty, args.OtherHero);
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors/SetPrisonerFreeBarterBehavior.cs:50  Barterable barterable2 = new SetPrisonerFreeBarterable(item2.HeroObject, args.OtherHero, args.OtherParty, args.OffererHero);
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors/TransferPrisonerBarterBehavior.cs:30  Barterable barterable = new TransferPrisonerBarterable(prisonerHero.HeroObject, args.OffererHero, args.OffererParty, args.OtherHer
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors/TransferPrisonerBarterBehavior.cs:38  Barterable barterable2 = new TransferPrisonerBarterable(prisonerHero2.HeroObject, args.OtherHero, args.OtherParty, args.OffererHer
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/BanditInteractionsCampaignBehavior.cs:608  BarterManager.Instance.StartBarterOffer(Hero.MainHero, Hero.OneToOneConversationHero, PartyBase.MainParty, MobileParty.Conversatio
+=== content/v1.4.5/zh/api/campaign/BehaviorSaveData.md
+  NO DECL FILE  ns= file=
+=== content/v1.4.5/zh/api/campaign/BuildingConstructionModel.md
+  ns=  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BuildingConstructionModel.cs:6  public abstract class BuildingConstructionModel : MBGameModel<BuildingConstructionModel>
+  H2: 概述 > 心智模型 > 何时使用 / 何时不要使用 > 依赖图 > 风险 > 成员说明 > 示例 > 参见
+  CALLSITES files=7 (showing up to 8)
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/TownManagementReserveControlVM.cs:200  textObject.SetTextVariable("BOOST", Campaign.Current.Models.BuildingConstructionModel.GetBoostAmount(_settlement.Town));
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/TownManagementReserveControlVM.cs:201  textObject.SetTextVariable("COST", Campaign.Current.Models.BuildingConstructionModel.GetBoostCost(_settlement.Town));
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/TownManagementVM.cs:663  MiddleFirstTextList.Add(new TownManagementDescriptionItemVM(GameTexts.FindText("str_town_management_daily_production"), (int)Campa
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Town.cs:152  public float Construction => Campaign.Current.Models.BuildingConstructionModel.CalculateDailyConstructionPower(this).ResultNumber;
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Town.cs:154  public ExplainedNumber ConstructionExplanation => Campaign.Current.Models.BuildingConstructionModel.CalculateDailyConstructionPowe
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingConstructionModel.cs:13  public class DefaultBuildingConstructionModel : BuildingConstructionModel
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/BuildingsCampaignBehavior.cs:110  BuildingConstructionModel buildingConstructionModel = Campaign.Current.Models.BuildingConstructionModel;
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/GameModels.cs:149  public BuildingConstructionModel BuildingConstructionModel { get; private set; }
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/GameModels.cs:331  BuildingConstructionModel = GetGameModel<BuildingConstructionModel>();
+    TaleWorlds.CampaignSystem/Helpers/BuildingHelper.cs:75  BuildingConstructionModel buildingConstructionModel = Campaign.Current.Models.BuildingConstructionModel;
+    TaleWorlds.CampaignSystem/Helpers/BuildingHelper.cs:94  int num7 = Campaign.Current.Models.BuildingConstructionModel.CalculateDailyConstructionPowerWithoutBoost(town);
+=== content/v1.4.5/zh/api/campaign/BuildingEffectEnum.md
+  ns=  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/BuildingEffectEnum.cs:3  public enum BuildingEffectEnum
+  H2: 概述 > 心智模型 > 何时使用 / 何时不要使用 > 依赖图 > 风险 > 成员说明 > 示例 > 参见
+  CALLSITES files=22 (showing up to 8)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/Building.cs:161  public void AddEffectOfBuilding(BuildingEffectEnum buildingEffect, ref ExplainedNumber result)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/BuildingType.cs:15  public BuildingEffectEnum BuildingEffect { get; }
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/BuildingType.cs:35  public EffectInfo(BuildingEffectEnum effect, BuildingEffectIncrementType effectIncrementType, float[] effectValues)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/DefaultBuildingTypes.cs:185  _buildingSettlementFortifications.Initialize(new TextObject("{=CVdK1ax1}Fortifications"), new TextObject("{=dIM6xa2O}Better fortif
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/DefaultBuildingTypes.cs:187  new Tuple<BuildingEffectEnum, BuildingEffectIncrementType, float, float, float>(BuildingEffectEnum.GarrisonCapacity, BuildingEffec
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Town.cs:467  AddEffectOfBuildings(BuildingEffectEnum.FoodStock, ref result);
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Town.cs:573  public void AddEffectOfBuildings(BuildingEffectEnum buildingEffect, ref ExplainedNumber result)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingConstructionModel.cs:139  town.AddEffectOfBuildings(BuildingEffectEnum.ConstructionPerDay, ref result);
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingEffectModel.cs:11  public override ExplainedNumber GetBuildingEffect(Building building, BuildingEffectEnum effect)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingEffectModel.cs:15  if (effect == BuildingEffectEnum.DenarByBoundVillageHeartPerDay)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultClanFinanceModel.cs:456  town.AddEffectOfBuildings(BuildingEffectEnum.TariffIncome, ref result);
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultClanFinanceModel.cs:466  town.AddEffectOfBuildings(BuildingEffectEnum.DenarByBoundVillageHeartPerDay, ref result);
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultClanPoliticsModel.cs:68  settlement.Town.AddEffectOfBuildings(BuildingEffectEnum.Influence, ref influenceChange);
+=== content/v1.4.5/zh/api/campaign/BuildingEffectIncrementType.md
+  ns=  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/BuildingEffectIncrementType.cs:3  public enum BuildingEffectIncrementType
+  H2: 概述 > 心智模型 > 何时使用 / 何时不要使用 > 依赖图 > 风险 > 成员说明 > 示例 > 参见
+  CALLSITES files=3 (showing up to 8)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/Building.cs:169  BuildingEffectIncrementType buildingEffectType = BuildingType.GetBuildingEffectType(buildingEffect);
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/Building.cs:173  case BuildingEffectIncrementType.Add:
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/BuildingType.cs:17  public BuildingEffectIncrementType BuildingEffectIncrementType { get; }
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/BuildingType.cs:35  public EffectInfo(BuildingEffectEnum effect, BuildingEffectIncrementType effectIncrementType, float[] effectValues)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/DefaultBuildingTypes.cs:185  _buildingSettlementFortifications.Initialize(new TextObject("{=CVdK1ax1}Fortifications"), new TextObject("{=dIM6xa2O}Better fortif
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/DefaultBuildingTypes.cs:187  new Tuple<BuildingEffectEnum, BuildingEffectIncrementType, float, float, float>(BuildingEffectEnum.GarrisonCapacity, BuildingEffec
+=== content/v1.4.5/zh/api/campaign/BuildingEffectModel.md
+  ns=  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BuildingEffectModel.cs:6  public abstract class BuildingEffectModel : MBGameModel<BuildingEffectModel>
+  H2: 概述 > 心智模型 > 何时使用 / 何时不要使用 > 依赖图 > 风险 > 成员说明 > 示例 > 参见
+  CALLSITES files=4 (showing up to 8)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/Building.cs:170  float resultNumber = Campaign.Current.Models.BuildingEffectModel.GetBuildingEffect(this, buildingEffect).ResultNumber;
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingEffectModel.cs:9  public class DefaultBuildingEffectModel : BuildingEffectModel
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementPatrolModel.cs:50  return (int)Campaign.Current.Models.BuildingEffectModel.GetBuildingEffect(guardHouse, BuildingEffectEnum.PatrolPartyStrength).Resu
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/GameModels.cs:151  public BuildingEffectModel BuildingEffectModel { get; private set; }
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/GameModels.cs:332  BuildingEffectModel = GetGameModel<BuildingEffectModel>();
+=== content/v1.4.5/zh/api/campaign/BuildingModel.md
+  ns=  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BuildingModel.cs:7  public abstract class BuildingModel : MBGameModel<BuildingModel>
+  H2: 概述 > 心智模型 > 何时使用 / 何时不要使用 > 依赖图 > 风险 > 成员说明 > 示例 > 参见
+  CALLSITES files=3 (showing up to 8)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingModel.cs:7  public class DefaultBuildingModel : BuildingModel
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/BuildingsCampaignBehavior.cs:167  if (town.Buildings.All((Building b) => b.BuildingType != buildingType) && Campaign.Current.Models.BuildingModel.CanAddBuildingType
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/GameModels.cs:241  public BuildingModel BuildingModel { get; private set; }
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/GameModels.cs:378  BuildingModel = GetGameModel<BuildingModel>();
+=== content/v1.4.5/zh/api/campaign/BuildingScoreCalculationModel.md
+  ns=  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BuildingScoreCalculationModel.cs:7  public abstract class BuildingScoreCalculationModel : MBGameModel<BuildingScoreCalculationModel>
+  H2: 概述 > 心智模型 > 何时使用 / 何时不要使用 > 依赖图 > 风险 > 成员说明 > 示例 > 参见
+  CALLSITES files=3 (showing up to 8)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingScoreCalculationModel.cs:9  public class DefaultBuildingScoreCalculationModel : BuildingScoreCalculationModel
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/BuildingsCampaignBehavior.cs:42  Building nextDailyBuilding = Campaign.Current.Models.BuildingScoreCalculationModel.GetNextDailyBuilding(town);
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/BuildingsCampaignBehavior.cs:53  Building nextBuilding = Campaign.Current.Models.BuildingScoreCalculationModel.GetNextBuilding(town);
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/GameModels.cs:193  public BuildingScoreCalculationModel BuildingScoreCalculationModel { get; private set; }
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/GameModels.cs:350  BuildingScoreCalculationModel = GetGameModel<BuildingScoreCalculationModel>();
+=== content/v1.4.5/zh/api/campaign/BuildingType.md
+  ns=  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/BuildingType.cs:11  public sealed class BuildingType : MBObjectBase
+  H2: 概述 > 心智模型 > 何时使用 / 何时不要使用 > 依赖图 > 风险 > 成员说明 > 示例 > 参见
+  CALLSITES files=26 (showing up to 8)
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/SettlementProjectSelectionVM.cs:233  if (!building.BuildingType.IsDailyProject)
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/SettlementProjectSelectionVM.cs:326  item.IsInQueue = LocalDevelopmentList.Any((Building d) => d.BuildingType == item.Building.BuildingType);
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/SettlementProjectVM.cs:62  VisualCode = ((value != null) ? value.BuildingType.StringId.ToLower() : "");
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/SettlementProjectVM.cs:246  if (Building.BuildingType.IsDailyProject)
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/TownManagementVM.cs:688  IsCurrentProjectDaily = _settlement.Town.CurrentBuilding.BuildingType.IsDailyProject;
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/TooltipRefresherCollection.cs:679  if (building.BuildingType.IsDailyProject)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/Building.cs:13  private BuildingType _buildingType;
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/Building.cs:33  public BuildingType BuildingType => _buildingType;
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/DefaultBuildingTypes.cs:11  private BuildingType _buildingSettlementFortifications;
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/DefaultBuildingTypes.cs:13  private BuildingType _buildingSettlementMarketplace;
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Settlement.cs:1053  if (building.BuildingType.IsDailyProject && building.CurrentLevel != 1)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Town.cs:529  if (building.BuildingType == null || !building.BuildingType.IsReady)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Town.cs:539  if (item.BuildingType == null || !item.BuildingType.IsReady)
+=== content/v1.4.5/zh/api/campaign/BuildingsCampaignBehavior.md
+  ns=  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/BuildingsCampaignBehavior.cs:13  public class BuildingsCampaignBehavior : CampaignBehaviorBase
+  H2: 概述 > 心智模型 > 何时使用 / 何时不要使用 > 依赖图 > 风险 > 成员说明 > 示例 > 参见
+  CALLSITES files=1 (showing up to 8)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/SandBoxManager.cs:43  gameStarter.AddBehavior(new BuildingsCampaignBehavior());
+=== content/v1.4.5/zh/api/campaign/CachedPartyVariables.md
+  NO DECL FILE  ns= file=
+=== content/v1.4.5/zh/api/campaign/CampaignCheats.md
+  ns=  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignCheats.cs:28  public static class CampaignCheats
+  H2: 概述 > 心智模型 > 何时使用 / 何时不要使用 > 依赖图 > 风险 > 成员说明 > 示例 > 参见
+  CALLSITES files=0 (showing up to 8)
+=== content/v1.4.5/zh/api/campaign/CampaignData.md
+  ns=  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignData.cs:5  public static class CampaignData
+  H2: 概述 > 心智模型 > 何时使用 / 何时不要使用 > 依赖图 > 风险 > 成员说明 > 示例 > 参见
+  CALLSITES files=3 (showing up to 8)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/DisbandPartyAction.cs:37  textObject.SetTextVariable("CLAN_NAME", (disbandParty.ActualClan != null) ? disbandParty.ActualClan.Name : CampaignData.NeutralFac
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/TeleportHeroAction.cs:107  textObject.SetTextVariable("CLAN_NAME", (targetParty.ActualClan != null) ? targetParty.ActualClan.Name : CampaignData.NeutralFacti
+    TaleWorlds.CampaignSystem/Helpers/CharacterHelper.cs:85  "empire" => CampaignData.EmpireHeroClothColors,
+    TaleWorlds.CampaignSystem/Helpers/CharacterHelper.cs:86  "sturgia" => CampaignData.SturgiaHeroClothColors,
+=== content/v1.4.5/zh/api/campaign/CampaignEntityComponent.md
+  ns=  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignEntityComponent.cs:5  public class CampaignEntityComponent : IEntityComponent
+  H2: 概述 > 心智模型 > 何时使用 / 何时不要使用 > 依赖图 > 风险 > 成员说明 > 示例 > 参见
+  CALLSITES files=1 (showing up to 8)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Campaign.cs:60  private EntitySystem<CampaignEntityComponent> _campaignEntitySystem;
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Campaign.cs:469  public MBReadOnlyList<CampaignEntityComponent> CampaignEntityComponents => _campaignEntitySystem.Components;
+=== content/v1.4.5/zh/api/campaign/CampaignFactionManagerBehaviour.md
+  ns=  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CampaignFactionManagerBehaviour.cs:5  public class CampaignFactionManagerBehaviour : CampaignBehaviorBase
+  H2: 概述 > 心智模型 > 何时使用 / 何时不要使用 > 依赖图 > 风险 > 成员说明 > 示例 > 参见
+  CALLSITES files=1 (showing up to 8)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/SandBoxManager.cs:156  gameStarter.AddBehavior(new CampaignFactionManagerBehaviour());
+=== content/v1.4.5/zh/api/campaign/CampaignGameMode.md
+  ns=  decl=TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignGameMode.cs:3  public enum CampaignGameMode
+  H2: 概述 > 心智模型 > 何时使用 / 何时不要使用 > 依赖图 > 风险 > 成员说明 > 示例 > 参见
+  CALLSITES files=12 (showing up to 8)
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign.Order/CraftingOrderPopupVM.cs:143  if (Campaign.Current.GameMode == CampaignGameMode.Tutorial)
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponDesignVM.cs:1623  bool flag = Campaign.Current.GameMode == CampaignGameMode.Tutorial;
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponDesignVM.cs:2054  if (_craftingBehavior != null && Campaign.Current.GameMode == CampaignGameMode.Campaign)
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting/CraftingVM.cs:746  if (Campaign.Current.GameMode == CampaignGameMode.Campaign)
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting/CraftingVM.cs:965  if (Campaign.Current.GameMode == CampaignGameMode.Tutorial)
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Inventory/ItemMenuVM.cs:754  if (Campaign.Current.GameMode != CampaignGameMode.Campaign || _tradeRumorsBehavior == null)
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Inventory/SPInventoryVM.cs:4010  if (Campaign.Current.GameMode == CampaignGameMode.Campaign)
+    TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu/GameMenuVM.cs:508  if (Campaign.Current.GameMode == CampaignGameMode.Campaign)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Locations/LocationCharacter.cs:59  if (Campaign.Current.GameMode == CampaignGameMode.Campaign)
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Campaign.cs:224  public override bool SupportsSaving => GameMode == CampaignGameMode.Campaign;
+    TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Campaign.cs:229  public override bool IsDevelopment => GameMode == CampaignGameMode.Tutorial;
+DONE

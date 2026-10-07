@@ -1,0 +1,98 @@
+#!/usr/bin/env node
+// Rebuilds batch-campaign-en-01.gt10KB.selection-audit.json programmatically.
+// JSON is emitted via JSON.stringify so escaping cannot corrupt it.
+import fs from 'node:fs';
+
+const REPO = 'C:/WorkSpace/Bannerlord/BannerlordCode.github.io';
+const MANIFEST = `${REPO}/tools/_verify/batch-campaign-en-01.gt10KB.pages.txt`;
+
+const pages = fs.readFileSync(MANIFEST, 'utf8').trim().split('\n');
+const FORM_A = /[A-Za-z_][A-Za-z0-9_]*\.cs:\d+/g;
+const FORM_B_STRICT = /(?<![\w./]) :\d+/g;
+const FORM_B_LOOSE = /(?<!\.cs):\d+/g;
+
+let a = 0, bStrict = 0, bLooseRaw = 0;
+const onlyA = [], onlyB = [], both = [], neither = [];
+const sizes = [];
+
+for (const p of pages) {
+  const t = fs.readFileSync(`${REPO}/${p}`, 'utf8');
+  sizes.push(fs.statSync(`${REPO}/${p}`).size);
+  const fa = (t.match(FORM_A) || []).length;
+  const stripped = t.replace(FORM_A, ' ').replace(/https?:\/\/\S+/g, ' ');
+  const fbS = (stripped.match(FORM_B_STRICT) || []).length;
+  const fbL = (t.match(FORM_B_LOOSE) || []).length;
+  a += fa; bStrict += fbS; bLooseRaw += fbL;
+  if (fa > 0 && fbS > 0) both.push(p);
+  else if (fa > 0) onlyA.push(p);
+  else if (fbS > 0) onlyB.push(p);
+  else neither.push({ path: p, raw_hits: (t.match(FORM_B_LOOSE) || []).slice(0, 4) });
+}
+sizes.sort((x, y) => x - y);
+
+const doc = {
+  artifact: 'batch-campaign-en-01.gt10KB.selection-audit',
+  scanned: '2026-10-04',
+  scope: 'content/v1.3.0/en/api/campaign - 39 pages >10KB, exactly the manifest under audit',
+  status: 'READ-ONLY SELECTION AUDIT. 0 pages written. No rate claimed.',
+  headline: 'The manifest contains 5 pages that do NOT satisfy criterion 2. They qualified only because the manifest Form-B regex matches interpolated-format colons like {bestValue:0}, not citations. Recommended fix: drop those 5, leaving 34.',
+
+  convention_definitions: {
+    Form_A: '`Name.cs:N` - file-qualified, independently checkable. Regex: /[A-Za-z_][A-Za-z0-9_]*\\.cs:\\d+/g',
+    Form_B_strict: 'bare `:N` WITH A LEADING SPACE and no preceding word char / dot / slash. Regex: /(?<![\\w.\\/]) :\\d+/g. This is the shape the repo own reference pages use, e.g. (MBEditor.cs:202-211) then (`:206`).',
+    Form_B_as_the_manifest_writes_it: '/(?<!\\.cs):\\d+/g - NO leading-space requirement, so it matches ANY colon-digit in prose or in code.',
+    why_this_is_the_whole_dispute: 'the two Form-B regexes disagree on 5 of 39 pages, and the manifest funnel number 46 was produced with the loose one.',
+  },
+
+  census_two_forms_reported_separately: {
+    note: 'criterion 2 is an OR. Each side implemented and reported separately, per instruction.',
+    pages: pages.length,
+    qualify_via_Form_A_only: onlyA.length,
+    qualify_via_Form_B_only_strict: onlyB.length,
+    qualify_via_both_forms: both.length,
+    qualify_via_neither: neither.length,
+    Form_A_citation_occurrences_total: a,
+    Form_B_strict_citation_occurrences_total: bStrict,
+    Form_B_loose_regex_raw_hits_total: bLooseRaw,
+    reading: 'criterion 2 in this batch is carried ENTIRELY by Form A. The Form B branch is dead here - not skipped, but genuinely empty: after stripping Form A and URLs there is no strict bare `:N` anywhere in these 39 pages. So the manifest note "5 pages qualified only via bare :N" does not describe 5 pages carried by Form B; those 5 are carried by a regex artefact.',
+  },
+
+  the_5_disqualified_pages: {
+    verdict: 'fail criterion 2 - remove from the manifest, do not work on them',
+    evidence_all_5_identical_shape: 'each page only "Form B" hit is a C# interpolated-string format specifier, e.g. $"{best.Name.Name}: {bestValue:0}" - a colon followed by a digit (:0), no leading space, inside a code example.',
+    strict_Form_B_hits_on_these_5: 0,
+    pages: neither,
+  },
+
+  manifest_funnel_arithmetic_check: {
+    manifest_claims: 'leaves 2772 -> 1st filter 2719 -> 2nd filter 72 -> 3rd filter 46 ; tiers <2KB 0 | 2-10KB 7 | >10KB 39',
+    internal_consistency: '7 + 39 = 46 OK - the tier split matches the 46.',
+    but: '46 was computed with the loose Form-B regex. Removing the 5 artefact pages moves the >10KB tier to 34. This audit did NOT recompute the full 2772-page funnel (outside the 39-page scope); the 5 pages are directly verifiable in scope.',
+  },
+
+  pre_flight_checks_passed: {
+    all_39_resolve_from_repo_root: '39/39 - section 4r satisfied, verified against repo root rather than against content/',
+    none_in_git_status: 'git status --porcelain over all 39 paths returns empty, so boundary 4 (skip if another line is writing) does not trigger',
+    none_already_has_usage_section: '0/39 contain a 怎么用 / How to use heading - criterion 1 holds for all 39',
+  },
+
+  batch_shape_for_rate_planning: {
+    size_distribution: `min ${sizes[0]} B - median ${sizes[Math.floor(sizes.length / 2)]} B - max ${sizes[sizes.length - 1]} B, all 39 >10KB by construction`,
+    bimodal: false,
+    represents_campaign_bucket: false,
+    why: 'the >10KB tier is one of three tiers in the campaign pool. The same pool has 7 qualifying pages in the 2-10KB tier (explicitly excluded from this batch) and 0 under 2KB. A rate measured on these 39 is a rate for large pages only and does not transfer to the campaign bucket as a whole. The worker-56 objection still holds.',
+  },
+
+  not_counted_here: [
+    'zh tree (out of scope by instruction)',
+    'the 2-10KB tier of the same pool (7 pages) - deliberately not in this batch',
+    'pages disqualified by filter 3 (git status) - 0 in this batch',
+    'synonym section headings; bracketed / cross-line / Chinese-form citations - as METHOD.txt already excludes',
+    'any judgement about whether these pages are good or bad - this audit only tested selection criteria',
+  ],
+};
+
+fs.writeFileSync(`${REPO}/tools/_verify/batch-campaign-en-01.gt10KB.selection-audit.json`, JSON.stringify(doc, null, 2) + '\n');
+console.log('wrote selection-audit.json');
+console.log(`  A-only ${onlyA.length} | B-only ${onlyB.length} | both ${both.length} | neither ${neither.length}`);
+console.log(`  Form A ${a} occurrences, Form B strict ${bStrict}, Form B loose raw ${bLooseRaw}`);

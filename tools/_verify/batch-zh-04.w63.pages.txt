@@ -1,0 +1,24 @@
+# 清单 · batch-zh-04.w63 · N_before = 22 · 采样时刻 2026-10-04T22:44:35.657Z (lead-6 采样)
+# 口径：非注释行全部为仓库相对路径（§DISPATCH 三）
+content/v1.4.5/zh/api/campaign/FakeMarketData.md
+content/v1.4.5/zh/api/campaign/Grievance.md
+content/v1.4.5/zh/api/campaign/Hero.md
+content/v1.4.5/zh/api/campaign/HeroCraftingRecord.md
+content/v1.4.5/zh/api/campaign/HeroRelations.md
+content/v1.4.5/zh/api/campaign/ILocatable.md
+content/v1.4.5/zh/api/campaign/ItemTradeData.md
+content/v1.4.5/zh/api/campaign/KingdomDecision.md
+content/v1.4.5/zh/api/campaign/KingdomDecisionConcludedLogEntry.md
+content/v1.4.5/zh/api/campaign/KingdomDecisionPermissionModel.md
+content/v1.4.5/zh/api/campaign/KingdomDecisionProposalBehavior.md
+content/v1.4.5/zh/api/campaign/LocatorGrid.md
+content/v1.4.5/zh/api/campaign/MarriageModel.md
+content/v1.4.5/zh/api/campaign/MobilePartyAIModel.md
+content/v1.4.5/zh/api/campaign/NotableSpawnModel.md
+content/v1.4.5/zh/api/campaign/PartyMoraleModel.md
+content/v1.4.5/zh/api/campaign/PartySizeLimitModel.md
+content/v1.4.5/zh/api/campaign/PartyTrainingModel.md
+content/v1.4.5/zh/api/campaign/PartyWageModel.md
+content/v1.4.5/zh/api/campaign/PerkObject.md
+content/v1.4.5/zh/api/campaign/Pregnancy.md
+content/v1.4.5/zh/api/campaign/PregnancyModel.md

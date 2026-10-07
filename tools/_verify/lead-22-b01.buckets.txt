@@ -1,0 +1,5 @@
+# lead-22 批次 b01 — 桶授权清单（nav-section-index.mjs --apply 的 R2 授权层输入）
+# 每行一个桶目录（= 含 _index.md 的目录），逐字出现在本批清单内才允许写。
+# 冻结: 2026-10-07T08:2xZ · 依据: boss-3 #13802 / #13850（新页必须同批接进父索引）
+content/v1.3.15/zh/architecture
+content/v1.3.15/en/architecture

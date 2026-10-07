@@ -1,0 +1,24 @@
+# 清单 · batch-zh-04.w58 · N_before = 22 · 采样时刻 2026-10-04T22:44:35.655Z (lead-6 采样)
+# 口径：非注释行全部为仓库相对路径（§DISPATCH 三）
+content/v1.4.5/zh/api/campaign/CampaignInformationManager.md
+content/v1.4.5/zh/api/campaign/CampaignObjectBase.md
+content/v1.4.5/zh/api/campaign/CampaignOptions.md
+content/v1.4.5/zh/api/campaign/CampaignTimeModel.md
+content/v1.4.5/zh/api/campaign/CampaignWarManagerBehavior.md
+content/v1.4.5/zh/api/campaign/CaravanModel.md
+content/v1.4.5/zh/api/campaign/CaravansCampaignBehavior.md
+content/v1.4.5/zh/api/campaign/CharacterDevelopmentModel.md
+content/v1.4.5/zh/api/campaign/CharacterObject.md
+content/v1.4.5/zh/api/campaign/CharacterStatsModel.md
+content/v1.4.5/zh/api/campaign/ClanFinanceModel.md
+content/v1.4.5/zh/api/campaign/CombatXpModel.md
+content/v1.4.5/zh/api/campaign/CraftedItemInitializationData.md
+content/v1.4.5/zh/api/campaign/CraftingCampaignBehavior.md
+content/v1.4.5/zh/api/campaign/CrimeCampaignBehavior.md
+content/v1.4.5/zh/api/campaign/CrimeModel.md
+content/v1.4.5/zh/api/campaign/DecisionOutcome.md
+content/v1.4.5/zh/api/campaign/DefaultBuildingConstructionModel.md
+content/v1.4.5/zh/api/campaign/DefaultBuildingEffectModel.md
+content/v1.4.5/zh/api/campaign/DefaultKingdomDecisionPermissionModel.md
+content/v1.4.5/zh/api/campaign/DiplomacyModel.md
+content/v1.4.5/zh/api/campaign/EducationCampaignBehavior.md

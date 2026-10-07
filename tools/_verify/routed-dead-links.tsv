@@ -1,0 +1,5 @@
+# Routed dead links — links found outside my bucket and handed to the subtree owner
+# Required by boss #8847 item 4. A route with no row here did not happen.
+#
+# bucketed_at	source_page	href	resolves_to	target_exists	routed_to	routed_at	status
+bucket5	content/v1.4.5/zh/api/campaign-ext/DefaultSettlementSecurityModel.md	../DefaultSettlementLoyaltyModel	/v1.4.5/zh/api/campaign-ext/DefaultSettlementLoyaltyModel	yes	lead-5 + lead-6	2026-10-04T23:22:29Z	FIXED by the subtree owner; href corrected to ../ ; verified 2026-10-04T23:29:29Z

@@ -1,0 +1,34 @@
+# engine 批次1（5/6 缺「关键成员」 + no_desc ≤3/6 真写，按体量升序）
+# N_before = 27
+# sampled_at = 2026-10-04T22:54:12.294Z
+# scope = content/v1.4.5/zh/api/engine/**
+# 判据 = tools/_verify/DISPATCH-TEMPLATE.md 〇（六节清单与别名表）与 〇之二（空壳签名）
+# ⚠ 「何时使用 / 何时不要使用」族【不是】「怎么用」的别名，已排除出计数
+# 以下每行都是可解析的仓库相对路径
+content/v1.4.5/zh/api/engine/IView.md
+content/v1.4.5/zh/api/engine/SphereData.md
+content/v1.4.5/zh/api/engine/ITableauView.md
+content/v1.4.5/zh/api/engine/ITextureView.md
+content/v1.4.5/zh/api/engine/IOptionData.md
+content/v1.4.5/zh/api/engine/IMouseManager.md
+content/v1.4.5/zh/api/engine/ISoundManager.md
+content/v1.4.5/zh/api/engine/SelectionData.md
+content/v1.4.5/zh/api/engine/IVideoPlayerView.md
+content/v1.4.5/zh/api/engine/ITwoDimensionView.md
+content/v1.4.5/zh/api/engine/IScriptComponent.md
+content/v1.4.5/zh/api/engine/ICompositeComponent.md
+content/v1.4.5/zh/api/engine/ILoadingWindowManager.md
+content/v1.4.5/zh/api/engine/IThumbnailCreatorView.md
+content/v1.4.5/zh/api/engine/SceneInitializationData.md
+content/v1.4.5/zh/api/engine/IGameEntityComponent.md
+content/v1.4.5/zh/api/engine/TwoDimensionMeshDrawData.md
+content/v1.4.5/zh/api/engine/IBooleanOptionData.md
+content/v1.4.5/zh/api/engine/INumericOptionData.md
+content/v1.4.5/zh/api/engine/NativeScriptComponent.md
+content/v1.4.5/zh/api/engine/ISelectionOptionData.md
+content/v1.4.5/zh/api/engine/IClothSimulatorComponent.md
+content/v1.4.5/zh/api/engine/TwoDimensionTextMeshDrawData.md
+content/v1.4.5/zh/api/engine/NativeBooleanOptionData.md
+content/v1.4.5/zh/api/engine/IScene.md
+content/v1.4.5/zh/api/engine/ISceneView.md
+content/v1.4.5/zh/api/engine/GauntletLayer.md

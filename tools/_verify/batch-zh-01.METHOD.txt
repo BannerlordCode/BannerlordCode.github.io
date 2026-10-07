@@ -1,0 +1,11 @@
+# zh 第一批：core-extra + mission-ext，仅 5/6 页（缺「怎么用」且其余五节俱全）
+# 来源：tools/_verify/zh-six-section-census.tsv（198 页全集）过滤 n===5 且 桶∈{core-extra,mission-ext}
+# 命令：
+#   git status --porcelain -- content            -> 并发改动集（两侧同为仓库相对路径）
+#   ①  ! /^##\s*(?:怎么用|如何使用|用法|使用方式|How to use)\s*$/im
+#   ②  /[\w\.]+\.cs:\d+/  ||  /(?<![A-Za-z0-9_.\/}])\s:\d+/
+#   ③  路径不在 git status 输出中
+#   ④  六节齐全度 n===5（六节探针取自语料实际出现的 h2，见 zh-six-section-census.METHOD.txt）
+# 实测：65 页 · 仓库根 65/65 · 并发 0 · 已有怎么用 0
+# 规模：core-extra 46 · mission-ext 19
+# 未计入（§4s）：n<=3 的真写页（本批为 0）；n===4 的 6 页；其他桶

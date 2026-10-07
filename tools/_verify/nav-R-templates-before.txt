@@ -1,0 +1,4 @@
+# templates/ baseline (before R2 change) — saved 2026-10-07T06:42:04Z
+## git status --porcelain -- templates/
+(empty above = identical to HEAD)
+## git diff -- templates/

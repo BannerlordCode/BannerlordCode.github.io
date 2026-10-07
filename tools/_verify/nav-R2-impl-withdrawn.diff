@@ -1,0 +1,143 @@
+# templates/ withdrawn implementation (R2, prev/next) — saved 2026-10-07T09:17:30Z
+## git diff --stat -- templates/
+ templates/macros/page-navigation.html | 103 +++++++++++++++++++++++++---------
+ templates/section.html                |   2 +
+ 2 files changed, 77 insertions(+), 28 deletions(-)
+## git diff -- templates/
+diff --git a/templates/macros/page-navigation.html b/templates/macros/page-navigation.html
+index 94c5580449..4dadccc5ec 100644
+--- a/templates/macros/page-navigation.html
++++ b/templates/macros/page-navigation.html
+@@ -1,38 +1,85 @@
+-{# Parent and related links only. Scanning every sibling in Tera is quadratic
+-   on the large API sections and pushes a full build past GitHub's 6 hour limit. #}
++{# Page navigation: prev/next siblings, parent, and related entries.
++   All data comes from pre-generated data files (design: tools/_verify/nav-M-navgraph.md §8.3):
++   - data/page-navigation.json — leaf pages: previous/next/parent (route+title)
++   - data/navigation.json — section pages: parent/children/label
++   O(1) lookup per page, no sibling scanning at render time.
++   Restores NAV-REWORK-QUEUE items #11-#15. #}
+ {%- macro render(current_url, lang) -%}
+-  {%- set_global parent_path = "" -%}
+-  {%- for ancestor in page.ancestors -%}
+-    {%- set_global parent_path = ancestor -%}
+-  {%- endfor -%}
+-  {%- if parent_path -%}
+-    {%- set parent_section = get_section(path=parent_path) -%}
+-    {%- set navigation = load_data(path="data/navigation.json") -%}
+-    {%- set_global route_key = parent_section.path -%}
+-    {%- if not (navigation.routes[route_key] is defined) -%}
+-      {%- set_global route_key = "/" ~ parent_section.path -%}
+-    {%- endif -%}
+-    {%- set_global related_parent = false -%}
+-    {%- if navigation.routes[route_key] is defined -%}
+-      {%- set_global related_parent = navigation.routes[route_key] -%}
+-    {%- endif -%}
++  {# page.path / section.path are already route keys (slugify.paths = "off"). #}
++  {%- set route_key = current_url -%}
++  {%- set nav_data = load_data(path="data/page-navigation.json") -%}
++  {%- set node = nav_data.routes[route_key] -%}
++  {%- if node is defined -%}
++    {# Leaf page: parent + prev/next from page-navigation.json. #}
+     <nav class="page-navigation" aria-label="{% if lang == 'zh' %}页面导航{% else %}Page navigation{% endif %}">
+       <div class="page-navigation-row">
+         <div class="page-navigation-parent">
+           <span class="page-navigation-label">{% if lang == 'zh' %}父级{% else %}Parent{% endif %}</span>
+-          <a href="{{ parent_section.path | safe }}">{{ parent_section.title }}</a>
++          <a href="{{ node.parent.route | safe }}">{{ node.parent.title }}</a>
+         </div>
+-      </div>
+-      {% if related_parent and related_parent.children is defined and related_parent.children | length > 0 %}
+-        <div class="page-navigation-related">
+-          <span class="page-navigation-label">{% if lang == 'zh' %}相关入口{% else %}Related{% endif %}</span>
+-          {% for related_route in related_parent.children %}
+-            {% if navigation.routes[related_route] is defined %}
+-              <a href="{{ related_route | safe }}">{{ navigation.routes[related_route].label[lang] | default(value=related_route) }}</a>
+-            {% endif %}
+-          {% endfor %}
++        <div class="page-navigation-siblings">
++          {%- if node.previous -%}
++            <a rel="prev" href="{{ node.previous.route | safe }}">&larr; {{ node.previous.title }}</a>
++          {%- else -%}
++            <span class="page-navigation-disabled" aria-disabled="true">&larr; {% if lang == 'zh' %}已是第一项{% else %}First item{% endif %}</span>
++          {%- endif -%}
++          {%- if node.next -%}
++            <a rel="next" href="{{ node.next.route | safe }}">{{ node.next.title }} &rarr;</a>
++          {%- else -%}
++            <span class="page-navigation-disabled" aria-disabled="true">{% if lang == 'zh' %}已是最后一项{% else %}Last item{% endif %} &rarr;</span>
++          {%- endif -%}
+         </div>
+-      {% endif %}
++      </div>
+     </nav>
++  {%- else -%}
++    {# Section page, or leaf missing from page-navigation.json: parent + related from navigation.json. #}
++    {%- set section_nav = load_data(path="data/navigation.json") -%}
++    {%- set sec = section_nav.routes[route_key] -%}
++    {%- set parent_route = "" -%}
++    {%- set parent_title = "" -%}
++    {%- set related_routes = [] -%}
++    {%- if sec is defined -%}
++      {# Section page: parent from sec.parent, related from sec.children. #}
++      {%- set parent_route = sec.parent | default(value="") -%}
++      {%- if sec.parent -%}
++        {%- set parent_title = section_nav.routes[sec.parent].label[lang] | default(value=sec.parent) -%}
++      {%- endif -%}
++      {%- set related_routes = sec.children | default(value=[]) -%}
++    {%- else -%}
++      {# Missing leaf: derive parent route, use its children as related (no prev/next). #}
++      {%- set trimmed = route_key | trim_end_matches(pat="/") -%}
++      {%- set parent_segs = trimmed | split(pat="/") | slice(end=-1) -%}
++      {%- set parent_route = parent_segs | join(sep="/") -%}
++      {%- if parent_route != "" -%}
++        {%- set parent_route = parent_route ~ "/" -%}
++        {%- set sec = section_nav.routes[parent_route] -%}
++        {%- if sec is defined -%}
++          {%- set parent_title = sec.label[lang] | default(value=parent_route) -%}
++          {%- set related_routes = sec.children | default(value=[]) -%}
++        {%- endif -%}
++      {%- endif -%}
++    {%- endif -%}
++    {%- if parent_title != "" or related_routes | length > 0 -%}
++      <nav class="page-navigation" aria-label="{% if lang == 'zh' %}页面导航{% else %}Page navigation{% endif %}">
++        {%- if parent_title != "" -%}
++          <div class="page-navigation-row">
++            <div class="page-navigation-parent">
++              <span class="page-navigation-label">{% if lang == 'zh' %}父级{% else %}Parent{% endif %}</span>
++              <a href="{{ parent_route | safe }}">{{ parent_title }}</a>
++            </div>
++          </div>
++        {%- endif -%}
++        {%- if related_routes | length > 0 -%}
++          <div class="page-navigation-related">
++            <span class="page-navigation-label">{% if lang == 'zh' %}相关入口{% else %}Related{% endif %}</span>
++            {%- for child in related_routes -%}
++              {%- if section_nav.routes[child] is defined -%}
++                <a href="{{ child | safe }}">{{ section_nav.routes[child].label[lang] | default(value=child) }}</a>
++              {%- endif -%}
++            {%- endfor -%}
++          </div>
++        {%- endif -%}
++      </nav>
++    {%- endif -%}
+   {%- endif -%}
+ {%- endmacro render -%}
+diff --git a/templates/section.html b/templates/section.html
+index be154d9991..35b1f168c7 100644
+--- a/templates/section.html
++++ b/templates/section.html
+@@ -1,5 +1,6 @@
+ {% extends "base.html" %}
+ {% import "macros/breadcrumb.html" as breadcrumb %}
++{% import "macros/page-navigation.html" as page_navigation %}
+ 
+ {% block title %}{{ section.title | default(value=config.title) }}{% endblock %}
+ {% block description %}{{ section.description | default(value=config.description) }}{% endblock %}
+@@ -27,6 +28,7 @@
+     </button>
+   </div>
+   {{ section.content | safe }}
++  {{ page_navigation::render(current_url=section.path, lang=crumb_lang) }}
+ </article>
+ <hr>
+ <ul>

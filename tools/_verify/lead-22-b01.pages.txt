@@ -1,0 +1,12 @@
+# lead-22 批次 b01 — v1.3.15 架构线（开发者大局观手册）
+# 冻结时间: 2026-10-07T08:05Z
+# 依据: boss-3 #13441（本线 brief）+ #13602（先做 action-family）+ #13577（链接形态更正，已按 architecture 页实测纠正）
+# 留档: tools/_verify/arch-before/lead22-*.md（4 份，留档时与 15:22 旧档 md5 一致）
+# 判分器: node tools/_verify/lead-145zh-judge.mjs --manifest tools/_verify/lead-22-b01.pages.txt --cross-check
+# 注: en 页的 J2/J10 预期 FAIL，原因是判分器按中文字面节名校准；见批次报告。
+content/v1.3.15/zh/architecture/action-family.md
+content/v1.3.15/en/architecture/action-family.md
+content/v1.3.15/zh/architecture/ui-three-layers.md
+content/v1.3.15/en/architecture/ui-three-layers.md
+content/v1.3.15/zh/architecture/save-object-graph.md
+content/v1.3.15/en/architecture/save-object-graph.md

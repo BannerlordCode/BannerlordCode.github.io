@@ -953,6 +953,63 @@ nav-section-index.mjs --dry-run 目前提议的新增项是那个【重复页】
 ```
 本线**不会**自己跑 `--apply`（写 content/ 不在本线授权内）；此条登记为顺序约束。
 
+### 3.27 content 分批提交（前置条件已满足，Boss #11718/#11860）
+
+**前置条件本线独立实测（不是转述）**：
+```
+$ node tools/audit-links.mjs
+FILES=39033  TOTAL_LINKS=149146  BROKEN_LINKS=0  FILES_WITH_BROKEN=0
+RESOLVE_STATIC=2  RESOLVE_NEITHER=2          exit=0
+$ node tools/nav-orphans.mjs --by-parent
+total_pages=39033  orphans=0
+```
+⇒ 从 112 → 65 → 52 → **0**，每步都有改前/改后读数。前置条件成立。
+
+**新快照（第 6 轮）**：`tools/_verify/RELEASE-SNAPSHOT-20261007T063053Z.txt`
+（3679 行；content 条目 3416 = 3406 modified + 10 untracked）。
+
+**11 批，每批提交前做「staged 数 == 期望数」硬检查，提交后做 `git show --name-only | grep -vc '^content/'` 自检（全部为 0）**：
+
+| 批 | 主题 | 文件数 | SHA |
+|---|---|---|---|
+| 1 | 导航 `_index.md` SECTION INDEX（**仅 in-scope 的 23 个**） | 23 | `b61d676d34` |
+| 2 | v1.3.15 新页（4 页 × en/zh） | 8 | `80cb113456` |
+| 3 | 自动生成免责横幅（全树） | 2191 | `8a71e7345a` |
+| 4 | v1.3.0/en 重写+用法节 | 265 | `c54fbd2dc5` |
+| 5 | v1.3.0/zh | 113 | `f9976e58cb` |
+| 6 | v1.3.15/en | 58 | `2d3bd0b8ba` |
+| 7 | v1.3.15/zh | 7 | `00fb520ea3` |
+| 8 | v1.4.5/en | 133 | `bb8790674e` |
+| 9 | v1.4.5/zh | 390 | `cc2df97504` |
+| 10 | v1.4.6/zh | 80 | `6f9872f3cf` |
+| 11 | v1.4.7/zh | 2 | `dcf330dc1c` |
+| 12 | v1.5.3/zh | 138 | `b56b0ad2b1` |
+
+合计 **3408** 文件；snapshot 的 3416 content 条目 − 3408 = **8**（见下）。
+
+**仍留工作区：8 个 content 文件，全部是 `_index.md` 且全部因作用域门禁未通过而不提交**：
+```
+OUT-OF-SCOPE (6):
+  content/v1.4.5/en/api/campaign/_index.md      (块外第 103 行)
+  content/v1.4.5/en/api/final/_index.md         (第 10 行)
+  content/v1.4.5/en/api/mission/_index.md       (第 58 行)
+  content/v1.4.5/zh/_index.md                   (第 2 行)
+  content/v1.4.6/en/architecture/_index.md      (第 2 行)
+  content/v1.4.7/en/api/engine/_index.md        (第 3 行)   ← 唯一一个【本会话内】写到块外的（乙）
+NEW (2):
+  content/v1.5.3/zh/api/localization/_index.md  (不在 HEAD = 新建整页 = 写正文，窄口外)
+  content/v1.5.3/zh/api/storymode/_index.md
+```
+证据：`tools/_verify/RELEASE-GATE-index-scope.txt`（checked=31 / in-scope=23 / out=6 / new=2）。
+
+**两条本线主动更正的归因**：
+1. **`campaign-events.md` 与 `campaign-event-system.md` 不是重复页**（Boss #11860 撤回删除令）。
+   本线先前在 3.15/3.22 的叙述里跟随了「重复页」的说法（因为那是当时收到的裁定）；
+   **现更正为：两页主题不同（总线机械原理 vs 三类协作心智模型），两页均保留**，
+   已随第 2 批正常入库。
+2. 第 3 批的 message **没有**写「统一横幅插入」，而是写「2194 项里 2119 主导形态 + 75 例外 / 4 种变体」——
+   因为 worker-89 的实测推翻了「单一机械插入」的前提（§2.2）。
+
 ### 3.13 本轮结论（按覆盖边界写，不用「全部完成」）
 **覆盖了**：merge 落地并推送（merge commit `55658f4d9d`，双 parent）；用户两个生产修复语义保留并核对；
 台账/快照/门禁读数/分类产物落盘并推送（`b46a3cfdc5`、`3ca61ac8eb`、`7b8b9880d2`）；

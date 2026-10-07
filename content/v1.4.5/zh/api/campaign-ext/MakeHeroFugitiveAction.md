@@ -21,7 +21,7 @@ description: "MakeHeroFugitiveAction 把英雄打成在逃状态：先按早退�
 
 **把它想成「摘关系 → 盖章 → 广播」三段式，而不是「设个状态」那么轻。**
 
-1. **状态只是结果，摘关系才是主体。** `MakeHeroFugitiveAction.cs:26` 的 `ChangeState` 只有一行，而它前面 `MakeHeroFugitiveAction.cs:7` 到 `MakeHeroFugitiveAction.cs:25` 全是副作用。**所以「英雄变成在逃」在数据上的真正含义是：他不在任何队伍里、不在任何据点里、`HeroState` 是 `Fugitive`。** 三者缺一，订阅方读到的状态就是自相矛盾的。
+1. **状态只是结果，摘关系才是主体。** `MakeHeroFugitiveAction.cs:26` 的 `ChangeState` 只有一行，而它前面 `MakeHeroFugitiveAction.cs:7` 到 `MakeHeroFugitiveAction.cs:24` 全是副作用。**所以「英雄变成在逃」在数据上的真正含义是：他不在任何队伍里、不在任何据点里、`HeroState` 是 `Fugitive`。** 三者缺一，订阅方读到的状态就是自相矛盾的。
 2. **领队与普通成员走的是两条完全不同的分支。** `MakeHeroFugitiveAction.cs:13` 判 `PartyBelongedTo.LeaderHero == fugitive`：是领队就 `DestroyPartyAction.Apply(null, fugitive.PartyBelongedTo)`（`MakeHeroFugitiveAction.cs:15`）——**整队消失**；不是领队就 `MemberRoster.RemoveTroop(fugitive.CharacterObject)`（`MakeHeroFugitiveAction.cs:19`）——**只删他这一格，队伍还在**。**这个分支判断决定了「他的部下们是跟着一起消失还是留下」，是调用前必须想清楚的事。**
 3. **`ChangeState(Fugitive)` 自己不发事件。** `Hero.ChangeState`（`Hero.cs:1762`）里的 switch 只对 `Traveling` 和 `Active` 两个值派发事件，`Fugitive` 落在 default 里什么也不做。**所以 `MakeHeroFugitiveAction.cs:27` 的 `OnCharacterBecameFugitive` 是这次状态变更的唯一通知出口**——少了它，`IsFugitive`（`Hero.cs:302`）已经为 true 却没人被告知。
 4. **`showNotification` 默认是 `false`。** `MakeHeroFugitiveAction.cs:30` 的签名给了默认值，而绝大多数调用点都不传。**所以「静默变成在逃」是常态，要弹窗提示必须显式传 `true`。**
@@ -56,7 +56,7 @@ MakeHeroFugitiveAction.Apply(hero);
 MakeHeroFugitiveAction.Apply(hero, showNotification: true);
 ```
 
-**只想摘关系、不想改状态的话，这个动作给不了你**——`ApplyInternal` 是 private，而 `Apply` 一定会走到 `MakeHeroFugitiveAction.cs:26`。要拆开就得自己按 `MakeHeroFugitiveAction.cs:11` 到 `MakeHeroFugitiveAction.cs:25` 的顺序复刻。
+**只想摘关系、不想改状态的话，这个动作给不了你**——`ApplyInternal` 是 private，而 `Apply` 一定会走到 `MakeHeroFugitiveAction.cs:26`。要拆开就得自己按 `MakeHeroFugitiveAction.cs:11` 到 `MakeHeroFugitiveAction.cs:24` 的顺序复刻。
 
 ### 坑
 
@@ -98,7 +98,7 @@ fugitive.ChangeState(Hero.CharacterStates.Fugitive);
 CampaignEventDispatcher.Instance.OnCharacterBecameFugitive(fugitive, showNotification);
 ```
 
-**逐条核源：** 第一段对应 `MakeHeroFugitiveAction.cs:7` 到 `MakeHeroFugitiveAction.cs:10`，`IsAlive` 是 `Hero.cs:316` 的表达式属性；第二段对应 `MakeHeroFugitiveAction.cs:13` 与 `MakeHeroFugitiveAction.cs:15`，注意 `DestroyPartyAction.Apply` 的第一个参数传 `null` 表示「没有摧毁方」，它只被透传进 `OnMobilePartyDestroyed`；第三段对应 `MakeHeroFugitiveAction.cs:26`，`CharacterStates` 枚举定义在 `Hero.cs:28`，`Fugitive` 是第三个值；第四段对应 `MakeHeroFugitiveAction.cs:27`，**这是整次状态变更唯一的事件出口**。
+**逐条核源：** 第一段对应 `MakeHeroFugitiveAction.cs:7` 到 `MakeHeroFugitiveAction.cs:9`，`IsAlive` 是 `Hero.cs:316` 的表达式属性；第二段对应 `MakeHeroFugitiveAction.cs:13` 与 `MakeHeroFugitiveAction.cs:15`，注意 `DestroyPartyAction.Apply` 的第一个参数传 `null` 表示「没有摧毁方」，它只被透传进 `OnMobilePartyDestroyed`；第三段对应 `MakeHeroFugitiveAction.cs:26`，`CharacterStates` 枚举定义在 `Hero.cs:28`，`Fugitive` 是第三个值；第四段对应 `MakeHeroFugitiveAction.cs:27`，**这是整次状态变更唯一的事件出口**。
 
 ## 参见
 

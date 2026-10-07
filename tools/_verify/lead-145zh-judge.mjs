@@ -35,7 +35,14 @@
 //         而 278 行实际是注释（`// Token: 0x0600031A …`），真声明在 279 行。
 //       口径（故意很窄）：只报「空行 / 纯注释 / 纯标点」——
 //         【不】要求被引行必须是声明行，因为合法引用经常指向方法体内的一条语句（如 `Campaign.Current = null;`）。
-//       它现在报 WARN（观察项）；待多批数据后再决定是否升为 FAIL。
+//       ★★ 2026-10-07 收窄（worker-211 实证）：J13 【只对带显式文件名的引用】运行。
+//         理由：裸 `:N` 的归属是启发式的，而【两种启发式都会错】：
+//           规则 1（单文件块 ⇒ 用块文件）：worker-211 那页的块里只出现 SandBoxHelpers 的完整引用，
+//             而裸 `:99` 实际指的是 AgentBehaviorGroup.cs:99 ⇒ 错。
+//           规则 2（多文件块 ⇒ 用页面主语文件）：lead-20 的 Campaign.md 靠它修好了 12 条假阳性，
+//             但同一规则在这里会把指向【非主语文件】的裸引用归错 ⇒ 错。
+//         ⇒ J13 是【精度判据】，不该跑在启发式归属上；它只跑在 `X.cs:N` 这种确定的引用上。
+//           （J3 的边界检查仍跑裸引用，但它把 full / inBlock / subject 分开计数，置信度可见。）
 //   J11 ★ 链接形态: 【叶子目标】不得带尾斜杠（写 `../X` 而非 `../X/`）。
 //       但【节索引】带尾斜杠是对的（`../`、`../../<桶>/`）—— 所以判据不是「不能有斜杠」，
 //       而是「去掉尾斜杠后若存在同名叶子页 `X.md` ⇒ 该目标本就是叶子 ⇒ 尾斜杠是缺陷」。
@@ -482,8 +489,8 @@ function judge(pageRel, mode) {
       }
     };
     for (const c of fullRefs) scanJ13(c);
-    for (const c of bareResolved) scanJ13(c);
-    for (const c of bareSubject) scanJ13(c);
+    // ★ 不对 bareResolved / bareSubject 跑 J13：它们的归属是启发式的，
+    //   而两种启发式都会错（见文件头 J13 的收窄说明）⇒ 精度判据不跑在启发式归属上。
   }
   out.checks.J13_suspicious_lines = suspicious;
   if (suspicious.length) {

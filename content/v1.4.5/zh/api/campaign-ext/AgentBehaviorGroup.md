@@ -43,24 +43,24 @@ description: "Mission 中一组 agent 行为的抽象容器：以泛型 AddBehav
 - **运行时入口：** 不要自己 `new`（构造函数是 `protected`）。从 agent 拿 `AgentNavigator`，再按类型取组：
   - `agent.GetComponent<CampaignAgentComponent>().AgentNavigator` → `AgentNavigator.GetBehaviorGroup<T>()`（`AgentNavigator.cs:492`）
   - 取「当前正在生效的组」用 `AgentNavigator.GetActiveBehaviorGroup()`（`AgentNavigator.cs:603`）
-  - 组的注册由 `BehaviorSets` 完成，例如 `BehaviorSets.cs:13`–`:15` 依次注册 `DailyBehaviorGroup` / `InterruptingBehaviorGroup` / `AlarmedBehaviorGroup`；`AgentNavigator.AddBehaviorGroup<T>()`（`AgentNavigator.cs:478`）会自己 `Activator.CreateInstance` 并去重。
+  - 组的注册由 `BehaviorSets` 完成，例如 `BehaviorSets.cs:13`–`BehaviorSets.cs:15` 依次注册 `DailyBehaviorGroup` / `InterruptingBehaviorGroup` / `AlarmedBehaviorGroup`；`AgentNavigator.AddBehaviorGroup<T>()`（`AgentNavigator.cs:478`）会自己 `Activator.CreateInstance` 并去重。
 - **写自己的组：** 继承 `AgentBehaviorGroup`，实现 `Tick` 与 `GetScore`，并在 mod 的 Mission 初始化里用 `agentNavigator.AddBehaviorGroup<MyGroup>()` 注册。构造函数签名必须是 `(AgentNavigator navigator, Mission mission)`，因为 `AgentNavigator.AddBehaviorGroup` 与 `AddBehavior` 都靠 `Activator.CreateInstance` 按这个签名实例化。
 
 ### 典型用法
 
 - **给某个 agent 加一个自定义行为**：`group.AddBehavior<MyBehavior>()`，然后 `group.SetScriptedBehavior<MyBehavior>()` 强制它接管。行为类需要有一个接收 `AgentBehaviorGroup` 的构造函数（`AddBehavior<T>` 内部是 `Activator.CreateInstance(typeof(T), this)`）。
-- **查某行为是否已注册**：先 `HasBehavior<T>()` 再决定 `AddBehavior<T>()`；或直接 `GetBehavior<T>()` 判空——后者更常见（见 `SandBoxHelpers.cs:30`–`:33`）。
+- **查某行为是否已注册**：先 `HasBehavior<T>()` 再决定 `AddBehavior<T>()`；或直接 `GetBehavior<T>()` 判空——后者更常见（见 `SandBoxHelpers.cs:30`–`SandBoxHelpers.cs:33`）。
 - **临时关闭所有行为**：`DisableAllBehaviors()`（`:150`），注意它**不会**清空 `ScriptedBehavior`，脚本槽仍然指着那个行为，子类 `Tick` 下一帧会把它重新点亮。
-- **彻底移除一个行为**：`RemoveBehavior<T>()`（`:99`），它同时处理「移除的是当前脚本行为」的情况（把 `ScriptedBehavior` 置 `null`）。
+- **彻底移除一个行为**：`RemoveBehavior<T>()`（`AgentBehaviorGroup.cs:99`），它同时处理「移除的是当前脚本行为」的情况（把 `ScriptedBehavior` 置 `null`）。
 - **从激活组上取行为再操作**：官方模式见 `SandBoxHelpers.MissionHelper.FollowAgent`（`SandBoxHelpers.cs:30` 起）——取激活组 → `GetBehavior<FollowAgentBehavior>()` → 没有就 `AddBehavior<FollowAgentBehavior>()` → `SetScriptedBehavior<FollowAgentBehavior>()` → 设目标。
 
 ### 坑
 
-- **`AddBehavior<T>` 是「取或建」，不是「总是新建」。** 如果同类型已存在，它直接返回已有实例（`AgentBehaviorGroup.cs:63`–`:69` 的 `GetType()` 去重）。若你依赖「每次调用都得到新对象」来重置状态，会失望。
+- **`AddBehavior<T>` 是「取或建」，不是「总是新建」。** 如果同类型已存在，它直接返回已有实例（`AgentBehaviorGroup.cs:63`–`:67` 的 `GetType()` 去重）。若你依赖「每次调用都得到新对象」来重置状态，会失望。
 - **`AddBehavior<T>` 要求 `T` 有 `(AgentBehaviorGroup)` 构造函数。** 没有的话 `Activator.CreateInstance` 抛异常，且 `as T` 为 `null` 时函数静默返回 `null`。
 - **`RemoveBehavior<T>` 的循环有跳跃。** 它在 `for (i = 0; i < Count; i++)` 里 `RemoveAt(i)` 但不 `i--`（`AgentBehaviorGroup.cs:101`–`:111`），所以移除元素后紧邻的下一个元素会被跳过。组内同一类型通常只有一个，实际影响有限，但一次移除多个匹配项时不要指望它全清干净。
 - **`GetBehavior<T>` 用 `is`、`AddBehavior<T>` 用精确 `GetType()`。** 用基类做 `T` 时，查询能命中子类实例，但 `AddBehavior` 仍会新增一个——两者不对称。
-- **`IsActive` 的 setter 有副作用。** 赋值会在变化时调用 `OnActivate()` / `OnDeactivate()`（`AgentBehaviorGroup.cs:24`–`:45`），而基类 `OnDeactivate()` 会把组内所有行为设为不激活（`:186`）。所以在组被停用时手工保留「上次激活的行为」是无效的。
+- **`IsActive` 的 setter 有副作用。** 赋值会在变化时调用 `OnActivate()` / `OnDeactivate()`（`AgentBehaviorGroup.cs:24`–`:41`），而基类 `OnDeactivate()` 会把组内所有行为设为不激活（`:186`）。所以在组被停用时手工保留「上次激活的行为」是无效的。
 - **不要绕过 `AgentNavigator` 直接 `IsActive = true`。** 组间互斥由 `ActivateGroup` 统一处理（`AgentNavigator.cs:562`），手工点亮会导致多个组同时激活。
 - **`Behaviors` 是 public `List`。** 直接 `Add`/`Remove` 会绕过 `AddBehavior` 的去重和 `RemoveBehavior` 的脚本槽清理，尽量走方法。
 
@@ -120,7 +120,7 @@ description: "Mission 中一组 agent 行为的抽象容器：以泛型 AddBehav
 ### GetActiveBehavior（`:158`）
 `public AgentBehavior GetActiveBehavior()` —— 返回 `Behaviors` 中第一个 `IsActive` 的行为，没有则 `null`。`AgentNavigator.GetActiveBehavior()` 会转发到激活组的这个方法。
 
-### Tick（`:170`）
+### Tick（`AgentBehaviorGroup.cs:170`）
 `public virtual void Tick(float dt, bool isSimulation)` —— 每帧主循环。基类空实现；子类在此实现「选行为 + 推进行为」。由 `AgentNavigator.TickBehaviorGroups`（`AgentNavigator.cs:579`）对**所有**组调用，而不是只调激活组。
 
 ### ConversationTick（`:174`）
@@ -135,7 +135,7 @@ description: "Mission 中一组 agent 行为的抽象容器：以泛型 AddBehav
 ### OnDeactivate（`:186`）
 `protected virtual void OnDeactivate()` —— 组被停用时调用，基类**会停用组内全部行为**。子类可重写以追加清理，但注意调用 `base.OnDeactivate()`。
 
-### GetScore（`:194`）
+### GetScore（`AgentBehaviorGroup.cs:194`）
 `public virtual float GetScore(bool isSimulation)` —— 组间竞争的分数。基类返回 `0f`（即「不参与」）。`AgentNavigator.RefreshBehaviorGroups` 只激活分数 `> 0` 的最高分组（`AgentNavigator.cs:542`）。
 
 ### ForceThink（`:199`）

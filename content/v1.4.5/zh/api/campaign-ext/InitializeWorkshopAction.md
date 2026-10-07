@@ -19,10 +19,10 @@ description: "InitializeWorkshopAction 是开档分工坊路径的终点静态�
 
 **把它想成「开档分工坊」流水线的最后一道工序，而不是一个可以随便调的工具函数。**
 
-1. **它只在开档时被调用一次。** 唯一调用点 `WorkshopsCampaignBehavior.cs:1274` 位于 `BuildWorkshopForHeroAtGameStart(Hero ownerHero)`（`WorkshopsCampaignBehavior.cs:1253`）内部，而后者是开档建角色流程的一环。**所以它的三个副作用都带着「开档」这个前提**：店主此时还没有名字、工坊槽还是空的、`WorkshopModel` 已经能给出启动资金。
+1. **它只在开档时被调用一次。** 唯一调用点 `WorkshopsCampaignBehavior.cs:1274` 位于 `BuildWorkshopForHeroAtGameStart(Hero ownerHero)`（`WorkshopsCampaignBehavior.cs:1255`）内部，而后者是开档建角色流程的一环。**所以它的三个副作用都带着「开档」这个前提**：店主此时还没有名字、工坊槽还是空的、`WorkshopModel` 已经能给出启动资金。
 2. **副作用有严格顺序，不能重排。** `InitializeWorkshopAction.cs:9` 先调 `workshop.InitializeWorkshop(workshopOwner, workshopType)`，这一步把 `_owner` 设成店主并调 `_owner.AddOwnedWorkshop(this)`（`Workshop.cs:125` 起）。**如果先改名再初始化，店主名会先于工坊归属存在**；而 `InitializeWorkshopAction.cs:12` 的事件必须最后派发，因为订阅方读的是「已经开张」的最终状态——工坊类型、店主、名字三样都就位。
 3. **最容易被漏的副作用是「给店主重命名」。** `InitializeWorkshopAction.cs:10` 与 `InitializeWorkshopAction.cs:11` 用 `NameGenerator.Current.GenerateHeroNameAndHeroFullName` 生成全名与名，再 `workshopOwner.SetName(fullName, firstName)`。**这意味着对一个已经存在的英雄调这个动作，会直接改掉他的名字**——`Hero.SetName`（`Hero.cs:1246`）还会顺带清掉他作为领队时队伍的缓存名。
-4. **它是「纯动作」，自己不判断该不该调。** 「选哪种工坊类型」由调用方的 `DecideBestWorkshopType`（`WorkshopsCampaignBehavior.cs:1278`）决定，「有没有空槽」由 `WorkshopsCampaignBehavior.cs:1265` 起的扫描决定。**动作类只负责「给定参数就执行」，前置判断全在调用方。**
+4. **它是「纯动作」，自己不判断该不该调。** 「选哪种工坊类型」由调用方的 `DecideBestWorkshopType`（`WorkshopsCampaignBehavior.cs:1278`）决定，「有没有空槽」由 `WorkshopsCampaignBehavior.cs:1266` 起的扫描决定。**动作类只负责「给定参数就执行」，前置判断全在调用方。**
 
 ## 怎么用
 
@@ -40,7 +40,7 @@ description: "InitializeWorkshopAction 是开档分工坊路径的终点静态�
 InitializeWorkshopAction.ApplyByNewGame(bornSettlement.Town.Workshops[num], ownerHero, workshopType);
 ```
 
-**调用前置条件（全在调用方，动作自己不查）：** `DecideBestWorkshopType(bornSettlement, atGameStart: true)` 返回非 null（`WorkshopsCampaignBehavior.cs:1255` 起），且在 `bornSettlement.Town.Workshops` 里找到 `WorkshopType == null` 的空槽（`WorkshopsCampaignBehavior.cs:1265` 起）。**任一不满足就直接 return，动作根本不会被调。**
+**调用前置条件（全在调用方，动作自己不查）：** `DecideBestWorkshopType(bornSettlement, atGameStart: true)` 返回非 null（`WorkshopsCampaignBehavior.cs:1255` 起），且在 `bornSettlement.Town.Workshops` 里找到 `WorkshopType == null` 的空槽（`WorkshopsCampaignBehavior.cs:1266` 起）。**任一不满足就直接 return，动作根本不会被调。**
 
 ### 典型用法
 

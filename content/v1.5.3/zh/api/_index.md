@@ -1,6 +1,6 @@
 ---
 title: "API 参考 — 已手写覆盖到哪里"
-description: "v1.5.3 的 API 类参考层：8 个有页面的桶、68 篇手写类型深写页的按任务阅读路径，以及 6 824 个类型下的诚实缺口。"
+description: "v1.5.3 的 API 类参考层：8 个有页面的桶、74 篇手写类型深写页的按任务阅读路径，以及 6 824 个类型下的诚实缺口。"
 ---
 
 # API 参考：已手写覆盖到哪里
@@ -13,7 +13,7 @@ description: "v1.5.3 的 API 类参考层：8 个有页面的桶、68 篇手写�
    该引哪个程序集。分不清这两件事就直接翻类型页，会在「为什么我的 Behavior 没被调用」上卡很久。
    模块地图见 [模块地图](../architecture/module-map)，跨版本差异见 [从 1.4.5 迁移](../architecture/migration-from-1.4.5)。
 2. **同级的 [版本首页](../)。** 19 个桶的完整缺口表在那里，本页只讲「哪 8 个桶已经有页」。
-3. **这一层之下是具体类型页。** 目前 **68 篇**，全部手写，每篇是「这个类负责什么 → 每个成员干什么用 → 心智模型 → 能跑的示例」。
+3. **这一层之下是具体类型页。** 目前 **74 篇**，全部手写，每篇是「这个类负责什么 → 每个成员干什么用 → 心智模型 → 能跑的示例」。
 
 > **桶索引页不存在。** `api/<桶>/` 这种目录索引页（`mission-ext/`、`sandbox/`、`viewmodel/` 等）在 v1.5.3 下
 > **一张都没有**，所以本页所有链接直接落到类型页，桶名不可点。旧版本文档里「点桶名进目录」的走法在这里走不通，
@@ -30,6 +30,10 @@ description: "v1.5.3 的 API 类参考层：8 个有页面的桶、68 篇手写�
 | 在注册阶段挂行为 / 换模型 / 加菜单项 | [CampaignGameStarter](./campaign/CampaignGameStarter) | `campaign` |
 | 读写世界状态（英雄、聚落、部队、时间推进） | [Campaign](./campaign/Campaign) · [CampaignData](./campaign/CampaignData) | `campaign` |
 | 替换游戏默认的算法模型 | [DefaultSettlementProsperityModel](./campaign-ext/DefaultSettlementProsperityModel) · [GameModels](./campaign/GameModels) · [GameModel](./core-extra/GameModel) · [MBGameModel](./core-extra/MBGameModel) · [GameModelsManager](./core-extra/GameModelsManager) | `campaign-ext` / `campaign` / `core-extra` |
+| 在战役里算时间：现在、到期判断、日/周/季/年换算 | [CampaignTime](./campaign/CampaignTime) | `campaign` |
+| 读懂「一个数值由哪些项累加而来」（所有模型覆写都返回它） | [ExplainedNumber](./campaign/ExplainedNumber) | `campaign` |
+| 改部队与驻军的规模上限（成员 / 战俘 / 驻军） | [PartySizeLimitModel](./campaign-ext/PartySizeLimitModel) · [DefaultPartySizeLimitModel](./campaign-ext/DefaultPartySizeLimitModel) | `campaign-ext` |
+| 改聚落忠诚度曲线（阈值、叛乱、税收与繁荣联动） | [SettlementLoyaltyModel](./campaign-ext/SettlementLoyaltyModel) · [DefaultSettlementLoyaltyModel](./campaign-ext/DefaultSettlementLoyaltyModel) | `campaign-ext` |
 | 监听或主动派发战役事件 | [CampaignEventDispatcher](./campaign/CampaignEventDispatcher) · [CampaignEventReceiver](./campaign/CampaignEventReceiver) · [CampaignEvents](./campaign/CampaignEvents) · [MBCampaignEvent](./campaign/MBCampaignEvent) | `campaign` |
 | 做一个周期性战役 tick | [CampaignPeriodicEventManager](./campaign/CampaignPeriodicEventManager) | `campaign` |
 | 定义一个战役游戏模式 | [CampaignGameMode](./campaign/CampaignGameMode) | `campaign` |
@@ -91,8 +95,8 @@ description: "v1.5.3 的 API 类参考层：8 个有页面的桶、68 篇手写�
 
 | 桶 | 已撰写 | 1.5.3 类型数 | 这一桶装的是什么 |
 | --- | ---: | ---: | --- |
-| `campaign` | 12 | 706 | `TaleWorlds.CampaignSystem` 根命名空间（129 个类型）加 38 个子命名空间：`Actions`、`LogEntries`、`CharacterDevelopment`、`MapNotificationTypes`、`GameState`、`MapEvents`、`Siege`、`Settlements`(+.Buildings/.Locations/.Workshops)、`Party`(+.PartyComponents)、`GameMenus`、`Incidents`、`Inventory`、`Election`、`Roster`、`TournamentGames`… —— 也就是**战役世界状态本身**：英雄、聚落、部队、地图事件、围城、日志、菜单的具体规则类型。 |
-| `campaign-ext` | 2 | 771 | 12 个命名空间里全是**可被替换的契约与扩展点**：`CampaignBehaviors`(169)、`Issues`(+`IssueQuestTasks`, 158)、`ComponentInterfaces`(144)、`GameComponents`(128)、`Conversation.Persuasion`、`.Conversation.Tags`(97)，加上 `TaleWorlds.ObjectSystem`。mod 在这里插行为、实现组件接口、替换默认模型、造 Issue 与对话议题，以及管理 `MBObjectManager` 那套对象身份；游戏本体不在这桶里。 |
+| `campaign` | 14 | 706 | `TaleWorlds.CampaignSystem` 根命名空间（129 个类型）加 38 个子命名空间：`Actions`、`LogEntries`、`CharacterDevelopment`、`MapNotificationTypes`、`GameState`、`MapEvents`、`Siege`、`Settlements`(+.Buildings/.Locations/.Workshops)、`Party`(+.PartyComponents)、`GameMenus`、`Incidents`、`Inventory`、`Election`、`Roster`、`TournamentGames`… —— 也就是**战役世界状态本身**：英雄、聚落、部队、地图事件、围城、日志、菜单的具体规则类型。 |
+| `campaign-ext` | 6 | 771 | 12 个命名空间里全是**可被替换的契约与扩展点**：`CampaignBehaviors`(169)、`Issues`(+`IssueQuestTasks`, 158)、`ComponentInterfaces`(144)、`GameComponents`(128)、`Conversation.Persuasion`、`.Conversation.Tags`(97)，加上 `TaleWorlds.ObjectSystem`。mod 在这里插行为、实现组件接口、替换默认模型、造 Issue 与对话议题，以及管理 `MBObjectManager` 那套对象身份；游戏本体不在这桶里。 |
 | `core-extra` | 44 | 516 | `TaleWorlds.Core`(273)、`TaleWorlds.Library`(171)、`TaleWorlds.DotNet`(29)、`Library.CodeGeneration`、`Library.EventSystem`、`Library.Graph`、`Library.Http`、`Library.Information`、`Library.NewsManager`、`LinQuick`、`Starter.Library` —— **跨系统地基**：`GameModel` 抽象、ViewModel 与绑定路径、事件总线、面向玩家的信息提示、图与代码生成工具。不属于任何一个玩法层，任何一层都要往下依赖它。 |
 | `gui` | 2 | 273 | `TaleWorlds.ScreenSystem`(屏幕栈)、`TaleWorlds.GauntletUI`(59，加 `BaseTypes`/`Data`/`ExtraWidgets`/`GauntletInput`/`Layout`)、`TaleWorlds.TwoDimension`(51，含 `Standalone.Native.Windows`) —— **屏幕栈 + 控件树 + 2D 绘制层**。 |
 | `engine` | 1 | 216 | `TaleWorlds.Engine`(135，含 `Options`/`Screens`/`GauntletUI`)、`TaleWorlds.Diamond`(37，含 `ClientApplication`/`Rest`) —— **平台与渲染底层**：引擎绑定、选项与输入、Diamond 客户端，以及渲染产物 `GauntletLayer`（在 `TaleWorlds.Engine.GauntletUI`）。 |
@@ -102,15 +106,15 @@ description: "v1.5.3 的 API 类参考层：8 个有页面的桶、68 篇手写�
 
 `mission-ext` 与 `core-extra` 是本任务里最容易被误解的两个名字：前者的完整 API 尚未撰写，后者的桶本身也只有 44 页。
 
-## 缺口：68 页 / 6 824 个类型 ≈ 1.0%
+## 缺口：74 页 / 6 824 个类型 ≈ 1.1%
 
-1.5.3 源码在排除噪声命名空间后扫描到 **6 824 个 public 类型**，本版本只有 **68 篇**类型页。
+1.5.3 源码在排除噪声命名空间后扫描到 **6 824 个 public 类型**，本版本只有 **74 篇**类型页。
 
-**这个 0.8% 的前提要讲清楚**，否则会被当成「覆盖率被低估了」或「被高估了」：
+**这个 1.1% 的前提要讲清楚**，否则会被当成「覆盖率被低估了」或「被高估了」：
 
 - 它默认**一类型一页**。而 `GameModels`、`CampaignEvents` 这类是**门面聚合页**，一页覆盖多个类型
-  （例如 `GameModels` 一页串起战役侧所有模型类型的注册与取用路径），所以 68 页实际覆盖的类型数 > 68。
-- 因此**真实缺口页数只会比 6 756 更小，不会更大**。1.0% 是页数占比，不是类型覆盖率。
+  （例如 `GameModels` 一页串起战役侧所有模型类型的注册与取用路径），所以 74 页实际覆盖的类型数 > 74。
+- 因此**真实缺口页数只会比 6 750 更小，不会更大**。1.1% 是页数占比，不是类型覆盖率。
 - 逐桶的完整缺口表在 [版本首页](../)，那里 19 个桶全列了；本页只覆盖有页面的 8 个。
 
 ## 四个已裁决的归属问题（省得你按名字找错桶）

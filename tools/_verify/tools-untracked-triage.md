@@ -33,12 +33,14 @@ lead 使用的命令 `git ls-files --others --exclude-standard -- tools/ | while
 |------|------|--------|
 | ① | 下一轮会被引用（证据文件、清单、账本、脚本/工具、冻结凭证、评分器/验证器） | **260** |
 | ② | 一次性临时文件（临时探针、perf-site、中间 diff、一次性 dump） | **1470** |
-| ③ | 不该存在（杂项文件、0 字节文件、重定向事故产物） | **7** |
+| ③ | 不该存在（杂项文件、0 字节文件、重定向事故产物） | **6（仍在）** |
 | | **合计** | **1737** |
+
+> **2026-10-07 实测更新**：`tools/**` untracked 现值 **80**（分诊时 1737/1738，持续漂移）。
 
 ---
 
-## ③ 不该存在（7 个文件）
+## ③ 不该存在（6 个文件，仍在）
 
 这些文件应该被清理，不应留在仓库中。
 
@@ -50,7 +52,7 @@ lead 使用的命令 `git ls-files --others --exclude-standard -- tools/ | while
 | `tools/_verify/_navI-zola-build.log` | 构建日志，同上 |
 | `tools/_verify/.batches/nb-v1.4.7-en.txt` | **0 字节**，空批次输出 |
 | `tools/_verify/.tg-bulk.txt` | **0 字节**，空临时生成文件 |
-| `tools/_verify/perf-site/templates/macros/page-navigation.html.orig` | `.orig` 合并冲突残留 |
+| `tools/_verify/perf-site/templates/macros/page-navigation.html.orig` | **GONE**（随 perf-site 一起被删，实测已不存在） |
 
 ---
 
@@ -62,7 +64,7 @@ lead 使用的命令 `git ls-files --others --exclude-standard -- tools/ | while
 
 | 子目录/模式 | 文件数 | 说明 |
 |-------------|--------|------|
-| `tools/_verify/perf-site/**` | 1412 | A/B 构建性能测试 Zola 站点，含 18.8MB page-navigation.json 的加载成本测量 |
+| `tools/_verify/perf-site/**` | 1412（**已作废**） | A/B 构建性能测试 Zola 站点，含 18.8MB page-navigation.json 的加载成本测量。**归属线 = lead-20**（线索：`tools/_verify/lead-20/VERIFICATION-LINE-20261007.md`、`tools/_verify/verify-prevnext-perf.md` 均提到 perf-site）。**该目录现已不存在**（2026-10-07 实测 `ls -d` 报 No such file or directory，被其归属线删除）⇒ ② 的 1412 这个数已作废 |
 | `tools/_verify/.batches/**` | 13 | 批次导航构建输出（nb-v1.3.0/1.3.15/1.4.5/1.4.6/1.4.7/1.5.3 的 en/zh） |
 | `tools/_verify/_tmp/**` | 20 | BASE/OURS/THEIRS 合并临时文件 + mt.txt + proto-queue.mjs 原型 |
 | `tools/_verify/pathtest/**` | 7 | 路径测试 Zola 站点 |

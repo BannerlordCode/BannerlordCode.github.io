@@ -606,3 +606,46 @@ JUDGE total=5 pass=0 fail=5
 | 4 | AcceptCallToWarOfferNotificationItemVM | `…Map.MapNotificationTypes/…ItemVM.cs` | 116 | 类 `:12 : MapNotificationItemBaseVM` |
 | 5 | AcceptingCallToWarAgreementDecisionItemVM | `…KingdomManagement.Decisions.ItemTypes/…ItemVM.cs` | 247 | 类 `:12 : DecisionItemBaseVM` |
 
+---
+
+## 16. J11（叶子链接无尾斜杠）—— boss 要求的两条里，一条真缺
+
+boss-3 #13101 要求把「引用边界」与「链接形态」编码进尺。回报：
+
+| 要求 | 判据 | 状态 |
+| --- | --- | --- |
+| 引用边界 `N <= wc -l` | **J3** | ✅ 已覆盖（自 `8b246f46d4`） |
+| 不写 `./X` | **J5** | ✅ 已覆盖 |
+| 每条链接真能解析 | **J5R** | ✅（`4836cb5add`） |
+| **叶子链接无尾斜杠** | **J11** | ⚠ **原来真没覆盖** ⇒ 已补（`c833eac06e`） |
+
+**为什么原来没覆盖**：`J5R` 对 `../X` 与 `../X/` **都判可解析** ⇒ **尾斜杠从来没被任何尺管过**。
+
+### 16.1 J11 的判据不是「不许有斜杠」
+
+```
+去掉尾斜杠 ⇒ 若存在同名叶子页 X.md ⇒ 目标本就是叶子 ⇒ 尾斜杠是缺陷
+           否则 ⇒ 它是节索引 ⇒ 尾斜杠是对的（`../`、`../../campaign/`）
+```
+两个方向都实测过：`campaign/Ship.md`、`campaign/MobileParty.md`、`campaign/Hero.md`、
+`campaign/Clan.md`、`campaign/Settlement.md`、`campaign-ext/actions-index.md` **都是叶子**；
+`campaign.md` **不存在** ⇒ `../../campaign/` 是节索引，**保持原样**。
+
+### 16.2 对照：1 正向 + 9 负向
+
+新增 `JudgeBadTrailingSlash` ⇒ **只挂 J11**（`J5R` 仍通过，因为链接能解析）
+⇒ 证明 **J11 是新维度，不是 J5R 的重复**。
+
+### 16.3 ★ 一个干净的对照实验（J11 顺带产出）
+
+```
+b01：4 页共 8 处叶子链接带尾斜杠     ← 写的时候 brief 里没这条规则
+b02：0 处                             ← brief 里内联了「无尾斜杠」
+b03：0 处（正在写）                    ← brief 里也内联了
+```
+**⇒「规则内联进 brief 就被遵守，不内联就不被遵守」**——b02 一轮零退回之外的第二个同类证据。
+**⇒ 推论：写进判据但没写进 brief 的规则 = 不存在的规则。**
+
+**已派 `worker-175`（#13161）**做 b01 的 4 页收尾（6 处字符串替换），brief 里明确列出**不许动**的
+`](../../campaign/)` 与 `](../)`。
+

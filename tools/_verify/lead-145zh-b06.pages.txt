@@ -1,0 +1,24 @@
+# N=5 sampled=2026-10-07T09:13:00Z frozen=lead-145zh-b06 v1.4.5/zh campaign-ext (alphabetical continuation)
+# 来源：b05 之后的同字母序续页。
+# 选取规则（四条过滤，全部用项目自己的规则）：
+#   ① 列 content/v1.4.5/zh/api/campaign-ext/*.md（排除 _index.md），按文件名排序
+#   ② 跳过 census tier = handwritten_deep
+#   ③ 跳过 tools/lib/handwritten-policy.mjs classifyPage() = noise
+#   ④ 跳过 isR1TargetType() = false（boss-3 #13810 裁定 (i)：全写作线强制执行）
+#
+# 尺：sha256 6ac3a08622bc097c9239484009af611d3914155468697a6a63f542e918a1945e
+#   （含：J3 归属规则修正 + J4 撤回为覆盖率读数 + schema 声明式判定 + J12 + 全路径优先消歧）
+#
+# ★ 本批结构特点（派单已内联）：5 页里【2 页是嵌套类型，没有独立源文件】
+#   AdditionType        = enum，嵌套在 FeatObject.cs:9
+#                         （bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterDevelopment/FeatObject.cs）
+#   AgentAlarmStateEnum = enum，嵌套在 MissionDisguiseMarkerItemVM.cs:11
+#                         （Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.MainAgentDetection/）
+#   另 3 页是独立文件：Add100RenownCheat.cs(21) · AddCraftingMaterialsCheat.cs(33) · AgentBehaviorGroup.cs(202)
+#
+# 每行必须可解析为仓库相对路径；本清单只被 lead-145zh 消费，worker 不得改写。
+content/v1.4.5/zh/api/campaign-ext/Add100RenownCheat.md
+content/v1.4.5/zh/api/campaign-ext/AddCraftingMaterialsCheat.md
+content/v1.4.5/zh/api/campaign-ext/AdditionType.md
+content/v1.4.5/zh/api/campaign-ext/AgentAlarmStateEnum.md
+content/v1.4.5/zh/api/campaign-ext/AgentBehaviorGroup.md

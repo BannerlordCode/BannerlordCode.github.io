@@ -190,7 +190,17 @@ function buildSrcIndex(root) {
 }
 const lineCountCache = new Map();
 function lineCount(abs) {
-  if (!lineCountCache.has(abs)) lineCountCache.set(abs, readFileSync(abs, 'utf8').split(/\r?\n/).length);
+  if (!lineCountCache.has(abs)) {
+    // ★ 必须与【判据原文】一致：判据写的是 `N <= (wc -l X.cs)`。
+    //   `wc -l` 数的是【换行符个数】，所以「以换行结尾的文件」的最后一行不计入。
+    //   旧实现用 split(/\r?\n/).length ⇒ 对换行结尾的文件会多算 1 行（= wc -l + 1），
+    //   即比判据宽松 1 行。实例：1.4.5 的 Hero.cs，wc -l=2406 而旧实现给 2407。
+    //   （lead-22 与我在跨版本回归用例里都观察到过这个 1 行差。）
+    const t = readFileSync(abs, 'utf8');
+    const parts = t.split(/\r?\n/);
+    const endsNl = /(?:\r?\n)$/.test(t);
+    lineCountCache.set(abs, endsNl ? parts.length - 1 : parts.length);
+  }
   return lineCountCache.get(abs);
 }
 

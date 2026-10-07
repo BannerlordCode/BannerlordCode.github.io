@@ -1230,4 +1230,31 @@ checked=10 out_of_scope=8
 **稳定态**：工作区 content/ 反复回到 **8 项**（6 OUT-OF-SCOPE + 2 NEW），
 即「可提交的全部已提交、不可提交的逐条留底」——这是本线能达到的收敛状态。
 
+### 4.11 第 4 轮收尾：worker 化 + 并发碰撞 + 读数更正
+
+**① 读数更正表**
+
+| 读数 | 来源 | 旧值 | 本线实测值 | 说明 |
+|---|---|---|---|---|
+| content 未提交项 | 派单书 | 61（其中 _index.md 40） | 125（其中 _index.md 104） | 派单书基于更早时点；第一轮实测更正，并按 125/104 记账；那 125 项已全部提交推送（第一轮 13 批 / 123 文件） |
+| 本地领先 origin/main | Boss #14301 | 12 | 6 | 旧值 12 是 lead-145zh 的 tools/docs commit，已在更早推送走掉；push 时实测领先 6 |
+
+**② worker 化（用户指示：lead 不直接干活）**
+
+- worker-194（分类）：产出 `tools/_verify/release-batches.md`，落盘 `2026-10-07 16:27:11 +0800`
+- worker-195（执行）：批 1 = `9ab98aa8dd`（4 文件、非 content 泄漏 0）
+
+**③ 并发碰撞事故（登记，不修饰）**
+
+- 事件：worker-195 执行批 2 时 `git diff --cached --name-only | wc -l` = **5 ≠ 期望 3**，多出 `tools/_verify/lead-145zh-PROGRESS.md` 与 `tools/_verify/lead-145zh-judge.mjs`（lead-145zh 线并发暂存）
+- 处置：worker-195 按铁律第 3 条**停手、不提交、回报** —— 守卫按设计工作
+- 结果：lead-145zh 线随后把整个暂存区提交为 `da1dfa7461`（message = `fix(lead-145zh-judge): derive the source tree per page, and never fall back silently`），批 2 的 3 个 content 页随之入库
+- 内容核验：内容正确（lead-21 独立核 `AccessDetails.md` frontmatter 的 title + description）
+- 裁决：**方案 A**（接受 `da1dfa7461` 作为批 2 载体 + 登记碰撞）；拆分需改写已推送历史、本仓禁止 force ⇒ 方案 B 不可执行
+- 教训：**「暂存数 == 期望数」这条硬检查有独立价值** —— 它在错误提交发生前，拦下了「把别人 staged 的文件卷进 content 提交」的动作
+
+**④ push**
+
+- push 前 origin/main = `62a2d25b0478a615b428aa54855e6377641eabe8`；push 后 = `5dee108247479cfc6be3ae6c15891990519ddd4b`；本次 6 个 commit（`git rev-list --count 62a2d25b04..5dee108247`）
+
 

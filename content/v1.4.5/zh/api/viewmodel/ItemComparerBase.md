@@ -8,7 +8,7 @@ description: "战役 ViewModelCollection 里每一个列表排序界面都使用
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public abstract class ItemComparerBase : IComparer<SmeltingItemVM>`  
 **Base:** `IComparer<SmeltingItemVM>`  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Smelting/SmeltingSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Smelting/SmeltingSortControllerVM.cs`
 
 ## 概述
 

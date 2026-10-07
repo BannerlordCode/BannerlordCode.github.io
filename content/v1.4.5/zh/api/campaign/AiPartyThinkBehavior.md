@@ -118,6 +118,66 @@ switch (lord.DefaultBehavior)
 }
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors/AiPartyThinkBehavior.cs`（全文 333 行）。
+**入口：** 官方已注册，不需 mod 重复添加；生效后由 `CampaignEvents.TickPartialHourlyAiEvent` 驱动，落地结果写在 `PartyBase.Ai.DefaultBehavior` / `ShortTermBehavior`。
+
+**这是汇总裁决方，不是候选生产方。** `public class AiPartyThinkBehavior : CampaignBehaviorBase`（`AiPartyThinkBehavior.cs:12`），可 `new`，但**通常不需要你注册它——官方已经在，且少一个就是整局 AI 停摆。**
+
+它注册七个事件（`AiPartyThinkBehavior.cs:16`），其中真正驱动决策的只有一个：`CampaignEvents.TickPartialHourlyAiEvent` → `PartyHourlyAiTick`（`AiPartyThinkBehavior.cs:18`）。**注意是 PartialHourly 不是 Hourly**——名字叫 `PartyHourlyAiTick` 但挂在半小 ticks 上，节流靠 `AiPartyThinkBehavior.cs:65` 的 `HourCounter % num` 判断。其余六个（`AiPartyThinkBehavior.cs:19`-`AiPartyThinkBehavior.cs:24`）全是「把状态打脏、逼它重新想」的触发器。
+
+`SyncData` 是空的（`AiPartyThinkBehavior.cs:43`）。
+
+两个开关值得单独记：`OnMobilePartyCreated`（`AiPartyThinkBehavior.cs:27`）对新方设 `RethinkAtNextHourlyTick = true`（`AiPartyThinkBehavior.cs:29`）；`OnNewGameCreated`（`AiPartyThinkBehavior.cs:32`）在开局时对每个方连跑六轮 `PartyHourlyAiTick`（`AiPartyThinkBehavior.cs:36`-`AiPartyThinkBehavior.cs:39`），**让各方在第一帧就有行为，不是一片 Hold。**
+
+### 典型用法
+
+**节流周期 `num` 是分四档算出来的**，默认 `6`（`:56`）。命中「军团领袖」/「正在转移」/「游离在军团外」/ `RethinkAtNextHourlyTick`/「正在打劫或攻城」时降到 `1`，其中「游离」单独看是 `3`（`:59`）。玩家自己的军团领袖再被强制回 `6`（`:61`-`:64`）。
+
+**所以「让它马上重新决策」的正确写法是设标志位，不是调方法**——`RethinkAtNextHourlyTick` 会把 `num` 压到 1，下一个 tick 就重算。
+
+汇总逻辑在 `:78` 的循环里跑两遍：一边取全局最高分（`:81`-`:85`），一边取**排除 `WillGatherArmy` 候选**的最高分（`:86`-`:90`）。**第二名只在 `:126` 的 `num2 <= num4` 时才被启用**——也就是最高分不够「过阈值」时的退路。
+
+阈值本身分两档：巡逻与去城镇只要 `0.03`，其余要 `0.1`（`:98`），再乘以 `WillGatherArmy ? 2 : (是军团领袖 ? 0.33 : 1)`（`:99`）。**军团领袖被乘 0.33，意味着领袖的行为门槛是普通队伍的三倍。**
+
+想判断一支队伍这次决策会不会真的落地，把三个门限量出来：
+
+```csharp
+public static class AiThinkThresholdProbe
+{
+    public static void Report(MobileParty party)
+    {
+        MBReadOnlyList<(AIBehaviorData, float)> scores = party.ThinkParamsCache.AIBehaviorScores;
+        float top = -1f;
+        for (int i = 0; i < scores.Count; i++)
+        {
+            if (scores[i].Item2 > top)
+            {
+                top = scores[i].Item2;
+            }
+        }
+        bool isArmyLeader = party.Army != null && party.Army.LeaderParty == party;
+        double baseThreshold = 0.1;
+        double threshold = baseThreshold * (isArmyLeader ? 0.33 : 1f);
+        Debug.Print(party.Name + " topScore=" + top + " threshold=" + threshold.ToString("F3"), 0);
+        Debug.Print("hourCounter=" + party.Ai.HourCounter + " rethink=" + party.Ai.RethinkAtNextHourlyTick, 0);
+    }
+}
+```
+
+**决策被接受前有一道随机化**：`:101` 的循环掷 `num` 次骰子，只有 `MBRandom.RandomFloat < num2`（`:107`）才把 `flag3` 置真。**在「已经决定换」的情形下 `num2` 被直接抬到 `1f`（`:96`），所以那一步必定通过；随机性只影响「本来就在犹豫」的情况。**
+
+`:109` 的第二个分支是死路之外的特例：当队伍 `MapEvent == null && Army == null && DefaultBehavior == Hold` 时，只要分数 `> 0.01f` 就直接换——**待机中的散兵不需要攒够 0.1 阈值。**
+
+`:111`-`:124` 是落地时最重的一段：换行为前会先 `PlayerEncounter.Finish()`（`:115`）、`MapEvent.FinalizeEvent()`（`:119`）、`SiegeEvent.FinalizeSiegeEvent()`（`:123`）。**所以在 `AiHourlyTickEvent` 的自定义处理器里改同一支队伍的状态，会和这三行抢。**
+
+### 最容易踩的坑
+
+**在 tick 里直接改方状态**：`PartyHourlyAiTick` 会调用 `mobileParty.MapEvent.FinalizeEvent()`、`SiegeEvent.FinalizeSiegeEvent()`、`DisbandArmyAction.ApplyByUnknownReason`、`Kingdom.CreateArmy` 等重操作。自定义代码若在 `AiHourlyTickEvent` 处理器里也改同一方的状态，会和这里的落地逻辑竞争，造成抖动或重复结算。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

@@ -8,7 +8,7 @@ description: "ReferenceIMBEvent 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public interface ReferenceIMBEvent<T1, T2> : IMbEventBase`
 **Base:** `IMbEventBase`
-**File:** `TaleWorlds.CampaignSystem/ReferenceIMBEvent.2.cs`
+**File:** `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ReferenceIMBEvent.cs`
 
 ## 概述
 

@@ -121,6 +121,87 @@ float defeatDelta = Campaign.Current.Models.PartyMoraleModel
 party.RecentEventsMorale += defeatDelta;
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyMoraleModel.cs`（全文 21 行）。
+**入口：** `Campaign.Current.Models.PartyMoraleModel`（由 `GameModels` 在战役建立 / 读档时解析）。
+
+`public abstract class PartyMoraleModel : MBGameModel<PartyMoraleModel>`（`PartyMoraleModel.cs:6`），**7 个成员全是 abstract**。
+
+**7 个成员的返回值分两类，这是本页的第一条分界线：**
+
+| 成员 | 返回 | 行号 |
+| --- | --- | --- |
+| `HighMoraleValue` | `float` | `:8` |
+| `GetDailyStarvationMoralePenalty(PartyBase)` | `int` | `:10` |
+| `GetDailyNoWageMoralePenalty(MobileParty)` | `int` | `:12` |
+| `GetStandardBaseMorale(PartyBase)` | `float` | `:14` |
+| `GetVictoryMoraleChange(PartyBase)` | `float` | `:16` |
+| `GetDefeatMoraleChange(PartyBase)` | `float` | `:18` |
+| `GetEffectivePartyMorale(MobileParty, bool)` | `ExplainedNumber` | `:20` |
+
+**两个惩罚返回 `int`，其余返回 `float`，唯一的汇总返回 `ExplainedNumber`。** 四个成员拿 `PartyBase`，只有两个拿 `MobileParty`（`:12`/`:20`）——**不是所有成员都能直接吃 `MobileParty`，在 `PartyBase` 与 `MobileParty` 之间传错类型是编译错误而不是运行时错误。**
+
+### 典型用法
+
+**最大的陷阱是「算了不等于写了」。** `GetVictoryMoraleChange` / `GetDefeatMoraleChange` 是纯函数，它们只返回一个增量，**完全不碰队伍状态**。写回 `RecentEventsMorale` 是调用方的活。
+
+**而 `HighMoraleValue` 与 `GetEffectivePartyMorale` 之间没有任何关系。** 前者是一个阈值常量（`:8`），后者是完整汇总；模型不会把结果钳到 `HighMoraleValue`。**「士气封顶」这件事要么消费方自己做，要么你的实现里做。**
+
+`GetEffectivePartyMorale` 的 `includeDescription`（注意是单数）控制 `ExplainedNumber` 的明细。与 [PartyWageModel](../PartyWageModel) 一样，`ResultNumber` 是钳位后的值。
+
+想把「士气从哪来」完整打出来，就得带上明细并逐行读：
+
+```csharp
+public static void DumpMoraleSources(MobileParty party)
+{
+    PartyMoraleModel model = Campaign.Current.Models.PartyMoraleModel;
+    int starvation = model.GetDailyStarvationMoralePenalty(party.Party);
+    int noWage = model.GetDailyNoWageMoralePenalty(party);
+    float baseMorale = model.GetStandardBaseMorale(party.Party);
+    Debug.Print("starvation=" + starvation + " noWage=" + noWage + " base=" + baseMorale, 0);
+    ExplainedNumber effective = model.GetEffectivePartyMorale(party, includeDescription: true);
+    Debug.Print("effective=" + effective.ResultNumber + " lines=" + effective.Lines.Count, 0);
+    for (int i = 0; i < effective.Lines.Count; i++)
+    {
+        ExplanationLine line = effective.Lines[i];
+        Debug.Print("  " + line.OperationType + " " + line.Name + " = " + line.Number, 0);
+    }
+}
+```
+
+**两个惩罚是每日量，不是累积量。** `GetDailyStarvationMoralePenalty`（`:10`）与 `GetDailyNoWageMoralePenalty`（`:12`）的名字里都有 `Daily`，**每天调一次、调 N 天就该累加 N 次**。调一次就当它是一次性的，是这页最常见的逻辑错误。
+
+替换时 7 个都要实现：
+
+```csharp
+public class SimpleMoraleModel : PartyMoraleModel
+{
+    public override float HighMoraleValue => 1f;
+    public override int GetDailyStarvationMoralePenalty(PartyBase party) => -5;
+    public override int GetDailyNoWageMoralePenalty(MobileParty party) => -3;
+    public override float GetStandardBaseMorale(PartyBase party) => 0.5f;
+    public override float GetVictoryMoraleChange(PartyBase party) => 0.2f;
+    public override float GetDefeatMoraleChange(PartyBase party) => -0.2f;
+    public override ExplainedNumber GetEffectivePartyMorale(MobileParty party, bool includeDescription = false)
+    {
+        return new ExplainedNumber(GetStandardBaseMorale(party.Party), includeDescription);
+    }
+}
+```
+
+**注意上例最后一个成员只返回了基础士气，两个惩罚和战败扣减全都没进去。** 这是替换本 Model 最容易犯的错——**签名能过、编译能过、数值会悄悄错**。因为惩罚函数的返回值不会自己累加，**你必须在 `GetEffectivePartyMorale` 里主动调用它们**，否则它们就是两个没人调的死方法。
+
+官方实现证明这三个惩罚确实是分开调用的：`FoodConsumptionBehavior.cs:200` 调 `GetDailyStarvationMoralePenalty(mobileParty.Party)`，`DefaultClanFinanceModel.cs:965` 与 `:968` 调 `GetDailyNoWageMoralePenalty(mobileParty)`，而 `DefaultPartyHealingModel.cs:174` 用 `HighMoraleValue` 当阈值判 `mobileParty.Morale >= ...`。
+
+**注意这三处调用方分属三个不同的系统**——进食、财务、治疗。**它们各自只取自己需要的那一个增量，谁也不负责汇总。** 这正好印证了上例那句：汇总职责在 `GetEffectivePartyMorale`，而**它必然要再调一遍那三个**，否则 UI 上的数字会与这三条真实规则长期不一致。
+
+### 最容易踩的坑
+
+**跨战役重载缓存实例**：`Campaign.Current.Models.PartyMoraleModel` 在每次新战役/读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长期字段，战役重载后会指向旧战役的已销毁对象，调用即崩溃或读到陈旧规则。每次需要时都重新走 `Campaign.Current.Models` 获取。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

@@ -267,6 +267,8 @@ if (troop != null && troop.IsRegular)
 
 ### 示例 2：克隆共享模板以定制一支专属部队（避免污染原模板）
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.5 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 // 直接改 Clan.PlayerClan.BasicTroop 会影响所有用到基础兵的地方——先克隆
 CharacterObject customTroop = CharacterObject.CreateFrom(Clan.PlayerClan.BasicTroop);
@@ -297,6 +299,48 @@ foreach (CharacterObject cav in CharacterObject.FindAll(c => c.IsRegular && c.Is
 - **`Find` 可能返回 `null`**：使用了不存在的 `stringId` 时返回 `null`，调用其属性前务必判空。
 - **不要 `new CharacterObject()`**：构造器只做字段初始化（`Init()`），不含任何 XML 数据，造出的卡 `Culture`/`Equipment`/`Skills` 几乎全空，既不会被 `MBObjectManager` 注册，也不会出现在 `All` 中。`MBObjectManager.Instance.CreateObject<CharacterObject>()` 是引擎内部的注册途径，mod 应使用 `Find` / `CreateFrom` / `HeroCreator`。
 - **`CreateFrom` 是浅克隆**：它复制引用（装备模板、特性 `PropertyOwner`、升级目标数组），不是深度拷贝每个 `ItemObject`。改副本的装备槽内容安全，但意外改了副本引用的共享 `Equipment` 对象仍会影响他者。
+
+## 怎么用
+
+**怎么拿到（这里只补「生产端」，不重述上面那节已经列过的获取方式）。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CharacterObject.cs:16`（`public sealed class CharacterObject : BasicCharacterObject, ICharacterData`）。
+
+**`sealed` 是本页第一个硬约束：不能继承。** 想扩一支兵种只能走 `CreateFrom` 克隆，而不是 `class MyTroop : CharacterObject`（后者编译不过）。
+
+**上面「如何获取」讲的三条路（从 Hero 反查 / 遍历 `All` / `Find` byId）拿到的都是 XML 注册的共享单例。** 生产端只有一条干净的路，就是 `CharacterObject.cs:416` 的：
+
+```csharp
+public static CharacterObject CreateFrom(CharacterObject character, StaticBodyProperties? staticBodyProperties = null)
+```
+
+**注意第二个参数的可空标注。** 它是 `StaticBodyProperties?` —— 可空值类型，**所以只有传 `null` 或一个值，不传是允许的**（有默认值 `null`）。克隆出来的实例与源模板**不再共享**，可以放心改。
+
+**一段可直接跑的三行克隆并定制**（这是本页唯一安全的「写」路径）：
+
+```csharp
+CharacterObject custom = CharacterObject.CreateFrom(Clan.PlayerClan.BasicTroop);
+custom.HiddenInEncyclopedia = true;
+custom.SetTransferableInPartyScreen(false);
+```
+
+**⚠ 选这三行不是随便挑的：`Level` 和 `HitPoints` 都写不了。** 它们在 `CharacterObject.cs:212` 与 `:238` 分别是 `public override int HitPoints` 与 `public override int Level`，**两个都只有 `get`、没有 `set`** —— getter 甚至不是返回字段，而是 `HitPoints` 返回 `IsHero ? HeroObject.HitPoints : MaxHitPoints()`、`Level` 返回 `IsHero ? HeroObject.Level : base.Level`。**所以 `custom.Level = 5;` 这种「按印象写」的赋值编译不过**，而它失败的方式是编译错误（不是静默无效），这一点算友好。
+
+**真正能写的分三类，按推荐顺序：**
+
+| 成员 | 声明位置 | 形状 |
+| --- | --- | --- |
+| `HiddenInEncyclopedia` | `:78` | `public bool ... { get; set; }` —— 公开可写 |
+| `IsBasicTroop` | `:286` | `public bool ... { get; set; }` —— 公开可写 |
+| `SetTransferableInPartyScreen(bool)` | `:741` | 方法，非属性 |
+
+**而 `IsTemplate`（`:288`）、`IsChildTemplate`（`:290`）、`UpgradeTargets`（`:314`）、`UpgradeRequiresItemFromCategory`（`:316`）都是 `{ get; private set; }` —— 外部能读不能写。** 想改升级树得另找入口。
+
+**这就是「改共享模板」这条风险的另一面。** 真正能写的成员不多，所以很多人直接改 `Clan.BasicTroop` 的那几个 `set` 属性 —— 而那正是会全局生效的做法。**正确顺序永远是：先 `CreateFrom` 克隆，再在克隆体上写。**
+
+**`All` 本身是表达式属性，会每次重新解析。** `CharacterObject.cs:363` 的 `public static MBReadOnlyList<CharacterObject> All => Campaign.Current.Characters;` —— **实现体就是转发给 `Campaign.Current.Characters`**，所以在战役未启动时读它会 NRE，而不是返回空表。**不要把它缓存进静态字段。**
+
+**`Find` 返回 null 而不是抛异常。** `CharacterObject.cs:841` 的 `public static CharacterObject Find(string idString)` 是按 stringId 精确查找，找不到给 null。**上面那节示例里已经用 `if (imperialInfantry != null)` 判过了，这里不重复。**
+
+**最常见的坑：改共享模板会全局生效。** `Clan.BasicTroop`、`CultureObject.BasicTroop`、`CharacterObject.Find(...)` 返回的是 XML 注册的**单例**，直接写它的 `Equipment` 槽或 `SetTransfer...` 会影响所有引用方。**要改就先 `CreateFrom` 克隆。** 这条已在「风险与崩溃边界」首条展开；它之所以排在第一位，是因为它产生的是「游戏数据被悄悄改坏」而非崩溃，比异常更难查。
 
 ## 跨版本提示
 

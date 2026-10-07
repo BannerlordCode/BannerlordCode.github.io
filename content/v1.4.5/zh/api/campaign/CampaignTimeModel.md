@@ -120,6 +120,38 @@ bool isNewWeek = (int)Campaign.Current.Models.CampaignTimeModel
 int hoursInDay = Campaign.Current.Models.CampaignTimeModel.HoursInDay;
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/CampaignTimeModel.cs:5`（`public abstract class CampaignTimeModel : MBGameModel<CampaignTimeModel>`）。**全文只有 28 行，且十二个成员全是 `public abstract` 属性，零方法体** —— 这个模型没有行为，只有「换算系数」。
+
+运行时解析发生在 `GameModels.cs:371` 的一行 `CampaignTimeModel = GetGameModel<CampaignTimeModel>();`，结果存进 `GameModels.cs:231` 的 `public CampaignTimeModel CampaignTimeModel { get; private set; }`。消费端统一写 `Campaign.Current.Models.CampaignTimeModel.Xxx`，例如 `Campaign.cs:1402` 的 `new MapTimeTracker(Models.CampaignTimeModel.CampaignStartTime)`。
+
+**一段可直接跑的三行换算**（十二个常量里最容易搞混的一组）：
+
+```csharp
+CampaignTimeModel t = Campaign.Current.Models.CampaignTimeModel;
+float elapsedMs = t.CampaignStartTime.ElapsedMillisecondsUntilNow;
+Debug.Print("days = " + (elapsedMs / ((float)t.MillisecondInSecond * t.SecondsInMinute * t.MinutesInHour * t.HoursInDay)), 0);
+```
+
+**⚠ 两个「看起来公开其实不是」的成员，先记住，否则代码编译不过。**
+```
+· CampaignTime.NumTicks   是 internal long  => mod 读不到
+· CampaignTime.TimeTicksPer*  也是 internal static long（TimeTicksPerMillisecond/TimeTicksPerDay …）
+所以 engine 自己写的 long numTicks = (CampaignTime.Now - …CampaignStartTime).NumTicks; 那种写法，
+你在 mod 里【逐字照抄会编译失败】—— 它只在 TaleWorlds 程序集内部成立。
+```
+
+**改用公开属性。** `CampaignTime` 对 mod 开放的是一组 `Elapsed*UntilNow` / `Remaining*FromNow` 的 `float` 属性：`ElapsedMillisecondsUntilNow`（`CampaignTime.cs:104`）、`ElapsedSecondsUntilNow`、`ElapsedHoursUntilNow`、`ElapsedDaysUntilNow`、`ElapsedWeeksUntilNow`、`ElapsedSeasonsUntilNow`、`ElapsedYearsUntilNow`，以及反向的 `RemainingMillisecondsFromNow` 等。**它们已经替你除好了系数，不需要你手算。**
+
+**五个时间单位是五个独立属性，不能互相推导。** `MillisecondInSecond`、`SecondsInMinute`、`MinutesInHour`、`HoursInDay`、`DaysInWeek` 各自是一个 `int`，**它们之间没有任何一致性校验** —— 你在派生类里把 `HoursInDay` 写成 25 不会有任何提示，只会让全游戏的时刻表漂移。
+
+**`CampaignStartTime` 是唯一一个「值」而非「系数」的成员。** 它返回 `CampaignTime` 类型，`Campaign.cs:1004` 正是用它做差值 `long numTicks = (CampaignTime.Now - Current.Models.CampaignTimeModel.CampaignStartTime).NumTicks;` —— 所以它是**每次战役的纪元起点**，换战役会换值。
+
+**读「当前时刻」的三个静态属性也分内外。** `CampaignTime.Now`（`CampaignTime.cs:70`）是 `public static`，可以放心用；但它的实现是 `Campaign.Current.MapTimeTracker.Now`，**所以战役没起来时 `Now` 自己就 NRE**。另有 `CampaignTime.Never`（第 72 行）可作哨兵值。
+
+**最常见的坑：跨战役重载缓存实例。** `Campaign.Current.Models.CampaignTimeModel` 在每次新战役/读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长生命周期对象，会在重载后指向旧战役的已销毁对象。而本类比别的模型更危险 —— **它的成员全是常量系数，看起来「缓存了也没事」，于是更容易被误判为可以长期持有**。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

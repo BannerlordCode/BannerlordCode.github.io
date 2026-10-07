@@ -104,6 +104,66 @@ if (member.Army != null && member.Army.LeaderParty != member)
 }
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors/AiArmyMemberBehavior.cs`（全文 97 行）。
+**入口：** `CampaignGameStarter.RegisterCampaignBehaviors()` → `CampaignBehaviors.AddBehavior(new AiArmyMemberBehavior())`；生效后由 `CampaignEvents.AiHourlyTickEvent` 自动驱动。
+
+**它不是你调用的东西，是它挂在 `AiHourlyTickEvent` 上自己跑的。** `RegisterEvents`（`AiArmyMemberBehavior.cs:16`）只注册两件事：`CampaignEvents.AiHourlyTickEvent` → `AiHourlyTick`（`AiArmyMemberBehavior.cs:18`）与 `CampaignEvents.OnSiegeEventStartedEvent` → `OnSiegeEventStarted`（`AiArmyMemberBehavior.cs:19`），两者都是 `AddNonSerializedListener`（**读档后不重放**）。`SyncData` 是空的（`AiArmyMemberBehavior.cs:22`），**它不持有任何存档状态**。
+
+要让它生效，走 Campaign Game Starter 的标准 behavior 注册，而不是手工 `new`：
+
+```csharp
+public class MyArmyMemberBehaviors : CampaignGameStarter
+{
+    public override void RegisterCampaignBehaviors()
+    {
+        CampaignBehaviors.AddBehavior(new AiArmyMemberBehavior());
+        base.RegisterCampaignBehaviors();
+    }
+}
+```
+
+**注意它注册的是 `OnSiegeEventStartedEvent` 而不是围城结束事件。** `OnSiegeEventStarted`（`:26`）只做一件事：遍历 `siegeEvent.BesiegedSettlement.Parties`（`:28`），对每个 `IsLordParty` 的队伍调 `SetMoveModeHold()`（`:32`）。**它不解除这个 hold**，解除要靠围城结束时的行为层。
+
+### 典型用法
+
+它的核心是 `AiHourlyTick(MobileParty mobileParty, PartyThinkParams p)`（`:37`）——**签名不是无参事件处理，而是往 `p` 里塞候选**。`p.AddBehaviorScore((item, item2))`（`:88`）是它唯一的输出通道。
+
+评分有三档。满分档 `FollowingArmyLeaderMaxScore = 20f`（`:10`），保底档 `FollowingArmyLeaderMinScore = 20f * 0.5f`（`:12`）。当队伍食物不足或规模不够时（`:77`）降到保底档，并按 `GetAverageDistanceBetweenClosestTwoTownsWithNavigationType` 的一半再乘一个钳制系数（`:80`-`:83`）。**领袖完全不可达时给的是第三档 `0.02475f`（`:14`）——比保底低两个数量级，是「几乎不参与竞争」而不是「不参与」。**
+
+三个估值常量全是私有属性，**没有 Model 接口可以替换**，所以 mod 想改追随强度只有两条路：换掉 `Campaign.Current.Models.ArmyManagementCalculationModel` 的阈值（`:76`-`:77`），或整个换掉本 behavior：
+
+```csharp
+public static class ArmyMemberFollowProbe
+{
+    public static void Report(MobileParty member)
+    {
+        if (member.Army == null || member.Army.LeaderParty == member)
+        {
+            Debug.Print(member.Name + " is not a followable member", 0);
+            return;
+        }
+        float ratio = member.PartySizeRatio;
+        float need = member.Army.LeaderParty.IsMainParty
+            ? Campaign.Current.Models.ArmyManagementCalculationModel.PlayerMobilePartySizeRatioToCallToArmy
+            : Campaign.Current.Models.ArmyManagementCalculationModel.AIMobilePartySizeRatioToCallToArmy;
+        Debug.Print(member.Name + " ratio=" + ratio + " need=" + need, 0);
+        Debug.Print("foodDays=" + member.GetNumDaysForFoodToLast() + " willFollowHard=" + (ratio >= need), 0);
+    }
+}
+```
+
+`:77` 的判断把两个条件写在一起：`GetNumDaysForFoodToLast() < MinimumNeededFoodInDaysToCallToArmy || PartySizeRatio < num4`。**两个条件是「或」，任一不满足就掉到保底档。** 而 `num4` 本身是分岔的：领袖是主队时用 `PlayerMobilePartySizeRatioToCallToArmy`，否则用 `AIMobilePartySizeRatioToCallToArmy`（`:76`）。
+
+`:86` 与 `:92` 构造的两条 `AIBehaviorData` 都传 `willGatherArmy: false`——**这个行为从不贡献集结候选，只贡献跟随。**
+
+### 最容易踩的坑
+
+**null 守卫不足**：`AiHourlyTick` 开头用 `mobileParty.Army == null` 早退，但后续大量读取 `mobileParty.Army.LeaderParty`、`LeaderParty.CurrentSettlement.SiegeEvent` 等；自定义扩展若去掉早退或改动条件，会触发空引用。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

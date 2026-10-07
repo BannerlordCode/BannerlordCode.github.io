@@ -8,7 +8,7 @@ description: "任务中「注视目标时屏幕上浮现的那块交互提示」
 **Module:** TaleWorlds.MountAndBlade.ViewModelCollection  
 **Type:** `public class AgentInteractionInterfaceVM : ViewModel`  
 **Base:** `ViewModel`  
-**File:** `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction/AgentInteractionInterfaceVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction/AgentInteractionInterfaceVM.cs`
 
 ## 概述
 

@@ -59,6 +59,42 @@ description: "「军团缺粮」问题行为的注册器：订阅 OnCheckForIssu
 | `ArmyNeedsSuppliesIssue.GetFrequency()` | `public override IssueFrequency GetFrequency()` | 返回 `IssueFrequency.VeryCommon`。**注意这里用字面量而不是同文件里定义的 `ArmyNeedsSuppliesIssueFrequency` 常量**（`ArmyNeedsSuppliesIssueBehavior.cs:595`），那个 `private const` 同样是死代码。 |
 | `ArmyNeedsSuppliesIssue.GetIssueEffectAmountInternal(IssueEffect)` | `protected override float GetIssueEffectAmountInternal(IssueEffect issueEffect)` | 问题未解决时的持续影响：`DefaultIssueEffects.ClanInfluence` 返回 **-0.1f**，其余返回 0。也就是问题挂着不动时，发起者家族影响力持续下降。 |
 
+## 怎么用
+
+这是问题（Issue）子系统的典型注册器，不是一个玩法逻辑类。它自身只有两个公开方法和两个 override，全部有效代码不到 60 行，其余六百多行属于它的三个嵌套类。理解它的正确方式是把它看成模板：所有具体问题都用同一个形状接进问题系统。
+
+**怎么拿到它**：注册点是 `SandBoxManager.cs:162` 的 `gameStarter.AddBehavior(new ArmyNeedsSuppliesIssueBehavior())`，声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/ArmyNeedsSuppliesIssueBehavior.cs:13`。事件订阅在 `ArmyNeedsSuppliesIssueBehavior.cs:601`（`OnCheckForIssueEvent`）和同文件附近（`ArmyDispersed`），三个嵌套类型分别是问题本体 `ArmyNeedsSuppliesIssue : IssueBase`（`:15`）、15 天的运送任务 `ArmyNeedsSuppliesIssueQuest : QuestBase`（`:170`）以及问题管理器需要的第三个辅助类。
+
+它的工作是往 [IssueManager](../IssueManager) 投递一份「潜在问题数据」而不是直接开问题，投递入口是 `IssueManager.cs:215` 的 `AddPotentialIssueData`，载荷类型 `PotentialIssueData` 的构造器在 `PotentialIssueData.cs:21`。你的 mod 要复刻一个问题，照抄这个投递形状：
+
+```csharp
+public class MyIssueBehavior : CampaignBehaviorBase
+{
+    private void OnCheckForIssue(Hero hero)
+    {
+        if (hero.Clan == Clan.PlayerClan && hero.IsNotable && hero.Gold > 500)
+        {
+            Campaign.Current.IssueManager.AddPotentialIssueData(hero,
+                new PotentialIssueData(OnStartIssue, typeof(MyIssue), IssueBase.IssueFrequency.Common, null));
+        }
+    }
+
+    private static IssueBase OnStartIssue(in PotentialIssueData pid, Hero issueOwner)
+    {
+        return new MyIssue(issueOwner, CampaignTime.DaysFromNow(20f));
+    }
+
+    public override void RegisterEvents()
+    {
+        CampaignEvents.OnCheckForIssueEvent.AddNonSerializedListener(this, OnCheckForIssue);
+    }
+}
+```
+
+`StartIssueDelegate` 的签名在 `PotentialIssueData.cs:7`，注意第一个参数带 `in` 修饰，形状写错编译不过。行为本身零存档字段，`SyncData` 是空的。
+
+**最常见的坑**：事件订阅一律用 `AddNonSerializedListener`，事件引用不进存档，读档后由 `CampaignBehaviorManager.AddBehavior` 重新调 `RegisterEvents` 订阅。mod 里对同一条 `OnCheckForIssueEvent` 重复订阅会让问题出现概率翻倍，因为两个行为都会各投递一份。
+
 ## 真实示例
 
 注册这个行为（在 `OnGameInitializationStart` 里拿 `CampaignGameStarter`，形状照 `SandBoxManager.cs:162` 的官方注册）：

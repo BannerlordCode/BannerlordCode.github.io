@@ -86,6 +86,29 @@ public class DoubleCombatXpModel : DefaultCombatXpModel
 }
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/CombatXpModel.cs:6`（`public abstract class CombatXpModel : MBGameModel<CombatXpModel>`）。全文 24 行，**外加一个内嵌枚举 `MissionTypeEnum`**（成员 `Battle`、`PracticeFight`、`Tournament`、`SimulationBattle`、`NoXp`）—— 因为它嵌套在类里，代码里必须写全 `CombatXpModel.MissionTypeEnum.Battle`。
+
+解析在 `GameModels.cs:277`，存入 `GameModels.cs:29`。四个成员的调用点分两处，且**都在「拿到一次伤害」的同一时刻**：`TaleWorlds.CampaignSystem.AgentOrigins/SimpleAgentOrigin.cs:169` 与 `:172` 连着调 `GetXpFromHit` 与 `GetSkillForWeapon`，`CharacterDevelopment/DefaultSkillLevelingManager.cs:31` 则在技能升级路径上调前者。
+
+**一段可直接跑的三行照引擎形状的取 XP**：
+
+```csharp
+ExplainedNumber xp = Campaign.Current.Models.CombatXpModel.GetXpFromHit(
+    attackerTroop, captain, attackedTroop, attackerParty, damage, isFatal,
+    CombatXpModel.MissionTypeEnum.Battle);
+float skill = Campaign.Current.Models.CombatXpModel.GetXpMultiplierFromShotDifficulty(shotDifficulty);
+```
+
+**第二个参数的 captain 允许为 null，要按「无队长」处理。** `DefaultSkillLevelingManager.cs:31` 传的第三个实参就是 `heroObject.PartyBelongedTo?.Party` —— **它用了空传播**，因为没有队伍时 `PartyBelongedTo` 为 null。照抄时把这个 `?.` 一起带上。
+
+**`GetSkillForWeapon` 的第二个参数用命名实参。** `SimpleAgentOrigin.cs:172` 写的是 `GetSkillForWeapon(attackerWeapon, isSiegeEngineHit: false)`。两个参数一个是引用一个是 `bool`，位置传参容易在改代码时滑掉。
+
+**`MissionTypeEnum.NoXp` 是一个「明确不给经验」的值，不是「未知」。** 它与 `SimulationBattle` 并列存在，意味着「战斗但不给 XP」是模型里的一等情形 —— 你自己发 XP 时若拿不到 missionType，**传 `NoXp` 比传 `Battle` 安全**：多给经验比少给更难被发现。
+
+**最常见的坑：缓存实例跨战役。** 把 `Campaign.Current.Models.CombatXpModel` 存进静态字段或字段后，载入旧存档会重建 `Models`，旧引用悬空。而这个模型的 `GetXpFromHit` 内部要读部队与技能状态，**跨战役悬空引用返回的 XP 数量可能完全错误而没有任何异常**。
+
 ## 参见
 
 - `↑ 父级`：[战役 API 索引](../)

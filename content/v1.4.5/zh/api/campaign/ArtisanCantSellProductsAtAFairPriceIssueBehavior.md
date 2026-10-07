@@ -71,6 +71,37 @@ public ArtisanCantSellProductsAtAFairPriceIssue(Hero issueOwner)
 | `ArtisanCantSellProductsAtAFairPriceIssue.GenerateIssueQuest(string questId)` | `protected override QuestBase GenerateIssueQuest(string questId)` | 生成 **18 天**任务（`:384-387`），传入目标城镇、原料、需求数量、赏金、目标英雄、反派商人。**注意期限 18 天与问题本身的 30 天不一致**——`IssueDuration = 30` 是死代码常量，真正生效的是这里的 `CampaignTime.DaysFromNow(18f)`。 |
 | `ArtisanCantSellProductsAtAFairPriceIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested` | `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)` | **任务层的隐藏钩子**（`:862-868`）：`if (hero == _targetHero) result = false;`。它**主动把目标英雄排除在"可提问题的英雄"之外**，避免玩家在城镇里跟同一个人反复触发同类问题。**这条钩子在 1.4.5 里只有这个 issue 用。** |
 
+## 怎么用
+
+这是三个工匠问题行为里唯一一个不在触发时传载荷的，走的是「触发时无参、构造器里现选」的路线。目标城镇、目标英雄、七种原材料之一、反派商人，全部在 Issue 构造器里一次性定死。
+
+**怎么拿到它**：注册点是 `SandBoxManager.cs:163` 的 `gameStarter.AddBehavior(new ArtisanCantSellProductsAtAFairPriceIssueBehavior())`，声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/ArtisanCantSellProductsAtAFairPriceIssueBehavior.cs:20`。问题本体是同文件 `:22` 的嵌套 `ArtisanCantSellProductsAtAFairPriceIssue : IssueBase`，`OnCheckForIssueEvent` 的订阅在 `ArtisanCantSellProductsAtAFairPriceIssueBehavior.cs:970`。
+
+理解「无参派发」的代价，最好的办法是把构造器里的四个 `Select*` 调用摊开看：它们各自都是私有方法，且至少有两个会被跑两遍。
+
+```csharp
+// 诊断用：走一遍已激活问题的状态，验证行为层确实挂了钩子
+IssueManager manager = Campaign.Current.IssueManager;
+foreach (KeyValuePair<Hero, IssueBase> pair in manager.Issues)
+{
+    if (!(pair.Value is ArtisanCantSellProductsAtAFairPriceIssue)) continue;
+    ArtisanCantSellProductsAtAFairPriceIssue concrete = (ArtisanCantSellProductsAtAFairPriceIssue)pair.Value;
+    Debug.Print(pair.Key.Name + " 存活条件=" + concrete.IssueStayAliveConditions(), 0);
+    Debug.Print("无任务进行中=" + concrete.IsOngoingWithoutQuest
+        + " 带任务=" + concrete.IsSolvingWithQuestSolution
+        + " 截止=" + concrete.IssueDueTime, 0);
+}
+Debug.Print("行为已挂载，行为上的 SyncData 为空表示无持久字段", 0);
+```
+
+`IssueStayAliveConditions` 是 `IssueBase` 上的抽象方法，覆写点在同文件 `:155` 附近。构造器在 `ArtisanCantSellProductsAtAFairPriceIssueBehavior.cs:257`，它内部依次调 `SelectTargetSettlement`（`:260`）、从 `_possibleDeliveryItems` 随机抽一项（`:262`，七种分别是橄榄、陶土、亚麻、葡萄、羊毛、硬木、生皮）、`SelectCounterOfferHero`（`:263`）。这套选择还会再在行为侧的 `OnCheckForIssue` 里跑一遍（`:987` 与 `:989`）。
+
+所以这个类型的成本模型参数其实全在两个属性上：`AlternativeSolutionBaseNeededMenCount` 与 `AlternativeSolutionBaseDurationInDaysInternal` 都是「基础值 + 向上取整（系数 × IssueDifficultyMultiplier）」的形状，`AlternativeSolutionScaleFlags` 决定随难度放大的是时长还是人数。两个能力开关也都是硬编码的 `true`（`:78` 的 `IsThereAlternativeSolution` 与 `:80` 的 `IsThereLordSolution`），也就是说玩家始终同时有「派同伴」和「领主下令」两条解法。
+
+它还有一个独立的问题类型定义器 `ArtisanCantSellProductsAtAFairPriceIssueTypeDefiner : SaveableTypeDefiner`（`:952`），存档字段 id 分配在那个文件里，不在 behavior 上。`CounterOfferHero` 是 `IssueBase` 上的属性，这里覆写在 `:53`，在构造器里被赋值。
+
+**最常见的坑**：触发判定会被跑两遍且两次结果可能不同。`ConditionsHold` 里已经调过一次选择目标城镇和反派商人的私有方法，`OnStartIssue` 的构造器里又调一次，投递到真正抽中之间可能隔很多小时，目标城镇那时可能已经易主。
+
 ## 真实示例
 
 注册这个行为（形状照 `SandBoxManager.cs:163`）：

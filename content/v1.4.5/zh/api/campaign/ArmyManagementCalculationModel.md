@@ -136,6 +136,32 @@ description: "统管 army（军团）召集资格阈值、影响力（声望）�
   - 用途：返回玩家主英雄与 `hero` 的关系值；`hero` 为 `null` 返回 `-101`，为玩家主英雄返回 `101`，否则返回 `Hero.MainHero.GetRelation(hero)`。供 `CalculatePartyInfluenceCost` 评估召集成本的关系系数。
   - 副作用：无。
 
+## 怎么用
+
+这是 army 系统的规则扩展点，你面对它同样是两种姿势：读它的返回值，或者派生 `DefaultArmyManagementCalculationModel` 并把全部成员覆写后注册替换。它是纯函数集合，没有一个字的状态，你不能靠给它赋值来改变世界。
+
+**怎么拿到它**：抽象声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/ArmyManagementCalculationModel.cs:8`，一共 17 个 `public abstract` 成员，其中 8 个是属性（`:10`–`:24`）9 个是方法（`:26`–`:46`）。默认实现 `DefaultArmyManagementCalculationModel` 的注册点是 `SandBoxManager.cs:243` 的 `gameStarter.AddModel(...)`，运行时统一走 `Campaign.Current.Models.ArmyManagementCalculationModel`。
+
+最省事的用法是直接读模型的判定，而不是复刻它的公式。把三个最常被问的问题放在一起问一遍，就能拿到界面和 AI 眼中的同一套答案：
+
+```csharp
+ArmyManagementCalculationModel rules = Campaign.Current.Models.ArmyManagementCalculationModel;
+Army playerArmy = MobileParty.MainParty.Army;
+if (playerArmy != null)
+{
+    ExplainedNumber daily = rules.CalculateDailyCohesionChange(playerArmy, true);
+    Debug.Print("每日凝聚力净变化=" + daily.ResultNumber + " 阈值=" + rules.CohesionThresholdForDispersion, 0);
+}
+MobileParty candidate = SomeLordParty;
+TextObject why;
+Debug.Print("可否加入=" + rules.CheckPartyEligibility(candidate, out why) + " 原因=" + why, 0);
+Debug.Print("影响力成本=" + rules.CalculatePartyInfluenceCost(MobileParty.MainParty, candidate), 0);
+```
+
+写路径和读路径是分开的两条线，这点很关键：读全部走模型，而真正改变状态的是 [Army](../Army) 的每日结算和 `ChangeClanInfluenceAction`。官方读点可从 [Army](../Army) 的 `Army.cs:108`（`DailyCohesionChange` 取 `ResultNumber`）和 `Army.cs:110`（`DailyCohesionChangeExplanation` 传 `includeDescriptions: true`）反查；写点则在 `LordConversationsCampaignBehavior.cs:2635` 的 `ChangeClanInfluenceAction.Apply`。
+
+**最常见的坑**：换战役缓存实例。`Campaign.Current.Models.ArmyManagementCalculationModel` 在每次新战役或读档时由 `GameModels` 重新解析，把实例存进静态字段或长生命周期对象会在重载后指向旧战役的已销毁对象。
+
 ## 示例
 
 读取玩家主队所在 army 的每日凝聚力净变化（含说明分解）：

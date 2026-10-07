@@ -284,6 +284,30 @@ int dailyTribute = Campaign.Current.Models.DiplomacyModel
     .GetDailyTributeToPay(factionToPay, factionToReceive, out durationInDays);
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/DiplomacyModel.cs:12`（`public abstract class DiplomacyModel : MBGameModel<DiplomacyModel>`）。**全文 143 行、六十三个抽象成员 —— 是本批最大的模型**，`public abstract` 出现 63 次。
+
+它从 `DiplomacyModel.cs:14` 起就内嵌了 `public enum DiplomacyStance`，所以代码里写 `DiplomacyModel.DiplomacyStance.Xxx`，带两层限定。
+
+解析在 `GameModels.cs:287` 的 `DiplomacyModel = GetGameModel<DiplomacyModel>();`，存入 `GameModels.cs:55`。
+
+**一段可直接跑的三行外交判定**（形态照 `Helpers/FactionHelper.cs:390`）：
+
+```csharp
+DiplomacyModel dm = Campaign.Current.Models.DiplomacyModel;
+bool atWar = dm.IsAtConstantWar(stance.Faction1, stance.Faction2);
+Debug.Print("threshold = " + dm.GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom(offerKingdom), 0);
+```
+
+**六十三个成员意味着「写派生类」与「调用」是两种完全不同的工作量。** 派生类要实现全部 63 个抽象成员，漏一个编译不过；调用方则只碰其中一两个。**如果你的目的是改一两条外交规则，仍然必须先把 63 个全实现一遍** —— 没有「默认实现」让你只覆写一个。
+
+**先看清入参是两个派系还是两个 `Clan`。** `Helpers/FactionHelper.cs:390` 传的是 `stance.Faction1` / `stance.Faction2`（`IFaction`），而 `:670` 的 `GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom(offerKingdom)` 传的是 `Kingdom`。**成员之间的入参类型不统一，位置传参写错类型编译器会拦，但强转可以蒙混过关。**
+
+**同一行里混着三个模型，别只盯一个。** `FactionHelper.cs:685` 那一行同时出现 `Models.ClanTierModel.MercenaryEligibleTier` 与 `Models.DiplomacyModel.MinimumRelationWithConversationCharacterToJoinKingdom` —— **改外交模型不会影响家族阶位那条判据，两者是并列的。**
+
+**最常见的坑：跨战役重载缓存实例。** `Campaign.Current.Models.DiplomacyModel` 在每次新战役/读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长生命周期对象，会在重载后指向旧战役的已销毁对象。而外交判定**读取的全是活关系值**（战争状态、影响力、关系分），跨战役悬空引用返回的是上一局的关系快照。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

@@ -86,6 +86,38 @@ return 12;
 | `LogBannerLootForHero(Hero hero, int bannerLevel)` | `private void LogBannerLootForHero(Hero hero, int bannerLevel)` | 抢旗后写冷却（`:219-230`）。有记录就覆盖，没有就 `Add`。**调用点在抢旗成功之后，与 `hero.BannerItem = new EquipmentElement(null)` 紧挨着。** |
 | `CanBannerBeGivenToHero(Hero hero)` | `private bool CanBannerBeGivenToHero(Hero hero)` | **唯一的发旗门槛**（`:231-238`）。四个条件：`Occupation == Occupation.Lord`、`Age >= Campaign.Current.Models.AgeModel.HeroComesOfAge`、`BannerItem.IsInvalid()`、`Clan != Clan.PlayerClan`。**不检查是否被俘**——被俘检查只在 `DailyTickHero` 的无旗分支里单独加。 |
 
+## 怎么用
+
+这是旗帜（banner）的发放、掉落与升级行为。它的节奏由一个私有字典控制：每个英雄记一个「下次可掉旗的时刻」，每日 tick 里按冷却判定该给谁换旗。
+
+**怎么拿到它**：注册点是 `SandBoxManager.cs:160` 的 `gameStarter.AddBehavior(new BannerCampaignBehavior())`，声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/BannerCampaignBehavior.cs`。唯一的持久状态是 `:24` 的 `_heroNextBannerLootTime`，通过 `SyncData`（`:37`）进存档。
+
+它订阅七类事件，入口都在 `RegisterEvents`（`:26`）里：新战役创建走 `OnNewGameCreated`（`:42`），**读档完成**走 `GiveBannersToHeroes`（`:47`）——注意读档也发旗，这是补偿机制而不只是新局逻辑；战斗掉落走 `OnCollectLootItems`（`:107`），成年走 `OnHeroComesOfAge`（`:149`），英雄与氏族创建走 `OnHeroCreated`（`:161`）与 `OnClanCreated`（`:173`）。日常推进在 `DailyTickHero`（`:62`），且它开头就 `if (hero.Clan == Clan.PlayerClan) return`，玩家氏族的英雄不参与。
+
+旗帜的等级与可升级性判定全部委托给 [BannerItemModel](../BannerItemModel)，读点就在 `BannerCampaignBehavior.cs:69` 与 `:73`：先取模型，再取 `GetBannerItemLevelForHero(hero)` 决定当前级别，随后 `GetUpgradeBannerForHero`（`:93`）算出升级品。升级品的匹配条件是三项全等——文化相同、`BannerLevel` 相同、`BannerEffect` 相同，匹配不上才退到 `BannerHelper.GetRandomBannerItemForHero`。冷却天数由 `GetCooldownDays`（`:199`）按级别算出，能否掉落与能否发放分别由 `CanBannerBeLootedFromHero`（`:190`）与 `CanBannerBeGivenToHero`（`:225`）判定。
+
+每日升级的触发概率也在这段里：`DailyTickHero`（`:71`）要求当前旗帜有效、模型说可升级，然后掷一次 `MBRandom.RandomFloat < 0.1f`，十次里中一次。
+
+```csharp
+BannerCampaignBehavior banners = Campaign.Current.GetCampaignBehavior<BannerCampaignBehavior>();
+BannerItemModel model = Campaign.Current.Models.BannerItemModel;
+foreach (Hero hero in Hero.AllAliveHeroes)
+{
+    int level = model.GetBannerItemLevelForHero(hero);
+    ItemObject upgrade = null;
+    foreach (ItemObject item in model.GetPossibleRewardBannerItemsForHero(hero))
+    {
+        if (model.CanBannerBeUpdated(item)) { upgrade = item; break; }
+    }
+    Debug.Print(hero.Name + " 旗级=" + level + " 可升级到=" + (upgrade?.Name ?? "无"), 0);
+}
+Debug.Print("整套可发放旗帜物品来自 " + model.GetPossibleRewardBannerItems().Count() + " 个候选", 0);
+```
+
+掉落会写日志，入口是 `LogBannerLootForHero`（`:212`），所以调冷却或调等级时，日志文本会跟着变。
+
+**最常见的坑**：`GetCooldownDays`（`:199`）里的第二个分支是死代码——`if (bannerLevel == 1) return 4;` 之后紧跟着又是一句 `if (bannerLevel == 1) return 8;`，条件写重复了。结果是 2 级旗的冷却不是 8 天而是末尾兜底的 12 天，而 8 这个值永远不会被返回。你要调冷却曲线时改第二句是无效的。
+
 ## 真实示例
 
 手动给一个符合条件的英雄发旗（走 `Helpers` 的真实入口，与 `GiveBannersToHeroes` 同一形状）：

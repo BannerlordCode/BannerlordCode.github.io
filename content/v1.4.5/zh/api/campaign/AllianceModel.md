@@ -51,6 +51,29 @@ description: "结盟规则模型：14 个抽象成员，把「能不能结盟 / 
 | `GetAllianceFactorForDeclaringPeace` | `public abstract float GetAllianceFactorForDeclaringPeace(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)` | 宣和的镜像系数。 |
 | `GetProposerClanForAllianceDecision` | `public abstract Clan GetProposerClanForAllianceDecision(Kingdom proposerKingdom, Kingdom proposedKingdom)` | 决定哪个氏族代表王国提案。**返回值会被存成决议的 `ProposerClan`，从而决定影响力花费**——换掉本模型等于换掉「谁替王国说话」。 |
 
+## 怎么用
+
+这是抽象类，14 个成员全是 `public abstract`，一个默认实现都没有。所以你面对它只有两种姿势：调用它拿结果，或者继承它并把 14 个成员全部实现完。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/AllianceModel.cs:6`，一个只有 38 行、零字段的纯接口式基类。官方实现 `DefaultAllianceModel` 在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultAllianceModel.cs:17`，注册点是 `SandBoxManager.cs:337` 的 `gameStarter.AddModel(new DefaultAllianceModel())`。运行时统一用 `Campaign.Current.Models.AllianceModel` 取实例。
+
+它可以按用途分成四组来读：能不能结盟用 `CanMakeAlliance`，结盟好不好用 `GetScoreOfStartingAlliance` 与 `GetSupportScoreOfStartingAllianceForClan`，参战值不值用 `GetScoreOfCallingToWar` 与 `GetScoreOfJoiningWar`，代价用 `GetCallToWarCost` 与两个 `GetInfluenceCost*`。四个常量则是 `MaxDurationOfAlliance` / `MaxDurationOfWarParticipation` / `MaxNumberOfAlliances` / `DurationForOffers`。
+
+```csharp
+AllianceModel diplomacy = Campaign.Current.Models.AllianceModel;
+Kingdom realm = Clan.PlayerClan.Kingdom;
+Kingdom other = SomeOtherClan.Kingdom;
+TextObject reason;
+bool canMake = diplomacy.CanMakeAlliance(realm, other, Clan.PlayerClan, out reason, true);
+int cost = diplomacy.GetCallToWarCost(realm, other, SomeOtherClan);
+Debug.Print("可结盟=" + canMake + " 原因=" + reason + " 宣战代价=" + cost, 0);
+Debug.Print("盟约最长 " + diplomacy.MaxDurationOfAlliance.GetDays() + " 天，上限盟友数 " + diplomacy.MaxNumberOfAlliances, 0);
+```
+
+`out TextObject` 有两种模式，混用就会 NRE：三个带 `bool includeReason` 的方法在该参数为 false 时把 `out` 置 null；`GetScoreOfCallingToWar` 与 `GetScoreOfJoiningWar` 没有这个开关，`out` 永远非 null。
+
+**最常见的坑**：`GetScoreOfJoiningWar` 的极性不能反。决议层对它取相反数来表示反对票，派生实现若返回「越高越坏」的分数，投票方向会整体颠倒——这是个静默失效、不抛异常的坑，编译和运行都看不出问题。
+
 ## 真实示例
 
 读外交规则常量（全部来自官方 `DefaultAllianceModel`）：

@@ -131,6 +131,60 @@ private void OnAiHourlyTick(MobileParty mobileParty, PartyThinkParams p)
 }
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors/AiPatrollingBehavior.cs`（全文 272 行）。
+**入口：** `CampaignGameStarter.RegisterCampaignBehaviors()` → `CampaignBehaviors.AddBehavior(new AiPatrollingBehavior())`；生效后由 `CampaignEvents.AiHourlyTickEvent` 自动驱动。
+
+**`public class AiPatrollingBehavior : CampaignBehaviorBase`（`AiPatrollingBehavior.cs:11`），可 `new`，但不要重复注册。** 它注册五个事件（`AiPatrollingBehavior.cs:25`），其中只有 `AiHourlyTickEvent`（`AiPatrollingBehavior.cs:27`）产候选；其余四个是「把队伍按住」的强制干预：`OnShipDestroyedEvent`（`AiPatrollingBehavior.cs:29`）、`OnBlockadeActivatedEvent`（`AiPatrollingBehavior.cs:30`）、`OnShipOwnerChangedEvent`（`AiPatrollingBehavior.cs:31`）与 `OnSessionLaunchedEvent`（`AiPatrollingBehavior.cs:28`）。
+
+这四个干预里最实用的是 `CheckPartyIfNeeded(PartyBase)`（`AiPatrollingBehavior.cs:55`）：条件是「领主方 + 正在巡逻 + **目标点在海上** + **自己没有海上导航能力**」（`AiPatrollingBehavior.cs:57`），成立就 `SetMoveModeHold()`（`AiPatrollingBehavior.cs:59`）。**这就是「船没了之后巡逻方会卡住」的修复逻辑。**
+
+`OnBlockadeActivated`（`AiPatrollingBehavior.cs:34`）遍历 `MobileParty.All`（`AiPatrollingBehavior.cs:36`），对「正在前往被围定居点且人不在那儿」的方 `SetMoveModeHold()`（`AiPatrollingBehavior.cs:40`）。
+
+`SyncData` 是空的（`AiPatrollingBehavior.cs:68`）。
+
+### 典型用法
+
+`AiHourlyTick` 的入口过滤（`:74`）是一长串「或」，其中三条最常误判：**民兵 / 商队 / 村民 / 土匪 / 官方巡逻队 / 正在解散**（前六项）、**所属 faction 既不是小派系也不是王国、且它的领袖不是领主**、以及**当前定居点正在被围攻或已有 SiegeEvent**。**任何一条成立就完全没有巡逻候选。**
+
+规模系数 `num6` 来自 `MathF.Sqrt(MathF.Min(1f, num))`（`:95`）——**开方是为了让规模的影响变平**，一支满员的方得到 1.0，半满得到约 0.71。正在等解散的方直接 `× 0.25`（`:104`）。
+
+关键的一点：**它一次产出两族候选**——`:107` 的防御巡逻与 `:108` 的进攻海防巡逻。两条路径的区间不同：
+
+| 家族 | 分数下限 | 分数上限 | 入口 |
+| --- | --- | --- | --- |
+| 防御陆上巡逻 | `0.2f`（`:15`） | 复用 `0.2f`~`1f` | `CalculateDefensivePatrollingScores`（`:133`） |
+| 防御海上巡逻 | `0.2f` | `1f`（`:17`） | 同上，`:151` |
+| 进攻海上巡逻 | `0.5f`（`:19`） | `1.5f`（`:21`） | `CalculateOffensiveNavalPatrollingScores`（`:111`） |
+
+**`BasePatrolScore = 1.44f`（`:13`）是全局基准倍数**，所有分数最后都要乘它。调巡逻强弱时它比那四个区间更省事。
+
+进攻海防有三道门（`:113`）：自己要有海上导航、faction 要是王国、**且自己不能是王国领袖**——**玩家的王国不会被派去巡逻敌人港口。**
+
+想知道一支队伍为什么完全不巡逻，把入口的九道门逐个拆开：
+
+```csharp
+public static class PatrolGateProbe
+{
+    public static void Report(MobileParty party)
+    {
+        Debug.Print("militia=" + party.IsMilitia + " caravan=" + party.IsCaravan + " villager=" + party.IsVillager, 0);
+        Debug.Print("bandit=" + party.IsBandit + " patrolParty=" + party.IsPatrolParty + " disbanding=" + party.IsDisbanding, 0);
+        Debug.Print("inArmy=" + (party.Army != null) + " foodDays=" + party.GetNumDaysForFoodToLast() + " (needs > 6)", 0);
+        Debug.Print("naval=" + party.HasNavalNavigationCapability + " baseScore=" + 1.44f, 0);
+    }
+}
+```
+
+防御巡逻的第一条分支（`:135`）判的是**本 faction 手里有没有城镇**；没有就走 `:163` 那条更贵的分支（按 `平均最近两城距离 × 4` 扫邻近城镇）。**所以边陲小国的领主每 tick 的开销显著高于内陆王国。**
+
+### 最容易踩的坑
+
+**在 tick 外或 Campaign.Current 为空时调用评分辅助**：`CalculateDefensivePatrollingScores` 等方法内部直接读 `Campaign.Current.Models` 与 `Campaign.Current.GetAverageDistanceBetweenClosestTwoTownsWithNavigationType`，在主菜单、子模块加载早期或 `Mission` 层调用会空引用。它们只应在 `AiHourlyTick` 上下文被调用。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

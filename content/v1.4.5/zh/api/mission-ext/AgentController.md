@@ -35,6 +35,11 @@ description: "挂在单个 Agent 上的实例级控制器插槽：由 Agent.AddC
 | `Mission` | `public Mission Mission { get; set; }` | 宿主当前所在的任务。`AddController` 写入的是**挂载那一刻**的 `Agent.Mission`，任务结束后这个引用不会自动更新——控制器若跨任务存活就必须在 `OnInitialize` 之外重新取 `Mission.Current`。 |
 | `OnInitialize` | `public virtual void OnInitialize()` | 唯一一次自动回调，时机在 `AddController` 内部、`Owner`/`Mission` 赋值之后、且控制器已入 `_agentControllers` 列表之后。**基类实现是空的**，不调 `base.OnInitialize()` 不会出错，但这也意味着没有任何约定的初始化收尾流程。 |
 
+## 死成员与陷阱
+
+本页死成员状态未知：本页成员全部落在 UNSUPPORTED（多声明者歧义等），调用点数不可当结论；
+本次未测出任何可复核的调用点。
+
 ## 真实示例
 
 写一个控制器。注意 `AddController` 用反射构造，所以无参构造必须存在且公开：

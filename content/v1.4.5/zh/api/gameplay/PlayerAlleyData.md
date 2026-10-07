@@ -1,30 +1,123 @@
 ---
 title: "PlayerAlleyData"
-description: "PlayerAlleyData 的自动生成类参考。"
+description: "玩家在一条暗巷里的全部状态：所属暗巷、驻守族人、被谁打、驻军名册、两个时间戳，外加三种战斗结果处理——全部 internal，且随存档序列化。"
 ---
+
 # PlayerAlleyData
 
-**Namespace:** SandBox.CampaignBehaviors
-**Module:** SandBox.CampaignBehaviors
-**Type:** `internal class PlayerAlleyData`
+**Namespace:** `SandBox.CampaignBehaviors`（嵌套在 `AlleyCampaignBehavior` 内）
+**Module:** SandBox
+**Type:** `internal class PlayerAlleyData`（嵌套于 `public class AlleyCampaignBehavior`）
 **Base:** 无
-**File:** `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/AlleyCampaignBehavior.cs`
+**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/AlleyCampaignBehavior.cs`
 
 ## 概述
 
-`PlayerAlleyData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+`PlayerAlleyData` 是「**玩家拥有的一条暗巷的完整运行时状态**」的载体，声明在 `AlleyCampaignBehavior.cs:51`。它有 6 个带 `[SaveableField]` 的字段（`Alley` / `AssignedClanMember` / `UnderAttackBy` / `TroopRoster` / `LastRecruitTime` / `AttackResponseDueDate`）、3 个计算属性（`RandomFloatWeekly` / `IsUnderAttack` / `IsAssignedClanMemberDead`）、1 个构造器与一组方法（`AlleyFightWon` / `AlleyFightLost` / `AbandonTheAlley` / `DestroyAlley` …）。
+
+**六个字段全部进存档**，由宿主类的 `AlleyCampaignBehaviorTypeDefiner`（`AlleyCampaignBehavior.cs:34-49`）注册：`:42` 的 `AddClassDefinition(typeof(PlayerAlleyData), 1, null)` 定类型，`:47` 的 `ConstructContainerDefinition(typeof(List<PlayerAlleyData>))` 定容器。它被存进宿主的 `_playerOwnedCommonAreaData`（`:230`）。
 
 ## 心智模型
 
-把 `PlayerAlleyData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+把它当成**「一条暗巷的行」**。三条推论：
 
-## 使用示例
+第一，**它不是暗巷的副本，而是「玩家与这条暗巷之间」的关系记录。** `Alley` 字段是 `readonly`（`[SaveableField(1)]`，`:53-54`）——**一旦构造就不可换；而其余五个字段都可写。** 换暗巷等于 `new` 一个新实例。
+
+第二,**三个计算属性里有一个是「每周重掷的随机数」。** `RandomFloatWeekly`（`:71-84`）不是字段而是**每次读都现算**：`:77` 先看 `LastRecruitTime` 距今是否超过 `CampaignTime.DaysInWeek`——**没超过直接返回常量 `2f`**；超过才走 `:81-82`，用 `MBRandom.RandomFloatWithSeed(weeks, Alley.Tag.GetHashCode())`——**种子是「周数 + 暗巷 Tag 的哈希」**，所以同一条暗巷在同一周内读多少次都是同一个值。
+
+第三,**战斗结果三条路的后果不对称。** `AlleyFightWon`（`:99-110`）不销毁暗巷，只把进攻方 `Owner` 的实力扣 20%（`:101`）、`SetOwner(null)` 并清空 `UnderAttackBy`（`:102-103`）；`AlleyFightLost`（`:112-117`）**直接 `DestroyAlley()` 并把 `Hero.MainHero.HitPoints` 设为 1**（`:115`）；`AbandonTheAlley`（`:119-137`）在不是从氏族界面调用时**先把非英雄部队全部退回玩家主力部队**（`:130-133`）。
+
+边界：**`internal` 嵌套类**，编译期不可引用；**要拿它只能通过 `AlleyCampaignBehavior` 的公开接口**，而 `IAlleyCampaignBehavior` 并不暴露它。
+
+## 如何使用
+
+**怎么拿到它**：正常路径是 `AlleyCampaignBehavior` 持有 `List<PlayerAlleyData> _playerOwnedCommonAreaData`（`:230`），并在 `:289` 这类地方按 `AssignedClanMember == hero` 查找。**`PlayerAlleyData` 自己的构造器（`:90`）需要一个 `TroopRoster`**，且 `:95` 会用 `.First(c => c.Character.IsHero)` 从名册里挑出**唯一那个英雄**——名册里没有英雄就抛 `InvalidOperationException`。
+
+对应宿主公开能力（走 `IAlleyCampaignBehavior`，不碰 internal 类型）：
 
 ```csharp
-// 该数据对象通常由战役/任务 API 返回
-PlayerAlleyData entry = ...;
+using SandBox;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Settlements.Locations;
+
+Alley alley = Settlement.Find("Epicrotea").Alleys.First((Alley a) => a.State == AreaState.OccupiedByPlayer);
+Debug.Print("alley = " + alley.Tag + " owner=" + (alley.Owner == null ? "none" : alley.Owner.Name.ToString()), 0);
+
+// 本类的 RandomFloatWeekly 依赖 LastRecruitTime；读不到它，就无法在外部复现那个每周随机值
+Debug.Print("RecruitTimeWeekly 的常量分支是 2f（未满一周时）", 0);
 ```
+
+复现「每周重掷」的两个分支（这是本类唯一带随机性的行为）：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+// 分支 1：LastRecruitTime 距今 <= DaysInWeek -> 恒返回 2f（AlleyCampaignBehavior.cs:77-79）
+// 分支 2：超过一周 -> RandomFloatWithSeed(ToWeeks, Alley.Tag.GetHashCode())（:81-82）
+float simulate(uint weeks, int alleyTagHash)
+{
+    return MBRandom.RandomFloatWithSeed(weeks, (uint)alleyTagHash);
+}
+Debug.Print("simulated week 10 = " + simulate(10u, 12345), 0);
+Debug.Print("simulated week 11 = " + simulate(11u, 12345), 0);
+```
+
+**用它最容易踩的一条**：**失败不是「丢一条暗巷」，而是「主角血量被硬设为 1」。** `AlleyFightLost`（`:112-117`）第 115 行 `Hero.MainHero.HitPoints = 1;` 紧跟在 `DestroyAlley()` 后面。**你在暗巷战败之后立刻用 `Hero.MainHero` 做血量判定，会读到 1 而不是 0** —— 这条赋值是给「主角重伤被抬回来」的表现服务的，不是战斗结算。
+
+## 关键成员
+
+| 成员 | 签名 | 这个成员是做什么用的 |
+| --- | --- | --- |
+| `Alley` | `[SaveableField(1)] internal readonly Alley Alley` | **所属暗巷。`readonly`（`:53-54`），构造后不可换** —— 这是本类「一条暗巷一行」的根本保证。换暗巷只能 `new`。存档 id 1。 |
+| `AssignedClanMember` | `[SaveableField(2)] internal Hero AssignedClanMember` | **驻守这条暗巷的族人。** `:95` 的构造器从 `TroopRoster` 里用 `.First(c => c.Character.IsHero)` 挑出，`:289` 的宿主代码用它做查找键（`x.AssignedClanMember == hero`）。存档 id 2。 |
+| `UnderAttackBy` | `[SaveableField(3)] internal Alley UnderAttackBy` | **正在攻打这条暗巷的另一条暗巷（不是 Agent）。** 构造器显式置 null（`:96`）；`AlleyFightWon` 在 `:102-103` 先 `SetOwner(null)` 再置 null。存档 id 3。 |
+| `TroopRoster` | `[SaveableField(4)] internal TroopRoster` | 驻军名册。`:95` 从它挑英雄、`:104-107` 在胜战后把英雄补回名册、`:132` 在放弃时把非英雄部队退还主力。存档 id 4。 |
+| `LastRecruitTime` | `[SaveableField(5)] internal CampaignTime LastRecruitTime` | **上次招募时间，驱动 `RandomFloatWeekly`。** `:77` 用它的 `ElapsedDaysUntilNow` 与 `DaysInWeek` 比较。**它同时是存档字段，所以读档后随机值的「周」不会重置。** |
+| `AttackResponseDueDate` | `[SaveableField(6)] internal CampaignTime AttackResponseDueDate` | 进攻方响应截止时间。**本类里没有任何代码读它**（全类的计算属性与方法都不涉及）——它只被 `:198-204` 的 `AutoGeneratedGetMemberValueAttackResponseDueDate` 读出用于存档。 |
+| `RandomFloatWeekly` | `internal float RandomFloatWeekly { get; }` | **每次读都现算的周随机数（`:71-84`）。** `:77-80` 未满一周返回常量 `2f`；`:81-82` 满周则用 `MBRandom.RandomFloatWithSeed(now.ToWeeks, Alley.Tag.GetHashCode())`。**同一条暗巷同一周内是稳定的，换周或换暗巷 Tag 就变。** |
+| `IsUnderAttack` | `internal bool IsUnderAttack => UnderAttackBy != null` | 单表达式属性（`:86`）。**就是 `UnderAttackBy` 的 null 检查**，不读任何别的东西。 |
+| `IsAssignedClanMemberDead` | `internal bool IsAssignedClanMemberDead => AssignedClanMember.IsDead` | 单表达式属性（`:88`）。**注意它不解引用保护** —— `AssignedClanMember` 为 null 时（`:95` 的 `First` 若抛异常则对象建不出来，但字段本身可被写成 null）会 `NullReferenceException`。 |
+| `PlayerAlleyData(Alley, TroopRoster)` | `internal PlayerAlleyData(Alley alley, TroopRoster roster)` | 唯一构造器（`:90-97`）。`:93`/`:94` 存两个字段；`:95` 用 `.First(c => c.Character.IsHero)` 取驻守英雄——**名册里没有英雄就抛**；`:96` 把 `UnderAttackBy` 置 null。**`LastRecruitTime` 与 `AttackResponseDueDate` 不在构造器里赋值，留字段默认值。** |
+
+## 真实示例
+
+三条战斗结果路径的后果对照（这是本类最该记住的部分）：
+
+```csharp
+// AlleyFightWon   (:99-110)  进攻方 Owner 实力 -20%（:101）、SetOwner(null)（:102）、UnderAttackBy=null（:103）
+//                   英雄若不在名册则补回（:104-107）、MainHero 得 Roguery XP（:108）、菜单 alley_fight_won（:109）
+// AlleyFightLost  (:112-117) DestroyAlley()（:114）、Hero.MainHero.HitPoints = 1（:115）、菜单 alley_fight_lost（:116）
+// AbandonTheAlley (:119-137) 非 fromClanScreen 时把非英雄退回主队（:130-133）、DestroyAlley(fromAbandoning: true)（:136）
+Debug.Print("三条路径的菜单 key 分别是 alley_fight_won / alley_fight_lost / (放弃无菜单)", 0);
+```
+
+验证存档注册的三个关键位置（改字段必须同步这里）：
+
+```csharp
+using SandBox;
+
+// AlleyCampaignBehavior.cs:42   AddClassDefinition(typeof(PlayerAlleyData), 1, null)   —— 类型 + 存档 id
+// AlleyCampaignBehavior.cs:47   ConstructContainerDefinition(typeof(List<PlayerAlleyData>))
+// AlleyCampaignBehavior.cs:230  private List<PlayerAlleyData> _playerOwnedCommonAreaData
+Debug.Print("PlayerAlleyData 的存档三处注册点已定位", 0);
+```
+
+## 风险与边界
+
+- **`internal` 嵌套类，编译期不可引用。** mod 只能通过 `AlleyCampaignBehavior` / `IAlleyCampaignBehavior` 的公开方法间接使用。
+- **构造器会用 `.First(...)` 取英雄。** `:95`。**名册里没有英雄对象时抛 `InvalidOperationException`，不是友好失败。**
+- **战败把主角血量硬设为 1。** `:115`。**战斗结束后的血量判定必须先处理这一条。**
+- **`IsAssignedClanMemberDead` 不判空。** `:88` 直接 `AssignedClanMember.IsDead`。
+- **`AttackResponseDueDate` 是只写不读的存档字段。** 本类内零消费点，只有 `:204` 的存档读取器碰它。**别指望能从本类读出「还剩多久响应」。**
+- **`RandomFloatWeekly` 每次读都重算，但同周稳定。** `:77` 的「未满一周返回 `2f`」意味着**刚招募的那一周里它恒等于 2.0，不是随机值**。
+- **`Alley` 是 `readonly` 而其余五个可写。** 所以本类支持「换驻守人、换名册」但**不支持「换所属暗巷」**。
+- **`AlleyFightWon` 会把进攻方 `Owner` 的实力扣 20%。** `:101` 是 `Owner.Power * 0.2f` 的负值。**进攻方 `Owner` 为 null 时空引用** —— 而 `UnderAttackBy` 指向的是一条暗巷，理论上它的 Owner 可能已被清空。
+- **存档编号 1-6 不可复用。** 与同一文件里其他类型独立编号，但**同一个类型内改了字段就得同步 `:177`/`:182`/`:187`/`:192`/`:198`/`:204` 的六个 `AutoGeneratedGetMemberValue*`**。
 
 ## 参见
 
-- [本区域目录](../../)
+- 宿主类：`bannerlord-1.4.5/Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/AlleyCampaignBehavior.cs:34-49`（`AlleyCampaignBehaviorTypeDefiner`，`:42` 类型注册、`:47` 容器定义）、`:230`（容器字段）、`:289`（查找用法）
+- 载荷类型：[Alley](../../campaign/Alley/)、[Hero](../../campaign/Hero/)、`TroopRoster`、`CampaignTime`
+- 战斗结局界面：`GameMenu.SwitchToMenu("alley_fight_won" / "alley_fight_lost")`（`:109`、`:116`）
+- 相关行为：[MapAudioManager](../MapAudioManager/)、[GauntletStoryModeMapCheatsView](../GauntletStoryModeMapCheatsView/)、[ArenaPreloadView](../ArenaPreloadView/)、[DefeatHideoutBossObjective](../DefeatHideoutBossObjective/)、[ModuleCheckResult](../ModuleCheckResult/)、[NameplateSize](../NameplateSize/)
+- 桶首页：[gameplay API 分区](../)

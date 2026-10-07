@@ -130,6 +130,42 @@ CampaignInformationManager.AddDialogLine(notificationText, speakerCharacter, spe
 CampaignInformationManager.ClearAllDialogNotifications(fadeOut: true);
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignInformationManager.cs:11`（`public class CampaignInformationManager`）。
+
+**实例唯一的产生点是 `Campaign.cs:1499`** 的 `CampaignInformationManager = new CampaignInformationManager();`，挂在 `Campaign.cs:529` 的 `public CampaignInformationManager CampaignInformationManager { get; set; }` 上。
+
+**注意这个属性有 `public set` —— 它不是只读的。** 你可以整个替换掉它。但**替换之后事件订阅会全部丢失**，因为那些订阅是挂在旧实例上的。
+
+**一段可直接跑的三行弹一条对话通知**：
+
+```csharp
+MBInformationManager.DialogNotificationHandle h = CampaignInformationManager.AddDialogLine(
+    new TextObject("需要补给", null), Hero.MainHero.CharacterObject);
+Debug.Print("queued = " + CampaignInformationManager.GetStatusOfDialogNotification(h), 0);
+```
+
+**它的五对「静态方法 + 静态事件」是一一对应的桥。** 这是本类型最需要先理解的结构：
+
+| 你调用的静态方法 | UI 侧订阅的静态事件 |
+| --- | --- |
+| `AddDialogLine(...)`（`:117`） | `OnDisplayDialog`（`:30`） |
+| `GetStatusOfDialogNotification(handle)`（`:123`） | `OnGetStatusOfDialogNotification`（`:32`） |
+| `ClearDialogNotification(handle, fadeOut)`（`:128`） | `OnClearDialogNotification`（`:34`） |
+| `GetIsAnyDialogNotificationActiveOrQueued()`（`:133`） | `IsAnyDialogNotificationActiveOrQueued`（`:36`） |
+| `ClearAllDialogNotifications(fadeOut)`（`:138`） | `OnClearAllDialogNotifications`（`:38`） |
+
+**所以你的代码不需要（也不该）自己 new 一个对话框 —— 你只负责触发，真正的 UI 由订阅方实现。**
+
+**那五个都是 `static event`，不是实例事件。** 意味着**订阅是全局的、跨实例的**，且**只能 += / -=，不能 = null**（会编译失败）。解除订阅必须用与订阅时**完全相同的方法签名**去 `-=`，否则减不掉。
+
+**三个入口方法全是 `static`，只有 `OnGameLoaded()` / `NewMapNoticeAdded` / `InformationDataExists<T>` 是实例方法。** 所以你在写 UI 订阅代码时，分不清静态静态就会写错。
+
+**`AddDialogLine` 的三个参数都有默认值。** 签名是 `AddDialogLine(TextObject text, CharacterObject speakerCharacter, Equipment equipment = null, int extraTimeInMs = 0, MBInformationManager.NotificationPriority priority = ...Medium)` —— **第三到第五参可省**，但注意 `speakerCharacter` 是必填的（没有默认值）。
+
+**最常见的坑：必须在战役 UI 的正确阶段/线程调用。** 静态对话通知方法只是触发 `OnDisplayDialog` 等事件，若此时没有 UI 订阅（例如战役尚未进入地图界面、或在任务/Mission 上下文里调用），**事件静默无人处理、什么都不会显示，且没有任何异常**。这是「调了没反应」而非「调了报错」的一类问题。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

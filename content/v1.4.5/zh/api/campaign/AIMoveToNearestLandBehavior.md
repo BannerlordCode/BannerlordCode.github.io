@@ -95,6 +95,48 @@ if (safeSail < 12f)
 }
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors/AIMoveToNearestLandBehavior.cs`（全文 54 行）。
+**入口：** 无——类型是 `internal`，外部程序集只能观察它写进 `PartyThinkParams.AIBehaviorScores` 的候选。
+
+**你不能 `new` 它。** 类声明是 `internal class AIMoveToNearestLandBehavior : CampaignBehaviorBase`（`AIMoveToNearestLandBehavior.cs:7`）——**`internal` 意味着外部程序集在编译期就看不到这个类型**，`new AIMoveToNearestLandBehavior()` 不会编译，`GetCampaignBehavior<AIMoveToNearestLandBehavior>()` 的泛型实参也传不过去。
+
+它已经由官方注册好了，**你要做的是读它写出来的候选，而不是拿到它**。产出通道是 `AiHourlyTick(MobileParty, PartyThinkParams)`（`AIMoveToNearestLandBehavior.cs:18`），通过 `p.AddBehaviorScore(...)`（`AIMoveToNearestLandBehavior.cs:47`）交回给 [AiPartyThinkBehavior](../AiPartyThinkBehavior)。
+
+要看它到底在算什么，先把它的两道早退门限记下来。第一道在 `AIMoveToNearestLandBehavior.cs:20`：`!IsCurrentlyAtSea || CurrentSettlement != null` 直接 return——**海上且不在定居点里**才进入。第二道在 `AIMoveToNearestLandBehavior.cs:27`：`!HasLandNavigationCapability` 再 return。**没有陆上导航能力的船型方永远拿不到靠岸候选。**
+
+### 典型用法
+
+评分的核心是「按安全航行时长还能撑多久」：距离除以航速（`DistanceHelper.FindClosestDistanceFromMobilePartyToPoint`，`:33`）再除以 `GetEstimatedSafeSailDuration`（`:24`），得到 `num3`（`:39`）。`num3 > 0.75f`（`:40`）才产出候选，分数是 `2f * num3`（`:42`），**越危险分数越高**。`RatioThreshold = 0.75f` 这个 `private const`（`:11`）在 `:40` 被写成字面量——**常量与使用处不同源，改常量不生效。**
+
+航速是四选一的分派（`:38`）：领主方 / 商队 / 土匪 / 村民各有各的估值，否则退到 `EstimatedMaximumLordPartySpeedExceptPlayer * 0.5f`。
+
+想知道一支船现在离岸还有多远、自己算一遍同样的数：
+
+```csharp
+public static class NearestLandReplica
+{
+    public static float SafeRatio(MobileParty seaParty)
+    {
+        float safeHours = Campaign.Current.Models.CampaignShipDamageModel.GetEstimatedSafeSailDuration(seaParty);
+        int[] bad = Campaign.Current.Models.PartyNavigationModel.GetInvalidTerrainTypesForNavigationType(MobileParty.NavigationType.All);
+        CampaignVec2 face = Campaign.Current.MapSceneWrapper.GetNearestFaceCenterForPositionWithPath(seaParty.CurrentNavigationFace, targetIsLand: true, Campaign.MapDiagonal / 2f, bad);
+        float distance = DistanceHelper.FindClosestDistanceFromMobilePartyToPoint(seaParty, face, MobileParty.NavigationType.All, out var _);
+        float speed = Campaign.Current.EstimatedAverageLordPartyNavalSpeed;
+        return distance / speed / safeHours;
+    }
+}
+```
+
+**复刻这段代码时注意一个细节**：原行为在 `:34` 还做了一道 `!(num > 0f) || !(num < Campaign.MapDiagonal)` 的早退，即**距离必须在 (0, MapDiagonal) 区间内**才算候选。`:43` 的 1.2 倍加成依赖 `settlement != null`，而 `settlement` 在 `:26` 被初始化为 null 后**从未被重新赋值**——**这个加成分支是死代码，永远不成立。** 别照抄它。
+
+### 最容易踩的坑
+
+**internal 类型跨程序集不可见**：mod 不能 `new` 它或按泛型 `GetCampaignBehavior<AIMoveToNearestLandBehavior>()` 从外部程序集取实例（编译期不可访问）。若要在自家 mod 里复刻“海上靠岸”逻辑，应复制其算法或改用 [CampaignShipDamageModel](../CampaignShipDamageModel) 自行计算，不要依赖此内部类型。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

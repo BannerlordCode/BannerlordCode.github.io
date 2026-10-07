@@ -132,6 +132,48 @@ public static class VersionJsonReader
 - **它不影响 `BinaryReader` / `BinaryWriter` 路径。** 版本号如果走的是二进制存档通道（见 [ApplicationVersion](../ApplicationVersion) 的 `FromParametersFile`），本转换器完全不参与。
 - **特性绑定意味着你改不掉它。** 除非你在自己的 settings 里显式加一个同类型转换器到列表末尾（Newtonsoft 的列表后者优先），否则所有序列化都会走它。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class ApplicationVersionJsonConverter : JsonConverter`（`TaleWorlds.Library/ApplicationVersionJsonConverter.cs:7`）。**你永远不需要 new 它**——生效方式是特性绑定：`[JsonConverter(typeof(ApplicationVersionJsonConverter))]` 加在 [ApplicationVersion](../ApplicationVersion) 的类型声明上（`ApplicationVersion.cs:8`），所以任何 `JsonConvert.SerializeObject` / `DeserializeObject` 碰到那个类型都会自动走它，不需要往 `JsonSerializerSettings.Converters` 里 Add。
+
+### 典型用法
+
+上面「真实示例」两段是「直接序列化」和「读端的失败模式」。它的写端形状（键名固定为 `_version`、字段数固定为一个）**不可配置**，所以当你的清单需要不同键名时，正确做法是绕开它，用 `string` 接再自己转：
+
+```csharp
+public class MyModManifest
+{
+    // 故意用 string：转换器只认 "_version" 这一个键，而且写死的
+    [JsonProperty("min_game_version")]
+    public string MinGameVersion { get; set; }
+}
+
+public static class ManifestReader
+{
+    public static bool TryReadMinVersion(string json, out ApplicationVersion min)
+    {
+        min = ApplicationVersion.Empty;
+
+        var manifest = JsonConvert.DeserializeObject<MyModManifest>(json);
+        if (manifest == null || manifest.MinGameVersion == null)
+        {
+            return false;
+        }
+        // 段数不对时 FromString 抛的是裸 Exception("Wrong version as string")
+        min = ApplicationVersion.FromString(manifest.MinGameVersion);
+        return true;
+    }
+}
+```
+
+与上面「真实示例」的差别：那里走的是**强类型**路径——`DeserializeObject<ApplicationVersion>` 让特性自动接管，你拿到的是对象；这里走的是**弱类型**路径——自己的 DTO 决定键名与形状，转换器完全不参与，转换只剩下一句 `FromString`。选哪条取决于你的清单格式是不是恰好就是 `{ "_version": "v1.2.3" }`。
+
+### 最容易踩的坑
+
+**输入必须是 JSON 对象。** `ReadJson` 无条件 `JObject.Load(reader)`。如果配置或存档里版本号写成了裸字符串 `"v1.2.3"`，反序列化直接抛 `JsonReaderException`。
+
 ## 跨版本提示
 
 `ApplicationVersionJsonConverter.cs` 在 1.4.5 是 28 行、4 个成员，是原始源码形态。1.4.x 后期版本把游戏从 Newtonsoft 迁到了自研 JSON 层，**这个类型在那条线上不复存在**——迁移时若目标版本不再依赖 Newtonsoft，本页全部内容作废，应改为查目标版本里新的版本号序列化实现。**如果目标版本仍是 Newtonsoft，那么跨版本真正要核对的是两件事**：`ReadJson` 里是否**从 `JObject.Load` 改成了 `JToken.Load`**（后者能容忍裸字符串输入，是最可能被修的一处），以及 `ApplicationVersion.cs:8` 的 `[JsonConverter]` 特性是否还在——**特性一旦被移除，本类型就成了一个需要手动注册的普通类**，而所有既有代码会静默改用对象形式的默认序列化，存档格式随之改变。

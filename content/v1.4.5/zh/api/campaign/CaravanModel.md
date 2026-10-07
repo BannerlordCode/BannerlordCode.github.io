@@ -128,6 +128,31 @@ int categoryBudget = Campaign.Current.Models.CaravanModel
 int maxKinds = Campaign.Current.Models.CaravanModel.MaxNumberOfItemsToBuyFromSingleCategory;
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/CaravanModel.cs:6`（`public abstract class CaravanModel : MBGameModel<CaravanModel>`）。**全文只有 21 行，八个成员全抽象**：一个属性 `MaxNumberOfItemsToBuyFromSingleCategory`，七个方法。
+
+解析发生在 `GameModels.cs:271` 的 `CaravanModel = GetGameModel<CaravanModel>();`，存入 `GameModels.cs:17` 的 `public CaravanModel CaravanModel { get; private set; }`。默认实现是 `TaleWorlds.CampaignSystem.GameComponents/DefaultCaravanModel.cs`。
+
+**八成员的调用频率差三个数量级，别在 tick 里调错的那个。** 引擎的真实消费点很集中：`CaravansCampaignBehavior.cs:342` 与 `:574` 调 `CanHeroCreateCaravan(hero)`（前者遍历全部存活英雄，后者是 0.75 概率的日常判定），`CaravanConversationsCampaignBehavior.cs:290/292/299` 调 `GetCaravanFormingCost(...)`。
+
+**一段可直接跑的三行资格+成本预检**：
+
+```csharp
+CaravanModel cm = Campaign.Current.Models.CaravanModel;
+if (!cm.CanHeroCreateCaravan(hero)) { return; }
+int gold = cm.GetInitialTradeGold(hero, false, false);
+Debug.Print("start gold = " + gold, 0);
+```
+
+**先资格后成本，这个顺序不能颠倒。** `CanHeroCreateCaravan` 是纯判定，`GetInitialTradeGold` 才返回数值 —— 对一个不能组商队的英雄问资金，拿到的是「按假想情况算出的钱」，不是「他会拿到的钱」。
+
+**`GetCaravanFormingCost` 的两个 bool 参数是命名传参的。** 引擎自己写的是 `GetCaravanFormingCost(eliteCaravan: true, navalCaravan: false)` 这样的形式（`CaravanConversationsCampaignBehavior.cs:290`）。**用命名参数**，因为两个 `bool` 位置相邻，位置传参写错顺序编译器不报错，你会算出另一种商队的费用。
+
+**`GetPowerChangeAfterCaravanCreation` 返回的是「变化量」而不是「新权势」。** 参数是 `(Hero hero, MobileParty caravanParty)`，返回 `int`。**返回值应当加到英雄现有权势上，而不是直接赋值。**
+
+**最常见的坑：跨战役重载缓存实例。** `Campaign.Current.Models.CaravanModel` 在每次新战役/读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长生命周期对象，会在重载后指向旧战役的已销毁对象。而 `CanHeroCreateCaravan` 这类判定**内部读英雄与家族状态**，跨战役缓存的实例读到的会是上一局的结论。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

@@ -108,6 +108,40 @@ if (calling != null && target != null)
 - **音效与结盟要约共用。** `event:/ui/notification/peace_offer` 同时服务两条通知。
 - **`DurationForOffers` 是可换的 Model 值。** 换掉 `AllianceModel` 就换掉本类型寿命。
 
+## 怎么用
+
+### 怎么拿到它
+
+**两个构造器分工完全不同，手写代码只能用三参的那个。** `AcceptCallToWarOfferMapNotification(Kingdom, Kingdom, TextObject)`（`:51`）给两个王国赋值，并把 `TriggerTime` 设成 `Campaign.Current.Models.AllianceModel.DurationForOffers` 之上的当前时刻（`:56`）。单参的 `AcceptCallToWarOfferMapNotification(TextObject)`（`:59`）**一个字段都不赋值**，它只是存档反序列化时绕过构造逻辑用的通道。
+
+**官方构造点只有一个**：`AllianceCampaignBehavior.cs:239` 的 `Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(new AcceptCallToWarOfferMapNotification(proposerKingdom, kingdomToCallToWarAgainst, textObject))`。`NewMapNoticeAdded`（`CampaignInformationManager.cs:100`）本身只是转手调 `AddInformationData`（`:102`）。
+
+### 典型用法
+
+发出去之后能不能被玩家看见，取决于一张**精确类型查表**。`MapNotificationVM.GetNotificationFromData`（`MapNotificationVM.cs:193`）取 `data.GetType()`（`:195`），在 `_itemConstructors` 里查（`:197`），命中才 `Activator.CreateInstance`（`:199`）并挂 `OnRemove` / `OnFocus`（`:202`-`:203`）；**没命中就返回 null，上游 `:178` 的判空直接 return**——通知进了 `_mapNotices` 但 UI 上一声不吭。本类型的注册在 `MapNotificationVM.cs:132`。
+
+所以「发了却看不见」的排查顺序是：先查 VM 注册，再查 `IsValid()`。本类型 override 了它（`:64`），判据只有 `!TriggerTime.IsPast`（`:66`）——**它不看王国关系、不看玩家有没有点掉**。想在发通知的同一帧就自检这两件事：
+
+```csharp
+public static class CallToWarNoticeSelfCheck
+{
+    public static void Emit(Kingdom caller, Kingdom target)
+    {
+        TextObject note = new TextObject("{=pP0SelfChk}Self check notice for {CALLER}.");
+        note.SetTextVariable("CALLER", caller.Name);
+        AcceptCallToWarOfferMapNotification notice = new AcceptCallToWarOfferMapNotification(caller, target, note);
+        Debug.Print("trigger=" + notice.TriggerTime + " valid=" + notice.IsValid(), 0);
+        Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(notice);
+    }
+}
+```
+
+`TriggerTime` 是 `private set` 的 `SaveableProperty(3)`（`:16`-`:17`），**只能由构造器或存档系统写**。想延长窗口就得换 `Campaign.Current.Models.AllianceModel.DurationForOffers`，改这一个 Model 值比改每一个通知实例现实得多。
+
+### 最容易踩的坑
+
+**单参构造器是个陷阱。** 三个字段全不赋值，`TriggerTime` 留在 `CampaignTime.Zero`，`IsValid()` 恒 false。**用它发通知 = 发一张下次读档就被删掉的卡片。**
+
 ## 跨版本提示
 
 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/AcceptCallToWarOfferMapNotification.cs` 是 68 行、8 个公开成员，`SaveableProperty` id 为 1/2/3。1.4.6 同名文件公开表面一致。1.3.15 侧无同名文件。

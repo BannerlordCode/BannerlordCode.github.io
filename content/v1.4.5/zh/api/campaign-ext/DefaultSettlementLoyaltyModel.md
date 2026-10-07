@@ -96,6 +96,73 @@ public override void InitializeGameStarter(Game game, IGameStarter gameStarter)
 - `ExplainedNumber` 是预测值；`Town.DailyTick` 才负责写入保存状态，不能把计算结果当作 setter。
 - 本页公式和数值以 1.4.5 `Bannerlord.Source/bin` 为准；部署到 1.3.15 前仍应复核目标 DLL。
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementLoyaltyModel.cs`（全文 296 行）。
+**抽象契约：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementLoyaltyModel.cs`（全文 59 行）。
+**入口：** `Campaign.Current.Models.SettlementLoyaltyModel`。
+
+**这是本批里抽象成员最多的一个：接口 27 个 abstract（`SettlementLoyaltyModel.cs:8`-`:58`），实现全部 override。** 其中 **23 个是裸常量**、1 个返回 `ExplainedNumber`、2 个是 `void` + `ref`。
+
+**常量段的行号是连续的 `:46`-`:90`，一眼就能看出它是「一张阈值表」。**
+
+### 典型用法
+
+**23 个常量里最需要分组的是三个同值族，它们看起来像重复其实是不同语义的三个门槛：**
+
+| 常量 | 值 | 行号 |
+| --- | --- | --- |
+| `ThresholdForTaxBoost` | `75` | `:50` |
+| `ThresholdForTaxCorruption` | `50` | `:52` |
+| `ThresholdForHigherTaxCorruption` | `25` | `:54` |
+| `ThresholdForProsperityBoost` | `75` | `:56` |
+| `ThresholdForProsperityPenalty` | `25` | `:58` |
+| `RebellionStartLoyaltyThreshold` | `15` | `:64` |
+| `RebelliousStateStartLoyaltyThreshold` | `25` | `:66` |
+
+**`75 / 50 / 25` 各出现两次，但两组的含义不同**：`ThresholdForTax*` 属税收、`ThresholdForProsperity*` 属繁荣，**它们只是碰巧选了同一批数字**。**改一个不会带动另一个。**
+
+**两个 `void` 方法是本页最反直觉的形状。** `CalculateGoldGainDueToHighLoyalty`（`:97`）与 `CalculateGoldCutDueToLowLoyalty`（`:103`）都返回 `void`，**通过 `ref ExplainedNumber explainedNumber` 往调用方的对象里 `AddFactor`**（`:100` / `:106`）。
+
+**所以它们必须先有一个 `ExplainedNumber` 才能调，而且调完要读你自己的那个对象**——这与同类型的 `CalculateLoyaltyChange`（`:92`）返回新对象的风格完全不同。
+
+**两个 gold 方法是乘法因子，不是加法增量。** `MBMath.Map(town.Loyalty, ThresholdForTaxBoost, 100f, 0f, 0.2f)`（`:99`）——把忠诚度从 75 映射到 100 得到 0 到 0.2 的**因子**；`:105` 则是从 25 到 50 映射到 `-0.5` 到 `0`。**两者都是 `AddFactor`，不是 `Add`。**
+
+真实调用方是税收模型：`DefaultSettlementTaxModel.cs:132` 调 gain、`:136` 调 cut。**也就是说忠诚度这个模型不自己算钱，它给税收模型提供两个修正因子。**
+
+`CalculateLoyaltyChange`（`:92`）一行转发到 `CalculateLoyaltyChangeInternal`（`:109`），后者**串了十一个 `GetSettlementLoyaltyChangeDueTo*`**（`:112`-`:121`）——粮食、总督文化、所有者文化、政策、项目、问题、安全、名人人际、总督 Perk、忠诚漂移。**它们全是 `private void ... (Town, ref ExplainedNumber)`，共用同一个累加器，顺序即优先级。**
+
+想看出忠诚度在哪个区间，就把两个因子与总变化并排打出来：
+
+```csharp
+public static void DumpLoyalty(Town town)
+{
+    SettlementLoyaltyModel model = Campaign.Current.Models.SettlementLoyaltyModel;
+    ExplainedNumber change = model.CalculateLoyaltyChange(town, includeDescriptions: true);
+    ExplainedNumber gold = new ExplainedNumber(100f, includeDescriptions: true);
+    model.CalculateGoldGainDueToHighLoyalty(town, ref gold);
+    model.CalculateGoldCutDueToLowLoyalty(town, ref gold);
+    Debug.Print(town.Settlement.Name + " loyalty=" + town.Loyalty + " change=" + change.ResultNumber, 0);
+    Debug.Print("loyaltyBands: tax " + model.ThresholdForHigherTaxCorruption + "/" + model.ThresholdForTaxCorruption + "/" + model.ThresholdForTaxBoost, 0);
+    Debug.Print("rebellion at " + model.RebellionStartLoyaltyThreshold + " max=" + model.MaximumLoyaltyInSettlement + " drift=" + model.LoyaltyDriftMedium, 0);
+    Debug.Print("goldFactor=" + gold.ResultNumber + " lines=" + gold.Lines.Count, 0);
+}
+```
+
+**上例第三行那三个阈值各自独立，其中 `RebellionStartLoyaltyThreshold`（15）低于 `RebelliousStateStartLoyaltyThreshold`（25）——顺序反了看代码会以为写错了，其实 15 是「开始叛乱」、25 是「进入叛乱状态」，是两个阶段。**
+
+**而 `MaximumLoyaltyInSettlement => 100`（`:78`）是本模型唯一一个「上限」概念，但它只被消费方用来钳位——这个类自己不钳。**
+
+**两个入口属性都在 `Town` 上：** `Town.LoyaltyChange`（`Town.cs:140`）调 `CalculateLoyaltyChange(this)` 吃默认 `includeDescriptions: false`，而 `Town.LoyaltyChangeExplanation`（`Town.cs:142`）显式传 `true`。**同一个计算，两个属性，差别只有明细。**
+
+**而两个叛乱阈值各自有真实消费方，这也解释了它们为什么不是同一个数：** `RebellionsCampaignBehavior.cs:189` 用 `RebellionStartLoyaltyThreshold`（15）判「是否触发叛乱」，`:124` 用 `RebelliousStateStartLoyaltyThreshold`（25）写回 `settlement.Town.InRebelliousState`。**一个决定「发起」，一个决定「状态位」——所以 15 < 25 是对的，反过来就永远进不了叛乱状态。** `CampaignUIHelper.cs:497` 也是拿 15 做 UI 警告。
+
+### 最容易踩的坑
+
+- `CalculateGoldGainDueToHighLoyalty` / `CalculateGoldCutDueToLowLoyalty` 是 `void` + `ref ExplainedNumber`，返回 `void` 不代表没有输出；它们写入调用方传入的那个 `ExplainedNumber`。新建对象忘了传引用、或调完不读 `ResultNumber`，都会得到「忠诚度影响税收」完全没生效的假象。
+
 ## 导航
 
 - [上级：Campaign-Ext](..)

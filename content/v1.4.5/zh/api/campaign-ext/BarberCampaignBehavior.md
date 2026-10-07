@@ -74,6 +74,28 @@ locationWithId.AddLocationCharacters(
     Settlement.CurrentSettlement.Culture, CharacterRelations.Neutral, 1);
 ```
 
+## 死成员与陷阱
+
+> 结构说明：本页的小节形状与同桶其它页不同——用 `## 成员说明` + 每方法一个 `###`，没有「关键成员 / 真实示例」，所以本小节插在 `## 风险` 之前，而不是「关键成员」之后。
+
+下面十行是同一种形态：静态工具报「0 调用点」，而 `grep -o -w` 能查到活跃引用。
+**它们不是死成员**，是工具看不见的成员，且都不是 override。
+
+| 成员 | 声明位置 | override | 调用点 | 判定 | 说明 |
+|---|---|---|---|---|---|
+| `GivePlayerAHaircut` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:175` | 0 | 2 次（2 行） | UNSUPPORTED | 以 `new OnConsequenceDelegate(GivePlayerAHaircut)` 的形式在 `:109`、`:113` 被传入。这是**方法组引用**：既无点前缀、后面也不跟 `(`，点访问与无限定调用两条判据都看不见。 |
+| `GivePlayerAHaircutCondition` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:169` | 0 | 2 次（2 行） | UNSUPPORTED | 同形式：`new OnConditionDelegate(...)`，在 `:109` / `:113`。 |
+| `DoesPlayerHaveEnoughGold` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:130` | 0 | 2 次（2 行） | UNSUPPORTED | `new OnClickableConditionDelegate(...)`，在 `:109` / `:113`。 |
+| `InitializeBarberConversation` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:187` | 0 | 2 次（2 行） | UNSUPPORTED | `new OnConsequenceDelegate(...)`，在 `:107`。 |
+| `InDisguiseSpeakingToBarber` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:121` | 0 | 1 次（1 行） | UNSUPPORTED | `new OnConditionDelegate(...)`，在 `:107`。 |
+| `ChargeThePlayer` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:143` | 0 | 1 次（1 行） | UNSUPPORTED | 方法组引用。 |
+| `CreateBarber` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:197` | 0 | 1 次（1 行） | UNSUPPORTED | 方法组引用。 |
+| `DidPlayerNotHaveAHaircut` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:148` | 0 | 1 次（1 行） | UNSUPPORTED | 方法组引用。 |
+| `_isOpenedFromBarberDialogue` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:60` | 0 | 3 次（3 行） | UNSUPPORTED | 类内无点前缀的直接访问。 |
+| `_previousBodyProperties` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:62` | 0 | 2 次（2 行） | UNSUPPORTED | 类内无点前缀的直接访问。 |
+
+口径：源码树 `bannerlord-1.4.5` HEAD `ccbc3d40f88905765a1484492d41b7000e7249fa`，8,583 个 `.cs`（含 `bin/`）。调用点数是**出现次数**（`grep -o -w`）。`UNSUPPORTED` 行只是记录「工具的数不可信」，它们不是结论，也不是 modder 陷阱。
+
 ## 风险
 
 - **收费必须走 `GiveGoldAction`**：任何 `Hero.MainHero.Gold -= 100` 式直写都会让经济系统「看不见」这笔钱，导致任务/日志/收支统计错乱，是典型坏档隐患。

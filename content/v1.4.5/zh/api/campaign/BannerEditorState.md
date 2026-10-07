@@ -59,6 +59,28 @@ protected override void OnFinalize()
 | `GetCharacter()` | `public CharacterObject GetCharacter()` | 便利方法，硬编码返回 `CharacterObject.PlayerCharacter`。同样不判空。 |
 | `OnFinalize()` | `protected override void OnFinalize()` | **唯一的生命周期覆写**。先 `base.OnFinalize()`，再 `_onEndAction?.Invoke()`。由基类的 `HandleFinalize()` 调用，**在 `_listeners` 与 `GameStateManager` 被置 null 之后执行**，所以回调里访问基类成员是危险的。 |
 
+## 怎么用
+
+这是一个 GameState（游戏状态机的一屏），不是一个模型也不是一个行为。它的职责只有三件：告诉状态机「我是菜单态」、把一个处理器的引用挂在上面、以及在退出时回调一个动作。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/BannerEditorState.cs:6`，继承自 `TaleWorlds.Core.GameState`。它没有构造点——整个 1.4.5 C# 源树里没有任何一处 `new BannerEditorState`，同目录 26 个 GameState 走的都是 `Game.Current.GameStateManager.CreateState<T>()` 这条路，例如 `CraftingHelper.cs:38`、`InventoryScreenHelper.cs:190`、`PartyScreenHelper.cs:79`。
+
+它有两个构造器：无参的 `BannerEditorState()`（`:26`）和带回调的 `BannerEditorState(Action endAction)`（`:30`）。带回调那个把 `endAction` 存进 `_onEndAction`（`:10`），并在 `OnFinalize`（`:45`）里用 `?.Invoke()` 触发。`IsMenuState`（`:12`）硬编码返回 true，意味着这一屏永远带着菜单栏。
+
+```csharp
+BannerEditorState state = Game.Current.GameStateManager.CreateState<BannerEditorState>();
+state.Handler = myHandler;                                  // 可空，置 null 不影响进出
+Clan shownClan = state.GetClan();                           // 固定返回 Clan.PlayerClan
+CharacterObject shownChar = state.GetCharacter();            // 固定返回 CharacterObject.PlayerCharacter
+Debug.Print("进入旗帜编辑器: 氏族=" + shownClan.Name + " 角色=" + shownChar.Name, 0);
+state.Handler = null;
+Game.Current.GameStateManager.PopState();
+```
+
+它的两个便捷方法没有参数也没有分支：`GetClan()`（`:35`）直接返回 `Clan.PlayerClan`，`GetCharacter()`（`:40`）直接返回 `CharacterObject.PlayerCharacter`。
+
+**最常见的坑**：处理器接口 `IBannerEditorStateHandler`（`bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/IBannerEditorStateHandler.cs:3`）是一个**空标记接口**，一个成员都没有。所以它挂了 `Handler` 也不会收到任何回调，想在这一屏拦截操作，只能自己在进出场时挂事件。
+
 ## 真实示例
 
 开一次往返界面并在关闭时拿到通知（形状对照 `InventoryScreenHelper.cs:190` 的 state 创建方式）：

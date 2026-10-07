@@ -23,6 +23,58 @@ BuildingEffectModel 是一个纯计算的规则扩展点：`Campaign` 在启动�
 - **使用**：需要查询或自定义“某座建筑对某种产出的贡献值”时，读取 `Campaign.Current.Models.BuildingEffectModel.GetBuildingEffect(building, effect)` 的返回值，或提供一个新的派生类覆盖 `GetBuildingEffect` 并通过子模块注册替换默认实现。
 - **不要使用**：不要用模型去“改”建筑产出——它只返回数值，真实的世界状态（建筑等级、炉灶数、总督）在 [Building](../Building) / [Town](../Town) / [Settlement](../Settlement) 上。要改变建筑等级应走建造行为或对应的 `*Action`，而不是指望覆盖模型来影响存档；也不要把模型返回值当作持久世界状态（它是无状态的纯函数）。在 `Mission` 或战斗逻辑里取 `Campaign.Current.Models` 是错误的访问层。
 
+## 怎么用
+
+何时该读这一页、何时不该读、该改哪个模型，见上文「何时使用 / 何时不要使用」。本节只讲怎么从源码拿到它、以及它在 v1.4.5 里被谁真的调用。
+
+### 怎么拿到它
+
+抽象声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BuildingEffectModel.cs:6`，`public abstract class BuildingEffectModel : MBGameModel<BuildingEffectModel>`。默认实现是 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingEffectModel.cs:9`。
+
+安装链是 `GameModels`：属性在 `GameModels.cs:151`，赋值在 `GameModels.cs:332` 的 `BuildingEffectModel = GetGameModel<BuildingEffectModel>()`。所以 mod 替换它的方式与其它 `MBGameModel` 一样——派发器注册一个同类型实现，由 `GameModels` 在战役初始化时解析。
+
+它在整棵树里只有 4 个文件引用，而**真实调用点只有两处**，都在逐条 grep 的结果里：`Building.cs:170` 是 `AddEffectOfBuilding` 内部取单座建筑的数值；`DefaultSettlementPatrolModel.cs:50` 是巡逻队强度那条独立链路，取 `PatrolPartyStrength` 后直接 `(int)` 截断。
+
+第二个调用点值得单独记：`DefaultSettlementPatrolModel.cs:50` 不经过 `Building.AddEffectOfBuilding`，也不经过 `Town.AddEffectOfBuildings`，它自己直连模型。也就是说**「建筑对某个枚举成员的贡献」有两条互不相干的取法**，一条汇进 `ExplainedNumber`，另一条直接取 `ResultNumber` 再截断。
+
+### 典型用法
+
+上面「示例」两段是「查集市建筑的食物贡献」和「查巡逻队营房的强度等级」，都是单建筑单效果。缺的一步是**一次遍历把某座建筑提供的全部效果列出来**——排查「这座建筑到底加了什么」时这是唯一可用的问法，因为 `BuildingType` 侧只有 `HasEffect` 与逐个查询：
+
+```csharp
+public static void DumpAllEffects(Building b)
+{
+    if (b == null || Campaign.Current == null)
+    {
+        return;
+    }
+    BuildingEffectModel model = Campaign.Current.Models.BuildingEffectModel;
+    foreach (BuildingEffectEnum effect in Enum.GetValues(typeof(BuildingEffectEnum)))
+    {
+        if (!b.BuildingType.HasEffect(effect))
+        {
+            continue;   // HasEffect 在 BuildingType.cs:148，是 HasEffect 判定本身
+        }
+        ExplainedNumber value = model.GetBuildingEffect(b, effect);
+        Debug.Print(effect + " -> " + value.ResultNumber, 0);
+    }
+}
+```
+
+`Enum.GetValues` 在这个枚举上是安全的：它的每个成员都有一个真实消费方（`DefaultClanFinanceModel.cs:456` 取 `TariffIncome`、`DefaultClanPoliticsModel.cs:68` 取 `Influence`、`DefaultBuildingConstructionModel.cs:139` 取 `ConstructionPerDay`、`Town.cs:467` 取 `FoodStock`），而 `HasEffect` 会把当前建筑不提供的成员先滤掉。
+
+`DefaultBuildingEffectModel.cs:15` 只对 `DenarByBoundVillageHeartPerDay` 做了特判，其余成员走基类公式。所以自定义实现时要清楚哪些成员本来就有专属逻辑，不要把它们当「基类已覆盖」。
+
+### 什么时候不要用它
+
+不要把 `Campaign.Current.Models.BuildingEffectModel` 缓存进静态字段或长生命周期对象。每次新战役与读档都会由 `GameModels` 重新解析，缓存住的实例会在重载后指向旧战役的对象。
+
+不要在 Mission 或战斗层取它。那是战役层的模型，`Campaign.Current` 在那种上下文里不可用。
+
+### 最容易踩的坑
+
+跨战役重载缓存实例：把实例缓存起来后，调用即崩溃或读到陈旧规则。每次需要时都重新走 `Campaign.Current.Models` 获取。
+
 ## 依赖图
 
 上游类型与系统：

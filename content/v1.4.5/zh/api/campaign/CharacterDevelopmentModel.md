@@ -173,6 +173,35 @@ Campaign.Current.Models.CharacterDevelopmentModel
     .GetTraitLevelForTraitXp(hero, DefaultTraits.Valor, xpAmount, out int traitLevel, out int clampedXp);
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/CharacterDevelopmentModel.cs:6`（`public abstract class CharacterDevelopmentModel : MBGameModel<CharacterDevelopmentModel>`），全文 47 行、**21 个 `public abstract`，零具体成员**。
+
+解析在 `GameModels.cs:261` 的 `CharacterDevelopmentModel = GetGameModel<CharacterDevelopmentModel>();`，存入 `GameModels.cs:69`。
+
+**一段可直接跑的三行读成长上限**：
+
+```csharp
+CharacterDevelopmentModel cdm = Campaign.Current.Models.CharacterDevelopmentModel;
+int focusCap = cdm.MaxFocusPerSkill;
+int attrCap = cdm.MaxAttribute;
+```
+
+**前七个成员全是「上限/常量」性质的抽象属性，写在 `:8` 到 `:20`。** `MaxAttribute`、`MaxFocusPerSkill`、`MaxSkillRequiredForEpicPerkBonus`、`MinSkillRequiredForEpicPerkBonus`、`FocusPointsPerLevel`、`FocusPointsAtStart`、`AttributePointsAtStart` —— **七个全是 `{ get; }`，没有一个方法。**
+
+**`GetXpRequiredForSkillLevel(int)` 是被调用最密的一个。** `TaleWorlds.CampaignSystem/CharacterData.cs:248-249` 里它是**连着两次**调用，形态是：
+
+```csharp
+int xpRequiredForSkillLevel = Campaign.Current.Models.CharacterDevelopmentModel.GetXpRequiredForSkillLevel(value);
+int xpRequiredForSkillLevel2 = Campaign.Current.Models.CharacterDevelopmentModel.GetXpRequiredForSkillLevel(value + 1);
+```
+
+**取的是「升到 N 级」与「升到 N+1 级」两个门槛，再相减得到这一级需要的 XP。** 你自己算等级曲线时必须照这个形状写两次取差 —— 只调一次拿到的是「累计 XP」而不是「本级所需」。
+
+**七个常量属性之间没有任何一致性校验。** `FocusPointsAtStart` / `AttributePointsAtStart` 与 `MaxAttribute` / `MaxFocusPerSkill` 的关系完全靠约定。**在派生类里改大 `MaxFocusPerSkill` 而不同步 `FocusPointsPerLevel`，专精点总数会立刻失配**，表现为 UI 显示与实际可分配量对不上。
+
+**最常见的坑：跨战役重载缓存实例。** `Campaign.Current.Models.CharacterDevelopmentModel` 在每次新战役/读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长生命周期对象，会在重载后指向旧战役的已销毁对象。而 `GetXpRequiredForSkillLevel` 与英雄当前等级联动，**跨战役悬空引用算出的曲线会是上一局的规则**。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

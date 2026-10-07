@@ -8,7 +8,7 @@ description: "军队管理界面里「买凝聚力」按钮的视图模型：一
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public class ArmyManagementBoostEventVM : ViewModel`  
 **Base:** `ViewModel`  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementBoostEventVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementBoostEventVM.cs`
 
 ## 概述
 

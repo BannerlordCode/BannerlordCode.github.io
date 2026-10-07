@@ -149,6 +149,42 @@ private void OnCampaignLoaded()
 - **它是值类型但不是 `readonly`。** 四个属性都是 `{ get; private set; }`，所以在类型内部可变、**外部不可变**。`Empty` 是 `static readonly` 字段，其成员同样不可改。
 - **JSON 格式是字符串而非对象。** 经 [ApplicationVersionJsonConverter](../ApplicationVersionJsonConverter) 序列化成 `{ "_version": "v1.2.3.4" }`，**且五个属性全部 `[JsonIgnore]`**——直接 `JsonConvert.SerializeObject` 一个含本类型的对象不会得到字段形式。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public struct ApplicationVersion`（`TaleWorlds.Library/ApplicationVersion.cs:9`），值类型。三个来源：直接 `new`（唯一构造器，不校验，可以造出负数主版本）、`FromString(string, int)`、`FromParametersFile(string)`（读 `BasePath.Name + "Parameters/Version.xml"`，读不到就返回 `Empty`）。游戏自身的版本用 `ApplicationVersion.Empty.ToString()` 拼标识串——所以你会看到 `i-1.-1.-1.-1` 这种形状。
+
+### 典型用法
+
+上面「真实示例」两段是「解析与字符串化」和「两套比较的分歧」。真正落到 mod 代码里的是**版本门槛**——而且门槛必须是 `IsOlderThan`，因为运算符那一套不看 `ChangeSet`：
+
+```csharp
+public static class ModCompatibility
+{
+    // 门槛值在加载时算一次，不要每次判定都重新 FromString
+    private static readonly ApplicationVersion Minimum = ApplicationVersion.FromString("v1.4.0");
+
+    // 跨构建比较必须走 IsOlderThan：operator< 到 Revision 为止，不看 ChangeSet
+    public static bool IsSupported(ApplicationVersion running)
+    {
+        return !running.IsOlderThan(Minimum);
+    }
+
+    // 要区分构建时必须显式传 true，否则同版本不同构建会被判为相同
+    public static bool IsExactBuild(ApplicationVersion running)
+    {
+        return running.IsSame(Minimum, true);
+    }
+}
+```
+
+与上面「真实示例」的差别：那里是**把两套比较并排打出来看差异**，是在验证这个类的行为；这里把它变成**一个可复用的门槛**——`IsSupported` 是发布策略要用的那条，`IsExactBuild` 是排查「我明明装的是同一个版本」要用的那条。两者都只调用 `Is*` 方法，一个运算符都没用。
+
+### 最容易踩的坑
+
+**`operator<` / `>` / `<=` / `>=` 都不比较 `ChangeSet`，而 `IsOlderThan` 比较。** 同一个语义有两套实现且结果不同。**跨构建比较必须用 `IsOlderThan` / `IsSame(other, true)`。**
+
 ## 跨版本提示
 
 `ApplicationVersion.cs` 在 1.4.5 是 249 行，是原始源码形态（`[Serializable]` + `[JsonConverter]` 特性齐全、无 `// Token:` 注释）。**跨版本迁移真正要核对的是三件事**：一，**运算符与 `IsOlderThan` 的 `ChangeSet` 分歧是否已被修掉**——这是最值得盯的，因为它是语义级的差异而不是 API 级的；二，**`GetHashCode` 是否开始与 `Equals` 一致**——如果修了，说明官方接受了这个类型作为字典键；三，**`DefaultChangeSet` 常量的值**（1.4.5 是 115628），它是编译期常量，升级后会变但**你的代码里不会收到任何提示**。另外注意 1.4.x 后期版本为 `ApplicationVersion` 引入了 `ApplicationVersionType` 的新成员时，`GetPrefix` 的 switch 与 `ApplicationVersionTypeFromString` 的 case 标签集合必须同步扩展，否则新成员会落到 `_ => "i"` 分支上。

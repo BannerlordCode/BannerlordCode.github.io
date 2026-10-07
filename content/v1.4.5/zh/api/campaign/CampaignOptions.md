@@ -155,6 +155,37 @@ if (Campaign.Current != null)
 bool heroCanDieInBattle = CampaignOptions.BattleDeath != CampaignOptions.Difficulty.VeryEasy;
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignOptions.cs:6`（`public class CampaignOptions`），全文 302 行。
+
+**你几乎不需要持有实例 —— 十一个设置项全部是静态属性。** 唯一的实例产生点是 `Campaign.cs:565` 的 `Options = new CampaignOptions();`。
+
+**一段可直接跑的三行读写**：
+
+```csharp
+CampaignOptions opts = Campaign.Current.Options;
+Debug.Print("ironman = " + CampaignOptions.IsIronmanMode + " dmg = " + CampaignOptions.PlayerTroopsReceivedDamage, 0);
+CampaignOptions.IsIronmanMode = true;
+```
+
+**⚠ 这里有一个容易踩的机制，务必先记住：这些静态属性带 `set`，但 setter 在 `_current == null` 时静默不做事。**
+
+以 `IsLifeDeathCycleDisabled`（`CampaignOptions.cs:53`）为例，真实形状是：
+
+```csharp
+get { return _current?._isLifeDeathCycleDisabled ?? false; }
+set { if (_current != null) { ... } }
+```
+
+**所以有三层「静默」：** ① 战役未就绪时 **get 返回硬编码兜底值**（`Difficulty` 系列兜底为 `Difficulty.Realistic`，bool 兜底为 `false`）；② 此时 **set 直接被 `if (_current != null)` 挡掉、无任何提示**；③ **读到的兜底值与玩家真实设置无法区分** —— 你看到的 `false` 可能真是 `false`，也可能是「还没初始化」。
+
+**`Difficulty` 是内嵌枚举且只有三个成员。** `CampaignOptions.cs:8` 是 `public enum Difficulty : short { VeryEasy, Easy, Realistic }` —— **底层类型是 `short`**，且**没有第四个成员**。嵌套在类里，代码里要写全 `CampaignOptions.Difficulty.Realistic`。
+
+**`AccelerationMode` 是唯一一个公开字段，不是静态属性。** `CampaignOptions.cs:49` 的 `public GameAccelerationMode AccelerationMode;` —— 要通过 `Campaign.Current.Options.AccelerationMode` 访问，而且它**可以直接赋值**（没有 `_current` 守卫那一套）。
+
+**最常见的坑：战役未就绪时读到兜底默认值。** 静态属性的 getter 走 `Campaign.Current?.Options` 并带 `?? 默认值`，所以你在 SubModule 早期读到的是兜底而非真实设置。**判据是「你有没有在 `OnCampaignStart` 之后读」**，而不是「值看起来合不合理」—— 兜底值往往正好是一个合法的设置值。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

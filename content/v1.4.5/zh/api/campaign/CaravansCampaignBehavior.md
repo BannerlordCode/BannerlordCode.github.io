@@ -91,6 +91,40 @@ private void OnCaravanCreated(MobileParty party)
 
 说明：商队行为由模块内的 `CaravansCampaignBehaviorTypeDefiner` 在战役初始化阶段自动注册，modder 不需要也不能手动 `new` 它；若你的 mod 需要新增自己的 Campaign 行为子类，应在 `CampaignGameStarter` 的初始化入口用 `AddBehavior(yourBehavior)` 注册，引擎会随后调用其 `RegisterEvents`。
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CaravansCampaignBehavior.cs:25`（`public class CaravansCampaignBehavior : CampaignBehaviorBase`）。**全文 2247 行 —— 是本批最大的行为类。**
+
+注意同一个文件里紧接着还有一个 `CaravansCampaignBehaviorTypeDefiner : SaveableTypeDefiner`（`CaravansCampaignBehavior.cs:27`）——**存档类型定义器与行为本体同文件**，这是本页与其他行为页的一个结构差异。
+
+登记点是 `TaleWorlds.CampaignSystem/SandBoxManager.cs:46` 的 `gameStarter.AddBehavior(new CaravansCampaignBehavior());`。取实例用 `Campaign.Current.GetCampaignBehavior<CaravansCampaignBehavior>()`（`Campaign.cs:1066`）。
+
+**一段可直接跑的三行**：
+
+```csharp
+CaravansCampaignBehavior caravans = Campaign.Current.GetCampaignBehavior<CaravansCampaignBehavior>();
+caravans.SpawnCaravan(Hero.MainHero, false);
+Debug.Print("daily = " + caravans.DailyTick(), 0);
+```
+
+**它与前两个行为类的关键差别：处理器是 `public` 的，可以直接调。** `RegisterEvents`（`CaravansCampaignBehavior.cs:279`）之后暴露的一整排都是 `public void`：`OnSessionLaunched`、`SpawnCaravan`、`DailyTick`、`HourlyTickParty`、`OnSettlementEntered`、`OnSettlementLeft`。**这意味着你可以手动触发它们** —— 而 [CrimeCampaignBehavior](../CrimeCampaignBehavior) 与 [CampaignWarManagerBehavior](../CampaignWarManagerBehavior) 的处理器都是 `private`，只能靠事件驱动。**改错这一点会得到「调用了但什么也没发生」。**
+
+**`SpawnCaravan` 的第二个参数有默认值，不要传错。** 签名是 `public void SpawnCaravan(Hero hero, bool initialSpawn = false)`（`CaravansCampaignBehavior.cs:495`）—— `initialSpawn` 区分「开局初始生成」与「日常生成」，**两个路径的内部处理不同，手动造商队时传 `false` 才是常规玩法路径。**
+
+**唯一的公开字段型成员是 `TradeAgreementsCampaignBehavior`**（`CaravansCampaignBehavior.cs:238`，类型 `ITradeAgreementsCampaignBehavior`）—— 它是**字段不是属性**，没有 `{}` 也没有 `private set`，意味着外部可以随时重新赋值。
+
+**两个 `Tick` 方法的粒度不同，别混用。** `DailyTick()`（565）无参，是每天一次的全局推进；`HourlyTickParty(MobileParty mobileParty)`（617）**收一个 MobileParty**，是按部队的小时级推进。你要模拟「一小时」影响某个特定商队就得调后者，且**得自己保证每个相关部队都调一次**，因为它不遍历。
+
+**九条监听事件决定了这个行为的副作用范围。** `RegisterEvents` 订阅的是：`SettlementEntered`、`OnSettlementLeftEvent`、`DailyTickEvent`、`DailyTickHeroEvent`、`HourlyTickPartyEvent`、`OnSessionLaunchedEvent`、`OnNewGameCreatedPartialFollowUpEndEvent`、`MobilePartyDestroyed`、`MobilePartyCreated`。
+
+**其中三条是高频的。** `DailyTickHeroEvent` 与 `HourlyTickPartyEvent` 会对每个英雄、每个在野部队各触发一次；相比之下 `MobilePartyCreated` / `MobilePartyDestroyed` 是低频的。**你在派生类里往高频事件加监听时要算开销。**
+
+**全部九条都是 `AddNonSerializedListener`。** 监听关系不进存档，读档后重新订阅。**这意味着派生类的新增状态若需要跨档，必须自己实现 `SyncData`。**
+
+**真正的商队规则不在这个 Behavior 里。** 「能不能组商队」「初始资金多少」这些判定在 [CaravanModel](../CaravanModel) 的抽象成员里，本类只负责在合适时机去调（`CaravansCampaignBehavior.cs:342` 与 `:574` 两处调 `CanHeroCreateCaravan`）。
+
+**最常见的坑：注册 / 生命周期时机。** 行为由 `CaravansCampaignBehaviorTypeDefiner` 自动注册，若你误在战役未启动（如 SubModule 早期或 Mission 中）调用 `GetCampaignBehavior<CaravansCampaignBehavior>()`，拿到的是 null 而**不是异常** —— 于是后续每一次属性访问都在空引用上炸，堆栈指向引擎内部很难定位。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

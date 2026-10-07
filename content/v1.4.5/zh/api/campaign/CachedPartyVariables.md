@@ -37,6 +37,74 @@ description: "MobileParty 内部的一个每帧瞬态缓存结构，快照并推
 - **不要**在读取它时假设值是「当前帧最新」：在 `RealTick` 之外的任意时刻读 `_cacheData[i].LocalVariables`，拿到的是上一帧残留的快照（或初始默认），已经陈旧。
 - **不要**依赖它做跨存档/跨帧的持久逻辑：它从不序列化，存档里没有它。
 
+## 怎么用
+
+何时该读这一页、何时不该读，见上文「何时使用 / 何时不要使用」。本节只讲怎么从源码拿到它、以及它在 v1.4.5 里被谁真的调用。
+
+### 怎么拿到它
+
+它不是 `TaleWorlds.CampaignSystem` 下的顶层类型，而是 **嵌套在 `MobileParty` 里**：`CampaignTickCacheDataStore.cs:157` 那一行的类型名是 `MobileParty.CachedPartyVariables variables`。
+
+声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Party/MobileParty.cs`，文件有 3000 行以上。存它的容器是 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignTickCacheDataStore.cs`：字段 `_cacheData` 在 `:30`，类型是 `PartyTickCachePerParty[]`，在 `:131` 按队伍数分配，每格的 `LocalVariables` 就是它。
+
+真正的写入入口是 internal 的 `MobileParty.ComputeNextMoveDistance(ref CachedPartyVariables variables, float dt)`（`MobileParty.cs:2808`），它被 `:2710` 调用；`NextMoveDistance` 在 `:2800` 被写成 `Speed * dt`，`dt` 为 0 时在 `:2804` 写 0。
+
+**结论是：mod 拿不到它。** 声明嵌套在 `MobileParty` 里、写入方法是 internal、容器 `PartyTickCacheDataStore` 也是 internal。所以它的「怎么拿到」答案是拿不到，能拿到的只有它镜像的那些实时 `MobileParty` 属性。
+
+上面那行 `Speed * dt` 是本页唯一值得记住的公式：它意味着缓存里的移动预算不是一个独立量，而是「速度乘以本帧 dt」的派生值。你在外面复现任何预算判断时，必须用同一条公式和同一个 dt，否则结果会在高速部队上偏差一个量级。
+
+### 典型用法
+
+上面两个「示例」是「读实时标志」和「下达移动意图驱动下帧重算」。缺的那一格是**在 DailyTick 里做移动前置检查时，如何避开缓存**：缓存只在 `RealTick` 的一次循环里有效，所以在任何别的回调里读它都不可靠，但你可以自己算同一件事：
+
+```csharp
+public class MyMoveBudgetBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, this.OnDailyTick);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+    }
+
+    private void OnDailyTick()
+    {
+        MobileParty p = MobileParty.MainParty;
+        if (p == null || Campaign.Current == null)
+        {
+            return;
+        }
+        // 与 MobileParty.cs:2800 同一条公式：缓存里的 NextMoveDistance 就是这个值。
+        // 但 dt 是引擎 RealTick 的参数，mod 的 DailyTick 拿不到，所以这里只报速度。
+        Debug.Print(p.Name + " speed=" + p.Speed + " moving=" + p.IsMoving, 0);
+
+        // IsMoving 只代表帧初意图；能否真走还要看地图事件等帧内条件
+        if (p.MapEvent != null)
+        {
+            return;   // HasMapEvent 时引擎直接跳过本帧移动
+        }
+        if (p.Army != null && p.Army.LeaderParty != p && p.AttachedTo != null)
+        {
+            return;   // 附属军队成员不自己寻路
+        }
+    }
+}
+```
+
+这段刻意没有写 `dt`：`RealTick` 的 dt 是引擎内部参数，`Campaign.Current` 上也没有 `DeltaTime` 属性（逐条 grep 确认），所以任何在 DailyTick 里「预算还剩多少」的算法都拿不到与引擎同一个 dt。那两个 `return` 分支对应的是 `HasMapEvent` 与 `IsAttachedArmyMember` 两个标志，它们都是帧内量、同样只在缓存里可靠。
+
+### 什么时候不要用它
+
+不要试图反射读 `_cacheData[i].LocalVariables`。它在 RealTick 之外是上一帧残留或初始默认值，症状是「偶发的错误判定」而不是异常。
+
+不要写缓存字段。它的字段是 public 可写的，但写入不会触发任何帧内重算，下一帧就被 `InitializeCachedPartyVariables` 覆盖。
+
+### 最容易踩的坑
+
+每帧瞬态、非持久：循环之外读它会得到陈旧值。需要「当前」状态请读实时 `MobileParty` 属性，不要读缓存。
+
 ## 依赖图
 
 ```text

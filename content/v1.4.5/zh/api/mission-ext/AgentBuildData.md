@@ -51,6 +51,14 @@ description: "生成 Agent 的建造参数包：约 45 个链式 setter 描述�
 | `CanSpawnOutsideOfMissionBoundary` | `public AgentBuildData CanSpawnOutsideOfMissionBoundary(bool canSpawn)` | 允许在任务边界外生成（用于大地图无缝过渡、追击战）。默认 false。 |
 | `FormationTroopSpawnCount` / `FormationTroopSpawnIndex` | 两个对应 setter | 声明「本队一共有多少个 spawn 点单位」「我是第几个」。`FormationTroopSpawnIndex` 默认值是 `-1`（私有构造里设的），这是「未设置」的哨兵值。 |
 
+## 死成员与陷阱
+
+流式建造器里有一条没人调的链式 setter。同族兄弟都被调用，只有它没有。
+
+| 成员 | 声明位置 | override | 调用点 | 判定 | 说明 |
+|---|---|---:|---:|---|---|
+| `SpawnsIntoOwnFormation` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentBuildData.cs:168 | 0 | 0 次（0 行，已复核） | MEASURED | 链式 setter，返回 this 供继续链。声明存在但全树没有调用点：modder 链上它以为能控制「是否编入本方编队」，实际没有任何代码执行这一步。同族 `IsReinforcement`(:162) 被 `Mission.cs:4436` 调用、`InitialPosition` 有 48 次出现，证明这条链整体在用，唯独它悬空。 |
+
 ## 真实示例
 
 最常见的三段式：链式 setter 造参数，然后 `SpawnAgent`：

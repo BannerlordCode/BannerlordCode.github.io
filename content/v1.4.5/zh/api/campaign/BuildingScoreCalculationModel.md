@@ -23,6 +23,58 @@ BuildingScoreCalculationModel 是一个纯挑选型扩展点：`Campaign` 在启
 - **使用**：需要查询或自定义城镇“下一步该建哪个常规工程 / 哪个每日工程作为默认”的挑选规则时，读取 `Campaign.Current.Models.BuildingScoreCalculationModel` 的返回值，或提供新的派生类覆盖两个抽象方法并通过子模块注册替换默认实现。
 - **不要使用**：不要直接给 `Town.BuildingsInProgress` 赋值或直接改 `Town.CurrentDefaultBuilding` 来“指定建造目标”——写入应经 `BuildingsCampaignBehavior` / `BuildingHelper.ChangeDefaultBuilding` 等既有路径（模型是无状态纯函数，真正的状态在 [Town](../Town) 上）；也不要在 `Mission` / 战斗层或战役未启动前访问本模型；更不要把模型当成读取建筑等级 / 花费 / 效果的入口（那属于 [Building](../Building)、[BuildingType](../BuildingType) 与 [BuildingModel](../BuildingModel)）。
 
+## 怎么用
+
+何时该读这一页、何时不该读、该改哪个模型，见上文「何时使用 / 何时不要使用」。本节只讲怎么从源码拿到它、以及它在 v1.4.5 里被谁真的调用。
+
+### 怎么拿到它
+
+抽象声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BuildingScoreCalculationModel.cs:7`，`public abstract class BuildingScoreCalculationModel : MBGameModel<BuildingScoreCalculationModel>`。默认实现是 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingScoreCalculationModel.cs:9`。
+
+安装链走 `GameModels`：属性在 `GameModels.cs:193`，赋值在 `GameModels.cs:350` 的 `BuildingScoreCalculationModel = GetGameModel<BuildingScoreCalculationModel>()`。
+
+它在整棵树里只有 3 个文件引用，而**真实调用点只有两处，且两处都在同一个文件里**：`TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/BuildingsCampaignBehavior.cs:42` 调 `GetNextDailyBuilding(town)`，`:53` 调 `GetNextBuilding(town)`。
+
+这两行决定了本模型的定位：它是**每天由 `BuildingsCampaignBehavior` 主动问两次的纯查询器**，而不是被谁被动调用的服务。返回值只被那个行为用来决定「今天建哪个」，你调它不会产生任何世界状态变化。
+
+### 典型用法
+
+上面「示例」两段是「查下一步常规工程」和「查当日默认工程」。缺的一步是**在动手建造之前先确认这条建议仍然有效**——因为行为在 `:42` / `:53` 拿到的结果与现在可能已经不同：
+
+```csharp
+public static bool CanQueueProject(Town town, BuildingType wanted)
+{
+    if (town == null || wanted == null || Campaign.Current == null)
+    {
+        return false;
+    }
+    BuildingScoreCalculationModel model = Campaign.Current.Models.BuildingScoreCalculationModel;
+
+    // 与 BuildingsCampaignBehavior.cs:53 同形：模型只回答「建议谁」，不回答「能不能」
+    Building next = model.GetNextBuilding(town);
+    if (next == null)
+    {
+        return false;   // 都满级或已在建，队列里没有位置
+    }
+    // 真正的守卫在别处：BuildingModel.CanAddBuildingTypeToTown（见 BuildingsCampaignBehavior.cs:167）
+    return Campaign.Current.Models.BuildingModel.CanAddBuildingTypeToTown(wanted, town);
+}
+```
+
+这段把两个模型串起来了，因为它们回答的是两个不同问题：本模型回答「模型建议下一个建哪个」，`BuildingModel` 回答「这种建筑能不能进这座城」。**本模型没有「能不能」这个概念**——`GetNextBuilding` 返回 null 只意味着队列已满或全满级，不是因为你指定的那一种被拒。
+
+`GetNextDailyBuilding` 与 `GetNextBuilding` 也是两个不同的问法：前者对应当日默认工程，行为拿到之后会经 `BuildingHelper.ChangeDefaultBuilding` 把它设为 `town.CurrentDefaultBuilding`；后者是常规工程队列。混用会改到不该改的字段。
+
+### 什么时候不要用它
+
+不要拿它的返回值当授权去写 `town.Buildings`。它是纯查询，写入路径属于 `BuildingsCampaignBehavior` 与对应的 Action。
+
+不要缓存 `Campaign.Current.Models.BuildingScoreCalculationModel` 的实例，理由与其它战役层模型相同。
+
+### 最容易踩的坑
+
+跨战役重载缓存实例：每次新战役与读档都会由 `GameModels` 重新解析，缓存住的实例会在重载后指向旧战役的对象，调用即崩溃或读到陈旧规则。每次需要时都重新走 `Campaign.Current.Models` 获取。
+
 ## 依赖图
 
 上游类型与系统：

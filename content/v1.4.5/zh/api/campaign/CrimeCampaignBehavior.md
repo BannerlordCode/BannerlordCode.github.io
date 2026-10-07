@@ -181,6 +181,32 @@ public partial class MySubModule : MBSubModuleBase
 }
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CrimeCampaignBehavior.cs:13`（`public class CrimeCampaignBehavior : CampaignBehaviorBase`），全文 359 行。
+
+登记点是 `TaleWorlds.CampaignSystem/SandBoxManager.cs:136` 的 `gameStarter.AddBehavior(new CrimeCampaignBehavior());`。取实例用 `Campaign.Current.GetCampaignBehavior<CrimeCampaignBehavior>()`（`Campaign.cs:1066`）。
+
+**一段可直接跑的三行**：
+
+```csharp
+CrimeCampaignBehavior crime = Campaign.Current.GetCampaignBehavior<CrimeCampaignBehavior>();
+IFaction mf = Settlement.CurrentSettlement.MapFaction;
+Debug.Print("moderate = " + Campaign.Current.Models.CrimeModel.IsPlayerCrimeRatingModerate(mf), 0);
+```
+
+**要记住：行为与模型是两回事，判定要走模型。** 上例第二行直接从 Behavior 转到 `Campaign.Current.Models.CrimeModel` —— 因为**这个 Behavior 的所有处理器都是 `private`，它的公开面几乎只有 `RegisterEvents()` / `SyncData()`**。定罪判定的权威在 [CrimeModel](../CrimeModel)，行为只负责在合适的时机去调它。
+
+**它的 `SyncData` 是空实现。** `CrimeCampaignBehavior.cs` 里紧跟 `RegisterEvents` 之后的 `public override void SyncData(IDataStore dataStore) { }` 方法体是空的 —— 与 `CampaignWarManagerBehavior` 同构，这个行为不持有需要持久化的自有状态。
+
+**五个监听事件分两类，别混。** `RegisterEvents`（`CrimeCampaignBehavior.cs:15`）订阅的是：`DailyTickEvent`、`OnGameLoadedEvent`、`OnNewGameCreatedEvent`（后两个**绑到同一个处理器 `OnAfterGameCreated`**）、`HeroKilledEvent`、`MakePeace`。
+
+**`OnGameLoadedEvent` 与 `OnNewGameCreatedEvent` 共用一个处理器是有意义的。** 读档与开新档都需要「把犯罪状态对齐一遍」，所以走同一段代码。你自己写行为时若只订了其中一个，读档后状态会不对。
+
+**五处全是 `AddNonSerializedListener`。** 监听关系不写进存档，读档后靠那两个事件重订。**你派生本行为并新增事件时也要用非序列化版**，除非你确实想让监听关系进档。
+
+**最常见的坑：注册时机。** 它由 `SandBoxManager` 在战役启动时 `AddBehavior`；你自己的 Behavior 必须在 `OnCampaignStart` 的 `CampaignGameStarter` 上 `AddBehavior`，太晚（如在战役已经开始后才订事件）就会错过事件、表现为「功能不生效但没有任何报错」。
+
 ## 参见
 
 - ↑ 父级：[Campaign API 索引](../)

@@ -100,6 +100,68 @@ public class FasterPregnancyModel : PregnancyModel
 }
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PregnancyModel.cs`（全文 18 行）。
+**入口：** `Campaign.Current.Models.PregnancyModel`（由 `GameModels` 在战役建立 / 读档时解析）。
+
+**它不能 `new`，只能通过 `Campaign.Current.Models` 拿。** 类声明是 `public abstract class PregnancyModel : MBGameModel<PregnancyModel>`（`PregnancyModel.cs:5`），**6 个成员全是 `abstract`，零默认实现**。
+
+这是本桶里最小的 Model 之一：五个 `float` 概率/时长属性（`PregnancyModel.cs:7`-`:15`）加一个带英雄入参的查询 `GetDailyChanceOfPregnancyForHero(Hero hero)`（`:17`）。**注意这里没有 out 参数、没有 TextObject、不碰 DiplomacyModel——它纯粹是一张概率表。**
+
+### 典型用法
+
+五个概率之间**不是独立的**：`PregnancyDurationInDays`（`:7`）决定一次怀孕持续多久，`GetDailyChanceOfPregnancyForHero`（`:17`）是**每日**概率，剩下四个（`:9`-`:15`）是分娩时刻才结算的分布。**把日概率当天概率用是典型误用**——要换算成整个孕期概率应该做 `1 - (1 - daily)^days`。
+
+`MaternalMortalityProbabilityInLabor`（`:9`）与 `StillbirthProbability`（`:11`）是**两个独立通道**，不是互斥分支：难产死亡与死胎可以同时不发生，也可以各自独立发生。`DeliveringTwinsProbability`（`:15`）也不是互斥于单胎——**它描述的是「双胞胎」这一结果本身的概率，不是「是否多胎」的判定**。
+
+想知道某个英雄离预产期还有多远，先拿到一个 `CampaignTime` 再和模型比。**注意 `Pregnancy` 是 `internal`，所以 mod 里拿不到它，只能通过 `PregnancyCampaignBehavior` 的事件间接受理**：
+
+```csharp
+public class MyPregnancyWatcher : CampaignBehaviorBase
+{
+    private readonly Dictionary<Hero, CampaignTime> _dueDates = new Dictionary<Hero, CampaignTime>();
+
+    public override void RegisterEvents()
+    {
+        CampaignEvents.OnChildConceivedEvent.AddNonSerializedListener(this, OnConceived);
+    }
+
+    private void OnConceived(Hero mother)
+    {
+        PregnancyModel model = Campaign.Current.Models.PregnancyModel;
+        _dueDates[mother] = CampaignTime.DaysFromNow(model.PregnancyDurationInDays);
+        Debug.Print(mother.Name + " due at " + _dueDates[mother] + " durationDays=" + model.PregnancyDurationInDays, 0);
+    }
+}
+```
+
+**注意事件只有一个实参。** `CampaignEvents.OnChildConceivedEvent` 的类型是 `IMbEvent<Hero>`（`CampaignEvents.cs:883`），处理器形参是 `Hero mother`——**没有 father**。官方的 `ChildConceived(Hero mother)`（`PregnancyCampaignBehavior.cs:192`）在体内自己取 `mother.Spouse`（`:194`），并用 `CampaignTime.DaysFromNow(...)` 算预产期（`:194`）。**所以「谁怀的」这个信息在事件层就丢了，只能靠 `mother.Spouse` 事后补，而那个时刻 Spouse 可能已经变了。**
+
+**这也意味着上例的 `_dueDates` 字典必须自己清。** `AddNonSerializedListener`（`MbEvent.cs:100`）只压链表、没有对应的移除 API，而 `HeroKilledEvent`（`PregnancyCampaignBehavior.cs:85`）取消订阅后你的字典不会自动收缩。**在字典里用 `Hero` 作键意味着强引用，被杀英雄永远不会被 GC。** 生产代码请在 `HeroKilledEvent` 上自己 Remove。
+
+**替换它的代价是全量的。** 因为 6 个成员全部 abstract，派生类必须实现全部 6 个才能编译：
+
+```csharp
+public class MyPregnancyModel : PregnancyModel
+{
+    public override float PregnancyDurationInDays => 280f;
+    public override float MaternalMortalityProbabilityInLabor => 0.01f;
+    public override float StillbirthProbability => 0.02f;
+    public override float DeliveringFemaleOffspringProbability => 0.5f;
+    public override float DeliveringTwinsProbability => 0.03f;
+    public override float GetDailyChanceOfPregnancyForHero(Hero hero) => 0.002f;
+}
+```
+
+**而 `Pregnancy` 本身是 `internal class Pregnancy`（`PregnancyCampaignBehavior.cs:35`），只有三个 `readonly` 存档字段：`Mother`（`:38`）、`Father`（`:41`）、`DueDate`（`:44`）。** 外部程序集拿不到它——**所以 mod 里既不能 `hero.Pregnancy`，也不能 new 一个，只能监听事件。**
+
+### 最容易踩的坑
+
+**跨战役缓存实例**：把 `Campaign.Current.Models.PregnancyModel` 存进静态字段或长期字段，战役重载后会指向新实例，旧引用可能已被销毁或替换为另一覆盖版本，导致逻辑错乱或访问失效对象。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

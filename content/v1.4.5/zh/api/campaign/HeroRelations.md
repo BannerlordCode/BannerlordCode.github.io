@@ -152,6 +152,53 @@ if (targetLord != null)
 
 切勿用 `CharacterRelationManager.SetHeroRelation` 或反射直写 `_relations` 来“优化”——那样会跳过事件广播与合法裁剪。若确实需要只更新存储值且不广播事件，可用低层的 `Hero.SetPersonalRelation`（它会经 `CharacterRelationManager.SetHeroRelation` 并夹紧到关系上下限，但仍不触发 `OnHeroRelationChanged`）。
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CharacterRelationManager.cs`（`HeroRelations` 嵌套类声明在 `:11`-`:107`）。
+**入口：** `CharacterRelationManager.Instance`（`CharacterRelationManager.cs:112`）→ 私有字段 `_heroRelations`（`:110`）→ 你能用的两个静态门面 `GetHeroRelation`（`:134`）与 `SetHeroRelation`（`:139`）。
+
+**类本身是 `internal class HeroRelations`（`CharacterRelationManager.cs:11`），嵌套在 `public class CharacterRelationManager`（`:9`）内部。** 也就是说**外层公开、内层 internal**——你能用外层的门面，拿不到内层的类型。
+
+**存储结构是两层的 `Dictionary<long, Dictionary<long, int>>`（`:14`）**，键都是 `long`，而且**是 hash 而不是 id**。
+
+### 典型用法
+
+**这一层最反直觉的设计是 `GetHashCodes`（`:99`）会把两个英雄按 `Id` 大小排一次序。** 判据是 `hero1.Id > hero2.Id`（`:101`），成立就按原序返回（`:103`），否则**交换**（`:105`）。所以**查 `GetRelation(a, b)` 和 `GetRelation(b, a)` 拿到的是同一条记录**——**关系在这个存储里是无向的，尽管 API 签名是有向的。**
+
+由此推出一条硬规则：**自己调 `GetHashCodes` 是错的**。你得复制那段排序逻辑才能构造出正确的写入键，而 `GetRelation` / `SetRelation` 已经封装好了。**结论是走 `CharacterRelationManager.GetHeroRelation` / `SetHeroRelation` 门面，不要试图绕过。**
+
+**`SetRelation` 的零值有特殊语义。** `value != 0` 时才建桶并写（`:45`-`:52`）；`value == 0` 时走 `:54` 分支，**先确认那一对确实存在**（`ContainsKey`），再 `Remove`（`:56`），**最后如果那个内层字典空了，连外层桶一起删**（`:57`-`:60`）。**所以把关系设成 0 不是「写入零」，是「删除这条记录」。** 对外表现一样（`GetRelation` 找不到就返回 0，`:38`），但存储形态不同。
+
+`Remove(Hero hero)`（`:64`）做双向清理：删掉以它为键的外层桶（`:67`），**再遍历所有其它桶把它的 hash 删掉**（`:68`-`:71`）。**这是 O(n) 的**，对没有并行删除的话尚可接受。
+
+`SetHeroRelation`（`:139`）这层门面加了一道断言：`hero1 != hero2`（`:141`）成立才转调（`:143`），否则走 `Debug.FailedAssert("hero1 != hero2", ...)`（`:147`）。**注意它只 assert 不抛异常，所以传同一个英雄进去会静默无操作**——而 `SetRelation` 内层并没有这道检查，**绕过门面就能造出自环记录**。
+
+`ClearOldData()`（`:74`）只在读旧存档时跑：`AfterLoad`（`:151`）判 `MBSaveLoad.LastLoadedGameVersion < ApplicationVersion.FromString("v1.1.0")`（`:153`）才调（`:155`）。**也就是说新存档根本不会做这次清理**——老存档里指向已死英雄的残留关系，会在这次升级路径里被清掉。
+
+`ClearOldData()`（`:74`）配合泛型私有重载 `ClearOldData<T>`（`:83`）清理已死英雄：先把所有键拷进 `HashSet`（`:85`），再用 `Campaign.Current.CampaignObjectManager.AliveHeroes`（`:86`）逐个剔除（`:88`-`:90`），**最后剩下的就是已死的，全删**（`:93`-`：95`）。**这依赖英雄 id 的 GetHashCode 稳定——它跨进程是否稳定，取决于 `Id` 的实现。**
+
+```csharp
+public static void AuditRelations(Hero a, Hero b)
+{
+    int baseRelation = CharacterRelationManager.GetHeroRelation(a, b);
+    int reverseProbe = CharacterRelationManager.GetHeroRelation(b, a);
+    int effective = a.GetRelation(b);
+    Debug.Print("base=" + baseRelation + " reverse=" + reverseProbe + " (same row, undirected storage)", 0);
+    Debug.Print("effective=" + effective + " (after DiplomacyModel faction modifiers)", 0);
+    Debug.Print("undirected? " + (baseRelation == reverseProbe), 0);
+}
+```
+
+**上例第一、二行是本节唯一值得抄的自检。** 反向探针相等 ⇒ 存储无向；不等 ⇒ 说明你调的不是同一个实例或关系被单边写过。**这两行能在早期发现绝大多数「关系不生效」的 mod bug。**
+
+**而它为什么是 public 的，一句调用点就能说明白：`CharacterRelationManager.GetHeroRelation`（`CharacterRelationManager.cs:134`）自身只做一句 `Instance._heroRelations.GetRelation(hero1, hero2)`（`:136`）。** **也就是说这一层没有任何额外逻辑——公开面已经薄到只剩存储了。** 你选它而不是 `Hero.GetRelation`，唯一原因就是「不要外交修正」。
+
+### 最容易踩的坑
+
+**绕过事件链与存档一致性**：直接写 `_relations` 或调 `SetRelation`（即便你通过反射拿到实例）只动字典，不会触发 `OnHeroRelationChanged`，地图 UI、任务进度、对话标签都收不到变化；且该写入跳过了 `SetHeroRelation` 的 `hero1 != hero2` 断言与上层夹紧，可能产生非法或自环关系。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

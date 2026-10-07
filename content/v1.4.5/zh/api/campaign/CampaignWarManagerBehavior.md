@@ -82,6 +82,37 @@ private void OnMyMapEventEnded(MapEvent mapEvent)
 }
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CampaignWarManagerBehavior.cs:7`（`public class CampaignWarManagerBehavior : CampaignBehaviorBase`）。**全文只有 83 行，是本批最短的行为类。**
+
+登记点在 `TaleWorlds.CampaignSystem/SandBoxManager.cs:152` 的一行 `gameStarter.AddBehavior(new CampaignWarManagerBehavior());`。**这行在 `SandBoxManager` 里，不在你的程序集里 —— 你无法阻止官方登记它，只能追加自己的。**
+
+取实例的唯一入口是 `Campaign.GetCampaignBehavior<T>()`（`Campaign.cs:1066`），方法体只有一句 `return _campaignBehaviorManager.GetBehavior<T>();`。
+
+**一段可直接跑的三行**：
+
+```csharp
+CampaignWarManagerBehavior war = Campaign.Current.GetCampaignBehavior<CampaignWarManagerBehavior>();
+bool found = war != null;
+Debug.Print("found = " + found, 0);
+```
+
+**返回值可能是 null。** `GetBehavior<T>()` 是泛型查找，**找不到就返回 null 而不抛异常**。所以上面第一行的判空不是保守写法，是必需的 —— 若你在未登记该 Behavior 的战役模式（故事模式可能不同）里取，会拿到 null。
+
+**这个类全部的公开面就一个方法：`RegisterEvents()`。** 它是 `CampaignWarManagerBehavior.cs:9` 的 `public override void RegisterEvents();`（基类 `CampaignBehaviorBase` 的虚方法），方法体订阅两个静态事件：
+
+```csharp
+CampaignEvents.MapEventEnded.AddNonSerializedListener(this, MapEventEnded);
+CampaignEvents.RaidCompletedEvent.AddNonSerializedListener(this, OnRaidCompleted);
+```
+
+**两个监听都是 `AddNonSerializedListener`，不是 `AddSerializedListener`。** 区别直接决定了行为能不能跨存档：序列化版会把监听关系写进存档，读档后继续；非序列化版**读档后不恢复**。这个类选非序列化是对的 —— 它只做统计累加，不需要跨局延续。
+
+**最常见的坑：`SyncData` 为空，但 `StanceLink` 必须正确存档。** `CampaignWarManagerBehavior.cs:80` 的 `public override void SyncData(IDataStore dataStore)` 是空实现 —— 因为本行为自己不持有状态。**它累加的所有数字（`SuccessfulRaids1` / `SuccessfulRaids2`）都写在 `StanceLink` 上**（`StanceLink.cs:171` 与 `183`），由那个类型自己负责持久化。若你派生本行为并新增自己的计数字段，必须自己实现 `SyncData`，否则读档后数值归零。
+
+**而两个处理器都是 `private`，所以外部无法单独调用它们。** 想在自定义时机触发同样的统计，只能自己再 `AddNonSerializedListener` 一次到那两个静态事件上。
+
 ## 参见
 
 - ↑ 父级/枢纽：[战役 API 索引](../) · [CampaignBehaviorBase](../CampaignBehaviorBase)（基类与存读档契约，所有 CampaignBehavior 的对照范本）

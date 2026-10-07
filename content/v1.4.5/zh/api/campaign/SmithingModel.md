@@ -138,6 +138,36 @@ SmithingModel 是一个无状态的计算扩展点：Campaign 在启动时通过
   - 副作用：无。
   - 调用时机：`CraftingCampaignBehavior` 在判定研究进度、决定是否开放新部件时调用。
 
+## 怎么用
+
+这是锻造经济体系里最厚的模型：42 行、17 个成员，横跨精炼、熔炼、自由打造、订单打造与研究点五条链路。它全部是纯计算，真正的物品增减与经验累加由 `CraftingCampaignBehavior` 在调用它之后完成。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SmithingModel.cs:6`。默认实现注册点是 `SandBoxManager.cs:227` 的 `gameStarter.AddModel(new DefaultSmithingModel())`，运行时走 `Campaign.Current.Models.SmithingModel`。
+
+17 个成员可以按五条链路读，这是唯一能把它们记住的办法。**难度**：`GetCraftingPartDifficulty(CraftingPiece)` 在 `:8`、`CalculateWeaponDesignDifficulty(WeaponDesign)` 在 `:10`。**配方与产物**：`GetRefiningFormulas(Hero weaponsmith)` 在 `:14`（按铁匠给精炼配方列表）、`GetCraftingMaterialItem(CraftingMaterials)` 在 `:16`、`GetSmeltingOutputForItem(ItemObject)` 在 `:18`（返回 `int[]`，是产物与数量的配对）、`GetCraftedWeaponModifier(WeaponDesign, Hero)` 在 `:12`（**唯一带一个 `Hero` 参数的产物判定**，说明同一份设计在不同铁匠手里结果不同）。**技能经验**：四个方法在 `:20`–`:26`，精炼、熔炼、自由打造、订单打造各一个。**能量消耗**：三个方法在 `:30`–`:34`，签名分别是 `GetEnergyCostForRefining(ref Crafting.RefiningFormula, Hero)`、`GetEnergyCostForSmithing(ItemObject, Hero)`、`GetEnergyCostForSmelting(ItemObject, Hero)`。**研究点**：`ResearchPointsNeedForNewPart(int totalPartCount, int openedPartCount)` 在 `:36`、`GetPartResearchGainForSmeltingItem(ItemObject, Hero)` 在 `:38`、`GetPartResearchGainForSmithingItem(ItemObject, Hero, bool isFreeBuildMode)` 在 `:40`。最后还有 `GetSmithingCostsForWeaponDesign(WeaponDesign)` 在 `:28`，返回 `int[]`。
+
+两个签名细节值得单独拎出来：`ref Crafting.RefiningFormula` 出现在两个方法上（`:14` 返回它、`:30` 收 `ref` 它），说明公式对象本身在调用链上被传递；而 `GetSmithingCostsForWeaponDesign` 和 `GetSmeltingOutputForItem` 都返回 `int[]`，是「物品/数量」交替排列的扁平数组，不是集合。
+
+```csharp
+SmithingModel smithing = Campaign.Current.Models.SmithingModel;
+Hero smith = Hero.MainHero;
+Debug.Print("自由打造经验=" + smithing.GetSkillXpForSmithingInFreeBuildMode(ItemObject.Satchel)
+    + " 订单打造经验=" + smithing.GetSkillXpForSmithingInCraftingOrderMode(ItemObject.Satchel), 0);
+int[] smelt = smithing.GetSmeltingOutputForItem(ItemObject.Satchel);
+Debug.Print("熔炼产物对数=" + smelt.Length / 2, 0);
+foreach (Crafting.RefiningFormula f in smithing.GetRefiningFormulas(smith))
+{
+    Debug.Print("精炼配方 材料=" + f.RefiningRecipeFixedItem.Name
+        + " 产出=" + f.RefiningResultFixedItem.Name
+        + " 能量=" + smithing.GetEnergyCostForRefining(ref f, smith), 0);
+}
+Debug.Print("解锁新部件所需研究点=" + smithing.ResearchPointsNeedForNewPart(100, 40), 0);
+```
+
+外部调用点印证了这套分工：`CraftingCampaignBehavior.cs:645` 用 `ResearchPointsNeedForNewPart` 判解锁，`RefinementVM.cs:119` 用 `GetRefiningFormulas(hero)` 填精炼界面，`CraftingVM.cs:845` 用 `GetSmeltingOutputForItem` 填熔炼界面，`TooltipRefresherCollection.cs:351` 用难度方法填 tooltip，`CampaignCheats.cs:1168` 用 `GetCraftingMaterialItem` 直接发材料。
+
+**最常见的坑**：跨战役重载缓存实例。`Campaign.Current.Models.SmithingModel` 每次新战役或读档都由 `GameModels` 重新解析，缓存进静态字段会指向旧战役的已销毁对象。
+
 ## 示例
 
 读取某铁匠可用的精炼配方，并算出每条配方的能量与经验消耗：

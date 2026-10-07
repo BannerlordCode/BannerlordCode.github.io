@@ -112,6 +112,55 @@ public static class ControllerTally
 - **`AgentBuildData.Controller` 是更安全的入口。** 生成期设置不会触发运行时那串副作用；`AgentControllerType` 页面上真正该用的写法是「生成时定好，之后尽量不改」。
 - **不要与 [AgentState](../AgentState) 混淆。** 前者是「谁在操作」，后者是「这条命还在不在」。两者没有派生关系，组合判断时两个都要查。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public enum AgentControllerType`（`TaleWorlds.Core/AgentControllerType.cs:3`）。它与本页其他两个枚举不同——虽然也带 `DefineAsEngineStruct`（`TaleWorlds.MountAndBlade/Properties/AssemblyInfo.cs:13`）绑到 native，但**它在托管侧有真实写路径**：`Agent.Controller` 的 setter。读路径是 `Agent.Controller`、`Agent.IsMine`、`Agent.IsAIControlled`，通知路径是 `OnAgentControllerChanged`。
+
+### 典型用法
+
+上面「真实示例」一段在生成时指定、一段在运行期单次移交。真正的痛点在**批量**移交：`Mission.MainAgent` 是全局单例，每写一次 `Player` 就会覆写它一次，所以要排成队、一次只交一个：
+
+```csharp
+public class MyControlQueue : MissionBehavior
+{
+    private readonly List<Agent> _queue = new List<Agent>();
+
+    public void Enqueue(Agent agent)
+    {
+        if (agent == null || agent.Controller != AgentControllerType.AI)
+        {
+            return;
+        }
+        // 别重复入队：同一个 agent 被移交两次会把编队状态撕两次
+        if (!this._queue.Contains(agent))
+        {
+            this._queue.Add(agent);
+        }
+    }
+
+    // 一次只交一个：每次写 Player 都会重写 Mission.MainAgent
+    public AgentControllerType PromoteOne()
+    {
+        if (this._queue.Count == 0)
+        {
+            return AgentControllerType.None;
+        }
+        Agent agent = this._queue[0];
+        this._queue.RemoveAt(0);
+        agent.Controller = AgentControllerType.Player;
+        return agent.Controller;
+    }
+}
+```
+
+与上面「真实示例」的差别：那里是**单点移交**——一个 `unit`、一次赋值、赋值后立刻读回 `Mission.MainAgent` 做校验；这里处理的是**移交的节奏**：先收队列、再逐个交，每交一个就返回实际生效的取值，让调用方能知道此刻谁持有控制权。它不关心单个 setter 的五重副作用细节，只关心副作用的**全局单例部分**不要被连续触发。
+
+### 最容易踩的坑
+
+**写 `Player` 有五重副作用，不是设个属性那么简单。** `Agent.Controller` 的 setter 会动编队、`Mission.MainAgent`、`CanRide` 能力位、速度上限与编队回调。频繁切换会撕裂编队状态。
+
 ## 跨版本提示
 
 `AgentControllerType.cs` 在 1.4.5 里只有 9 行、4 个成员（`AgentState.cs` 11 行、`AgentAttackType.cs` 10 行同属这一批极小文件），是 1.4.5 的原始源码形态。1.3.x / 1.4.6 的同名文件是反编译产物，行数远大于此，但成员集合与 native 绑定名 `"Agent_controller_type"` 一致。跨版本迁移时值得核对的两件事：`Agent.Controller` 的 setter 副作用集合是否增补（1.4.5 里有编队回挂、`MainAgent` 改写、`CanRide` 置位三条），以及 `DefineAsEngineStruct` 的第三参数是否仍为 `false`——若哪天变成 `true`，说明 native 侧改成了位标志集，本页关于「不能位运算」的结论就要跟着改。

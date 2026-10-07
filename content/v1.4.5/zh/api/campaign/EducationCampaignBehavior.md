@@ -98,6 +98,32 @@ protected override void OnCampaignStart(Game game)
 }
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/EducationCampaignBehavior.cs:14`（`public class EducationCampaignBehavior : CampaignBehaviorBase, IEducationLogic`），全文 2063 行。
+
+登记点是 `TaleWorlds.CampaignSystem/SandBoxManager.cs:90` 的 `gameStarter.AddBehavior(new EducationCampaignBehavior());`。取实例用 `Campaign.Current.GetCampaignBehavior<EducationCampaignBehavior>()`。
+
+**优先声明成接口。** 它实现了 `IEducationLogic`（`TaleWorlds.CampaignSystem.CampaignBehaviors/IEducationLogic.cs`），接口上正好是五个 UI 需要的方法：`Finalize` / `GetOptionProperties` / `GetPageProperties` / `GetStageProperties` / `IsValidEducationNotification`。**用接口就绕开了 2063 行里绝大多数与你无关的东西。**
+
+**一段可直接跑的三行读阶段数**：
+
+```csharp
+IEducationLogic edu = Campaign.Current.GetCampaignBehavior<EducationCampaignBehavior>();
+int pages = 0;
+edu.GetStageProperties(child, out pages);
+```
+
+**第二个方法的 `out` 有八个，这是本类型最容易写不出来的签名。** `GetOptionProperties`（`EducationCampaignBehavior.cs:620`）在 `out TextObject optionTitle` 之后依次还有 `out TextObject description`、`out TextObject effect`、`out (CharacterAttribute, int)[] attributes`、`out (SkillObject, int)[] skills`、`out (SkillObject, int)[] focusPoints`、`out EducationCharacterProperties[] educationCharacterProperties` —— **八个 out 全部必填，漏一个编译不过，而且顺序不能记错。**
+
+**注意 `EducationCharacterProperties` 需要写两层限定。** 它是嵌套在本类里的结构体，接口上的声明写的是 `out EducationCampaignBehavior.EducationCharacterProperties[] characterProperties`（`IEducationLogic.cs:12`）—— **从接口调用时也要写 `EducationCampaignBehavior.` 前缀**。它的声明在 `EducationCampaignBehavior.cs:377`，且用的是结构体主构造器语法。
+
+**三个元组数组的区别要分清。** `attributes` 是 `(CharacterAttribute, int)[]`、`skills` 是 `(SkillObject, int)[]`、`focusPoints` 也是 `(SkillObject, int)[]` —— **后两者类型完全一样，含义靠变量名区分。** 技能是「等级」，专注点是「focus 点数」。
+
+**`RegisterEvents` 整个函数体被一个 `if` 包住。** `EducationCampaignBehavior.cs:554` 的实现是 `if (!CampaignOptions.IsLifeDeathCycleDisabled) { ... }` —— **只有启用生命周期的战役才会订阅那四个事件**（`DailyTickEvent`、`OnCharacterCreationIsOverEvent`、`HeroKilledEvent`、`HeroComesOfAgeEvent`）。所以在禁用生命周期的战役里，**取到的实例是活的、能调方法，但任何自动推进都不会发生**。
+
+**最常见的坑：注册 / 生命周期时机。** `RegisterEvents` 仅在 `!CampaignOptions.IsLifeDeathCycleDisabled` 时订阅每日推进与生命周期事件。若战役以「禁用生命周期」方式开局，**行为被登记了、实例也拿得到，但四个回调一个都不会触发** —— 子女教育流程整体静默不推进，没有任何异常。
+
 ## 参见
 
 ↑ 父级：[战役 API 索引](../)

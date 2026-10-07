@@ -13,7 +13,7 @@ description: "暗巷失去首领的地图通知：只带一个 Alley 引用，�
 
 ## 概述
 
-`AlleyLeaderDiedMapNotification` 是「你有条暗巷失去首领（或人手不足）��这条地图通知。数据面极简——`[SaveableProperty(10)] public Alley Alley` + 一段文本 + 两个硬编码 override（`TitleText` = `"{=6QoSHiWC}An alley without a leader"`，`SoundEventPath` = `"event:/ui/notification/death"`）。
+`AlleyLeaderDiedMapNotification` 是「你有条暗巷失去首领（或人手不足）」那条地图通知。数据面极简——`[SaveableProperty(10)] public Alley Alley` + 一段文本 + 两个硬编码 override（`TitleText` = `"{=6QoSHiWC}An alley without a leader"`，`SoundEventPath` = `"event:/ui/notification/death"`）。
 
 **真正的内容在 VM 里，不在本类型里。** `AlleyLeaderDiedMapNotificationItemVM` 的 `_onInspect` 指向 `CreateAlleyLeaderDiedPopUp`，它构造一段说明文本、把 `Campaign.Current.Models.AlleyModel.DestroyAlleyAfterDaysWhenLeaderIsDeath.ToDays` 填进 `{DAYS}` 变量、再 `InformationManager.ShowInquiry` 弹出一个带「了解更多 / 关闭」双按钮的框。「了解更多」走 `NavigationHandler.OpenClan(_alley)` 跳氏族界面并 `ExecuteRemove()`；「关闭」只执行 `base.ExecuteRemove`。
 

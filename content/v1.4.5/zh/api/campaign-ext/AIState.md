@@ -121,8 +121,8 @@ public static void SwitchDifficulty(MyChessAi ai)
 
 - 唯一宿主：[BoardGameAIBase](../BoardGameAIBase) 的 `volatile AIState _state` 与 `public AIState State` 是这个枚举的存在理由，`UpdateThinkingAboutMove` / `OnBeginSeparateThread` / `OnExitSeparateThread` / `ResetThinking` / `Reset` / `CanMakeMove` / `OnSetGameOver` 是全部状态迁移点
 - 后台任务：`TaleWorlds.DotNet.AsyncTask.CreateWithDelegate` 在 `BoardGameAIBase` 构造函数里创建，`_aiTask.Invoke()` 与 `_aiTask.Wait()` 构成主线程与后台线程的同步手段
-- 难度搭档：[AIDifficulty](AIDifficulty) 由同一个宿主类持有，两者的交互点是 `InitializeDifficulty()`
-- 计算产物：`Move.Invalid` 是中止与复位时写入 `RecentMoveCalculated` 的哨兵值，详见同桶的 [Move](Move)
+- 难度搭档：[AIDifficulty](../AIDifficulty) 由同一个宿主类持有，两者的交互点是 `InitializeDifficulty()`
+- 计算产物：`Move.Invalid` 是中止与复位时写入 `RecentMoveCalculated` 的哨兵值，详见同桶的 [Move](../Move)
 - 棋局上下文：`MissionBoardGameLogic` 的 `CurrentBoardGame` 与 `Board` 决定 AI 走 `CalculatePreMovementStageMove` 还是 `CalculateMovementStageMove`
 - 容易混淆的同名类型：`TaleWorlds.MountAndBlade.Agent` 里的 `AIStateFlag` 与本枚举无关
 - 桶首页：[campaign-ext API 分区](../)

@@ -8,7 +8,7 @@ description: "「你（或你的王国）新建了一支军队」这条地图通
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public class ArmyCreationNotificationItemVM : MapNotificationItemBaseVM`  
 **Base:** `MapNotificationItemBaseVM`  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/ArmyCreationNotificationItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/ArmyCreationNotificationItemVM.cs`
 
 ## 概述
 

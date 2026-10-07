@@ -23,6 +23,61 @@ description: "承载全部 campaign.* 调试/作弊控制台命令与跨模块�
 - **使用**：需要在调试或 mod 中即时改变 `Hero` / `Settlement` / `Clan` 等状态时，优先调用走 `*Action` 的封装（`AddGoldToHero`、`AddInfluence`、`AddRenown`、`DeclareWar`、`MakePeace`、`GiveSettlementToPlayer` 等），它们经过正规 Action 流程、坏档安全；或复用 `CheckCheatUsage` / `TryGetObject` 等辅助方法编写你自己的命令。
 - **不要使用**：不要把直接改字段的命令（`SetLoyaltyOfSettlement` 直接赋值 `Town.Loyalty`、`SetHeroCulture` 直接赋值 `Culture` 等）当作正式游戏逻辑——它们绕过 `ChangeOwnerOfSettlementAction` / `ChangeRelationAction` 等事件级联，可能造成关联数据不一致；也不要在战役未启动、`CheatMode` 关闭或非 `Campaign` 层（如 `Mission`）里调用；生产代码应改用对应的 `*Action` 而非 Cheats。
 
+## 怎么用
+
+何时该读这一页、何时不该读，见上文「何时使用 / 何时不要使用」。本节只讲怎么从源码拿到它、以及它在 v1.4.5 里被谁真的调用。
+
+### 怎么拿到它
+
+声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignCheats.cs:28`，`public static class CampaignCheats`，全部成员都是静态的。
+
+有一件事必须先摆出来：`grep -rlw "CampaignCheats" --include=*.cs` 在整棵 v1.4.5 树里**只命中它自己一个文件**。也就是说这份托管源码里没有任何调用方。控制台命令的接线不在这一版反编译语料内，所以本页描述的是「对外可用的命令实现」，而「谁在什么时候调它」在这棵树里无法判定。
+
+它自己的内部调用点是可以查清的。`CheckCheatUsage(ref string ErrorType)` 在 `:80`，而它被本文件内部至少五处调用：`:164`、`:197`、`:231`、`:259`、`:299`。**这就是「每个命令首行调用 `CheckCheatUsage`」这句结论的来源**——不是文档约定，是源码里逐个命令自己写的。
+
+`CheckCheatUsage` 同时做两件事：检查 `Campaign.Current != null` 与 `Game.Current.CheatMode`，并在失败时把错误字符串写进 `ref` 参数。所以 `ErrorType` 是 out 参数语义，不调用就永远是 null。
+
+### 典型用法
+
+上面两个「示例」是「校验上下文后按名解析实体」和「逐个调 `Add*` / `DeclareWar` 便捷封装」。缺的那一格是**把它们包成一个带统一错误输出的批量入口**，因为每个命令失败时只把字符串写进 `ref ErrorType`，而逐个调用意味着你要为每个命令写一遍错误处理：
+
+```csharp
+public static class MyCheatRunner
+{
+    public static bool GrantGold(string heroName, string amountTokens)
+    {
+        // ref 参数：非战役或 CheatMode 未开时，这里会把原因写进来并返回 false
+        if (!CampaignCheats.CheckCheatUsage(ref CampaignCheats.ErrorType))
+        {
+            Debug.Print("cheat 不可用：" + CampaignCheats.ErrorType, 0);
+            return false;
+        }
+
+        // 失败时 ErrorType 会被再次改写为具体原因，所以每一步都要重新判
+        if (!CampaignCheats.AddGoldToHero(new string[] { heroName, amountTokens }))
+        {
+            Debug.Print("加金失败：" + CampaignCheats.ErrorType, 0);
+            return false;
+        }
+        return true;
+    }
+}
+```
+
+关键在于**每一步之后都要重新读 `ErrorType`**：它是 `ref string`，一次调用失败会覆盖上一次的错误内容，所以「先检查一次再连续调三个命令」的写法会丢掉中间两步的失败原因。
+
+走 `*Action` 的便捷封装（`AddGoldToHero` / `AddInfluence` / `DeclareWar`）是坏档安全的首选，因为它们内部走的是与玩家操作同一条路径，会被存档系统记录。直接改领域对象则不会。
+
+### 什么时候不要用它
+
+不要在非战役上下文或 `CheatMode` 未开启时调用。它不会崩溃，但只会返回错误字符串、什么都不做。
+
+不要把它当调试期专用工具后就顺手删掉前置检查。`CheckCheatUsage` 同时挡住了 `Campaign.Current` 为 null 的情况，那不是「反正不作弊」能免掉的。
+
+### 最容易踩的坑
+
+必须在战役上下文加 `CheatMode` 两个条件同时成立，否则每个命令都只是静默返回错误字符串，不崩溃也没有效果。
+
 ## 依赖图
 
 上游类型与系统：

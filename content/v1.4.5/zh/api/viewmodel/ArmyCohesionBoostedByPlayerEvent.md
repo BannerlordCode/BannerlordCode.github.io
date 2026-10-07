@@ -8,7 +8,7 @@ description: "一个没有任何成员的信标事件。全文只有两行——
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public class ArmyCohesionBoostedByPlayerEvent : EventBase`  
 **Base:** `EventBase`（`TaleWorlds.Library.EventSystem`）  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyCohesionBoostedByPlayerEvent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyCohesionBoostedByPlayerEvent.cs`
 
 ## 概述
 

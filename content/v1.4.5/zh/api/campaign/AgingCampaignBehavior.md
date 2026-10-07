@@ -63,6 +63,42 @@ description: "战役老化行为：每日逐英雄推进年龄阶段与衰老死
 | `OnGameLoaded` | `private void OnGameLoaded(CampaignGameStarter obj)` | 读档钩子，只调 `CheckYoungHeroes()`。**它是对 `_heroesYoungerThanHeroComesOfAge` 的补漏**——读档后把表里缺失的未成年英雄补进去，并补发已经越过的事件。 |
 | `CheckYoungHeroes` | `private void CheckYoungHeroes()` | 补漏逻辑：`Age < HeroComesOfAge && !IsDead && 不在字典里` 的英雄入表；**已入表但 `!IsDisabled` 的，再按 `Age > BecomeChildAge` / `Age > BecomeTeenagerAge` 补发两个事件**。注意内层那个 `!ContainsKey` 检查在刚 `Add` 之后恒为 false——**所以补发分支实际上永远不进**，这是一处死代码。 |
 
+## 怎么用
+
+这是战役的每日年龄引擎，不需要你主动调用，它靠行为系统自己接上事件。它的工作单位是「天」：每天的日结里逐个英雄比对年龄，命中阈值就派发对应事件，然后掷一次死亡骰。你要做的事情通常是反过来——订阅它派发的事件，而不是调用它。
+
+**怎么拿到它**：注册点是 `SandBoxManager.cs:140` 的 `gameStarter.AddBehavior(new AgingCampaignBehavior())`，声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/AgingCampaignBehavior.cs:13`。它的三条年龄事件在 `AgingCampaignBehavior.cs:25`–`:27` 注册订阅，在 `AgingCampaignBehavior.cs:117`、`:124`、`:128` 派发，最终经 `CampaignEventDispatcher.cs:648`、`:657`、`:666` 广播。
+
+下游真正消费这些事件的行为有三个：`BannerCampaignBehavior.cs:149`（成年时重新分配旗帜）、`EducationCampaignBehavior.cs:565`（进入教育阶段）、`HeroSpawnCampaignBehavior.cs:85`（成年后重算相关度）。你的 mod 想接年龄事件，正确的形状是继承 `CampaignEventReceiver` 并覆写对应虚方法：
+
+```csharp
+public class MyAgeWatcher : CampaignEventReceiver
+{
+    public override void OnHeroComesOfAge(Hero hero)
+    {
+        if (hero.IsPlayerControlled)
+        {
+            // 成年那一刻：此时英雄的 Age 已经是新值，Occupation 也可能刚被改过
+            Debug.Print(hero.Name + " 成年于第 " + Campaign.Current.GetCampaignTime<CampaignTime>().GetDayOfCampaign + " 天", 0);
+        }
+    }
+}
+
+public class MyAgeBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        CampaignEvents.HeroComesOfAgeEvent.AddNonSerializedListener(this, new MyAgeWatcher());
+    }
+}
+```
+
+事件订阅一律走 `AddNonSerializedListener`，事件引用不进存档，读档后由 `CampaignBehaviorManager.AddBehavior` 重新调 `RegisterEvents` 订阅。年龄阈值本身不在这个类里，全读 `Campaign.Current.Models.AgeModel`，所以改年龄曲线要换 `AgeModel` 而不是改这个 behavior。
+
+主角的「病倒」是另一条独立路径，和年龄事件无关：`Campaign.Current.MainHeroIllDays` 每天累加，从第 4 天起每天按天数比例扣血，血尽即死亡。这个字段挂在 `Campaign.cs:140`，`Hero.cs:895` 的 `Hero.IsMainHeroIll` 是它的读取方，`ChangePlayerCharacterAction.cs:62` 负责在换主角时清零。
+
+**最常见的坑**：阶段判定用的是 `==` 而不是 `>=`，所以事件只在年龄恰好等于阈值那一天触发。你一旦移动 `AgeModel` 里的阈值，某些年龄的英雄会同时跳过多个事件——`HeroComesOfAge` 分支先命中并把该英雄从待办字典里移除，后面的分支就没机会执行了。
+
 ## 真实示例
 
 观察一个英雄的年龄阶段（阈值全读 `AgeModel`）：

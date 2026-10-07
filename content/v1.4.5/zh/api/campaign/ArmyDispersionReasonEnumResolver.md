@@ -48,6 +48,27 @@ AddEnumDefinition(typeof(Army.ArmyDispersionReason), 2023, new ArmyDispersionRea
 
 （`ArmyDispersionReasonEnumResolver` 只有一个成员、一张实现表，除此之外全部是 `internal static` 的存档脚手架，不在公开表面上。）
 
+## 怎么用
+
+这是存档兼容层里的枚举改名器，实例化本身没有价值，有价值的是它作为 `IEnumResolver` 被存档框架回调。读旧存档时框架把枚举名以字符串形式交回来，它要么返回新名字，要么原样返回。mod 作者通常不需要手动调用它，但只要你要往 `Army.ArmyDispersionReason` 上写新的枚举值，就必须知道这条改名链的存在。
+
+**怎么拿到它**：声明在源树 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SaveCompability/ArmyDispersionReasonEnumResolver.cs:6`，命名空间目录拼作 `SaveCompability` 而不是 `SaveCompatibility`，这是游戏里的长期拼写错误，按正确拼写搜不到文件。挂载点是 `SaveableCampaignTypeDefiner.cs:313` 的 `AddEnumDefinition(typeof(Army.ArmyDispersionReason), 2023, new ArmyDispersionReasonEnumResolver())`，第三个参数就是它。
+
+想知道一条旧枚举名会落到哪个新值，把字符串喂给 `ResolveObject` 再解析回去就够了：
+
+```csharp
+ArmyDispersionReasonEnumResolver resolver = new ArmyDispersionReasonEnumResolver();
+string oldValue = "LowPartySizeRatio";
+Army.ArmyDispersionReason resolved = Enum.Parse<Army.ArmyDispersionReason>(resolver.ResolveObject(oldValue));
+Debug.Print("旧名 " + oldValue + " 解析为 " + resolved, 0);
+string fallback = resolver.ResolveObject(Army.ArmyDispersionReason.Unknown.ToString());
+Debug.Print("原样透传 " + fallback + "，空值则会被兜底成 " + Army.ArmyDispersionReason.Unknown, 0);
+```
+
+实现只有两条分支，读起来比调用还短：`string.IsNullOrEmpty(originalObject)` 为真时先 `Debug.FailedAssert` 再返回 `Unknown.ToString()`；`originalObject.Equals("LowPartySizeRatio")` 为真时返回 `NotEnoughTroop.ToString()`；其余原样返回。纯字符串映射，没有查表也没有兜底枚举扫描，未命中的旧名会被直接透传给存档解析器。
+
+**最常见的坑**：全文只处理 `"LowPartySizeRatio"` 这一个旧名，其余历史改名一概不在覆盖范围内。未命中的旧名被原样透传，然后由存档框架去解析一个不存在的枚举名，失败点离真正的原因很远。要覆盖更多改名只能改这个类，或者新增一个 resolver 并改 `SaveableCampaignTypeDefiner` 里那一行的第三个参数，而那一行是硬写的。
+
 ## 真实示例
 
 这个类的正确用法是**在存档定义处挂载**，而不是手动调用。`SaveableTypeDefiner`（`Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveableTypeDefiner.cs`）是抽象类，构造器要 `int saveBaseId`，`AddEnumDefinition(Type type, int saveId, IEnumResolver enumResolver = null)` 是它的 **`protected`** 方法，只能写在 `protected override void DefineEnumTypes()` 里。`SaveableCampaignTypeDefiner` 就是这样一个子类（`base(330000)`），它正是官方挂载 resolver 的地方：

@@ -48,6 +48,34 @@ description: "结盟与宣战号召的唯一真源：两张进存档的表（同
 | `OnKingdomDestroyed` | `private void OnKingdomDestroyed(Kingdom kingdom)` | 遍历 `_alliances`，对涉及被灭国的每条同盟调 `EndAlliance`。**注意只清 `_alliances`，不直接清 `_callToWarAgreements`**——后者靠 `HasCalledToWar` 里的 `IsEliminated` 挡。 |
 | `DailyTickClan` | `private void DailyTickClan(Clan clan)` | 到期清算器。`clan.Aggressiveness -= 1f` 对**所有**氏族执行；后续逻辑只对执政氏族执行，遍历盟友倒序清理过期号召与过期同盟。**倒序遍历是为了安全地 `Remove`。** |
 
+## 怎么用
+
+这是同盟与宣战号召的权威状态持有者，mod 要碰外交状态就通过它，不要直接动 [Kingdom](../Kingdom) 或 [Clan](../Clan) 的外交字段。它是 `IAllianceCampaignBehavior` 的实现，取法统一是 `Campaign.Current.GetCampaignBehavior<IAllianceCampaignBehavior>()`。
+
+**怎么拿到它**：注册点是 `SandBoxManager.cs:95` 的 `gameStarter.AddBehavior(new AllianceCampaignBehavior())`，声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/AllianceCampaignBehavior.cs:16`。两张状态表分别在 `AllianceCampaignBehavior.cs:131`（`_alliances`）和 `AllianceCampaignBehavior.cs:133`（`_callToWarAgreements`），两者都由 `SyncData`（`:146`）写进存档，具体是 `:148` 与 `:149` 两行。
+
+它订阅三条事件，全在 `RegisterEvents`（`:135`）里：氏族日结走 `DailyTickClan`（到期清理），宣战走 `OnWarDeclared`（连带解除或惩罚），灭国走 `OnKingdomDestroyed`。所以到期处理不是事件驱动而是日结驱动，这就是「过期但尚未被清理」的窗口的来源。`_callToWarAgreements` 的三个查询方法都走同一形状：`HasCalledToWar`（`:376`）用 `AnyQ` 比前两个王国，`IsAtWarByCallToWarAgreement`（`:385`）用下标循环逐条比三个王国，`StartCallToWarAgreement` 在 `:474` 入表。
+
+读取侧先判后读，别把守卫条件寄托在被调方身上：
+
+```csharp
+IAllianceCampaignBehavior diplomacy = Campaign.Current.GetCampaignBehavior<IAllianceCampaignBehavior>();
+Kingdom callingKingdom = SomeClan.Kingdom;
+Kingdom targetKingdom = OtherClan.Kingdom;
+Kingdom caller;
+bool atWarByCall = diplomacy.IsAtWarByCallToWarAgreement(callingKingdom, targetKingdom, out caller);
+if (!atWarByCall && callingKingdom.IsAtWarWith(targetKingdom) && !callingKingdom.IsEliminated)
+{
+    diplomacy.StartCallToWarAgreement(callingKingdom, callingKingdom, targetKingdom,
+        Campaign.Current.Models.AllianceModel.GetCallToWarCost(callingKingdom, callingKingdom, targetKingdom), true);
+    Debug.Print("号召已记账，发起方=" + caller?.Name, 0);
+}
+```
+
+写侧的完整入口在 `AllianceCampaignBehavior.cs:152`（`OnAllianceOfferedToPlayer`）、`:195` 与 `:232`（号召的两个方向）、`:251` 与 `:298`（玩家发起的两个方向）、`:327`（`StartAlliance`）、`:366`（`EndAlliance`）、`:404`（`StartCallToWarAgreement`）、`:425`（`EndCallToWarAgreement`）、`:431`（`DenyCallToWarAgreement`）。查询侧是 `:317`（`IsAllyWithKingdom`）、`:376`（`HasCalledToWar`）、`:385`（`IsAtWarByCallToWarAgreement`）、`:288`（`GetAllianceEndDate`）。
+
+**最常见的坑**：`StartCallToWarAgreement` 的前置校验失败是静默的——`IsAllyWithKingdom(...) && !calledKingdom.IsAtWarWith(...)` 不成立时整段 `return`，不抛异常、不记账、也不宣战，调用方完全看不出发生了什么。而且这个方法末尾真的会调 `DeclareWarAction.ApplyByCallToWarAgreement` 宣战，想「只记账不宣战」是做不到的。
+
 ## 真实示例
 
 查询两个王国是否为盟友，并拿到过期时间（用本行为而不是 `Kingdom.IsAllyWith`）：

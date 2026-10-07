@@ -13,7 +13,7 @@ description: "角色创建阶段视图的装配标记：只带一个 StageType �
 
 ## 概述
 
-整个类型只有**一个字段和一个构造函数**，13 行源码，是本批里最小的类型之一——但它承载的是角色创建扩展机制的**唯一注册动作**。它不带任何行为、不注册到任何全局表、不参与序列化，唯一的作用就是在编译期把「某个 `CharacterCreationStageBase` 子类」和「某个 `CharacterCreationStageViewBase` 子类」用一条声明式关系绑在一起，绑完的字典由 [CharacterCreationScreen](CharacterCreationScreen) 在运行时反射扫描出来。
+整个类型只有**一个字段和一个构造函数**，13 行源码，是本批里最小的类型之一——但它承载的是角色创建扩展机制的**唯一注册动作**。它不带任何行为、不注册到任何全局表、不参与序列化，唯一的作用就是在编译期把「某个 `CharacterCreationStageBase` 子类」和「某个 `CharacterCreationStageViewBase` 子类」用一条声明式关系绑在一起，绑完的字典由 [CharacterCreationScreen](../CharacterCreationScreen) 在运行时反射扫描出来。
 
 关键在于**它没有 `[AttributeUsage]`**。按 C# 规范，未标注 `AttributeUsage` 的属性类使用默认值：`AttributeTargets.All`、`AllowMultiple = false`、`Inherited = true`。三条默认值各自都有实际后果——`All` 意味着这个特性理论上能贴到任何声明上（代码里只用在 class 上，纯属约定）；`AllowMultiple = false` 意味着同一个视图类型只能声明一个 `StageType`；`Inherited = true` 与扫描端 `GetCustomAttributesSafe(item, typeof(CharacterCreationStageViewAttribute), true)` 的 `inherit: true` 参数配合，意味着**派生自某个已标注视图的子类即使自己不标注，也会继承到基类的 `StageType`**。
 
@@ -38,7 +38,7 @@ description: "角色创建阶段视图的装配标记：只带一个 StageType �
 
 ## 真实示例
 
-标注一个自定义阶段视图。**参数必须是阶段类的 `typeof`，不是实例、也不是字符串**（下面是标注形式，构造函数的十个参数与七个抽象成员见 [CharacterCreationStageViewBase](CharacterCreationStageViewBase) 页，此处省略）：
+标注一个自定义阶段视图。**参数必须是阶段类的 `typeof`，不是实例、也不是字符串**（下面是标注形式，构造函数的十个参数与七个抽象成员见 [CharacterCreationStageViewBase](../CharacterCreationStageViewBase) 页，此处省略）：
 
 ```csharp
 [CharacterCreationStageView(typeof(MyOriginStage))]
@@ -102,8 +102,8 @@ foreach (Type item in typeof(MyOriginStageView).Assembly.GetTypesSafe(null))
 
 ## 依赖关系
 
-- 扫描方：[CharacterCreationScreen](CharacterCreationScreen) 的 `CollectUnorderedStages` / `CollectStagesFromAssembly` 是本类型在 1.4.5 里**唯一的消费者**
-- 被标注方：[CharacterCreationStageViewBase](CharacterCreationStageViewBase) 是特性必须贴在的基类；`IsAssignableFrom` 判定用的就是它
+- 扫描方：[CharacterCreationScreen](../CharacterCreationScreen) 的 `CollectUnorderedStages` / `CollectStagesFromAssembly` 是本类型在 1.4.5 里**唯一的消费者**
+- 被标注方：[CharacterCreationStageViewBase](../CharacterCreationStageViewBase) 是特性必须贴在的基类；`IsAssignableFrom` 判定用的就是它
 - 键类型：[CharacterCreationStageBase](../CharacterCreationStageBase) 是 `typeof(...)` 参数必须指向的类型，`OnStageCreated` 拿它的运行时类型查字典
 - 反射工具：`TaleWorlds.Library.Extensions` 的 `GetTypesSafe` / `GetCustomAttributesSafe` 与 `TaleWorlds.ModuleManager.Extensions` 的 `GetActiveReferencingGameAssembliesSafe` 是扫描链上的三个扩展方法
 - 官方用例：`CharacterCreationBannerEditorView` / `CharacterCreationClanNamingStageView` / `CharacterCreationCultureStageView` / `CharacterCreationFaceGeneratorView` / `CharacterCreationNarrativeStageView` / `CharacterCreationOptionsStageView` / `CharacterCreationReviewStageView` 七个是 1.4.5 里全部的标注点，都在 `SandBox.GauntletUI.CharacterCreation` 程序集

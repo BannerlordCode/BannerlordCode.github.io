@@ -198,6 +198,60 @@ protected override void OnGameStart(Game game, IGameStarter gameStarter)
 
 > 注意：注册发生在战役启动（`OnGameStart`）时；不要在 `Campaign.Current == null` 时访问 `Models` 来注册。替换后，所有具体决策（宣战、议和、推王等）的 `IsAllowed()` 都会改走你的实现，因此务必为每一个抽象方法给出明确语义，避免误把整类决议卡死或完全放开。
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/KingdomDecisionPermissionModel.cs`（全文 22 行）。
+**入口：** `Campaign.Current.Models.KingdomDecisionPermissionModel`（由 `GameModels` 在战役建立 / 读档时解析）。
+
+`public abstract class KingdomDecisionPermissionModel : MBGameModel<KingdomDecisionPermissionModel>`（`KingdomDecisionPermissionModel.cs:7`），**7 个成员全是 abstract，零默认实现**。
+
+**7 个成员的签名分两种，这是本页最要紧的一条：**
+
+| 形态 | 成员 | 行号 |
+| --- | --- | --- |
+| **单参 `bool`** | `IsPolicyDecisionAllowed(PolicyObject)` | `:9` |
+| **双参 `bool` + `out TextObject reason`** | `IsWarDecisionAllowedBetweenKingdoms` | `:11` |
+| 同上 | `IsPeaceDecisionAllowedBetweenKingdoms` | `:13` |
+| 同上 | `IsStartAllianceDecisionAllowedBetweenKingdoms` | `:15` |
+| **单参 `bool`** | `IsAnnexationDecisionAllowed(Settlement)` | `:17` |
+| **单参 `bool`** | `IsExpulsionDecisionAllowed(Clan)` | `:19` |
+| **单参 `bool`** | `IsKingSelectionDecisionAllowed(Kingdom)` | `:21` |
+
+**只有中间三个王国对王国的方法带 `out TextObject reason`，其余四个没有。** 也就是说 **「为什么被拒」这个信息只在外交类决议上存在**——政策、吞并、驱逐、选王被拒时，你拿不到任何理由。
+
+### 典型用法
+
+**这 7 个成员全是 `bool`，没有分数、没有枚举、没有阈值。** 这是「闸门」不是「评分」：要么 true 要么 false，没有第三种答案。**所以不要拿它们做排序或加权。**
+
+**默认实现 `DefaultKingdomDecisionPermissionModel` 的多数方法直接 `return true`——这是本页最大的陷阱。** 也就是说**默认状态下，四个单参方法与三个双参方法里只有议和带真实约束**。若你只覆盖了其中一个方法就用 `AddModel` 注册自己的类，**其余六个走的是你自己派生类的实现**；派生类忘重写时，取决于你写的是 `return false` 还是 `return true`，结果分别是「所有决议全卡死」或「闸门形同虚设」。
+
+想知道自己覆盖到了哪几个，就照着源码逐个数一遍：
+
+**检查政策闸门比你想的难：`PolicyObject` 没有无参构造，而且政策全量表是 internal。** 构造器是 `public PolicyObject(string stringId)`（`PolicyObject.cs:32`），`new PolicyObject()` 编不过；全量表 `Campaign.AllPolicies` 是 `internal MBReadOnlyList<PolicyObject>`（`Campaign.cs:306`），**外部程序集只能靠自己那份 XML 定义去枚举**。所以下面的自检只覆盖四个单参方法，政策那一个留给你自己接：
+
+```csharp
+public static void AuditPermissionModel()
+{
+    KingdomDecisionPermissionModel model = Campaign.Current.Models.KingdomDecisionPermissionModel;
+    Debug.Print("impl = " + model.GetType().Name + "  (DefaultKingdomDecisionPermissionModel returns true for most)", 0);
+    Settlement s = Settlement.CurrentSettlement;
+    Debug.Print("annexationAllowed = " + model.IsAnnexationDecisionAllowed(s), 0);
+    Debug.Print("expulsionAllowed  = " + model.IsExpulsionDecisionAllowed(Clan.PlayerClan), 0);
+    Debug.Print("kingSelection     = " + model.IsKingSelectionDecisionAllowed(Clan.PlayerClan.Kingdom), 0);
+    Debug.Print("policy collection = internal; enumerate your own XML for the 4th", 0);
+}
+```
+
+**这四行里最有价值的其实是第一行。** `model.GetType().Name` 一眼就能告诉你当前跑的是官方默认还是你的派生类——**而默认实现里这四个方法全是 `return true`，等于闸门不存在。**
+
+`out TextObject reason` 的三个方法要注意：**`reason` 只在被拒时有意义**。返回 true 时它可能是 null，也可能残留上一次的值（取决于实现是否每次都赋值）。**所以判断顺序永远是先看 bool，再在 false 时读 reason。**
+
+### 最容易踩的坑
+
+**替换不完整导致闸门失效**：默认 `DefaultKingdomDecisionPermissionModel` 的多数方法直接 `return true`（只有议和带真实约束）。若某 mod 只覆盖了部分方法却用基类 `AddModel` 注册了自己的类，未覆盖的方法会按你派生类的实现走——若派生类忘了重写、默认又返回 false，则会把所有对应决议全部卡死；若你本想「只允许特定政策」却让其他判定返回 true，则闸门形同虚设。务必逐方法明确返回语义。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

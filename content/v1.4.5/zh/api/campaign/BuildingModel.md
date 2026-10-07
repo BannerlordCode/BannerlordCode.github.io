@@ -23,6 +23,61 @@ BuildingModel 是一个纯裁决的 Model 型扩展点：`Campaign` 在启动时
 - **使用**：需要查询或自定义“某建筑类型能否落在该城镇（城镇 vs 城堡区分）”的规则时，读取 `Campaign.Current.Models.BuildingModel.CanAddBuildingTypeToTown` 的返回值，或提供一个新的派生类覆盖该抽象成员并通过子模块注册替换默认实现。
 - **不要使用**：不要用模型去“执行”增建——它只会判定，真正往 `Town.Buildings` 里加建筑、推进工程队列的是 `[BuildingsCampaignBehavior](../BuildingsCampaignBehavior)`。不要亲自给 `Town.Buildings` 赋值了事；也不要把模型返回值当作持久世界状态（它是无状态的纯函数）。若只替换模型却不更新行为的写入逻辑，会出现“判定通过却界面不显示”或建筑类型与城镇等级脱节。
 
+## 怎么用
+
+何时该读这一页、何时不该读、该改哪个模型，见上文「何时使用 / 何时不要使用」。本节只讲怎么从源码拿到它、以及它在 v1.4.5 里被谁真的调用。
+
+### 怎么拿到它
+
+抽象声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BuildingModel.cs:7`，`public abstract class BuildingModel : MBGameModel<BuildingModel>`。默认实现是 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingModel.cs:7`。
+
+安装链同样走 `GameModels`：属性在 `GameModels.cs:241`，赋值在 `GameModels.cs:378` 的 `BuildingModel = GetGameModel<BuildingModel>()`。
+
+它在整棵树里只有 3 个文件引用，而**唯一的真实调用点只有一处**：`TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/BuildingsCampaignBehavior.cs:167`。那一行是 `town.Buildings.All((Building b) => b.BuildingType != buildingType) && Campaign.Current.Models.BuildingModel.CanAddBuildingTypeToTown(...)`。
+
+这个调用点把两件事合在一起，先查「本城还没有这种建筑」，再问模型「这种建筑能不能放进这座城镇”。所以这个模型在本版本里的实际作用是一个**守卫**，而不是写入器——真正往 `town.Buildings` 里加建筑的代码不经过它。
+
+### 典型用法
+
+上面「示例」两段是「铺设前先问守卫」和「遍历全部候选类型」。缺的一步是**把守卫结果变成一份可读的拒绝原因**——排查「为什么这座城镇不能建某个东西」时，光拿到一个 false 是不够的：
+
+```csharp
+public static string ExplainRejected(Town town, BuildingType type)
+{
+    if (town == null || type == null || Campaign.Current == null)
+    {
+        return "输入无效";
+    }
+    // BuildingsCampaignBehavior.cs:167 的前半个条件：同类型已存在
+    bool alreadyThere = !town.Buildings.All((Building b) => b.BuildingType != type);
+    if (alreadyThere)
+    {
+        return "本城已有同类型建筑";
+    }
+    // 后半个条件：模型自身的判定
+    if (Campaign.Current.Models.BuildingModel.CanAddBuildingTypeToTown(type, town))
+    {
+        return "允许";
+    }
+    // 走到这里说明是模型拒绝而不是重复；具体原因由派生实现决定，基类不提供原因字符串
+    return "模型拒绝（原因未暴露）";
+}
+```
+
+`town.Buildings.All(...)` 是 `MBList<Building>` 的 LINQ 扩展，与引擎里那一行完全同形。守卫通过之后不要直接写 `town.Buildings`——按上文「何时不要使用」，写入路径属于 `BuildingsCampaignBehavior` 或对应的 Action。
+
+`CanAddBuildingTypeToTown` 只返回布尔，`DefaultBuildingModel` 不提供任何原因说明或诊断信息，所以上面最后那句「原因未暴露」是这版源码的事实而不是偷懒。
+
+### 什么时候不要用它
+
+不要把它当成写入 API。它在整个 v1.4.5 托管树里只有一处被调用，而那一处是在判断，不是添加。
+
+也不要缓存 `Campaign.Current.Models.BuildingModel` 的实例，理由与其它战役层模型相同：新战役与读档都会由 `GameModels` 重新解析。
+
+### 最容易踩的坑
+
+跨战役重载缓存实例：缓存住的实例在重载后指向旧战役的对象，调用即崩溃或读到陈旧规则。每次需要时都重新走 `Campaign.Current.Models` 获取。
+
 ## 依赖图
 
 上游类型与系统：

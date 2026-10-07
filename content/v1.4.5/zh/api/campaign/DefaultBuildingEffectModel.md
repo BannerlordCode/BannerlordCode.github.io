@@ -85,6 +85,35 @@ town.AddEffectOfBuildings(BuildingEffectEnum.SecurityPerDay, ref security);
 float dailySecurity = security.ResultNumber;
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingEffectModel.cs:9`（`public class DefaultBuildingEffectModel : BuildingEffectModel`）。**全文 39 行，只有一个成员**：`public override ExplainedNumber GetBuildingEffect(Building building, BuildingEffectEnum effect)`。
+
+**所以它是一个具体实现，不是扩展点。** 它实现的是抽象基类 [BuildingEffectModel](../BuildingEffectModel)；要改规则应该去写一个新的 `BuildingEffectModel` 派生类并注册，而不是改这个类。
+
+**不要自己 new 它。** 它由 `GameModels` 解析 —— `GameModels.cs:332` 的 `BuildingEffectModel = GetGameModel<BuildingEffectModel>();`，存入 `GameModels.cs:151` 的 `public BuildingEffectModel BuildingEffectModel { get; private set; }`。取用路径是 `Campaign.Current.Models.BuildingEffectModel`。
+
+**一段可直接跑的三行读建筑效果**：
+
+```csharp
+BuildingEffectModel bem = Campaign.Current.Models.BuildingEffectModel;
+int buildingCount = town.Buildings.Count;
+ExplainedNumber v = bem.GetBuildingEffect(town.Buildings[0], BuildingEffectEnum.PatrolPartyStrength);
+Debug.Print("buildings = " + buildingCount + " effect = " + v.ResultNumber, 0);
+```
+
+**「哪座建筑」不是单个属性，而是 `town.Buildings` 这个集合。** 它的声明在 `TaleWorlds.CampaignSystem.Settlements/Town.cs:89`，是 `public MBList<Building> Buildings;` —— **注意是公开字段、不是属性，而且只有 `Town` 有（`Settlement` 没有）**，所以先把变量静态类型换成 `Town` 再访问。旁边 `Town.cs:92` 的 `public Queue<Building> BuildingsInProgress;` 是**在建队列**，两者别混。
+
+真实消费点 `TaleWorlds.CampaignSystem.Settlements.Buildings/Building.cs:170` 传的是 `(this, buildingEffect)` —— **`this` 就是建筑自己**，说明调用是「拿着建筑去问」，而不是「按城镇查建筑」。你手上只有 `Town` 时，要先从 `town.Buildings` 里挑出目标那座再传进去（`Helpers/BuildingHelper.cs:31` 与 `:62` 就是两个遍历实例）。
+
+**返回的是 `ExplainedNumber` 而非 `float`。** 数值取 `.ResultNumber`；但 `DefaultSettlementPatrolModel.cs:50` 那个消费点还展示了另一种用法 —— 它把 `ResultNumber` 先 `(int)` 强转再进 `switch` 表达式，**说明这个效果值在默认实现下本来就是整数量级的**。
+
+**方法体里做了四类叠加，你覆写时最容易漏掉最后一类。** 顺序是：① 取 `building.BuildingType.GetBaseBuildingEffectAmount(effect, building.CurrentLevel)` 作基数；② 若效果是 `DenarByBoundVillageHeartPerDay`，**改用绑定村庄的 hearth 总和 × 基数**（覆盖基数）；③ 按 `building.BuildingType` 逐个 `PerkHelper.AddPerkBonusForTown` 叠加专长 —— 粮仓/仓库加 `Battlements`、`Contractors` 无条件加、每日工程加 `MasterOfPlanning`、市场与节庆加 `PublicSpeaker`；④ 返回。
+
+**第③类里有一项是无条件的。** `PerkHelper.AddPerkBonusForTown(DefaultPerks.Steward.Contractors, building.Town, ref bonuses);` 不在任何 `if` 里，**每座建筑、每种效果都会被它叠加一次**。
+
+**最常见的坑：跨战役重载缓存实例。** `Campaign.Current.Models.BuildingEffectModel` 在每次新战役/读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长生命周期对象，会在重载后指向旧战役的已销毁对象。而它内部读 `building.CurrentLevel` 与 `building.Town` 的专长，**跨战役悬空引用算出的效果值不会异常，只会偏小**。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

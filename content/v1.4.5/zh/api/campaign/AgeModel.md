@@ -120,6 +120,67 @@ Campaign.Current.Models.AgeModel.GetAgeLimitForLocation(
 // minimumAge / maximumAge 即为该角色在对应地点可刷新的年龄区间
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/AgeModel.cs`（全文 22 行）。
+**入口：** `Campaign.Current.Models.AgeModel` → `GameModels` 在战役建立 / 读档时解析出的当前实例。
+
+**它不能 `new`，只能通过 `Campaign.Current.Models` 拿。** `AgeModel` 是 `abstract class AgeModel : MBGameModel<AgeModel>`（`AgeModel.cs:5`），**8 个成员全是 `abstract`（`AgeModel.cs:7`-`AgeModel.cs:21`），零默认实现**。派生类必须实现全部 8 个，否则编译不过。
+
+实例的解析由 `GameModels` 完成，访问点是 `Campaign.Current.Models.AgeModel`。**这个属性在每次新战役 / 读档时重新解析**，所以拿到的实例是「当前战役的规则对象」，不是进程级单例。
+
+七个年龄阈值（`AgeModel.cs:7`-`AgeModel.cs:19`）是纯数据，只有最后一个成员 `GetAgeLimitForLocation(CharacterObject, out int, out int, string additionalTags = "")`（`AgeModel.cs:21`）带逻辑，**第三个参数是可选的**，默认空串——省略它与传 `""` 等价。
+
+### 典型用法
+
+**消费它只有两种姿势：读阈值，或者问区间。** 前者用于「这个角色多大算成年」这类硬比较，后者用于「某个地点能刷出什么年龄段的角色」。
+
+阈值读取本身没有副作用，但 `GetAgeLimitForLocation` 的两个 `out` 必须都给初值，因为它是 `out` 不是 `ref`。想同时拿到「成年判定」与「地点区间」两份信息，就分别调两次，不要试图从区间反推成年：
+
+```csharp
+public static class AgeModelUsage
+{
+    public static void Report(CharacterObject candidate)
+    {
+        AgeModel model = Campaign.Current.Models.AgeModel;
+        bool isAdult = candidate.Age >= (float)model.HeroComesOfAge;
+        model.GetAgeLimitForLocation(candidate, out int minAge, out int maxAge, "TavernVisitor");
+        Debug.Print(candidate.Name + " age=" + candidate.Age + " adult=" + isAdult, 0);
+        Debug.Print("tavern band=[" + minAge + "," + maxAge + "] maxAge=" + model.MaxAge, 0);
+    }
+}
+```
+
+`additionalTags` 是**位置标签**而非职业或文化——它决定「在这个场景里这个角色算不算适龄」。**同一角色在不同标签下拿到的区间可以完全不同**，所以它不能当角色属性缓存。
+
+**替换它的正确做法**是注册一个派生类而不是 monkey-patch：
+
+```csharp
+public class MyAgeModel : AgeModel
+{
+    public override int BecomeInfantAge => 2;
+    public override int BecomeChildAge => 7;
+    public override int BecomeTeenagerAge => 14;
+    public override int HeroComesOfAge => 18;
+    public override int BecomeOldAge => 50;
+    public override int MiddleAdultHoodAge => 30;
+    public override int MaxAge => 70;
+    public override void GetAgeLimitForLocation(CharacterObject character, out int minimumAge, out int maximumAge, string additionalTags = "")
+    {
+        minimumAge = 18;
+        maximumAge = MaxAge;
+    }
+}
+```
+
+**但改阈值前先想清楚 [AgingCampaignBehavior](../AgingCampaignBehavior) 的触发条件**：它的阶段判定用的是 `==` 而不是 `>=`，阈值一动就会改变哪些年龄恰好命中。
+
+### 最容易踩的坑
+
+**跨战役重载缓存实例**：`Campaign.Current.Models.AgeModel` 在每次新战役/读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长生命周期对象，会在重载后指向旧战役的已销毁对象，调用即崩溃或读到陈旧规则。每次需要时都重新走 `Campaign.Current.Models` 获取。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

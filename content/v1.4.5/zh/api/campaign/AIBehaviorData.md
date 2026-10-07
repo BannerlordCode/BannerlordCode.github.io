@@ -128,6 +128,50 @@ if (best != AIBehaviorData.Invalid && best.AiBehavior == AiBehavior.EscortParty)
 }
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**它是一个 `public struct`（`:7`），你自己 `new` 就有两个构造器可选——但它们互斥。**
+
+第一个构造器 `AIBehaviorData(IMapPoint party, ...)`（`:25`）填 `Party` 并把 `Position = CampaignVec2.Zero`（`:33`）。第二个 `AIBehaviorData(CampaignVec2 position, ...)`（`:36`）填 `Position` 并把 `Party = null`（`:39`）。**所以任何时候读到的另一半永远是「那个显式置零 / 置 null 的字段」，不是「忘了赋值」。**
+
+想表示「没有候选」，用静态哨兵 `AIBehaviorData.Invalid`（`:9`）。它在静态构造里建好（`:87`-`:89`），用的是 `AiBehavior.None` + `NavigationType.None`，两个布尔全 false。**因为是 `static readonly` 字段而不是 `default`，你可以直接与它比较，不必自己拼一个。**
+
+### 典型用法
+
+值相等由 `operator ==`（`:73`）定义，它比的是**六个字段全等**：`Party` / `AiBehavior` / `NavigationType` / `WillGatherArmy` / `IsFromPort` / `IsTargetingPort`（`:75`），相等后再比 `Position`（`:77`）。
+
+**注意 `GetHashCode`（`:61`）与 `operator ==` 不是同一组字段**：它把 `AiBehavior` 放进 hash（`:63`），`Party` 只在非 null 时混入（`:65`），**但 `IsFromPort` 与 `IsTargetingPort` 是分开混的（`:67`/`:68`），最后还混了 `Position`（`:70`）**。两个 `==` 相等的实例必然 hash 相同，反过来也成立，所以能用字典；**但不要自己写一个只比部分字段的 `Equals`**——那会破坏契约。
+
+提交候选的唯一通道是 `PartyThinkParams.AddBehaviorScore((AIBehaviorData, float))`（`PartyThinkParams.cs:26` 公开的是结果列表 `AIBehaviorScores`）。选完再读一遍，把「哪个候选赢了」落实成可执行的目标：
+
+```csharp
+public static class AIBehaviorDataPick
+{
+    public static void Report(MobileParty party)
+    {
+        MBReadOnlyList<(AIBehaviorData, float)> scores = party.ThinkParamsCache.AIBehaviorScores;
+        AIBehaviorData best = AIBehaviorData.Invalid;
+        for (int i = 0; i < scores.Count; i++)
+        {
+            if (scores[i].Item2 > 0f && scores[i].Item1 != AIBehaviorData.Invalid)
+            {
+                best = scores[i].Item1;
+            }
+        }
+        MobileParty target = best.Party as MobileParty;
+        Debug.Print(party.Name + " winner=" + best.AiBehavior + " targetParty=" + (target != null ? target.Name.ToString() : "null"), 0);
+    }
+}
+```
+
+上面那个分数筛选写得绕了，实际用直接比较即可；**关键是最后那行**：`best.Party as MobileParty` ——用 `as` 而不是强转，因为 `Party` 的静态类型是 `IMapPoint`，它可能是 `Settlement`、`MobileParty` 或 `CampaignVec2` 的包装，**强转会 InvalidCastException**。
+
+### 最容易踩的坑
+
+**`Party` 与 `Position` 二选一的语义**：构造时要么传 `IMapPoint`（此时 `Position = Zero`），要么传 `CampaignVec2`（此时 `Party = null`）。混用或在落地时读错字段会得到空目标。例如“去坐标点”类意图（`GoToPoint`）用的是 `Position`，而 `Party` 为 null。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

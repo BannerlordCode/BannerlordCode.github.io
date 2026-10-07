@@ -23,6 +23,64 @@ description: "城镇建筑效果的类别枚举：作为 BuildingType 每条配�
 - **使用**：在自定义/读取建筑配方时，用枚举值标识“这条效果影响什么指标”；用 `BuildingType.HasEffect(enum)` 判断某建筑是否提供该效果；用 `Town.AddEffectOfBuildings(enum, ref result)` 把同一类效果从全城建筑汇总；在派生 `BuildingEffectModel` 时按 `switch (enum)` 给特定效果追加专长或政策加成。
 - **不要使用**：不要用枚举值去“直接改”任何定居点数值（它只是键，数值来自 `BuildingEffectModel` 与 `BuildingType` 的配方）。不要把它当可变状态持久化或缓存。不要与 `BuildingEffectIncrementType` 混淆——后者决定该枚举值是“加量”(`Add`) 还是“乘系数”(`AddFactor`)，二者必须配对理解。新增枚举值后若未在 `DefaultBuildingTypes` 配方与 `BuildingEffectModel` 中同时接好线，该值将没有任何效果。
 
+## 怎么用
+
+何时该读这一页、何时不该读、以及该改哪个模型，见上文「何时使用 / 何时不要使用」。本节只讲怎么从源码拿到它、以及它在 v1.4.5 里被谁真的调用。
+
+### 怎么拿到它
+
+声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/BuildingEffectEnum.cs:3`，是裸枚举，没有工厂也没有静态入口。它在整棵 v1.4.5 树里被 22 个文件引用，是建筑体系最枢纽的一个键类型。
+
+它的用法只有一种形态：**你从不「拿到」枚举本身，只把它当键传出去问数值**。逐条 grep 得到的三个真实入口是 `Building.cs:161` 的 `AddEffectOfBuilding(BuildingEffectEnum, ref ExplainedNumber)`、`Town.cs:573` 的 `AddEffectOfBuildings(BuildingEffectEnum, ref ExplainedNumber)`（内部遍历本城每座建筑）、以及 `DefaultBuildingEffectModel.cs:11` 的 `GetBuildingEffect(Building, BuildingEffectEnum)`。
+
+消费方分散在四个默认模型里，各取各的那一项。逐条 grep：`DefaultBuildingEffectModel.cs:15` 判 `DenarByBoundVillageHeartPerDay`；`DefaultClanFinanceModel.cs:456` 取 `TariffIncome`、`:466` 取 `DenarByBoundVillageHeartPerDay`；`DefaultClanPoliticsModel.cs:68` 取 `Influence`；`DefaultBuildingConstructionModel.cs:139` 取 `ConstructionPerDay`；`Town.cs:467` 取 `FoodStock`。这五行合起来说明一件事：**同一个枚举的每个成员对应一个不同的消费方**，你换一个新的成员就得自己找谁来消费它。
+
+声明侧只有两个落点：`BuildingType.cs:15` 的 `BuildingEffect` 属性，和 `BuildingType.cs:35` 的 `EffectInfo` 构造。真正的数据在 `DefaultBuildingTypes.cs:187` 那种 `new Tuple<BuildingEffectEnum, BuildingEffectIncrementType, float, float, float>` 里，而字符串 id 属于 XML 语料，v1.4.5 未随附，本版本树无法核对。
+
+### 典型用法
+
+上面「示例」两段是「查单个建筑有没有某效果」和「把整座城镇对某效果的贡献汇总成一个数」。缺的那一步是**同时拿到总数与逐座建筑的明细**——排查城镇数值不对时，只有明细能定位到是哪座建筑贡献的：
+
+```csharp
+public static void ExplainFoodStock(Town town)
+{
+    if (town == null || Campaign.Current == null)
+    {
+        return;
+    }
+    // Town.cs:573 内部遍历本城每座建筑并路由到 BuildingEffectModel
+    ExplainedNumber total = new ExplainedNumber(0f);
+    town.AddEffectOfBuildings(BuildingEffectEnum.FoodStock, ref total);
+
+    foreach (Building b in town.Buildings)
+    {
+        if (!b.BuildingType.HasEffect(BuildingEffectEnum.FoodStock))
+        {
+            continue;
+        }
+        // 同一个键，逐座建筑单独问一次模型 —— 这就是明细来源
+        ExplainedNumber one = Campaign.Current.Models.BuildingEffectModel
+            .GetBuildingEffect(b, BuildingEffectEnum.FoodStock);
+        Debug.Print(b.Name + " " + b.CurrentLevel + "级 -> " + one.ResultNumber, 0);
+    }
+    Debug.Print("total = " + total.ResultNumber, 0);
+}
+```
+
+`town.Buildings` 是 `MBList<Building>` 的公开字段，直接枚举即可。两处模型调用是不同层级：`Town.AddEffectOfBuildings` 负责遍历与派发，`BuildingEffectModel.GetBuildingEffect` 负责单座建筑的数值。调用顺序不影响结果，因为两者都无副作用。
+
+注意 `AddEffectOfBuilding` 在 `Building.cs:163` 有等级越界的 `Debug.FailedAssert`，等级为 0 或超过 3 的建筑会被告警而不是跳过。所以拿明细时如果看到断言，先查建筑等级，不要怀疑枚举。
+
+### 什么时候不要用它
+
+不要拿枚举当数值来源。枚举里没有任何数字，只读枚举、不查 `BuildingType.GetBaseBuildingEffectAmount`（`BuildingType.cs:136`）或 `BuildingEffectModel` 只会得到 `0f`。
+
+也不要新造成员然后指望某个模型会处理它。上面那五个消费点都是 `switch` 或单值比较，新增成员不会自动被纳入。
+
+### 最容易踩的坑
+
+把枚举当作数值来源。枚举本身不含任何数值，所有数字都在 `BuildingType` 的 `EffectInfo` 与 `BuildingEffectModel` 中，两者缺一都会得到无意义的结果。
+
 ## 依赖图
 
 数据来源与消费方（每条均为已存在页面）：

@@ -8,7 +8,7 @@ description: "辅助键位设置里的单行：一个 HotKey 对应一行。它�
 **Module:** TaleWorlds.MountAndBlade.ViewModelCollection  
 **Type:** `public class AuxiliaryKeyOptionVM : KeyOptionVM`  
 **Base:** `KeyOptionVM`  
-**File:** `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.AuxiliaryKeys/AuxiliaryKeyOptionVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.AuxiliaryKeys/AuxiliaryKeyOptionVM.cs`
 
 ## 概述
 

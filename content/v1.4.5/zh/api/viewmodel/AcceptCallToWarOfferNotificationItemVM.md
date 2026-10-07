@@ -8,7 +8,7 @@ description: "地图通知「某王国请求你参战」的条目视图模型。
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public class AcceptCallToWarOfferNotificationItemVM : MapNotificationItemBaseVM`  
 **Base:** `MapNotificationItemBaseVM`  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/AcceptCallToWarOfferNotificationItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/AcceptCallToWarOfferNotificationItemVM.cs`
 
 ## 概述
 

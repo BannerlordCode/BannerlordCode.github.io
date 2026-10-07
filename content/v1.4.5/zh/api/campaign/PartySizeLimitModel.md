@@ -143,6 +143,81 @@ int idealVillagers = Campaign.Current.Models.PartySizeLimitModel
     .GetIdealVillagerPartySize(village);
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartySizeLimitModel.cs`（全文 31 行）。
+**入口：** `Campaign.Current.Models.PartySizeLimitModel`（由 `GameModels` 在战役建立 / 读档时解析）。
+
+`public abstract class PartySizeLimitModel : MBGameModel<PartySizeLimitModel>`（`PartySizeLimitModel.cs:10`），**10 个成员全是 abstract**。
+
+**10 个成员里有 3 个返回 `ExplainedNumber`、2 个返回 `List`/`TroopRoster`、其余是裸 `int`。而最要紧的差别在入参：**
+
+| 成员 | 入参形态 | 返回 | 行号 |
+| --- | --- | --- | --- |
+| `MinimumNumberOfVillagersAtVillagerParty` | — | `int` | `:12` |
+| `GetPartyMemberSizeLimit` | `PartyBase` | `ExplainedNumber` | `:14` |
+| `GetPartyPrisonerSizeLimit` | `PartyBase` | `ExplainedNumber` | `:16` |
+| `CalculateGarrisonPartySizeLimit` | `Settlement` | `ExplainedNumber` | `:18` |
+| `GetClanTierPartySizeEffectForHero` | `Hero` | `int` | `:20` |
+| `GetNextClanTierPartySizeEffectChangeForHero` | `Hero` | `int` | `:22` |
+| `GetAssumedPartySizeForLordParty` | `Hero, IFaction, Clan` | `int` | `:24` |
+| `GetIdealVillagerPartySize` | `Village` | `int` | `:26` |
+| `FindAppropriateInitialRosterForMobileParty` | `MobileParty, PartyTemplateObject` | `TroopRoster` | `:28` |
+| `FindAppropriateInitialShipsForMobileParty` | `MobileParty, PartyTemplateObject` | `List<Ship>` | `:30` |
+
+**注意前三个上限方法里两个吃 `PartyBase`、一个吃 `Settlement`。** 「队伍的成员上限 / 俘虏上限」对 `PartyBase` 问，「驻军上限」对 `Settlement` 问——**这三者不能互相代入。**
+
+### 典型用法
+
+**`GetClanTierPartySizeEffectForHero` 与 `GetNextClanTierPartySizeEffectChangeForHero` 是一对，后者不是前者的增量。** 后者问的是「升到下一阶会多多少」——**它是一个前瞻值，与当前阶的绝对效果是两个数**。把它们混用会在氏族升级时把队伍上限算错一倍。
+
+三个 `ExplainedNumber` 的 `includeDescriptions` 默认值都是 `false`（`:14`/`:16`/`:18`），所以**不写这个参数就得不到明细**。
+
+而 `FindAppropriateInitialRosterForMobileParty`（`:28`）与 `FindAppropriateInitialShipsForMobileParty`（`:30`）**是本类型里仅有的两个「产出新对象」的成员**——前者返回 `TroopRoster`、后者返回 `List<Ship>`。**它们不是查询，是构造器。**
+
+想做上限审计时，成员与俘虏要分开取，因为它们是两个完全独立的池子：
+
+```csharp
+public static void DumpSizeLimits(MobileParty party)
+{
+    PartySizeLimitModel model = Campaign.Current.Models.PartySizeLimitModel;
+    ExplainedNumber members = model.GetPartyMemberSizeLimit(party.Party, includeDescriptions: true);
+    ExplainedNumber prisoners = model.GetPartyPrisonerSizeLimit(party.Party, includeDescriptions: true);
+    Debug.Print("members=" + members.ResultNumber + " lines=" + members.Lines.Count, 0);
+    Debug.Print("prisoners=" + prisoners.ResultNumber + " lines=" + prisoners.Lines.Count, 0);
+    Hero leader = party.LeaderHero;
+    if (leader != null)
+    {
+        Debug.Print("tierEffect=" + model.GetClanTierPartySizeEffectForHero(leader) + " nextTierDelta=" + model.GetNextClanTierPartySizeEffectChangeForHero(leader), 0);
+    }
+    Settlement here = party.CurrentSettlement;
+    if (here != null)
+    {
+        Debug.Print("garrisonCap=" + model.CalculateGarrisonPartySizeLimit(here).ResultNumber, 0);
+    }
+}
+```
+
+**上例把「当前阶效果」与「下一阶增量」并排打出来，是因为它们经常被搞混。** 换算当前实际值要用「基础 + 效果」，而不是「效果 + 增量」。
+
+`ExplainedNumber.ResultNumber` 是钳位后的（`ExplainedNumber.cs:115`），**上限类成员尤其要注意——`LimitMaxValue` 很可能正好被设成上限本身，读明细时别以为钳位是 bug。**
+
+**而 `CalculateGarrisonPartySizeLimit` 有三处调用点，判据完全一致，只是写法不同。** `GarrisonRecruitmentCampaignBehavior.cs:185` 与 `:202`、`GarrisonTroopsCampaignBehavior.cs:487` 都是同一句三元：
+
+```
+town.GarrisonParty == null
+    ? (int)CalculateGarrisonPartySizeLimit(town.Settlement).ResultNumber
+    : town.GarrisonParty.Party.PartySizeLimit - town.GarrisonParty.Party.NumberOfAllMembers
+```
+
+**即「驻军不存在才问模型算上限，存在则拿已确定的 `PartySizeLimit` 反推还能塞多少」。** **这个三元的两支都是 int 语义、但一个向上一个向下，混用会让驻军界面显示与实际限额错位。**
+
+### 最容易踩的坑
+
+**跨战役重载缓存实例**：`Campaign.Current.Models.PartySizeLimitModel` 在每次新战役 / 读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长生命周期对象，会在重载后指向旧战役的已销毁对象，调用即崩溃或读到陈旧规则。每次需要时都重新走 `Campaign.Current.Models` 获取。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

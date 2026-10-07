@@ -74,6 +74,37 @@ SettlementMilitiaModel 是一个纯计算的规则扩展点：Campaign 在启动
   - 副作用：无，纯计算；真正的累加由调用方完成。
   - 调用时机：仅由 `MilitiasCampaignBehavior.OnAfterSiegeCompleted` 在守城或攻城胜利时调用，并把结果加到 `siegeSettlement.Militia`。
 
+## 怎么用
+
+这是民兵系统的规则层：四个方法分别管每日增减、攻城后补充、老兵生成概率、新兵兵种比例。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementMilitiaModel.cs:6`，全文 16 行、4 个成员、零属性。默认实现注册点是 `SandBoxManager.cs:274` 的 `gameStarter.AddModel(new DefaultSettlementMilitiaModel())`。
+
+四个成员里三个返回 `ExplainedNumber`：`MilitiaToSpawnAfterSiege(Town town)` 在 `:8`、`CalculateMilitiaChange(Settlement settlement, bool includeDescriptions)` 在 `:10`、`CalculateVeteranMilitiaSpawnChance(Settlement settlement)` 在 `:12`。剩下 `CalculateMilitiaSpawnRate` 在 `:14` 是本批唯一一个用 `out` 吐两个值的成员：`out float meleeTroopRate` 与 `out float rangedTroopRate`。
+
+四个外部调用点刚好一一对应：`MilitiasCampaignBehavior.cs:50` 在攻城后用 `MilitiaToSpawnAfterSiege` 把补充量直接加到 `Militia` 上，`Settlement.cs:1266` 用 `CalculateMilitiaSpawnRate` 拿兵种比例去填民兵，`Town.cs:148` 与 `Village.cs:138` 各自的 `MilitiaChange` 属性都是 `CalculateMilitiaChange(...)` 的一行包装。
+
+```csharp
+SettlementMilitiaModel militia = Campaign.Current.Models.SettlementMilitiaModel;
+foreach (Settlement s in Settlement.All)
+{
+    float meleeRate, rangedRate;
+    militia.CalculateMilitiaSpawnRate(s, out meleeRate, out rangedRate);
+    Debug.Print(s.Name + " 民兵=" + s.Militia + " 日变化=" + s.Militia
+        + " 近战占比=" + meleeRate + " 远程占比=" + rangedRate, 0);
+    ExplainedNumber veteran = militia.CalculateVeteranMilitiaSpawnChance(s);
+    Debug.Print("  老兵生成概率=" + veteran.ResultNumber, 0);
+    if (s.IsTown)
+    {
+        Debug.Print("  攻城后应补充=" + militia.MilitiaToSpawnAfterSiege((Town)s), 0);
+    }
+}
+```
+
+注意 `Settlement.Militia` 本身是 `float`，`Village.Militia`（`Village.cs:136`）是转发到 `base.Owner.Settlement.Militia` 的表达式体属性——所以村庄和它所属的城镇共享同一份民兵数。
+
+**最常见的坑**：跨战役重载缓存实例。`Campaign.Current.Models.SettlementMilitiaModel` 每次新战役或读档都由 `GameModels` 重新解析，缓存进静态字段会指向旧战役的已销毁对象。
+
 ## 示例
 
 读取某定居点的每日民兵净变化率：

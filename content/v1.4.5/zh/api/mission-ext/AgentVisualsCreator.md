@@ -33,6 +33,11 @@ description: "IAgentVisualCreator 的唯一内置实现：一个七行的适配�
 | --- | --- | --- |
 | `Create` | `public IAgentVisual Create(AgentVisualsData data, string name, bool needBatchedVersionForWeaponMeshes, bool forceUseFaceCache)` | 整个类唯一的方法，也是 `IAgentVisualCreator` 的唯一抽象方法。`data` 是描述这个 Agent 要长什么样、穿什么、用哪套动作集的参数包；`name` 是 native 侧的实体名。实现体只有一条 `return (IAgentVisual)(object)AgentVisuals.Create(data, name, isRandomProgress: false, needBatchedVersionForWeaponMeshes, forceUseFaceCache);`——**没有任何校验、没有 try/catch、没有缓存**。参数错了不会在这里报错，只会在下游创建骨骼/网格时才炸。 |
 
+## 死成员与陷阱
+
+本页死成员状态未知：本页成员全部落在 UNSUPPORTED（多声明者歧义等），调用点数不可当结论；
+本次未测出任何可复核的调用点。
+
 ## 真实示例
 
 官方装配点长这样（这是 `MissionScreen.cs:404` 的原样写法）：

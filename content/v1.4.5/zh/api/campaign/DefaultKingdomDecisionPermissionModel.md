@@ -185,6 +185,29 @@ if (!canMakePeace && rejectReason != null)
 }
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultKingdomDecisionPermissionModel.cs:8`（`public class DefaultKingdomDecisionPermissionModel : KingdomDecisionPermissionModel`），全文 109 行。
+
+**它是具体实现，不要自己 new。** 取用路径是 `Campaign.Current.Models.KingdomDecisionPermissionModel` —— `GameModels.cs:293` 的 `KingdomDecisionPermissionModel = GetGameModel<KingdomDecisionPermissionModel>();` 解析，存入 `GameModels.cs:65`。
+
+**一段可直接跑的三行判准入**：
+
+```csharp
+KingdomDecisionPermissionModel perm = Campaign.Current.Models.KingdomDecisionPermissionModel;
+TextObject reason;
+bool ok = perm.IsPeaceDecisionAllowedBetweenKingdoms(k1, k2, out reason);
+Debug.Print(ok + " : " + reason, 0);
+```
+
+**⚠ 注意四个方法的最后一个参数是 `out TextObject reason`，必须用 `out` 声明局部变量。** 它们是 `IsWarDecisionAllowedBetweenKingdoms`、`IsPeaceDecisionAllowedBetweenKingdoms`、`IsStartAllianceDecisionAllowedBetweenKingdoms`（`:29` / `:35` / `:79`），以及 `IsAnnexationDecisionAllowed` 之类的其余项。**漏写 `out` 编译不过；而且 `reason` 即使在返回 `true` 时也可能被赋值 —— 想拿理由文本就别只看返回值。**
+
+**七个方法的入参类型各不相同，不要照抄参数列表。** `IsPolicyDecisionAllowed(PolicyObject policy)` 收 `PolicyObject`；`IsWarDecisionAllowedBetweenKingdoms` / `IsPeaceDecisionAllowedBetweenKingdoms` / `IsStartAllianceDecisionAllowedBetweenKingdoms` 收两个 `Kingdom`；`IsExpulsionDecisionAllowed(Clan expelledClan)` 收 `Clan`；`IsKingSelectionDecisionAllowed(Kingdom kingdom)` 收一个 `Kingdom`。
+
+**三对 Kingdom 方法要成对调用，且顺序有语义。** 「是否允许宣战」与「是否允许议和」是两个独立判定，**不是互为取反** —— 一个王国可能既不能宣战也不能议和（都因为同一个前置条件不满足）。
+
+**最常见的坑：覆盖默认实现时遗漏某些决议类型。** 你派生 `KingdomDecisionPermissionModel` 时若只重写了部分方法而忘记覆盖其余，未覆盖的方法会沿用默认实现 —— **表现为「某些决议突然在 mod 里被允许了、另一些仍然按原规则」，而没有任何编译错误。** 这是 `virtual`/`override` 体系最常见的一类静默行为改变。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

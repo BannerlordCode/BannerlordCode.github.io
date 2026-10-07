@@ -143,6 +143,32 @@ ExplainedNumber daily = Campaign.Current.Models.CrimeModel
 float decay = daily.ResultNumber;
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/CrimeModel.cs:6`（`public abstract class CrimeModel : MBGameModel<CrimeModel>`）。**这个文件全文只有 37 行，全部是抽象成员，一个方法体都没有** —— 因为它没有任何行为可写，所有算法都在 `DefaultCrimeModel`（`TaleWorlds.CampaignSystem.GameComponents/DefaultCrimeModel.cs:11` 的 `public class DefaultCrimeModel : CrimeModel`）里。
+
+所以运行时你拿到的永远是**子类实例**，链路是三跳，每跳都有确切位置：
+
+1. `Campaign.Models` 是 `Campaign.cs:386` 的表达式属性 `public GameModels Models => _gameModels;`（**只读**，无 setter）。
+2. `GameModels` 的构造里有一行 `CrimeModel = GetGameModel<CrimeModel>();`（`GameModels.cs:345`），把结果存进 `GameModels.cs:175` 的 `public CrimeModel CrimeModel { get; private set; }`。**这一步只发生一次**，所以它是你应该在早期缓存的东西。
+3. 消费端统一写 `Campaign.Current.Models.CrimeModel.Xxx(...)`，例如 `PayForCrimeAction.cs:53` 与 `DefaultBribeCalculationModel.cs:45` 都走这条路。
+
+**一段可直接跑的三行判定链**：
+
+```csharp
+CrimeModel crime = Campaign.Current.Models.CrimeModel;
+float current = Settlement.CurrentSettlement.MapFaction.MainHeroCrimeRating;
+Debug.Print("severe = " + crime.IsPlayerCrimeRatingSevere(Settlement.CurrentSettlement.MapFaction), 0);
+```
+
+**第一行可以缓存，第二行不行。** `crime` 是无状态纯函数对象，缓存安全；而 `MainHeroCrimeRating` 是派系上的活状态，每帧都在变。**不要把第二行的值也缓存进字段。**
+
+**覆写时最容易漏的是那个唯一的抽象属性。** 十个抽象成员里九个是方法，只有 `DeclareWarCrimeRatingThreshold` 是 `public abstract float ... { get; }` —— 写属性要带 `{ get; }`，不是空实现的方法。`DefaultCrimeModel.cs:17` 给了标准形状 `public override float DeclareWarCrimeRatingThreshold => 60f;`（表达式体，没有花括号）。
+
+**默认值全在子类，基类读不到。** 想查「默认阈值是多少」只能去 `DefaultCrimeModel` 看：`GetMaxCrimeRating()`（`DefaultCrimeModel.cs:96`）方法体就一句 `return 100f;`。基类 `CrimeModel.cs` 里一个数字都没有。
+
+**最常见的坑：`GetCost` 的支付方式陷阱。** 默认实现只对 `PaymentMethod.Gold` 与 `Influence` 返回非负代价，`Punishment` / `Execution` / `ExMachina` 一律返回 `0f`。而 `PaymentMethod` 是 `[Flags]` 枚举（`CrimeModel.cs` 内嵌，值 `ExMachina=0x1000`、`Gold=1`、`Influence=2`、`Punishment=4`、`Execution=8`）—— **传组合值不会出错，只会让 `if` 分支全部落空并静默返回 0**，表现为赎罪「免费」。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

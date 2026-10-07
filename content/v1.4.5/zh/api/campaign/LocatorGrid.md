@@ -157,6 +157,54 @@ for (MyMapMarker m = _markerLocator.FindNextLocatable(ref data);
 
 `UpdateLocator` 是唯一维护入口；若 `SetPosition` 后忘记调它，该标记会从邻近查询中消失。`MyMapMarker.GetPosition2D` 因 `[CachedData]` 不进存档，读档后需重新 `UpdateLocator` 注册。
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map/LocatorGrid.cs`（全文 186 行）。
+**入口：** `Campaign.SettlementLocator`（`Campaign.cs:441`）与 `Campaign.MobilePartyLocator`（`Campaign.cs:443`）——**两者都是 `?? (new LocatorGrid<...>())` 的惰性属性**，第一次被问才构造。
+
+**类型是 `internal class LocatorGrid<T> where T : ILocatable<T>`（`LocatorGrid.cs:6`），外部程序集不能直接 `new`。** 构造器 `internal LocatorGrid(float gridNodeSize = 5f, int gridWidth = 32, int gridHeight = 32)`（`:22`）三个参数全有默认值，**引擎自己用的就是默认值**：格边长 `DefaultGridNodeSize = 5f`（`:8`）、宽 `DefaultGridWidth = 32`（`:10`）、高 `DefaultGridHeight = 32`（`:11`）。
+
+**这三个常量决定了网格的全部行为，改它们不是「调参」而是换算法。** 32×5f = 160 的网格跨度把整张地图的包围盒折进了 160×160。
+
+### 典型用法
+
+**你必须先接受一个前提：这个网格会把超出范围的坐标折回来，而不是拒绝它。** `MapCoordinates(int x, int y)`（`:30`）对 x 做 `% _width`（`:32`）、负数补一轮（`:33`-`:35`）；y 同理走 `% _height`（`:36`）与负数修正（`:37`-`:39`）；最终返回 `y * _width + x`（`:42`）。**`GetGridIndices`（`:175`）用 `Floor(position.x / _gridNodeSize)` 直接除，所以坐标可以是任意大或任意小的浮点数。**
+
+**查询窗口还会被另外夹一次。** `GetBoundaries`（`:162`）把 `position ± radius` 换算成网格索引后，用 `Math.Min(maxX - minX, _width - 1)`（`:167`）与 `Math.Min(maxY - minY, _height - 1)`（`:168`）**把窗口宽度硬夹在一格以内**，然后才回卷（`:169`-`:170`）并重建上界（`:171`-`:172`）。
+
+**这就是「半径大于一格」时不会退化成一个全图扫描、但也不会真的按半径裁剪」的原因**——超大半径会被截成 31 格宽。要判断一个实体到底在不在范围里，只能靠 `FindNextLocatable`（`:126`）里的距离过滤（`:131`-`:134`、`:139`-`:142`），不能靠桶。
+
+移动与删除走的是两条完全不同的路径。`RemoveLocatable(T)`（`:153`）只做一件事：`LocatorNodeIndex >= 0` 时调 `RemoveFromList`（`:158`）。而 `RemoveFromList`（`:70`）先试表头命中（`:72`），未命中才沿链表走（`:84`-`:93`）——**走完都没找到就 `Debug.FailedAssert`（`:94`），但函数仍正常返回，不抛异常**。这个 `FailedAssert` 的文案是 `"cannot remove party from MapLocator: "`（`:94`），**注意它硬编码了「party」这个词，即使你删的是据点也照抄这句。**
+
+```csharp
+public static class LocatorGridArithmetics
+{
+    public static void Report(Vec2 center, float radius)
+    {
+        int nodeSize = 5;
+        int width = 32;
+        int height = 32;
+        int x = MathF.Floor(center.x / nodeSize);
+        int y = MathF.Floor(center.y / nodeSize);
+        int wrappedX = x % width; if (wrappedX < 0) { wrappedX += width; }
+        int wrappedY = y % height; if (wrappedY < 0) { wrappedY += height; }
+        int index = wrappedY * width + wrappedX;
+        Debug.Print("center=" + center + " gridIndex=(" + x + "," + y + ") wrapped=" + index, 0);
+        Debug.Print("gridSpan=160x160, window clamped to 31 cells wide", 0);
+    }
+}
+```
+
+这段代码是上面三段（`:30`-`:42`、`:162`-`:173`、`:175`-`:179`）的等价复刻，**不碰 internal 类型**。想在 mod 里预测某个实体会落到哪个桶，就用它。
+
+`CheckWhetherPositionsAreInSameNode(Vec2 pos1, ILocatable<T> locatable)`（`:45`）只做一次整数比较（`:47`-`:49`）：**它回答「这个坐标和这个实体现在是不是同一桶」，不回答「它们相距多远」。** 引擎用它做批量延迟更新。
+
+### 最容易踩的坑
+
+**绕过 `Position` setter 移动实体 → 查询返回空 / 漏查**：网格节点的正确性**完全依赖**实体移动时调用 `UpdateLocator`。若用反射直接写 `_position`、在初始化阶段改坐标、或自定义 `ILocatable` 实体移动后忘了调 `UpdateLocator`，该实体的 `LocatorNodeIndex` 会停留在旧节点；半径查询要么漏掉它、要么在错误节点里找到它。`CheckWhetherPositionsAreInSameNode`（引擎内部用于延迟批量 `UpdateLocator`）也会基于错误的 `LocatorNodeIndex` 误判「没移动」。
+
 ## 版本注记
 
 本页以 v1.4.5 `TaleWorlds.CampaignSystem.Map/LocatorGrid.cs`、`ILocatable.cs`、`LocatableSearchData.cs`，以及 `Campaign.cs`（`SettlementLocator` / `MobilePartyLocator`）、`MobileParty.cs` / `Settlement.cs` 的 `Position` setter、`MapTracksCampaignBehavior.cs` 源码为准。跨版本使用时重新核对默认网格尺寸（`DefaultGridNodeSize=5`、`DefaultGridWidth/Height=32`）、`ILocatable<T>` 的 `[CachedData]` 标注，以及 `StartFindingLocatablesAroundPosition` / `FindNextLocatable` 的静态封装位置。

@@ -148,6 +148,39 @@ public static bool IsNoAtmosphere(MissionInitializerRecord record)
 - **两个生产者形状差 10 倍。** `DefaultMapWeatherModel` 填满全部字段，`BannerlordMissions` 只填 2 个。**看到别人构造的 `AtmosphereInfo` 不要假设它是「完整的」。**
 - **它是 native 结构体的镜像。** `TaleWorlds.Engine/Properties/AssemblyInfo.cs:9`。托管侧填、引擎读，**托管层对数值没有任何校验**。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public struct AtmosphereInfo`（`TaleWorlds.Library/AtmosphereInfo.cs:5`）。它不由你 new 也没必要——生产的活由 `MapWeatherModel.GetAtmosphereModel` / `BannerlordMissions` 那些 `MapWeatherModel` 派生类干，你要的只是**读**：`MissionInitializerRecord.AtmosphereOnCampaign` 是战役态的大气，战斗态的那份由初始化流程带进来。它带 `[assembly: DefineAsEngineStruct(..., "rglAtmosphere_info", ...)]`（`TaleWorlds.Engine/Properties/AssemblyInfo.cs:9`），`rgl` 前缀说明这是引擎底层子系统。
+
+### 典型用法
+
+上面「真实示例」第一段是生产，第二段是存档守卫（`if (IsValid) SerializeTo(...)`）。但 `IsValid` 只看名字非空，它**不管的另一件事**是长度——`AtmosphereName` 标了 `ByValTStr, SizeConst = 64`，native 侧是 64 字节定长缓冲区：
+
+```csharp
+public static class AtmosphereNameGuard
+{
+    public static bool IsNameSafe(AtmosphereInfo info)
+    {
+        // IsValid 只判 AtmosphereName 非空；这里补一条它不管的检查：
+        // native 侧 64 字节定长，超长被静默截断，症状是两张大气渲染成同一张
+        if (info.AtmosphereName != null && info.AtmosphereName.Length >= 63)
+        {
+            MBDebug.Print("[MyMod] AtmosphereName 超长，native 侧会截断：" + info.AtmosphereName);
+            return false;
+        }
+        return info.IsValid;
+    }
+}
+```
+
+与上面「真实示例」的差别：那里处理的是**「有没有」**（`IsValid` 为假就不写存档）；这里处理的是**「写进去之后是不是还认得出来」**——`IsValid` 返回 true 并不保证这张大气能被 native 正确识别，因为名字可能被截断，而截断后的失败表现是渲染错误而不是异常，所以只能由填充方自己拦。
+
+### 最容易踩的坑
+
+**`IsValid` 只看 `AtmosphereName`。** 其余九个字段全 0 也不影响判定。**「全零大气」是合法的 valid 大气**，别用它当数值校验。
+
 ## 跨版本提示
 
 `AtmosphereInfo.cs` 在 1.4.5 是 72 行、13 个字段 + 5 个成员，是原始源码形态。**跨版本真正要核对的是三处**：native 绑定名 `"rglAtmosphere_info"`（`TaleWorlds.Engine/Properties/AssemblyInfo.cs:9`）——它对应引擎底层子系统，**引擎改版时这个绑定名最可能变**；`DeserializeFrom` / `SerializeTo` 里**十个子结构的顺序**（变了旧存档就错位，且不报错）；以及两个 `MarshalAs` 的 `SizeConst = 64`（**改了就是 native ABI 变更，必须与引擎同步**）。另外注意 1.4.x 后期版本在大气体系里引入了并行的 `AtmosphereInfoV2` 结构体——**如果目标版本的 `MapWeatherModel.GetAtmosphereModel` 返回类型换了，本页的字段表与序列化顺序全部作废**，这是迁移时最先要确认的一点。

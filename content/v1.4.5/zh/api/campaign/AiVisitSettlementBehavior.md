@@ -23,6 +23,78 @@ description: "战役 AI 行为核心：在每小时 tick 时为领主方与土�
 - **使用**：需要解释“领主方为何去某城镇采购/招募/增援”、或想调拜访偏好时阅读本行为；要改具体子规则应走其依赖的模型——食物采购走 [PartyFoodBuyingModel](../PartyFoodBuyingModel)、所需食物阈值走 `Campaign.Current.Models.MobilePartyAIModel.NeededFoodsInDaysThresholdForSiege`、驻军缺口走 [SettlementGarrisonModel](../SettlementGarrisonModel)、志愿者工资走 `PartyWageModel`、土匪 infest 阈值走 [BanditDensityModel](../BanditDensityModel)。
 - **不要使用**：绝对不要直接给 `MobileParty` 设置 `TargetSettlement` / `DefaultBehavior` 来“让它去拜访”——正确做法是 `mobileParty.Ai.SetAIState(AiBehavior.GoToSettlement, settlement)` 让 AI 思考尊重本行为产出的评分；也不要在 `Mission` 层或 `Campaign.Current` 为空时调用其评分辅助；更不要把 `SiegeEvent`（包围中）与 `MapEvent`（遭遇战）混为一谈——本行为对二者有不同判定分支。
 
+## 怎么用
+
+何时该读这一页、何时不该读、该改哪个模型，见上文「何时使用 / 何时不要使用」。本节只讲怎么从源码拿到它、以及它在 v1.4.5 里被谁真的调用。
+
+### 怎么拿到它
+
+声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors/AiVisitSettlementBehavior.cs:16`，`public class AiVisitSettlementBehavior : CampaignBehaviorBase`，全文 811 行。注册点是 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/SandBoxManager.cs:122` 的 `gameStarter.AddBehavior(new AiVisitSettlementBehavior())`，全树只有这一处 `new`，除此之外没有任何调用方。
+
+它订阅五个事件，都在 `RegisterEvents`（`:75`）里：`AiHourlyTickEvent`（`:77`）、`OnSessionLaunchedEvent`（`:78`）、`OnNewGameCreatedEvent`（`:79`）、`HourlyTickEvent`（`:80`）、`OnGameLoadedEvent`（`:81`）。
+
+其中后三个——`OnNewGameCreated`（`:89`）、`OnGameLoaded`（`:94`）、`OnHourlyTick`（`:99`）——函数体都只有一行 `RefreshTheTargetingSettlementDictionary();`。
+
+那个唯一的工作函数在 `:104`，**private**，这是本页对写 mod 最关键的一条：它维护的字典 `_numberOfAlliedMobilePartiesTargetingSettlement`（字段在 `:55`，`private readonly`）**从外部完全不可见**。它的唯一读点在 `:271`，也就是行为内部拿它决定某个定居点值不值得去。
+
+逐行读它的函数体，能拿到两条精确的过滤规则。第一圈（`:106-112`）只把 `IsFortification || IsVillage` 的定居点置 0，村庄与城堡之外的定居点根本不在表里。第二圈（`:113-119`）累加时的条件是四个 `&&`：非「附属且非领袖」的军队关系、`TargetSettlement != null`、`CurrentSettlement != TargetSettlement`、以及 `TargetSettlement.MapFaction == MapFaction`（**只算同派系的访问**）。累加值是 `Army?.LeaderPartyAndAttachedPartiesCount ?? 1`，也就是按军队规模而不是按队伍数计。
+
+`SyncData`（`:123`）是空实现，这个字典不进存档，每次读档由 `:94` 那条路径重建。
+
+### 典型用法
+
+上面两个「示例」是「用 `SetAIState(GoToSettlement)` 派一个领主方过去」和「在 `AiHourlyTickEvent` 里观察候选」。缺的那一格是**复现这份计数**——它决定官方 AI 认为某个定居点值不值得去，而你想在自己的目标选择逻辑里用同一个判据，就必须自己按那四条 `&&` 算一遍：
+
+```csharp
+public static Dictionary<Settlement, int> CountAlliedLordsTargeting()
+{
+    Dictionary<Settlement, int> counts = new Dictionary<Settlement, int>();
+
+    // 第一圈：与 AiVisitSettlementBehavior.cs:106-112 同形，只有城堡与村庄进表
+    foreach (Settlement s in Settlement.All)
+    {
+        if (s.IsFortification || s.IsVillage)
+        {
+            counts[s] = 0;
+        }
+    }
+
+    foreach (MobileParty lord in MobileParty.AllLordParties)
+    {
+        // 第二圈的第一条：附属但不是军队领袖的队伍不单独计数
+        if (lord.Army != null && lord.AttachedTo != null && lord.Army.LeaderParty == lord)
+        {
+            continue;
+        }
+        Settlement target = lord.TargetSettlement;
+        // 第二圈的其余三条：目标非空、不在自己城里、且与自己同派系
+        if (target == null || lord.CurrentSettlement == target
+            || target.MapFaction != lord.MapFaction)
+        {
+            continue;
+        }
+        int current;
+        counts.TryGetValue(target, out current);
+        counts[target] = current + (lord.Army?.LeaderPartyAndAttachedPartiesCount ?? 1);
+    }
+    return counts;
+}
+```
+
+四个条件一个都不能省。去掉 `MapFaction` 那条会把敌方也统计进来，去掉军队关系那条会让同一支军队的每个附属队伍各算一次，而官方是按 `LeaderPartyAndAttachedPartiesCount` 一次性计入。
+
+这段是**读**路径，不要拿它去写 `TargetSettlement`。改移动状态走 `SetAIState`，理由见上文「何时不要使用」。
+
+### 什么时候不要用它
+
+不要直接给 `MobileParty` 设 `TargetSettlement`。那是移动推进读取的字段，绕过了本行为的整套决策与 `:104` 的计数刷新，结果是队伍去了但计数没更新。
+
+不要在高频事件里再加一次 `Settlement.All` × `MobileParty.AllLordParties` 的遍历，理由见下文坑。
+
+### 最容易踩的坑
+
+每小时 O(定居点 × 领主方) 重建计数：`RefreshTheTargetingSettlementDictionary` 在 `HourlyTickEvent` 以及新游戏、读档时都会整表重建 `_numberOfAlliedMobilePartiesTargetingSettlement`。方与定居点很多时这是持续的每小时代价，在这里再加额外遍历会把成本翻倍。
+
 ## 依赖图
 
 上游类型与系统：

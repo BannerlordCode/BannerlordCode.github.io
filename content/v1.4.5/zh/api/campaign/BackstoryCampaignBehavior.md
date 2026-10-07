@@ -65,6 +65,31 @@ description: "只在 OnNewGameCreatedEvent 跑一次的世界背景行为：把�
 | `OnNewGameCreated(CampaignGameStarter campaignGameStarter)` | `public void OnNewGameCreated(CampaignGameStarter campaignGameStarter)` | 世界史脚本本体（`:21-61`），58 行、七个阶段。**`campaignGameStarter` 参数完全未被使用**——这个回调只是被借来当「开局时刻」的钩子。内部按顺序写 4 条硬编码历史 + 2 段家族循环 + 1 次领袖关系差。 |
 | `SyncData(IDataStore dataStore)` | `public override void SyncData(IDataStore dataStore)` | **空实现**（`:17-19`）。正确：所有写入都通过 `LogEntry.AddLogEntry` / `ChangeRelationAction` / `ClaimSettlementAction` 这类官方 Action，**产生的状态由被改对象自己存档**，行为不需要重复持久化。 |
 
+## 怎么用
+
+这个行为不是玩法逻辑，它是一次性的世界历史播种器：在一个固定的历史时间点上补写若干日志条目、并施加若干好感与领地变更，用来让开局的世界看起来「已经发生过一些事」。它只在新建战役时跑一次。
+
+**怎么拿到它**：注册点是 `SandBoxManager.cs:33` 的 `gameStarter.AddBehavior(new BackstoryCampaignBehavior())`，声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/BackstoryCampaignBehavior.cs:10`。它只订阅一个事件，在 `BackstoryCampaignBehavior.cs:13` 的 `OnNewGameCreatedEvent`，唯一的逻辑体是 `BackstoryCampaignBehavior.cs:21` 的 `OnNewGameCreated`。
+
+全部有效代码在那一段里，且写的是 1.4.5 官方战役的具体 id，顺序固定：先对 `lord_1_7` 与 `lord_1_1` 补一条受辱日志并扣 50 点好感，再对 `lord_4_1` 与 `lord_4_16` 补一条势力压制日志，接着把 `town_V6`（`BackstoryCampaignBehavior.cs:30` 取出的 `Settlement`）判给 `lord_4_16`，然后是两组谋杀与随之而来的 -75 好感，最后是对被灭氏族残留领主的批量受辱日志。
+
+它的筛选条件写在 `BackstoryCampaignBehavior.cs:45` 与 `:52` 两处，形状完全相同：只处理 `IsLord`、年龄小于 `AgeModel.MiddleAdultHoodAge`、非女性、且 `Mercy` 特质等级小于 1 的英雄。遍历来源分别是活着的 `nimr.Clan.Heroes` 和 `Hero.DeadOrDisabledHeroes`（`BackstoryCampaignBehavior.cs:50`）。
+
+```csharp
+BackstoryCampaignBehavior behavior = Campaign.Current.GetCampaignBehavior<BackstoryCampaignBehavior>();
+Debug.Print("行为已挂载，SyncData 为空说明它不持有任何状态", 0);
+Debug.Print("行为类公开成员只有 RegisterEvents / SyncData / OnNewGameCreated 三个", 0);
+// 想改历史，改这一段；这里只演示它读到的阈值
+Debug.Print("中年年龄阈值=" + Campaign.Current.Models.AgeModel.MiddleAdultHoodAge, 0);
+// 查它播下的那条领地变更是否落地
+Settlement claimed = Game.Current.ObjectManager.GetObject<Settlement>("town_V6");
+Debug.Print("town_V6 现属=" + claimed.OwnerClan?.Name + " 所有者=" + claimed.Owner, 0);
+```
+
+它调的三个写入口分别是 `LogEntry.AddLogEntry`、`ChangeRelationAction.ApplyRelationChangeBetweenHeroes` 和 `ClaimSettlementAction.Apply`，全部走 Action 体系，所以这些变更会正常进存档并触发对应事件。
+
+**最常见的坑**：所有 id（`lord_1_7`、`town_V6`、`dead_lord_2_2` 等）都硬编码在方法体里，`Game.Current.ObjectManager.GetObject` 找不到就返回 null，后续对它取 `.Clan` 或 `.Age` 直接 NRE。改自定义战役的 id 必须整段重写这个行为，不能靠加模块补丁。
+
 ## 真实示例
 
 读取同一批历史英雄，做你自己的开局初始化（形状照 `OnNewGameCreated` 的 `ObjectManager` 解析）：

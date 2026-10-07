@@ -8,7 +8,7 @@ description: "军队菜单覆层（点主菜单时的军队面板）。它带 [M
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public class ArmyMenuOverlayVM : GameMenuOverlay`  
 **Base:** `GameMenuOverlay`  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay/ArmyMenuOverlayVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay/ArmyMenuOverlayVM.cs`
 
 ## 概述
 

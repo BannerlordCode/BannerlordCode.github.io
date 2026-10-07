@@ -55,6 +55,17 @@ description: "Agent 外观的参数包：约 30 个只读属性加约 25 个链�
 | `HasClippingPlane(bool)` / `PrepareImmediately(bool)` / `Banner(Banner)` / `MountCreationKey(string)` / `Frame(MatrixFrame)` / `Entity(GameEntity)` | 对应 setter | 其余槽位：裁剪面、是否立即准备、旗帜、自定义坐骑创建键、根坐标系、承载实体。`Frame` 会在 `Refresh` 里被 `rotation.ApplyScaleLocal(_scale)` 就地改写。 |
 | `GetCopyAgentVisualsData` 的对应 | — | 注意**读取**一份副本要走 `IAgentVisual.GetCopyAgentVisualsData()`（在 [AgentVisuals](../AgentVisuals/) 上），本类没有同名的读取方法。 |
 
+## 死成员与陷阱
+
+本页成员普遍看着像内部缓存，实际都在高频调用 —— 调用点少不代表死。
+
+| 成员 | 声明位置 | override | 调用点 | 判定 | 说明 |
+|---|---|---:|---:|---|---|
+| `EquipmentData` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVisualsData.cs:17 | 0 | 37 次（32 行） | MEASURED | 装备数据访问器。清单报 35，实测 **37 次（32 行）** —— `AgentVisuals.cs:490` 一行里出现 5 次，是本批里 B-7 发作最明显的一条。 |
+| `UseMorphAnims` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVisualsData.cs:169 | 0 | 22 次（22 行） | MEASURED | 形变动画开关，清单数 22 与实测一致。 |
+| `ActionCode` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVisualsData.cs:253 | 0 | 20 次（20 行） | MEASURED | 动作码查询，清单数 20 与实测一致。 |
+| `GetCachedWeaponEntity` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVisualsData.cs:199 | 0 | 1 次（1 行） | MEASURED | 武器实体缓存读取，唯一调用点是 `AgentVisuals.cs:437`。 |
+
 ## 真实示例
 
 最小可用的参数包——照 `GauntletBannerBuilderScreen.cs:249` 与 `BodyGeneratorView.cs:266` 的官方写法：

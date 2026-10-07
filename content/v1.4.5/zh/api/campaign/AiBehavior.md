@@ -114,6 +114,54 @@ switch (party.DefaultBehavior)
 }
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/AiBehavior.cs`（全文 24 行）。
+**入口：** 无运行时入口——它是枚举，比较 `PartyBase.Ai.DefaultBehavior` / `ShortTermBehavior` 的返回值即可。
+
+**它不是一个对象，是一个 19 成员的 `public enum`（`AiBehavior.cs:3`）。** 你在 C# 侧唯一能做的事就是比较成员值，**没有构造器、没有注册、没有 `IsTagApplicable` 之类的查询口**。
+
+最后一个成员 `NumAiBehaviors = 18`（`AiBehavior.cs:23`）是**哨兵计数**，不是一种行为。它的用途是「行为数量」这种需要 `Enum.GetValues` 之外的知识的场景——比如要遍历全部行为做校验时用它当上界。**拿它去 `switch` 或存进 `DefaultBehavior` 没有意义。**
+
+数值相邻不代表功能相邻：`Hold`（`AiBehavior.cs:5`）与 `None`（`AiBehavior.cs:6`）相邻但语义相反，`EngageParty`（`AiBehavior.cs:11`）与 `JoinParty`（`AiBehavior.cs:12`）相邻但一个是战斗一个是入伙。
+
+### 典型用法
+
+**读它永远是安全的，写它不是。** 一支队伍身上有两层意图字段，它们都是 `AiBehavior` 类型：`DefaultBehavior` 与 `ShortTermBehavior`（见本页「示例」）。判断一个队伍当前要干什么，就是看这两个字段的组合。
+
+生产方则是 CampaignBehaviors.AiBehaviors 目录下的十几个 `CampaignBehaviorBase`——它们往 `PartyThinkParams` 里塞 `(AIBehaviorData, score)` 候选，由 [AiPartyThinkBehavior](../AiPartyThinkBehavior) 汇总裁决。**枚举值只是候选的标签，真正的目标在 `AIBehaviorData.Party` 或 `.Position` 里。**
+
+```csharp
+public static class AiBehaviorInspector
+{
+    public static void Report(MobileParty party)
+    {
+        AiBehavior planned = party.DefaultBehavior;
+        AiBehavior reacting = party.ShortTermBehavior;
+        Debug.Print(party.Name + " default=" + planned + " shortTerm=" + reacting, 0);
+        MBReadOnlyList<(AIBehaviorData, float)> scores = party.ThinkParamsCache.AIBehaviorScores;
+        for (int i = 0; i < scores.Count; i++)
+        {
+            if (scores[i].Item2 <= 0f)
+            {
+                continue;
+            }
+            Debug.Print("  candidate " + scores[i].Item1.AiBehavior + " score=" + scores[i].Item2, 0);
+        }
+    }
+}
+```
+
+这段代码的价值在于**打印出「这一 tick 到底有哪些候选」**——当队伍不动时，看这张表比看 `DefaultBehavior` 更有用，因为汇总裁决可能输给了分数更高的另一个候选。
+
+要真正驱动一支队伍，**走 `SetMoveXxx` 或 [SetPartyAiAction](../../campaign-ext/SetPartyAiAction)**，不要直接赋枚举值。
+
+### 最容易踩的坑
+
+**误用为写入入口**：`AiBehavior` 只是枚举，给 `PartyBase.Ai.DefaultBehavior` 直接赋枚举值不会启动任何移动或刷新短行为；必须经 `SetMoveXxx` / [SetPartyAiAction](../../campaign-ext/SetPartyAiAction)。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

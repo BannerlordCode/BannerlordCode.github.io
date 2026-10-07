@@ -8,7 +8,7 @@ description: "军队管理界面列表列头背后的视图模型。它为每一
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public class ArmyManagementSortControllerVM : ViewModel`  
 **Base:** `ViewModel`  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementSortControllerVM.cs`
 
 ## 概述
 

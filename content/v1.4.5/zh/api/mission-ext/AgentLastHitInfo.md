@@ -40,6 +40,14 @@ description: "Agent 身上两个字段的记录结构：记住最近一次「谁
 | `Initialize` | `public void Initialize()` | 唯一的初始化入口。设 `OwnerId = -1`、`AttackType = Standard`、**新建** `_lastBlowTimer`。注意它是「新建」不是「Reset」——所以重复调会换一个计时器实例。 |
 | `RegisterLastBlow` | `public void RegisterLastBlow(int ownerId, AgentAttackType attackType)` | 记录一次打击。先 `_lastBlowTimer.Reset()`（**如果计时器是 null 会 NRE**），再写 `OwnerId` 与 `AttackType`。没有校验 `ownerId` 合法性——传 `-1` 就等于清空记录。 |
 
+## 死成员与陷阱
+
+清单把 `_lastBlowTimer` 报成「调用点 0」，实测它有 3 次活跃引用 —— 工具口径盲区，不是死成员。
+
+| 成员 | 声明位置 | override | 调用点 | 判定 | 说明 |
+|---|---|---:|---:|---|---|
+| `_lastBlowTimer` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Agent.cs:41 | 0 | 3 次（3 行） | MEASURED | 受击计时器：:63 重建、:68 `Reset()`、:53 `ElapsedTime <= 5f` 判断是否在受击保护期内。字段裸读不是调用形，工具计成 0。 |
+
 ## 真实示例
 
 读当前状态——这是 mod 唯一能做的事，因为宿主字段是 `private`：

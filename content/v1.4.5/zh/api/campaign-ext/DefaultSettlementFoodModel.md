@@ -72,6 +72,66 @@ if (town != null)
 - `Town.DailyTick` 会在断粮时更新 `RemainingFoodPercentage`；保持结果可解释且不要把库存直接 clamp 到上限以外。
 - 该类只计算，不负责保存粮食状态；在模型里添加持久字段会引入不必要的存档兼容面。
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementFoodModel.cs`（全文 103 行）。
+**抽象契约：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementFoodModel.cs:16`（唯一 abstract 成员）。
+**入口：** `Town.FoodChange`（`Town.cs:134`）与 `Town.FoodChangeWithoutMarketStocks`（`Town.cs:136`）。
+
+**两个入口的唯一区别就是第二个参数。** `FoodChange` 调 `CalculateTownFoodStocksChange(this)`（`Town.cs:134`）——`includeMarketStocks` 吃默认 true；`FoodChangeWithoutMarketStocks` 显式传 `false`（`Town.cs:136`）。**所以「含不含市场」在这两个属性上是唯一变量，而 `includeDescriptions` 两者都没传、吃默认 false。**
+
+四个常量全是 `override` 而非 `virtual`：`FoodStocksUpperLimit => 300`（`DefaultSettlementFoodModel.cs:30`）、`NumberOfProsperityToEatOneFood => 40`（`:32`）、`NumberOfMenOnGarrisonToEatOneFood => 20`（`:34`）、`CastleFoodStockUpperLimitBonus => 150`（`:36`）。
+
+**而第五个常量 `private const int FoodProductionPerVillage = 10`（`:28`）是死代码——它在本文件里零引用。** 真正生效的村庄公式在 `:72`，是 `(GetHearthLevel() + 1) * 6`。
+
+### 典型用法
+
+`CalculateTownFoodStocksChange`（`:38`）是一行转发（`:40`），全部逻辑在 `CalculateTownFoodChangeInternal`（`:43`）。**核心结构是四个 `ExplainedNumber` 变量而不是两本账：**
+
+- `bonuses`（`:45`）= 粮食**来源**
+- `bonuses2`（`:46`）= 繁荣与驻军等**消耗**
+- `bonuses3`（`:47`）= 繁荣折算量、`bonuses4`（`:48`）= 驻军折算量——**这两个是中间量**
+
+**它们在 `:55`-`:56` 就已经被折进 `bonuses2` 了**，最终只做两步合并：`AddFromExplainedNumber(bonuses, null)`（`:93`）与 `SubtractFromExplainedNumber(bonuses2, null)`（`:94`）。**读代码时看到四个 `bonuses` 开头很容易误以为有四条独立账本。**
+
+**围城是本模型最大的分叉，`town.IsUnderSiege` 出现两次。** 第一次在 `:49`：加 Steward.Gourmet Perk 到驻军（`:51`）、Medicine.TriageTent Perk 到消耗（`:52`）。第二次在 `:63`：`if (!town.IsUnderSiege)` 包住了整个供给段（`:65`-`:76`），走围城分支则是 `Roguery.DirtyFighting` Perk（`:80`）。
+
+**但 `:82` 的市场卖出那段在这个 if 外面**——所以围城时市场加成仍然生效，**只有周边土地与绑定村庄被关掉**。
+
+`includeDescriptions` 唯一影响的是 `:88`：
+
+```
+bonuses.Add(soldItem.Number, includeDescriptions ? soldItem.Category.GetName() : null);
+```
+
+**即 `includeDescriptions=false` 时每一条市场加成都没有名字**，在 UI 上退化成无名行。
+
+想分离市场那一段，最省事的是调两次相减，而不是去数 `town.SoldItems`：
+
+```csharp
+public static void DumpTownFood(Town town)
+{
+    SettlementFoodModel model = Campaign.Current.Models.SettlementFoodModel;
+    float withMarket = model.CalculateTownFoodStocksChange(town, true, false).ResultNumber;
+    float withoutMarket = model.CalculateTownFoodStocksChange(town, false, false).ResultNumber;
+    Debug.Print(town.Settlement.Name + " withMarket=" + withMarket + " withoutMarket=" + withoutMarket, 0);
+    Debug.Print("delta=" + (withMarket - withoutMarket) + " = the BonusToFoodStores sold log only", 0);
+    Debug.Print("upperLimit=" + model.FoodStocksUpperLimit
+        + " perProsperity=" + model.NumberOfProsperityToEatOneFood
+        + " perMan=" + model.NumberOfMenOnGarrisonToEatOneFood, 0);
+}
+```
+
+**上例第二行的 `delta` 正好就是市场那一段**（`DefaultSettlementFoodModel.cs:82`-`:91`），因为其余项在两次调用里逐字节相同。**这比去读 `town.SoldItems` 更稳——它跟着模型走，不依赖你猜对字段。**
+
+真实消费方有三处：`Town.cs:134` 与 `Town.cs:136` 是两个属性，`GarrisonTroopsCampaignBehavior.cs:446` 调 `settlementFoodModel.CalculateTownFoodStocksChange(town, includeMarketStocks)`——**那处只传了一个位置参数，`includeDescriptions` 吃默认 false，所以驻军补给 UI 拿到的全是无名加成。**
+
+### 最容易踩的坑
+
+- `includeMarketStocks` 读取的是 `Town.SoldItems`，它反映已发生的市场行为；不要在每帧预览中把带市场记录的结果当成确定的每日产出。
+
 ## 导航
 
 - [上级：Campaign-Ext](..)

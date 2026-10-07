@@ -135,6 +135,71 @@ int relationGain = Campaign.Current.Models.MarriageModel
     .GetEffectiveRelationIncrease(heroOne, heroTwo);
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/MarriageModel.cs`（全文 27 行）。
+**入口：** `Campaign.Current.Models.MarriageModel`（由 `GameModels` 在战役建立 / 读档时解析）。
+
+`public abstract class MarriageModel : MBGameModel<MarriageModel>`（`MarriageModel.cs:6`），**10 个成员全是 abstract，零默认实现**。
+
+**10 个成员分三层，而「层」才是判断用哪个的关键**：两个最小年龄常量（`:8`/`:10`）、三个单方资格判据（`IsSuitableForMarriage(hero)` `:18`、`IsClanSuitableForMarriage(clan)` `:20`、`ShouldNpcMarriageBetweenClansBeAllowed` `:24`）、两个成对判据（`IsCoupleSuitableForMarriage` `:12`、`NpcCoupleMarriageChance` `:22`）、三个产出（`GetEffectiveRelationIncrease` `:14`、`GetClanAfterMarriage` `:16`、`GetAdultChildrenSuitableForMarriage` `:26`）。
+
+### 典型用法
+
+**最容易搞错的是 `IsCoupleSuitableForMarriage` 与 `IsClanSuitableForMarriage` 的关系——它们不是串联的。** 前者接两个 `Hero`（`:12`），后者接一个 `Clan`（`:20`）。**一个合格的两人组合不代表两个氏族都合格，反之亦然**；官方调用方需要各自单独问一遍。
+
+`GetAdultChildrenSuitableForMarriage(Hero hero)`（`:26`）是唯一返回集合的成员（`List<Hero>`），而它是**「适婚的成年子女」**不是「全部子女」——**用于包办婚姻时应当直接用它，不要自己筛 `Age`。**
+
+想在真正执行之前把三层都验一遍、并顺便算出关系增量：
+
+```csharp
+public static bool TryArrangeMarriage(Hero groom, Hero bride)
+{
+    MarriageModel model = Campaign.Current.Models.MarriageModel;
+    if (!model.IsCoupleSuitableForMarriage(groom, bride))
+    {
+        return false;
+    }
+    if (!model.IsClanSuitableForMarriage(groom.Clan) || !model.IsClanSuitableForMarriage(bride.Clan))
+    {
+        return false;
+    }
+    int gain = model.GetEffectiveRelationIncrease(groom, bride);
+    Debug.Print("couple ok, relationGain=" + gain, 0);
+    return true;
+}
+```
+
+**注意上面只回答「能不能」，不执行。** `GetClanAfterMarriage(firstHero, secondHero)`（`:16`）返回的是**假如结婚**会落到哪个氏族，它是一个纯查询，不改变任何归属。真正改状态的是 `MarriageAction.Apply`，**两者必须分开**——先查询再执行，而不是用查询结果代替执行。
+
+`NpcCoupleMarriageChance(firstHero, secondHero)`（`:22`）返回 `float`，是 **NPC 自主婚配的权重**，不是「玩家手动求婚」用的概率。**把它当成玩家操作的概率是本 Model 最常见的误用。**
+
+替换时 10 个成员一个都不能少：
+
+```csharp
+public class MyMarriageModel : MarriageModel
+{
+    public override int MinimumMarriageAgeMale => 16;
+    public override int MinimumMarriageAgeFemale => 16;
+    public override bool IsSuitableForMarriage(Hero hero) => hero.Age >= 16;
+    public override bool IsClanSuitableForMarriage(Clan clan) => !clan.IsBanished;
+    public override bool IsCoupleSuitableForMarriage(Hero a, Hero b) => a != b && a.Spouse == null && b.Spouse == null;
+    public override int GetEffectiveRelationIncrease(Hero a, Hero b) => 20;
+    public override Clan GetClanAfterMarriage(Hero a, Hero b) => a.Clan;
+    public override float NpcCoupleMarriageChance(Hero a, Hero b) => 0.1f;
+    public override bool ShouldNpcMarriageBetweenClansBeAllowed(Clan c, Clan t) => c != t;
+    public override List<Hero> GetAdultChildrenSuitableForMarriage(Hero hero) => new List<Hero>();
+}
+```
+
+**上例最后一个成员返回空列表，这等于彻底关掉包办婚姻通道。** 想开这个功能就得真去遍历 `hero.Children` 过滤年龄。**10 个 abstract 里最容易漏、后果最静默的就是这个——返回一个空集合不报错，只是那条路再也不有人走。** 实证：`LordConversationsCampaignBehavior.cs:426` 与 `:428` 直接用 `...IsEmpty()` 当作「能不能谈包办」的对话条件，`:436`-`:437` 接着取两份名单求交集。**返回空列表的结果是那整条对话线在战役里彻底消失，没有任何日志。**
+
+### 最容易踩的坑
+
+**跨战役重载缓存实例**：`Campaign.Current.Models.MarriageModel` 在每次新战役/读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长生命周期对象，会在重载后指向旧战役的已销毁对象，调用即崩溃或读到陈旧规则。每次需要时都重新走 `Campaign.Current.Models` 获取。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

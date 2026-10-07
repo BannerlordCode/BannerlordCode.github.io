@@ -23,6 +23,73 @@ BuildingsCampaignBehavior 是一个有状态的 Campaign 层行为，由 `SandBo
 - **使用**：需要在建筑进度、排队、升级时机上做干预时——例如自定义某个城镇每日起始队列、在 `OnBuildingLevelChanged` 时挂自定义效果、或在子模块里注册一个监听建筑事件的新行为。读取建筑进度/队列请走 [Town](../Town) 与 [Building](../Building)，行为本身通过 `GetBehavior` 取。
 - **不要使用**：不要用它去“算数”——判断某建筑类型能否加入城镇、下个建筑评分、建造成本，这些属于 [BuildingModel](../BuildingModel)/[BuildingScoreCalculationModel](../BuildingScoreCalculationModel)/[BuildingConstructionModel](../BuildingConstructionModel)。不要在 Mission/战斗层或战役未启动时访问；不要在 tick 回调之外手动重入 `DecideBuildingQueue` 这类私有逻辑，或假设队列顺序与每日随机一致。
 
+## 怎么用
+
+何时该读这一页、何时不该读、该改哪个模型，见上文「何时使用 / 何时不要使用」。本节只讲怎么从源码拿到它、以及它在 v1.4.5 里被谁真的调用。
+
+### 怎么拿到它
+
+声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/BuildingsCampaignBehavior.cs:13`，`public class BuildingsCampaignBehavior : CampaignBehaviorBase`，**不是 sealed**，所以可以派生。
+
+它在整棵 v1.4.5 树里只被 1 个文件引用，而那一处就是它的注册点：`TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/SandBoxManager.cs:43` 的 `gameStarter.AddBehavior(new BuildingsCampaignBehavior())`。除此之外没有任何 `new`，也没有静态单例。
+
+取它的方式是 `Campaign.Current.CampaignBehaviorManager.GetBehavior<BuildingsCampaignBehavior>()`，拿到的是当前战役注册的那一个实例。它自己只覆写两个成员：`:15` 的 `RegisterEvents` 与 `:31` 的 `SyncData`。
+
+`RegisterEvents` 里它只订阅了一个事件——`:19` 的 `CampaignEvents.DailyTickSettlementEvent.AddNonSerializedListener(this, DailyTickSettlement)`，处理函数 `DailyTickSettlement` 是 **private**，签名在 `:61`。**私有意味着不能 override**，想加每日逻辑只能自己再挂一个监听。
+
+它自身还调用四个模型，逐条 grep：`BuildingsCampaignBehavior.cs:42` 取 `BuildingScoreCalculationModel.GetNextDailyBuilding`，`:53` 取 `GetNextBuilding`，`:110` 取 `BuildingConstructionModel`，`:167` 取 `BuildingModel.CanAddBuildingTypeToTown`。也就是说它是本桶里少数一个**同时是消费者又是分发者**的行为。
+
+### 典型用法
+
+上面「示例」两段是「从战役取实例读城镇建筑状态」和「注册一个监听建筑升级的独立行为」。缺的那条路是**派生并顶替官方那个**——因为注册点在 `SandBoxManager.cs:43` 写死了基类类型，派生类只要先注册就轮不到基类：
+
+```csharp
+public class MyBuildingsBehavior : BuildingsCampaignBehavior
+{
+    // 基类不是 sealed；派生注册在 SandBoxManager 之前就能顶替它
+    private int _dailyTicks;
+
+    public override void RegisterEvents()
+    {
+        // 先让官方那份挂好（它自己订阅 DailyTickSettlementEvent，行为文件 :19）
+        base.RegisterEvents();
+
+        // DailyTickSettlement 是 private、无法 override：只能自己再挂一个同源监听
+        CampaignEvents.DailyTickSettlementEvent.AddNonSerializedListener(this, this.OnMyDailyTick);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        base.SyncData(dataStore);
+        // 键名是存/读两端唯一的契约；官方 SyncData 是空实现，所以这里不会覆盖任何东西
+        dataStore.SyncData("_dailyTicks", ref _dailyTicks);
+    }
+
+    private void OnMyDailyTick(Settlement settlement)
+    {
+        if (settlement == null || settlement.Town == null)
+        {
+            return;
+        }
+        this._dailyTicks++;
+    }
+}
+```
+
+顶替之前要确认两件事：一是你的 `AddBehavior` 必须在 `SandBoxManager.cs:43` 之前执行，否则两者都在，官方那份仍会跑。二是 `SyncData` 里先调 `base`——它当前是空实现所以无副作用，但这是不能依赖的稳定契约。
+
+`OnMyDailyTick` 与官方的 `DailyTickSettlement` 监听的是同一个事件，两者都会被调，顺序由注册顺序决定而框架不保证。
+
+### 什么时候不要用它
+
+不要把 `GetBehavior<BuildingsCampaignBehavior>()` 的结果缓存进静态字段或长生命周期对象。行为是运行期单例，但跨战役与读档后会重新解析。
+
+不要指望从它身上读到建筑状态。它内部没有 `[SaveableField]`，建筑进度能恢复是因为 `Town` 与 `Building` 自己被序列化。
+
+### 最容易踩的坑
+
+行为是运行期单例而状态在 `Town`/`Building` 上：重载后缓存的实例会指向已销毁的旧实例。
+
 ## 依赖图
 
 上游类型与系统：

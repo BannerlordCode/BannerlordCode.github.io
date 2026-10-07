@@ -136,6 +136,68 @@ if (heroCharacter.IsHero)
 
 英雄的专长位（布尔状态）随 `Hero` 一起序列化进存档；`PerkObject` 定义本身是只读 XML 数据，不被改写，存档里只按 `StringId` 引用。跨 Game 生命周期不要缓存 `PerkObject` 实例引用，应始终通过 `DefaultPerks` 或 `PerkObject.All` 重新取。
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterDevelopment/PerkObject.cs`（全文 107 行）。
+**入口：** `PerkObject.All`（`PerkObject.cs:11`）→ `Campaign.Current.AllPerks`（`Campaign.cs:294`），**而 `AllPerks` 是 `internal`，所以 `PerkObject.All` 是你唯一的公开集合入口。**
+
+类声明是 `public sealed class PerkObject : PropertyObject`（`PerkObject.cs:9`）——**sealed，不能派生。** 构造器 `PerkObject(string stringId)`（`:61`）只转给基类，**真正的内容由 `Initialize(...)`（`:66`）填**，那才是 XML 解析器调用的入口。
+
+**`Initialize` 的参数有 15 个，其中 6 个带默认值**（`secondaryDescription` 起）。**所以「一个专长没有次要效果」是合法的**——`secondaryRole` 默认 `PartyRole.None`、`secondaryBonus` 默认 `0f`、`secondaryIncrementType` 默认 `EffectIncrementType.Invalid`。
+
+### 典型用法
+
+**`IsTrash`（`:39`）是这个类型唯一的「有效性」判据，而它的判据不是你的直觉。** 它读 `base.Name` 与 `base.Description`（`:43`）——**两者都非 null 时才去看 `Skill == null`（`:45`）**，否则直接返回 true（`:47`）。
+
+也就是说 **`IsTrash == true` 有两个独立成因**：XML 里根本没填描述，或者填了描述但没给 `Skill`。**它不是「未使用的专长」的判据。**
+
+`Campaign.cs:1508` 用 `AllPerks.Where(x => !x.IsTrash)` 过滤一次来建索引；`Hero.cs:1603` 读专长时逐条判 `item == null || item.IsTrash || GetSkillValue(item.Skill) < item.RequiredSkillValue`——**同一套判据在两处重复实现**，改一处不会同步另一处。
+
+**而 `SecondaryIncrementType` 有一个「继承」逻辑，是本页最容易忽略的一行：**
+
+```
+SecondaryIncrementType = (secondaryIncrementType == Invalid) ? PrimaryIncrementType : secondaryIncrementType
+```
+
+见 `PerkObject.cs:97`。**次要效果不指定增量类型时，自动沿用主要的。** 这意味着你不能靠「把次要设为 Invalid」来表示「次要无效」——它会变成主要的类型。
+
+**`AlternativePerk` 是双向的。** 传进来的 `alternativePerk` 会在 `:90` 被反向赋值 `alternativePerk.AlternativePerk = this`（`:88`-`:91`）。**所以配了对之后两边互指，而 `PerkObject.All` 里的每个对象都可能被两个对象指向。** 沿链遍历时必须防自环。
+
+`ToString()`（`:103`）是 `base.Name?.ToString() ?? base.StringId`——**有名字给名字，没名字退回 StringId。**
+
+想知道某个技能下有哪些专长可用、且哪些其实是废条目，就把三条判据一起打出来：
+
+```csharp
+public static void DumpPerks(SkillObject skill)
+{
+    MBReadOnlyList<PerkObject> all = PerkObject.All;
+    for (int i = 0; i < all.Count; i++)
+    {
+        PerkObject perk = all[i];
+        if (perk.IsTrash)
+        {
+            Debug.Print("trash: " + perk + " (no name/desc, or no skill)", 0);
+            continue;
+        }
+        if (perk.Skill == skill)
+        {
+            Debug.Print(perk + " need=" + perk.RequiredSkillValue
+                + " primary=" + perk.PrimaryBonus + " secondary=" + perk.SecondaryBonus, 0);
+        }
+    }
+}
+```
+
+**上例先判 `IsTrash` 再判 `Skill` 是有意的——顺序反了会在 `perk.Skill` 为 null 时 NRE**，因为 `IsTrash` 为 true 的那些恰恰可能是 `Skill == null` 的。**这与 `Hero.cs:1603` 的短路顺序（先 null 再 IsTrash）是同一类防御。**
+
+**`AllPerks` 是 internal 的直接后果是：你在 mod 里不能 `MBObjectManager.Instance.GetObjectTypeList<PerkObject>()` 之外再找一份全量表**，只能用 `PerkObject.All`。而它由 `MBObjectManager.Instance.GetObjectTypeList<PerkObject>()` 填充（`Campaign.cs:1143`）——**同一批实例，共享只读。**
+
+### 最容易踩的坑
+
+**它是共享只读单例**：`PerkObject.All` 里的每条专长都是 XML 注册的同一份对象，所有英雄共享。任何对 `Skill`、`RequiredSkillValue`、`PrimaryBonus` 等字段的写入（即便绕过 `private set`）都会污染全局定义。改英雄的专长状态只能走 `HeroDeveloper.AddPerk` / `Hero.GetPerkValue`。
+
 ## 参见
 
 - [Hero](../Hero/) — 英雄实例，经 `HeroDeveloper` 持有“拥有哪些专长”的状态

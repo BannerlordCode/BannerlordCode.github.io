@@ -172,6 +172,32 @@ protected override void OnCampaignStart(Game game, CampaignGameStarter starter)
 
 注意：自定义 Behavior 必须自己实现 `RegisterEvents` 并订阅所需事件，否则回调不会触发；且不要复用 `SyncData` 中已占用的键名（如 `_heroCraftingRecordsNew`、`_craftingOrders`）以免与内置行为冲突。
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CraftingCampaignBehavior.cs:20`（`public class CraftingCampaignBehavior : CampaignBehaviorBase, ICraftingCampaignBehavior, ICampaignBehavior, INonReadyObjectHandler`），全文 1275 行。
+
+**同文件里还有两个并列类型，名字很像，别搞混。** `:22` 的 `public class CraftingCampaignBehaviorTypeDefiner : SaveableTypeDefiner`（存档类型定义器）与 `:115` 的 `public class CraftingOrderSlots`（订单容器）。**取行为时只能拿 `CraftingCampaignBehavior` 这一个。**
+
+登记点是 `TaleWorlds.CampaignSystem/SandBoxManager.cs:71` 的 `gameStarter.AddBehavior(new CraftingCampaignBehavior());`。取实例用 `Campaign.Current.GetCampaignBehavior<CraftingCampaignBehavior>()`（`Campaign.cs:1066`）。
+
+**一段可直接跑的三行**：
+
+```csharp
+ICraftingCampaignBehavior craft = Campaign.Current.GetCampaignBehavior<CraftingCampaignBehavior>();
+int stamina = craft.GetHeroCraftingStamina(Hero.MainHero);
+craft.SetHeroCraftingStamina(Hero.MainHero, stamina + 5);
+```
+
+**声明成接口比声明成具体类更好用。** 行为类实现了三个接口（`ICraftingCampaignBehavior`、`ICampaignBehavior`、`INonReadyObjectHandler`），其中 `ICraftingCampaignBehavior` 已经把常用方法都暴露了 —— **用接口就完全不用在 mod 里引用 `CraftingCampaignBehavior` 这个类型**，也就绕开了它内部那些 `internal` 成员（比如 `CraftedItemInitializationData` 与 `_craftedItemDictionary`）。
+
+**两个只读集合属性是它最直接的数据面。** `CraftingCampaignBehavior.cs:250` 的 `public IReadOnlyDictionary<Town, CraftingOrderSlots> CraftingOrders => _craftingOrders;` 与 `:252` 的 `public IReadOnlyCollection<WeaponDesign> CraftingHistory` —— **两者都是表达式属性、无 setter**，所以你想遍历订单或锻造历史就走它们，别去碰底层字典。
+
+**`IsOpened(CraftingPiece, CraftingTemplate)` 是 UI 状态查询。** `:700` 的签名吃两个参数，返回 `bool` —— 判断某个部件+模板组合当前是否处于开放状态。**它只读不写**，要开放得走订单流程。
+
+**`SyncData` 不是空实现。** 与 [CrimeCampaignBehavior](../CrimeCampaignBehavior) / [CampaignWarManagerBehavior](../CampaignWarManagerBehavior) 那两个空方法不同，`CraftingCampaignBehavior.cs:280` 的 `public override void SyncData(IDataStore dataStore)` 有实际内容 —— 其中 `:283` 一行 `dataStore.SyncData("_craftedItemDictionary", ref _craftedItemDictionary);` 就是那个锻造数据字典的持久化。**这说明这个行为确实持有需要跨档的状态。**
+
+**最常见的坑：注册/生命周期时机。** 事件必须在 `RegisterEvents`（`:500`）内登记，否则 `OnNewItemCrafted` / `HourlyTick` 等回调不触发，体力不会回满、订单不会生成 —— **表现为「功能静默失效」而不是「报错」**。派发侧在 `TaleWorlds.CampaignSystem/CampaignEventDispatcher.cs:1940`。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

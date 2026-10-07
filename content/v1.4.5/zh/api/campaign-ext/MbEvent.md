@@ -8,7 +8,7 @@ description: "MbEvent 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MbEvent<T> : IMbEvent<T>, IMbEventBase`
 **Base:** `IMbEvent<T>`
-**File:** `TaleWorlds.CampaignSystem/MbEvent.2.cs`
+**File:** `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/MbEvent.cs`
 
 ## 概述
 

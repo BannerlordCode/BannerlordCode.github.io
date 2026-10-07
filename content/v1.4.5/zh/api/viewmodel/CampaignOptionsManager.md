@@ -8,7 +8,7 @@ description: "基于反射的注册表：在活跃模块的程序集里发现每
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public static class CampaignOptionsManager`  
 **Base:** 无  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/CampaignOptionsManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/CampaignOptionsManager.cs`
 
 ## 概述
 

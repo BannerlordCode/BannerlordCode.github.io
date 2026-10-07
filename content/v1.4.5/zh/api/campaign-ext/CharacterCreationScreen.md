@@ -40,6 +40,21 @@ description: "开局角色创建界面的 ScreenBase 实现：反射收集各阶
 | `CollectStagesFromAssembly` | `private void CollectStagesFromAssembly(Assembly assembly)` | 单程序集扫描，`GetTypesSafe` + `IsAssignableFrom` + `GetCustomAttributesSafe(...).FirstOrDefault()`。**同键覆盖而非跳过**，见上文心智模型。 |
 | `StopSound` | `private void StopSound()` | `SoundManager.SetGlobalParameter("MissionCulture", 0f)` 并停掉环境音、把 `_cultureAmbientSoundEvent` 置 null。与 `CultureParameterId = "MissionCulture"` 常量对应——**常量声明了但从未被读**，实际用的是 `StopSound` 里硬编码的同一个字符串。 |
 
+## 死成员与陷阱
+
+下面每一行都是同一形态：工具报「0 调用点」，而 `grep -o -w` 能查到活跃引用。没有一条是死成员，全是工具看不见的类内访问。
+
+| 成员 | 声明位置 | override | 调用点 | 判定 | 说明 |
+|---|---|---|---|---|---|
+| `_characterCreationStateState` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationScreen.cs:24` | 0 | 9 次（2 行） | UNSUPPORTED | **9 次出现只落在 2 行上**：`:40` 赋值，`:124` 在一次 `Activator.CreateInstance` 调用里提到了 8 次。这正是「用行数就只读成 2」的那一条，所以次数才是准的。 |
+| `_genericScene` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationScreen.cs:34` | 0 | 8 次（8 行） | UNSUPPORTED | 类内无点前缀的访问。 |
+| `_currentStageView` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationScreen.cs:28` | 0 | 7 次（7 行） | UNSUPPORTED | 类内无点前缀的访问。 |
+| `_shownLayers` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationScreen.cs:26` | 0 | 5 次（5 行） | UNSUPPORTED | 类内无点前缀的访问。 |
+| `_cultureAmbientSoundEvent` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationScreen.cs:32` | 0 | 4 次（4 行） | UNSUPPORTED | 类内无点前缀的访问。 |
+| `_stageViews` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationScreen.cs:30` | 0 | 4 次（4 行） | UNSUPPORTED | 类内无点前缀的访问。 |
+
+口径：源码树 `bannerlord-1.4.5` HEAD `ccbc3d40f88905765a1484492d41b7000e7249fa`，8,583 个 `.cs`（含 `bin/`）。调用点数是**出现次数**（`grep -o -w`），不是命中行数。
+
 ## 真实示例
 
 进角色创建流程的正确入口是推 `GameState`，屏幕由 `[GameStateScreen]` 自动挂上（不要手动 `PushScreen`，全树没有手动构造它的路径）：
@@ -149,8 +164,8 @@ if (manager.GetIndexOfCurrentStage() < manager.GetFurthestIndex())
 
 - 宿主状态：[CharacterCreationState](../CharacterCreationState) 在构造时把自己的 `Handler` 设成本类，并在 `OnStageActivated` / `Refresh` / `FinalizeCharacterCreationState` 三处回调过来
 - 流程控制：[CharacterCreationManager](../CharacterCreationManager) 是阶段列表与 Next/Previous/GoToStage 的真正持有者，本类只是把它的方法包成委托注入视图
-- 视图基类：[CharacterCreationStageViewBase](CharacterCreationStageViewBase) 是本类 `Activator.CreateInstance` 的目标类型，视图的层从这里来
-- 装配标记：[CharacterCreationStageViewAttribute](CharacterCreationStageViewAttribute) 是 `CollectStagesFromAssembly` 唯一认的键来源
+- 视图基类：[CharacterCreationStageViewBase](../CharacterCreationStageViewBase) 是本类 `Activator.CreateInstance` 的目标类型，视图的层从这里来
+- 装配标记：[CharacterCreationStageViewAttribute](../CharacterCreationStageViewAttribute) 是 `CollectStagesFromAssembly` 唯一认的键来源
 - 回调接口：[ICharacterCreationStateHandler](../ICharacterCreationStateHandler) 定义了 `OnRefresh` / `OnStageCreated` / `OnCharacterCreationFinalized` 三个方法，本类以显式实现方式提供，**不能从外部按具体类型调用**
 - 同流程页面：[CharacterCreationManager](../CharacterCreationManager) 与 [CharacterCreationState](../CharacterCreationState) 是理解本类时必须并排读的两页
 - 生命周期宿主：[ScreenBase](../ScreenBase) 的 `AddLayer` / `RemoveLayer` / `OnFrameTick` 是本类换层与每帧转发的全部依托

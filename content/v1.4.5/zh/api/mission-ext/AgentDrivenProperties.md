@@ -139,6 +139,40 @@ Debug.Print("realistic blocking (0 for player controlled) = " + props.GetStat(Dr
 - **不存档。** 全类无 `[Serializable]`、无 `SyncData`；读档后由 `InitializeAgentStats` 重新填。
 - **与创建时参数是两回事。** [AgentSpawnData](../AgentSpawnData/) 是创建瞬间的身体/碰撞参数，本类是运行期的可调数值表，两者互不覆盖。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class AgentDrivenProperties`（`TaleWorlds.MountAndBlade/AgentDrivenProperties.cs:6`）。**不由你 new**——入口是 `Agent.AgentDrivenProperties`（public 只读属性）。构造器只做 `new float[98]`，**没有默认值表**，新建出来的每一项都是 `0f`，要等 `InitializeAgentStats` 填满才有意义。正路是覆写 `AgentStatCalculateModel`，旁路是 `SetStat` / `GetStat`。
+
+### 典型用法
+
+上面「真实示例」五段是「读表」「按下标读写」等单点操作。真正需要小心的是**一次性调一组**——玩家控制的 Agent 在 `SetAiRelatedProperties` 末尾会被固定写成 `UseRealisticBlocking = 0f`，所以下面这段必须放在控制权确定之后：
+
+```csharp
+public static void BoostMountStats(Agent agent)
+{
+    AgentDrivenProperties props = agent.AgentDrivenProperties;
+    if (props == null)
+    {
+        return;
+    }
+    // 按属性读写：这两个是玩家能直接感知的手感核心
+    props.MountSpeed *= 1.2f;
+    props.MountManeuver *= 1.1f;
+
+    // 按下标写：没有具名属性的项只能走 GetStat/SetStat，且两端都无范围检查
+    float heavyArmor = props.GetStat(DrivenProperty.ArmorTorso);
+    props.SetStat(DrivenProperty.ArmorTorso, heavyArmor * 0.9f);
+}
+```
+
+与上面「真实示例」的差别：那五段是**一次改一项、然后立刻读回打印**；这里是把「具名属性」与「只有下标的项」在同一次调整里混着改，示范的是 mod 调参时最常见的组合动作。它也暴露了本页最容易忽略的时序问题：属性值会被 `UpdateAgentStats` 整表重算覆盖，所以**改完要生效就得在重算之后**，或者干脆走覆写模型那条正路。
+
+### 最容易踩的坑
+
+**98 项固定长度（v1.4.5），下标即契约。** `DrivenProperty` 枚举里 `Count = 98` 与 `new float[98]` 严格对应。往枚举中间插值会让后面全部错位，**症状是数值串位而不是异常**。
+
 ## 依赖关系
 
 - 填充方：[AgentStatCalculateModel](../AgentStatCalculateModel/) 的 `InitializeAgentStats` 与 `UpdateAgentStats` 是全树唯一往这张表里写业务数值的地方；它通过本类的 `protected` 辅助 `SetAiRelatedProperties` / `SetAllWeaponInaccuracy` 批量写 AI 相关槽位

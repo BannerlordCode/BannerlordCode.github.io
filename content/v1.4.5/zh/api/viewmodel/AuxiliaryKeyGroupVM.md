@@ -8,7 +8,7 @@ description: "选项界面里一个辅助按键分类（如「通用」「仅战
 **Module:** TaleWorlds.MountAndBlade.ViewModelCollection  
 **Type:** `public class AuxiliaryKeyGroupVM : ViewModel`  
 **Base:** `ViewModel`  
-**File:** `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.AuxiliaryKeys/AuxiliaryKeyGroupVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.AuxiliaryKeys/AuxiliaryKeyGroupVM.cs`
 
 ## 概述
 

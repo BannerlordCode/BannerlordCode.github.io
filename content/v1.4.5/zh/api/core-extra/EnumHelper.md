@@ -8,7 +8,7 @@ description: "EnumHelper 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class EnumHelper`
 **Base:** 无
-**File:** `TaleWorlds.Library/EnumHelper.2.cs`
+**File:** `TaleWorlds.Library/TaleWorlds.Library/EnumHelper.cs`
 
 ## 概述
 

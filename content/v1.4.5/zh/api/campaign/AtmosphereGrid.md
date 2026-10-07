@@ -65,6 +65,27 @@ IMapScene.GetAtmosphereStates()
 | `Initialize()` | `public void Initialize()` | 唯一的装载步骤。`states = Campaign.Current.MapSceneWrapper.GetAtmosphereStates().ToList()`（`AtmosphereGrid.cs:21`）。**依赖 `Campaign.Current` 与已加载的地图场景**，两者任一为 null 直接 NRE。**换地图后必须重调**，否则继续用旧地图的节点插值。 |
 | `GetInterpolatedStateInfo(Vec3 pos)` | `public AtmosphereState GetInterpolatedStateInfo(Vec3 pos)` | 唯一查询入口。返回**新 new 的** `AtmosphereState`，从不复用或修改缓存节点。**每次调用新建排序列表并全量排序**；空 `states` 时返回全零 + `"color_grade_empire_harsh"`，不抛异常。 |
 
+## 怎么用
+
+这是地图天气系统背后的空间插值器：它持有一批从地图场景读出来的 `AtmosphereState` 采样点，按查询位置做一次加权插值，返回该点的温湿度均值与方差以及调色纹理。它不注册为行为也不注册为模型，而是被天气模型私有持有。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/AtmosphereGrid.cs:8`。唯一持有者是 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultMapWeatherModel.cs:59` 的私有字段 `_atmosphereGrid`，它在 `DefaultMapWeatherModel.cs:89` 的空判断后于 `:91` 构造、`:92` 调 `Initialize()`，最后在 `DefaultMapWeatherModel.cs:94` 把查询转给它。模型本身的注册点是 `SandBoxManager.cs:250` 的 `gameStarter.AddModel(new DefaultMapWeatherModel())`。
+
+它有两个方法，形状和生命周期都很直白：`Initialize()` 在 `AtmosphereGrid.cs:19`，把 `Campaign.Current.MapSceneWrapper.GetAtmosphereStates()` 的结果整体拷进私有 `states` 列表；`GetInterpolatedStateInfo(Vec3 pos)` 在 `AtmosphereGrid.cs:24`，内部先把所有采样点连同原始下标装进一个排序结构，按距离排序后逐个累加。
+
+```csharp
+AtmosphereGrid grid = new AtmosphereGrid();
+grid.Initialize();                       // 必须先 Initialize，否则 states 为空
+Vec3 probe = MobileParty.MainParty.Position;
+AtmosphereState state = grid.GetInterpolatedStateInfo(probe);
+Debug.Print("温度=" + state.TemperatureAverage + " 湿度=" + state.HumidityAverage, 0);
+Debug.Print("温度方差=" + state.TemperatureVariance + " 调色=" + state.ColorGradeTexture, 0);
+```
+
+权重公式是 `1 - SmoothStep(distanceForMaxWeight, distanceForMinWeight, 实际距离)`，权重小于 `0.001` 的采样点直接跳过，所以远处的点对结果没有贡献。查询前 `pos.z` 会被乘以 `0.3f`（`AtmosphereGrid.cs:36`），这是刻意的——垂直方向要压缩，否则地图高度差会盖过水平距离。
+
+**最常见的坑**：忘记调 `Initialize()` 就直接查询。此时 `states` 是空列表，`num2` 保持为 0，除法不执行，你会拿到一个 `ColorGradeTexture` 是默认字符串、四个数值全为 0 的 `AtmosphereState`，而且**不抛任何异常**。
+
 ## 真实示例
 
 标准的官方用法（形状直接照 `DefaultMapWeatherModel.cs:88-93` 的写法）：

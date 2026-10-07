@@ -8,7 +8,7 @@ description: "「一支军队解散了」这条地图通知的条目视图模型
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public class ArmyDispersionItemVM : MapNotificationItemBaseVM`  
 **Base:** `MapNotificationItemBaseVM`  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/ArmyDispersionItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/ArmyDispersionItemVM.cs`
 
 ## 概述
 

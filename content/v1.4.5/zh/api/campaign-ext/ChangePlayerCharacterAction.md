@@ -131,5 +131,5 @@ if (mainParty.Ships.Count > 0)
 - 俘虏流程：[PlayerCaptivity](../PlayerCaptivity) 的 `OnPlayerCharacterChanged()` 在新主角是俘虏时补做俘虏态同步
 - 队伍与船：[MobileParty](../../campaign/MobileParty) / [Ship](../Ship) 的 `Ships` / `MemberRoster` / `IsCurrentlyAtSea` / `OnPlayerCharacterChanged()` 是本动作读写的具体数据
 - 所有权组件：`LordPartyComponent.ChangePartyOwner(Hero)`（`internal`）是旧主队移交所有权的唯一途径
-- 同族动作：[BreakInOutBesiegedSettlementAction](BreakInOutBesiegedSettlementAction) 是同一命名空间下另一条「一次性做完整段战役变更」的静态动作类，可作为写法对照
+- 同族动作：[BreakInOutBesiegedSettlementAction](../BreakInOutBesiegedSettlementAction) 是同一命名空间下另一条「一次性做完整段战役变更」的静态动作类，可作为写法对照
 - 桶首页：[campaign-ext API 分区](../)

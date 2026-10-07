@@ -105,6 +105,80 @@ ExplainedNumber recruitmentCost = Campaign.Current.Models.PartyWageModel
 int goldCost = recruitmentCost.RoundedResultNumber;
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyWageModel.cs`（全文 16 行）。
+**入口：** `Campaign.Current.Models.PartyWageModel`（由 `GameModels` 在战役建立 / 读档时解析）。
+
+`public abstract class PartyWageModel : MBGameModel<PartyWageModel>`（`PartyWageModel.cs:7`），**4 个成员全是 abstract**。
+
+**4 个成员里有 2 个返回 `ExplainedNumber`、2 个返回裸 `int`**——这是本页最重要的一条分界：
+
+| 成员 | 返回 | 行号 |
+| --- | --- | --- |
+| `MaxWagePaymentLimit` | `int` | `:9` |
+| `GetCharacterWage(CharacterObject)` | `int` | `:11` |
+| `GetTotalWage(MobileParty, TroopRoster, bool)` | `ExplainedNumber` | `:13` |
+| `GetTroopRecruitmentCost(CharacterObject, Hero, bool)` | `ExplainedNumber` | `:15` |
+
+**裸 `int` 是「已折算完的定值」，`ExplainedNumber` 是「带分解过程的结果」。** 后两个都需要你显式取 `.ResultNumber` 或 `.RoundedResultNumber`（`ExplainedNumber.cs`），**不取就拿不到数**。
+
+### 典型用法
+
+**`withoutItemCost` 这个参数只对第二个 `ExplainedNumber` 生效。** `GetTroopRecruitmentCost` 的 `withoutItemCost` 决定的是「物品成本算不算进总价」，它与 `GetTotalWage` 无关——后者根本没有这个参数（`:13` 只有 `includeDescriptions`）。
+
+**而 `includeDescriptions` 只影响明细，不影响数值。** 两个 `ExplainedNumber` 成员都以它结尾（`:13`/`:15`），传 `true` 会让每一条修正都带上一句可读的来源文案。**用于 UI 就传 true，用于算账就传 false 省钱。**
+
+想在同一次查询里同时拿到「明细」和「纯数」，做法是调一次带明细的再取两个属性：
+
+```csharp
+public static void DumpWageBreakdown(MobileParty party)
+{
+    PartyWageModel model = Campaign.Current.Models.PartyWageModel;
+    ExplainedNumber total = model.GetTotalWage(party, party.MemberRoster, includeDescriptions: true);
+    Debug.Print("wage=" + total.ResultNumber + " rounded=" + total.RoundedResultNumber, 0);
+    for (int i = 0; i < total.Lines.Count; i++)
+    {
+        ExplanationLine line = total.Lines[i];
+        Debug.Print("  " + line.OperationType + " " + line.Name + " = " + line.Number, 0);
+    }
+    int cap = model.MaxWagePaymentLimit;
+    Debug.Print("cap=" + cap + " over cap? " + (total.ResultNumber > cap), 0);
+}
+```
+
+**明细在 `Lines`，不在 `OutPutData`。** `Lines` 是 `List<ExplanationLine>`（`ExplainedNumber.cs:29`），每项是 `readonly struct ExplanationLine(string name, float number, OperationType operationType)`（`:20`），三个字段 `Number` / `Name` / `OperationType` 全是 public readonly 字段而非属性（`:22`/`:24`/`:26`）。`OperationType` 枚举含 `Multiply` / `LimitMin` / `LimitMax`（`:15`-`:17`），**所以每一行是「乘」还是「钳位」必须看这个字段，不能只看符号。**
+
+**另一个必须知道的性质：`ResultNumber` 是钳位后的。** 它是 `MathF.Clamp(_unclampedResultNumber, LimitMinValue, LimitMaxValue)`（`ExplainedNumber.cs:115`），下界与上界分别由 `LimitMinValue`（`:123`）与 `LimitMaxValue`（`:135`）暴露。**所以你以为的原始值可能已经被夹过——要拿未钳位值得另寻入口。**
+
+**`MaxWagePaymentLimit` 与 `GetTotalWage` 是两个独立数字，谁也不知道谁。** 上例最后一行那句比较是**你必须自己加的**——模型不会告诉你「超了」。**超限后的行为（截断 / 拒付 / 照付）由消费方决定，不在本 Model 内。** 这是本页最容易漏的一环。
+
+替换时 4 个成员都要实现：
+
+```csharp
+public class FlatWageModel : PartyWageModel
+{
+    public override int MaxWagePaymentLimit => 100000;
+    public override int GetCharacterWage(CharacterObject character) => 2;
+    public override ExplainedNumber GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false)
+    {
+        return new ExplainedNumber(troopRoster.Count * 2, includeDescriptions);
+    }
+    public override ExplainedNumber GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)
+    {
+        return new ExplainedNumber(troop.Tier * 10, includeDescriptions);
+    }
+}
+```
+
+**注意 `ExplainedNumber` 的构造需要显式传 `includeDescriptions`。** 上例里用 `troopRoster.Count * 2` 而不是逐兵累加，是为了避开 `GetCharacterWage` 的递归——**注意不要在 `GetTotalWage` 内部又去调 `GetCharacterWage` 再相加成同一个 `ExplainedNumber`，否则你会在一个对象里嵌套自己。**
+
+### 最容易踩的坑
+
+**跨战役重载缓存实例**：`Campaign.Current.Models.PartyWageModel` 在每次新战役/读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长生命周期对象，会在重载后指向旧战役的已销毁对象，调用即崩溃或读到陈旧规则。每次需要时都重新走 `Campaign.Current.Models` 获取。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

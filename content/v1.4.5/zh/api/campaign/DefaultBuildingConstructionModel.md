@@ -117,6 +117,30 @@ int daysLeft = BuildingHelper.GetDaysToComplete(current, town);
 int oneBoostCost = Campaign.Current.Models.BuildingConstructionModel.GetBoostCost(town);
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingConstructionModel.cs:13`（`public class DefaultBuildingConstructionModel : BuildingConstructionModel`），全文 161 行、8 个 `public override` 成员。
+
+**它实现的是抽象基类 [BuildingConstructionModel](../BuildingConstructionModel)，是具体实现而不是扩展点。** 取用路径是 `Campaign.Current.Models.BuildingConstructionModel`（`GameModels.cs:331` 解析、`GameModels.cs:149` 持有）。
+
+**一段可直接跑的三行读建造力**：
+
+```csharp
+BuildingConstructionModel bcm = Campaign.Current.Models.BuildingConstructionModel;
+float daily = town.Construction;
+ExplainedNumber explained = bcm.CalculateDailyConstructionPower(town, true);
+```
+
+**第二行可以，第三行通常不必 —— `Town` 已经把它包成属性了。** `TaleWorlds.CampaignSystem.Settlements/Town.cs:152` 是 `public float Construction => Campaign.Current.Models.BuildingConstructionModel.CalculateDailyConstructionPower(this).ResultNumber;`。**所以 `town.Construction` 与直接调模型等价，日常用前者即可。** 需要分项说明时才退回 `CalculateDailyConstructionPower(town, true)`。
+
+**四个 `override` 属性是硬编码常量，`Get*` 方法才是按城镇算的。** `TownBoostCost => 500`、`TownBoostBonus => 50`、`CastleBoostCost => 250`、`CastleBoostBonus => 20`（`:37` 至 `:43`）—— 这四个**对所有城镇返回同一个数**，不能按城镇定制。而 `GetBoostAmount(Town town)`（`:58`）会按 `town.IsCastle ? CastleBoostBonus : TownBoostBonus` 分流，再叠加总督的 `Steward.Relocation` 与 `Trade.SpringOfGold` 两个专长加成。
+
+**`CalculateDailyConstructionPower` 与 `CalculateDailyConstructionPowerWithoutBoost` 的差就是「加速储备」。** 两个消费点分别用它们：`Helpers/BuildingHelper.cs:94` 用 `WithoutBoost`，而 `Town.cs:152` 用带 boost 的那个。**要看「不花钱能造多少」用前者，要看「实际日进度」用后者。**
+
+**`GetBoostCost` 是无脑三分支。** `DefaultBuildingConstructionModel.cs:73` 的方法体就是 `if (!town.IsCastle) { return TownBoostCost; } return CastleBoostCost;` —— **它只看是不是城堡，不看别的。**
+
+**最常见的坑：跨战役重载缓存实例。** `Campaign.Current.Models.BuildingConstructionModel` 在每次新战役/读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长生命周期对象，会在重载后指向旧战役的已销毁对象。而它的入参 `Town` 是活对象，**跨战役缓存读到的建造力会带着上一局的总督专长**。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

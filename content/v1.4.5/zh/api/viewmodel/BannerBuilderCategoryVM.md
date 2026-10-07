@@ -8,7 +8,7 @@ description: "战旗编辑器里一个图标分类（如「狼头」「龙纹」
 **Module:** TaleWorlds.MountAndBlade.ViewModelCollection  
 **Type:** `public class BannerBuilderCategoryVM : ViewModel`  
 **Base:** `ViewModel`  
-**File:** `TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder/BannerBuilderCategoryVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder/BannerBuilderCategoryVM.cs`
 
 ## 概述
 

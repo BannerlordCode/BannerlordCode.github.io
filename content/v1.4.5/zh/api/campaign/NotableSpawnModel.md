@@ -79,6 +79,60 @@ int ruralNotableActual = village.Notables.Count(n => n.CharacterObject.Occupatio
 bool needsMore = ruralNotableActual < ruralNotableTarget;
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/NotableSpawnModel.cs`（全文 9 行）。
+**入口：** `Campaign.Current.Models.NotableSpawnModel`（由 `GameModels` 在战役建立 / 读档时解析）。
+
+**这是本桶最小的 Model——全文只有一个成员。** `public abstract class NotableSpawnModel : MBGameModel<NotableSpawnModel>`（`NotableSpawnModel.cs:6`），唯一的 abstract 是 `GetTargetNotableCountForSettlement(Settlement settlement, Occupation occupation)`（`:8`）。
+
+**注意它返回的是「目标数量」，不是「还缺多少」。** 减法在调用方——`SettlementHelper.SpawnNotablesIfNeeded` 负责拿目标数去和实际数比对。**Model 本身完全不知道当前有几个要人。**
+
+### 典型用法
+
+一个参数就能定位所有调用点：`occupation`。**职业枚举在这里是查询维度，不是过滤条件**——同一个 `Settlement` 会被问好几次，每次一个 `Occupation`。
+
+所以正确的用法是「先拿到要人清单，再逐个问」，而不是遍历所有职业：
+
+```csharp
+public static void DumpNotableTargets(Settlement settlement)
+{
+    NotableSpawnModel model = Campaign.Current.Models.NotableSpawnModel;
+    Occupation[] kinds = { Occupation.Artisan, Occupation.GangLeader, Occupation.Preacher, Occupation.Merchant, Occupation.RuralNotable };
+    for (int i = 0; i < kinds.Length; i++)
+    {
+        int target = model.GetTargetNotableCountForSettlement(settlement, kinds[i]);
+        int actual = settlement.Notables.Count((Hero h) => h.CharacterObject.Occupation == kinds[i]);
+        Debug.Print(settlement.StringId + " " + kinds[i] + " target=" + target + " actual=" + actual, 0);
+    }
+    Debug.Print("model returns target only; the subtraction is the caller's job", 0);
+}
+```
+
+`Occupation` 里不是只有这五个——**你传一个模型不认识的职业，它不会报错，只会给出一个数**。所以上面这个数组是「显式列出已知名人职业」，而不是「穷举 `Occupation` 全部值」。后者会把 `Occupation.Invalid`、`Occupation.Soldier` 之类的非名人职业也传进去，**得到一堆无意义的目标数**。
+
+全树只有三个调用点，可以直接拿来定「问哪几个职业」：`SettlementHelper.cs:588` 与 `:607` 逐项累加，`NotablesCampaignBehavior.cs:374`（工匠）、`:379`（商人）、`:384`（匪首）、`:392`（乡村望族）四处逐个点名。**官方自己也是按需列举，不是遍历整个枚举。**
+
+因为只有一个 abstract 成员，**替换成本是本桶最低的**：
+
+```csharp
+public class FlatNotableSpawnModel : NotableSpawnModel
+{
+    public override int GetTargetNotableCountForSettlement(Settlement settlement, Occupation occupation)
+    {
+        return occupation == Occupation.Merchant ? 2 : 0;
+    }
+}
+```
+
+**但要意识到你同时放弃了按城镇差异化与按规模成长的能力。** 官方实现返回的是「该城镇该职业应该有几个」，可能随城镇等级、人口、繁荣度变化；一个常量返回值等于把所有城镇拉平。**这是调平衡，不是改机制。**
+
+### 最容易踩的坑
+
+**跨战役重载缓存实例**：`Campaign.Current.Models.NotableSpawnModel` 在每次新战役 / 读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长生命周期对象，会在重载后指向旧战役的已销毁对象，调用即崩溃或读到陈旧配额。每次需要时都重新走 `Campaign.Current.Models` 获取。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

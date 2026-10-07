@@ -127,6 +127,39 @@ public static class AmbientRoundTrip
 - **不要在 mission 运行时改已经生效的值。** 这些字段是通过 `MissionInitializerRecord.AtmosphereOnCampaign` 在任务初始化时交进去的（`MenuHelper.cs:350/385` 在开任务菜单时设置），运行中改本地副本不会有任何效果。
 - **`SerializeTo` / `DeserializeFrom` 会被 `AtmosphereInfo` 连带调用。** 你不需要（也无法）单独调用它们来做存档；存档路径固定是 `AtmosphereInfo.SerializeTo` → `AmbientInfo.SerializeTo`。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public struct AmbientInformation`（`TaleWorlds.Library/AmbientInformation.cs:3`），四个 public 可写字段 + 一对序列化方法。它带 `[assembly: DefineAsEngineStruct(typeof(AmbientInformation), "ambient_information", false, null, null)]`（`TaleWorlds.Engine/Properties/AssemblyInfo.cs:13`）——**这是判断「数值由谁填」的最快依据**：带这行就意味着托管侧只负责填、消费在 native 侧。
+
+### 典型用法
+
+上面「真实示例」两段是「照官方形状填四个字段」和「复刻存档往返」。缺的是**填之前的钳制**——官方构造走的是 `MathF.Max(x * 0.5f, 0.001f)`（`DefaultMapWeatherModel.cs:154`），因为它随后要参与 `MathF.Pow(..., 1.5f)`，而托管层**不会拦**你给它 0 或负数：
+
+```csharp
+public static class AmbientSanitizer
+{
+    public static AmbientInformation Sanitize(float environmentMultiplier, Vec3 ambientColor)
+    {
+        AmbientInformation info = new AmbientInformation();
+        // 与官方 DefaultMapWeatherModel 同一条钳制：先减半再兜底 0.001f
+        info.EnvironmentMultiplier = MathF.Max(environmentMultiplier * 0.5f, 0.001f);
+        info.AmbientColor = ambientColor;
+        // 这两个由 GetMieScatterStrength / GetRayleighConstant 产出，输入是未修正亮度
+        info.MieScatterStrength = 0f;
+        info.RayleighConstant = 0f;
+        return info;
+    }
+}
+```
+
+与上面「真实示例」的差别：那里假设输入已经是合法值，只演示**怎么填**和**怎么编解码**；这里多了一层**在填之前把输入变成合法值**——具体说，就是复制官方那条 `MathF.Max(x * 0.5f, 0.001f)`，因为这个结构体的所有有效性判断都在 native 侧，越界的唯一症状就是渲染异常而没有任何托管侧异常。
+
+### 最容易踩的坑
+
+**它是 native 引擎结构的镜像。** `TaleWorlds.Engine/Properties/AssemblyInfo.cs:13` 的 `DefineAsEngineStruct` 是硬证据。**托管侧只负责填，数值由引擎消费**，你在托管层改字段只是改了一份要交给 native 的输入。
+
 ## 跨版本提示
 
 `AmbientInformation.cs` 在 1.4.5 是 28 行、4 个字段 + 2 个方法，是原始源码形态。1.3.x / 1.4.6 的对应文件是反编译产物。**跨版本真正要核对的是 native 契约**：程序集特性里绑定的名字 `"ambient_information"`（`TaleWorlds.Engine/Properties/AssemblyInfo.cs:13`）以及 `DeserializeFrom` / `SerializeTo` 的**四个字段顺序**。这两者任一变化都会让旧存档读出乱值，而托管层**不会有任何报错**。同时注意 1.4.5 之后的版本在大气体系里引入了 `AtmosphereInfoV2` 之类的并行结构体——**如果目标版本的 `AtmosphereInfo` 换了类型，`AmbientInformation` 很可能也需要换形状**，这是迁移时最该先确认的一点。

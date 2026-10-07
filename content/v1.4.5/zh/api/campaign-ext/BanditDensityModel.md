@@ -182,5 +182,5 @@ public class MyLooterHeavyBanditModel : BanditDensityModel
 - 海军判定：`Party.MobilePartyAi.cs:1327` 与 `:1364` 是 `IsPositionInsideNavalSafeZone` 在 1.4.5 的全部调用点，后者带 100 次重试上限
 - 队伍输入：`MobileParty` 作为参数传入两个 `...TroopCountForHideoutMission` 方法，`HasPerk` 与 perk 加成是规模计算的一部分
 - 宗族输入：`Clan.StringId == "deserters"` / `"looters"` 是 `GetMaxSupportedNumberOfLootersForClan` 的分流依据
-- 同族模型：[AgeModel](AgeModel) 与本类同在 `ComponentInterfaces` 命名区、同为 `MBGameModel<T>` 范式，可对照阅读
+- 同族模型：[AgeModel](../AgeModel) 与本类同在 `ComponentInterfaces` 命名区、同为 `MBGameModel<T>` 范式，可对照阅读
 - 桶首页：[campaign-ext API 分区](../)

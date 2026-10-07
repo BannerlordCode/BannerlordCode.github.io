@@ -8,7 +8,7 @@ description: "军队管理界面里的一支候选部队。它在构造时一次
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public class ArmyManagementItemVM : ViewModel`  
 **Base:** `ViewModel`  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementItemVM.cs`
 
 ## 概述
 

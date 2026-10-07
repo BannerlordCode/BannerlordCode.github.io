@@ -59,6 +59,20 @@ description: "Agent 外观的 native 封装：包住 MBAgentVisuals 与 Skeleton
 | `GetRandomGlossFactor` / `GetRandomClothingColors` / `AddTeamColorToMesh` | 三个 `static` 方法 | 外观随机化工具。`GetRandomClothingColors` 按 `RandomGlossinessRange = 0.05f`、`RandomClothingColor1HueRange = 4f`、`RandomClothingColor2SaturationRange = 0.5f` 等六个具名常量，用 `MBFastRandom` 在 HSB 空间扰动。`AddTeamColorToMesh(MetaMesh, uint, uint)` 是队色上色的落点。 |
 | `SetEntity` / `GetEntity` | 对应方法 | 换掉承载实体。 |
 
+## 死成员与陷阱
+
+本页 7 个 `public const` 被报成「调用点 0」，实测复核不出任何引用。按规则不下结论 —— 这不等于「确认无人使用」。
+
+| 成员 | 声明位置 | override | 调用点 | 判定 | 说明 |
+|---|---|---:|---:|---|---|
+| `RandomGlossinessRange` | Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs:13 | — | — | UNSUPPORTED | `public const float`，是外观随机化的取值幅度。**未能复核出引用，按规则不下结论**。 |
+| `RandomClothingColor1HueRange` | Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs:15 | — | — | UNSUPPORTED | `public const float`，是外观随机化的取值幅度。**未能复核出引用，按规则不下结论**。 |
+| `RandomClothingColor1SaturationRange` | Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs:17 | — | — | UNSUPPORTED | `public const float`，是外观随机化的取值幅度。**未能复核出引用，按规则不下结论**。 |
+| `RandomClothingColor1BrightnessRange` | Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs:19 | — | — | UNSUPPORTED | `public const float`，是外观随机化的取值幅度。**未能复核出引用，按规则不下结论**。 |
+| `RandomClothingColor2HueRange` | Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs:21 | — | — | UNSUPPORTED | `public const float`，是外观随机化的取值幅度。**未能复核出引用，按规则不下结论**。 |
+| `RandomClothingColor2SaturationRange` | Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs:23 | — | — | UNSUPPORTED | `public const float`，是外观随机化的取值幅度。**未能复核出引用，按规则不下结论**。 |
+| `RandomClothingColor2BrightnessRange` | Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs:25 | — | — | UNSUPPORTED | `public const float`，是外观随机化的取值幅度。**未能复核出引用，按规则不下结论**。 |
+
 ## 真实示例
 
 标准三段式：取副本 → 改 → Refresh（`MultiplayerMissionAgentVisualSpawnComponent.cs:233` 一带就是这个形状）：

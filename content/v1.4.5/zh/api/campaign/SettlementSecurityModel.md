@@ -134,6 +134,39 @@ SettlementSecurityModel 是一个纯计算的规则扩展点：`Campaign` 在启
   - 用途：把“低安全度（腐败）”折算成税收惩罚因子。默认实现用 `MBMath.Map(town.Security, ThresholdForHigherTaxCorruption, ThresholdForTaxCorruption, SettlementTaxPenaltyPercentage, 0)` 得到百分比，再以 `AddFactor(-1 * 百分比 * 0.01f, ...)` 从税收中扣除。
   - 副作用：通过 `ref` 修改传入的 `ExplainedNumber`（仅追加因子，不触碰世界状态）。调用时机：仅 `DefaultSettlementTaxModel.CalculateSettlementTaxDueToSecurity` 在安全度低于 `ThresholdForTaxCorruption` 时调用。
 
+## 怎么用
+
+这是安全度的规则层，也是本批里抽象成员最多的模型之一：50 行里有 22 个成员，是安全度、税收映射、要人关系三套规则的合并体。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementSecurityModel.cs:6`。默认实现注册点是 `SandBoxManager.cs:278` 的 `gameStarter.AddModel(new DefaultSettlementSecurityModel())`。
+
+成员可以按用途分成四组。第一组是安全度本身：`MaximumSecurityInSettlement` 在 `:8`、`SecurityDriftMedium` 在 `:10`（向中位数回归的速度）、`CalculateSecurityChange` 在 `:42`。第二组是地图事件的辐射半径：`MapEventSecurityEffectRadius` 在 `:12`、`HideoutClearedSecurityEffectRadius` 在 `:14`、`HideoutClearedSecurityGain` 在 `:16`，以及两个按「附近被击败部队的战力之和」换算的方法 `GetLootedNearbyPartySecurityEffect`（`:40`）与 `GetNearbyBanditPartyDefeatedSecurityEffect`（`:44`）。第三组是税收映射阈值（`:18`–`:26`）。第四组是要人的关系与威望增减（`:28`–`:38`）。最后两个方法 `CalculateGoldGainDueToHighSecurity`（`:46`）与 `CalculateGoldCutDueToLowSecurity`（`:48`）用 `ref ExplainedNumber` 就地改写传入的数值，而不是返回新值——这是本批唯一一个这种签名的模型。
+
+```csharp
+SettlementSecurityModel security = Campaign.Current.Models.SettlementSecurityModel;
+foreach (Settlement s in Settlement.All)
+{
+    if (!s.IsTown) continue;
+    Town town = (Town)s;
+    Debug.Print(town.Name + " 安全度=" + town.Security + " 日变化=" + town.SecurityChange
+        + " 上限=" + security.MaximumSecurityInSettlement, 0);
+}
+ExplainedNumber daily = Campaign.Current.Models.SettlementLoyaltyModel
+    .CalculateLoyaltyChange((Town)Settlement.All[0], true);
+security.CalculateGoldGainDueToHighSecurity((Town)Settlement.All[0], ref daily);
+Debug.Print("高安全的金币增益已就地并入，总额=" + daily.ResultNumber, 0);
+Debug.Print("藏身处清除的安全半径=" + security.HideoutClearedSecurityEffectRadius
+    + " 收益=" + security.HideoutClearedSecurityGain, 0);
+```
+
+`Town.SecurityChange`（`Town.cs:144`）是模型方法的一行包装，写法与繁荣度那一族完全一致。
+
+两个 `ref` 方法的调用点在外部文件里：`DefaultSettlementTaxModel.cs:116` 把整份安全度模型取出来，在税收计算里读 `ThresholdForTaxCorruption` 与 `ThresholdForHigherTaxCorruption` 来做「高安全免腐败、低安全加腐败」的判定；`TownSecurityCampaignBehavior.cs:22` 是每日结算的真正写入方，先取模型再把 `CalculateSecurityChange` 的结果累进 `Town.Security`；`CharacterRelationCampaignBehavior.cs:380` 则取它来算要人的关系增减。
+
+改安全度时有个容易忽略的耦合：`CharacterRelationCampaignBehavior` 在 `:379` 和 `:380` 两行里**相邻**地取忠诚度模型与安全度模型，说明要人关系是这两个模型共同决定的。单独调安全度阈值会连带改变要人口碑，这是设计如此而不是 bug。
+
+**最常见的坑**：跨战役重载缓存实例。`Campaign.Current.Models.SettlementSecurityModel` 每次新战役或读档都由 `GameModels` 重新解析，缓存进静态字段会指向旧战役的已销毁对象。
+
 ## 示例
 
 读取某城镇今日的带说明安全度变化明细（界面与每日结算都走此路径）：

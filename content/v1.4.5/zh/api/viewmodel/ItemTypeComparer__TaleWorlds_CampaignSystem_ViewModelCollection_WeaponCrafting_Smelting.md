@@ -8,7 +8,7 @@ description: "ItemTypeComparer 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ItemTypeComparer : SmeltingSortControllerVM.ItemComparerBase`
 **Base:** `SmeltingSortControllerVM.ItemComparerBase`
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/WeaponCrafting/Smelting/SmeltingSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Smelting/SmeltingSortControllerVM.cs`
 
 ## 概述
 

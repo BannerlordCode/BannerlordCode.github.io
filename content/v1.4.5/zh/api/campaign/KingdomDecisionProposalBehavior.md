@@ -165,6 +165,82 @@ public class MySubModule : MBSubModuleBase
 
 注意：自定义行为里生成决议仍必须走 `Kingdom.AddDecision`，否则不会触发 `KingdomDecisionAdded` 与后续选举。
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/KingdomDecisionProposalBehavior.cs`（全文 510 行）。
+**入口：** `Campaign.Current.GetCampaignBehavior<KingdomDecisionProposalBehavior>()`。类声明是 `public class KingdomDecisionProposalBehavior : CampaignBehaviorBase`（`KingdomDecisionProposalBehavior.cs:14`），**外部程序集能 `new`，但不要重复注册**——官方已经挂了。
+
+`RegisterEvents`（`:50`）注册**八个**事件（`:52`-`:59`），其中驱动决议推进的是三个 tick：
+
+| 事件 | 处理器 | 作用 |
+| --- | --- | --- |
+| `DailyTickClanEvent` | `DailyTickClan`（`:67`） | 按氏族推进 |
+| `HourlyTickEvent` | `HourlyTick`（`:148`） | 每小时处理**玩家王国** |
+| `DailyTickEvent` | `DailyTick`（`:156`） | 清理 5 天前的去重缓存 |
+
+外加四个「立刻打脏」的触发器：王国覆灭（`OnKingdomDestroyed`，`:62`）、媾和（`:194`）、宣战（`:199`）、氏族换王国（`:498`）、决议入队（`OnKingdomDecisionAdded`，`:506`）。
+
+### 典型用法
+
+**真正的核心是 `UpdateKingdomDecisions(Kingdom kingdom)`（`:167`）——它是 public，也是唯一能手动触发的地方。**
+
+它的算法是**两趟三步**：
+
+1. 遍历 `kingdom.UnresolvedDecisions`（`KingdomDecisionProposalBehavior.cs:171`），分进两个临时列表：`ShouldBeCancelled()` 为真的进 `list`（`:173`-`:175`），**否则**若「非玩家参与」或「`TriggerTime.IsPast && !NeedsPlayerResolution`」进 `list2`（`:177`-`:180`）。
+2. 对 `list` 里的逐个 `kingdom.RemoveDecision(item)`（`:184`），**并额外判一次「玩家是否被牵涉」再广播取消事件**（`:185`-`:186`）。
+3. 对 `list2` 里的逐个 `new KingdomElection(item2).StartElectionWithoutPlayer()`（`:190`）。
+
+**`UnresolvedDecisions` 本身是 `public MBReadOnlyList<KingdomDecision> UnresolvedDecisions => _unresolvedDecisions`（`Kingdom.cs:115`）——只读视图。** 它是查询「全部未结决议」的唯一正确入口，**任何写入都必须走 `Kingdom.AddDecision` / `RemoveDecision`**，直接动 `_unresolvedDecisions` 会绕过这里的取消逻辑。
+
+**第 2 步那句「玩家是否被牵涉」的判定值得抄下来：**
+
+```
+item.DetermineChooser().Leader.IsHumanPlayerCharacter || item.DetermineSupporters().Any(x => x.IsPlayer)
+```
+
+见 `KingdomDecisionProposalBehavior.cs:185`。**它调了 `DetermineChooser()` 与 `DetermineSupporters()` 两个本该只在选举时才调的方法，纯为了算一个广播参数。** 也就是说**取消一个决策的代价里包含一次完整的投票人枚举**——大量决议堆积时这一行是热点。
+
+**注意第 1 步的 `else if` 结构：`NeedsPlayerResolution` 为真的玩家决议会被完全跳过**，既不取消也不选举。**那是留给玩家 UI 的**，AI 不能碰。
+
+`HourlyTick`（`:148`）只处理 `Clan.PlayerClan.Kingdom`（`:150`-`:152`），**而且判的是 `!= null`**——**玩家没有王国时整段跳过**。
+
+`DailyTick`（`:156`）倒序遍历 `_kingdomDecisionsList`，**`TriggerTime.ElapsedDaysUntilNow > 5f` 就 `RemoveAt`（`:160`-`:163`）**。这就是风险第 4 条说的「5 天去重缓存」——**它是倒序的，所以 `Count - 1` 到 0 这个顺序不能改成正序。**
+
+```csharp
+public static void AuditPendingDecisions(Kingdom kingdom)
+{
+    KingdomDecisionProposalBehavior behavior = Campaign.Current.GetCampaignBehavior<KingdomDecisionProposalBehavior>();
+    MBList<KingdomDecision> pending = kingdom.UnresolvedDecisions;
+    int cancelled = 0;
+    int aiReady = 0;
+    int waitingForPlayer = 0;
+    for (int i = 0; i < pending.Count; i++)
+    {
+        if (pending[i].ShouldBeCancelled())
+        {
+            cancelled++;
+        }
+        else if (!pending[i].IsPlayerParticipant || (pending[i].TriggerTime.IsPast && !pending[i].NeedsPlayerResolution))
+        {
+            aiReady++;
+        }
+        else
+        {
+            waitingForPlayer++;
+        }
+    }
+    Debug.Print("pending=" + pending.Count + " cancel=" + cancelled + " aiReady=" + aiReady + " waitingPlayer=" + waitingForPlayer, 0);
+}
+```
+
+**上例的三分支是照抄 `:173`/`:177` 的判据顺序，包括那个 `else`。** **如果你把 `else if` 写成两个独立 `if`，玩家待决议会被重复计数两次**——这是复刻这段逻辑时最容易犯的结构性错误。**它只读不写，所以 `behavior` 拿到了却没用——这是故意的，因为调用 `UpdateKingdomDecisions` 会真的启动选举。**
+
+### 最容易踩的坑
+
+1. **战役未启动取行为**：`Campaign.Current.GetCampaignBehavior<KingdomDecisionProposalBehavior>()` 要求 `Campaign.Current` 非空且本行为已注册；在子模块加载早期、主菜单或编辑器上下文调用会得到 null 或未注册行为，直接解引用即崩溃。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

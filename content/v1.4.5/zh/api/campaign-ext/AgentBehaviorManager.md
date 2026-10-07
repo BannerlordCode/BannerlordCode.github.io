@@ -182,10 +182,10 @@ public class MySandboxSubModule : MBSubModuleBase
 ## 依赖关系
 
 - 接口契约：[IAgentBehaviorManager](../../campaign/IAgentBehaviorManager) 的十三个方法签名由它定义，本类是沙盒侧的唯一实现；`SandBoxManager.AgentBehaviorManager` 属性的静态类型就是它
-- 真正的实现体：[BehaviorSets](BehaviorSets) 的十三个同名静态方法是本类每个方法体的转发目标，行为清单的真相全在那里
+- 真正的实现体：[BehaviorSets](../BehaviorSets) 的十三个同名静态方法是本类每个方法体的转发目标，行为清单的真相全在那里
 - 装配点：`Modules.SandBox/SandBox/Sandbox/SandBoxSubModule.cs:102` 与 `:153` 两处 `sandBoxManager.AgentBehaviorManager = new AgentBehaviorManager()` 是本类进入运行时的唯一途径
 - 参数类型：`TaleWorlds.Core.IAgent` 是十三个方法的统一入参，`Agent` 是它的实现类型之一
 - 消费方：`HeroAgentSpawnCampaignBehavior.cs:120`（同伴 vs 固定角色二选一）、`NotableHelperCharacterCampaignBehavior.cs:77`、`WorkshopsCharactersCampaignBehavior.cs:73`、`LordsNeedsTutorIssueBehavior.cs:642`、`ArenaMasterCampaignBehavior.cs:187` 是 1.4.5 里通过接口调用本类的代表性位置
-- 行为本体：被挂载的行为都派生自 [AgentBehavior](AgentBehavior)，由 `BehaviorSets` 调 `AgentBehaviorGroup.AddBehavior<T>()` 实例化
+- 行为本体：被挂载的行为都派生自 [AgentBehavior](../AgentBehavior)，由 `BehaviorSets` 调 `AgentBehaviorGroup.AddBehavior<T>()` 实例化
 - 宿主容器：[SandBoxManager](../SandBoxManager) 只存一个 `IAgentBehaviorManager` 引用，不关心是谁实现的
 - 桶首页：[campaign-ext API 分区](../)

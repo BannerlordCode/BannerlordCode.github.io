@@ -8,7 +8,7 @@ description: "通用选项界面里的一行「立即执行」按钮。它继承
 **Module:** TaleWorlds.MountAndBlade.ViewModelCollection  
 **Type:** `public class ActionOptionDataVM : GenericOptionDataVM`  
 **Base:** `GenericOptionDataVM`  
-**File:** `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/ActionOptionDataVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/ActionOptionDataVM.cs`
 
 ## 概述
 

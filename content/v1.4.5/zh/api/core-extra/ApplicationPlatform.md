@@ -162,6 +162,50 @@ public static class PlatformClassifier
 - **改不了。** 三个属性全是 `private set`，`Initialize` 是唯一的路。**想在测试环境里伪造平台，只能调 `Initialize`，而那会污染整个进程的全局状态。**
 - **`Initialize` 可以被重复调用覆盖。** 没有 `_initialized` 之类的守卫。重复调用会静默改变后续所有行为。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public static class ApplicationPlatform`（`TaleWorlds.Library/ApplicationPlatform.cs:3`），四个静态属性 + 一个静态方法，没有实例。**唯一的写入口是 `Initialize(EngineType, Platform, Runtime)`**，全树只有一个调用方：`TaleWorlds.DotNet/Controller.cs:43`，参数是 native 传进来的整数强转。也就是说：**mod 读得到，但写不了，也不要试图写**——你在 `SubModuleLoad` 那一刻读到的就是最终值。
+
+### 典型用法
+
+上面「真实示例」两段都是**当场读、当场打印或当场判定**。更稳的形状是在加载那一刻拍一张快照，因为「未初始化」这个状态一旦过去就不会再回来，而类本身没有 `Initialised` 标志：
+
+```csharp
+public class MyPlatformSnapshot
+{
+    private readonly Platform _platform;
+    private readonly Runtime _runtime;
+
+    public MyPlatformSnapshot()
+    {
+        // 在 SubModuleLoad 这一刻拍一张快照：此后 CurrentPlatform 不会再变
+        this._platform = ApplicationPlatform.CurrentPlatform;
+        this._runtime = ApplicationPlatform.CurrentRuntimeLibrary;
+    }
+
+    public bool IsInitialised()
+    {
+        // 类没有 Initialised 标志，只能靠外部信号：default(Platform) 是 WindowsSteam、
+        // default(Runtime) 是 Mono（Runtime.cs:5-7 声明为 { Mono, DotNet, DotNetCore }），
+        // 两者同时成立就说明你抢在 Initialize 之前读了
+        return !(this._platform == Platform.WindowsSteam && this._runtime == Runtime.Mono);
+    }
+
+    public bool NeedsPcUi()
+    {
+        return this.IsInitialised() && ApplicationPlatform.IsPlatformWindows();
+    }
+}
+```
+
+与上面「真实示例」的差别：那两段是**无状态的一次性调用**，每次判定都重新读静态属性，所以判据分散在各处；而这里把**判定前置成一个快照 + 一个组合条件**——先用一个外部信号把「未初始化」这个伪 Windows 排除掉，再去问 `IsPlatformWindows()`。顺序反了就会得到本页那条最贵的坑。
+
+### 最容易踩的坑
+
+**`Platform.WindowsSteam` 的值是 0。** 而 `CurrentPlatform` 没有初始化器。**结果：未初始化即读作 WindowsSteam，且 `IsPlatformWindows()` 返回 true。**
+
 ## 跨版本提示
 
 `ApplicationPlatform.cs` 在 1.4.5 是 35 行、5 个成员，是原始源码形态。**跨版本真正要核对的不是本类，而是它依赖的三个枚举**：[Platform](../Platform)（10 个成员，`Undefined = -1`）、[EngineType](../EngineType)、`Runtime`（Mono / DotNetCore）。**`Platform` 的成员增删会直接改变 `default(Platform)` 的含义**——如果某个版本把 `WindowsSteam` 从 0 号移走或插入新成员到前面，「未初始化即 Windows」这个陷阱就消失了（或换成另一个值）。因此迁移时值得核对三件事：`Platform` 的成员顺序与显式赋值；`IsPlatformWindows` 的显式枚举列表是否补全了新平台（`GDKDesktop` 已经被特判过一次，说明这个列表历史上漏过）；以及 `AssemblyLoader` 是否因为新增运行时类型而扩展了策略分支。

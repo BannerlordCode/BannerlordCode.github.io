@@ -8,7 +8,7 @@ description: "战役设置里的「动作型选项」数据行。它没有 ViewM
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public class ActionCampaignOptionData : CampaignOptionData`  
 **Base:** `CampaignOptionData`  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/ActionCampaignOptionData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/ActionCampaignOptionData.cs`
 
 ## 概述
 

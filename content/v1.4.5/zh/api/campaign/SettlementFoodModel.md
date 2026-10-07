@@ -89,6 +89,38 @@ SettlementFoodModel 是一个纯计算的规则扩展点：Campaign 在启动时
   - 副作用：无，纯计算；内部用 `ExplainedNumber` 累积带说明项的数值，但仅在 `includeDescriptions: true` 时对外暴露明细。
   - 调用时机：`Town.FoodChange`（含市场）、`Town.FoodChangeWithoutMarketStocks`（不含市场）、`Town.FoodChangeExplanation`（含说明）三个属性直接调用；`TownManagementVM` 在刷新城镇管理面板时调用以展示食物趋势；`GarrisonTroopsCampaignBehavior.CalculateMaxGarrisonSizeTownCanFeed` 用来反推可养活的驻军规模。
 
+## 怎么用
+
+这是城镇食物存量的规则层：给上限、给消耗比例、算每日净变化。它和繁荣度、安全度、忠诚度是同一族模型，形状也一样——四个常量加一个带说明的计算方法。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementFoodModel.cs:6`，全文 18 行、5 个成员。默认实现注册点是 `SandBoxManager.cs:276` 的 `gameStarter.AddModel(new DefaultSettlementFoodModel())`。
+
+四个常量是消耗的标尺：`FoodStocksUpperLimit` 在 `:8`（城镇食物存量硬上限）、`NumberOfProsperityToEatOneFood` 在 `:10`、`NumberOfMenOnGarrisonToEatOneFood` 在 `:12`（后两个是「多少繁荣度/多少驻军消耗一份食物」的除数）、`CastleFoodStockUpperLimitBonus` 在 `:14`（城堡的额外上限）。唯一的计算方法 `CalculateTownFoodStocksChange` 在 `:16`，带三个参数，其中 `includeMarketStocks` 控制是否把市场库存算进来。
+
+顺带一提，写入侧的公开读法就在城镇对象上：`Town.FoodStocksUpperLimit()` 在 `Town.cs:460` 就是模型上限的落地形态，而真正的每日加减由领地行为在结算时做。
+
+```csharp
+SettlementFoodModel food = Campaign.Current.Models.SettlementFoodModel;
+Debug.Print("城镇食物上限=" + food.FoodStocksUpperLimit + " 城堡加成=" + food.CastleFoodStockUpperLimitBonus, 0);
+Settlement s = Settlement.All[0];
+if (s.IsTown)
+{
+    Town town = (Town)s;
+    ExplainedNumber withMarket = food.CalculateTownFoodStocksChange(town, true, false);
+    ExplainedNumber withoutMarket = food.CalculateTownFoodStocksChange(town, false, false);
+    Debug.Print(town.Name + " 含市场 " + withMarket.ResultNumber + " 不含市场 " + withoutMarket.ResultNumber, 0);
+    Debug.Print("当前存量=" + town.FoodStocks + " 上限=" + town.FoodStocksUpperLimit(), 0);
+}
+Debug.Print("每份食物消耗：繁荣度/" + food.NumberOfProsperityToEatOneFood
+    + " 驻军/" + food.NumberOfMenOnGarrisonToEatOneFood, 0);
+```
+
+`includeDescriptions` 传 true 时返回的 `ExplainedNumber` 带逐项分解，这是把「为什么粮食在掉」讲清楚给玩家听的正确入口。
+
+四个外部调用点能直接告诉你这个模型在哪些地方被真正用到：`Town.cs:134` 的 `FoodChange` 属性就是 `CalculateTownFoodStocksChange(this).ResultNumber`，`Town.cs:136` 的 `FoodChangeWithoutMarketStocks` 是同一方法的另一个参数组合；`GarrisonTroopsCampaignBehavior.cs:441` 把它整份取出来在驻军结算里用；`SettlementHelper.cs:554` 则用 `NumberOfProsperityToEatOneFood` 做除数算饥荒阈值；界面上由 `TownManagementVM.cs:667` 把结果转成城镇管理面板的一行说明。
+
+**最常见的坑**：跨战役重载缓存实例。`Campaign.Current.Models.SettlementFoodModel` 在每次新战役或读档时由 `GameModels` 重新解析，缓存进静态字段会在重载后指向旧战役的已销毁对象。
+
 ## 示例
 
 读取某城镇明日食物净变化（含市场库存），并判断它是增产还是减产：

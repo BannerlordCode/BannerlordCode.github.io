@@ -55,6 +55,30 @@ heroObject != null
 | `StringId` | `public override string StringId => "AttractedToPlayerTag"` | 对话 XML `allowed_tags` 里的字面量，也是 `ConversationManager._tags` 的键。 |
 | `IsApplicableTo` | `public override bool IsApplicableTo(CharacterObject character)` | 唯一逻辑。依次短路判 `heroObject != null`、异性、`FactionManager` 不在战争、[RomanceModel](../RomanceModel) 好感度 `> 70`、NPC 无配偶、玩家无配偶。**依赖 `Campaign.Current` 与 `Hero.MainHero`，两者任一为 null 都抛。** |
 
+## 怎么用
+
+这是一枚按「玩家与对话对象的浪漫关系」切分台词的门控，判定链比同层标签长得多：它要同时满足异性、非交战、吸引值过阈值、对方未婚，且玩家自己也没有配偶。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/AttractedToPlayerTag.cs:3`，常量 `Id` 在 `:5`，私有阈值常量 `MinimumFlirtPercentageForComment` 在 `:7`，`StringId` 在 `:9`，`IsApplicableTo` 在 `:11`。框架调用点在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Conversation/ConversationManager.cs:1087` 与 `:1098`。
+
+五个判定条件全部挤在 `AttractedToPlayerTag.cs:14` 的一个 if 里：`character.HeroObject` 非空（`:13`）、双方性别不同、非敌对派系、`RomanceModel.GetAttractionValuePercentage` 严格大于 70、且 `heroObject.Spouse == null`。全中之后返回的还不是常量 true，而是 `Hero.MainHero.Spouse == null`——也就是说玩家已婚时即使对方完全符合条件也返回 false。
+
+```csharp
+AttractedToPlayerTag tag = new AttractedToPlayerTag();
+Hero npc = Hero.MainHero;                       // 任取一个会与玩家对话的英雄
+Hero obj = npc.HeroObject;
+int pct = Campaign.Current.Models.RomanceModel.GetAttractionValuePercentage(obj, Hero.MainHero);   // 返回 int
+Debug.Print("StringId=" + tag.StringId + " 阈值常量=" + AttractedToPlayerTag.MinimumFlirtPercentageForComment, 0);
+Debug.Print(obj.Name + " 异性=" + (Hero.MainHero.IsFemale != obj.IsFemale)
+    + " 交战=" + FactionManager.IsAtWarAgainstFaction(obj.MapFaction, Hero.MainHero.MapFaction)
+    + " 吸引值=" + pct + " 已婚=" + (obj.Spouse != null), 0);
+Debug.Print("标签结果=" + tag.IsApplicableTo(obj), 0);
+```
+
+注意阈值有两份：常量 `MinimumFlirtPercentageForComment` 是 70，而判定里写的是字面量 `70`。想改阈值必须改判定那一行，改常量不会有任何效果。
+
+**最常见的坑**：`character.HeroObject` 为 null 就直接短路返回 false，所以对普通士兵调用是安全的；但这也意味着这个标签对非英雄角色永远不成立，而常量名里的 "Comment" 提示它本来是给特定评论台词用的，不是通用的吸引判定。
+
 ## 真实示例
 
 在自己 Behavior 里判断一个 NPC 是否会走这条恋爱台词：

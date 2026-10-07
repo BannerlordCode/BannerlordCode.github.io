@@ -95,6 +95,79 @@ private void OnBanditTick(MobileParty mobileParty, PartyThinkParams p)
 }
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors/AiLandBanditPatrollingBehavior.cs`（全文 45 行）。
+**入口：** `CampaignGameStarter.RegisterCampaignBehaviors()` → `CampaignBehaviors.AddBehavior(new AiLandBanditPatrollingBehavior())`；生效后由 `CampaignEvents.AiHourlyTickEvent` 自动驱动。
+
+**它是一个 `public class AiLandBanditPatrollingBehavior : CampaignBehaviorBase`（`AiLandBanditPatrollingBehavior.cs:7`），外部程序集可以 `new`。** 但不要每次用都 new 一个——它靠 `RegisterEvents`（`AiLandBanditPatrollingBehavior.cs:9`）挂 `CampaignEvents.AiHourlyTickEvent.AddNonSerializedListener(this, AiHourlyTick)`（`AiLandBanditPatrollingBehavior.cs:11`）驱动，**注册一次就跟着战役活到最后**。
+
+`SyncData` 是空的（`AiLandBanditPatrollingBehavior.cs:14`），**它没有任何存档状态**。
+
+注册走 Campaign Game Starter，与官方同批 behavior 一起加：
+
+```csharp
+public class MyPatrollingBehaviors : CampaignGameStarter
+{
+    public override void RegisterCampaignBehaviors()
+    {
+        CampaignBehaviors.AddBehavior(new AiLandBanditPatrollingBehavior());
+        base.RegisterCampaignBehaviors();
+    }
+}
+```
+
+### 典型用法
+
+`AiHourlyTick` 的第一道过滤（`:20`）是三条件的或：**非土匪、土匪首领、或者身处一个「土匪数量不够」的藏身处**都直接 return。第三个条件值得读细：`CurrentSettlement.Parties.CountQ(x => x.IsBandit && !x.IsBanditBossParty) <= NumberOfMinimumBanditPartiesInAHideoutToInfestIt + 1`——**注意那个 `+ 1`，门槛比模型值高一支队**。
+
+产出的是 `PatrolAroundPoint`，巡逻点是 `mobileParty.HomeSettlement`（`:29`），不是当前位置，也不是藏身处。分数是 `0.5f * num * num3`（`:39`），其中 `num3` 在「身处藏身处」时是**五个 `MBRandom.RandomFloat` 相乘**（`:38`），在开阔地时固定 `0.5f`。
+
+**这里有一个必须知道的性质**：`num3 > 0f` 时才 `AddBehaviorScore`（`:40`），而五个随机数相乘在 `(0,1)` 上取值的期望是 `1/32`，**也就是说藏身处里的巡逻分数绝大多数时候远低于 0.5，开阔地反而稳定拿满分的一半。** 想调巡逻倾向，改这个乘积的次数比改 `0.5f` 更有效。
+
+想知道一支土匪此刻为什么不动，最直接的办法是把三个过滤条件逐个量出来：
+
+```csharp
+public static class BanditPatrolProbe
+{
+    public static void Report(MobileParty party)
+    {
+        if (!party.IsBandit || party.IsBanditBossParty)
+        {
+            Debug.Print(party.Name + " is filtered out before scoring", 0);
+            return;
+        }
+        if (!party.HasLandNavigationCapability)
+        {
+            Debug.Print(party.Name + " has no land navigation, filtered at line 25", 0);
+            return;
+        }
+        int count = 0;
+        Settlement here = party.CurrentSettlement;
+        if (here != null && here.IsHideout)
+        {
+            for (int i = 0; i < here.Parties.Count; i++)
+            {
+                if (here.Parties[i].IsBandit && !here.Parties[i].IsBanditBossParty)
+                {
+                    count++;
+                }
+            }
+        }
+        Debug.Print(party.Name + " passes gates, patrol point=" + party.HomeSettlement, 0);
+        Debug.Print("non-boss bandits here = " + count + " threshold = " + (Campaign.Current.Models.BanditDensityModel.NumberOfMinimumBanditPartiesInAHideoutToInfestIt + 1), 0);
+    }
+}
+```
+
+`num` 只在藏身处里才被重算（`:31`-`:37`），公式是 `(实际数 − 最小值) / (最大值 − 最小值)`（`:36`）——**分子可能为负**（虽已被 `:20` 的过滤挡住），分母若被 mod 改成相等就是除零。**换 `BanditDensityModel` 的两个阈值时要保持最大值严格大于最小值。**
+
+### 最容易踩的坑
+
+**仅作用于陆地土匪**：入口第一道过滤要求 `mobileParty.IsBandit` 且非 `IsBanditBossParty`；Boss 方与任何其他类型方都不会获得巡逻分。误以为给任意方注册此行为就能巡逻是常见误解。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

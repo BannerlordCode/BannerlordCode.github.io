@@ -104,6 +104,43 @@ LogEntry.AddLogEntry(new CharacterInsultedLogEntry(insultee, insulter, overWhat,
 - **同一个值在不同 LogEntry 里语义不同。** 判读日志必须同时看条目类型与 note 值，光看 note 会误判。
 - **不能反查 note 的来源。** 枚举本身不记录「谁写的」「因为什么」，要溯源只能查 `PlayerReputationChangesLogEntry._trait` 与 `_referenceHero`。
 
+## 怎么用
+
+### 怎么拿到它
+
+**它不是一个对象，没有构造器，也拿不到实例。** `ActionNotes` 是一个 28 成员的 `public enum`（`ActionNotes.cs:3`），你在 C# 侧唯一能做的事就是把它的某个成员当作参数**传出去**。`DefaultNote` 的隐式值是 0（`:5`）。
+
+真正消费它的位置有三类：`TraitLevelingHelper` 的声誉写入（`TraitLevelingHelper.cs:52`、`:59`、`:64`、`:69`、`:74`、`:79`-`:80`、`:85`、`:90`、`:97`）、`BackstoryCampaignBehavior` 的开局历史补写（`BackstoryCampaignBehavior.cs:25`、`:47`、`:54`），以及各 LogEntry 类把它存成字段（如 `CharacterInsultedLogEntry.cs:23` 的 `private readonly ActionNotes _gameActionNote`）。
+
+**它有存档 id 2030。** `SaveableCampaignTypeDefiner.cs:316` 的 `AddEnumDefinition(typeof(ActionNotes), 2030)` 把它注册进枚举序列化。枚举按**序号**存盘，不按名字——这是下面那个坑的根。
+
+### 典型用法
+
+文案链在 `CharacterInsultedLogEntry.GetEncyclopediaText()`：它的 `switch`（`:149` 起）逐个匹配 12 个 `*Quarrel` 值给专属 GameText，**落不到的走 `:194` 的兜底**——`textObject.SetTextVariable("GAME_ACTION_NOTES", GameTexts.FindText("str_game_action_note", _gameActionNote.ToString()))`。`FindText` 的第二个参数是 `_gameActionNote.ToString()`，**也就是枚举成员名本身**。
+
+所以给新事件配文案之前，先确认它到底落在专属分支还是兜底分支：
+
+```csharp
+public static class ActionNoteCoverageProbe
+{
+    public static void Report(ActionNotes note)
+    {
+        string key = GameTexts.FindText("str_game_action_note", note.ToString()).ToString();
+        bool hasDedicated = note.ToString().EndsWith("Quarrel");
+        Debug.Print("note=" + note + " ordinal=" + (int)note, 0);
+        Debug.Print("fallback text id=" + key + " dedicatedSwitch=" + hasDedicated, 0);
+    }
+}
+```
+
+`_hasDedicated` 那个近似判断只是给你一个排查信号：`CorruptGangLeaderQuarrel` 和 `CompetingGangLeaderQuarrel`（`:15`、`:16`）名字带 `Quarrel` 后缀，但 `switch` 里没有它们的 case，**照样落兜底**。枚举里带后缀不代表有专属文案。
+
+`AddPlayerTraitXPAndLogEntry` 还有一个硬阀：`MathF.Abs(xpValue) >= 10` 才写日志。**调它时别指望 `|xp| = 5` 也能留痕。**
+
+### 最容易踩的坑
+
+**枚举名就是显示文案的一部分。** `CharacterInsultedLogEntry.GetEncyclopediaText()` 的兜底路径直接 `SetTextVariable("GAME_ACTION_NOTES", GameTexts.FindText("str_game_action_note", _gameActionNote.ToString()))`。**改名 = 改玩家在百科页看到的词**，而 `str_game_action_note` 的翻译表里只有旧名字。
+
 ## 跨版本提示
 
 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ActionNotes.cs` 是 33 行、**28 个枚举成员、零方法**。逐成员比对 1.4.6 与 1.3.15 的同名文件：公开表面完全一致，未见成员增删或顺序变化——**顺序即数值，所以插入新成员会移动后续所有值，必须追加到末尾**。

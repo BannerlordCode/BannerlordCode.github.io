@@ -95,6 +95,31 @@ int woundedLimit = Campaign.Current.Models.CharacterStatsModel.WoundedHitPointLi
 int maxTier = Campaign.Current.Models.CharacterStatsModel.MaxCharacterTier;
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/CharacterStatsModel.cs:5`（`public abstract class CharacterStatsModel : MBGameModel<CharacterStatsModel>`）。**全文只有 14 行 —— 四个成员、零方法体**，是本批最薄的模型。
+
+解析在 `GameModels.cs:262` 的 `CharacterStatsModel = GetGameModel<CharacterStatsModel>();`，存入 `GameModels.cs:71`。
+
+**真正值得注意的是：消费者通常已经把这个模型包成了属性。** `CharacterObject.cs:361` 的 `public int Tier => Campaign.Current.Models.CharacterStatsModel.GetTier(this);` 是一个**表达式属性** —— 所以 `troop.Tier` 与 `Campaign.Current.Models.CharacterStatsModel.GetTier(troop)` 等价。**日常用 `troop.Tier` 即可，不必每次绕 `Models`。** 同理 `CharacterObject.cs:236` 的 `MaxHitPointsExplanation`。
+
+**一段可直接跑的三行查阶位与血量**：
+
+```csharp
+CharacterStatsModel sm = Campaign.Current.Models.CharacterStatsModel;
+int tier = sm.GetTier(troop);
+ExplainedNumber hp = sm.MaxHitpoints(troop, true);
+Debug.Print("tier=" + tier + " hp=" + hp.ResultNumber + " cap=" + sm.MaxCharacterTier, 0);
+```
+
+**`MaxCharacterTier` 是判顶点的常量，用在循环边界上要小心。** 引擎的 `PartyBaseHelper.cs:24` 判的是 `characterObject.Tier == Campaign.Current.Models.CharacterStatsModel.MaxCharacterTier` —— **等号，不是 `>=`**。你自己遍历时写成 `<= MaxCharacterTier` 与官方语义不同（后者包含所有低于上限的档位）。
+
+**`WoundedHitPointLimit(Hero hero)` 收的是 `Hero` 而不是 `CharacterObject`。** 这是四个成员里唯一一个以英雄为入参的，**不要传 `hero.CharacterObject`** —— 类型不匹配编译不过。
+
+**`MaxHitpoints` 返回的是 `ExplainedNumber` 而不是 `float`。** 要数值取 `.ResultNumber`，要 UI 上的分项说明就传 `includeDescriptions: true`。
+
+**最常见的坑：跨战役重载缓存实例。** `Campaign.Current.Models.CharacterStatsModel` 在每次新战役/读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长生命周期对象，会在重载后指向旧战役的已销毁对象。**对这个模型尤其要小心 —— 它的成员全是纯计算（无状态），看起来「缓存无害」，于是更容易被误判为可长期持有。**
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

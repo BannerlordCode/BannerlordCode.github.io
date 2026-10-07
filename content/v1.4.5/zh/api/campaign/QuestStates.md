@@ -73,6 +73,32 @@ graph TD
 - **谁设置它**：`QuestBase.FinalizeQuest()`（私有，源码 `QuestBase.cs:244`）写入。它被五个完成方法统一调用：`CompleteQuestWithSuccess`、`CompleteQuestWithTimeOut`、`CompleteQuestWithFail`、`CompleteQuestWithBetrayal`、`CompleteQuestWithCancel`。每个完成方法在切到 `Finalized` 之前先调用自己的 `On*` 钩子（如 `OnCompleteWithSuccess` / `OnFailed` / `OnCanceled`），切到 `Finalized` 之后再调用 `AfterFinalize`。
 - **带来的行为**：`FinalizeQuest` 会先取消所有仍在活动的 `QuestTaskBase`（`task.Finish(QuestTaskBase.FinishStates.Cancel)`），再置 `_questState = Finalized`，调用 `OnFinalize`，并 `ClearRelatedFields`——移除该任务在 `CampaignEventDispatcher` 上的全部监听器、在 `ConversationManager` 上的对话行、在 `GameMenuManager` 上的相关菜单与选项；随后 `RemoveAllTrackedObjects`（经 `QuestManager`）与 `RemoveAllMapMarkers`（经 `MapMarkerManager`）。最后 `Campaign.Current.QuestManager.OnQuestFinalized(this)` 把它从 `_quests` 移除。此后该任务不再被 tick、不再被超时判定、也不再出现在活跃任务遍历中。具体的结局通过 `CampaignEventDispatcher.Instance.OnQuestCompleted(this, QuestCompleteDetails.X)` 广播给 `CampaignEvents` 的订阅者。
 
+## 怎么用
+
+这个枚举你几乎永远不会直接写它，但它决定了一个任务在存档里算「还活着」还是「结束了」。它只有两个值，切换发生在任务生命周期的两端。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/QuestBase.cs:16`，是 [QuestBase](../QuestBase) 的 **internal 嵌套枚举**，所以同程序集的 mod 才拿得到，外部引用要靠反射。对应的私有字段 `_questState` 在 `QuestBase.cs:33`，属性 `[SaveableField(100)]` 在 `:32`，而枚举本身在存档类型表里以编号 2041 注册：`SaveableCampaignTypeDefiner.cs:321` 的 `AddEnumDefinition(typeof(QuestBase.QuestStates), 2041)`。
+
+全树对这个枚举的引用只有五处，全部集中在 `QuestBase.cs` 自身：声明 `:16`、字段 `:33`、以及两个比较属性 `:63` 和 `:65`。**没有任何外部行为直接读它**——所有世界逻辑都经由 `IsOngoing` / `IsFinalized`。这正是它该被当成纯内部实现的原因。
+
+两个值的语义：值 0 是 `Ongoing`，值 1 是 `Finalized`。这个枚举没有工厂、没有注册入口，也没有任何行为会广播「状态变了」。切换只有两条路：`QuestBase.StartQuest()` 置为 `Ongoing`，`FinalizeQuest()` 置为 `Finalized`，而后者由各 `CompleteQuestWith*` 统一调用。
+
+```csharp
+// 反射拿枚举（外部程序集拿不到 internal 类型，这是唯一稳定的取法）
+Type qsType = typeof(QuestBase).GetNestedType("QuestStates",
+    System.Reflection.BindingFlags.NonPublic);
+Debug.Print("类型=" + qsType.Name + " 值域=" + string.Join(",", qsType.GetEnumNames()), 0);
+// 存档口径核对
+Debug.Print("Ongoing=" + Enum.Parse(qsType, "Ongoing") + " Finalized=" + Enum.Parse(qsType, "Finalized"), 0);
+// 对外只读这两个布尔属性
+QuestBase quest = Campaign.Current.QuestManager.GetAllQuestsForHero(Hero.MainHero)[0];
+Debug.Print(quest.GetType().Name + " IsOngoing=" + quest.IsOngoing + " IsFinalized=" + quest.IsFinalized, 0);
+```
+
+调试这个枚举最快的办法就是直接看存档字段：`QuestBase._questState` 是带id 100 的字段，读档后如果任务「已结束却还在 tick」，先确认这个字段的值是不是已经被外部改过了。
+
+**最常见的坑**：直接改 `_questState` 绕过 `FinalizeQuest()`。不经清理就置成 `Finalized`，任务的事件监听、三条对话流程、追踪对象与地图标记都不会被清除，`QuestManager` 的任务表里也仍保留它——表现为「已结束却还在 tick、还在地图上、还占着追踪槽」的幽灵任务。
+
 ## 示例
 
 ### 示例 1：遍历任务并区分进行中 / 已结束

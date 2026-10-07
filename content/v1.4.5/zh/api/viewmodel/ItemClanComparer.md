@@ -8,7 +8,7 @@ description: "ItemClanComparer 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ItemClanComparer : KingdomSettlementSortControllerVM.ItemComparerBase`
 **Base:** `KingdomSettlementSortControllerVM.ItemComparerBase`
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/KingdomManagement/Settlements/KingdomSettlementSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements/KingdomSettlementSortControllerVM.cs`
 
 ## 概述
 

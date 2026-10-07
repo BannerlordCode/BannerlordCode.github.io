@@ -110,6 +110,58 @@ if (settlement != null)
 
 注意 `LocatorNodeIndex` 为 `-1` 只说明该实体当前不在任何网格桶中（可能还没被 `UpdateLocator` 过），并不等价于「实体无效」；不要用 `-1` 去判断实体是否存在。
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map/ILocatable.cs`（全文 15 行）。
+**入口：** `internal interface ILocatable<T>`（`ILocatable.cs:5`）——**泛型且 internal，外部程序集不能声明实现，也不能把变量显式声明成这个类型。**
+
+**这也是本页最容易被写错的一点：`ILocatable<T>` 带着类型参数，不是非泛型接口。** 三个成员全带 `[CachedData]`：`LocatorNodeIndex`（`ILocatable.cs:8`）、`NextLocatable`（`:11`）、`GetPosition2D`（`:14`）——**前两个是 `{ get; set; }`，第三个只有 get**。
+
+因为 `T` 自身要实现 `ILocatable<T>`（见 `LocatorGrid<T> where T : ILocatable<T>`，`LocatorGrid.cs:6`），**这个约束是自指的**：你的类型必须实现「指向自己的那一个特化版本」。
+
+**在 mod 代码里你只能隐式使用它，不能显式命名。** 实际可用的静态入口在具体类型上——`Settlement.StartFindingLocatablesAroundPosition`（`Settlement.cs:1160`）与 `Settlement.FindNextLocatable`（`Settlement.cs:1165`），队伍侧同理。**它们内部转发到 `Campaign.Current.SettlementLocator`（`Settlement.cs:1162` / `:1167`）与 `Campaign.Current.MobilePartyLocator`（`Campaign.cs:443`）**，而这两个属性都是 `?? (new LocatorGrid<...>())` 的惰性构造（`Campaign.cs:441` / `:443`）——**网格是第一次被问时才建的，不是战役启动时建的。**
+
+### 典型用法
+
+**桶索引 `LocatorNodeIndex` 是这个接口里唯一的「写入凭据」。** `LocatorGrid.UpdateLocator(T locatable)`（`LocatorGrid.cs:52`）算出新桶号，若与旧值不同就先 `RemoveFromList`（`:61`）再 `AddToList(num, locatable)`（`:63`）、最后写回 `locatable.LocatorNodeIndex = num`（`:64`）并 `return true`（`:65`）。**位置没变则返回 false（`:67`），不做任何写入。**
+
+**谁调用它？`Settlement.Position` 的 setter。** 它是 `{ get; private set; }`（`Settlement.cs:283`-`:284`），setter 体内只有一句 `Campaign.Current.SettlementLocator.UpdateLocator(this)`（`Settlement.cs:286`）。**所以移动一个据点会自动重新分桶，不需要你手动干预**——但这也意味着**你在代码里写 `settlement.Position = x` 会立刻触发一次网格维护**，在大循环里批量搬据点要注意这个隐式开销。
+
+`AddToList`（`:98`）是头插：它先取出旧头（`:100`），把自己放上去了事（`:101`），再把旧头挂到自己的 `NextLocatable`（`:102`）。**所以同一个桶里的遍历顺序是后进先出，不是插入序。**
+
+**这个设计有个直接后果：格子会环绕。** `MapCoordinates(int x, int y)`（`:30`）对 x 和 y 各做一次 `% _width` / `% _height`（`:32`/`:36`），负数再补一轮（`:33`-`:35` / `:37`-`:39`）。**坐标超出网格范围不会失败，而是被折回另一边。** 默认参数是 32×32、格边长 5f（`:8`-`:12`），**整张地图的包围盒被压进 160×160 的范围**。
+
+所以「用 `LocatorNodeIndex` 算距离」是错的用法——它只是桶号，不含距离语义。要范围查询就用静态入口：
+
+```csharp
+public static class LocatableBucketProbe
+{
+    public static void Report(Settlement target)
+    {
+        Vec2 center = MobileParty.MainParty.Position.ToVec2();
+        LocatableSearchData<Settlement> data = Settlement.StartFindingLocatablesAroundPosition(center, 25f);
+        Settlement found = Settlement.FindNextLocatable(ref data);
+        while (found != null)
+        {
+            if (found == target)
+            {
+                Debug.Print("hit " + found.StringId + " distance2D=" + found.Position.Distance(center), 0);
+            }
+            found = Settlement.FindNextLocatable(ref data);
+        }
+        Debug.Print("scan done, grid wraps at 32x32 nodes of 5f", 0);
+    }
+}
+```
+
+半径过滤在 `FindNextLocatable`（`LocatorGrid.cs:126`）里做，判据是 `GetPosition2D.DistanceSquared(data.Position) >= data.RadiusSquared` 就沿链表跳过（`:131`-`:134` 与 `:139`-`：142`）。**注意是 `>=` 而不是 `>`——正好压在半径圆周上的元素会被排除。**
+
+### 最容易踩的坑
+
+**未登记即读取定位字段**：在实体被 `UpdateLocator` 登记进网格之前，`LocatorNodeIndex` 为初始值 `-1`，`NextLocatable` 为 `default(T)`（即 `null`）。若你以 `ILocatable<T>` 去读 `LocatorNodeIndex` 或顺着 `NextLocatable` 遍历，会得到「不在任何桶」或跟到 `null`，据此做范围判定会漏掉实体或空转。
+
 ## 版本注记
 
 本页以 v1.4.5 `TaleWorlds.CampaignSystem.Map/ILocatable.cs` 及其实现（`MobileParty.cs`、`Settlement.cs`、`Track.cs`）与 `LocatorGrid.cs` 为准。跨版本使用时重新核对默认网格尺寸（`DefaultGridNodeSize = 5f`、`DefaultGridWidth/Height = 32`）、`LocatableSearchData<T>` 的构造参数，以及 `Campaign.MobilePartyLocator` / `SettlementLocator` 惰性属性的可用性。

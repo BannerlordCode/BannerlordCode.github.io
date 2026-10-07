@@ -122,10 +122,10 @@ if (MobileParty.MainParty.Army != null &&
 ## 依赖关系
 
 - 损失模型：[TroopSacrificeModel](../TroopSacrificeModel) 的两个 `GetLostTroopCount...` 方法决定扣多少人、两个 `BreakOut...RelationPenalty` 属性决定非统帅路径的关系代价——**要改数值就得换 model，而不是改这个类**
-- 战局上下文：`Settlement.CurrentSettlement.SiegeEvent` 是损失模型的输入，也是本类 NPE 风险的全部来源；[Settlement](../../campaign/Settlement) 的 `SetNextSiegeState()` 是围城状态推进的另一半（由 [CampaignSiegeStateHandler](CampaignSiegeStateHandler) 触发）
+- 战局上下文：`Settlement.CurrentSettlement.SiegeEvent` 是损失模型的输入，也是本类 NPE 风险的全部来源；[Settlement](../../campaign/Settlement) 的 `SetNextSiegeState()` 是围城状态推进的另一半（由 [CampaignSiegeStateHandler](../CampaignSiegeStateHandler) 触发）
 - 名单数据：`TroopRoster.CreateDummyTroopRoster()` 造 `out` 载体，`MemberRoster` / `GetCharacterAtIndex` / `GetElementNumber` / `AddToCountsAtIndex` 是实际扣兵的原语
 - 关系惩罚：[ChangeRelationAction](../ChangeRelationAction) 的 `ApplyPlayerRelation(Hero, int)` 是非统帅路径唯一的对外影响
 - 队伍模型：[MobileParty](../../campaign/MobileParty) 的 `Army` 属性可读可写，`LordPartyComponent` 与 `AttachedParties` 决定关系惩罚的作用对象
 - 数值类型：[ExplainedNumber](../ExplainedNumber) 的 `RoundedResultNumber` 是本类从模型结果里取整数的唯一途径
-- 同族动作：[ChangePlayerCharacterAction](ChangePlayerCharacterAction) 是同一命名空间下另一个「一次性做完整段战役变更」的静态动作类
+- 同族动作：[ChangePlayerCharacterAction](../ChangePlayerCharacterAction) 是同一命名空间下另一个「一次性做完整段战役变更」的静态动作类
 - 桶首页：[campaign-ext API 分区](../)

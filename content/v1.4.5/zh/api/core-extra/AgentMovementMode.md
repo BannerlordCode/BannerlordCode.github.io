@@ -132,6 +132,49 @@ Debug.Print("diving HasAnyFlag(Land) : "
 - **它和 [AgentState](../AgentState) / [AgentControllerType](../AgentControllerType) 完全正交。** 三个枚举同时存在且互不影响，不要用其中一个推断另一个。
 - **`HasAnyFlag` 是 TaleWorlds 的扩展方法。** 它对 `[Flags]` 枚举做的是「按位与非零」，不是 `Enum.HasFlag`，因此不需要装箱。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public enum AgentMovementMode : byte`（`TaleWorlds.Core/AgentMovementMode.cs:6`）。**托管侧只读**：唯一入口是 `Agent.MovementMode` 这个 get-only 属性，转手 native 指针；没有 setter，也没有增量方法。它的两个字段语义完全不同——低 2 位是**互斥的介质模式**（1/2/3），第 3、4 位是**独立开关**（`PhysicsCheck` / `NoPhysics`）。
+
+### 典型用法
+
+上面「真实示例」第一段是对一个 `mode` 值做分类，第二段是读主控单位并打印现成谓词。第三种是把两个字段**合成一个业务门禁**——介质和物理是两个独立条件，缺一个都不该弹交互：
+
+```csharp
+public class InteractionGateLogic : MissionLogic
+{
+    public override void OnMissionTick(float dt)
+    {
+        Agent unit = Mission.Current.MainAgent;
+        if (unit == null)
+        {
+            return;
+        }
+        // 先掩码取介质：None(0) 不在 1/2/3 之列，是需要单独处理的状态
+        AgentMovementMode medium = unit.MovementMode & AgentMovementMode.MovementModeMask;
+        bool onFoot = medium == AgentMovementMode.Land || medium == AgentMovementMode.WaterSurface;
+
+        // 高位在掩码之外，存活与否要两个位一起看：开了 PhysicsCheck 且没开 NoPhysics
+        bool physicsLive = unit.MovementMode.HasAnyFlag(AgentMovementMode.PhysicsCheck)
+            && !unit.MovementMode.HasAnyFlag(AgentMovementMode.NoPhysics);
+
+        // medium == None（空中/未初始化）时 both 都不成立，交互会被自然挡掉
+        if (onFoot && physicsLive)
+        {
+            MBDebug.Print("[MyMod] 可交互：" + unit.Name);
+        }
+    }
+}
+```
+
+与上面「真实示例」的差别：那里是把取值**分类**（在哪种介质 / 有没有物理）并分别返回布尔；这里把两个分类**合并成一个可执行决策**——介质决定「人站在哪」，物理位决定「碰撞与动画有没有在跑」，两者都通过才允许继续。三个边界（空中、关了物理、水下）因此不再需要三个 `return`，而是一条门禁。
+
+### 最容易踩的坑
+
+**`HasAnyFlag(Land)` 在潜水时为真。** `WaterDiving`(3) 的低位包含 `Land`(1)。仓库里 `Agent.cs:2660` 就是这么写的（`!MovementMode.HasAnyFlag(AgentMovementMode.Land)`），**不要照抄**。
+
 ## 跨版本提示
 
 `AgentMovementMode.cs` 在 1.4.5 里是 15 行、7 个成员，是原始源码形态。1.3.x / 1.4.6 的同名文件是反编译产物，行数会明显不同。**这个枚举跨版本最需要核对的是三处**：`DefineAsEngineStruct` 的第二个参数是否仍为 `true`（若变成 `false`，说明 native 不再把它当位标志集，本页关于掩码与位运算的全部结论都要重写）；`MovementModeMask` 的值是否仍为 3（它是「低 2 位是互斥字段」这个约定的锚点，一旦改成 4 或别的值，说明模式字段的宽度变了）；以及是否新增了 `PhysicsCheck` / `NoPhysics` 之外的位。另外要注意 `Agent.cs:2660` 那处 `HasAnyFlag(Land)` 是官方现存的写法而它并不正确——**跨版本对比时如果这行消失了，不必当成「修复」，也可能是别处重构。**

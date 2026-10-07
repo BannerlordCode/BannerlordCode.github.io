@@ -50,6 +50,34 @@ public static MBReadOnlyList<CharacterAttribute> All => Campaign.Current.AllChar
 | --- | --- | --- |
 | `All` | `public static MBReadOnlyList<CharacterAttribute> All => Campaign.Current.AllCharacterAttributes` | 唯一的成员。返回当前战役里全部 `CharacterAttribute` 定义的只读列表。**底层 `Campaign.AllCharacterAttributes` 是 internal，这个门面是 mod 唯一的合法入口**。每次访问重新解引用 `Campaign.Current`，不是缓存值。 |
 
+## 怎么用
+
+这是一个只有一行有效代码的静态门面，全文唯一的成员就是那个 `All` 属性。存在的意义是给你一个不用写 `using TaleWorlds.CampaignSystem;` 就能拿到角色属性全集的入口，同时避免和 .NET 的 `System.Attribute` 撞名。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Extensions/Attributes.cs:6`，是一个 `public static class`，唯一成员在 `:8`：`All => Campaign.Current.AllCharacterAttributes`。它不做任何过滤或转换，就是把 `Campaign.Current` 上的集合原样透出，所以每次访问都会重新求值。
+
+真正的数据在 [Campaign](../Campaign) 的 `AllCharacterAttributes` 上，这个门面的价值在于把访问点收敛成一处。引擎内部的消费方分布很广，可以按用途分成四组：存档侧是 `CharacterData.cs:152` 与 `:169`（把属性数组按 `StringId` 和英雄当前值写进存档），成长侧是 `HeroDeveloper.cs:296` 与 `:466`、以及 `DefaultCharacterDevelopmentModel.cs:270` 与 `:292`，教育侧是 `EducationCampaignBehavior.cs:1024`–`:1028`，角色创建侧是 `CharacterCreationContent.cs:159`。
+
+```csharp
+MBReadOnlyList<CharacterAttribute> all = TaleWorlds.CampaignSystem.Extensions.Attributes.All;
+Debug.Print("属性总数=" + all.Count, 0);
+foreach (CharacterAttribute attr in all)
+{
+    int playerValue = Hero.MainHero.GetAttributeValue(attr);
+    Debug.Print(attr.StringId + " 玩家当前值=" + playerValue, 0);
+}
+// 找出哪些英雄在某项属性上达到了满值
+foreach (CharacterAttribute attr in all)
+{
+    int max = Hero.AllAliveHeroes.Max(h => h.GetAttributeValue(attr));
+    Debug.Print(attr.StringId + " 全图存活英雄最高=" + max + " 是否满值=" + (max >= 1000), 0);
+}
+```
+
+这个门面只读。写属性要走 [Hero](../Hero) 上的 `SetAttributeValue` 或对应的 `ChangeHeroAttributeAction`，属性值本身带存档序列化，直接改集合元素不会生效。
+
+**最常见的坑**：这个类型叫 `Attributes`，和 .NET 反射命名空间里的 `Attribute` 只差一个 s，很容易在 `using TaleWorlds.CampaignSystem.Extensions;` 之后与自己的属性辅助类撞名。写全限定名 `TaleWorlds.CampaignSystem.Extensions.Attributes.All` 最省事。
+
 ## 真实示例
 
 把一个英雄的三维属性导成一行文本（形状取自 `CharacterData` 里的序列化写法）：

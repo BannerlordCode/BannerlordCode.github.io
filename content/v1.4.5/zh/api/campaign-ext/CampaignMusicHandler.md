@@ -42,6 +42,16 @@ description: "战役地图音乐处理器：每帧根据「附近文化 / 队伍
 | `_restTimer` | `private float _restTimer` | 唯一状态。符号即状态：`0` 是刚进地图（下一帧就播），`> 0` 是播放期，`-(30~120)` 是休息期倒数。**没有 setter，也没有对外读取入口**。 |
 | `MinRestDurationInSeconds` / `MaxRestDurationInSeconds` | `private const float 30f` / `120f` | **死常量**。声明后全类零引用，实际休息时长由 `TickCampaignMusic` 里的字面量 `30f + MBRandom.RandomFloat * 90f` 决定。改常量不会有任何效果。 |
 
+## 死成员与陷阱
+
+| 成员 | 声明位置 | override | 调用点 | 判定 | 说明 |
+|---|---|---|---|---|---|
+| `_restTimer` | `Modules.SandBox/SandBox.View/SandBox.View/CampaignMusicHandler.cs:18` | 0 | 4 次（4 行） | UNSUPPORTED | 静态工具报「0 调用点」，而 `grep -o -w` 实测**4 次活跃引用（4 行）**：`:56` 的 `if (_restTimer <= 0f)`、`:58` 的 `_restTimer += dt`、`:59` 的 `if (_restTimer > 0f)`、`:68` 的赋值。都是类内无点前缀的访问。提取口径盲区，不是死成员。 |
+
+口径：源码树 `bannerlord-1.4.5` HEAD `ccbc3d40f88905765a1484492d41b7000e7249fa`，8,583 个 `.cs`（含 `bin/`）。调用点数是**出现次数**（`grep -o -w`）。
+
+> 别与同文件里的两个 `private const` 混淆：`MinRestDurationInSeconds`（`:14`）与 `MaxRestDurationInSeconds`（`:16`）确实零引用，但那是**语言层面的必然**——外部程序集根本无法引用 `private const`——所以不构成 modder 陷阱。而 rest 计时器在调用点上是写死的字面量：`:68` 算的是 `0f - (30f + MBRandom.RandomFloat * 90f)`。
+
 ## 真实示例
 
 注册战役音乐处理器——这是唯一合法的创建方式（构造函数是 private）：

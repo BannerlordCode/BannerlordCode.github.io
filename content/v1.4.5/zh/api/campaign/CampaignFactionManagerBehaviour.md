@@ -29,6 +29,78 @@ description: "战役常驻行为：在派系结构变动（开新局/读档/新�
 - **用**：排查「为什么 AI 还把刚并入我王国的家族当敌人打」这类敌对缓存陈旧的 bug；在 `OnClanChangedKingdomEvent` 等结构性事件上挂你自己的派生刷新（本行为已先把全表刷好，你的回调拿到的是一致状态）；确认本行为已随战役正确注册。
 - **不要用**：想改变外交关系——永远走 `DeclareWarAction` / `MakePeaceAction` / `ChangeKingdomAction` / `FactionManager`，让缓存由官方路径自动重建，不要手动改 `IFaction` 的姿态或私有 `_factionsAtWarWith` 字段；不要读私有 `_factionsAtWarWith`，请读公开只读的 `IFaction.FactionsAtWarWith`；不要在 Mission 层调用（它依赖 `Kingdom.All` / `Clan.All` 这种战役全局集合）；不要在做高频事件里再叠一层同样的全量 `RefreshFactionsAtWarWith()`（见风险）。
 
+## 怎么用
+
+何时该读这一页、何时不该读，见上文「何时使用 / 何时不要使用」。本节只讲怎么从源码拿到它、以及它在 v1.4.5 里被谁真的调用。
+
+### 怎么拿到它
+
+声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CampaignFactionManagerBehaviour.cs:5`，`public class CampaignFactionManagerBehaviour : CampaignBehaviorBase`。注册点在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/SandBoxManager.cs:156` 的 `gameStarter.AddBehavior(new CampaignFactionManagerBehaviour())`，全树只有这一处 `new`。
+
+取它的方式是 `Campaign.Current.GetCampaignBehavior<CampaignFactionManagerBehaviour>()`，但要清楚：**上面那两个「示例」都不是在调它的方法**，而是在读它刷新过之后的结果。原因是这个类**没有任何 public 方法**。
+
+`RegisterEvents` 在 `:7`，它订阅五个事件，逐条抄录如下：`OnNewGameCreatedEvent`、`OnGameLoadedEvent`、`KingdomCreatedEvent`、`OnClanCreatedEvent`、`OnClanChangedKingdomEvent`。五个处理函数分别在 `:18`、`:23`、`:28`、`:33`、`:38`，**每一个的函数体都只有一行** `RefreshFactionsAtWarWith();`。
+
+那个唯一的工作函数是 `private static void RefreshFactionsAtWarWith()`，声明在 `:41`。它的函数体只有两个循环：先 `foreach (Kingdom item in Kingdom.All) item.UpdateFactionsAtWarWith();`，再 `foreach (Clan item2 in Clan.All) item2.UpdateFactionsAtWarWith();`。
+
+逐行核对的结果与本节开头的描述有一处需要修正：它**不是在 `:41` 里对每个派系再做一次 `IsAtWarWith` 判定**，而是把重建工作下放到每个 `Kingdom` / `Clan` 自己的 `UpdateFactionsAtWarWith()` 里。`private static` 也意味着你无法从外部直接触发它。
+
+`SyncData` 在 `:53`，是空实现——交战缓存不通过存档保存，而是每次读档由 `OnGameLoadedEvent` 那条路径重建。
+
+### 典型用法
+
+上面两个「示例」是「读刷新后的敌对列表」和「用 `*Action` 改变外交关系让缓存自动重建」。缺的那一格是**挂到同一组事件上做增量追踪，而不是等官方全量刷新**：
+
+```csharp
+public class MyFactionWatcherBehavior : CampaignBehaviorBase
+{
+    private readonly HashSet<IFaction> _seen = new HashSet<IFaction>();
+
+    public override void RegisterEvents()
+    {
+        // 与 CampaignFactionManagerBehaviour.cs:7 挂同一组事件，但官方是全量重建
+        CampaignEvents.OnClanCreatedEvent.AddNonSerializedListener(this, this.OnClanCreated);
+        CampaignEvents.KingdomCreatedEvent.AddNonSerializedListener(this, this.OnKingdomCreated);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+    }
+
+    private void OnClanCreated(Clan clan, bool isCompanion)
+    {
+        if (clan == null || clan.MapFaction == null)
+        {
+            return;
+        }
+        // 增量：只记自己关心的集合，不去调 UpdateFactionsAtWarWith
+        this._seen.Add(clan.MapFaction);
+    }
+
+    private void OnKingdomCreated(Kingdom kingdom)
+    {
+        if (kingdom != null)
+        {
+            this._seen.Add(kingdom);
+        }
+    }
+}
+```
+
+两个处理函数的签名不能共用，因为两个事件的委托签名不同（`OnClanCreatedEvent` 带 `bool isCompanion`，`KingdomCreatedEvent` 只带 `Kingdom`）。这一点是从 `:28` 与 `:33` 两个 private 方法的真实签名读出来的。
+
+这段之所以有意义，是因为官方的 `RefreshFactionsAtWarWith`（`:41`）每次都把 `Kingdom.All` 与 `Clan.All` 整表走一遍。在高频事件上再叠一层同样的全量刷新是纯浪费，而增量维护一份自己的集合没有这个代价。
+
+### 什么时候不要用它
+
+不要直接改 `IFaction` 的姿态来「顺便刷新缓存」。官方刷新只挂在 `:7` 那五个事件上，改姿态而不触发其中任何一个，缓存就会停在旧值，而症状是「明明宣战了但 `FactionsAtWarWith` 还是旧的」。
+
+不要在高频事件里再挂一次触发全量重建的逻辑，也不要 fork 后把它接到更频繁的事件上。
+
+### 最容易踩的坑
+
+刷新是全量重建：`RefreshFactionsAtWarWith()` 遍历 `Kingdom.All` 与 `Clan.All` 并对每个调用 `UpdateFactionsAtWarWith()`。派系很多（含强盗家族）时，每一次结构性事件都要付出整表重算成本。
+
 ## 依赖图
 
 ```mermaid

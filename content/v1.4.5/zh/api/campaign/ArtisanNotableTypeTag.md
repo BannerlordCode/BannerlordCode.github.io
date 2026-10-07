@@ -55,6 +55,32 @@ return false;
 | `StringId` | `public override string StringId => "ArtisanNotableTypeTag"` | 对话 XML `allowed_tags` 里写的字面量；也是 `ConversationManager._tags` 的字典键。 |
 | `IsApplicableTo` | `public override bool IsApplicableTo(CharacterObject character)` | 唯一逻辑：先 `character.IsHero` 短路，再比较 `character.Occupation` 与 `Occupation.Artisan`。**入参本身没有 null 保护**，`character` 为 null 直接 NRE。 |
 
+## 怎么用
+
+这是一枚对话门控，回答「正在对话的这个角色是不是工匠」，答案决定一段对话 XML 里哪些台词会出现。它没有构造参数、没有状态、不参与存档，唯一的公开成员就是从 `ConversationTag` 继承来的 `IsApplicableTo`。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/ArtisanNotableTypeTag.cs:3`，实现覆写在同文件 `:9`。基类 `ConversationTag` 的抽象方法在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/ConversationTag.cs:7`。框架的调用点在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Conversation/ConversationManager.cs:1087` 和 `:1098`，两处都是拿当前对话角色去过一遍标签。
+
+它和同目录的 [AseraiTag](../AseraiTag)（按文化）、[AnyNotableTypeTag](../AnyNotableTypeTag)（按名士身份）构成三件套：文化、名望、职业。同一个 XML 节点可以同时挂多个标签，语义是与。所以调试「为什么台词没出现」时要同时检查三个维度，而不是只看职业这一项。
+
+```csharp
+ArtisanNotableTypeTag tag = new ArtisanNotableTypeTag();
+CharacterObject artisan = Hero.MainHero;
+bool byTag = tag.IsApplicableTo(artisan);
+bool byValue = artisan.IsHero && artisan.Occupation == Occupation.Artisan;
+Debug.Print("标签结果=" + byTag + " 直接判定=" + byValue, 0);
+Settlement town = Settlement.All[0];
+foreach (Hero notable in town.Notables)
+{
+    Debug.Print(notable.Name + " 名士=" + notable.IsNotable + " 职业=" + notable.Occupation
+        + " 标签=" + tag.IsApplicableTo(notable), 0);
+}
+```
+
+`Occupation` 挂在 `CharacterObject` 上而不是 [Hero](../Hero) 上，这是 1.4.5 里少数几个「职业可以在非英雄角色上被赋值」的地方。所以这个标签先判 `IsHero` 是为了排除非人角色，而不是因为职业只能在英雄上取。
+
+**最常见的坑**：入参没有 null 保护。`character` 为 null 时第一行 `character.IsHero` 就抛。同层的 `AmoralTag` 同样直接调 `character.GetTraitLevel(...)` 也不保护，这一层的约定就是「调用方保证传进来的是有效角色」。
+
 ## 真实示例
 
 在自己 Behavior 里判断一个英雄是否命中这条台词门控：

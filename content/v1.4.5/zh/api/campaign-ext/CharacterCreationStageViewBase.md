@@ -13,7 +13,7 @@ description: "角色创建各阶段界面的抽象基类：持有七个回指 Ch
 
 ## 概述
 
-这是角色创建里**每个阶段界面的基类**。它自己不画任何东西——真正的 GauntletMovie、`Scene`、角色预览都在 `SandBox.GauntletUI.CharacterCreation` 下的七个具体视图里。它提供的是两样东西：一是**七个被构造函数注入的委托包装**（`ControlCharacterCreationStage` / `ControlCharacterCreationStageReturnInt` / `ControlCharacterCreationStageWithInt`），它们由 [CharacterCreationScreen](CharacterCreationScreen) 在 `Activator.CreateInstance` 时传入，最终落到 [CharacterCreationManager](../CharacterCreationManager) 的 `NextStage` / `PreviousStage` / `GetIndexOfCurrentStage` / `GetTotalStagesCount` / `GetFurthestIndex` / `GoToStage`；二是**撤退菜单与生命周期的一整套默认实现**，`HandleEscapeMenu` 与 `GetEscapeMenuItems` 就是官方建在基类上的复用点。
+这是角色创建里**每个阶段界面的基类**。它自己不画任何东西——真正的 GauntletMovie、`Scene`、角色预览都在 `SandBox.GauntletUI.CharacterCreation` 下的七个具体视图里。它提供的是两样东西：一是**七个被构造函数注入的委托包装**（`ControlCharacterCreationStage` / `ControlCharacterCreationStageReturnInt` / `ControlCharacterCreationStageWithInt`），它们由 [CharacterCreationScreen](../CharacterCreationScreen) 在 `Activator.CreateInstance` 时传入，最终落到 [CharacterCreationManager](../CharacterCreationManager) 的 `NextStage` / `PreviousStage` / `GetIndexOfCurrentStage` / `GetTotalStagesCount` / `GetFurthestIndex` / `GoToStage`；二是**撤退菜单与生命周期的一整套默认实现**，`HandleEscapeMenu` 与 `GetEscapeMenuItems` 就是官方建在基类上的复用点。
 
 派生类只需关心六个抽象成员：`GetLayers()`、`NextStage()`、`PreviousStage()`、`GetVirtualStageCount()`、`LoadEscapeMenuMovie()`、`ReleaseEscapeMenuMovie()`，外加 `GetDebugInfo()`。其中 `NextStage` / `PreviousStage` 的官方实现全都是一行 `_affirmativeAction.Invoke()` / `_negativeAction.Invoke()`——**按钮文案由基类字段之外的 `TextObject` 单独传给派生类**，按钮的跳转行为则完全由基类兜住。
 
@@ -43,6 +43,18 @@ description: "角色创建各阶段界面的抽象基类：持有七个回指 Ch
 | `HandleEscapeMenu` | `public void HandleEscapeMenu(CharacterCreationStageViewBase view, ScreenLayer screenLayer)` | 撤退菜单的**开关**。监听 `screenLayer.Input.IsHotKeyReleased("ToggleEscapeMenu")`，已开则 `RemoveEscapeMenu(view)`，未开则 `OpenEscapeMenu(view)`。**必须传 `this`**（官方七个视图都是 `HandleEscapeMenu(this, ...)`），因为它需要 `view.LoadEscapeMenuMovie()` / `ReleaseEscapeMenuMovie()` 这对抽象成员来配对 movie 资源。 |
 | `GetEscapeMenuItems` | `public List<EscapeMenuItemVM> GetEscapeMenuItems(CharacterCreationStageViewBase view)` | 造出 8 项撤退菜单。`Resume` 与 `Exit to Main Menu` 可点，其余六项（Campaign Options / Options / Save / Save As / Load / Save And Exit）**一律置灰**，灰字理由统一来自 `GameTexts.FindText("str_pause_menu_disabled_hint", "CharacterCreation")`。`Exit to Main Menu` 的执行体是 `RemoveEscapeMenu(view)` → `view.OnFinalize()` → `MBGameManager.EndGame()`。同样必须传 `this`。 |
 | `GetLayers` / `NextStage` / `PreviousStage` / `GetVirtualStageCount` / `LoadEscapeMenuMovie` / `ReleaseEscapeMenuMovie` / `GetDebugInfo` | `public abstract` | 七个必须实现的抽象成员。前三个对应「交出界面层」与「前进/后退」，`GetDebugInfo()` 只在调试路径上被读，`LoadEscapeMenuMovie` / `ReleaseEscapeMenuMovie` 是 `HandleEscapeMenu` 配对调用的对象。 |
+
+## 死成员与陷阱
+
+| 成员 | 声明位置 | override | 调用点 | 判定 | 说明 |
+|---|---|---|---|---|---|
+| `GetVirtualStageCount` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationStageViewBase.cs:76` | 7 | 0 | MEASURED | 基类声明为 `public abstract`，7 个类 override 它，而**全树 8,583 个 `.cs` 里没有任何调用点**。返回什么值，游戏自身都不会读。 |
+| `_cameraPosition` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationStageViewBase.cs:31` | 0 | 3 次（3 行） | UNSUPPORTED | 工具报「0 调用点」，`grep -o -w` 实测**3 次活跃引用（3 行）**——类内无点前缀的访问。提取口径盲区，不是死成员。 |
+| `_refreshAction` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationStageViewBase.cs:21` | 0 | 2 次（2 行） | UNSUPPORTED | 同上：工具报 0，实测**2 次活跃引用（2 行）**。提取口径盲区，不是死成员。 |
+
+口径：源码树 `bannerlord-1.4.5` HEAD `ccbc3d40f88905765a1484492d41b7000e7249fa`，8,583 个 `.cs`（含 `bin/`）。调用点数是**出现次数**（`grep -o -w`）。只有 `MEASURED` 行可以当结论读。
+
+> override 数的口径：`:76` 是 `public abstract`，**不是** `public override`。7 个 override 分别在 `CharacterCreationBannerEditorView.cs`、`CharacterCreationClanNamingStageView.cs`、`CharacterCreationCultureStageView.cs`、`CharacterCreationFaceGeneratorView.cs`、`CharacterCreationNarrativeStageView.cs`、`CharacterCreationOptionsStageView.cs`、`CharacterCreationReviewStageView.cs`。早前「8 override」的说法是把抽象声明也数进去了。
 
 ## 真实示例
 
@@ -185,8 +197,8 @@ public override void SetGenericScene(Scene scene)
 
 ## 依赖关系
 
-- 装配方：[CharacterCreationScreen](CharacterCreationScreen) 是唯一实例化本类派生类的地方，也是七个委托实参的来源
-- 装配标记：[CharacterCreationStageViewAttribute](CharacterCreationStageViewAttribute) 决定哪个阶段类型会映射到你的视图
+- 装配方：[CharacterCreationScreen](../CharacterCreationScreen) 是唯一实例化本类派生类的地方，也是七个委托实参的来源
+- 装配标记：[CharacterCreationStageViewAttribute](../CharacterCreationStageViewAttribute) 决定哪个阶段类型会映射到你的视图
 - 跳转落点：[CharacterCreationManager](../CharacterCreationManager) 的 `NextStage` / `PreviousStage` / `GoToStage` / `GetIndexOfCurrentStage` / `GetTotalStagesCount` / `GetFurthestIndex` 是七个委托的最终目标
 - 刷新落点：[CharacterCreationState](../CharacterCreationState) 的 `Refresh()` 是 `_refreshAction` 的唯一目标（注意它在状态对象上，不在 Manager 上）
 - 结束回调：[ICharacterCreationStageListener](../ICharacterCreationStageListener) 只有一个 `OnStageFinalize()`，本类以显式实现把它转到 `protected virtual OnFinalize()`

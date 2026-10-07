@@ -118,6 +118,62 @@ public class PlayerHunterAi : CampaignBehaviorBase
 }
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors/AiEngagePartyBehavior.cs`（全文 205 行）。
+**入口：** `CampaignGameStarter.RegisterCampaignBehaviors()` → `CampaignBehaviors.AddBehavior(new AiEngagePartyBehavior())`；生效后由 `CampaignEvents.AiHourlyTickEvent` 自动驱动。
+
+**`public class AiEngagePartyBehavior : CampaignBehaviorBase`（`AiEngagePartyBehavior.cs:10`），外部程序集可以 `new`。** 它注册两个事件（`AiEngagePartyBehavior.cs:14`）：`AiHourlyTickEvent` → `AiHourlyTick`（`AiEngagePartyBehavior.cs:16`）与 `OnSessionLaunchedEvent` → `OnSessionLaunched`（`AiEngagePartyBehavior.cs:17`）。
+
+第二个注册是为了在会话启动时取一个依赖：`OnSessionLaunched`（`AiEngagePartyBehavior.cs:20`）里 `Campaign.Current.GetCampaignBehavior<IDisbandPartyCampaignBehavior>()`（`AiEngagePartyBehavior.cs:22`）把结果缓存进 `_disbandPartyCampaignBehavior`（`AiEngagePartyBehavior.cs:12`）。**这个字段是私有且只在会话启动时填一次**——所以 `AiEngagePartyBehavior.cs:189` 判它为 null 就直接跳过解散等待的检查，**而不是每次现取。**
+
+`SyncData` 是空的（`AiEngagePartyBehavior.cs:25`），**它不持有任何存档状态**。
+
+### 典型用法
+
+它是本桶里公式最长的一个：`num16` 是十四个因子相乘再乘 2f（`:164`）。写自定义扩展时不要试图复刻整条公式——**先决定你要覆盖哪几个因子**。
+
+最容易被忽略的是三个「乘数开关」，它们都是 1.0 基准的微调：
+
+- **已在追同一个目标**：`DefaultBehavior == GoAroundParty && TargetParty == mobileParty2` 时 `× 1.1f`（`:147`）——**粘性**，避免反复改主意。
+- **主队是军团成员**：军团里的队伍 `× 0.9f`（`:148`），**军团整体降权**，让单独的领主方先动。
+- **目标是玩家**：`mobileParty2 == MobileParty.MainParty` 时 `× 1.2f`（`:149`）——**游戏刻意让 AI 更愿意打玩家。**
+
+再加两个情境加成：`Objective == Defensive` 时 `× 1.2f`（`:151`-`:153`），己方是玩家主导的王国且对该阵营的 `StanceLink.BehaviorPriority == 1` 时 `× 1.2f`（`:156`-`:163`）。
+
+要判断「这个 AI 为什么去打那个方」，把因子逐个算出来比读结果有用：
+
+```csharp
+public static class EngageFactorProbe
+{
+    public static void Report(MobileParty hunter, MobileParty prey)
+    {
+        float searchRadius = (hunter.IsCurrentlyAtSea
+            ? Campaign.Current.Models.EncounterModel.NeededMaximumNavalDistanceForEncounteringMobileParty
+            : Campaign.Current.Models.EncounterModel.NeededMaximumLandDistanceForEncounteringMobileParty) * 45f;
+        float proximity = 1f - hunter.Position.Distance(prey.Position) / searchRadius;
+        float relation = 1f;
+        if (prey.LeaderHero != null && hunter.LeaderHero != null)
+        {
+            int rel = prey.LeaderHero.GetRelation(hunter.LeaderHero);
+            relation = rel >= 0 ? 1f - MathF.Sqrt(rel) / 10f : 1f + MathF.Sqrt(-rel) / 20f;
+        }
+        Debug.Print("radius*45=" + searchRadius + " proximity=" + proximity, 0);
+        Debug.Print("prey is player=" + (prey == MobileParty.MainParty) + " relationFactor=" + relation, 0);
+    }
+}
+```
+
+**最终分数还要过一道 0.05f 的硬阀**（`:166`）**且只在 `prey.CurrentSettlement == null` 时才继续**——**敌方驻军的方不会被本行为锁定**，即使分数算得再高。
+
+还有一个容易忽略的减分：`:182` 判敌方最近的本方城镇距离小于 `平均最近两城距离 × 9.6` 时，按距离再乘一次 `0.25f + 0.75f * (d-5)/20`（`:185`），如果发起方正在等解散则直接 `× 0.25`（`:194`）。**「离自家城近就不追」是本行为最重要的一条抑制规则。**
+
+### 最容易踩的坑
+
+**在 tick 内直接改方状态**：本行为只产出候选，但自定义代码若在同类处理器里直接移动方，会与 [AiPartyThinkBehavior](../AiPartyThinkBehavior) 落地竞争。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

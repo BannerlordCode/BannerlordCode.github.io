@@ -128,6 +128,37 @@ public static class AreaRoundTrip
 - **托管侧零读取方。** 除 `AtmosphereInfo.cs:28` 的字段声明外，全树无处读这两个 float。**验证是否填对只能看引擎表现。**
 - **`SerializeTo` / `DeserializeFrom` 由 `AtmosphereInfo` 连带调用。** 不要试图单独调它们做存档。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public struct AreaInformation`（`TaleWorlds.Library/AreaInformation.cs:3`），两个 public 可写字段 + 一对序列化方法。它带 `[assembly: DefineAsEngineStruct(typeof(AreaInformation), "area_information", false, null, null)]`（`TaleWorlds.Engine/Properties/AssemblyInfo.cs:18`）——**托管侧填、引擎读**。唯一的落点是 `AtmosphereInfo.AreaInfo`（`AtmosphereInfo.cs:28`）。
+
+### 典型用法
+
+上面「真实示例」两段是「照官方形状填字段」和「复刻存档往返」。缺的一步是**填之前的钳制**，而这一步两个字段的待遇不一样：`Humidity` 在**生产者侧**被 `MBMath.ClampFloat(..., 0f, 100f)` 钳过，`Temperature` **完全没有钳制**：
+
+```csharp
+public static class AreaSanitizer
+{
+    public static AreaInformation Sanitize(float temperature, float humidity)
+    {
+        AreaInformation info = new AreaInformation();
+        // 湿度自带钳制，但那是官方生产者做的；自己填时要在同一处再钳一次
+        info.Humidity = MBMath.ClampFloat(humidity, 0f, 100f);
+        // 温度没有任何钳制：GetTemperature 返回的是网格均值 + 季节偏移，超界就一路超界
+        info.Temperature = temperature;
+        return info;
+    }
+}
+```
+
+与上面「真实示例」的差别：那里第二段已经写了一个 `IsPlausible` 判定，但那是**事后**检查——值已经进了引擎结构体。这里把同一件事**前移**成构造期的一步：结构体本身没有构造逻辑，所以钳制只能由填充方显式做，而且必须知道哪个字段官方管了、哪个没管。
+
+### 最容易踩的坑
+
+**它是 native 引擎结构的镜像。** `TaleWorlds.Engine/Properties/AssemblyInfo.cs:18` 是硬证据。托管侧填、引擎读。
+
 ## 跨版本提示
 
 `AreaInformation.cs` 在 1.4.5 是 20 行、2 字段 + 2 方法，是原始源码形态。1.3.x / 1.4.6 的对应文件是反编译产物。**跨版本真正要核对的是三处**：native 绑定名 `"area_information"`（`TaleWorlds.Engine/Properties/AssemblyInfo.cs:18`）；`DeserializeFrom` / `SerializeTo` 里**两个 float 的先后顺序**（变了旧存档就错位，且托管层不报错）；以及 `DefaultMapWeatherModel` 里 `GetTemperature` 与 `GetHumidity` 的季节因子正负号关系——**这两个符号是「夏热冬冷」与「夏干冬湿」得以同时成立的关键，改一个而不改另一个会让气候完全反相**。另外 1.4.5 之后的版本在大气体系里引入了并行结构体，若目标版本换了 `AtmosphereInfo`，本类型很可能也跟着换形状。

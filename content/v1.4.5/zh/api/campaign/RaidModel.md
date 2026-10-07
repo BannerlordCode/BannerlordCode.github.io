@@ -75,6 +75,39 @@ RaidModel 是袭击规则的纯计算扩展点：Campaign 在启动时通过 `Ga
   - 副作用：无，纯计算；`DefaultRaidModel` 内部以惰性缓存（`CommonLootItemSpawnChances`）持有该列表。
   - 调用时机：[RaidEventComponent](../RaidEventComponent) 的 `Update` 在劫掠阶段以 `MBRandom.ChooseWeighted(...)` 按权重随机抽取一件普通战利品（基础概率 `0.25f * 倍率`）。
 
+## 怎么用
+
+这是袭击（raid）的纯计算层：它只回答「打一下掉多少、每毁一个炉灶给多少金币、战利品怎么抽」，不持有任何会进存档的世界状态。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/RaidModel.cs:8`，全文 18 行、4 个成员。默认实现注册点是 `SandBoxManager.cs:222` 的 `gameStarter.AddModel(new DefaultRaidModel())`，运行时统一走 `Campaign.Current.Models.RaidModel`。
+
+四个成员分两类。三个是数值计算，全返回 `ExplainedNumber` 所以能拿到分解说明：`CalculateHitDamage` 在 `RaidModel.cs:14`（按地图事件方与定居点剩余耐久算伤害）、`GetRaidLootMultiplier` 在 `:16`（按承接方算战利品倍率）。另一个 `GetCommonLootItemScores` 在 `:12`，返回 `(ItemObject, float)` 的列表，是普通物品的战利品权重表；`GoldRewardForEachLostHearth` 在 `:10` 是每个被毁炉灶的金币奖励。
+
+三个外部调用点恰好一一对应前三项，这是定位真实用法最快的路径：`RaidEventComponent.cs:165` 调 `CalculateHitDamage` 把伤害累进 `_nextSettlementDamage`，`RaidEventComponent.cs:170` 调 `GetRaidLootMultiplier(AttackerSide.LeaderParty)`，而 `VillageHostileActionCampaignBehavior.cs:556` 用 `GiveGoldAction` 把 `num * GoldRewardForEachLostHearth` 发给玩家。
+
+把这四个一起问一遍，就得到了「这次袭击的全部收益与伤害」的完整答案：
+
+```csharp
+RaidModel raid = Campaign.Current.Models.RaidModel;
+Settlement target = Settlement.All[0];
+if (target.IsVillage)
+{
+    Village village = (Village)target;
+    int goldPerHearth = raid.GoldRewardForEachLostHearth;
+    Debug.Print("每毁一炉灶得 " + goldPerHearth + " 金，村庄现有炉灶 " + village.Hearth, 0);
+}
+foreach ((ItemObject item, float weight) in raid.GetCommonLootItemScores())
+{
+    Debug.Print("战利品候选 " + item.Name + " 权重=" + weight, 0);
+}
+ExplainedNumber multiplier = raid.GetRaidLootMultiplier(MobileParty.MainParty.Party);
+Debug.Print("本次承接方战利品倍率=" + multiplier.ResultNumber, 0);
+```
+
+真正的写入路径在 [RaidEventComponent](../RaidEventComponent) 里：它在地图事件模拟中读写 `SettlementHitPoints` 与 `Village.Hearth`，模型只返回该加多少。
+
+**最常见的坑**：跨战役重载缓存实例。`Campaign.Current.Models.RaidModel` 在每次新战役或读档时由 `GameModels` 重新解析，把实例存进静态字段会在重载后指向旧战役的已销毁对象。
+
 ## 示例
 
 读取某个村庄被袭击时的单步伤害（取自 RaidEventComponent.Update 的袭击模拟上下文）：

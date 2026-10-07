@@ -91,6 +91,34 @@ VolunteerModel 是一个纯规则扩展点：Campaign 在启动时通过 `GameMo
   - 副作用：无，纯计算；内部用 `ExplainedNumber` 累积因子但最终只返回 `ResultNumber`。
   - 调用时机：`RecruitmentCampaignBehavior` 每夜对每个要人的每个空槽位掷骰（`MBRandom.RandomFloat < 概率`）决定是否生成或升级志愿兵。
 
+## 怎么用
+
+这是志愿兵系统的全部判定规则：给定一名要人，决定基础兵种、每日升级概率、最高阶数，以及招募方最多能看到第几个招募位。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/VolunteerModel.cs:6`，全文 20 行、6 个成员、1 个属性。默认实现注册点是 `SandBoxManager.cs:242` 的 `gameStarter.AddModel(new DefaultVolunteerModel())`。
+
+唯一属性是 `MaxVolunteerTier`（`:8`）。方法里两个「最大能招到第几位」必须分清：`MaximumIndexHeroCanRecruitFromHero(Hero buyerHero, Hero sellerHero, int useValueAsRelation = -101)` 在 `:10` 是给玩家英雄用的，最后那个参数**默认值 `-101`** 正好是 [Hero](../Hero) 的「与自己关系」哨兵值，意味着不传时按哨兵关系算；`MaximumIndexGarrisonCanRecruitFromHero(Settlement settlement, Hero sellerHero)` 在 `:12` 是给驻军用的，没有这个参数。剩下三个是 `GetDailyVolunteerProductionProbability(Hero, int index, Settlement)` 在 `:14`、`GetBasicVolunteer(Hero)` 在 `:16`、`CanHaveRecruits(Hero)` 在 `:18`。
+
+六个外部调用点把这个分工写得很死：`Hero.cs:191` 的 `CanHaveRecruits` 属性就是 `VolunteerModel.CanHaveRecruits(this)` 的一行包装，`HeroHelper.cs:411` 用英雄版的上限，`GarrisonRecruitmentCampaignBehavior.cs:126` 用驻军版的上限，`RecruitmentCampaignBehavior.cs:228` 取基础兵种，界面在 `RecruitVolunteerTroopVM.cs:287`。
+
+```csharp
+VolunteerModel volunteers = Campaign.Current.Models.VolunteerModel;
+Hero notable = Settlement.All.First(s => s.IsTown).Notables[0];
+Debug.Print(notable.Name + " 能否有志愿兵=" + notable.CanHaveRecruits
+    + " 基础兵种=" + volunteers.GetBasicVolunteer(notable).Name, 0);
+Debug.Print("最高志愿兵阶数=" + volunteers.MaxVolunteerTier, 0);
+int forPlayer = volunteers.MaximumIndexHeroCanRecruitFromHero(Hero.MainHero, notable);
+int forGarrison = volunteers.MaximumIndexGarrisonCanRecruitFromHero(notable.HomeSettlement, notable);
+Debug.Print("玩家英雄可招到第 " + forPlayer + " 位，驻军可招到第 " + forGarrison + " 位", 0);
+for (int i = 0; i <= forPlayer; i++)
+{
+    Debug.Print("  第 " + i + " 位每日升级概率="
+        + volunteers.GetDailyVolunteerProductionProbability(notable, i, notable.HomeSettlement), 0);
+}
+```
+
+**最常见的坑**：跨战役重载缓存实例。`Campaign.Current.Models.VolunteerModel` 每次新战役或读档都由 `GameModels` 重新解析，缓存进静态字段会指向旧战役的已销毁对象。
+
 ## 示例
 
 查询玩家英雄能从某要人处招募的最高槽位：

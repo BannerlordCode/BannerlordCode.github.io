@@ -80,6 +80,32 @@ graph TD
 | `War` | 交战取值（`= 1`）。读取用 `StanceLink.IsAtWar` 或 `FactionManager.IsAtWarAgainstFaction(a, b)`；要进入此状态用 [DeclareWarAction](../../campaign-ext/DeclareWarAction) 或 `FactionManager.DeclareWar`。 |
 | `StanceLink.StanceType`（属性，internal） | 内嵌在 [StanceLink](../StanceLink) 上的当前姿态。setter 是唯一会触发 `ResetStats`、`UpdateFactionsAtWarWith` 与事件刷新的写入点；外部不应直接赋值。 |
 
+## 怎么用
+
+这是整个外交状态机的「开关」：两个值，和平或交战。它不单独存在，而是内嵌在 [StanceLink](../StanceLink) 的字段里，由 [FactionManager](../FactionManager) 集中持有。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/StanceType.cs:3`，全文 8 行，是本批最小的类型。它是 **internal 枚举**，没有成员、没有方法，两个值依次是 `Neutral`（值 0）与 `War`（值 1）。
+
+用法上只有两条路：要么读 `StanceLink` 上的两个布尔属性，要么经 `FactionManager` 改姿态。`StanceLink.cs:57` 的 `IsNeutral` 与 `:59` 的 `IsAtWar` 各是一次与枚举值的相等比较，`:71` 又按 `_stanceType == StanceType.War` 分支。写入侧全在 `FactionManager`：`FactionManager.cs:73` 直接置 `stanceLink.StanceType = StanceType.War`，`:83` 用 `DiplomacyModel.GetDefaultDiplomaticStance` 的返回值决定初始姿态，`:112` 在合并查询时判 `stanceType2 == StanceType.War || stanceType == StanceType.War`。
+
+```csharp
+// 读：对两个派系问一次姿态
+IFaction playerFaction = Hero.MainHero.MapFaction;
+IFaction targetFaction = Settlement.All.First(s => s.IsTown).Owner;
+Debug.Print("是否交战=" + FactionManager.IsAtWarAgainstFaction(playerFaction, targetFaction), 0);
+// 反射拿枚举本体（internal 枚举，外部程序集拿不到）
+Type t = typeof(Hero).Assembly.GetType("TaleWorlds.CampaignSystem.StanceType");
+Debug.Print("枚举=" + t.Name + " 值域=" + string.Join(",", t.GetEnumNames()), 0);
+// 写：只能经 FactionManager 的 SetStance，不要碰 StanceLink 的字段
+Debug.Print("改姿态请走 FactionManager.SetStance(attacker, defender, StanceType.War, ...)", 0);
+```
+
+所以从 mod 的角度看，这个类型的正确用途基本只有两个：反射读它做诊断，以及在调用外交 Action 时把 `StanceType.War` 作为参数传出去。
+
+它还有两个非枚举成员值得记：`StanceLink.cs:59` 的 `IsAtWar` 是 `== StanceType.War` 的一次相等比较，`:71` 又按同一个条件分支。**整个外交判定链最终都落到这两个字面量上**，所以枚举只有两个值不是简化，而是刻意的——加第三个值就意味着所有 `== War` 的判断都得重写。
+
+**最常见的坑**：绕过级联直接改 `StanceType`。直接赋值不会调 `SetStance`，也就不会触发双方的 `UpdateFactionsAtWarWith()`，结果 `IFaction` 持有的「当前交战派系列表」与真实姿态不一致，攻击判定、地图图标与 AI 决策都会基于过时状态。
+
 ## 示例
 
 ### 示例 1：读取玩家阵营与所有王国的外交姿态

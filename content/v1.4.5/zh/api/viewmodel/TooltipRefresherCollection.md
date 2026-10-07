@@ -8,7 +8,7 @@ description: "一个约 2200 行的静态提示框构建库，每种提示框对
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public static class TooltipRefresherCollection`  
 **Base:** 无  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TooltipRefresherCollection.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/TooltipRefresherCollection.cs`
 
 ## 概述
 

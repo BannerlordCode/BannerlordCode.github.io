@@ -73,6 +73,39 @@ private int  _numberOfMaxBanditCountPerClanHideout       => _numberOfMaxBanditPa
 | `IsBanditFaction(Clan clan)` | `private bool IsBanditFaction(Clan clan)` | 强盗派系判定（`:560-566`）：`!clan.HasNavalNavigationCapability && clan.IsBanditFaction && clan.Culture.CanHaveSettlement`。**三个条件缺一不可。** |
 | `IsLooterFaction(IFaction faction)` | `private static bool IsLooterFaction(IFaction faction)` | 掠夺者派系判定（`:474-480`）：`!faction.Culture.CanHaveSettlement && !faction.HasNavalNavigationCapability && faction.StringId != "deserters"`。**`deserters` 被字符串比较显式排除**——它有专属行为类 `DesertersCampaignBehavior`。 |
 
+## 怎么用
+
+这是地图上山贼的生成器，负责藏身处的建立、每日补充山贼部队、以及在玩家进入定居点时触发藏身处首领战。它是本批里最大的一个行为，584 行里有一半是私有生成逻辑。
+
+**怎么拿到它**：注册点是 `SandBoxManager.cs:35` 的 `gameStarter.AddBehavior(new BanditSpawnCampaignBehavior())`，声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/BanditSpawnCampaignBehavior.cs`。它把 [BanditDensityModel](../BanditDensityModel) 的每个常量包成自己的私有属性，`:31`、`:33`、`:35` 是最常被引用的三个。
+
+它的公开面很小但够用：`InitializeInitialHideouts` 在 `:130`（新战役时铺初始藏身处）、`DailyTick` 在 `:208`（每日结算）、`OnSettlementEntered` 在 `:149`（玩家进定居点时检查首领战）、`AddBanditToHideout` 在 `:312`（手工往藏身处塞一支山贼部队）。私有侧的分层是 `HourlyTickClan`（`:240`）→ `SpawnBanditsAroundHideout`（`:255`）→ `SpawnLooters`（`:265`）与 `AddNewHideouts`（`:275`）。
+
+```csharp
+BanditSpawnCampaignBehavior spawner = Campaign.Current.GetCampaignBehavior<BanditSpawnCampaignBehavior>();
+Debug.Print("生成半径（天）= " + spawner.GetType().GetProperty("BanditSpawnRadiusAsDays",
+    System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic), 0);
+// 手工往某个藏身处补一支山贼部队，是这个类少数几个公开写入口之一
+foreach (Settlement hideoutSettlement in Settlement.All)
+{
+    Hideout hideout = hideoutSettlement.SettlementComponent as Hideout;
+    if (hideout != null && hideout.IsActive)
+    {
+        MobileParty added = spawner.AddBanditToHideout(hideout);
+        Debug.Print(hideoutSettlement.Name + " 新增山贼部队=" + (added != null), 0);
+    }
+}
+Debug.Print("初始藏身处铺设入口 InitializeInitialHideouts 只应在战役创建期调用", 0);
+```
+
+它的两个状态字典 `_hideouts`（`:23`，按文化的藏身处列表）和 `_banditCountsPerHideout`（`:25`，每个藏身处当前的部队计数）是行为里仅有的字段，但它的 `SyncData`（`:81`）是空的——也就是说这两个缓存都不进存档，读档后由 `OnGameLoaded`（`:75`）重新跑 `CacheHideouts`（`:104`）与 `CacheBanditCounts`（`:116`）建立。
+
+`RegisterEvents`（`:43`）订阅八条事件，覆盖了它全部的触发面：部队创建与销毁（`MobilePartyCreated` / `MobilePartyDestroyed`）、玩家进定居点（`SettlementEntered`）、日结与氏族小时结（`DailyTickEvent` / `HourlyTickClanEvent`）、读档（`OnGameLoadedEvent`）、家园藏身处变更（`OnHomeHideoutChangedEvent`）、以及新战役的延迟初始化（`OnNewGameCreatedPartialFollowUpEvent`）。初始藏身处的铺设则在 `InitializeInitialHideouts`（`:130`）里，遍历 `Clan.BanditFactions` 并调 `SpawnHideoutsAndBanditsPartiallyOnNewGame`（`:141`）按模型给的初始数量循环 `FillANewHideoutWithBandits`（`:300`）。
+
+藏身处的「拥挤度」是一个平方反比：`GetSpawnChanceInSettlement`（`:352`）在计数非零时返回 `1 / count²`，计数为零才返回 1。所以驻军翻倍，生成概率掉到四分之一。
+
+**最常见的坑**：`_banditCountsPerHideout` 是缓存，不是权威计数。藏身处里挂的部队在 `MobilePartyDestroyed`（`:55`）里被动维护，而 `MobilePartyCreated`（`:65`）负责补回，所以你在外面直接销毁一支藏身处山贼部队，计数会更新；但如果通过别的方式改动驻军，缓存与实际就会漂移。
+
 ## 真实示例
 
 用唯一公开的造物入口在指定藏住处放一支强盗队（形状照 `FillANewHideoutWithBandits` 的内部调用）：

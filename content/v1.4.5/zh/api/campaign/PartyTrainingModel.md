@@ -86,6 +86,70 @@ var model = Campaign.Current.Models.PartyTrainingModel;
 int reward = model.GetXpReward(CharacterObject.PlayerCharacter);
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyTrainingModel.cs`（全文 16 行）。
+**入口：** `Campaign.Current.Models.PartyTrainingModel`（由 `GameModels` 在战役建立 / 读档时解析）。
+
+`public abstract class PartyTrainingModel : MBGameModel<PartyTrainingModel>`（`PartyTrainingModel.cs:7`），**4 个成员全是 abstract**。
+
+**4 个成员里只有 1 个 `int → int`，另外 3 个都吃 roster 或 troop 对象：**
+
+| 成员 | 入参 | 返回 | 行号 |
+| --- | --- | --- | --- |
+| `GenerateSharedXp` | `CharacterObject, int, MobileParty` | `int` | `:9` |
+| `CalculateXpGainFromBattles` | `FlattenedTroopRosterElement, PartyBase` | `ExplainedNumber` | `:11` |
+| `GetXpReward` | `CharacterObject` | `int` | `:13` |
+| `GetEffectiveDailyExperience` | `MobileParty, TroopRosterElement` | `ExplainedNumber` | `:15` |
+
+**注意 `CalculateXpGainFromBattles` 吃的是 `FlattenedTroopRosterElement`，不是 `TroopRosterElement`。** 这两个类型名字极像但不是一回事——前者是「已摊平的元素」，后者是「花名册里的一格」。**把它们混用是本类型最可能的编译错误。**
+
+### 典型用法
+
+**`GenerateSharedXp` 的第三个参数是 `MobileParty`，且函数名里的 "Shared" 才是重点。** 它接收一个 `xp` 返回「实际共享出去多少」——**返回值可能小于入参**，差额被分给别人。所以拿它写日志时要同时记下入参与出参，只记返回值会看到「经验凭空蒸发」。
+
+**官方唯一的调用链在 `MapEventParty.cs`**，顺序有四步，值得逐字读一遍：
+
+1. 遍历 `_roster` 的每个 `FlattenedTroopRosterElement`（`MapEventParty.cs:413`），对未阵亡且 `XpGained > 0` 的调 `CalculateXpGainFromBattles` 并 `MathF.Round`（`:418`）。
+2. **结果先累加进一个 `Dictionary<CharacterObject, int>`**（`:419`-`:426`）——**同兵种的多格被合并成一笔**，不是逐格发放。
+3. 调 `MobilePartyHelper.CanTroopGainXp` 拿到 `gainableMaxXp`（`:434`），再与累计值取 `Math.Min`（`:435`），差额记在 `num3`（`:436`）。
+4. 才调 `GenerateSharedXp(key, gainableMaxXp, Party.MobileParty)`（`:439`），并把返回差额从 `gainableMaxXp` 里减掉（`:449`）——**共享函数返回的少量会反过来挤占别的队伍的经验**。
+
+`GetXpReward(CharacterObject)`（`:13`）是「这一级奖励多少」，它与 `GenerateSharedXp` 不是一回事：前者是**升级奖励**的固定值，后者是**战斗经验共享**的折算。
+
+两个 `ExplainedNumber` 成员的明细同样在 `Lines`（`ExplainedNumber.cs:29`），每行是 `ExplanationLine`（`:20`）的 readonly struct，要读 `Number` / `Name` / `OperationType` 三个字段。
+
+想知道某个兵种今天的经验是被哪些因素拉高或压低的，就把明细逐行打出来再自己求和：
+
+```csharp
+public static void DumpDailyExperience(MobileParty party)
+{
+    PartyTrainingModel model = Campaign.Current.Models.PartyTrainingModel;
+    TroopRosterElement element = party.MemberRoster.GetTroopRoster()[0];
+    ExplainedNumber daily = model.GetEffectiveDailyExperience(party, element);
+    float manual = 0f;
+    for (int i = 0; i < daily.Lines.Count; i++)
+    {
+        ExplanationLine line = daily.Lines[i];
+        manual += line.Number;
+        Debug.Print("  " + line.OperationType + " " + line.Name + " = " + line.Number, 0);
+    }
+    Debug.Print("daily=" + daily.ResultNumber + " sumOfLines=" + manual, 0);
+    int shared = model.GenerateSharedXp(element.Character, (int)daily.ResultNumber, party);
+    Debug.Print("sharedXp=" + shared + " (less than asked = split with others)", 0);
+}
+```
+
+**上例最后那个 `manual` 求和是一个自检动作。** `ResultNumber` 是钳位后的（`ExplainedNumber.cs:115`），`OperationType` 里还有 `Multiply`（`:15`）——**所以逐行加总不保证等于结果，乘法行的语义不是「加这么多」**。对不上不一定是 bug，得先看 `OperationType`。
+
+默认实现是 `DefaultPartyTrainingModel.cs:18`（`public override ExplainedNumber GetEffectiveDailyExperience(MobileParty, TroopRosterElement)`），而每日写入走 `MobilePartyTrainingBehavior.cs:46`——**那行就是 `Campaign.Current.Models.PartyTrainingModel.GetEffectiveDailyExperience(mobileParty, item)`**，紧接着由 Behavior 把结果写回花名册。**所以「读」与「写」分属两个类，你的 Model 只负责算。**
+
+### 最容易踩的坑
+
+**跨战役持有引用**：把 `Campaign.Current.Models.PartyTrainingModel` 存进 `static` 字段或在读档后继续使用旧引用，重载后模型实例会被 `GameModels` 整体替换，旧引用指向失效对象，读到的加成规则与当前战役不一致。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

@@ -53,6 +53,31 @@ return character.Culture.StringId == "aserai";
 | `StringId` | `public override string StringId => "AseraiTag"` | 对话 XML 的 `allowed_tags` 里写的就是它。基类 [ConversationTag](../ConversationManager) 用它做字典键，**引擎不读 `Id`**。 |
 | `IsApplicableTo` | `public override bool IsApplicableTo(CharacterObject character)` | 唯一的逻辑。读 `character.Culture.StringId` 并和 `"aserai"` 做**大小写敏感的精确相等**比较。**不做 null 检查**——`character.Culture` 为 null 时直接 NRE。 |
 
+## 怎么用
+
+这是一枚对话门控，回答「正在对话的这个角色是不是阿塞莱人」，答案直接决定一段对话 XML 里哪些台词会出现。它没有构造参数、没有状态、不参与存档，唯一的公开成员就是从 `ConversationTag` 继承来的 `IsApplicableTo`。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/AseraiTag.cs:3`，它同时给出了一个常量 `Id`（同文件 `:5`，值就是 `"AseraiTag"`）和一个覆写的 `StringId` 属性（`:7`）。基类 `ConversationTag` 的抽象方法在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/ConversationTag.cs:7`。框架的调用点在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Conversation/ConversationManager.cs:1087` 与 `:1098`，两处都是拿当前对话角色去过一遍标签。
+
+同目录下的兄弟标签走的是别的维度：[AnyNotableTypeTag](../AnyNotableTypeTag) 判「是否城镇名士」、[ArtisanNotableTypeTag](../ArtisanNotableTypeTag) 判「职业是不是工匠」，而它只认文化。同一段 XML 可以同时挂多个标签，语义是与，所以「台词为什么没出来」永远要三个维度一起查。
+
+```csharp
+AseraiTag tag = new AseraiTag();
+Debug.Print("StringId=" + tag.StringId + " 常量 Id=" + AseraiTag.Id, 0);
+Settlement aseraiTown = Settlement.All[0];
+foreach (Hero npc in aseraiTown.Notables)
+{
+    string cultureId = npc.Culture?.StringId;                     // 判据就是这一串
+    bool hit = tag.IsApplicableTo(npc);
+    Debug.Print(npc.Name + " 文化=" + cultureId + " 标签=" + hit, 0);
+}
+Debug.Print("大小写敏感：aserai 命中，Aserai 与 ASERAI 都不命中且不报错", 0);
+```
+
+实现只有一句判断：`character.Culture.StringId == "aserai"`。它判的是 `Culture.StringId` 而不是 `Culture` 对象本身，所以你要做等价判定时也该比字符串，别比引用。
+
+**最常见的坑**：`character.Culture` 没有 null 保护，非地图角色（战场士兵、部分 NPC）可能没有文化，这一行会抛 NRE。引擎自己调用时通常已保证对话对象是有人物数据的角色，但你在别处手动调用就得自己先判。
+
 ## 真实示例
 
 在自定义 Behavior 里对某个角色做同款门控（参数是 `CharacterObject`，不是 `Hero`）：

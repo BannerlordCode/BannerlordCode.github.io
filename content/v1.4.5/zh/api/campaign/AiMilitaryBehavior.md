@@ -98,6 +98,29 @@ description: "领主/军团方的军事目标评估行为：在每次 AI 小时 
   - 用途：把“食物可支撑天数、军团规模比、定居点距离、邻近敌/友要塞、围城/劫掠耗时”等折算为 0~1 的乘子，乘进候选得分。
   - 副作用：无（纯计算）。调用时机：被 `FindBestTargetAndItsValueForFaction` 链调用。
 
+## 怎么用
+
+这是地图 AI 的军事意图层，它不移动任何部队，只负责给候选行动打分。你要用它，路径不是调用某个方法，而是理解它把得分加进了 `PartyThinkParams`，由 [AiPartyThinkBehavior](../AiPartyThinkBehavior) 汇总后统一落地成移动指令。
+
+**怎么拿到它**：注册点是 `SandBoxManager.cs:118` 的 `gameStarter.AddBehavior(new AiMilitaryBehavior())`，声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors/AiMilitaryBehavior.cs:13`。行为本身在 `AiMilitaryBehavior.cs:487` 的 `AiHourlyTick` 里逐方驱动，由 `AiMilitaryBehavior.cs:537` 和 `:540` 按 army 与单方两种口径调 `FindBestTargetAndItsValueForFaction`（定义在 `AiMilitaryBehavior.cs:117`）。
+
+它内部把候选分成围城、劫掠、守备三类，每类一个私有打分器：`AiMilitaryBehavior.cs:269` 算围城距离分、`:318` 算劫掠距离分、`:347` 算守备距离分，三者都额外 `out` 一个 `NavigationType` 和「是否走海路」的标志。想知道某个方为什么选了某座城，正确的读法是读这些打分器的输出，而不是去看它的最终决定：
+
+```csharp
+MobileParty aiParty = Hero.MainHero.Clan.BannerLords[0].Party;   // 任一 AI 领主部队
+PartyThinkParams probe = new PartyThinkParams(aiParty);
+AiMilitaryBehavior milBehavior = Campaign.Current.GetCampaignBehavior<AiMilitaryBehavior>();
+milBehavior.FindBestTargetAndItsValueForFaction(Army.ArmyTypes.Defensive, probe, aiParty.GetPartyStrength());
+foreach (AiBehavior behavior in probe.AIBehaviors)
+{
+    Debug.Print(behavior.ActionType + " 得分=" + behavior.Score + " 目标=" + behavior.TargetSettlement?.Name, 0);
+}
+```
+
+订阅它对地图事件的反应时，注意处理器里有直接改状态的副作用：`OnMapEventStarted`（`AiMilitaryBehavior.cs:34`）、`OnSiegeEventStarted`（`:68`）、`OnMapEventEnded`（`:79`）会直接对 `MobileParty.AllLordParties` 调 `SetMoveModeHold`，这不是打分而是立刻改变移动。它自己的 `SyncData`（`AiMilitaryBehavior.cs:113`）不写任何字段。
+
+**最常见的坑**：这几个地图事件处理器里对 `MobileParty.MainParty` 有特判，典型如 `OnMapEventEnded` 中的 `mobileParty2 != MobileParty.MainParty`。你照抄这些分支到自己的行为里时会发现玩家方路径行为完全不同——玩家方可能根本不在 `AllLordParties` 里，或者处于不同状态，自定义逻辑容易在玩家方缺席时静默走空。
+
 ## 示例
 
 运行中取本行为实例，并判断一个领主方当前是否正被它的军事逻辑驱动（只读，安全）：

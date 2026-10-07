@@ -8,7 +8,7 @@ description: "把一段任意 C# 委托包装成战场命令条上一个条目�
 **Module:** TaleWorlds.MountAndBlade.ViewModelCollection  
 **Type:** `public sealed class ActionVisualOrder : VisualOrder`  
 **Base:** `VisualOrder`  
-**File:** `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/ActionVisualOrder.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/ActionVisualOrder.cs`
 
 ## 概述
 

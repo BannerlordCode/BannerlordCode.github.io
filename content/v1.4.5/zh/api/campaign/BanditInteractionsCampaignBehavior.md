@@ -96,6 +96,30 @@ start
 | `BanditInteractionsCampaignBehaviorTypeDefiner` | `public class BanditInteractionsCampaignBehaviorTypeDefiner : SaveableTypeDefiner` | 存档类型定义器（`:23-39`），构造器写死 `base(70000)`，`DefineEnumTypes()` 里 `AddEnumDefinition(typeof(PlayerInteraction), 1)`。**`PlayerInteraction` 是私有嵌套枚举，但它能进存档全靠这个 definer。** |
 | `_goldAmount` | `private static int _goldAmount;` | **一个只被写、从不被读的静态字段**（`:51`）。死代码，但它是 `static` 而非实例字段——**多存档并行时它会跨战役残留。** |
 
+## 怎么用
+
+这是山贼的对话接入点：它自己不含任何玩法逻辑，全部代码就是往对话系统里注入一批与山贼相关的对话 XML，并给这些对话补上一份枚举类型的存档定义。
+
+**怎么拿到它**：注册点是 `SandBoxManager.cs:37` 的 `gameStarter.AddBehavior(new BanditInteractionsCampaignBehavior())`，声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/BanditInteractionsCampaignBehavior.cs`。它有三个关键成员：`AddDialogs` 在同文件 `:103`，是真正的内容注入点；`OnSessionLaunched` 在 `:58`，负责在会话启动时拿到 `CampaignGameStarter`；`RegisterEvents` 在 `:63`，`SyncData` 在 `:69`。
+
+它和同层的 `BanditSpawnCampaignBehavior` 分工非常干净：后者负责地图上生成藏身处和山贼部队，这个类只负责让山贼能说话。所以你要改「山贼被玩家搭话时说什么」，改这里；要改「地图上哪里有山贼」，改 [BanditDensityModel](../BanditDensityModel)。
+
+```csharp
+BanditInteractionsCampaignBehavior behavior =
+    Campaign.Current.GetCampaignBehavior<BanditInteractionsCampaignBehavior>();
+Debug.Print("行为已挂载，对话内容由 AddDialogs 在会话启动时注入", 0);
+Debug.Print("对话线 id：bandit_start_defender / bandit_start_attacker", 0);
+Debug.Print("后果回调 conversation_bandit_set_hostile_on_consequence 会把双方转为敌对", 0);
+```
+
+它还有一个嵌套的 `SaveableTypeDefiner`，构造函数在同文件 `:25`，它把对话条目引用到的 `PlayerInteraction` 私有嵌套枚举注册进存档（`DefineEnumTypes` 在 `:30`，`DefineContainerDefinitions` 在 `:35`）。行为自己的 `SyncData`（`:69`）只写一个字段 `_interactedBandits`。
+
+`AddDialogs` 里注册的是两条完整对话线。第一条从 `bandit_start_defender`（`:105`）分出「打一场」「求饶」「谈交易」三个玩家选项（`:106`–`:108`），谈交易那条再分出成交与谈崩两个结局（`:109`–`:111`），谈崩的后果 `conversation_bandit_set_hostile_on_consequence` 直接把双方转为敌对。第二条是招降线，从 `bandit_start_attacker`（`:112`）进入，玩家可以拒绝、离开、接受投降或收编。
+
+值得注意的是副作用不是当场执行的：它们先取 `MobileParty.ConversationParty` 存下部队引用，再挂到 `Campaign.Current.ConversationManager.ConversationEndOneShot` 上，等对话窗口真正关闭后才跑。所以「山贼同意入伙」这类效果在对话结束前是看不到的。
+
+**最常见的坑**：`AddDialogs` 只在 `OnSessionLaunched` 阶段跑一次，也就是模块加载完成、战役尚未开始的窗口期。在战役开始后想补对话再调它是不生效的，因为对话集合在那一阶段已经被消费掉了。
+
 ## 真实示例
 
 读一支强盗队伍与玩家的交互状态（复刻 `GetPlayerInteraction` 的语义，**没记录 = None**）：

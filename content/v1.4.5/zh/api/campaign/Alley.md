@@ -106,6 +106,50 @@ Debug.Print("owner now " + (alley.Owner == null ? "null" : alley.Owner.Name) + "
 - **暗巷无法脱离城镇创建。** 构造器要 `Settlement`，而唯一调用点在 `Settlement` 的 XML 装配里。
 - **`Name` 带 `[CachedData]`。** 它是本地化 `TextObject`，改语言/读档后由缓存机制处理，手动持有引用跨存档不安全。
 
+## 怎么用
+
+### 怎么拿到它
+
+**暗巷不是 mod 造的，是 XML 造出来的。** 全树唯一的 `new Alley(` 在 `Settlement.cs:1026`：初始化时它遍历城镇 XML 的 `<Area>` 子节点（`:1018`），读 `childNode4.Attributes["name"].Value` 当显示名（`:1022`），并把 tag 硬拼成 `"alley_" + (num + 1)`（`:1023`）——**tag 完全由出现顺序决定，XML 里改顺序就改 tag。**
+
+然后它按加载类型分岔（`:1024`）：**不是读档**就 `Alleys.Add(new Alley(this, tag, new TextObject(value)))`（`:1026`）；**是读档**就调 `Alleys[num].Initialize(this, tag, new TextObject(value))`（`:1030`）。这两条路的差别就是 `Initialize` 存在的全部理由——它（`Alley.cs:79`）只赋 `_name` / `_settlement` / `_tag`（`:81`-`:83`），**不碰 `_owner`，也不碰 `State`**。
+
+你要拿到的入口是 `Settlement.Alleys` 集合，`Alley` 本身不要 new。派生类也只有在你能控制 XML 的情况下才有意义。
+
+### 典型用法
+
+易主只有一个入口 `SetOwner(Hero newOwner)`（`:54`），它做了四件事，**顺序不能乱**：先把旧主人从 `OwnedAlleys` 摘掉（`:58`），把 `_owner` 换成新的（`:61`），新主人非空时加进它的 `OwnedAlleys`（`:64`）并按「是不是 `Hero.MainHero`」定 `State`（`:65`），否则 `State = AreaState.Empty`（`:69`），最后派发 `OnAlleyOwnerChanged(this, newOwner, owner)`（`:71`）。
+
+**`State` 是 `SetOwner` 的副产品，不是独立可写的**（`{ get; private set; }`，`:36`）。所以任何想知道「这条巷子归谁」的地方，正确做法是读 `State`，而不是自己拿 `Owner == Hero.MainHero` 去推断——后者在 `SetOwner` 中途会看到不一致的中间态。
+
+`OnAlleyOwnerChanged` 会走到 `CampaignEventDispatcher.cs:432` 转发给所有接收者（`:437`），其中 `DefaultLogsCampaignBehavior.cs:22` 用 `AddNonSerializedListener` 注册过（**非序列化 = 读档后不重放**），在 `:164` 写日志。监听它就把 UI 与日志一起接上：
+
+```csharp
+public class AlleyOwnerWatcher
+{
+    public void Watch()
+    {
+        CampaignEvents.AlleyOwnerChanged.AddNonSerializedListener(this, OnChanged);
+        Debug.Print("alley owner watcher attached", 0);
+    }
+
+    private void OnChanged(Alley alley, Hero newOwner, Hero oldOwner)
+    {
+        string from = oldOwner != null ? oldOwner.Name.ToString() : "none";
+        string to = newOwner != null ? newOwner.Name.ToString() : "none";
+        Debug.Print("alley " + alley.Tag + ": " + from + " -> " + to + " state=" + alley.State, 0);
+    }
+}
+```
+
+`AddNonSerializedListener(object owner, Action<T>)`（`MbEvent.cs:100`）把回调压进 `_nonSerializedListenerList` 链表头（`:102`/`:106`），**没有对应的 `RemoveNonSerializedListener`**，所以注册一次就跟着这个对象活到战役结束。
+
+读档路径还有一个独立入口 `AfterLoad()`（`:86`，`internal`）：`_owner` 非空时重建 `State` 并把巷子塞回 `OwnedAlleys`（`:90`-`:91`），还会在「存档早于 v1.2.0 且主人已死」时 `SetOwner(null)`（`:92`-`:96`）。**这条兼容分支只在旧存档上触发，新开局永远走不到。**
+
+### 最容易踩的坑
+
+**`Initialize` 是 `public` 的，但只有读档路径该用它。** 重新初始化一条已有 owner 的暗巷会换掉它的城镇/名字而保留 owner。它在 `Settlement.cs:1028` 的读档分岔里有正当用途，**在别处没有**。
+
 ## 跨版本提示
 
 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Alley.cs` 是 103 行、9 个公开成员（4 个基类 override + `State` + `SetOwner` + 构造器 + `Initialize`；`AfterLoad` 是 `internal`），`SaveableField` id 为 10。1.4.6 与 1.3.15 的同名文件公开表面与之逐成员一致。

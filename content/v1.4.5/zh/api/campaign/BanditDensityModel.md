@@ -67,6 +67,34 @@ description: "强盗密度的可替换平衡模型：13 个抽象成员覆盖藏
 | `GetMaximumTroopCountForHideoutMission` | `public abstract int GetMaximumTroopCountForHideoutMission(MobileParty party, bool isAssault)` | 同形状的最大守军数。默认实现基准 `isAssault ? 15 : 40`，若 `party.HasPerk(DefaultPerks.Tactics.SmallUnitTactics)` 再加上该 perk 的 `PrimaryBonus`——**所以它依赖队伍身上的 perk，不是纯常数**。 |
 | `IsPositionInsideNavalSafeZone` | `public abstract bool IsPositionInsideNavalSafeZone(CampaignVec2 position)` | AI 选点时判断位置是否落在海上安全区。**默认实现恒返回 `false`**，官方不设这个区域。只被 `MobilePartyAi.cs:1327/1364` 调用，后者还包在一个最多 100 次的重试循环里。 |
 
+## 怎么用
+
+这是山贼密度规则的全部数值来源，13 个成员全是 `public abstract`，零实现零字段。它的典型消费者有两个：地图上的生成行为按它决定藏身处与山贼部队的分布，藏身处遭遇战按它决定第一阶段与首领战的兵力。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BanditDensityModel.cs:6`，共 33 行。9 个属性在 `:8`–`:24`，4 个方法在 `:26`–`:32`。默认实现注册点是 `SandBoxManager.cs:244` 的 `gameStarter.AddModel(new DefaultBanditDensityModel())`，运行时统一走 `Campaign.Current.Models.BanditDensityModel`。
+
+地图生成侧的读点非常密集，而且被包装成了行为内的私有属性：`BanditSpawnCampaignBehavior.cs:31`（藏身处 infestation 所需的最少山贼部队数）、`:33`（每个藏身处周围的山贼部队上限）、`:35`（每个山贼派系允许的藏身处上限）。遭遇战侧的读点在 `MapEventHelper.cs:150`，它用 `SpawnPercentageForFirstFightInHideoutMission` 按比例从总兵力里扣出第一阶段的伏兵。
+
+想调平衡就直接读这四个方法的返回值，它们内部已经把「藏身处等级 + 是否强攻」折算成了具体人数：
+
+```csharp
+BanditDensityModel density = Campaign.Current.Models.BanditDensityModel;
+MobileParty assaultParty = MobileParty.MainParty;
+bool isAssault = true;
+int minTroops = density.GetMinimumTroopCountForHideoutMission(assaultParty, isAssault);
+int maxTroops = density.GetMaximumTroopCountForHideoutMission(assaultParty, isAssault);
+Debug.Print("藏身处任务兵力区间=" + minTroops + ".." + maxTroops, 0);
+Debug.Print("首个藏身处的山贼上限=" + density.NumberOfMaximumBanditPartiesInEachHideout, 0);
+Debug.Print("遭遇战第一阶段伏兵比例=" + density.SpawnPercentageForFirstFightInHideoutMission, 0);
+Debug.Print("某氏族最多支持的劫掠者=" + density.GetMaxSupportedNumberOfLootersForClan(Clan.PlayerClan), 0);
+CampaignVec2 probe = assaultParty.Position2D;
+Debug.Print("该点是否在海战安全区=" + density.IsPositionInsideNavalSafeZone(probe), 0);
+```
+
+这些成员全是纯读取，不改世界状态。想在 mod 里加一条自己的密度规则，正确做法是派生 `DefaultBanditDensityModel` 覆写需要的那几个，再通过模块的 `OnGameInitialization` 调 `gameStarter.AddModel` 注册替换。
+
+**最常见的坑**：`SpawnPercentageForFirstFightInHideoutMission` 是 `float` 比例而不是人数，混进 troops 计算时会得到一个被截断的整数。`MapEventHelper.cs:150` 把它和 `MathF.Min` / `MathF.Floor` 一起用，所以覆写时返回一个大于 1 的值不会报错，但会让第一阶段的伏兵数直接顶到上限。
+
 ## 真实示例
 
 读全量密度配置做一次诊断（走 `Campaign.Current.Models` 的真实路径）：

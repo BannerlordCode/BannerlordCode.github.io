@@ -8,7 +8,7 @@ description: "「某王国邀请你结盟」这条地图通知的条目视图模
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public class AllianceOfferNotificationItemVM : MapNotificationItemBaseVM`  
 **Base:** `MapNotificationItemBaseVM`  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/AllianceOfferNotificationItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/AllianceOfferNotificationItemVM.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "「你的暗巷正在被攻击」这条地图通知的条目视图
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public class AlleyUnderAttackMapNotificationItemVM : MapNotificationItemBaseVM`  
 **Base:** `MapNotificationItemBaseVM`  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/AlleyUnderAttackMapNotificationItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/AlleyUnderAttackMapNotificationItemVM.cs`
 
 ## 概述
 

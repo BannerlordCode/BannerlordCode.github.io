@@ -99,6 +99,45 @@ foreach (Hero hero in Hero.AllAliveHeroes)
 - **反向权重（负数）语义容易搞反。** 在 `FindMatchingScore` 里负权重代表「要求标签**不**成立」，不是「成立就减分」。
 - **不受 CampaignOptions 影响。** 与生命死亡循环之类的开关无关。
 
+## 怎么用
+
+### 怎么拿到它
+
+不 `new`。实例由 `ConversationManager.InitializeTags()`（`Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/ConversationManager.cs:1032`）反射建立——`:1059` 遍历每个活动游戏程序集的类型，`:1061` 筛出 `ConversationTag` 的子类，`:1063` `Activator.CreateInstance(item)`，`:1064` 以 `StringId` 为键写入 `_tags`。**你这个 mod 程序集得引用 `TaleWorlds.CampaignSystem`，否则 `:1045`-`:1053` 的 `GetReferencedAssemblies()` 检查不会放行。**
+
+要「拿到」的是名字。消费入口两个：`ConversationManager.IsTagApplicable(tagId, character)`（`:1094`）用于精确判定，`GetApplicableTagNames(character)`（`:1083`）用于排查。`Campaign.ConversationManager` 是属性（`Campaign.cs:538`），实例在 `:1576` new。
+
+判据链只有一跳：`AnyNotableTypeTag.cs:13` 的 `character.HeroObject.IsNotable`，而 `Hero.IsNotable`（`Hero.cs:387`）内部是「`IsArtisan` / `IsGangLeader` / `IsPreacher` / `IsMerchant` / `IsRuralNotable` 五项全 false 时才去看 `IsHeadman`」（`:391`-`:395`）。**六项都不看 `IsLord`**——名字里的 Notable 指的是「本地人」这个社会阶层，不是「名人」。
+
+### 典型用法
+
+它只出现在 1.4.5 全树唯一一处代码引用：`LordConversationsCampaignBehavior.cs:907`，被包在一条 `.Variation(...)` 里，权重 **1**（正向加分）。同一批 `Variation` 里 `UnderCommandTag` 是 5、`WandererTag` 是 **-1**——**权重为负不是「减分」，是「要求该标签不成立」**：`FindMatchingScore`（`ConversationManager.cs:1013`）里 `IsTagApplicable(...) == choiceTag.IsTagReversed` 就直接 `return -2.1474836E+09f`（`:1021`-`:1023`），一条不满足整句就没了。
+
+所以「我在听你的命令 → 你是本地人 → 但你不是流浪汉 → 我才说这句客气话」这条链，配的是三个标签而不是一个。仿写它时先量一遍当前对象落在哪一边：
+
+```csharp
+public static class NotableTypeGateProbe
+{
+    public static void Report(CharacterObject npc)
+    {
+        bool isNotable = npc.IsHero && npc.HeroObject.IsNotable;
+        bool underCommand = Campaign.Current.ConversationManager.IsTagApplicable("UnderCommandTag", npc);
+        Debug.Print(npc.Name + " notable=" + isNotable + " underCommand=" + underCommand, 0);
+        if (!isNotable)
+        {
+            return;
+        }
+        Debug.Print("gate passed, this speaker can receive the courteous variant", 0);
+    }
+}
+```
+
+**别把 `GetApplicableTagNames` 当枚举工具用。** 它会调 `IsApplicableTo` 遍历全部 `_tags`（`:1085`-`:1089`），在遍历 NPC 列表的循环里调它就是 O(人数 × 标签数) 次重算，而每个 `IsApplicableTo` 都无缓存。一次查一个人即可，不要嵌在循环里。
+
+### 最容易踩的坑
+
+**不是可 `new` 的运行时对象。** 全树没有 `new AnyNotableTypeTag(`，实例由 `InitializeTags` 用无参构造反射建立并缓存；自己 new 的实例不在 `_tags` 里，`IsTagApplicable` 不会问它。派生标签同样需要 public 无参构造，否则启动期 `MissingMethodException`。
+
 ## 跨版本提示
 
 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/AnyNotableTypeTag.cs` 是 17 行、3 个成员，判据单行、无条件编译分支。1.4.6 与 1.3.15 的同名文件公开表面与之逐成员一致，未见新增或移除。

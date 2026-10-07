@@ -8,7 +8,7 @@ description: "「你的暗巷失去了头领」这条地图通知的条目视图
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public class AlleyLeaderDiedMapNotificationItemVM : MapNotificationItemBaseVM`  
 **Base:** `MapNotificationItemBaseVM`  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/AlleyLeaderDiedMapNotificationItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/AlleyLeaderDiedMapNotificationItemVM.cs`
 
 ## 概述
 

@@ -46,6 +46,15 @@ if (IsSiege && (int)_mapEvent.PlayerSide == 1 && !_isRetreat && !_defenderVictor
 | `OnSurrenderMission` | `public override void OnSurrenderMission()` | 玩家投降时设 `PlayerEncounter.PlayerSurrender = true`。**注意它不改任何本地字段**，所以投降之后 `_isRetreat` 与 `_defenderVictory` 仍是默认值，阶段推进与否完全取决于 `BattleState` 是什么。 |
 | `OnEndMission` | `protected override void OnEndMission()` | 唯一的写操作点：四条件全真则 `Settlement.SetNextSiegeState()`。这是 `protected virtual`，官方没有额外调用点，只能被 mission 生命周期触发。 |
 
+## 死成员与陷阱
+
+| 成员 | 声明位置 | override | 调用点 | 判定 | 说明 |
+|---|---|---|---|---|---|
+| `_isRetreat` | `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/CampaignSiegeStateHandler.cs:13` | 0 | 2 次（2 行） | UNSUPPORTED | 静态工具报「0 调用点」，`grep -o -w` 实测**2 次活跃引用（2 行）**：`:30` 赋值、`:49` 读 `!_isRetreat`。类内无点前缀的访问。提取口径盲区，不是死成员。 |
+| `_defenderVictory` | `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/CampaignSiegeStateHandler.cs:15` | 0 | 2 次（2 行） | UNSUPPORTED | 同形态：**2 次活跃引用（2 行）**。提取口径盲区，不是死成员。 |
+
+口径：源码树 `bannerlord-1.4.5` HEAD `ccbc3d40f88905765a1484492d41b7000e7249fa`，8,583 个 `.cs`（含 `bin/`）。调用点数是**出现次数**（`grep -o -w`），不是命中行数。
+
 ## 真实示例
 
 把官方 handler 加进一场攻城战 mission（这是 `SandBoxMissions` 自己的做法）。**时机很关键：必须等 `PlayerEncounter.Battle` 已建立**：
@@ -124,12 +133,12 @@ public class MySiegeOutcomeWatcher : MissionLogic
 
 ## 依赖关系
 
-- 战局快照：[MapEvent](MapEvent) 的 `IsSiegeAssault` / `IsSallyOut` / `MapEventSettlement` / `PlayerSide` 是本类三个属性的全部数据源，细节见同桶的 [MapEventSide](MapEventSide)
+- 战局快照：[MapEvent](../MapEvent) 的 `IsSiegeAssault` / `IsSallyOut` / `MapEventSettlement` / `PlayerSide` 是本类三个属性的全部数据源，细节见同桶的 [MapEventSide](../MapEventSide)
 - 遭遇上下文：[PlayerEncounter](../PlayerEncounter) 的静态 `Battle` 提供构造所需的 `MapEvent`，静态 `PlayerSurrender` 是投降的唯一落点
 - 生命周期宿主：[MissionLogic](../../mission-ext/MissionLogic) 提供 `OnRetreatMission` / `OnSurrenderMission` / `OnMissionResultReady` 三个 `public virtual` 与 `OnEndMission` 这个 `protected virtual`，本类只覆盖、不新增
 - 枚举判据：`TaleWorlds.Core.BattleSideEnum` 与 `TaleWorlds.Core.BattleState` 两个枚举的整数值是四个魔数条件的唯一解释
 - 结算数据：[MissionResult](../../core-extra/MissionResult) 的 `BattleState` 属性提供胜负
 - 唯一写操作：[Settlement](../../campaign/Settlement) 的 `SetNextSiegeState()` 是本类改变战役状态的全部手段，围城上下文见 [SiegeEvent](../SiegeEvent)
 - 注册方：`SandBoxMissions.OpenSiegeMissionWithDeployment:1448` / `OpenSiegeMissionNoDeployment:1583` / `OpenSiegeLordsHallFightMission:1694` 三处把它加进 `List<MissionBehavior>`
-- 相邻动作：[BreakInOutBesiegedSettlementAction](BreakInOutBesiegedSettlementAction) 处理围城战里另一条出路（突围 / 突入），两者共同构成围城战的收尾
+- 相邻动作：[BreakInOutBesiegedSettlementAction](../BreakInOutBesiegedSettlementAction) 处理围城战里另一条出路（突围 / 突入），两者共同构成围城战的收尾
 - 桶首页：[campaign-ext API 分区](../)

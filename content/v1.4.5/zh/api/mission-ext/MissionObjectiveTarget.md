@@ -8,7 +8,7 @@ description: "MissionObjectiveTarget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionObjectiveTarget<T> : MissionObjectiveTarget`
 **Base:** `MissionObjectiveTarget`
-**File:** `TaleWorlds.MountAndBlade/Missions/Objectives/MissionObjectiveTarget.2.cs`
+**File:** `TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Objectives/MissionObjectiveTarget.cs`
 
 ## 概述
 

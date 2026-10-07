@@ -139,6 +139,42 @@ private void ReportBadVersion()
 - **它只决定比较的第一级，不决定版本是否兼容。** 存档兼容判断还要落到 `Major` / `Minor` / `Revision` / `ChangeSet`。**只比 `ApplicationVersionType` 是不够的。**
 - **它是 `int` 底层（默认值），不是 `uint`。** 所以 `Invalid = -1` 合法。这是本页唯一一个带负值的成员，遍历时别把它当越界。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public enum ApplicationVersionType`（`TaleWorlds.Library/ApplicationVersionType.cs:3`）。你不会直接写它——它由 `ApplicationVersion.FromString(string)` 从版本串的首字母反解出来，读入口是 `ApplicationVersion.ApplicationVersionType` 属性。前缀映射表在 `ApplicationVersion.cs:133-146` 的 `GetPrefix`。
+
+### 典型用法
+
+上面「真实示例」两段是「字符串往返」和「分类辅助」。落到 mod 代码上最常见的是**特性门槛**，而门槛必须先处理 `Development`——它的值是 4，排在 `Release` 之后：
+
+```csharp
+public static class StageGate
+{
+    public static bool MeetsMinimum(ApplicationVersion running, ApplicationVersionType minimum)
+    {
+        // Invalid 是唯一的负值成员，先把它排除掉：它不是「很早期」，是「无效」
+        if (running.ApplicationVersionType == ApplicationVersionType.Invalid)
+        {
+            return false;
+        }
+        // Development(4) 排在 Release(3) 之后：直接比会把 d1.0.0 判成比任何发行版都新
+        if (running.ApplicationVersionType == ApplicationVersionType.Development)
+        {
+            return true;   // 内部构建一律放行，不要让它参与排序
+        }
+        return running.ApplicationVersionType >= minimum;
+    }
+}
+```
+
+与上面「真实示例」的差别：那两段都是**描述这个枚举**——把值解析出来、把值分类、把它转成前缀；而这里是把枚举接进**一条决策**：先用两个前置判断（`Invalid` 排除、`Development` 放行）把排序键里最反直觉的两个成员处理掉，剩下的比较才可信。`GetPrefix` 那张映射表在这里完全用不上，因为门槛比的是数值而不是字符串。
+
+### 最容易踩的坑
+
+**`Release` 不是最后一个成员。** 排序键是 `Development`(4) > `Release`(3) > `EarlyAccess`(2) > `Beta`(1) > `Alpha`(0)。**因此 `FromString("d1.0.0") > FromString("v9.9.9")` 成立。**
+
 ## 跨版本提示
 
 `ApplicationVersionType.cs` 在 1.4.5 是 11 行、6 个成员，是原始源码形态。1.3.x / 1.4.6 的对应文件是反编译产物。**跨版本迁移真正要核对的不是成员列表，而是「成员顺序」**：因为 `IsOlderThan` 与 `operator>` **直接用数值比较这个枚举**，所以**在中间插入一个新成员（例如在 `Release` 与 `Development` 之间加一个 `Preview`）会改变所有版本比较的结果**，而不只是新增一种前缀。同理，`GetPrefix` 的 switch 覆盖集合、以及 `ApplicationVersionTypeFromString` 的 `case` 标签集合也必须同步更新——**三者是一体的**。**永远不要假设「成员顺序只是实现细节」。**

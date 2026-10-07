@@ -23,6 +23,70 @@ BuildingConstructionModel 是一个纯计算的规则扩展点：战役（[Campa
 - **使用**：需要查询或自定义“城镇每天能修多少建筑进度”“加速一次要花多少储备、加多少产出”时，读取 `Campaign.Current.Models.BuildingConstructionModel` 的返回值，或提供一个新的派生类覆盖各抽象成员（含 4 个 boost 常量属性）并通过子模块注册替换默认实现。
 - **不要使用**：不要自己给 `Building.BuildingProgress` 累加来“让建筑快点建好”——真正累加进度的是 [BuildingsCampaignBehavior](../BuildingsCampaignBehavior) 配合 `Town.Construction`，模型是无状态纯函数。要改变世界状态应走领地行为或对应的 `*Action`，而不是篡改模型字段；也不要把模型的当日产出当作持久世界状态来读。
 
+## 怎么用
+
+何时该读这一页、何时不该读、该改哪个模型，见上文「何时使用 / 何时不要使用」。本节只讲怎么从源码拿到它、以及它在 v1.4.5 里被谁真的调用。
+
+### 怎么拿到它
+
+抽象声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BuildingConstructionModel.cs:6`，`public abstract class BuildingConstructionModel : MBGameModel<BuildingConstructionModel>`。默认实现是 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingConstructionModel.cs:13`。
+
+安装链走 `GameModels`：属性在 `GameModels.cs:149`，赋值在 `GameModels.cs:331` 的 `BuildingConstructionModel = GetGameModel<BuildingConstructionModel>()`。所以替换方式是派发器注册一个同类型实现。
+
+它在整棵树里被 7 个文件引用，而**消费点分布在三个互不相干的层**，逐条 grep 得到：
+
+模型层与领域层共四处——`TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Town.cs:152` 的 `public float Construction => ...CalculateDailyConstructionPower(this).ResultNumber`、`:154` 的 `ConstructionExplanation`、`TaleWorlds.CampaignSystem/Helpers/BuildingHelper.cs:75` 与 `:94`（后者取 `CalculateDailyConstructionPowerWithoutBoost`）、以及 `BuildingsCampaignBehavior.cs:110`。
+
+UI 层三处——`TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/TownManagementVM.cs:663`，以及 `TownManagementReserveControlVM.cs:200` 的 `GetBoostAmount` 与 `:201` 的 `GetBoostCost`。
+
+这三层用的是**不同的成员**：`Town` 要每日总产出，`BuildingHelper` 要不含加速的基准，VM 要加速的费用与增量。而 `GetBoostCost` 与 `GetBoostAmount` 语义不同一个是扣减、一个是注入，见下文坑。
+
+### 典型用法
+
+上面那一节讲的是「该不该用这个模型」，不是「怎么调」。缺的一步是**把「含加速」与「不含加速」两条数值并排取出来**——因为 `BuildingsCampaignBehavior.cs:110` 每日实际累加的是含加速那条，而 `BuildingHelper.cs:94` 读的是不含加速那条，两者不一致时城镇进度会与预测对不上：
+
+```csharp
+public static void ExplainConstruction(Town town)
+{
+    if (town == null || Campaign.Current == null)
+    {
+        return;
+    }
+    BuildingConstructionModel model = Campaign.Current.Models.BuildingConstructionModel;
+
+    // 不含加速：BuildingHelper.cs:94 用的就是这一条
+    float basePower = model.CalculateDailyConstructionPowerWithoutBoost(town);
+    // 含加速：Town.cs:152 用的就是这一条
+    float boostedPower = model.CalculateDailyConstructionPower(town).ResultNumber;
+
+    Debug.Print(town.Name + " base=" + basePower + " boosted=" + boostedPower, 0);
+
+    // 两个 boost 常量只影响加速本身：一个是费用，一个是注入的额外产出
+    float cost = model.GetBoostCost(town);
+    float amount = model.GetBoostAmount(town);
+    if (cost > 0f)
+    {
+        Debug.Print("boost cost=" + cost + " amount=" + amount, 0);
+    }
+}
+```
+
+`Town.cs:152` 那条是**表达式体属性**，也就是说每次读 `town.Construction` 都会重新走一遍完整计算，没有缓存。所以不要在循环里反复读它。
+
+`GetBoostCost` 与 `GetBoostAmount` 不要对调：`BuildingHelper.cs:75` 拿前者去扣减储备点，VM 的 `TownManagementReserveControlVM.cs:200` / `:201` 分别把两者填进提示文本的 `BOOST` 与 `COST` 变量，而这两个变量名本身就与语义相反，别按名字推。
+
+这个模型是无状态纯函数，上面这段可以随时重复调用；但它属于 Campaign 层，在 Mission 或战场逻辑里取 `Campaign.Current.Models` 是错误的访问层。
+
+### 什么时候不要用它
+
+不要自己给 `Building.BuildingProgress` 累加来让建筑快点建好。真正累加进度的是 `BuildingsCampaignBehavior` 配合 `Town.Construction`，模型只是被问的一方。
+
+不要把派生类里的可变字段期望随存档恢复。本模型不含 `[SaveableField]`，加了也不会被序列化。
+
+### 最容易踩的坑
+
+跨战役重载缓存实例：缓存的实例在重载后指向旧战役的对象。附带一条同源风险是混淆 `GetBoostCost` 与 `GetBoostAmount` 的语义——前者是「本次加速要从储备点扣多少」，后者是「本次加速注入多少额外产出」。
+
 ## 依赖图
 
 上游类型与系统：

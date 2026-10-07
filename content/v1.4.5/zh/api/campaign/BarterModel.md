@@ -23,6 +23,74 @@ BarterModel 是一个纯计算的 Model 型扩展点：Campaign 在启动时通�
 - **使用**：需要查询或自定义“溢价能换多少关系 / 物品在某势力面前值多少 / 与英雄议价后冷却几天 / NPC 能掏出多少钱”等规则时，读取 `Campaign.Current.Models.BarterModel` 的返回值，或提供一个新的派生类覆盖其抽象成员并通过子模块注册替换默认实现。
 - **不要使用**：不要用模型去“执行”易货——它只会计算与判定，真正改物品归属、金钱与关系的是 [Barterable](../../campaign-ext/Barterable) 与 [ChangeRelationAction](../../campaign-ext/ChangeRelationAction)。不要亲自给 `Hero` 关系或金库赋值了事；也不要把模型返回值当作持久世界状态（它是无状态的纯函数）。发起议价应走 [BarterManager](../BarterManager) 与 `GoldBarterBehavior`、`ItemBarterBehavior` 等议价行为，而非直接调用本模型。
 
+## 怎么用
+
+何时该读这一页、何时不该读、该改哪个模型，见上文「何时使用 / 何时不要使用」。本节只讲怎么从源码拿到它、以及它在 v1.4.5 里被谁真的调用。
+
+### 怎么拿到它
+
+抽象声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BarterModel.cs:7`，`public abstract class BarterModel : MBGameModel<BarterModel>`。默认实现是 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBarterModel.cs:10`。
+
+安装链走 `GameModels`：属性在 `GameModels.cs:21`，赋值在 `GameModels.cs:322` 的 `BarterModel = GetGameModel<BarterModel>()`。所以替换方式是派发器注册一个同类型实现，由 `GameModels` 在战役初始化时解析。
+
+它在整棵树里被 5 个文件引用，而**真实消费点只有三处**，逐条 grep 得到：
+
+`TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/BarterManager.cs:232` 调 `CalculateOverpayRelationIncreaseCosts(otherHero, _overpayAmount)`，用来算溢价能换多少关系。`BarterManager.cs:251` 读 `BarterCooldownWithHeroInDays` 并用 `CampaignTime.Days(...)` 算下一次议价的解锁时刻。
+
+`TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem.Barterables/ItemBarterable.cs:42` 调 `GetBarterPenalty(faction, this, _otherHero, _otherParty).ResultNumber * ItemValue`，返回 int。
+
+这三处里值得单独记的是 `BarterManager.cs:251`：**议价冷却期是由这个模型提供的常量，而它不是以天数直接出现，而是要先经过 `CampaignTime.Days()` 包装**。想知道「现在能不能再和这个 NPC 议价」，正确做法是拿 `CampaignTime.Now + CampaignTime.Days(...)` 与当前时间比，而不是拿模型值直接和天数常量比。
+
+### 典型用法
+
+上面两个「示例」是「溢价换关系后走 Action 落定」和「评估势力对某件物品的单位价值」。缺的那一格是**把惩罚系数从单件扩展到整笔交易的总影响**，因为上面两段都只取了一次 `GetBarterPenalty`：
+
+```csharp
+public static void ExplainPenalty(BarterData barterData, IFaction evaluator)
+{
+    if (barterData == null || evaluator == null || Campaign.Current == null)
+    {
+        return;
+    }
+    BarterModel model = Campaign.Current.Models.BarterModel;
+    Hero other = barterData.OtherHero;
+    PartyBase otherParty = other != null ? other.Party : null;
+    long total = 0;
+
+    // GetOfferedBarterables 返回新列表，逐项求和不会碰到内部集合
+    foreach (Barterable line in barterData.GetOfferedBarterables())
+    {
+        if (!(line is ItemBarterable item))
+        {
+            continue;   // 只有物品行带 ItemValue，金币行不参与
+        }
+        // 与 ItemBarterable.cs:42 同形：惩罚系数 × 单件价值
+        ExplainedNumber penalty = model.GetBarterPenalty(evaluator, line, other, otherParty);
+        total += (long)MathF.Round(penalty.ResultNumber * item.ItemValue);
+    }
+    Debug.Print("total penalty = " + total, 0);
+
+    // 冷却期是模型常量，但必须经 CampaignTime.Days 包装（BarterManager.cs:251）
+    CampaignTime nextUnlock = CampaignTime.Now
+        + CampaignTime.Days(model.BarterCooldownWithHeroInDays);
+    Debug.Print("barter unlock at " + nextUnlock, 0);
+}
+```
+
+`CalculateOverpayRelationIncreaseCosts` 与 `GetBarterPenalty` 是两条互不相干的链：前者算「多付的钱能换多少关系」，只在 `BarterManager.cs:232` 被调；后者算「这件物品对你的价值打了多少折」，走 `ItemBarterable.cs:42`。不要把两者混成同一个「议价价值」概念。
+
+两者都只算数不落状态。关系真要写进去必须走 `ChangeRelationAction`，否则存档不会记录。
+
+### 什么时候不要用它
+
+不要缓存 `Campaign.Current.Models.BarterModel` 的实例。每次新战役与读档都会由 `GameModels` 重新解析，缓存住的实例会指向旧战役对象。
+
+不要把 `GetBarterPenalty` 的返回值当绝对价值。它是乘在 `ItemValue` 上的系数，直接用会差一个量级——`ItemBarterable.cs:42` 那一行末尾的乘法是整条链的关键。
+
+### 最容易踩的坑
+
+跨战役重载缓存实例：调用即崩溃或读到陈旧规则。每次需要时都重新走 `Campaign.Current.Models` 获取。
+
 ## 依赖图
 
 上游类型与系统：

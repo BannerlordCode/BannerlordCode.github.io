@@ -57,6 +57,37 @@ SettlementMenuOverlayModel 是 Campaign 层的一个规则扩展点：`Campaign`
   - 副作用：无，纯判定；真正的英雄在场与位置由 [GameMenuManager](../GameMenuManager) 与 `LocationCharacter` 持有，本方法只提供“额外置顶/标记”的集合。
   - 调用时机：覆盖层界面（[SettlementMenuOverlayVM](../../viewmodel/SettlementMenuOverlayVM)）在装配人物列表时调用；若你提供了替换实现，它会在每次覆盖层刷新时被读取。
 
+## 怎么用
+
+这是本批最小的一个模型：全文 10 行，只有一个抽象方法。但读它之前必须先知道一件事——**它在 1.4.5 的 C# 源树里没有任何调用方，也没有默认实现被注册**。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementMenuOverlayModel.cs:6`，唯一成员 `GetOverlayHeroes()` 在 `:8`，返回 `Dictionary<Hero, bool>`。
+
+它继承自 `MBGameModel<SettlementMenuOverlayModel>`，所以它**形式上是一个可替换的游戏模型**，和其它二十多个同族模型走完全一样的注册路径。缺的只是那一步接线。
+
+我用 `Models.SettlementMenuOverlayModel` 与 `GetOverlayHeroes` 两个模式扫过 1.4.5 全部 6222 个 `.cs` 文件，命中只有两处，而且都在这个文件自己身上：类声明与抽象方法本身。`SandBoxManager` 里没有对应的 `AddModel` 行，`SettlementMenuOverlayVM` 也没有引用它。所以它是一个**留好了扩展点但当前版本没接线的抽象**。
+
+这决定了你该怎么用它：
+
+```csharp
+// 先确认这一局战役到底有没有把模型接上，而不是假设它存在
+Type t = typeof(SettlementMenuOverlayModel);
+SettlementMenuOverlayModel model = Campaign.Current.Models.SettlementMenuOverlayModel;
+Debug.Print("模型抽象类型=" + t.Name + "，本局解析到的实现=" + model.GetType().Name, 0);
+// GetOverlayHeroes 返回 Dictionary<Hero,bool>：key 是英雄，value 是是否已知/可选中
+Debug.Print("浮层英雄数=" + model.GetOverlayHeroes().Count, 0);
+foreach (KeyValuePair<Hero, bool> pair in model.GetOverlayHeroes())
+{
+    Debug.Print("  " + pair.Key.Name + " 可见=" + pair.Value, 0);
+}
+```
+
+因为没有默认实现注册，`Campaign.Current.Models` 解析它时要么得到 null、要么得到模块自己注册的实现。上面代码里 `model.GetType().Name` 那一步就是先打印实际拿到什么，再决定要不要往下走——这比直接解引用安全。
+
+如果你确定要用它，接线方式和其它同族模型完全一样：在模块的 `OnGameInitialization` 里 `gameStarter.AddModel(new MyOverlayModel())`，然后覆写 `GetOverlayHeroes()` 返回你要的字典。因为引擎侧没有消费方，注册了也不会被自动调用——这实际上是 mod 自己接管浮层渲染的机会，而不是一个等待引擎接线的空格。
+
+**最常见的坑**：假设它是已接线的模型。按 `Campaign.Current.Models.SettlementMenuOverlayModel` 的常规套路写代码，会在默认战役里拿到 null 而不是默认实现；`GetOverlayHeroes()` 一调就 NRE，而且报错点在你的代码里，离「这个模型其实没接线」这个真正的原因很远。
+
 ## 示例
 
 读取当前覆盖层应额外展示的英雄集合及其标记：

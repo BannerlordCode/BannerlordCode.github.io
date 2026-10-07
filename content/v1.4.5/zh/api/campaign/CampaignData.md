@@ -23,6 +23,64 @@ description: "战役层共享的只读常量表：出生点场景标签、定居
 - **使用**：需要引用出生点标签（如英雄出生、对话触发点）、定居点分区 id、文化 `StringId`、英雄布料色板、阵营中立/潜行颜色、装备更新标签，或需要中立阵营的本地化名时，直接读取 `CampaignData` 上的对应常量，而不是在代码里写裸字符串。
 - **不要使用**：不要用它承载任何会随战役推进变化的状态——它没有可写字段、不进存档；这类需求应交给 [Campaign](../Campaign)、[Hero](../Hero)、[Settlement](../Settlement) 或带 `[SaveableField]` 的行为。不要试图 `new CampaignData()` 或缓存“实例”（静态类无实例）；也不要在运行期改写六个 `HeroClothColors` 数组元素，它们是 `static readonly uint[]` 且被所有同文化英雄共享，改写会污染全局配色。
 
+## 怎么用
+
+何时该读这一页、何时不该读，见上文「何时使用 / 何时不要使用」。本节只讲怎么从源码拿到它、以及它在 v1.4.5 里被谁真的调用。
+
+### 怎么拿到它
+
+声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignData.cs:5`，`public static class CampaignData`。成员全是 `const` 或 `static readonly`，没有构造器，也没有一个可写字段。
+
+它在整棵树里被 3 个文件引用，逐条 grep 到的消费点分两类。
+
+第一类是**文化 id 到色板的映射**：`TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Helpers/CharacterHelper.cs:85` 与 `:86` 各一条，形如 `"empire" => CampaignData.EmpireHeroClothColors`，走的是字符串 `switch` 表达式。整段是 `:83` 到 `:92`，六个文化各一行。
+
+第二类是**回退到中立阵营名**：`TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/TeleportHeroAction.cs:107` 与 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/DisbandPartyAction.cs:37`，两处形状完全一样——`(x.ActualClan != null) ? x.ActualClan.Name : CampaignData.NeutralFactionName`，然后 `SetTextVariable("CLAN_NAME", ...)`。
+
+这两类用法合起来说明一件事：**它不是可配置的表，而是一组编译期常量**。文化 id 是字符串常量（`CultureEmpire` 等），色板是 `uint[]`，两者都不随战役变化，也不进存档。
+
+### 典型用法
+
+上面两个「示例」是「用 `NeutralFactionName` 回退阵营名」和「按文化 id 选色板」。缺的那一格是**在自己的代码里复用那六个映射而不重写一遍 `switch`**——`CharacterHelper.cs:83-92` 已经在做这件事，把它封成字典后新增文化只需改一处：
+
+```csharp
+public static class ClothPalette
+{
+    private static readonly Dictionary<string, uint[]> Map = new Dictionary<string, uint[]>
+    {
+        { CampaignData.CultureEmpire,   CampaignData.EmpireHeroClothColors },
+        { CampaignData.CultureSturgia,  CampaignData.SturgiaHeroClothColors },
+        { CampaignData.CultureAserai,   CampaignData.AseraiHeroClothColors },
+        { CampaignData.CultureVlandia,  CampaignData.VlandiaHeroClothColors },
+        { CampaignData.CultureBattania, CampaignData.BattaniaHeroClothColors },
+        { CampaignData.CultureKhuzait,  CampaignData.KhuzaitHeroClothColors },
+    };
+
+    public static uint[] For(string cultureStringId)
+    {
+        uint[] colors;
+        // 官方 CharacterHelper.cs 的 _ 分支回落到帝国；这里保持同一形状
+        if (Map.TryGetValue(cultureStringId, out colors))
+        {
+            return colors;
+        }
+        return CampaignData.EmpireHeroClothColors;
+    }
+}
+```
+
+`static readonly` 字典只初始化一次，而 `CampaignData` 的成员本身是常量，所以这个表在任何战役里都一致，不需要在战役开始时重建。
+
+`MapFaction` 为 null 时不要取 `Culture.StringId`——上面那两处官方代码都是先判 `ActualClan != null` 再回退，所以你的调用点也要保留同一层判空。
+
+### 什么时候不要用它存任何「每战役」数据。它没有可写字段、没有 `[SaveableField]`、不进存档；往里塞战役状态会得到一个既不被序列化、也永远不是「每战役实例」的东西。
+
+也不要试图给文化 id 换值。它们是 `const`，编译期内联，改不动。
+
+### 最容易踩的坑
+
+误当作可变状态容器。战役状态请放在 [Campaign](../Campaign) 的字段上，或放在行为的 `[SaveableField]` 里。
+
 ## 依赖图
 
 上游类型与系统：

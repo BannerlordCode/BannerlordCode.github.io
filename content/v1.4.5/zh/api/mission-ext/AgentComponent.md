@@ -52,6 +52,14 @@ description: "挂在单个 Agent 上的行为组件抽象基类：19 个虚回�
 | `OnComponentRemoved` | `public virtual void OnComponentRemoved()` | 组件被摘除时的收尾钩子，由 `Agent.RemoveComponent`（`Agent.cs:4393`）在移除成功后调用。**这是注销事件订阅、解绑 delegate 的地方。** |
 | `OnDisciplineChanged` | `public virtual void OnDisciplineChanged()` | **1.4.5 全树没有任何调用方，也没有任何 override。** 是一个死回调。 |
 
+## 死成员与陷阱
+
+同一类的兄弟虚方法都被 Agent 调度，唯独它没有任何调用点。
+
+| 成员 | 声明位置 | override | 调用点 | 判定 | 说明 |
+|---|---|---:|---:|---|---|
+| `OnDisciplineChanged` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentComponent.cs:69 | 0 | 0 次（0 行，已复核） | MEASURED | `public virtual void`，但全树仅 1 次出现 = 它自己的声明行，没有任何调用点。正控：同类的 `OnAgentRemoved`(:73) 被 `Agent.cs:5156 component.OnAgentRemoved()` 调用 —— 证明这个类的兄弟虚方法确实会被调度，唯独纪律变化这条回调没接上线。 |
+
 ## 真实示例
 
 最简组件——只需 `: base(agent)`，什么 base 都不用调：

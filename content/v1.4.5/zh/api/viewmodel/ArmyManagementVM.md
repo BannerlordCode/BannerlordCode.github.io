@@ -8,7 +8,7 @@ description: "军队管理面板的主视图模型，1451 行里最大的一环�
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public class ArmyManagementVM : ViewModel`  
 **Base:** `ViewModel`  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementVM.cs`
 
 ## 概述
 

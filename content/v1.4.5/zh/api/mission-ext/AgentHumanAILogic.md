@@ -35,6 +35,11 @@ description: "HumanAIComponent 的装配逻辑加上骑手上马后的坐骑预�
 | `OnAgentControllerChanged` | `protected internal override void OnAgentControllerChanged(Agent agent, AgentControllerType oldController)` | 控制权变更时增删 `HumanAIComponent`。与兄弟类的结构一致但判据不同：兄弟类在 `OnAgentCreated` 用 `IsAIControlled` 属性、在变更钩子里用 `agent.Controller == AI`；本类两处都用 `Controller == AI` 做核心判定，外面套一层 `agent.IsHuman`。**注意它没有 `agent.IsActive()` 守卫**——这与 `AgentCommonAILogic` 不同，死掉的 Agent 也会走这段增删逻辑。 |
 | `OnAgentMount` | `public override void OnAgentMount(Agent agent)` | 本类存在的第三个理由。上马后调用 `Mission.UpdateMountReservationsAfterRiderMounts(agent, agent.MountAgent)`，把「骑手原先选中的坐骑」与「刚骑上的这匹坐骑」的预留关系重新对齐。声明在 `MissionBehavior.cs:150`。 |
 
+## 死成员与陷阱
+
+本页死成员状态未知：本页成员全部落在 UNSUPPORTED（多声明者歧义等），调用点数不可当结论；
+本次未测出任何可复核的调用点。
+
 ## 真实示例
 
 按官方的方式把它加进自定义任务的行为列表（这是它唯一可靠的启用途径）：

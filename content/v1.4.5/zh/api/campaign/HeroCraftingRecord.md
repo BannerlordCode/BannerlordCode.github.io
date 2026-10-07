@@ -118,6 +118,53 @@ crafting.SetHeroCraftingStamina(hero, crafting.GetHeroCraftingStamina(hero) - co
 
 `GetHeroCraftingStamina` / `SetHeroCraftingStamina` 内部都走 `GetRecordForCompanion`，因此即便该英雄此前从未锻造过，也会自动以满体力开户后再读/写，调用方无需关心记录是否存在。
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CraftingCampaignBehavior.cs`（`HeroCraftingRecord` 声明在 `:90`-`:113`）。
+**入口：** `Campaign.Current.GetCampaignBehavior<CraftingCampaignBehavior>()` → `GetHeroCraftingStamina(hero)`（`CraftingCampaignBehavior.cs:782`）/ `SetHeroCraftingStamina(hero, value)`（`:797`）/ `GetMaxHeroCraftingStamina(hero)`（`:810`）。
+
+`internal class HeroCraftingRecord`（`CraftingCampaignBehavior.cs:90`），**外部程序集拿不到类型名**。它只有一个字段：`CraftingStamina`，`int`，带 `[SaveableField(10)]`（`:92`-`:93`）。
+
+**一个存档字段、一个构造器——这是本批最薄的类型。** 构造器 `HeroCraftingRecord(int maxStamina)`（`:95`）把入参直接赋给 `CraftingStamina`（`:97`），**字段名是「当前值」但入参名是「最大值」**，因为开户时余额等于上限。
+
+### 典型用法
+
+**懒开户的机制在 `GetRecordForCompanion(Hero hero)`（`:787`）。** `TryGetValue` 失败就 `new HeroCraftingRecord(GetMaxHeroCraftingStamina(hero))`（`:791`）并写回字典（`:792`）。
+
+**这意味着「读一次」就会开户**——`GetHeroCraftingStamina`（`:782`）体内只有一句 `GetRecordForCompanion(hero).CraftingStamina`（`:784`），**纯读操作有副作用**。
+
+而恢复走 `HourlyTick`（`:584`），条件链是三层：遍历字典（`:586`）→ `Key.CurrentSettlement != null`（`:588`）→ 当前值严格小于上限（`:591`），三者全中才 `MathF.Min(max, 当前 + 每小时恢复)`（`:593`）。**注意恢复上限也是钳过的，所以不会超过 max。**
+
+**写入侧 `SetHeroCraftingStamina`（`:797`）会把值夹到 0**：`GetRecordForCompanion(hero).CraftingStamina = MathF.Max(0, value)`（`:799`）。**它不夹上限**，所以你可以写入一个大于 max 的值，UI 会显示超出——但 `HourlyTick` 的 `:591` 判据会立刻让它不再恢复，形成一个「永远溢出」的状态。
+
+上限公式是 `100 + MathF.Round(Crafting 技能值 × 0.5f)`（`:812`），**没有上限封顶**：技能 300 就是 250。
+
+想知道一个英雄的体力现状，以及它距回满还有多久，就把这三个数并排打出来：
+
+```csharp
+public static void DumpCraftingStamina(Hero hero)
+{
+    CraftingCampaignBehavior crafting = Campaign.Current.GetCampaignBehavior<CraftingCampaignBehavior>();
+    int stamina = crafting.GetHeroCraftingStamina(hero);
+    int max = crafting.GetMaxHeroCraftingStamina(hero);
+    int skill = hero.GetSkillValue(DefaultSkills.Crafting);
+    Debug.Print(hero.Name + " stamina=" + stamina + " max=" + max + " (100 + crafting*" + skill + "*0.5)", 0);
+    Debug.Print("recovering? " + (stamina < max) + "  needs a settlement to tick", 0);
+}
+```
+
+**上例第一行的 `GetHeroCraftingStamina` 有开户副作用，第二行的 `GetMaxHeroCraftingStamina` 没有。** **只想要上限就别先调前者**，否则你给一个从不用锻造的英雄凭空开了一个户，而那个户会立刻出现在 `HourlyTick`（`:586`）的遍历里开始吃恢复。
+
+存档侧注意 `dataStore.SyncData("_heroCraftingRecordsNew", ref _heroCraftingRecords)`（`CraftingCampaignBehavior.cs:284`）——**同步键名是 `_heroCraftingRecordsNew`，比字段名 `_heroCraftingRecords`（`:240`）多一个 `New` 后缀**。**改这个字符串会直接让旧存档丢数据。**
+
+真实读取方有三处，可以直接印证「这是一个带 UI 的公共量」：`CampaignUIHelper.cs:1822` 把它拼成 `"当前 / 上限"` 的 tooltip 文案，`CraftingAvailableHeroItemVM.cs:230` 读它填 `CurrentStamina`，`CampaignCheats.cs:290` 用 `SetHeroCraftingStamina` 写它。**也就是说「写入不过 0」这条钳位（`:799`）保护的是 cheats 这类外部入口**——**上例那段「体力不足时禁止锻造」的判断不是可选项，是必须自己补的第二道。**
+
+### 最容易踩的坑
+
+**内部私有、懒开户：** 记录由 `GetRecordForCompanion` 懒创建；在英雄第一次被读写体力前，`_heroCraftingRecords` 里没有它的条目。自行缓存 `HeroCraftingRecord` 引用无意义——它只在 Behavior 字典内有效。
+
 ## 版本注记
 
 本页以 v1.4.5 `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CraftingCampaignBehavior.cs` 中 `HeroCraftingRecord` 及其周边（`_heroCraftingRecords` 字典、`HourlyTick`、`GetRecordForCompanion`、`Get/SetHeroCraftingStamina`、`SyncData`）源码为准。跨版本使用时重新确认：体力上限公式、小时回满是否仍要求 `CurrentSettlement != null`、以及存档键名 `_heroCraftingRecordsNew`。

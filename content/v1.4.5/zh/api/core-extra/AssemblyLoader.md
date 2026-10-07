@@ -154,6 +154,49 @@ public static class LoaderComparison
 - **静态构造器有副作用且不可逆。** 它注册的是一个**进程级**的 `AppDomain.CurrentDomain.AssemblyResolve` 处理器。**第一次触碰 `AssemblyLoader`（哪怕只是想读一个枚举）就会挂上它**，此后整个 AppDomain 都带着这个处理器。
 - **`GetTypes()` 可能抛 `ReflectionTypeLoadException`。** 加载成功之后调 `assembly.GetTypes()` 仍可能失败——`Module.cs:155-190` 的 `CollectModuleAssemblyTypes` 有完整的 try/catch 与 `ex2.LoaderExceptions` 处理，但**你自己的调用点需要自己写**。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public static class AssemblyLoader`（`TaleWorlds.Library/AssemblyLoader.cs:7`）。**它不需要你初始化**——静态构造器在首次触碰本类时就把 `AppDomain.CurrentDomain.AssemblyResolve += OnAssemblyResolve` 挂上了（`Initialize()` 的函数体是空的，只是给外部一个礼貌性调用点）。真正要用的入口是带 `out` 的那个重载 `LoadFrom(string, out AssemblyLoadResult, bool)`；**不带 `out` 的重载内部把结果丢弃了，拿不到成功与否**。
+
+### 典型用法
+
+上面「真实示例」两段都是**单个** dll 的加载：一个检查三态结果，一个关掉弹窗。真实场景是**一批** dll——而 `LoadedWithErrors` 可能来自任何一个依赖（递归调用写的是同一个 `out`），所以汇总时不能只看主 dll：
+
+```csharp
+public class MyModLoader
+{
+    // showError 全程 false：无头环境里任何一次 ShowMessageBox 都会挂死进程
+    public bool LoadAll(IEnumerable<string> dllPaths)
+    {
+        bool allClean = true;
+        foreach (string path in dllPaths)
+        {
+            Assembly assembly = AssemblyLoader.LoadFrom(
+                path, out AssemblyLoader.AssemblyLoadResult result, showError: false);
+
+            if (assembly == null)
+            {
+                allClean = false;   // CriticalError：主 dll 自己就没进来
+                continue;
+            }
+            if (result != AssemblyLoader.AssemblyLoadResult.Success)
+            {
+                allClean = false;   // LoadedWithErrors：至少一个引用程序集失败
+            }
+        }
+        return allClean;
+    }
+}
+```
+
+与上面「真实示例」的差别：那两段都是**一次调用、就地判断、就地返回那个程序集**；这里处理的是**批量的账怎么算**——三态里 `Success` 与 `LoadedWithErrors` 都能拿到非 null 的 `Assembly`，所以「返回了对象」不等于「干净」，必须把三态显式归并成一个布尔。而且由于递归加载共用同一个 `out`，一个依赖失败会把它的父也标成 `LoadedWithErrors`，你无法从返回值知道是哪一层出的问题。
+
+### 最容易踩的坑
+
+**失败会弹模态框。** `:52` 的 `Debug.ShowMessageBox`，`showError` 默认 `true`。**无头环境（专用服务器、CI、自动化测试）会直接挂死。**
+
 ## 跨版本提示
 
 `AssemblyLoader.cs` 在 1.4.5 是 98 行、含一个嵌套枚举 `AssemblyLoadResult`、一个公开静态类与三个公开成员，是原始源码形态。**跨版本真正值得核对的是四处与外部世界的耦合**：`[MBCallback]` 之外的 `AppDomain.CurrentDomain.AssemblyResolve` 订阅方式（.NET 6+ 移除了 `AppDomain.AssemblyResolve` 的部分行为，迁移到 CoreCLR 运行时可能需要改成 `AssemblyLoadContext`）；`Runtime` 枚举的成员集合（多一个运行时 = 多一条分叉分支）；`Module.cs` 的 `CollectModuleAssemblyTypes` 是否仍然用它的三态结果；以及 `ManagedDllFolder.Name` 的路径来源——`GameApplicationDomainController.cs:49-50` 依赖它拼出要加载的 dll 名。**注意 1.4.x 后期版本把游戏迁到了自定义 `AssemblyLoadContext` 体系，mod 的加载入口随之变化——所以「怎么加载 mod dll」这个问题在跨版本时必须重新查，不能照搬本页。**

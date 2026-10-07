@@ -143,6 +143,55 @@ public static class RunnerLookup
 - **`GetTypes()` 会抛 `ReflectionTypeLoadException`。** 跑测器的 `GetAsyncRunnerAssemblies`（`:97` 的 `asyncRunnerAssemblies[i].GetTypes()`）**没有 try/catch**——任何一个程序集里有加载不了的类型，整个查找流程就崩。模组程序集加载失败会连带影响测试跑测器。
 - **它与 `RunAsync` 路径不同。** 走 `AwaitableAsyncRunner` 的话，`TestContext.cs:70-72` 用 `_awaitableAsyncRunner.RunAsync()` 并存成 `Task`，`:141-143` 每帧调 `OnTick(dt)`。**两条路径的生命周期管理不同，不要想当然。**
 
+## 怎么用
+
+### 怎么拿到它
+
+`public abstract class AsyncRunner`（`TaleWorlds.Library/AsyncRunner.cs:3`）。**它不由你 new，也不由你调**——全树唯一的消费者是 `TaleWorlds.Library/TestContext.cs`：它按命令行 `/runTest <TypeName>` 反射找出你的类型，`as AsyncRunner` 转型后 `new Thread(..., "ManagedAsyncThread")` 跑 `Run()`，同时在自己的主循环里每帧调 `SyncTick()`（条件是 `_asyncThread.IsAlive`）。也就是说：**你写的是契约，跑测器是宿主**。
+
+### 典型用法
+
+上面「真实示例」第一段是契约的标准形状，第二段是复刻定位逻辑。真正会咬人的地方在清理——`OnRemove` 虽然声明了，但 1.4.5 的 `TestContext.cs` 对 `_asyncRunner` 的 7 处引用里**没有一处是它**，所以它是个死钩子：
+
+```csharp
+public class MyTestRunner : AsyncRunner
+{
+    private readonly List<string> _log = new List<string>();
+
+    public override void Run()
+    {
+        try
+        {
+            this._log.Add("started");
+            // 测试体在这里；跑测器在独立线程上执行这一段
+        }
+        finally
+        {
+            // OnRemove 是死钩子：清理只能自己挂在 Run 的 finally 上，
+            // 否则 Run 抛异常时永远没有清理，而调用方连日志都拿不到
+            MBDebug.Print("[MyMod] runner exited, log entries = " + this._log.Count);
+        }
+    }
+
+    public override void SyncTick()
+    {
+        // 只有 Run 的线程还活着时才会被调用；它一返回就静默停调，无异常无日志
+        this._log.Add("tick");
+    }
+
+    public override void OnRemove()
+    {
+        // 实现它不产生任何可观察行为
+    }
+}
+```
+
+与上面「真实示例」的差别：那里的派生类用字段 `_shouldKeepRunning` 做协作，并刻意把 `OnRemove` 写成「设置停止标志」——那在本页三个成员里恰好是最不可靠的一条，因为没人会调它。这里把清理**改挂到 `Run` 的 `finally`**，并点明代价：一旦 `Run` 自己返回，`SyncTick` 会静默停调，你不会收到任何通知，所以退出路径必须自己留日志。
+
+### 最容易踩的坑
+
+**它不是游戏 API，模组侧基本不直接调用。** `grep -rn "AsyncRunner"` 在 1.4.5 托管源码里只命中四类位置——它自己、`AwaitableAsyncRunner.cs` 的定义、`TestContext.cs` 的 7 处引用、以及无。战斗、campaign、mission 流程里没有任何一处调用它。
+
 ## 跨版本提示
 
 `AsyncRunner.cs` 在 1.4.5 是 10 行、3 个抽象方法，是原始源码形态。1.3.x / 1.4.6 的同名文件是反编译产物（会多出抽象类的样板）。**跨版本迁移时真正值得核对的不是这三个方法（它们极不可能变），而是「谁在消费它」**：如果某个版本把 `TestContext` 删掉或重构，这个类型就会变成彻底的死代码；反过来，如果它被接到了正式的游戏启动流程（比如某种资源加载跑测器），它的地位就完全不同。**因此判断它有没有用，唯一可靠的方法是在目标版本上重新 `grep -rn "AsyncRunner"` 看引用方，而不是看类型本身。** 顺带注意 `AwaitableAsyncRunner` 这个平行类型——**1.4.5 的 `TestContext` 同时接受两者，所以只盯着 `AsyncRunner` 会漏掉一半的用法。**

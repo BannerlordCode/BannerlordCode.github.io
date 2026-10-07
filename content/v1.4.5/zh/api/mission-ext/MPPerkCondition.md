@@ -8,7 +8,7 @@ description: "MPPerkCondition 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MPPerkCondition<T> : MPPerkCondition where T : MissionMultiplayerGameModeBase`
 **Base:** `MPPerkCondition where T : MissionMultiplayerGameModeBase`
-**File:** `TaleWorlds.MountAndBlade/MPPerkCondition.2.cs`
+**File:** `TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkCondition.cs`
 
 ## 概述
 

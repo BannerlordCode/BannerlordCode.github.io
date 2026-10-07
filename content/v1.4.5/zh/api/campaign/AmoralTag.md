@@ -86,6 +86,45 @@ public class RuthlessTag : ConversationTag
 - **每个 ChoiceTag 都会重算。** `FindMatchingScore` 对每个 `ChoiceTag` 调一次 `IsTagApplicable`，判据越贵越要留意——本例只是两次 trait 读取，可以忽略；如果你派生出一个要遍历世界的标签，那才是真成本。
 - **不受 CampaignOptions 影响。** 无生命死亡循环之类的开关不影响它。
 
+## 怎么用
+
+### 怎么拿到它
+
+不要 `new`。实例是 `ConversationManager.InitializeTags()`（`Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/ConversationManager.cs:1032`）用 `Activator.CreateInstance(item)` 反射建的（`:1063`），键取自 `StringId`，写进 `_tags`（`:1064`）。**这一步只发生在战役初始化，`战斗/对话中途热插一个标签做不到。**
+
+你要「拿到」的是 `AmoralTag.Id`（`AmoralTag.cs:7`，值 `"AmoralTag"`），但**引擎自己从不读这个 `const`**——它只是给 C# 侧引用用的。判据的两个 [TraitObject](../DefaultTraits) 来自 `DefaultTraits.Mercy`（`DefaultTraits.cs:73`）与 `DefaultTraits.Honor`（`:77`），它们是 `Instance._traitMercy` / `_traitHonor` 的属性转发，实例在 `:130`/`:132` 一次性 `Create` 出来，**同一局里是同一批对象引用，可以安全地用 `==` 比较。**
+
+运行时入口是 `Campaign.Current.ConversationManager.IsTagApplicable("AmoralTag", character)`（`ConversationManager.cs:1094`）。
+
+### 典型用法
+
+这标签的真正位置在对话数据的 `ChoiceTag` 上，而不是 C# 调用。打分在 `FindMatchingScore`（`:1013`）：非 `"DefaultTag"` 的每一条都做 `IsTagApplicable(choiceTag.TagName, character) == choiceTag.IsTagReversed`（`:1021`），**成立就把这条变体的分数置为 `-2.1474836E+09f` 直接返回**，一条出局就不再累加别的；全部通过才按 `choiceTag.Weight` 相加（`:1025`-`:1026`）。
+
+所以「要求对方无道德底线」和「要求对方有道德底线」是同一套机制的两面——后者把 `IsTagReversed` 打开。配台词之前先把判据的分界线量出来：
+
+```csharp
+public static class AmoralTagMarginProbe
+{
+    public static void Report(CharacterObject npc)
+    {
+        int mercy = npc.GetTraitLevel(DefaultTraits.Mercy);
+        int honor = npc.GetTraitLevel(DefaultTraits.Honor);
+        int sum = mercy + honor;
+        Debug.Print(npc.Name + " mercy=" + mercy + " honor=" + honor + " sum=" + sum, 0);
+        bool amoral = Campaign.Current.ConversationManager.IsTagApplicable(AmoralTag.Id, npc);
+        Debug.Print("amoral=" + amoral + " (strictly sum<0 required)", 0);
+    }
+}
+```
+
+`GetTraitLevel`（`CharacterObject.cs:773`）内部先判 `IsHero`：是英雄就转发 `HeroObject.GetTraitLevel(trait)`（`:777`），否则读普通角色的 `_characterTraits`（`:779`）。**两条路都返回 `int`，所以标签对非英雄 NPC 一样成立**——这也是为什么「无道德」的商人与平民也会吃到这条标签。
+
+阈值是**严格小于 0**：Honor 与 Mercy 一正一负、绝对值相等时刚好等于 0，不算 Amoral。想放宽成 `<= 0` 或改判 Mercy 单项，只能派生一个新标签——`const Id` 不会替你调。
+
+### 最容易踩的坑
+
+**不是可 `new` 的运行时对象。** 没有任何公开构造以外的注册途径；`InitializeTags` 一次性建好全部实例并缓存。战斗/对话中途想热插一个标签做不到。
+
 ## 跨版本提示
 
 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/AmoralTag.cs` 是 15 行、4 个成员（1 个 `const`、1 个 override 属性、1 个 override 方法），判据单行、没有任何条件编译分支。1.4.6 与 1.3.15 同名文件的公开表面与之逐成员一致，未见新增或移除。

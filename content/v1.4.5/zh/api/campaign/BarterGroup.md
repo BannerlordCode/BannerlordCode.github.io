@@ -138,6 +138,53 @@ public static List<BarterGroup> SortedByAiWeight()
 - **抽象类，必须实现。** 但它**没有 `sealed` 的官方实现**——六个官方分组都可被继承，也就是说 mod 可以意外地让某个分组语义漂移。
 - **`BarterGroup` 不进存档。** 它是一次性交易会话里的临时路由对象；存档存的是交易结果，不是分组。
 
+## 怎么用
+
+### 怎么拿到它
+
+声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/BarterGroup.cs`，`public abstract class`，抽象类，**只有一个抽象成员 `AIDecisionWeight`**，没有构造函数也没有任何字段。
+
+它不由你 new——官方六个实现全部由外交模型现造。真实入口是 `DiplomacyModel.GetBarterGroups()`（抽象声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/DiplomacyModel.cs:132`），默认实现 `DefaultDiplomacyModel.cs:1004` 返回一个 `new BarterGroup[6]`，逐个 `new` 出六个组。
+
+六个权重全部写死在各自文件第 5 行，逐条 grep 得到：`GoldBarterGroup.cs:5` = 0.6、`ItemBarterGroup.cs:5` = 0.5、`PrisonerBarterGroup.cs:5` = 0.7、`FiefBarterGroup.cs:5` = 0.05、`OtherBarterGroup.cs:5` = 0.25、`DefaultsBarterGroup.cs:5` = 0.75。注意这个数组是**每次调用现造的新实例**，不是缓存的单例。
+
+`BarterData` 在构造时就把它整份拷走：`BarterData.cs:42` 写的是 `_barterGroups = Campaign.Current.Models.DiplomacyModel.GetBarterGroups().ToList();`。所以「模型改了」不会影响已经开起来的那笔交易——这一条决定了下面所有写法的边界。
+
+### 典型用法
+
+上面「真实示例」两段分别是「列出当前战役可用的分组与权重」和「往一笔交易里加自定义分组」。中间那条路没人写：**怎么把自定义分组接进模型层，让每一笔新交易都带上它**。
+
+```csharp
+public class MyBarterGroupModel : MBGameModel<DiplomacyModel>
+{
+    public override IEnumerable<BarterGroup> GetBarterGroups()
+    {
+        // DefaultDiplomacyModel.cs:1004 返回的是现造数组；这里要自己拼一个 IEnumerable
+        List<BarterGroup> groups = new List<BarterGroup>(this.BaseModel.GetBarterGroups());
+        groups.Add(new RenownBarterGroup());
+        return groups;
+    }
+}
+```
+
+关键在于**必须转发 `BaseModel`**。默认实现那六个组是硬编码在 `DefaultDiplomacyModel` 的方法体里的，不转发就等于把金币、物品、囚犯、领地四类交易全部删掉。
+
+新增一个组要在两处同时落地：模型层提供实例，`BarterData` 构造时才会把它拷进自己的 `_barterGroups`。少了模型层这一步，你在交易里调 `AddBarterGroup` 加进去的组只对当前这一笔有效，下一笔交易就又没有了。
+
+权重只有 AI 自动交易会读。玩家手动谈判完全不经过它，所以调它不会影响玩家看到的行数或顺序，只会改变 AI 选哪一条。
+
+### 什么时候不要用它
+
+不要给权重设负值或超大值而指望有什么反馈——没有上下界校验，返回 10 或 -1 都不报错，但 AI 的选择会失衡，而这种失衡在测试里表现为「AI 行为诡异」而不是崩溃。
+
+也不要指望改权重能改变玩家侧。上面提到过，`BarterVM` 根本不读这个值。
+
+### 最容易踩的坑
+
+`AddBarterable<T>` 匹配不到就静默丢弃：`BarterData` 的实现是 `foreach ... if (barterGroup is T) { ...; break; }`，没有 else 分支。自定义分组忘了接进 `GetBarterGroups()`，你的 barterable 会凭空消失且没有任何报错。
+
+第二条更隐蔽：模型层的改动对**已经开起来**的那笔交易无效，因为 `_barterGroups` 是构造时一次性 `ToList()` 拷走的。改完模型要新开一笔交易才看得到效果。
+
 ## 跨版本提示
 
 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/BarterGroup.cs` 是 6 行原始源码：一个命名空间、一层抽象类、一个抽象属性。跨版本要盯的不是这个文件，而是三个外部依赖：`DiplomacyModel.GetBarterGroups()` 是否仍然返回同样的六个实现、`BarterData.AddBarterable<T>` 是否仍是「first-match + 静默丢弃」语义、以及六个实现的权重常量是否被调过。

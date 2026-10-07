@@ -79,6 +79,34 @@ description: "AllianceCampaignBehavior 持有的内部值类型：记录两个 K
 - `DailyTickClan`（line 643）：对每对盟友检查 `foundAlliance.EndTime.IsPast`，过期则 `EndAlliance`。
 - `RemoveAlliance`（line 454）/ `OnWarDeclared`（line 670）/ `OnKingdomDestroyed`（line 735）：在宣战破坏或王国被灭时移除相关联盟。
 
+## 怎么用
+
+这不是一个你能 `new` 出来用的类型，它是 `internal struct`，声明在 `AllianceCampaignBehavior.cs:38`，而且被装在行为类的私有列表里。你要用「结盟」这件事，用的是行为类暴露的方法和 [Kingdom](../Kingdom) 上的缓存视图，不是这个结构体本身。
+
+**怎么拿到它**：结构体定义在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/AllianceCampaignBehavior.cs:38`，存放容器 `_alliances` 在 `AllianceCampaignBehavior.cs:131`，存档同步在 `AllianceCampaignBehavior.cs:148` 的 `dataStore.SyncData("_alliances", ref _alliances)`。创建它的唯一路径是行为类的 `StartAlliance`，新实例在 `AllianceCampaignBehavior.cs:447` 被构造、`:448` 入表、`:449` 刷新双方的 `AlliedKingdoms` 缓存。
+
+读取结盟状态走 [Kingdom](../Kingdom) 的公开接口而不是这个结构体：`Kingdom.AlliedKingdoms` 是 `Kingdom.cs:144` 的只读视图，`UpdateAlliedKingdoms()` 在 `Kingdom.cs:521`，`IsAllyWith` 则是对行为接口的转发：
+
+```csharp
+IAllianceCampaignBehavior diplomacy = Campaign.Current.GetCampaignBehavior<IAllianceCampaignBehavior>();
+Kingdom playerRealm = Clan.PlayerClan.Kingdom;
+Kingdom target = Hero.MainHero.MapFaction as Kingdom;
+if (diplomacy.IsAllyWithKingdom(playerRealm, target))
+{
+    CampaignTime until = diplomacy.GetAllianceEndDate(playerRealm, target);
+    Debug.Print("盟约剩余 " + (until - CampaignTime.Now).ToDays() + " 天", 0);
+}
+playerRealm.UpdateAlliedKingdoms();                       // 手动刷新缓存视图
+foreach (Kingdom ally in playerRealm.AlliedKingdoms)     // 读缓存视图
+{
+    Debug.Print("盟友: " + ally.Name, 0);
+}
+```
+
+行为接口上的写入口在 `AllianceCampaignBehavior.cs:327`（`StartAlliance`）、`:366`（`EndAlliance`）、`:404`（`StartCallToWarAgreement`）、`:431`（`DenyCallToWarAgreement`）。延期不是原地改值：`UpdateAllianceEndTime` 用一个全新的 `Alliance` 实例整体替换列表元素，且只在新 `EndTime` 更大时才替换。
+
+**最常见的坑**：`Alliance` 是 `internal` 且由私有 `_alliances` 持有，自行 `new` 或改 `EndTime` 既不会更新 `Kingdom.AlliedKingdoms` 缓存，也不会广播 `OnAllianceStarted` / `OnAllianceEnded` 事件，结果是界面、AI 和外交评分三方各自看到不同的结盟状态。
+
 ## 示例
 
 ### 示例 1：查询两个王国是否结盟并读取到期时间

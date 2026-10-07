@@ -8,7 +8,7 @@ description: "角色成长界面里「某个属性绑定了哪些技能」列表
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public class AttributeBoundSkillItemVM : ViewModel`  
 **Base:** `ViewModel`  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper/AttributeBoundSkillItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper/AttributeBoundSkillItemVM.cs`
 
 ## 概述
 

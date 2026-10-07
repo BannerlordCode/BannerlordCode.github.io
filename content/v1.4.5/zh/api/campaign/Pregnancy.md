@@ -125,6 +125,60 @@ public override void DailyTickHero(Hero hero)
 }
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/PregnancyCampaignBehavior.cs`（`Pregnancy` 声明在 `:35`-`:79`）。
+**公开镜像：** `Hero.IsPregnant`——**它是一个 public 字段，不是属性**（`Hero.cs:163`）。
+
+`internal class Pregnancy`（`PregnancyCampaignBehavior.cs:35`），三个 `readonly` 存档字段：`Mother` 是 `[SaveableField(1)]`（`:37`-`:38`）、`Father` 是 `[SaveableField(2)]`（`:41`-`:42`）、`DueDate` 是 `[SaveableField(3)]`（`:43`-`:44`）。**id 是连续的 1/2/3，没有跳号。**
+
+**你拿到的是布尔，拿不到的是记录。** `Hero.IsPregnant` 只是一个标记，**真正的三个字段存在 `PregnancyCampaignBehavior` 的私有列表 `_heroPregnancies`（`:81`）里**，而那个列表是 internal 类型的容器，**外部程序集拿不到**。
+
+### 典型用法
+
+**写入的唯一路径是事件。** `ChildConceived(Hero mother)`（`:192`）被 `OnChildConceivedEvent` 触发（`:87`），体内做两件事：`new Pregnancy(mother, mother.Spouse, CampaignTime.DaysFromNow(...PregnancyDurationInDays))`（`:194`）。**注意 father 是当场读 `mother.Spouse` 定下的快照**——之后配偶变了不会改这条记录。
+
+**读取的唯一可靠方式是 `Hero.IsPregnant`。** 但它**只告诉你「有」，不告诉你「谁」**——没有公开的 `DueDate` 查询。所以想算预产期，只能在受孕事件里自己记账。
+
+**有一个自愈机制值得知道：`CheckOffspringsToDeliver(Hero hero)`（`:105`）。** 它先 `_heroPregnancies.Find(x => x.Mother == hero)`（`:107`），**找不到就把 `hero.IsPregnant` 置回 false（`:110`）**。也就是说**只要 `IsPregnant` 与私有列表失配，下一次 daily tick 就会自动把标志抹掉**。
+
+触发这套逻辑的是 `DailyTickHero(Hero hero)`（`:90`），它的门槛有五层，全满足才进入：女性、`!CampaignOptions.IsLifeDeathCycleDisabled`、存活、年龄超过 `AgeModel.HeroComesOfAge`、`Clan == null || !Clan.IsRebelClan`（`:92`）。
+
+**分娩的实现是三重随机，而且顺序是有讲究的。** `CheckOffspringToDeliver`（`:155`）先判 `DueDate.IsFuture || !Mother.IsAlive` 就 return（`:158`）——**产妇已死时永远不会分娩，`OnHeroKilled`（`:197`）负责清理列表**（`:201`）。然后：
+
+1. 先掷双胞胎（`:163`），定下生几个（`1` 或 `2`，`:165`）。
+2. 对每一个**再独立掷一次**死胎（`:169`）——**所以双胞胎是两次独立判定，可能一活一死。**
+3. 活着的那个再掷性别（`:171`）才调 `HeroCreator.DeliverOffSpring`（`:172`）。
+4. 最后派发 `OnGivenBirth(mother, list, num3)`（`:183`）、复位 `IsPregnant`（`:184`）、从列表移除（`:185`）。
+5. **产妇死亡是最后一步**（`:186`），且判据是 `mother != Hero.MainHero`——**玩家不会难产而死。**
+
+想在不改状态的前提下判断「这个英雄现在的妊娠会不会有事」，可以照抄那道门槛：
+
+```csharp
+public static bool EligibleForPregnancyCycle(Hero hero)
+{
+    bool female = hero.IsFemale;
+    bool cycleOn = !CampaignOptions.IsLifeDeathCycleDisabled;
+    bool alive = hero.IsAlive;
+    float adult = Campaign.Current.Models.AgeModel.HeroComesOfAge;
+    bool old = hero.Age > adult;
+    bool notRebel = hero.Clan == null || !hero.Clan.IsRebelClan;
+    Debug.Print(hero.Name + " f=" + female + " cycle=" + cycleOn + " alive=" + alive, 0);
+    Debug.Print("age>" + adult + "? " + old + " notRebel=" + notRebel + " pregnant=" + hero.IsPregnant, 0);
+    return female && cycleOn && alive && old && notRebel;
+}
+```
+
+**上例最后一行返回的只是「能不能进入这套 tick」，不是「会不会怀孕」。** 真正的怀孕还要过 `RefreshSpouseVisit`（`PregnancyCampaignBehavior.cs:118`）里的 `CheckAreNearby`（`:120`）——而 `CheckAreNearby`（`:126`）除了同定居点/同队伍（`:130`）之外，**还有一条 20% 的放行：不在主队氏族里的人直接返回 true（`:134`）**。
+
+**这个 20% 分支是本页最容易被误读的一条。** 它的意思是「跟不在自己氏族里的人『碰上』的概率本来就高」——因为领主带着队伍到处跑，同城遇到别人的配偶是常事。**但它也让两个分居不同城的配偶有 20% 可能怀孕**，而 `RefreshSpouseVisit`（`:120`）里还要再叠一次 `MBRandom.RandomFloat <= PregnancyModel.GetDailyChanceOfPregnancyForHero(hero)`。**两条随机是「与」的关系，最终日概率 = 0.2 × 日概率（当两人不同城不同队时）。**
+
+### 最容易踩的坑
+
+**直接改字段绕过分娩传播**：`Mother` / `Father` / `DueDate` 都是 `readonly`。即便通过反射改值，也不会触发 `CheckOffspringToDeliver` 与 `OnGivenBirth` 广播，结果可能是新生儿永不生成、或 `Hero.IsPregnant` 卡在 true 无法复位。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

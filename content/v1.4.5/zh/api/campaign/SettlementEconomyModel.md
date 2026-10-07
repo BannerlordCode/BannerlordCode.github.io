@@ -74,6 +74,35 @@ description: "城镇经济规则模型：依据城镇繁荣度与物品价格指
   - 副作用：无；由调用方负责真正改金库。
   - 调用时机：`ItemConsumptionBehavior` 的每日消耗结算调用，结果传入 `Town.ChangeGold`。
 
+## 怎么用
+
+这是城镇市场的供需与预算层：20 行、6 个成员，全部是方法，没有一个常量。它管的是「物品类别」维度上的经济，不是单个物品。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementEconomyModel.cs:6`。默认实现注册点是 `SandBoxManager.cs:275` 的 `gameStarter.AddModel(new DefaultSettlementEconomyModel())`。
+
+六个成员的分工：`GetEstimatedDemandForCategory(Town, ItemData, ItemCategory)` 在 `:8` 是按单个物品估需求；`GetDailyDemandForCategory(Town, ItemCategory, int extraProsperity = 0)` 在 `:10` 是按类别算日需求，`extraProsperity` 默认 0；`GetDemandChangeFromValue(float purchaseValue)` 在 `:12` 做价格指数到需求变化的换算；`GetSupplyDemandForCategory(...)` 在 `:14` 返回 `(float, float)` 二元组，同时吐新的供给与需求；`GetTownGoldChange(Town)` 在 `:16` 返回镇库日净流入；`CalculateDailySettlementBudgetForItemCategory(Town, float demand, ItemCategory)` 在 `:18` 是消费预算。
+
+`GetSupplyDemandForCategory` 的六个参数要特别注意：它同时收 `dailySupply` 与 `oldSupply`、`dailyDemand` 与 `oldDemand`，也就是说**它是个状态转移函数而不是纯查询**——传错新旧值会得到漂移的供需。
+
+```csharp
+SettlementEconomyModel economy = Campaign.Current.Models.SettlementEconomyModel;
+Town town = (Town)Settlement.All.First(s => s.IsTown);
+ItemCategory grain = ItemCategory.Grain;
+float dailyDemand = economy.GetDailyDemandForCategory(town, grain);
+Debug.Print(town.Name + " 谷物日需求=" + dailyDemand
+    + " 含额外繁荣度=" + economy.GetDailyDemandForCategory(town, grain, 1000), 0);
+float dailySupply = 100f, oldSupply = 90f, oldDemand = 95f;
+(float newSupply, float newDemand) = economy.GetSupplyDemandForCategory(
+    town, grain, dailySupply, dailyDemand, oldSupply, oldDemand);
+Debug.Print("供给 " + oldSupply + "→" + newSupply + "  需求 " + oldDemand + "→" + newDemand, 0);
+Debug.Print("镇库日净流入=" + economy.GetTownGoldChange(town)
+    + " 价格指数换算需求变化=" + economy.GetDemandChangeFromValue(100f), 0);
+```
+
+外部调用点验证了这套分工：`CaravansCampaignBehavior.cs:1155` 用预算方法决定商队买卖，`ItemConsumptionBehavior.cs:75` 用 `GetTownGoldChange` 结算镇库，`TownMarketData.cs:82` 整份取出来在市场数据里用。
+
+**最常见的坑**：跨战役重载缓存实例。`Campaign.Current.Models.SettlementEconomyModel` 每次新战役或读档都由 `GameModels` 重新解析，缓存进静态字段会指向旧战役的已销毁对象。
+
 ## 示例
 
 ```csharp

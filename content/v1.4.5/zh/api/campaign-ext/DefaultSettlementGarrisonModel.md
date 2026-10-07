@@ -69,6 +69,68 @@ if (settlement?.Town != null)
 - 修墙方法由 `Town` 按段消费，返回值变大并不等于立刻修满；直接把它当比例会造成重复修复。
 - 该 Model 没有保存字段；把 AI 决策缓存放进其中会引入生命周期和存档兼容问题。
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementGarrisonModel.cs`（全文 161 行）。
+**抽象契约：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementGarrisonModel.cs`（5 个 abstract 成员，`:9`-`:17`）。
+**入口：** `Campaign.Current.Models.SettlementGarrisonModel`。
+
+`public class DefaultSettlementGarrisonModel : SettlementGarrisonModel`（`DefaultSettlementGarrisonModel.cs:14`），**五个成员全部 override，零自创逻辑**。
+
+**而 `private const int MaximumDailyAutoRecruitmentCount = 1`（`:38`）是死常量**——`GetMaximumDailyAutoRecruitmentCount(Town town)`（`:40`）直接 `return 1;`（`:42`），**没有引用那个常量**。
+
+### 典型用法
+
+**五个成员里只有两个是纯查询，另外两个会返回随机数。** 这是本页最重要的一条分界：
+
+| 成员 | 返回 | 行号 |
+| --- | --- | --- |
+| `GetMaximumDailyAutoRecruitmentCount` | 固定 `1` | `:40` |
+| `CalculateBaseGarrisonChange` | `ExplainedNumber`（可解释） | `:45` |
+| `FindNumberOfTroopsToTakeFromGarrison` | **`MBRandom.RoundRandomized(...)`（随机）** | `:56` / `:85` |
+| `FindNumberOfTroopsToLeaveToGarrison` | **`MBRandom.RoundRandomized(...)`（随机）** | `:98` / `:142` |
+| `GetMaximumDailyRepairAmount` | `float` | `:148` |
+
+**两个 `FindNumberOfTroops*` 都会掷骰子**（`:85` 与 `:142`），**而它们的入参只有队伍与据点，没有随机种子**。所以**同一对输入调两次会得到不同结果——它们不能当纯函数用来预演 UI。**
+
+**`FindNumberOfTroopsToTakeFromGarrison`（`:56`）与 `FindNumberOfTroopsToLeaveToGarrison`（`:98`）的参数默认值不同，这是签名层面的坑。** 前者第三个参数是 `defaultIdealGarrisonStrengthPerWalledCenter = 0f`（接口 `SettlementGarrisonModel.cs:13` 同名），后者只有两个参数。**调用方写第三个参数时要看清是哪个方法。**
+
+**而这两条路径对「驻军发不出工资」的处理截然不同，这是本页最容易看漏的分叉：**
+
+- **取兵路径**（`:64`）：`HasLimitedWage()` 为真时 `num2 = PaymentLimit / AverageWage` 再 `/= 1.5f`（`:66`-`:67`），**限薪时上限由经济状况决定，且额外打六折**。
+- **还兵路径**（`:107`）：同样条件下 `num2 = PaymentLimit / AverageWage`（`:109`），**但没有那个 `/= 1.5f`**。
+- 两者在不限薪时的系数个数也不同：取兵只乘 `OwnerClanEconomyEffectOnGarrisonSizeConstant`（`:72`-`:73`）与城镇类型（`:74`）；还兵多乘繁荣（`:115`）与粮食潜力（`:116`）。
+
+**也就是说「理想驻军规模」这两个方法算的不是同一个数**——一个是缺兵时的取数上限，一个是欠兵时的补给上限。
+
+还有个保留地板：取兵路径的 `num9`（`:87`）从 `25` 起，城镇翻倍成 `50`（`:88`），**而 `:89` 会把结果夹到「留够地板」以内**。所以**再穷也抢不走 25/50 个常规兵。**
+
+```csharp
+public static void AuditGarrison(Settlement town, MobileParty army)
+{
+    SettlementGarrisonModel model = Campaign.Current.Models.SettlementGarrisonModel;
+    ExplainedNumber baseChange = model.CalculateBaseGarrisonChange(town, includeDescriptions: true);
+    Debug.Print("baseChange=" + baseChange.ResultNumber + " lines=" + baseChange.Lines.Count, 0);
+    int takeA = model.FindNumberOfTroopsToTakeFromGarrison(army, town);
+    int takeB = model.FindNumberOfTroopsToTakeFromGarrison(army, town);
+    Debug.Print("take=" + takeA + " then " + takeB + " (randomised each call)", 0);
+    Debug.Print("dailyAutoRecruit=" + model.GetMaximumDailyAutoRecruitmentCount(town.Town)
+        + " repairPerDay=" + model.GetMaximumDailyRepairAmount(town), 0);
+}
+```
+
+**上例第二行连调两次就是为了把「随机」这件事显出来**——两次相等纯属巧合。**而第三行的 `dailyAutoRecruit` 恒为 1**，那个常量改了也没用。
+
+`GetMaximumDailyRepairAmount(Settlement settlement)`（`:148`）有一个早退：被围或全部墙段完好时返回 `0f`（`:150`-`:153`）；否则按 `MaxHitPointsOfOneWallSection × WallSectionCount × 0.04f` 算（`:154`），**且仅当 `IsFortification` 才叠建筑加成**（`:155`-`:158`）。
+
+唯一真实调用点在 AI 侧：`AiVisitSettlementBehavior.cs:578` 调 `FindNumberOfTroopsToTakeFromGarrison(mobileParty, settlement, idealGarrisonStrengthPerWalledCenter)`。
+
+### 最容易踩的坑
+
+- 该类 5 个 override 中有 2 个（`FindNumberOfTroopsToTakeFromGarrison` / `FindNumberOfTroopsToLeaveToGarrison`）内部用 `MBRandom.RoundRandomized` 返回随机值；拿它们做预测或 UI 预演会得到每次不同的数字。
+
 ## 导航
 
 - [上级：Campaign-Ext](..)

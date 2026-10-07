@@ -162,6 +162,61 @@ public static string DescribeActiveBarber()
 - **`Character` 的类型是 `BasicCharacterObject`，不是 `Hero`。** 传 `Hero.CharacterObject`（`CharacterObject` 类型）到 `CreateState<BarberState>` 会因为参数类型不匹配而失败——`Activator.CreateInstance` 找不到匹配构造器时抛异常。
 - **`CharacterHelper.GetFaceGeneratorFilter()` 依赖 `Campaign.Current`。** `Campaign.Current` 为 null 时 NRE；没有注册 `IFacegenCampaignBehavior` 时返回 null。
 
+## 怎么用
+
+### 怎么拿到它
+
+声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/BarberState.cs:5`，继承 `TaleWorlds.Core.GameState`，命名空间 `TaleWorlds.CampaignSystem.GameState`。有一件事必须先说清楚，它决定了这个类型怎么用：`grep -rlw "BarberState" --include=*.cs` 在整棵 v1.4.5 反编译树里**只命中一个文件，就是它自己的声明**。零生产者，也零消费者。
+
+也就是说没有任何官方代码会替你构造它或读它。真正消费 `Character` 与 `Filter` 的那个 VM 类不在这份反编译语料里——它要么在未随附的某个程序集，要么在 1.4.5 这一版被重构掉了。所以入口只剩你自己：显式 `new`，或者走 `GameStateManager.CreateState<T>` 的反射路径，然后 `PushState`。
+
+两个构造器的差别只在赋值时机：无参构造器把 `Character` 与 `Filter` 全留成 null；两参构造器同时写入两者，之后 `Character` 仍是 public 字段（任何时候可写），而 `Filter` 是 `{ get; private set; }`（**只有构造时能定**）。这个不对称是本页所有坑的根源。
+
+### 典型用法
+
+上面「真实示例」两段给的是两条推送路径：有参构造，和无参构造之后手工补 `Character`。下面这段是第三条，重点在推送之前多做一次就绪判定——因为 `Filter` 一旦入栈就再没有别的写法能改它：
+
+```csharp
+public static bool TryOpenBarber(BasicCharacterObject target)
+{
+    if (Game.Current == null || target == null)
+    {
+        return false;
+    }
+    GameStateManager manager = Game.Current.GameStateManager;
+
+    // Filter 是 { get; private set; }：只能在 CreateState 的这一刻定下来
+    IFaceGeneratorCustomFilter filter = CharacterHelper.GetFaceGeneratorFilter();
+
+    BarberState state = manager.CreateState<BarberState>(target, filter);
+    if (state == null)
+    {
+        return false;
+    }
+
+    // Character 是 public 字段，推栈后仍可写；但写 null 没有任何断言会拦你
+    state.Character = target;
+    manager.PushState(state);
+    return true;
+}
+```
+
+整段的可执行前提只有两条：`Game.Current` 非空、`target` 非空。因为零调用点，`CreateState` 走的是通用反射路径，不会有人替你把这两条校验掉。相比示例里的直接推送，这里多了一个 `state == null` 判定——`CreateState` 内部是 `Activator.CreateInstance`，参数形状对不上时返回 null 而不是抛异常。
+
+`IsMenuState => true` 与走哪条构造器无关，推上去之后菜单音乐都会继续播放。想换人操作时，正确做法是 Pop 之后再 Push，而不是直接给 `Character` 重新赋值：它是字段不是属性，改它不触发任何变更通知，而在 v1.4.5 这棵树里你看不到消费方来补救。
+
+### 什么时候不要用它
+
+零调用点意味着这是一个**没有契约保护**的类型：没有官方行为依赖它的字段顺序，没有断言，没有版本迁移代码。所以不要把它当成扩展点来继承或改造，也不要指望改字段会立刻在界面上看到反应。
+
+在 v1.4.5 上更实用的做法是绕过整个 state 层——直接调 `CharacterHelper` 的创意菜单相关方法，自己管生命周期。代价是你要自己实现 `IsMenuState` 那一层本该由框架提供的音频行为。
+
+### 最容易踩的坑
+
+无参构造器之后 `Character` 与 `Filter` 都是 null，而 `Character` 是 public 字段，你可以在任何时候把它清成 null，**没有任何断言拦住你**。`Filter` 的方向正好相反：它是 `private set`，推送之后连改都改不了，只能 Pop 出来重新 Push 一遍。
+
+两个成员一个「随时可写但无保护」、一个「构造后不可写」，这个反向关系在复用同一个 state 实例时最容易出事：上一次留下的 `Filter` 会跟着这一次一起生效，而你以为它是新传的。
+
 ## 跨版本提示
 
 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/BarberState.cs` 是 22 行原始源码。跨版本比对时盯四点：两个构造器是否都还在（无参那个是 `CreateState<T>()` 无参重载的硬要求）、`Character` 是否仍是 public 字段而非属性、`Filter` 是否仍是 `private set`、`IsMenuState` 是否仍返回 true。另外注意基类 `GameState` 在 `TaleWorlds.Core` 而本类在 `TaleWorlds.CampaignSystem.GameState`，基类演进（`HandleFinalize` 的行为）会直接影响本页描述的生命周期。

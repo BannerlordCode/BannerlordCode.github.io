@@ -66,6 +66,38 @@ Campaign.Current.IssueManager.AddPotentialIssueData(
 | `ArtisanOverpricedGoodsIssue.OnGameLoad()` | `protected override void OnGameLoad()` | 读档补算：`if (RequestedTradeGoodAmount == 0 || _goldReward == 0) CalculateTradeGoodsAmountAndReward();`（`:381-387`）。这是**为旧存档没有这两个字段准备的兼容路径**，不是 bug。 |
 | `ArtisanOverpricedGoodsIssue.GenerateIssueQuest(string questId)` | `protected override QuestBase GenerateIssueQuest(string questId)` | 生成 30 天任务：`new ArtisanOverpricedGoodsIssueQuest(questId, IssueOwner, CampaignTime.DaysFromNow(30f), _requestedTradeGood, RewardGold, RequestedTradeGoodAmount, CounterOfferHero)`（`:393-396`）。**注意 `counterOfferHero` 参数在任务构造器签名里存在（`:515`）但函数体完全没用它**——反派人信息只在问题层，不传给任务。 |
 
+## 怎么用
+
+这是问题系统里「触发时收集参数」的标准范式示范：`OnCheckForIssue` 判定成立时会把「哪个商人是反派人」和「哪种原材料被抬价」当场定下来，塞进载荷里随存档一起走。
+
+**怎么拿到它**：注册点是 `SandBoxManager.cs:164` 的 `gameStarter.AddBehavior(new ArtisanOverpricedGoodsIssueBehavior())`，声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/ArtisanOverpricedGoodsIssueBehavior.cs:19`，问题本体是同文件 `:21` 的嵌套 `ArtisanOverpricedGoodsIssue : IssueBase`。事件订阅在 `ArtisanOverpricedGoodsIssueBehavior.cs:723`，投递入口是 `IssueManager.cs:215` 的 `AddPotentialIssueData`，载荷构造在 `PotentialIssueData.cs:21`。
+
+带载荷的派发形状比无参派发多一步：投递时造一个 `KeyValuePair`，`OnStartIssue` 里再把它从 `pid.RelatedObject` 强转回来。你的 mod 抄这个形状时要连同 `in` 修饰一起抄——委托签名在 `PotentialIssueData.cs:7`。
+
+```csharp
+// 诊断用：遍历问题管理器里已激活的问题，看它落在哪个状态
+IssueManager manager = Campaign.Current.IssueManager;
+foreach (KeyValuePair<Hero, IssueBase> pair in manager.Issues)
+{
+    if (!(pair.Value is ArtisanOverpricedGoodsIssue)) continue;
+    ArtisanOverpricedGoodsIssue concrete = (ArtisanOverpricedGoodsIssue)pair.Value;
+    Debug.Print(pair.Key.Name + " 存活=" + concrete.IssueStayAliveConditions()
+        + " 有替代解=" + concrete.IsThereAlternativeSolution
+        + " 有领主解=" + concrete.IsThereLordSolution, 0);
+    Debug.Print("无任务进行中=" + concrete.IsOngoingWithoutQuest
+        + " 带任务=" + concrete.IsSolvingWithQuestSolution
+        + " 截止=" + concrete.IssueDueTime, 0);
+}
+```
+
+`IssueStayAliveConditions` 的覆写在 `ArtisanOverpricedGoodsIssueBehavior.cs:288`，`AlternativeSolutionCondition` 在 `:306`，两个能力开关是同文件 `:175` 与 `:177` 的表达式体属性。构造器在 `:271`，签名已经把三个参数拆开：`(Hero issueOwner, Hero counterOfferHero, ItemObject requestedTradeGood)`——这正是载荷携带的信息，行为侧在 `:771` 的 `OnStartIssue` 里做的是把它们重新装回构造器。
+
+行为侧另外两个私有成员决定了「谁能被当成反派人」和「能要什么」：`GetAntagonistMerchant` 在 `ArtisanOverpricedGoodsIssueBehavior.cs:743`，`ConditionsHold` 在 `:748`，`PossibleRequestedItems` 在 `:708`，触发频率常量在 `:704`。这个类型和「卖不掉货」那个的最大差别就在这里：它的载荷会随存档一起走，所以目标商人即使在问题存活期内换了城也不会错位。
+
+难度参数同样是「基础值 + 系数 × IssueDifficultyMultiplier」的形状：替代解人数在 `:39`，替代解时长在 `:41`，放大维度由 `:43` 的 `AlternativeSolutionScaleFlags` 决定；领主解所需影响力在 `:55`，同伴技能经验奖励在 `:220`。想调平衡就改这几个，而不是改行为侧的判定。
+
+**最常见的坑**：行为上的 `SyncData` 是空的，不能挂需要持久化的字段。想改触发规则就得重写整个行为类，因为 `ConditionsHold`、`GetAntagonistMerchant`、`PossibleRequestedItems` 全是私有的。
+
 ## 真实示例
 
 注册这个行为（形状照 `SandBoxManager.cs:164`）：

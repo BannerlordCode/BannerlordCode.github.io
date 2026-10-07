@@ -181,6 +181,61 @@ Campaign.Current.Models.MobilePartyAIModel.GetBestInitiativeBehavior(
 // 为 AiBehavior.FleeToPoint / FleeToGate 表示应逃跑，averageEnemyVec 指向威胁方向
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/MobilePartyAIModel.cs`（全文 43 行）。
+**入口：** `Campaign.Current.Models.MobilePartyAIModel`（由 `GameModels` 在战役建立 / 读档时解析）。
+
+`public abstract class MobilePartyAIModel : MBGameModel<MobilePartyAIModel>`（`MobilePartyAIModel.cs:8`），**16 个成员全是 abstract**——**这是本批里成员最多的 Model。**
+
+**16 个成员里 10 个是裸 `float` 常量（`:10`-`:30`），5 个是判定/查询，唯一一个是 `void` + 4 个 `out`（`:42`）。** 也就是说：**这个 Model 的大部分表面是一张调参表，不是一组行为。**
+
+### 典型用法
+
+**10 个常量里有一组三岔的，是本页最需要记的：**
+
+- `HideoutPatrolDistanceAsDays`（`MobilePartyAIModel.cs:16`）——藏身处
+- `FortificationPatrolDistanceAsDays`（`:18`）——普通堡垒
+- `FortificationPortPatrolDistanceAsDays`（`:20`）——**带港口的堡垒，距离更远**
+- `VillagePatrolDistanceAsDays`（`:22`）——村庄
+
+**四个名字都是 `Patrol` 单 l，没有拼写变体。** 但前两个与第三个只差一个 `Port` 中缀，**IDE 补全时极易选错。**
+
+**带 `AsDays` 后缀的四个（`MobilePartyAIModel.cs:16`/`:18`/`:20`/`:22`）返回的是「天」，不是距离。** 它们要被消费方乘以每日移动量才变成实际距离。**直接当距离用是最常见的量纲错误。**
+
+**而 `SettlementDefendingNearbyPartyCheckRadius`（`MobilePartyAIModel.cs:24`）与 `SettlementDefendingWaitingPositionRadius`（`:26`）才是真正的距离**，且它们是一对：一个管「多远算需要支援」，一个管「支援时站多远」。
+
+唯一带 `out` 的成员 `GetBestInitiativeBehavior`（`MobilePartyAIModel.cs:42`）一次吐四个值——**行为、目标方、分数、以及 `out Vec2 averageEnemyVec`**。最后一个是「敌方重心方向」，用于计算主动迎敌的方向。**四个 `out` 必须全部声明才能调用，漏一个就编不过。**
+
+```csharp
+public static void DumpAiTuning(MobileParty party, MobileParty target)
+{
+    MobilePartyAIModel model = Campaign.Current.Models.MobilePartyAIModel;
+    Debug.Print("checkInterval=" + model.AiCheckInterval + " fleePartyR=" + model.FleeToNearbyPartyRadius, 0);
+    Debug.Print("days-not-distance: hideout=" + model.HideoutPatrolDistanceAsDays
+        + " fort=" + model.FortificationPatrolDistanceAsDays
+        + " port=" + model.FortificationPortPatrolDistanceAsDays, 0);
+    Debug.Print("real distances: defCheckR=" + model.SettlementDefendingNearbyPartyCheckRadius
+        + " defWaitR=" + model.SettlementDefendingWaitingPositionRadius, 0);
+    Debug.Print("avoid=" + model.ShouldConsiderAvoiding(party, target)
+        + " attack=" + model.ShouldConsiderAttacking(party, target), 0);
+    float patrolR = model.GetPatrolRadius(party, party.Position);
+    Debug.Print("patrolRadius=" + patrolR + " (per-party, not the constant)", 0);
+}
+```
+
+**`GetPatrolRadius(mobileParty, patrolPoint)`（`MobilePartyAIModel.cs:36`）与那四个 `*AsDays` 常量不是一回事**：前者是逐队伍算出来的实际半径，后者是常量天数。**二者混用会让巡逻范围差一个数量级。**
+
+**`GetSettlementNearbyThreatAndAllyCheckRadius(settlement, isPort)`（`MobilePartyAIModel.cs:38`）的 `isPort` 是个布尔开关**——同样的定居点，传 `true` 与 `false` 得到不同半径，**因为港口需要看得更远**。
+
+两个阈值 `NeededFoodsInDaysThresholdForSiege`（`MobilePartyAIModel.cs:28`）与 `NeededFoodsInDaysThresholdForRaid`（`:30`）**都是「还能撑几天」，不是粮数**。它们比的是 `GetNumDaysForFoodToLast()`，用天数阈值去比粮堆数量是量纲错。
+
+### 最容易踩的坑
+
+**跨战役重载缓存实例**：`Campaign.Current.Models.MobilePartyAIModel` 在每次新战役/读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长期字段，战役重载后会指向旧战役的已销毁对象，调用即崩溃或读到陈旧规则。每次需要时都重新走 `Campaign.Current.Models` 获取。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

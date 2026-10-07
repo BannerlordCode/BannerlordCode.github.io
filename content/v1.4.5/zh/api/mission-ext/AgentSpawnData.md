@@ -43,10 +43,20 @@ description: "创建 Agent 时交给 native 的身体参数快照：19 个字段
 | `RelativeSpeedLimitForCharge` | `public float RelativeSpeedLimitForCharge`（字段） | 发起冲锋的相对速度上限，用来防止贴脸的单位以近乎零的相对速度触发冲锋判定。 |
 | `EyeOffsetWrtHead` / `FirstPersonCameraOffsetWrtHead` | `public Vec3 ...`（字段） | 眼睛与第一人称镜头相对头部骨骼的偏移。改这个能修「第一人称视角眼位偏高/偏低」，是最常被 mod 调的两个字段。 |
 
+## 死成员与陷阱
+
+清单把 `MonsterUsageIndex` 报成「调用点 0」，实测它被对象初始化器写过一次 —— 不是死成员。
+
+| 成员 | 声明位置 | override | 调用点 | 判定 | 说明 |
+|---|---|---:|---:|---|---|
+| `MonsterUsageIndex` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentSpawnData.cs:11 | 0 | 1 次（1 行） | MEASURED | 在 `MonsterExtensions.cs:139` 由对象初始化器赋值 `MonsterUsageIndex = Agent.GetMonsterUsageIndex(monster.MonsterUsage)`。初始化器赋值不是调用形，工具计成 0。注意它只被写、未见被读。 |
+
 ## 真实示例
 
 从 `Monster` 取一份生产值（官方唯一推荐的方式，`FillSpawnData` 会把 19 个字段全部填满）：
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.5 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;

@@ -1,46 +1,87 @@
 ---
 title: "BattleSpawnModel"
-description: "战斗刷兵分配模型：把一批 IAgentOriginBase 映射成「阵型下标」的列表，分初始部署与增援两次调用，是战役刷兵编成的替换点。"
+description: "刷兵分配的抽象契约：19 行、4 个成员、2 个抽象方法。回答「这批 troops 按什么顺序编进哪支阵型」，由 CustomBattle / Multiplayer / Sandbox 三个模块各实现一份，通过 MissionGameModels.Current.BattleSpawnModel 取用。"
 ---
 
 # BattleSpawnModel
 
-**Namespace:** `TaleWorlds.MountAndBlade.ComponentInterfaces`
-**Module:** `TaleWorlds.MountAndBlade`
+**Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
+**Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class BattleSpawnModel : MBGameModel<BattleSpawnModel>`
-**Base:** `TaleWorlds.Core.MBGameModel<BattleSpawnModel>`
-**File:** `TaleWorlds.MountAndBlade.ComponentInterfaces/BattleSpawnModel.cs`
+**Base:** `MBGameModel<BattleSpawnModel>`
+**File:** `TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/BattleSpawnModel.cs`
 
 ## 概述
 
-`BattleSpawnModel` 全文 19 行，回答一个问题：**这一批「士兵来源」各自应该编进哪支阵型？** 它的两个抽象方法都返回 `List<(IAgentOriginBase origin, int formationIndex)>`——`origin` 是这批兵里的一个来源（对应 campaign 或 multiplayer 的一支部队），`formationIndex` 是它要进的阵型下标（`FormationClass` 的数值）。两个方法分别是 `GetInitialSpawnAssignments`（开局部署）和 `GetReinforcementAssignments`（增援波次）。
+全文 19 行、4 个成员：两个空 `virtual` 生命周期钩子加两个 `abstract` 分配方法。它是整个战斗刷兵流程的**策略接口**——真正干活的是三个模块实现：CustomBattle 的 [CustomBattleSpawnModel](../CustomBattleSpawnModel/)、联机的 [MultiplayerBattleSpawnModel](../MultiplayerBattleSpawnModel/)、沙盒的 [SandboxBattleSpawnModel](../../campaign-ext/SandboxBattleSpawnModel/)（实测三个，声明分别在 `CustomBattleSpawnModel.cs:7`、`MultiplayerBattleSpawnModel.cs:7`、`SandboxBattleSpawnModel.cs:12`）。
 
-它不决定人数、不决定位置、不决定装备——那些在 [Mission](../../mission/Mission/) 的刷兵上下文里。它只做**编成分配**这一步，而且是纯函数式的（没有 `ref`、没有副作用声明）。**这是 `[SandBox] GameComponents` 的替换点**：全树三个实现——`CustomBattleSpawnModel`、`MultiplayerBattleSpawnModel`、`SandboxBattleSpawnModel`（`Modules.SandBox/SandBox/Sandbox.GameComponents/SandboxBattleSpawnModel.cs:12`）。
+取用方式固定为一条链。持有人在 `MissionGameModels.cs:27`，那里写着 `public BattleSpawnModel BattleSpawnModel { get; private set; }`。初始化发生在 `MissionGameModels.cs:53`，那里是一句 `GetGameModel<BattleSpawnModel>()`。
+
+运行时只有两个消费者，都在 [MissionBattleSideSpawnContext](../MissionBattleSideSpawnContext/) 里。初始布阵在 `MissionBattleSideSpawnContext.cs:303`，实参是 `_side` 与 `item5.origins`。增援布阵在 `MissionBattleSideSpawnContext.cs:499`，实参是 `_side` 与 `_reservedTroops`。
+
+两个方法的返回值类型完全一样：`List<(IAgentOriginBase origin, int formationIndex)>`——**一个 IAgentOriginBase 加上一个阵型下标**。初始与增援的区别不在签名里，而在实现里。
 
 ## 心智模型
 
-把它当成**「编队分配器」**：输入一批 origin，输出一批「origin → 阵型下标」的配对。四个推论：
+把它当成**「一份 troops 清单怎么分配成阵型花名册」的策略接口**。四条推论：
 
-第一，**返回值必须是 `List<>` 而不是 `IList<>`/`IEnumerable<>`**，签名写死了具体类型。返回 `null` 会在下游 `MissionBattleSideSpawnContext.cs:303` 拿到 null 之后直接炸。
+第一，**它是游戏模型，所以自带「基模型」概念。** `BaseModel` 是 `MBGameModel.cs:5` 上的 `protected T BaseModel { get; private set; }`，由 `MBGameModel.cs:7` 的 `Initialize(T baseModel)` 填进去。这意味着 Sandbox 的实现可以在自己的实现里调 `BaseModel` 去问底层的 CustomBattle 实现——**这是 mod 想改刷兵顺序时唯一能拿到的官方入口**，比反射改 private 字段干净得多。
 
-第二，**「返回列表的顺序」和「列表里 origin 的顺序」无关，调用方是按 origin 匹配的**。看 `MissionBattleSideSpawnContext.cs:303` 的用法：它拿到 `list3` 后与自己的 origin 集合一起遍历配对。所以你的实现不能假设「第 i 项对应输入的第 i 项」——但**也不能丢项**：任何没出现在返回列表里的 origin 就没有阵型可去。
+第二，**两个 `abstract` 方法返回的是「(来源, 阵型下标)」配对，不是 Agent、不是 Formation 对象。** 返回的是 [IAgentOriginBase](../../core-extra/IAgentOriginBase/)（`TaleWorlds.Core`），也就是「这批兵从哪来」；`formationIndex` 是 `int`。真正的 Agent 要由消费方拿这两样去 spawn——**这个接口不碰 Agent，也不碰 Mission。** 你在实现里 `new` 一个 Agent 是越界的。
 
-第三，**`formationIndex` 是裸 int，不是 `FormationClass` 枚举**。`CustomBattleSpawnModel.GetInitialSpawnAssignments` 的做法是 `(troopOrigin, (int)Mission.Current.GetAgentTroopClass(battleSide, troopOrigin.Troop))`——显式转成 int。所以自定义实现必须自己保证取值落在 `FormationClass` 的合法范围内。
+第三，**它只有 `List<IAgentOriginBase>` 输入，没有兵力、队伍、难度、位置这些上下文。** 想知道「一共多少人」「哪一方」「有没有马」都得自己去问。注意 `battleSide` 是**形参**而不是实例状态，所以同一个模型实例要同时服务两方——**实现里绝不能把 `battleSide` 缓存成字段。**
 
-第四，**`OnMissionStart` / `OnMissionEnd` 是虚方法且基类实现为空**，它们是给需要跨整个任务维护状态的实现用的挂载点（`SandboxBattleSpawnModel` 就是在这两个钩子里调 `MissionReinforcementsHelper.OnMissionStart/OnMissionEnd`）。它们由谁调用要小心——本类自身不调，全树对这两个方法的调用需要单独确认。
+第四，**两个生命周期钩子是空的，但它们是官方唯一承诺的挂钩点。** 至少它们的存在保证了「刷兵前 / 刷兵后」各有一个可以插手的位置，而不用去改 mission behavior 列表。**想改刷兵时机，优先覆写这两个钩子，而不是去动 [BattleSpawnLogic](../BattleSpawnLogic/)。**
+
+## 如何使用
+
+**拿法：** 不要 `new`。全局单例挂在 `MissionGameModels.Current` 上：
+
+```csharp
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public static class MyModSpawnInspector
+{
+    public static void DumpInitialAssignments(BattleSideEnum side, List<IAgentOriginBase> troopOrigins)
+    {
+        // 属性声明在 MissionGameModels.cs:27，由 MissionGameModels.cs:53 赋值
+        BattleSpawnModel model = MissionGameModels.Current.BattleSpawnModel;
+
+        List<(IAgentOriginBase origin, int formationIndex)> assignments =
+            model.GetInitialSpawnAssignments(side, troopOrigins);
+
+        foreach (var (origin, formationIndex) in assignments)
+        {
+            Debug.Print("origin -> formation " + formationIndex, 0);
+        }
+    }
+}
+```
+
+**最容易踩的一条：** 把 `battleSide` 记成字段。它是形参，而同一个模型实例被两个 `BattleSideEnum` 各调一次。缓下来第二次就会拿守方的结果当攻方的用。**每次都读形参。**
 
 ## 关键成员
 
 | 成员 | 签名 | 这个成员是做什么用的 |
 | --- | --- | --- |
-| `GetInitialSpawnAssignments` | `public abstract List<(IAgentOriginBase origin, int formationIndex)> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)` | 开局部署阶段的分配。调用点在 `MissionBattleSideSpawnContext.cs:303`，传进来的是本方尚未分配的全部 origin。返回值决定了每一支部队在开局时编进哪支阵型——直接决定战场上的初始阵型分布（步兵/弓/骑）。**必须实现**。 |
-| `GetReinforcementAssignments` | `public abstract List<(IAgentOriginBase origin, int formationIndex)> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)` | 增援波次的分配。调用点在 `MissionBattleSideSpawnContext.cs:499`，传的是 `_reservedTroops`（预留的增援来源）。和初始部署的差别在于这批人不在战场上、还在后方等着按波次进来。**必须实现**。 |
-| `OnMissionStart` | `public virtual void OnMissionStart()` | 任务开始时的钩子。基类实现是空的。官方实现（`CustomBattleSpawnModel` 与 `SandboxBattleSpawnModel`）都在这里调 `MissionReinforcementsHelper.OnMissionStart()` 来重置增援计时——这是本类里唯一适合做「跨整个任务的状态初始化」的位置。 |
-| `OnMissionEnd` | `public virtual void OnMissionEnd()` | 任务结束的清理钩子，同样默认空实现。官方实现与 `OnMissionStart` 成对，都转到 `MissionReinforcementsHelper`。**不实现它，跨任务的残留状态会带进下一次战斗**。 |
+| 类声明 | `public abstract class BattleSpawnModel : MBGameModel<BattleSpawnModel>`（`BattleSpawnModel.cs:6`） | 命名空间是 `TaleWorlds.MountAndBlade.ComponentInterfaces`，文件前两行是 `using System.Collections.Generic;` 与 `using TaleWorlds.Core;`，**和其他 mission-ext 类不在同一个命名空间**。`MBGameModel<BattleSpawnModel>` 自引用，所以它同时是「游戏模型」和「自己的基类」。 |
+| `OnMissionStart` | `public virtual void OnMissionStart()`（`BattleSpawnModel.cs:8`） | 空生命周期钩子。**不接收任何参数**——想知道刷的是哪一边、哪张图，得自己去问 `Mission.Current`。这是 mod 挂初始化逻辑的第一个点。 |
+| `OnMissionEnd` | `public virtual void OnMissionEnd()`（`BattleSpawnModel.cs:12`） | 同样无参、同样空。刷兵结束时的清理点。**和 `OnMissionStart` 一样，看不到 Mission 参数。** |
+| `GetInitialSpawnAssignments` | `public abstract List<(IAgentOriginBase origin, int formationIndex)> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`（`BattleSpawnModel.cs:16`） | **本类最核心的成员。** 把一批 troops 分配成「谁进哪支阵型」。**返回的 list 长度可以少于输入长度（表示不参战），但 order 不保证与输入一致。** |
+| `GetReinforcementAssignments` | `public abstract List<(IAgentOriginBase origin, int formationIndex)> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`（`BattleSpawnModel.cs:18`） | 签名与上一个**完全相同**，唯一区别是语义：初始上场 vs 增援批次。**两个方法长得一样但必须分别实现**，复用实现时留意别把增援逻辑用在初始布阵上。 |
+| `BaseModel`（继承自 `MBGameModel<T>`） | `protected T BaseModel { get; private set; }`（`MBGameModel.cs:5`） | **protected** —— 只有派生类能读。想「在 Sandbox 刷兵结果上再改一刀」就调它，比反射安全。 |
+
+两个消费点的实参：
+
+| 消费点 | 行 | 实参 |
+| --- | --- | --- |
+| 初始布阵 | `MissionBattleSideSpawnContext.cs:303` | `_side`、`item5.origins` |
+| 增援布阵 | `MissionBattleSideSpawnContext.cs:499` | `_side`、`_reservedTroops` |
 
 ## 真实示例
 
-最简实现——照 `CustomBattleSpawnModel` 的做法，用引擎自己的兵种判定：
+实现一份完整模型（沙盒之外的场景，例如 mod 自定义战场）：
 
 ```csharp
 using System.Collections.Generic;
@@ -48,27 +89,85 @@ using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.MountAndBlade.ComponentInterfaces;
 
-public class CustomBattleSpawnModel : BattleSpawnModel
+public class MyModBattleSpawnModel : BattleSpawnModel
 {
-    public override List<(IAgentOriginBase, int)> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)
+    // 契约在 BattleSpawnModel.cs:16：返回 (来源, 阵型下标) 配对
+    public override List<(IAgentOriginBase origin, int formationIndex)> GetInitialSpawnAssignments(
+        BattleSideEnum battleSide,
+        List<IAgentOriginBase> troopOrigins)
     {
-        List<(IAgentOriginBase, int)> assignments = new List<(IAgentOriginBase, int)>();
-        foreach (IAgentOriginBase troopOrigin in troopOrigins)
+        var result = new List<(IAgentOriginBase, int)>();
+
+        int slot = 0;
+        foreach (IAgentOriginBase origin in troopOrigins)
         {
-            // formationIndex 是裸 int，必须显式转换
-            assignments.Add((troopOrigin, (int)Mission.Current.GetAgentTroopClass(battleSide, troopOrigin.Troop)));
+            // battleSide 是形参，不要缓存成字段：同一实例会被两方各调一次
+            int formationIndex = battleSide == BattleSideEnum.Defender
+                ? slot % 3
+                : slot % 4;
+
+            result.Add((origin, formationIndex));
+            slot++;
         }
-        return assignments;
+
+        return result;
     }
 
-    public override List<(IAgentOriginBase, int)> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)
+    // 契约在 BattleSpawnModel.cs:18：签名一样，语义是增援批次
+    public override List<(IAgentOriginBase origin, int formationIndex)> GetReinforcementAssignments(
+        BattleSideEnum battleSide,
+        List<IAgentOriginBase> troopOrigins)
     {
-        return MissionReinforcementsHelper.GetReinforcementAssignments(battleSide, troopOrigins);
+        var result = new List<(IAgentOriginBase, int)>();
+        foreach (IAgentOriginBase origin in troopOrigins)
+        {
+            result.Add((origin, (int)FormationClass.NumberOfRegularFormations));
+        }
+        return result;
     }
 }
 ```
 
-真要改编成规则时（全部远程兵编成弓阵，附带一份调试输出）：
+挂上生命周期钩子做初始化/清理：
+
+```csharp
+using TaleWorlds.MountAndBlade;
+using TaleWorlds.MountAndBlade.ComponentInterfaces;
+
+public class MyModTrackedSpawnModel : BattleSpawnModel
+{
+    private int _assignmentCalls;
+
+    public override void OnMissionStart()
+    {
+        // 声明在 BattleSpawnModel.cs:8，无参 —— 要拿上下文得自己问 Mission.Current
+        _assignmentCalls = 0;
+        MBDebug.Print("battle spawn model armed, mission = "
+                    + (Mission.Current?.Scene?.GetName() ?? "<none>"), 0);
+    }
+
+    public override void OnMissionEnd()
+    {
+        MBDebug.Print("assignment calls this mission = " + _assignmentCalls, 0);
+    }
+
+    public override List<(IAgentOriginBase origin, int formationIndex)> GetInitialSpawnAssignments(
+        BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)
+    {
+        _assignmentCalls++;
+        return new List<(IAgentOriginBase, int)>();
+    }
+
+    public override List<(IAgentOriginBase origin, int formationIndex)> GetReinforcementAssignments(
+        BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)
+    {
+        _assignmentCalls++;
+        return new List<(IAgentOriginBase, int)>();
+    }
+}
+```
+
+复用官方实现再改一刀（用 `BaseModel`，别去反射）：
 
 ```csharp
 using System.Collections.Generic;
@@ -76,112 +175,52 @@ using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.MountAndBlade.ComponentInterfaces;
 
-public class AllRangedArchersSpawnModel : BattleSpawnModel
+public class MyModPassthroughSpawnModel : BattleSpawnModel
 {
-    private readonly BattleSpawnModel _vanilla;
-
-    public AllRangedArchersSpawnModel(BattleSpawnModel baseModel)
+    // BaseModel 是 MBGameModel.cs:5 的 protected 属性，由 MBGameModel.cs:7 的 Initialize 填好
+    public override List<(IAgentOriginBase origin, int formationIndex)> GetInitialSpawnAssignments(
+        BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)
     {
-        // Initialize(T) 是 MBGameModel<T> 上的 public 方法，手动调用后 BaseModel 才有值
-        Initialize(baseModel);
-        _vanilla = baseModel;
+        var fromBase = BaseModel.GetInitialSpawnAssignments(battleSide, troopOrigins);
+
+        // 攻方把最后来的那批塞进第 0 个阵型
+        if (battleSide == BattleSideEnum.Attacker && fromBase.Count > 0)
+        {
+            var last = fromBase[fromBase.Count - 1];
+            fromBase[fromBase.Count - 1] = (last.origin, 0);
+        }
+        return fromBase;
     }
 
-    public override List<(IAgentOriginBase, int)> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)
+    public override List<(IAgentOriginBase origin, int formationIndex)> GetReinforcementAssignments(
+        BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)
     {
-        List<(IAgentOriginBase, int)> assignments = new List<(IAgentOriginBase, int)>();
-        int skipped = 0;
-        foreach (IAgentOriginBase troopOrigin in troopOrigins)
-        {
-            if (troopOrigin.Troop == null)
-            {
-                skipped++;
-                continue;
-            }
-            assignments.Add((troopOrigin, (int)FormationClass.Ranged));
-            Debug.Print("side=" + battleSide + " origin seed=" + troopOrigin.UniqueSeed + " -> Ranged", 0);
-        }
-        if (skipped > 0)
-        {
-            Debug.Print("dropped origins with no troop: " + skipped, 0);
-        }
-        return assignments;
-    }
-
-    public override List<(IAgentOriginBase, int)> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)
-    {
-        if (_vanilla != null)
-        {
-            return _vanilla.GetReinforcementAssignments(battleSide, troopOrigins);
-        }
-        List<(IAgentOriginBase, int)> assignments = new List<(IAgentOriginBase, int)>();
-        foreach (IAgentOriginBase troopOrigin in troopOrigins)
-        {
-            assignments.Add((troopOrigin, (int)FormationClass.Ranged));
-        }
-        return assignments;
+        return BaseModel.GetReinforcementAssignments(battleSide, troopOrigins);
     }
 }
-```
-
-把它注册进 game models。注意 `IGameStarter` 接口**没有** `GetModel<T>()`，要拿到 vanilla 实例只能向下转型到具体 starter（[CampaignGameStarter](../../campaign/CampaignGameStarter) 或 [BasicGameStarter](../BasicGameStarter/)）：
-
-```csharp
-using TaleWorlds.Core;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.MountAndBlade;
-
-public class MyModule : MBSubModuleBase
-{
-    public override void OnGameStart(Game game, IGameStarter gameStarterObject)
-    {
-        base.OnGameStart(game, gameStarterObject);
-        BattleSpawnModel vanilla = null;
-        if (gameStarterObject is CampaignGameStarter campaignStarter)
-        {
-            vanilla = campaignStarter.GetModel<BattleSpawnModel>();
-        }
-        else if (gameStarterObject is BasicGameStarter basicStarter)
-        {
-            vanilla = basicStarter.GetModel<BattleSpawnModel>();
-        }
-        if (vanilla != null)
-        {
-            gameStarterObject.AddModel<BattleSpawnModel>(new AllRangedArchersSpawnModel(vanilla));
-        }
-    }
-}
-```
-
-从任务里读回当前生效的实例并核对结果：
-
-```csharp
-BattleSpawnModel model = MissionGameModels.Current.BattleSpawnModel;
-if (model == null)
-{
-    Debug.Print("no BattleSpawnModel registered", 0);
-    return;
-}
-Debug.Print("spawn model = " + model.GetType().Name, 0);
 ```
 
 ## 风险与边界
 
-- **抽象类，不能实例化。** 两个 `abstract` 方法必须实现。要复用 vanilla 行为必须自己持有 vanilla 引用再显式转发——`IGameStarter` 接口**不暴露** `GetModel<T>()`，只能向下转型到 `CampaignGameStarter` / `BasicGameStarter` 才拿得到。注意 `AddModel<T>` 内部会再调一次 `Initialize(上一个 model)`，覆盖你自己构造时的那次。
-- **`BaseModel` 是 `protected`**，外部读不到。要「只覆盖一半」必须自己持有 vanilla 的引用再显式转发。
-- **返回 `null` 会炸。** 两个抽象方法的返回类型都是具体 `List<>`，下游直接遍历。
-- **`formationIndex` 是裸 int，无范围校验。** 越界值在下游可能表现为阵型错乱或索引异常，而不是友好的断言。
-- **不能丢 origin。** 返回列表里没有的 origin 就没有分配结果；这与「多返回一个」不同，后者可能造成重复编队。
-- **`OnMissionStart` / `OnMissionEnd` 默认空实现。** 它们不在本类的抽象契约里，引擎是否调用、调用几次要看具体调用方；跨任务状态必须在 `OnMissionEnd` 里清干净，否则第二次战斗会带着上一次的数据。
-- **`MBGameModel<T>` 的 `BaseModel` 只有一层。** 链式包装三层以后，`base.BaseModel` 在基类里是 `protected` 而非公开属性，外部无法访问最底层。
-- **不存档、不序列化。** 它是 game model 实例，在 game 启动时构造，任务间复用。
+- **抽象类，不能 `new`。** 必须实现 `BattleSpawnModel.cs:16` 与 `BattleSpawnModel.cs:18` 两个 `abstract` 方法，少一个都编译不过。
+- **返回的是 `IAgentOriginBase` 配 `int`，不是 Agent 也不是 Formation。** 想拿 Formation 对象要自己去队伍里按 index 找。
+- **`battleSide` 是形参，不能缓存。** 同一实例服务两方。
+- **两个方法签名相同、语义不同。** 实现时别互相复制粘贴了事。
+- **两个生命周期钩子无参。** 想拿 Mission / Scene 上下文必须自己去 `Mission.Current` 取。
+- **接口里没有任何「人数上限 / 难度 / 位置」上下文。** 想要这些必须绕路去问别的系统。
+- **返回 list 的长度与顺序没有契约。** 返回空 list 是合法的，但意味着这一方一个兵都不刷。
+- **换实现要动游戏模型机制，不是动 mission behavior 列表。** 这是 GameModel 机制，不是 MissionBehavior 机制——`BattleSpawnLogic` 那种 `new` 出来 `list.Add(...)` 的写法在这里不适用。
+- **`BaseModel` 是 protected。** 外部拿不到，只能在派生类里用。
 
 ## 依赖关系
 
-- 基类链：[MBGameModel](../../core-extra/MBGameModel/) 持有 `protected T BaseModel` 与 `Initialize(T)`；再往上是 [GameModel](../../core-extra/GameModel/) 的空标记类
-- 注册与读取：[MissionGameModels](../MissionGameModels/) 的 `BattleSpawnModel` 属性在构造时由 `GetGameModel<BattleSpawnModel>()`（[GameModelsManager](../../core-extra/GameModelsManager/) 的倒序 `is T` 扫描）填入
-- 调用方：`MissionBattleSideSpawnContext.cs:303`（初始部署）与 `:499`（增援）两处，都是通过 `MissionGameModels.Current.BattleSpawnModel` 取实例
-- 参数类型：[BattleSideEnum](../../core-extra/BattleSideEnum/) 与 [IAgentOriginBase](../../core-extra/IAgentOriginBase/)，返回值里的 int 对应 [FormationClass](../../core-extra/FormationClass/)
-- 增援侧委托：[MissionReinforcementsHelper](../MissionReinforcementsHelper/) 是官方实现用来转发增援分配的地方
-- 参考实现：`CustomBattleSpawnModel`、`MultiplayerBattleSpawnModel`、`SandboxBattleSpawnModel`（均在同桶或 `Modules.SandBox`）
+- 本类：`BattleSpawnModel.cs:6` 类头
+- 本类的两个钩子：`BattleSpawnModel.cs:8` 与 `BattleSpawnModel.cs:12`
+- 本类的两个抽象方法：`BattleSpawnModel.cs:16` 与 `BattleSpawnModel.cs:18`
+- 基类链：[MBGameModel](../../core-extra/MBGameModel/)（`MBGameModel.cs:3-11`，`BaseModel` 在 `:5`、`Initialize` 在 `:7`）→ [GameModel](../../core-extra/GameModel/)
+- 持有者：`MissionGameModels.cs:27` 的属性声明与 `MissionGameModels.cs:53` 的赋值
+- 两个唯一消费点：[MissionBattleSideSpawnContext](../MissionBattleSideSpawnContext/)（`MissionBattleSideSpawnContext.cs:303` 初始、`:499` 增援）；另有静态版本在 `MissionReinforcementsHelper.cs:195`
+- 输入类型：[IAgentOriginBase](../../core-extra/IAgentOriginBase/)（`TaleWorlds.Core`）；`BattleSideEnum` 亦在 `TaleWorlds.Core`（`BattleSideEnum.cs:3`）
+- 三个实现：[CustomBattleSpawnModel](../CustomBattleSpawnModel/)（`CustomBattleSpawnModel.cs:7`）、[MultiplayerBattleSpawnModel](../MultiplayerBattleSpawnModel/)（`MultiplayerBattleSpawnModel.cs:7`）、[SandboxBattleSpawnModel](../../campaign-ext/SandboxBattleSpawnModel/)（`SandboxBattleSpawnModel.cs:12`）
+- 与刷兵时机的关系：[BattleSpawnLogic](../BattleSpawnLogic/)（场景出生点集清理）、[DefaultBattleMissionAgentSpawnLogic](../DefaultBattleMissionAgentSpawnLogic/)（实际 spawn）
 - 桶首页：[mission-ext API 分区](../)

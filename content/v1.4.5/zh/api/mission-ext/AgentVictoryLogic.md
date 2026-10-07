@@ -48,6 +48,27 @@ description: "胜利与撤退时的欢呼调度器：按战损比自动选低/�
 | `CheerActionGroupEnum` | `public enum CheerActionGroupEnum { None, LowCheerActions, MidCheerActions, HighCheerActions }` | 动作组档位。`None` 是「未指定，让引擎按战损自动选」的哨兵值，不是「不喊」。 |
 | `CheerReactionTimeSettings` | `public struct CheerReactionTimeSettings(float minDuration, float maxDuration)` | 两个 `readonly float` 字段 `MinDuration` / `MaxDuration` 的 `readonly struct`，带主构造器。用于传给 `new RandomTimer(Mission.CurrentTime, minReactionTime, maxReactionTime)`。 |
 
+## 死成员与陷阱
+
+本页 14 个字段 / 属性里，9 个被清单报成「调用点 0」，实测全部有活跃引用 —— 这是工具口径盲区，不是死代码。剩下的 5 个复核不出引用，但按规则不下结论。
+
+| 成员 | 声明位置 | override | 调用点 | 判定 | 说明 |
+|---|---|---:|---:|---|---|
+| `MasterOrderControllerOnOrderIssued` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:119 | 0 | 1 次（1 行） | MEASURED | 清单报「调用点 0」。实测：它在 `AgentVictoryLogic.cs:114` 以 `OnOrderIssued += MasterOrderControllerOnOrderIssued` **已接线**为事件处理器。事件的隐式派发不是调用形，工具计成 0。 |
+| `_cheeringAgents` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:99 | 0 | 18 次（18 行） | MEASURED | 欢呼队列主存储，是本类最热的字段。它在 :110 建表、:301 Add、:122-127 倒序遍历、:194-223 每帧更新、:159 Clear。清单报 0 是口径盲区。 |
+| `_cheerReactionTimerData` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:61 | 0 | 6 次（4 行） | MEASURED | **本行是 43 条里唯一「次数≠行数」的一条**：:293 与 :358 各出现两次（`…TimerData.MinDuration, …TimerData.MaxDuration`），故 6 次（4 行）。清单报 0 是口径盲区。 |
+| `_selectedCheerActions` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:97 | 0 | 6 次（6 行） | MEASURED | 当前选中的欢呼动作数组，由 `_low/mid/highCheerActions` 赋值、在 :414 取出。清单报 0 是口径盲区。 |
+| `_cheerActionGroup` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:59 | 0 | 4 次（4 行） | MEASURED | 欢呼动作组枚举的存储字段，由 `SetCheerActionGroup`(:132) 写入、在 :135 与 :244 的 switch/判断里读出。清单报 0 是口径盲区。 |
+| `_isInRetreat` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:101 | 0 | 3 次（3 行） | MEASURED | 撤退标志，:306 置 true、:273 置 false、:427 由 `CheckIfIsInRetreat` 读出返回。清单报 0 是口径盲区。 |
+| `_midCheerActions` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:77 | 0 | 3 次（3 行） | MEASURED | 中等强度欢呼动作表，被 :141 与 :364 赋给当前选择、:417 取出。清单报 0 是口径盲区。 |
+| `_lowCheerActions` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:63 | 0 | 1 次（1 行） | MEASURED | 低强度欢呼动作表，:138 赋给 `_selectedCheerActions`。清单报 0 是口径盲区。 |
+| `_highCheerActions` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:85 | 0 | 1 次（1 行） | MEASURED | 高强度欢呼动作表，:144 赋给 `_selectedCheerActions`。清单报 0 是口径盲区。 |
+| `CheerActionGroup` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:103 | — | — | UNSUPPORTED | 公开只读属性（→ `_cheerActionGroup`）。**未能复核出引用，按规则不下结论** —— 不是「确认无引用」。 |
+| `CheerReactionTimerData` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:105 | — | — | UNSUPPORTED | 公开只读属性（→ `_cheerReactionTimerData`）。**未能复核出引用，按规则不下结论**。 |
+| `HighCheerThreshold` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:53 | — | — | UNSUPPORTED | `private const float = 0.25f`。**未能复核出引用，按规则不下结论**。 |
+| `MidCheerThreshold` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:55 | — | — | UNSUPPORTED | `private const float = 0.75f`。**未能复核出引用，按规则不下结论**。 |
+| `YellIfOrderedInRetreatProbability` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:57 | — | — | UNSUPPORTED | `private const float = 0.25f`。**未能复核出引用，按规则不下结论**。 |
+
 ## 真实示例
 
 按官方方式挂进会战行为列表——`AgentVictoryLogic` 不是默认行为，必须自己加：

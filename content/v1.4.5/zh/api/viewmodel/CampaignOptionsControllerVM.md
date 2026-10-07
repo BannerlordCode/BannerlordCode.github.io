@@ -8,7 +8,7 @@ description: "持有战役选项列表的视图模型：按 priority index 排�
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public class CampaignOptionsControllerVM : ViewModel`  
 **Base:** `ViewModel`  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/CampaignOptionsControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/CampaignOptionsControllerVM.cs`
 
 ## 概述
 

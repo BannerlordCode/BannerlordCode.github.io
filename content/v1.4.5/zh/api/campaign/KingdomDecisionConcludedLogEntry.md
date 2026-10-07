@@ -155,6 +155,56 @@ private void OnKingdomDecisionConcluded(KingdomDecision decision, DecisionOutcom
 
 完整因果链是：`KingdomElection.ReadyToAiChoose()`（或玩家投票）设置 `_chosenOutcome` → `ApplyChosenOutcome()` 调 `_decision.ApplyChosenOutcome(_chosenOutcome)` 落地世界 → `Kingdom.RemoveDecision` + `Kingdom.OnKingdomDecisionConcluded` → `CampaignEventDispatcher.Instance.OnKingdomDecisionConcluded(...)` 广播 → 上面的处理器 `new KingdomDecisionConcludedLogEntry(...)` 入档。理解了这条链，就能明白为什么手动写日志会与引擎重复。
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/KingdomDecisionConcludedLogEntry.cs`（全文 68 行）。
+**入口：** **不要自己 new。** 引擎在 `CampaignEvents.KingdomDecisionConcluded` 广播后由 `DefaultLogsCampaignBehavior.cs:155` 自动构造并写入。
+
+类声明是 `public class KingdomDecisionConcludedLogEntry : LogEntry, IChatNotification`（`KingdomDecisionConcludedLogEntry.cs:8`）——**类型本身是 public 的，外部程序集能引用，问题不在可见性而在「不该由你写」。**
+
+**三个存档字段的 id 是 1、3、4——`2` 被跳过了。** `Kingdom` 是 `[SaveableField(1)]`（`:10`-`:11`）、`_isVisibleNotification` 是 `[SaveableField(3)]`（`:13`-`:14`）、`_notificationText` 是 `[SaveableField(4)]`（`:16`-`:17`）。**缺 2 说明历史版本占过这个位置**，你仿写时不要补 2。
+
+### 典型用法
+
+**唯一正确的用法是订阅事件，而不是轮询日志。** 事件的类型是 `IMbEvent<KingdomDecision, DecisionOutcome, bool>`（`CampaignEvents.cs:641`）——**三个泛型参数，处理器必须写满三个形参**。构造器 `KingdomDecisionConcludedLogEntry(KingdomDecision decision, DecisionOutcome chosenOutcome, bool isPlayerInvolved)`（`:52`）三个参数里有两个是从决策现场取的瞬时值：
+
+1. `Kingdom = decision.Kingdom`（`:54`）——**快照**。
+2. `_isVisibleNotification = !isPlayerInvolved`（`:55`）——**注意这里有个取反**。
+3. `_notificationText = decision.GetChosenOutcomeText(chosenOutcome, decision.SupportStatusOfFinalDecision, isShortVersion: true)`（`:56`）——**三个参数全部在构造时定格**。
+
+**第 2 条是本类型最反直觉的一处，而且方向与直觉相反。** 对比 [ArmyDispersionLogEntry](../ArmyDispersionLogEntry)：那边玩家**参与**时 `IsVisibleNotification` 为 **true**，这边玩家**参与**时为 **false**。**也就是说这个决议日志「聊天气泡」是给旁观者看的，玩家自己参与的结论只进历史。**
+
+想按事件语义消费，而不是读那个布尔快照：
+
+```csharp
+public class DecisionConclusionWatcher : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        CampaignEvents.KingdomDecisionConcluded.AddNonSerializedListener(this, OnConcluded);
+    }
+
+    private void OnConcluded(KingdomDecision decision, DecisionOutcome chosenOutcome, bool isPlayerInvolved)
+    {
+        TextObject text = decision.GetChosenOutcomeText(chosenOutcome, decision.SupportStatusOfFinalDecision, isShortVersion: true);
+        Debug.Print("kingdom=" + decision.Kingdom.Name + " playerInvolved=" + isPlayerInvolved, 0);
+        Debug.Print("  willBubble=" + !isPlayerInvolved + " text=" + text, 0);
+    }
+}
+```
+
+**上例自己重算 `!isPlayerInvolved`，而不是去读日志条目的 `IsVisibleNotification`**——因为那个字段是存档快照（`[SaveableField(3)]`），读旧档时它反映的是写入当时的判定，不是当下。
+
+`ToString()`（`:59`）转发 `GetNotificationText().ToString()`（`:61`），而 `GetNotificationText()`（`:64`）**直接返回 `_notificationText` 这个存档字段**（`:66`），**没有任何重新生成逻辑**。所以「日志对象还在、决议已消失」的情况下它照样能正确显示。
+
+`NotificationType => PoliticalNotification(Kingdom)`（`:23`）只用于聊天窗上色，**`Kingdom` 为 null 就会在这条路径上炸**——而构造器保证了非 null（`:54`），除非存档损坏。
+
+### 最容易踩的坑
+
+1. **手动构造导致重复 / 不一致条目**：你**不应该**自己 `new KingdomDecisionConcludedLogEntry(...)` 并 `AddLogEntry`。引擎在 `KingdomDecisionConcluded` 事件后由 `DefaultLogsCampaignBehavior` 自动写一次；手动写会让同一结论出现两条、或因为 `SupportStatusOfFinalDecision` 取值时机不同而文本不一致。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

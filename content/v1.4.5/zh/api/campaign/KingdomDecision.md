@@ -226,6 +226,73 @@ float score = policyDecision.DetermineSupport(
 
 `DetermineSupport` 返回的 `score` 越高，家族越可能被归入 `SlightlyFavor`/`StronglyFavor`/`FullyPush`；但若该家族影响力低于 `GetInfluenceCostOfSupport` 对应档位，基类会逐档下调，最终可能落到 `StayNeutral`——这就是「支持度如何被影响力门槛截断」的机制。裁定通过后，`KingdomPolicyDecision.ApplyChosenOutcome` 调 `Kingdom.AddPolicy(Policy)` 落地，并广播 `KingdomDecisionConcluded`。
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/KingdomDecision.cs`（全文 458 行）。
+**入口：** `Kingdom.AddDecision(decision, ignoreInfluenceCost)` —— `public abstract class KingdomDecision`（`KingdomDecision.cs:11`），**你没有构造它的理由，只有派生子类的理由。**
+
+`protected KingdomDecision(Clan proposerClan)`（`KingdomDecision.cs:152`）是唯一的构造器，**protected 意味着外部程序集连 `new` 都不行**。你要做的是继承它并实现全部 17 个 abstract 成员（`KingdomDecision.cs` 里 `public abstract` 共 17 处）。
+
+**构造器体内有三句，其中一句是陷阱（`KingdomDecision.cs:154`-`:156`）：**
+
+```
+ProposerClan = proposerClan;
+_kingdom = proposerClan.Kingdom;
+TriggerTime = CampaignTime.HoursFromNow(HoursToWait);
+```
+
+**第三句在构造期间读了一个 `protected virtual int HoursToWait => 48`（`KingdomDecision.cs:98`）——也就是在构造函数里做虚调用。** 若派生类用字段初始化器或字段初始值来算 `HoursToWait`，**那些字段此刻还是默认值**，你会拿到错误的等待时长。**正确做法是在派生类里 override 这个属性，并且只在方法体里计算。**
+
+**存档成员里有三个是 private 字段、只暴露只读视图，这是最容易看漏的一层：**
+
+| 私有字段 | 标注 | 公开视图 | 行号 |
+| --- | --- | --- | --- |
+| `_notificationsEnabled` | `[SaveableField(0)]` `static` | 无 | `:20`-`:21` |
+| `_isEnforced` | `[SaveableField(1)]` | `IsEnforced` | `:23`-`:24` / `:41` |
+| `_playerExamined` | `[SaveableField(2)]` | `PlayerExamined` | `:26`-`:27` / `:53` |
+| `_notifyPlayer` | 无标注 | `NotifyPlayer` | `:29` / `:65` |
+| `_kingdom` | `[SaveableField(10)]` | `Kingdom` | `:31`-`:32` / `:36` |
+
+**`_notificationsEnabled` 带了 `SaveableField(0)` 且是 `static`**——**它随存档序列化，而且它是全局开关。** 这意味着**「通知开关」这个玩家偏好会写进存档**，换存档就会换行为。
+
+**而 `_notifyPlayer` 没有任何存档标注**，它的初值是 `_notificationsEnabled`（`:29`）。所以通知总开关一关，新建的决策全部静默。
+
+### 典型用法
+
+**`Kingdom` 属性是 `_kingdom ?? ProposerClan.Kingdom`（`KingdomDecision.cs:36`）——一个 null 合并。** 构造器会在 `KingdomDecision.cs:155` 赋上 `proposerClan.Kingdom`，所以**新建对象时它非 null；但读档路径上 `_kingdom` 可能为 null**（存的是 null 或对象已灭国），此时归属回落到 `ProposerClan.Kingdom`。**你不能假设 `_kingdom` 非 null，也不能假设 `Kingdom` 与提案方同属一个王国。**
+
+**`ShouldBeCancelled()`（`KingdomDecision.cs:228`）是本类型最需要读懂的 45 行。** 它的判据顺序是：王国已覆灭 → true（`KingdomDecision.cs:230`-`:233`）、提案方已脱离 → true（`:234`-`:237`）、`IsAllowed()` 为假 → true（`:238`-`:241`）、子类 `ShouldBeCancelledInternal()` 为真 → true（`:242`-`:245`）。
+
+**第四道之后有一个短路：提案方就是玩家氏族时直接返回 false（`:246`-`:249`）。** 也就是说**玩家自己的提案不会因为「意见不一致」被自动取消**——后面那 20 行算的是 AI 提案方。
+
+AI 分支（`KingdomDecision.cs:250` 往后）会 `NarrowDownCandidates(..., 3)` 限到 3 个候选（`:250`）、`DetermineSponsors`（`:252`）、再算提案方的立场（`:254`）。**关键是 `KingdomDecision.cs:255` 那个 `Influence < 影响力成本 × 1.5f` 的判据**——提案方影响力不足会被判 `flag`。
+
+而 `NarrowDownCandidates`（`KingdomDecision.cs:190`）的实现只有两步：**先给每个候选算 `InitialMerit = CalculateMeritOfOutcome(...)`（`:194`），再 `SortDecisionOutcomes(...).Take(maxCandidateCount)`（`:196`）。** 所以「限几个候选」是靠**分值排序**，不是靠人为优先级。
+
+`DetermineSupporters()`（`KingdomDecision.cs:201`）遍历 `Kingdom.Clans` 并跳过 `IsUnderMercenaryService` 的氏族（`:205`）——**佣兵氏族不投票。**
+
+`ShouldBeCancelledInternal()`（`KingdomDecision.cs:212`）与 `CanProposerClanChangeOpinion()`（`:217`）的基类实现**都是 return false**（`:214`/`:219`），而 `CanMakeDecision`（`:222`）**无条件 return true** 并把 reason 置空（`:224`-`:225`）。**所以基类的默认是「什么都不拦」——真正的闸门全靠子类 override。**
+
+```csharp
+public static void AuditPendingDecision(Kingdom kingdom, KingdomDecision decision)
+{
+    Debug.Print("kingdom=" + decision.Kingdom.Name + " proposer=" + decision.ProposerClan.Name, 0);
+    Debug.Print("enforced=" + decision.IsEnforced + " examined=" + decision.PlayerExamined, 0);
+    Debug.Print("allowed=" + decision.IsAllowed() + " shouldCancel=" + decision.ShouldBeCancelled(), 0);
+    TextObject reason;
+    bool canDecide = decision.CanMakeDecision(out reason, true);
+    Debug.Print("canDecide=" + canDecide + " reason=" + reason + " trigger=" + decision.TriggerTime, 0);
+}
+```
+
+**上例的调用顺序不能换。** `ShouldBeCancelled()`（`:246`）在提案方是玩家时短路返回 false，**所以它对玩家自己的提案几乎没有意义**；`CanMakeDecision` 才带 `includeReason` 参数。**两个都调、顺序先 allowed 后 cancel，能一次看清是哪一道闸门拦的。**
+
+### 最容易踩的坑
+
+1. **`AddDecision` 不是立即生效**：决策入队后由 `KingdomDecisionProposalBehavior` 在后续 tick 推进；在 `AddDecision` 之后立刻读取「世界是否已改变」会得到旧状态。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

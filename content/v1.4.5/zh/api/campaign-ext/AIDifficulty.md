@@ -40,6 +40,16 @@ description: "沙盒棋盘游戏 AI 的难度枚举：Easy / Normal / Hard 三�
 | `Hard` | `Hard = 2` | 最高难度档。1.4.5 里没有更高的档，也没有「无上限」这一档。 |
 | `NumTypes` | `NumTypes = 3` | **哨兵值，不是难度**。等于真实档位数 3，专门给数组长度与循环上界用。可以被赋进 `AIDifficulty` 变量而不报错，遍历时务必显式排除。 |
 
+## 死成员与陷阱
+
+**本次审查未在本页测出可写入的条目。** 这不等于「本页没有死成员」：
+
+- 工具在本页报出「0 调用点」的只有 `NumTypes`（`bin/TaleWorlds.CampaignSystem/Helpers/BoardGameHelper.cs:10`）。它是 `AIDifficulty` 枚举的**末尾哨兵**，`override=0`。`grep -o -w` 复核确认全树确实只有声明本身那一行，但「零引用」在这里是**语言与语义的必然**（枚举哨兵不描述任何行为），不是 modder 会踩的坑，因此按口径不写入表格。
+- 本页其余成员在工具的分类里多数落在 `UNSUPPORTED`（同名成员串味 / 跨文件无限定调用），这些行的调用点数按定义不可当结论。
+- 若日后要复核本页，请用 `grep -o -w <成员名>` 数**出现次数**，不要用命中行数。
+
+口径：源码树 `bannerlord-1.4.5` HEAD `ccbc3d40f88905765a1484492d41b7000e7249fa`，8,583 个 `.cs`（含 `bin/`）。
+
 ## 真实示例
 
 创建一个指定难度的棋盘 AI。**注意 `Difficulty` 与 `BoardGameHandler` 都是 `protected`**，构造参数才是对外的入口：

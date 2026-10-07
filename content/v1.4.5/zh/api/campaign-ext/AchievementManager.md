@@ -152,8 +152,8 @@ public static bool IsUsingTestBackend()
 
 ## 依赖关系
 
-- 后端契约：[IAchievementService](IAchievementService) 定义四个成员，本类只转发其中三个；第四个 `IsInitializationCompleted()` 只能由调用方自行转型访问
-- 默认实现：[TestAchievementService](TestAchievementService) 是静态构造里装上的那个假后端，四个成员全部以显式接口实现形式提供
+- 后端契约：[IAchievementService](../IAchievementService) 定义四个成员，本类只转发其中三个；第四个 `IsInitializationCompleted()` 只能由调用方自行转型访问
+- 默认实现：[TestAchievementService](../TestAchievementService) 是静态构造里装上的那个假后端，四个成员全部以显式接口实现形式提供
 - 装配点：`AchievementService` 的公开 setter 是全项目唯一能让成就真正生效的入口，调用时机应尽量早
 - 使用方：`TaleWorlds.AchievementSystem` 程序集之外，模组与上层玩法代码通过 `AchievementManager.SetStat` / `GetStat` / `GetStats` 与后端交互
 - 同程序集邻居：`AchievementsCampaignBehavior`（`Modules.StoryMode`）是主线战役侧登记成就位的官方行为，它与本类的关系是「谁填统计」对「后端存哪」

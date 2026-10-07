@@ -124,6 +124,34 @@ ICraftingCampaignBehavior crafting = Campaign.Current.GetCampaignBehavior<ICraft
 CraftingOrder order = crafting.CreateCustomOrderForHero(hero, -1f, weaponDesign, craftingTemplate);
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CraftingCampaignBehavior.cs:44`。
+
+**⚠ 三件事必须先知道，否则代码根本编译不过。**
+
+**① 它是 `internal`。** 声明就是 `internal class CraftedItemInitializationData`，没有 `public`。**你的 mod 程序集无法引用这个类型** —— 写 `CraftedItemInitializationData d = ...` 报「类型不可访问」。
+
+**② 它是嵌套在 [CraftingCampaignBehavior](../CraftingCampaignBehavior) 里面的。** 它在同文件第 44 行，而外层类声明在第 20 行（`public class CraftingCampaignBehavior : CampaignBehaviorBase, ICraftingCampaignBehavior, ...`）。**所以即使 `internal` 放开，名字也得写成 `CraftingCampaignBehavior.CraftedItemInitializationData`。**
+
+**③ 因此你在 mod 侧唯一能做的是「读行为，不碰这个类型」。** 取行为用 `Campaign.Current.GetCampaignBehavior<CraftingCampaignBehavior>()`，然后通过它实现的公开接口 `ICraftingCampaignBehavior`（`TaleWorlds.CampaignSystem.CampaignBehaviors/ICraftingCampaignBehavior.cs:9`，`public interface ICraftingCampaignBehavior : ICampaignBehavior`）去调。
+
+**一段可直接跑的三行走公开接口**：
+
+```csharp
+ICraftingCampaignBehavior craft = Campaign.Current.GetCampaignBehavior<CraftingCampaignBehavior>();
+int stamina = craft.GetHeroCraftingStamina(Hero.MainHero);
+craft.SetHeroCraftingStamina(Hero.MainHero, stamina - 10);
+```
+
+**直接 `GetCampaignBehavior<CraftingCampaignBehavior>()` 拿到的是具体类，转成接口再调更稳。** 接口上已有一批明确的方法：`CompleteOrder` / `GetCurrentItemModifier` / `SetCurrentItemModifier` / `SetCraftedWeaponName` / `GetOrderResult` / `GetCraftingDifficulty` / `GetHeroCraftingStamina` / `SetHeroCraftingStamina`（`ICraftingCampaignBehavior.cs:15` 至 `:29`）。**这样你不必引用行为类本身。**
+
+**`GetOrderResult` 是唯一一个四个 `out` 的方法，值得单独记住。** `ICraftingCampaignBehavior.cs:23` 的签名是 `void GetOrderResult(CraftingOrder craftingOrder, ItemObject craftedItem, out bool isSucceed, out TextObject orderRemark, out TextObject orderResult, out int finalPrice);` —— **四个 out 参数必须全部声明，漏一个编译不过**，而且注意两个 `out TextObject` 在 `isSucceed` 之后，位置不能记错。
+
+**三个字段都带 `[SaveableField]` 且是 `readonly`。** `CraftedItemInitializationData` 的三个字段分别标了 `[SaveableField(10)] CraftedData`、`[SaveableField(20)] ItemName`、`[SaveableField(30)] Culture`，**全部 `public readonly`** —— 所以即便你能访问这个类型，也构造之后改不了。构造函数是三参数的 `(WeaponDesign, TextObject, CultureObject)`。
+
+**最常见的坑：创建 / 序列化时机。** 它只有在行为调用 `OnNewItemCrafted` 或 `CraftingOrder` 构造时才进入字典；若武器未被登记，字典中就**根本没有这一项**。所以「按 id 去查这个结构」在未锻造过的物品上必然落空 —— 而失败形态是查不到，不是报错。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

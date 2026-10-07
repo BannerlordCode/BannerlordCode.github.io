@@ -36,6 +36,11 @@ description: "多人 perk 条件之一：判断一个 Agent 当前是徒步还�
 | `Check(Agent)` | `public override bool Check(Agent agent)` | 真正的判定逻辑。`agent != null` 时按 `agent.MountAgent == null` 区分 `OnFoot` / `OnMount` 并与 `_status` 比较；`agent == null` 时**返回 false**（而不是抛异常或返回 true）。`MountAgent` 在 `Agent.cs:1001` 是一个带 setter 的属性。 |
 | `Deserialize(XmlNode)` | `protected override void Deserialize(XmlNode node)` | 读 XML 属性 `agent_status`，用 `Enum.TryParse<AgentStatus>(..., ignoreCase: true, out _status)` 解析。**解析失败走 `Debug.FailedAssert` 而不是抛异常**——发布构建里断言可能被编译掉，结果是 `_status` 保持默认值 `OnFoot`（枚举第一项）并静默生效。`AgentStatus` 枚举是 `private`，只有 `OnFoot` 与 `OnMount` 两个值。 |
 
+## 死成员与陷阱
+
+本页死成员状态未知：本页成员全部落在 UNSUPPORTED（多声明者歧义等），调用点数不可当结论；
+本次未测出任何可复核的调用点。
+
 ## 真实示例
 
 写一份和自己的 `AgentStatusCondition` 等价的判定（这是单人 mod 里唯一能走通的用法——自己实现，不依赖 perk 系统）：

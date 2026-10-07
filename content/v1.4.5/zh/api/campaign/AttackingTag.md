@@ -58,6 +58,31 @@ return false;
 | `StringId` | `public override string StringId => "AttackingTag"` | 对话 XML `allowed_tags` 里写的字面量，也是 `ConversationManager._tags` 的键。 |
 | `IsApplicableTo` | `public override bool IsApplicableTo(CharacterObject character)` | 唯一逻辑。**`character` 参数完全未被使用**。先试 `HeroHelper.WillLordAttack()`，再试围城名单，两者皆不成立返回 false。依赖 `Settlement.CurrentSettlement`、`Hero.MainHero` 与静态的 `PlayerEncounter`。 |
 
+## 怎么用
+
+这是一枚按「当前世界状态」而不是按角色属性切分台词的门控。它回答的不是「这个角色是谁」，而是「此刻地图上是否处在攻击态势里」，所以它的判定里完全没有 `character` 参数的使用。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/AttackingTag.cs:6`，常量 `Id` 在 `:8`，`StringId` 覆写在 `:10`，`IsApplicableTo` 覆写在 `:12`。基类 `ConversationTag` 的抽象方法在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/ConversationTag.cs:7`，框架调用点在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Conversation/ConversationManager.cs:1087` 与 `:1098`。
+
+它有两个分支，短路顺序有讲究：先问 `HeroHelper.WillLordAttack()`（`AttackingTag.cs:14`），为真就直接返回 true，连 `Settlement.CurrentSettlement` 都不看；否则再看当前定居点是否处在围城中（`:18`）且玩家部队在该定居点的部队列表里（`:20`）。
+
+```csharp
+AttackingTag tag = new AttackingTag();
+Debug.Print("StringId=" + tag.StringId + " 常量 Id=" + AttackingTag.Id, 0);
+bool willLordAttack = HeroHelper.WillLordAttack();
+Settlement current = Settlement.CurrentSettlement;
+Debug.Print("领主攻击意图=" + willLordAttack + " 当前定居点=" + current?.Name, 0);
+if (current != null && current.SiegeEvent != null)
+{
+    Debug.Print("围城中，玩家部队在内=" + current.Parties.Contains(Hero.MainHero.PartyBelongedTo), 0);
+}
+Debug.Print("标签最终结果（注意入参 character 未被使用）=" + tag.IsApplicableTo(Hero.MainHero), 0);
+```
+
+这就是它与同目录其它标签最大的结构差异：[AseraiTag](../AseraiTag) 和 [ArtisanNotableTypeTag](../ArtisanNotableTypeTag) 判的是入参本身，而它对入参完全不看，只看全局状态。
+
+**最常见的坑**：它读的是静态的 `Settlement.CurrentSettlement`，而不是对话角色所在的位置。同一段对话在地图上对话和在围城对话里结果不同，所以调试「台词时有时无」时，要看对话发生在哪、而不是只看双方是谁。
+
 ## 真实示例
 
 在 Behavior 里预检这个门控（入参随便传，因为它不被读；但仍然要传合法对象以免将来实现变化）：

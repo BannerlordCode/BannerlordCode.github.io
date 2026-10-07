@@ -23,6 +23,74 @@ description: "城镇与城堡中可建造建筑的静态定义/原型：描述�
 - **使用**：需要枚举全部建筑种类（`BuildingType.All`）、获取某个内建蓝图（`DefaultBuildingTypes.SettlementBarracks` 等静态属性）、查询某建筑类型在某等级的成本（`GetProductionCost`）、或判断并读取它在某等级提供的效果（`HasEffect` / `GetBaseBuildingEffectAmount` / `GetBuildingEffectType` / `GetExplanationAtLevel`）时。
 - **不要使用**：不要把它当“某座城正在建造的那栋楼”来读写等级或进度——那在 `Building.CurrentLevel` / `Building.BuildingProgress` 上；不要继承它来扩展（它是 `sealed`）；不要在 `Mission`/战斗层或战役未启动时访问 `BuildingType.All`（背后是 `Campaign.Current.AllBuildingTypes`）；新增自定义建筑应通过模块 XML 或 `MBObjectManager.RegisterPresumedObject` 注册新 id，而非修改现有内建类型。
 
+## 怎么用
+
+何时该读这一页、何时不该读、该改哪个模型，见上文「何时使用 / 何时不要使用」。本节只讲怎么从源码拿到它、以及它在 v1.4.5 里被谁真的调用。
+
+### 怎么拿到它
+
+声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/BuildingType.cs:11`，`public sealed class BuildingType : MBObjectBase`。**sealed**，不能继承；它是 `MBObjectBase` 的子类，所以走的是 `MBObjectManager` 那一套按字符串 id 解析的路径，而不是 `GameModels` 那一套。
+
+它在整棵 v1.4.5 树里被 26 个文件引用，是本桶最被广泛消费的静态定义类型。三个真实读点分三层：
+
+第一层是模型与数据自身：`Building.cs:33` 的 `public BuildingType BuildingType => _buildingType`（字段在 `:13`），`BuildingType.cs:15` 的 `BuildingEffect` 属性，`:35` 的 `EffectInfo` 构造，`:136` 的 `GetBaseBuildingEffectAmount`，`:148` 的 `HasEffect`，`:201` 的 `GetBuildingEffectType`。
+
+第二层是定居点与城镇的规则判断，逐条 grep 到的四处：`Town.cs:529` 与 `Town.cs:539` 判 `BuildingType == null || !BuildingType.IsReady`，`Settlement.cs:1053` 判 `IsDailyProject && CurrentLevel != 1`，`DefaultBuildingTypes.cs:11` 与 `:13` 持有内建蓝图的私有字段。
+
+第三层是 ViewModel，逐条 grep 到六处：`SettlementProjectSelectionVM.cs:233` 与 `:326`、`SettlementProjectVM.cs:62` 与 `:246`、`TownManagementVM.cs:688`、`TooltipRefresherCollection.cs:679`。其中 `SettlementProjectVM.cs:62` 有一处把 `BuildingType.StringId` 转小写当图标键——**这正是本页那行 XML 告警指向的地方**：字符串 id 属于 XML 语料，v1.4.5 未随附，这一层无法在本版本树核对。
+
+`DefaultBuildingTypes` 是内建蓝图的静态持有者，优先用它而不是 `MBObjectManager` 按 id 取，后者会因拼写或模块未注册而返回 null。
+
+### 典型用法
+
+上面「示例」两段是「按 id 取蓝图读满级加成」和「遍历城镇建筑读成本与说明」。缺的一步是**反查：给一座建筑，找出全城范围内所有提供同一个效果的蓝图**——这是玩家问「我这城缺什么」时唯一能直接回答的查法：
+
+```csharp
+public static List<string> WhoProvides(Town town, BuildingEffectEnum effect)
+{
+    List<string> names = new List<string>();
+    if (town == null || Campaign.Current == null)
+    {
+        return names;
+    }
+    foreach (BuildingType candidate in BuildingType.All)
+    {
+        // HasEffect 在 BuildingType.cs:148；这一步先滤掉不提供该效果的蓝图
+        if (!candidate.HasEffect(effect))
+        {
+            continue;
+        }
+        // IsDailyProject 决定它是当日工程还是常规工程，Settlement.cs:1053 用它分流
+        if (candidate.IsDailyProject && town.CurrentDefaultBuilding != null
+            && town.CurrentDefaultBuilding.BuildingType == candidate)
+        {
+            names.Add(candidate.StringId + "(今日)");
+        }
+        else
+        {
+            names.Add(candidate.StringId);
+        }
+    }
+    return names;
+}
+```
+
+`BuildingType.All` 是全量候选集，逐条 grep 到它被 `Building.cs:33` 之外的遍历代码大量使用，所以这个反查方向是安全的——它只读。
+
+返回字符串 id 是因为 `BuildingType` 没有描述文本的公开属性（说明文字走 `GetExplanationAtLevel`）。若只需要人可读的名字，应改为遍历 `town.Buildings` 再用 `building.Name`。
+
+### 什么时候不要用它
+
+不要继承它。`sealed` 决定了扩展只能走「换一整套 XML 定义」，而不是派生。
+
+不要用 `MBObjectManager.Instance.GetObject<BuildingType>(id)` 作为默认取法。id 拼写错误或对应模块尚未注册时它返回 null，而 `DefaultBuildingTypes.X` 是编译期就绑定的静态属性，不存在这个失败模式。
+
+### 最容易踩的坑
+
+`MBObjectManager` 未注册或取回为 null：随后访问 `.StartLevel` 会直接空引用。优先用 `DefaultBuildingTypes.X`，或先遍历 `BuildingType.All` 校验存在。
+
+另外，本页所有字符串 id 属于 XML 语料、v1.4.5 未随附，因此上面代码里的 `StringId` 只能当作运行期输出，不能当作已核对的常量。
+
 ## 依赖图
 
 上游类型与系统：
@@ -147,6 +215,8 @@ description: "城镇与城堡中可建造建筑的静态定义/原型：描述�
 
 按字符串 id 取回一个内建建筑蓝图，并读取它在满级（3 级）对驻军容量的基准加成：
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.5 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 BuildingType barracks = MBObjectManager.Instance.GetObject<BuildingType>("building_settlement_barracks");
 if (barracks != null && barracks.HasEffect(BuildingEffectEnum.GarrisonCapacity))

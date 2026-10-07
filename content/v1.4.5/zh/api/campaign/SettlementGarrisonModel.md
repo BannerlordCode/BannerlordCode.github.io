@@ -85,6 +85,37 @@ SettlementGarrisonModel 是一个纯计算的规则扩展点：`Campaign` 在启
   - 副作用：无，纯计算；内部用 `ExplainedNumber` 累积但最终只返回 `ResultNumber`。
   - 调用时机：`Town` 在刷新城墙修复速率时调用（约 `Town.cs:644`），除以单段最大血量得到每墙段的日修复量，最终写入城墙血量。
 
+## 怎么用
+
+这是驻军系统的规则层，五个方法各管一件事：每日自动招募上限、驻军基础增减、军队路过时抽多少兵增援、留下多少兵、以及城墙每日最大修复量。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementGarrisonModel.cs:7`，全文 19 行、5 个成员，无属性。默认实现注册点是 `SandBoxManager.cs:280` 的 `gameStarter.AddModel(new DefaultSettlementGarrisonModel())`。
+
+五个成员里有三个返回 `ExplainedNumber` 或带默认参数，值得注意签名细节：`CalculateBaseGarrisonChange` 在 `:11` 带 `includeDescriptions`；`FindNumberOfTroopsToTakeFromGarrison` 在 `:13` 的最后一个参数 `idealGarrisonStrengthPerWalledCenter` 默认是 `0f`，也就是说**你不传它就拿到的是「不按理想驻军强度修正」的口径**；`FindNumberOfTroopsToLeaveToGarrison` 在 `:15` 没有这个参数。
+
+「路过一座城抽多少兵」这个问题必须用**抽兵**和**留兵**两个方法成对地问，只问一个会得到偏一半的答案：
+
+```csharp
+SettlementGarrisonModel garrison = Campaign.Current.Models.SettlementGarrisonModel;
+Settlement walled = Settlement.All.First(s => s.IsFortification);
+MobileParty passer = MobileParty.MainParty;
+int toTake = garrison.FindNumberOfTroopsToTakeFromGarrison(passer, walled);
+int toLeave = garrison.FindNumberOfTroopsToLeaveToGarrison(passer, walled);
+Debug.Print(walled.Name + " 抽调=" + toTake + " 留下=" + toLeave + " 净变化=" + (toTake - toLeave), 0);
+int idealPerCenter = 250;
+Debug.Print("带理想强度口径的抽调=" +
+    garrison.FindNumberOfTroopsToTakeFromGarrison(passer, walled, idealPerCenter), 0);
+ExplainedNumber baseChange = garrison.CalculateBaseGarrisonChange(walled, true);
+Debug.Print("驻军基础日变化=" + baseChange.ResultNumber + "，说明项 "
+    + baseChange.GetTotalSum() + " 之下有 " + baseChange.GetUnscaledResult() + " 未缩放", 0);
+```
+
+真正的累加发生在各 `CampaignBehavior` 与 `Town` / `Settlement` 对象上，模型只负责推导该加多少。
+
+四个外部调用点把这五个方法的分工彻底固定了，所以想知道哪个方法对应哪个功能，直接看调用方比看文档快：`GarrisonRecruitmentCampaignBehavior.cs:190` 用 `GetMaximumDailyAutoRecruitmentCount` 限定每日自动招募量，`GarrisonRecruitmentCampaignBehavior.cs:201` 紧接着用 `CalculateBaseGarrisonChange` 算驻军净增减，`AiVisitSettlementBehavior.cs:578` 用 `FindNumberOfTroopsToTakeFromGarrison` 决定一支路过的部队抽多少兵进城，`Town.cs:644` 用 `GetMaximumDailyRepairAmount` 当城墙每日修复的分母。
+
+**最常见的坑**：`FindNumberOfTroopsToTakeFromGarrison` 的最后一个参数有默认值 `0f`。省略它得到的是默认口径，与你在别处看到的「按每座城防理想驻军强度折算」的数字不是一回事，两个口径混用会得到对不上的账。
+
 ## 示例
 
 查询某城镇的每日自动募兵上限与驻军基础增减：

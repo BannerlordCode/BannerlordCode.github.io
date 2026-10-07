@@ -194,6 +194,65 @@ int  progress          = Hero.MainHero.HeroDeveloper.GetSkillXpProgress(skill);
 Hero.MainHero.AddSkillXp(skill, Math.Max(0f, neededXp - progress));
 ```
 
+## 怎么用
+
+### 怎么拿到它
+
+**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Hero.cs`（全文 2406 行，本批最大）。
+**入口：** 三个静态查找器，**它们走的是三条完全不同的路径**：
+
+| 成员 | 路径 | 行号 |
+| --- | --- | --- |
+| `Find(string stringId)` | `Campaign.Current.CampaignObjectManager.Find<Hero>(...)` | `Hero.cs:2134` / `:2136` |
+| `FindFirst(Func<Hero, bool>)` | `Campaign.Current.Characters.FirstOrDefault(x => x.IsHero && ...)` | `Hero.cs:2129` / `:2131` |
+| `FindAll(Func<Hero, bool>)` | LINQ over `Campaign.Current.Characters` | `Hero.cs:2139` / `:2141`-`:2143` |
+| `AllAliveHeroes` | `Campaign.Current.AliveHeroes` | `Hero.cs:887` |
+| `DeadOrDisabledHeroes` | `Campaign.Current.DeadOrDisabledHeroes` | `Hero.cs:889` |
+
+**注意 `FindFirst` 与 `FindAll` 遍历的是 `Campaign.Current.Characters`（角色全集），不是 `AllAliveHeroes`。** 换句话说 **`FindAll(h => true)` 会包含死者与废人**，而 `AllAliveHeroes` 不会。**你的谓词必须自己过滤 `IsAlive`。**
+
+### 典型用法
+
+**`Find` 与 `FindFirst` 的失败语义不同，但返回的东西都是 null。** `Find` 走 `CampaignObjectManager`（`:2136`）是字典直查，O(1)；`FindFirst`（`:2131`）走 LINQ 且每次都要拆箱 `x.HeroObject`，**在 `Characters` 全集上线性扫描**。
+
+**所以「按 stringId 找」永远走 `Find`，「按条件找第一个」才用 `FindFirst`。** 把 `FindFirst` 用在循环里是本类型最容易犯的性能错误——**每次迭代都是一次全角色扫描**。
+
+**两个派生属性值得单独记住，因为它们是热路径上的便捷判据：**
+
+- `IsWounded => HitPoints <= WoundedHealthLimit`（`Hero.cs:331`）
+- `IsPlayerCompanion => CompanionOf == Clan.PlayerClan`（`Hero.cs:333`）
+
+**`IsPlayerCompanion` 判的是 `CompanionOf`，不是「在队伍里」也不是「有同伴身份」。** 一个已被开除但 `CompanionOf` 未清的英雄仍会返回 true。
+
+想按「战力/财富/身份」排序挑人，**正确做法是一次性物化成数组**，而不是反复调 `FindFirst`：
+
+```csharp
+public static void ListTopRichLords(int topN)
+{
+    Hero[] lords = Hero.AllAliveHeroes
+        .Where((Hero h) => h.IsLord)
+        .OrderByDescending((Hero h) => h.Gold)
+        .Take(topN)
+        .ToArray();
+    for (int i = 0; i < lords.Length; i++)
+    {
+        Hero lord = lords[i];
+        Debug.Print(lord.StringId + " gold=" + lord.Gold + " wounded=" + lord.IsWounded, 0);
+    }
+    Debug.Print("materialized once, no repeated FindFirst scans", 0);
+}
+```
+
+**上例第一行的数据源是 `AllAliveHeroes`（`Hero.cs:887`）而不是 `FindAll`——因为我们要的是活人。** 结尾那句注释不是装饰：**`Hero.FindAll(h => h.IsLord && h.Gold > x)` 写在 `foreach` 里会被反复全量扫描，`AllAliveHeroes` + LINQ 一次成型只扫一遍。**
+
+**而 `Find` 找不到时返回 null这一点，在多层调用里必须逐层判。** `Hero.Find("hero_arwa")` 可能为 null，接着 `.Clan` 就 NRE。**页面里的示例已经示范了这个判空，但真正的教训是：`Find` 的失败不是异常，是静默的 null。**
+
+改状态一律走 Action——`GiveGoldAction.ApplyBetweenCharacters`、`ChangeRelationAction`、`KillCharacterAction.ApplyInLabor` 等。**直接写 `Gold` / `IsDead` / `Spouse` / `Clan` 这些字段不会触发关联系统刷新。**
+
+### 最容易踩的坑
+
+**绕过事件链与存档一致性**：直接写 `IsDead`、`Gold`、`Spouse`、`Clan` 等字段会让关联系统（任务、UI、王国关系、存档）拿不到更新，轻则界面不同步，重则坏档。务必走对应 Action。
+
 ## 参见 / 导航
 
 - ↑ [战役 API 索引](../)

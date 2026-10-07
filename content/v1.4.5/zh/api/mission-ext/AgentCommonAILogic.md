@@ -36,6 +36,11 @@ description: "把 CommonAIComponent 挂到每个 AI 控制 Agent 上的装配逻
 | `OnAgentCreated` | `public override void OnAgentCreated(Agent agent)` | Agent 诞生的第一时间由 `Mission.CreateAgent` 逐个 behavior 派发。实现是「先 `base.OnAgentCreated(agent)` 再判 `agent.IsAIControlled` 就挂组件」——**先调 base 是硬约定**，因为基类 [MissionBehavior](../../mission/MissionBehavior/) 的实现可能做自己的记账（`MissionBehavior.cs:53`）。 |
 | `OnAgentControllerChanged` | `protected internal override void OnAgentControllerChanged(Agent agent, AgentControllerType oldController)` | 控制权变更回调（声明在 `MissionBehavior.cs:232`，注意是 `protected internal`）。它比 `OnAgentCreated` 多一道 `agent.IsActive()` 守卫——**死掉的 Agent 不做组件增删**。逻辑是新控制者是 AI 就挂、旧控制者是 AI 且组件还在就摘。 |
 
+## 死成员与陷阱
+
+本页死成员状态未知：本页成员全部落在 UNSUPPORTED（多声明者歧义等），调用点数不可当结论；
+本次未测出任何可复核的调用点。
+
 ## 真实示例
 
 照着它写一个同构的装配逻辑，挂自己的组件（这是最常见的继承用途）：

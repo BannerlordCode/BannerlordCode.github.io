@@ -34,10 +34,21 @@ description: "两个 CapsuleData 的结构体容器：站立与蹲下的身体�
 | `BodyCap` | `public CapsuleData BodyCap`（字段） | 站立姿态下的身体碰撞胶囊。命中判定、被击退位移、队列占位都用它。**字段而非属性**，赋值无任何拦截；赋值只改本地副本，必须随 `ref` 一起过 native 边界才生效。 |
 | `CrouchedBodyCap` | `public CapsuleData CrouchedBodyCap`（字段） | 蹲下姿态下的碰撞胶囊，通常比站立更矮更短。角色切到蹲伏动作时引擎改用它做命中与占位判定。同样是**字段而非属性**，赋值不进任何校验；注意字段名是 `CrouchedBodyCap`，不带 `ule`。 |
 
+## 死成员与陷阱
+
+本页两个字段看着像未接线的占位，其实都有引用 —— 清单给的调用点数也不准。
+
+| 成员 | 声明位置 | override | 调用点 | 判定 | 说明 |
+|---|---|---:|---:|---|---|
+| `BodyCap` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentCapsuleData.cs:7 | 0 | 2 次（2 行） | MEASURED | 实体碰撞体。清单报 1 次，实测 2 次：`Mission.cs:1636` 作 `ref` 参数传入 `CreateAgent`、`MonsterExtensions.cs:129` 由对象初始化器赋值。少算的根因是初始化器赋值不属于调用形，不是行数/次数。 |
+| `CrouchedBodyCap` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentCapsuleData.cs:9 | 0 | 2 次（2 行） | MEASURED | 蹲姿碰撞体。清单报 1 次，实测 2 次：`Mission.cs:1636`（与 BodyCap 同行）与 `MonsterExtensions.cs:130`。本行 B-7 差=0，行数=次数=3。 |
+
 ## 真实示例
 
 从 `Monster` 取一份标准的胶囊体数据（这是官方唯一推荐的生产方式）：
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.5 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;

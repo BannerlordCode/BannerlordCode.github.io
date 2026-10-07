@@ -42,6 +42,19 @@ description: "把 Mission 挂进 GameStateManager 的驱动器：负责加载窗
 | `OpenNew` | `public static Mission OpenNew(string missionName, MissionInitializerRecord rec, InitializeMissionBehaviorsDelegate handler, bool addDefaultMissionBehaviors = true, bool needsMemoryCleanup = true)` | 唯一的开任务入口，返回已创建并已推栈的 `Mission`。它还会在非联机场景下设 `MBCommon.CurrentGameType`（录制时是 `SingleRecord`）、并调 `Game.Current.OnMissionIsStarting(missionName, rec)`。`addDefaultMissionBehaviors` 传 false 就**没有** `BasicMissionHandler` / `CasualtyHandler` / `AgentCommonAILogic`。 |
 | `BeginDelayedDisconnectFromMission` | `public void BeginDelayedDisconnectFromMission()` | 置 `_isDelayedDisconnecting = true`；下一次 `OnTick` 且任务处于 `State.Continuing` 时调 `BannerlordNetwork.EndMultiplayerLobbyMission()`。这是联机大厅里「退出但先跑完当前 tick」的延迟退场机制。 |
 
+## 死成员与陷阱
+
+本页 6 个私有状态字段被报成「调用点 0」，实测 5 个都有活跃引用，1 个复核不出引用按规则不下结论。
+
+| 成员 | 声明位置 | override | 调用点 | 判定 | 说明 |
+|---|---|---:|---:|---|---|
+| `_missionInitializing` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionState.cs:15 | 0 | 4 次（4 行） | MEASURED | 任务初始化标志：:224/:229 读、:242 置 true、:335 置 false。清单报 0 是口径盲区。 |
+| `FirstMissionTickAfterLoading` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionState.cs:37 | 0 | 3 次（3 行） | MEASURED | 加载后首个任务 tick 的标志：:45 置 true、:208 置 false、:135 判断。清单报 0 是口径盲区。 |
+| `_tickCountBeforeLoad` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionState.cs:17 | 0 | 2 次（2 行） | MEASURED | :223 自增、:224 参与加载期判断。清单报 0 是口径盲区。 |
+| `_missionTickCount` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionState.cs:27 | 0 | 2 次（2 行） | MEASURED | :209 自增、:215 参与 `TickLoading` 的分支判断。清单报 0 是口径盲区。 |
+| `_isDelayedDisconnecting` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionState.cs:25 | 0 | 2 次（2 行） | MEASURED | :81 判断是否延迟断连、:354 置 true。清单报 0 是口径盲区。 |
+| `MissionFastForwardSpeedMultiplier` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionState.cs:13 | — | — | UNSUPPORTED | `private const int = 10`。**未能复核出引用，按规则不下结论**。 |
+
 ## 真实示例
 
 按官方方式开一个自定义任务——`InitializeMissionBehaviorsDelegate` 的入参就是刚建好的 `Mission`：

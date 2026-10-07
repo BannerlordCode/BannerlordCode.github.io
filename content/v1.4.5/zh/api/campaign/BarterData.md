@@ -182,6 +182,73 @@ public static bool RegisterGoodsLine(BarterData data, Hero offerer, Hero other)
 - **不进存档。** 没有任何 `SaveableField` / `SaveableProperty`；交易会话是一次性的，读档后不会恢复。
 - **生命周期极短。** 从 `StartBarterOffer` 构造到玩家关闭交易屏幕为止。**不要把 `BarterData` 缓存成字段**——会话结束后它就是垃圾，而且里面的 `Barterable` 会一直持有 `Hero` 引用。
 
+## 怎么用
+
+### 怎么拿到它
+
+声明在 `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/BarterData.cs:9`，命名空间 `TaleWorlds.CampaignSystem.BarterSystem`。**你不该自己 new 它**——全树里造它的地方只有两个：`BarterManager.StartBarterOffer`（走玩家手动谈判）和 `BarterManager.ExecuteAiBarter`（AI 自动交易，`BarterManager.cs:98` 会显式把 `OffererParty` 传成 null）。
+
+你拿到的时机是 `CampaignEventDispatcher.Instance.OnBarterablesRequested` 这个事件。派发点在 `BarterManager.cs:83` 与 `:105`，两条路径各派发一次，参数就是同一个 `BarterData` 实例。
+
+真正读它的是 UI 侧：`TaleWorlds.CampaignSystem.ViewModelCollection.Barter.BarterVM` 在 `BarterVM.cs:724` 用它做构造函数参数，`:35` 把它存进 `_barterData` 字段。所以「怎么拿到」的完整链条是：**BarManager 造 → 事件递给你 → BarterVM 接住**。
+
+五个官方 barter 行为则是另一条读法，它们不监听事件，而是在 `RegisterEvents` 里挂 `CampaignEvents.BarterablesRequested`：`GoldBarterBehavior.cs:17`、`ItemBarterBehavior.cs:85`、`FiefBarterBehavior.cs:19`、`SetPrisonerFreeBarterBehavior.cs:20`、`TransferPrisonerBarterBehavior.cs:18` 五个 `CheckForBarters(BarterData args)` 形状一模一样。
+
+### 典型用法
+
+上面「真实示例」第一段走的是 `OnBarterablesRequested` 事件，第二段是读一遍状态。官方行为用的其实是另一条路：`CampaignEvents.BarterablesRequested.AddNonSerializedListener`。抄这个形状的好处是派发顺序可控，而且你在 `CheckForBarters` 里拿到的 `args` 与 BarterVM 拿到的是同一个对象：
+
+```csharp
+public class MyBarterAuditBehavior : CampaignBehaviorBase
+{
+    private readonly List<string> _seen = new List<string>();
+
+    public override void RegisterEvents()
+    {
+        // 与 GoldBarterBehavior.cs:17 同形：官方 5 个 barter 行为都这么挂
+        CampaignEvents.BarterablesRequested.AddNonSerializedListener(this, this.CheckForBarters);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+    }
+
+    public void CheckForBarters(BarterData args)
+    {
+        if (args == null || args.IsAiBarter)
+        {
+            return;   // AI 自动交易不弹 UI，也不该进审计日志
+        }
+        // GetBarterGroups 返回内部列表本身（不是副本）：只读，不要往里加东西
+        if (args.GetBarterGroups().Count == 0)
+        {
+            return;
+        }
+        // GetOfferedBarterables 返回的是新列表，这是「哪些行真的上了台」的标准读点
+        foreach (Barterable line in args.GetOfferedBarterables())
+        {
+            this._seen.Add(line.StringID);
+        }
+    }
+}
+```
+
+`CheckForBarters` 的三个 return 是三条不同的早退理由，各对应一类上游状态：整体没拿到 `args`、这一笔是 AI 交易不该进 UI、以及交易行还是空的。`GetBarterGroups` 与 `GetBarterables` 都返回内部集合本身，只有 `GetOfferedBarterables` 过滤后另建了一份——所以要判断「玩家眼前有哪些行」，必须走后者。
+
+想让这一行真正出现在界面上，光审计不够，还得在同一个回调里调 `AddBarterable<T>`。而那个泛型参数必须能在 `GetBarterGroups()` 里找到一个 `is T` 的分组，否则条目会被静默丢弃。
+
+### 什么时候不要用它
+
+不要在 `CheckForBarters` 里改 `args.GetBarterGroups()` 返回的那个列表。它是内部字段本身，改它等于绕过 `AddBarterGroup`，而且五个官方行为会在同一轮派发里依次读到同一个被改过的列表，顺序不确定。
+
+也不要拿 `IsAiBarter` 当作「对方是 AI」——它的语义是「这一笔是 AI 自动交易」，玩家主动与 AI 达成的谈判同样是 `false`。
+
+### 最容易踩的坑
+
+`AddBarterable<T>` 匹配不到就静默丢弃：没有 `else`、没有日志、没有异常。自定义分组忘了接进 `DiplomacyModel.GetBarterGroups()`，你的条目就凭空消失。
+
+同一族的两个 null 陷阱在 `OffererMapFaction` 上尤其容易炸：`OffererHero?.MapFaction ?? OffererParty.MapFaction`，hero 为 null 时落到 party，而 party 也可能是 null，于是这里 NRE。
+
 ## 跨版本提示
 
 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/BarterData.cs` 是 90 行原始源码，零个存档属性。跨版本要盯四点：构造函数是否仍从 `DiplomacyModel` 拉分组、`AddBarterable<T>` 是否仍是 first-match + 静默丢弃语义、`GetBarterables` 是否仍返回内部列表本身、以及 `BarterManager.BarterContextInitializer` 委托签名是否变过（它是 `BarterData` 的字段类型，改签名会连带改所有 barter 行为）。

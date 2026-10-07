@@ -8,7 +8,7 @@ description: "IMbEvent 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public interface IMbEvent<out T> : IMbEventBase`
 **Base:** `IMbEventBase`
-**File:** `TaleWorlds.CampaignSystem/IMbEvent.2.cs`
+**File:** `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/IMbEvent.cs`
 
 ## 概述
 

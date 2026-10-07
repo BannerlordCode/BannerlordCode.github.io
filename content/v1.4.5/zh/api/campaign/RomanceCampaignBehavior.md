@@ -72,6 +72,31 @@ description: "管理英雄间恋爱与求婚流程的战役行为：维护浪漫
 
 本行为不直接公开自有事件，而是消费 `CampaignEvents` 的三个事件，并在对话树内部通过 `ChangeRomanticStateAction` / `MarriageAction` 发出动作事件。modder 若想感知"某人结婚或恋爱变更"，应订阅 [CampaignEvents](../CampaignEvents) 上与婚姻/浪漫相关的事件，而非轮询私有字段。
 
+## 怎么用
+
+这是恋爱与求婚流程的行为层。它做的事跨三块：往对话系统注入整套求爱/订婚/联姻对话、在每日 tick 里清理失效的恋爱状态并为 NPC 自动撮合、以及维护一对英雄之间的恋爱进度层级。
+
+**怎么拿到它**：注册点是 `SandBoxManager.cs:56` 的 `gameStarter.AddBehavior(new RomanceCampaignBehavior())`，声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/RomanceCampaignBehavior.cs:23`。文件有 1440 行，是本桶里最大的行为之一，所以按公开面而不是行号去读它更省力。
+
+它的核心状态是 `Romance.RomanticStateList`，一对英雄一个条目。**关键一点**：它管理的是恋爱状态，真正写 `Hero.Spouse` 的动作不在这，而是交给 `MarriageAction`。
+
+想做「监听恋爱进展」而不是「改恋爱规则」，正确的接法是订阅事件而不是轮询状态表：
+
+```csharp
+// 诊断用：看当前战役里有哪些恋爱状态（只读）
+Debug.Print("行为已挂载，其管理的状态表是 Romance.RomanticStateList", 0);
+foreach (Romance.RomanticState state in Romance.RomanticStateList)
+{
+    Debug.Print(state.Person1.Name + " × " + state.Person2.Name
+        + " 层级=" + state.Level + " 距下一级进度=" + state.ProgressToNextLevel, 0);
+}
+Debug.Print("真正落定婚姻走 MarriageAction，不在本行为里直接写 Hero.Spouse", 0);
+```
+
+`RomanticState` 是嵌在 [Romance](../Romance) 里的类（`Romance.cs:9`），四个字段都带存档 id：`Person1` / `Person2`（`:11` / `:14`）、`Level`（`:18`）、`ProgressToNextLevel`（`:21`），另有 `LastVisit` 与 `ScoreFromPersuasion`。`Romance.RomanticStateList` 是静态属性（`Romance.cs:101`），返回的是 `Campaign.Current.Romance` 上的那个 `List`——所以它每次访问都要经过 `Campaign.Current`。
+
+**最常见的坑**：注册时机。它在战役初始化阶段被 `AddBehavior` 注册，战役尚未启动时 `Campaign.Current.GetCampaignBehavior<RomanceCampaignBehavior>()` 会返回 null，而调用点不会告诉你这一点。
+
 ## 示例
 
 ```csharp

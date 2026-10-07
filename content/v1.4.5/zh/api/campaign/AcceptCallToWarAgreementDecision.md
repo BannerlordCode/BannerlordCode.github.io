@@ -62,6 +62,38 @@ description: "「是否响应盟友宣战号召」王国决议：两个选项、
 | `GetQueriedDecisionOutcome` | `public override DecisionOutcome GetQueriedDecisionOutcome(MBReadOnlyList<DecisionOutcome> possibleOutcomes)` | 返回「同意」那个选项。**没有反向路径**——UI 永远只能问「你同不同意」。 |
 | 嵌套类型 | `public class AcceptCallToWarAgreementDecisionOutcome : DecisionOutcome` | 四个 `SaveableField(100..103)` 的 `readonly` 字段：`ShouldAcceptCallToWar` / `Kingdom` / `CallingKingdom` / `KingdomToCallToWarAgainst`。**它的 `GetDecisionLink()` 与 `GetDecisionImageIdentifier()` 都返回 null**——本决议在 UI 上没有 wiki 链接也没有图标。 |
 
+## 怎么用
+
+这个类型没有静态工厂、没有服务定位器，公开入口只有一个构造器 `AcceptCallToWarAgreementDecision(Clan proposerClan, Kingdom callingKingdom, Kingdom kingdomToCallToWarAgainst)`。拿到的实例必须自己挂到某个王国的未决决议列表上才会开始生效，挂上之后投票、扣影响力、应用后果全都由基类 [KingdomDecision](../KingdomDecision) 在决议系统自己的日结里驱动。所以 mod 要做的其实只有两步——构造、挂载——中间没有你必须补的中间层。
+
+**怎么拿到它**：声明在源树 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/AcceptCallToWarAgreementDecision.cs:14`。官方三个构造入口分别在 `AllianceCampaignBehavior.cs:247`、`AllianceCampaignBehavior.cs:567` 和 `AcceptCallToWarOfferNotificationItemVM.cs:109`，三个入口共享同一个形状：先 `FirstOrDefault` 找出同型的旧决议，`RemoveDecision` 掉，再 `AddDecision` 挂上新的。mod 想复刻就照抄这个 remove-then-add 三段式，不要只调 `AddDecision`。
+
+挂载前务必自己把守卫条件先跑一遍，因为 `ShouldBeCancelledInternal()` 直接返回 `!CanMakeDecision(...)` 的结果，任何一条动态条件不成立决议都会被静默取消而不是报错。构造时顺手把 `CallToWarCost` 读出来存好，因为你之后再也没有第二个时机知道它当时是多少钱。
+
+```csharp
+Kingdom callingKingdom = SomeClan.Kingdom;      // 发号召的一方
+Kingdom targetKingdom = OtherClan.Kingdom;      // 要被打的一方
+Clan proposer = SomeClan;                        // 赞助决议的氏族，同意票会被它赞助
+AcceptCallToWarAgreementDecision decision = new AcceptCallToWarAgreementDecision(proposer, callingKingdom, targetKingdom);
+TextObject reason;
+if (!decision.CanMakeDecision(out reason, true))
+{
+    Debug.Print("决议会被自动取消: " + reason, 0);
+}
+else
+{
+    int lockedCost = decision.CallToWarCost;
+    proposer.Kingdom.RemoveDecision(proposer.Kingdom.UnresolvedDecisions
+        .FirstOrDefault(d => d is AcceptCallToWarAgreementDecision));
+    proposer.Kingdom.AddDecision(decision, ignoreInfluenceCost: true);
+    Debug.Print("锁定代价=" + lockedCost, 0);
+}
+```
+
+读两票的支持度时有一个容易忽略的点：`CalculateSupport` 只算「同意」那一票，反对的分数是它的相反数而不是独立算出来的。你要展示双方支持度，就遍历 `DetermineInitialCandidates()` 分别调 `DetermineSupport`，不要拿 `CalculateSupport` 的结果去推。
+
+**最常见的坑**：`CallToWarCost` 在构造那一刻由 `AllianceModel.GetCallToWarCost` 定死，之后王国关系变了也不会重算。类型里没有 setter，四个 UI 文案也全都填这个定值。想改价只能 `RemoveDecision` 掉旧决议再 `new` 一个，让它在新的世界状态下重新定价。
+
 ## 真实示例
 
 官方构造点，从 `AllianceCampaignBehavior.ConfirmCallToWarAgreementOffer` 照抄（注意它是**先 remove 同型旧决议再 add**）：

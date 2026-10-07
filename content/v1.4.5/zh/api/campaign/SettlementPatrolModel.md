@@ -70,6 +70,39 @@ SettlementPatrolModel 是一个纯计算的规则扩展点：Campaign 在启动�
   - 副作用：无，纯计算；真正的名册由调用方经 `PartySizeLimitModel.FindAppropriateInitialRosterForMobileParty` 生成并写入队伍。
   - 调用时机：由 `PatrolPartiesCampaignBehavior` 在生成巡逻队（约第 649 行）与补充巡逻队（`ReplenishParty`）时调用，作为兵种模板来源。
 
+## 怎么用
+
+这是巡逻队（patrol party）的规则层，只有三个方法，分别回答「等多久」「能不能有」「用什么模板」。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementPatrolModel.cs:7`，全文 15 行。默认实现注册点是 `SandBoxManager.cs:336` 的 `gameStarter.AddModel(new DefaultSettlementPatrolModel())`。
+
+三个成员各自带一个 `bool naval` 参数，这是本批唯一一个**陆海双口径**的模型：`GetPatrolPartySpawnDuration(Settlement, bool naval)` 在 `:9` 返回 `CampaignTime`，`CanSettlementHavePatrolParties(Settlement, bool naval)` 在 `:11` 返回 `bool`，`GetPartyTemplateForPatrolParty(Settlement, bool naval)` 在 `:13` 返回 `PartyTemplateObject`。三个方法的 `naval` 含义一致——问的是陆上巡逻还是海上巡逻。
+
+它在全树只有一个外部调用点：`PatrolPartiesCampaignBehavior.cs:76` 用 `GetPatrolPartySpawnDuration` 算出下一次生成时刻并更新队列。**另外两个方法我是按签名而非调用点确认的**，如果你的 mod 要替换实现，先在 `PatrolPartiesCampaignBehavior` 里核对实际调用顺序。
+
+```csharp
+SettlementPatrolModel patrol = Campaign.Current.Models.SettlementPatrolModel;
+foreach (Settlement s in Settlement.All)
+{
+    bool landOk = patrol.CanSettlementHavePatrolParties(s, false);
+    bool seaOk = patrol.CanSettlementHavePatrolParties(s, true);
+    Debug.Print(s.Name + " 陆上可巡逻=" + landOk + " 海上可巡逻=" + seaOk, 0);
+    if (landOk)
+    {
+        Debug.Print("  下次生成=" + patrol.GetPatrolPartySpawnDuration(s, false)
+            + " 模板=" + patrol.GetPartyTemplateForPatrolParty(s, false).Name, 0);
+    }
+}
+```
+
+真正的创建与维护由 `PatrolPartiesCampaignBehavior` 负责，巡逻队本身是一个 `MobileParty`。
+
+因为它在全树只被调用一次，替换实现时风险其实很低——但也意味着**你很难找到第二个参考用法**。`PatrolPartiesCampaignBehavior.cs:76` 把 `GetPatrolPartySpawnDuration` 的返回值加到 `CampaignTime.Now` 上再交给 `UpdateSettlementQueue`，也就是说模型只管「间隔多久」，「什么时候入队、队列满了怎么办」全在行为里。
+
+另外三个方法的调用点我是按签名确认的，不是按调用点确认的。如果你要写替换实现，建议先在 `PatrolPartiesCampaignBehavior` 里搜一遍 `SettlementPatrolModel` 确认这三个方法是否真的都被调到——目前扫到的只有 `GetPatrolPartySpawnDuration` 一处。这个不确定性我标在这里，而不是写成「三个都在用」。
+
+**最常见的坑**：跨战役重载缓存实例。`Campaign.Current.Models.SettlementPatrolModel` 每次新战役或读档都由 `GameModels` 重新解析，缓存进静态字段会指向旧战役的已销毁对象。
+
 ## 示例
 
 查询某定居点的巡逻队生成节奏与入驻资格：

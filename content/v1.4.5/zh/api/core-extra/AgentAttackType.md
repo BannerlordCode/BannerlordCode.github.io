@@ -137,6 +137,45 @@ private void ReportKill(Agent victim, Agent killer, AgentState state, KillingBlo
 - **不要与 `DamageTypes` 或 `WeaponClass` 混用。** 三者描述的是命中结算的不同维度（怎么打的 / 什么伤害 / 什么武器），在 `KillingBlow` 上它们是三个并列字段：`AttackType`、`DamageType`、`WeaponClass`。
 - **不要与 `Agent.UnderAttackType` 混淆。** 后者（`Agent.cs:423`）描述的是「一个 agent 此刻正处于被攻击的哪种状态下」，由 `Formation.GetUnderAttackTypeOfUnits` 消费，与单次命中的通道无关。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public enum AgentAttackType`（`TaleWorlds.Core/AgentAttackType.cs:3`）。它带程序集特性 `[assembly: DefineAsEngineStruct(typeof(AgentAttackType), "Agent_attack_type", false, "aat", null)]`（`TaleWorlds.MountAndBlade/Properties/AssemblyInfo.cs:15`）——**第二个参数 `false` 说明它不是位标志集，托管侧只能读不能造**。拿到的唯一方式是等引擎递给你：`Mission.OnBeforeAgentRemoved` 委托的 `KillingBlow`、或 `KillingBlow.AttackType` 属性。
+
+### 典型用法
+
+上面「真实示例」第一段是把五种取值逐个 `switch` 打日志，第二段是做合法性校验。真正拿它**做判断**的场合是击杀归属——只有 `Collision` 能告诉你「这一下不是谁砍的」：
+
+```csharp
+public class MyCreditResolver : MissionBehavior
+{
+    public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)
+    {
+        if (killingBlow == null || !killingBlow.IsValid)
+        {
+            return;
+        }
+        // Collision 是唯一能判定「没有主动攻击者」的取值：
+        // 落石、攻城器械撞击、两匹马对撞都落在它上面，托管侧无任何代码对它做 == 之外的分支
+        if (killingBlow.AttackType == AgentAttackType.Collision)
+        {
+            MBDebug.Print("[MyMod] 环境死亡，无归属：" + affectedAgent.Name);
+            return;
+        }
+        // Kick / Bash / Standard 都带 OwnerId；Count 永远不会出现在真实命中上
+        bool byPlayer = affectorAgent != null && affectorAgent.IsMine;
+        MBDebug.Print("[MyMod] 归属 owner=" + killingBlow.OwnerId + (byPlayer ? "（玩家）" : "（他人）"));
+    }
+}
+```
+
+与上面「真实示例」的差别：那里是**把取值转成文本**（打印）或**把取值转成布尔**（校验），输出之后就丢了；这里把同一个取值**接进一条业务判断链**——分成「环境死亡」与「有归属死亡」两档，再用 `affectorAgent.IsMine`（`Agent.cs:636`，实现就是 `Controller == Player`）再分一层。判据是「`Collision` 是唯一无攻击者的取值」，不是「五种取值分别是什么」。
+
+### 最容易踩的坑
+
+**不是位标志集。** 源码里没有 `[Flags]`，`DefineAsEngineStruct` 的第三个参数也是 `false`。`AgentAttackType.Standard | AgentAttackType.Kick` 会得到 `Kick`（因为 `Standard == 0`），用它做组合判断必然出错。
+
 ## 跨版本提示
 
 `AgentAttackType.cs` 在 1.4.5 里只有 10 行、5 个枚举项，是 1.4.5 原始源码形态（file-scoped namespace、无 `// Token:` 注释）。1.3.x / 1.4.6 的对应文件是反编译产物，行数会明显变多但成员集合一致。**跨版本真正要盯的是 native 侧**：`DefineAsEngineStruct` 绑定的名字 `"Agent_attack_type"` 与缩写 `"aat"` 是托管与原生之间的契约，如果某个版本新增了枚举项（比如某种投掷物撞击），`Count` 的数值会跟着变——你在 1.4.5 写的 `attackType < AgentAttackType.Count` 依然是正确的写法，而硬编码 `attackType <= 3` 就会在下一个版本静默失效。

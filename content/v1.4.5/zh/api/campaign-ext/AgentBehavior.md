@@ -13,7 +13,7 @@ description: "单个 agent 行为的抽象基类：持有 OwnerAgent 与 Mission
 
 ## 概述
 
-一个 mission 里的每个 agent（士兵、平民、动物）背后挂着一个 [AgentBehaviorGroup](AgentBehaviorGroup)，组里挂着若干个「行为」——走路、站岗、逃跑、聊天、巡逻、警觉、对战……**本类就是那若干个行为里每一个的抽象基类**。它自己不含任何逻辑，除了一个抽象方法 `GetDebugInfo()` 之外全是可覆盖的空实现或属性转发。
+一个 mission 里的每个 agent（士兵、平民、动物）背后挂着一个 [AgentBehaviorGroup](../AgentBehaviorGroup)，组里挂着若干个「行为」——走路、站岗、逃跑、聊天、巡逻、警觉、对战……**本类就是那若干个行为里每一个的抽象基类**。它自己不含任何逻辑，除了一个抽象方法 `GetDebugInfo()` 之外全是可覆盖的空实现或属性转发。
 
 它真正提供的只有两样东西。**第一是上下文转发**：`OwnerAgent => Navigator.OwnerAgent`、`Mission`（在构造函数里从 `behaviorGroup.Mission` 抓一次，私有 setter）、`Navigator => BehaviorGroup.Navigator`、`BehaviorGroup`（`protected readonly`）。有了这四个，任何行为都能在 `Tick` 里直接读自己的 agent 与 mission，不必层层传参。**第二是生命周期**：`IsActive` 是一个带副作用的属性——它的 setter 在值真的变化时调 `OnActivate()` 或 `OnDeactivate()`。这是整个类唯一的「自动机制」，其余钩子都得由调度方主动调。
 
@@ -51,6 +51,15 @@ description: "单个 agent 行为的抽象基类：持有 OwnerAgent 与 Mission
 | `SetCustomWanderTarget` | `public virtual void SetCustomWanderTarget(UsableMachine customUsableMachine)` | 把某个可交互物设为漫游目标，基类为空。签名收的是 `UsableMachine` 而不是泛型参数，所以只对「与机器交互」这类行为有意义。 |
 | `OnAgentRemoved` | `public virtual void OnAgentRemoved(Agent agent)` | 同组内某个 agent 被移除时的广播，基类为空。**注意它不是自己的 agent 被移除**——自己的 agent 被移除走的是 mission 的 `OnAgentRemoved` 流程，两者不同。 |
 | `GetDebugInfo` | `public abstract string GetDebugInfo()` | **唯一的抽象成员**，派生类必须实现。`CautiousBehavior` 返回 `string.Empty`（即「我没什么可报的」）。它只在调试路径上被读。 |
+
+## 死成员与陷阱
+
+| 成员 | 声明位置 | override | 调用点 | 判定 | 说明 |
+|---|---|---|---|---|---|
+| `GetDebugInfo` | `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/AgentBehavior.cs:89` | 14 | 0 | MEASURED | 声明为 `public virtual`，被另外 14 个文件 override，而**在 1.4.5 全树 8,583 个 `.cs` 里没有任何调用点**。mod 覆写它不会改变任何行为，因为游戏自身从不读它。 |
+| `BehaviorGroup` | `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/AgentBehavior.cs:10` | 0 | 3 次（3 行） | UNSUPPORTED | 静态工具报「0 调用点」，但 `grep -o -w` 查出**3 次活跃引用（3 行）**——都是类内无点前缀的直接访问。这是提取口径的盲区，不是死成员。 |
+
+口径：源码树 `bannerlord-1.4.5` HEAD `ccbc3d40f88905765a1484492d41b7000e7249fa`，8,583 个 `.cs`（含 `bin/`）。调用点数是**出现次数**（`grep -o -w`），不是命中行数——同一行出现两次就计两次。只有 `MEASURED` 行可以当结论读；`UNSUPPORTED` 行只是记录「工具自己的数不可信」，不代表成员是死的。
 
 ## 真实示例
 
@@ -203,9 +212,9 @@ public static void InstallBehavior(AgentBehaviorGroup group)
 
 ## 依赖关系
 
-- 调度方：[AgentBehaviorGroup](AgentBehaviorGroup) 的 `AddBehavior<T>()` / `GetBehavior<T>()` / `HasBehavior<T>()` / `RemoveBehavior<T>()` / `Tick` / `GetScore` / `SetScriptedBehavior<T>()` 决定了本类型何时被创建、何时被问、何时被 Tick
-- 行为装配：[BehaviorSets](BehaviorSets) 是沙盒侧集中声明「哪种角色挂哪些行为」的地方，1.4.5 的绝大多数行为都从那里进组
-- 接口入口：`IAgentBehaviorManager` 的十三个 `Add*Behaviors(IAgent)` 方法最终都转调 `BehaviorSets`，再由它对本类型做 `AddBehavior<T>()`，实现见 [AgentBehaviorManager](AgentBehaviorManager)
+- 调度方：[AgentBehaviorGroup](../AgentBehaviorGroup) 的 `AddBehavior<T>()` / `GetBehavior<T>()` / `HasBehavior<T>()` / `RemoveBehavior<T>()` / `Tick` / `GetScore` / `SetScriptedBehavior<T>()` 决定了本类型何时被创建、何时被问、何时被 Tick
+- 行为装配：[BehaviorSets](../BehaviorSets) 是沙盒侧集中声明「哪种角色挂哪些行为」的地方，1.4.5 的绝大多数行为都从那里进组
+- 接口入口：`IAgentBehaviorManager` 的十三个 `Add*Behaviors(IAgent)` 方法最终都转调 `BehaviorSets`，再由它对本类型做 `AddBehavior<T>()`，实现见 [AgentBehaviorManager](../AgentBehaviorManager)
 - 上下文来源：`Agent` 与 `Mission` 分别经 `Navigator.OwnerAgent` 与构造时的 `behaviorGroup.Mission` 到达本类
 - 导航能力：`AgentNavigator` 提供寻路与感知，是 `OwnerAgent` 的上一层中转
 - 交互目标：`SetCustomWanderTarget(UsableMachine)` 的参数类型在 `TaleWorlds.MountAndBlade` 里，是少数几个会带外部类型进来的成员

@@ -8,7 +8,7 @@ description: "MessageContractCreator 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `internal class MessageContractCreator<T> : MessageContractCreator where T : MessageContract, new()`
 **Base:** `MessageContractCreator where T : MessageContract`
-**File:** `TaleWorlds.Network/MessageContractCreator.2.cs`
+**File:** `TaleWorlds.Network/TaleWorlds.Network/MessageContractCreator.cs`
 
 ## 概述
 

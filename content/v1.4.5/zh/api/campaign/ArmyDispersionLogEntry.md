@@ -105,6 +105,51 @@ foreach ((LogEntry entry, IFaction effector, IFaction effected) in DiplomacyHelp
 - **聊天栏与地图通知的条件是互斥的两套。** 聊天栏要「玩家在军团里」（`IndexOf >= 0`），地图通知要「玩家不在军团里」（`IndexOf < 0`）且同 `MapFaction`。别把两个条件当成同一个。
 - **7 天过期写死在 override 里。** 与 `ArmyCreationLogEntry` 一样是冗余声明，改要靠派生。
 
+## 怎么用
+
+### 怎么拿到它
+
+**官方只有一处构造，且四个存档字段全在构造器里一次定死。** `DefaultLogsCampaignBehavior.cs:104` 先 `new ArmyDispersionLogEntry(army, reason)`，随后在 `:108` 把同一个 `GetEncyclopediaText()` 喂给 `ArmyDispersionMapNotification`。
+
+构造器（`:61`）做的四件事里，第三件最容易被忽略：`_isVisibleNotification = army.LeaderParty.MapFaction == Hero.MainHero.MapFaction && army.Parties.IndexOf(MobileParty.MainParty) >= 0`（`:66`）。**这是一个快照**——它把「构造那一刻玩家在不在这个 army 里」记成 `SaveableField(32)`（`:15`），而不是每次现算。
+
+`NotificationType`（`:25`）是另一个维度：`DiplomaticNotification(_armyLeader.HeroObject?.Clan ?? null, null)`——**它只看领主所属氏族的颜色，不看可见性**。两者是独立的。
+
+### 典型用法
+
+文案完全由 `DispersionReason` 决定。`GetEncyclopediaText`（`:101`）是一个 `switch` 表达式：11 个具名原因各有专属句（`:105`-`:116`），`Unknown` 与 `_` 共用同一句兜底（`:115` 与 `:117` 键都是 `{=5CJOMH90}`）。**所以「未知的解体原因」在 UI 上看起来和「原因确实是 Unknown」一模一样。**
+
+它多实现了一个 [ArmyCreationLogEntry](../ArmyCreationLogEntry) 没有的接口 `IChatNotification`（`:9`）。这条路径由 `CampaignInformationManager.NewLogEntryAdded`（`CampaignInformationManager.cs:61`）驱动：条件是 `_isSessionLaunched && log is IChatNotification { IsVisibleNotification: not false }`（`:63`），成立后 `DisplayMessage` 并用 `DiplomacyModel.GetNotificationColor(chatNotification.NotificationType)` 上色（`:65`-`:69`）。
+
+所以「日志已写但聊天窗没弹」的排查顺序是：先看 `_isSessionLaunched`，再看那个快照布尔值，最后才看文案：
+
+```csharp
+public static class ArmyDispersionLogReader
+{
+    public static void Dump()
+    {
+        MBReadOnlyList<LogEntry> logs = Campaign.Current.LogEntryHistory.GameActionLogs;
+        foreach (LogEntry entry in logs)
+        {
+            ArmyDispersionLogEntry dispersion = entry as ArmyDispersionLogEntry;
+            if (dispersion == null || !dispersion.IsVisibleNotification)
+            {
+                continue;
+            }
+            Debug.Print(dispersion.GameTime + " reason=" + dispersion.DispersionReason, 0);
+            Debug.Print("  chat color family = " + dispersion.NotificationType, 0);
+        }
+        Debug.Print("scan finished", 0);
+    }
+}
+```
+
+`KeepInHistoryTime` 也是 7 天（`:23`），和 `ArmyCreationLogEntry` 一致——**跨周的战史重建只能靠 `DiplomacyHelper.GetLogsForWar`，不能指望 `GameActionLogs` 里还在。**
+
+### 最容易踩的坑
+
+**`NotificationType` 会 NRE。** 它写的是 `_armyLeader.HeroObject?.Clan`，`?.` 只保护了 `HeroObject` 之后的部分，**`_armyLeader` 本身为 null 时直接 NRE**。而同一类型的 `IsVisibleInEncyclopediaPageOf` 偏偏判了 `_armyLeader != null`——两个方法对同一个字段的空值假设不一致，说明作者预期它非 null，但代码没有兜住。构造器 `army.ArmyOwner.CharacterObject` 在 `ArmyOwner` 为 null 时就会产生 null 快照。
+
 ## 跨版本提示
 
 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/ArmyDispersionLogEntry.cs` 是 124 行、12 个公开成员，`SaveableField` id 为 30/32/33/34（31 未使用）。1.4.6 同名文件公开表面与之逐成员一致。1.3.15 侧无同名文件。

@@ -85,6 +85,46 @@ foreach (Hero lord in Hero.AllAliveHeroes)
 - **每个 `ChoiceTag` 重算一次。** `ConversationManager.FindMatchingScore` 对每个 ChoiceTag 调一次，本例开销可忽略。
 - **不受 CampaignOptions 影响。** 与 `CampaignOptions.IsLifeDeathCycleDisabled` 之类无关。
 
+## 怎么用
+
+### 怎么拿到它
+
+不要 `new`。注册是一次性的反射动作，发生在 `ConversationManager.InitializeTags()`（`Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/ConversationManager.cs:1032`）：它先 `new Dictionary<string, ConversationTag>()`（`:1034`），然后遍历 `ModuleHelper.GetActiveGameAssemblies()` 的每个程序集，对其中 `item.IsSubclassOf(typeof(ConversationTag))` 的类型做 `Activator.CreateInstance(item)`（`:1063`），再用 `conversationTag.StringId` 作为键 `_tags.Add(...)`（`:1064`）。
+
+**你的 mod 程序集能被扫到有个前提**：`:1039`-`:1053` 逐个比较程序集名与它的 `GetReferencedAssemblies()`，只有引用了 `TaleWorlds.CampaignSystem` 的程序集才进入内层循环。所以一个自己声明标签、但没引用 CampaignSystem 的程序集，它的标签**一个都不会注册**，而且不报错。
+
+你真正要「拿到」的是那个字符串字面量：`AlliedLordTag.cs:7` 的 `public const string Id = "PlayerIsAlliedTag"` 和 `:9` 的 `StringId`。消费入口只有两个——`IsTagApplicable(tagId, character)`（`ConversationManager.cs:1094`）与 `GetApplicableTagNames(character)`（`:1083`），两者都挂在 `Campaign.ConversationManager` 上（`Campaign.cs:538`，实例在 `:1576` 构造）。
+
+### 典型用法
+
+在对话数据里引用它时，写的是 `tag_name`，不是类名。`ChoiceTag` 的判据求值在 `FindMatchingScore`（`:1013`）：非 `"DefaultTag"` 的每一条都跑 `IsTagApplicable(choiceTag.TagName, character) == choiceTag.IsTagReversed`（`:1021`），成立就把整条变体的分数打成 `-2.1474836E+09f` 直接出局，否则把 `choiceTag.Weight` 累加（`:1025`-`:1026`）。**权重是相加的，出局是一票否决**——这两件事决定了你该怎么配。
+
+写完一段对话数据后，先用 `GetApplicableTagNames` 确认注册与判定都成立，再去看台词：
+
+```csharp
+public static class AlliedLordTagSelfCheck
+{
+    public static void Run(CharacterObject speaker)
+    {
+        ConversationManager mgr = Campaign.Current.ConversationManager;
+        bool allied = mgr.IsTagApplicable(AlliedLordTag.Id, speaker);
+        Debug.Print("registered probe = " + allied + " speaker = " + speaker.Name, 0);
+        foreach (string tagName in mgr.GetApplicableTagNames(speaker))
+        {
+            Debug.Print("applicable tag = " + tagName, 0);
+        }
+    }
+}
+```
+
+`GetApplicableTagNames` 的价值在于它**不按名字查**：它把 `_tags.Values` 全过一遍（`:1085`），成立就 `yield return value.StringId`（`:1089`）。用类名查不到、怀疑拼写或注册问题时，打这一行比反复试字面量快得多。
+
+要注意 `IsTagApplicable` 的失败路径是 `Debug.FailedAssert(...)` 后 `return false`（`:1100`-`:1101`）。**在开发构建里它会弹断言，在发布构建里它只是一句日志**，所以线上「台词变体不见了」的第一嫌疑永远是名字，而不是判定逻辑。
+
+### 最容易踩的坑
+
+**类名 ≠ 注册名。** 这是本类型最大的坑：`AlliedLordTag` 注册成 `"PlayerIsAlliedTag"`。写错的后果是静默的（`FailedAssert` + 返回 false），不是异常。
+
 ## 跨版本提示
 
 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/AlliedLordTag.cs` 是 19 行、3 个成员，判据单条、无条件编译分支。1.4.6 与 1.3.15 的同名文件公开表面与之逐成员一致，未见新增或移除。

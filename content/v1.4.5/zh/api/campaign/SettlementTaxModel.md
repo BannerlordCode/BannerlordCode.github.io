@@ -108,6 +108,42 @@ SettlementTaxModel 是一个纯规则的 Model 型扩展点：`Campaign` 在启�
   - 副作用：无，纯计算；内部调用 `GetVillageTaxRatio`。
   - 调用时机：仅由 [VillagerCampaignBehavior](../VillagerCampaignBehavior) 在村庄商队出售货物后调用，用 `mobileParty.HomeSettlement.Village` 与该商队携带的 `PartyTradeGold` 计算应缴村庄税。
 
+## 怎么用
+
+这是「钱从哪来、抽走多少」的规则层。26 行、9 个成员，前 6 个是常量与费率，后 3 个是计算。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementTaxModel.cs:6`。默认实现注册点是 `SandBoxManager.cs:281` 的 `gameStarter.AddModel(new DefaultSettlementTaxModel())`。
+
+成员按用途分三段。两个佣金比率常量在 `:8`（城镇）与 `:10`（村庄），安全度削佣金的阈值与上限在 `:12` 与 `:14`。两个税率方法 `GetTownTaxRatio`（`:16`）与 `GetVillageTaxRatio`（`:18`）返回 `float`；`GetTownCommissionChangeBasedOnSecurity(Town town, float commission)` 在 `:20` 返回削减后的佣金。然后是两个真正的计算：`CalculateTownTax(Town, bool includeDescriptions)` 在 `:22` 返回带分解的 `ExplainedNumber`，`CalculateVillageTaxFromIncome(Village, int marketIncome)` 在 `:24` 返回 `int`。
+
+外部调用点说明了三个计算各自的落点：`DefaultClanFinanceModel.cs:258` 用 `CalculateTownTax(fief)` 的 `ResultNumber` 累进家族收入，`SellItemsAction.cs:70` 用城镇佣金比率算售货抽成，`VillagerCampaignBehavior.cs:334` 用 `CalculateVillageTaxFromIncome` 算村庄税。界面上有两处读它：`ClanFinanceTownItemVM.cs:141` 与 `ClanSettlementItemVM.cs:553`。
+
+```csharp
+SettlementTaxModel tax = Campaign.Current.Models.SettlementTaxModel;
+foreach (Settlement s in Settlement.All)
+{
+    if (s.IsTown)
+    {
+        Town town = (Town)s;
+        ExplainedNumber detail = tax.CalculateTownTax(town, true);
+        Debug.Print(town.Name + " 税率=" + tax.GetTownTaxRatio(town)
+            + " 日税=" + detail.ResultNumber, 0);
+        float commission = tax.SettlementCommissionRateTown;
+        Debug.Print("  佣金=" + commission + " 经安全度调整后="
+            + tax.GetTownCommissionChangeBasedOnSecurity(town, commission), 0);
+    }
+    else if (s.IsVillage)
+    {
+        Village v = (Village)s;
+        Debug.Print(v.Name + " 税率=" + tax.GetVillageTaxRatio(v), 0);
+    }
+}
+```
+
+注意佣金比率是 `float` 而安全度阈值是 `int`，两者单位不同，别把 `SettlementCommissionDecreaseSecurityThreshold` 当成比率乘上去。
+
+**最常见的坑**：跨战役重载缓存实例。`Campaign.Current.Models.SettlementTaxModel` 每次新战役或读档都由 `GameModels` 重新解析，缓存进静态字段会指向旧战役的已销毁对象。
+
 ## 示例
 
 预估某城镇今日入账并展示拆解明细：

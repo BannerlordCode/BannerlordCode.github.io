@@ -61,6 +61,35 @@ public abstract bool CanBannerBeUpdated(ItemObject item);
 | `GetBannerItemLevelForHero(Hero hero)` | `public abstract int GetBannerItemLevelForHero(Hero hero)` | 该英雄应处的旗档。**它只看家族地位，完全不看英雄强度**：`hero.Clan.Leader == hero` 且 `hero.MapFaction.IsKingdomFaction && hero.Clan.Kingdom.RulingClan == hero.Clan` → 3；只是家族领袖 → 2；其余 → 1。唯一调用点是 `BannerCampaignBehavior.cs:73`，**`hero.Clan` 为 null 直接 NRE**。 |
 | `CanBannerBeUpdated(ItemObject item)` | `public abstract bool CanBannerBeUpdated(ItemObject item)` | 这面旗**允不允许被换成新的一档**。**默认实现恒返回 `true`**，等于升级路径永不禁用。唯一调用点是 `BannerCampaignBehavior.cs:70`——它对每个非玩家家族的 AI 英雄每日调用，命中后按 10% 概率（`BannerItemUpdateChance`）尝试升级。**返回 false 就彻底冻结某个物品的旗档。** |
 
+## 怎么用
+
+这是旗帜物品规则的抽象层，4 个成员全是 `public abstract`，全文 16 行零字段。它管两件事：哪些旗帜物品可以出现在奖励里，以及某个英雄当前该用哪一级、能不能换。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BannerItemModel.cs:6`，四个成员分别是 `:8` 的 `GetPossibleRewardBannerItems()`、`:10` 的 `GetPossibleRewardBannerItemsForHero(Hero hero)`、`:12` 的 `GetBannerItemLevelForHero(Hero hero)` 和 `:14` 的 `CanBannerBeUpdated(ItemObject item)`。默认实现 `DefaultBannerItemModel` 在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBannerItemModel.cs:9`，注册点是 `SandBoxManager.cs:320` 的 `gameStarter.AddModel(new DefaultBannerItemModel())`，解析与缓存发生在 `GameModels.cs:364`，属性声明在 `GameModels.cs:217`。
+
+两个枚举方法都是 `IEnumerable<ItemObject>` 而非集合，多次枚举会重复计算，其中按英雄过滤的那个还要按英雄的旗级与文化筛。更省事的随机取一件官方写法在 `BannerHelper.cs:11`，它把按英雄过滤的结果直接取随机元素，所以「给某英雄一件新旗」这件事游戏内部就是这么干的。
+
+要在界面上展示「这个英雄能换成哪几件旗」，正确顺序是先过滤再判断，因为 `CanBannerBeUpdated` 的语义是「这件物品能否作为替换品」，而不是「当前旗帜能否被替换」：
+
+```csharp
+BannerItemModel banners = Campaign.Current.Models.BannerItemModel;
+Hero hero = Hero.MainHero;
+int currentLevel = banners.GetBannerItemLevelForHero(hero);
+ItemObject chosen = null;
+foreach (ItemObject item in banners.GetPossibleRewardBannerItemsForHero(hero))
+{
+    bool canUpdate = banners.CanBannerBeUpdated(item);
+    Debug.Print(item.Name + " 可用于替换=" + canUpdate, 0);
+    if (canUpdate && chosen == null) chosen = item;
+}
+Debug.Print(hero.Name + " 当前旗级=" + currentLevel + " 可换为=" + (chosen?.Name ?? "无"), 0);
+Debug.Print("全局候选旗帜物品共 " + banners.GetPossibleRewardBannerItems().Count() + " 个", 0);
+```
+
+注意 `GetPossibleRewardBannerItemsForHero` 返回的是 `IEnumerable<ItemObject>` 而非集合，多次枚举会重复计算。这两个方法都是纯读取，不改状态。
+
+**最常见的坑**：`CanBannerBeUpdated` 的语义是「这件物品能不能作为替换品」，不是「当前旗帜能不能被替换」。把它当成后者用，会在英雄刚拿到旗、等级已是顶级时仍然返回 true，导致替换后等级不升反降。
+
 ## 真实示例
 
 读全量候选集并检查某面旗是否具备 `BannerComponent`（这正是默认实现会崩的地方）：

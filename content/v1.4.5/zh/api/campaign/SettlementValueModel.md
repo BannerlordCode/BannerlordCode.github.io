@@ -80,6 +80,39 @@ SettlementValueModel 是一个纯计算的价值评估 Model 型扩展点：`Cam
   - 副作用：无，纯计算；依赖 `MapDistanceModel`。
   - 调用时机：仅 [Settlement](../Settlement) 的 `GetSettlementValueForEnemyHero` 转发；用于判定敌方英雄对该定居点的重视程度（如夺城动机）。
 
+## 怎么用
+
+这是「一个定居点对谁值多少钱」的规则层：16 行、4 个方法，全是计算，没有任何状态。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementValueModel.cs:6`。默认实现注册点是 `SandBoxManager.cs:273` 的 `gameStarter.AddModel(new DefaultSettlementValueModel())`。
+
+四个成员里 `FindMostSuitableHomeSettlement(Clan clan)` 在 `:8` 是唯一一个返回 `Settlement` 的，也是唯一一个带副作用意图的——它被用来替一个氏族挑首府。另外三个都是打分：`CalculateSettlementValueForFaction(Settlement, IFaction)` 在 `:10`、`CalculateSettlementBaseValue(Settlement)` 在 `:12`、`CalculateSettlementValueForEnemyHero(Settlement, Hero)` 在 `:14`。
+
+三个调用点把这四个方法的归属说得非常清楚：`Clan.cs:965` 用 `FindMostSuitableHomeSettlement` 给氏族找首府，`FiefBarterable.cs:50` 用 `CalculateSettlementValueForFaction` 给封地估值（这是以物易物系统里算封地价值的入口），`Settlement.cs:779` 用 `CalculateSettlementValueForEnemyHero` 给敌方英雄估值。
+
+注意这三个调用点的**参数类型各不相同**：`FindMostSuitableHomeSettlement` 收 `Clan`，`CalculateSettlementValueForFaction` 收的是 `IFaction` 而非 `Kingdom`，`CalculateSettlementValueForEnemyHero` 收 `Hero`。也就是说这个模型是唯一同时服务于「氏族」「任意派系」「单个英雄」三种主体的估值器，写 mod 时别把 `Kingdom` 和 `IFaction` 搞混。
+
+四个方法之间还有一层语义层次：`CalculateSettlementBaseValue` 是无主体的基准值，`CalculateSettlementValueForFaction` 在它之上按派系关系修正，而 `CalculateSettlementValueForEnemyHero` 是「假如这座城归敌方英雄管会有多值钱」的反向估值。所以拿两个值比大小之前，先确认它们出自同一个方法——跨方法比较没有意义，因为基准不同。
+
+```csharp
+SettlementValueModel value = Campaign.Current.Models.SettlementValueModel;
+foreach (Clan clan in Clan.All)
+{
+    Settlement home = value.FindMostSuitableHomeSettlement(clan);
+    Debug.Print(clan.Name + " 最合适的首府=" + home?.Name, 0);
+}
+foreach (Settlement s in Settlement.All)
+{
+    float baseValue = value.CalculateSettlementBaseValue(s);
+    float forPlayer = value.CalculateSettlementValueForFaction(s, Clan.PlayerClan);
+    Debug.Print(s.Name + " 基础价值=" + baseValue + " 对玩家氏族=" + forPlayer, 0);
+}
+Settlement enemyTarget = Settlement.All.First(s => s.IsTown);
+Debug.Print("对敌对英雄的价值=" + value.CalculateSettlementValueForEnemyHero(enemyTarget, Hero.MainHero), 0);
+```
+
+**最常见的坑**：跨战役重载缓存实例。`Campaign.Current.Models.SettlementValueModel` 每次新战役或读档都由 `GameModels` 重新解析，缓存进静态字段会指向旧战役的已销毁对象。
+
 ## 示例
 
 选举玩家家族的首府并估算某定居点对玩家王国的价值：

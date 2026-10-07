@@ -144,6 +144,39 @@ SettlementLoyaltyModel 是一个纯计算的规则扩展点：`Campaign` 在启�
   - 用途：城镇忠诚高于 `ThresholdForNotableRelationBonus` 时，[CharacterRelationCampaignBehavior](../CharacterRelationCampaignBehavior) 会每日给与该城镇要人关系好的领主 `DailyNotableRelationBonus`（默认 `+1`）的关系增量。
   - 副作用：无，纯判定常量；真正的加关系由行为调用 `ChangeRelationAction` 完成。调用时机：行为每日判定读取。
 
+## 怎么用
+
+这是忠诚度的规则层，60 行、26 个成员，是本批最大的模型。它的特别之处在于：它不只算变化率，还**兼做了另外两个模型的阈值提供者**——叛变、叛乱与税收加成的门槛常量全在这里。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementLoyaltyModel.cs:6`。默认实现注册点是 `SandBoxManager.cs:277` 的 `gameStarter.AddModel(new DefaultSettlementLoyaltyModel())`。
+
+26 个成员里只有三个方法：`CalculateLoyaltyChange(Town, bool includeDescriptions)` 在 `:54`、`CalculateGoldGainDueToHighLoyalty(Town, ref ExplainedNumber)` 在 `:56`、`CalculateGoldCutDueToLowLoyalty(Town, ref ExplainedNumber)` 在 `:58`——后两个和安全度那两个是同一种「就地改写 ref」的签名。其余 23 个全是常量，从 `:8` 的 `MaximumLoyaltyInSettlement` 一路排到 `:52` 的 `DailyNotableRelationBonus`。
+
+而这个模型被别人当常量表用的证据非常清楚：`RebellionsCampaignBehavior.cs:116` 用 `RebellionStartLoyaltyThreshold`，`CampaignUIHelper.cs:497` 也用同一个阈值来决定是否显示叛乱提示，`DefaultSettlementProsperityModel.cs:168` 用 `ThresholdForProsperityBoost` 与 `ThresholdForProsperityPenalty` 把忠诚度映射成繁荣度加成，`DefaultSettlementMilitiaModel.cs:119` 用 `RebelliousStateStartLoyaltyThreshold`。
+
+**换句话说：忠诚度是四个系统共同的输入**，改一个阈值会同时动叛乱判定、繁荣度惩罚和民兵质量：
+
+```csharp
+SettlementLoyaltyModel loyalty = Campaign.Current.Models.SettlementLoyaltyModel;
+foreach (Settlement s in Settlement.All)
+{
+    if (!s.IsTown) continue;
+    Town town = (Town)s;
+    Debug.Print(town.Name + " 忠诚度=" + town.Loyalty + " 日变化=" + town.LoyaltyChange, 0);
+    Debug.Print("  叛变阈值=" + loyalty.RebellionStartLoyaltyThreshold
+        + " 叛乱态阈值=" + loyalty.RebelliousStateStartLoyaltyThreshold, 0);
+    Debug.Print("  税收加成阈值=" + loyalty.ThresholdForTaxBoost
+        + " 腐败阈值=" + loyalty.ThresholdForTaxCorruption
+        + " 高腐败阈值=" + loyalty.ThresholdForHigherTaxCorruption, 0);
+}
+Debug.Print("忠诚度上限=" + loyalty.MaximumLoyaltyInSettlement
+    + " 中位漂移=" + loyalty.LoyaltyDriftMedium, 0);
+```
+
+`Town.LoyaltyChange`（`Town.cs:140`）是模型方法的一行包装。
+
+**最常见的坑**：跨战役重载缓存实例。`Campaign.Current.Models.SettlementLoyaltyModel` 每次新战役或读档都由 `GameModels` 重新解析，缓存进静态字段会指向旧战役的已销毁对象。
+
 ## 示例
 
 在决定是否处理叛乱前，先用模型暴露的阈值常量做守卫（注意不要在模型上缓存实例，直接走 `Campaign.Current.Models`）：

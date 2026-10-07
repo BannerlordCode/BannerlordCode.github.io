@@ -89,6 +89,38 @@ SettlementAccessModel 是 Campaign 层的纯规则裁决扩展点：Campaign 在
   - 副作用：仅写入两个 `out` 参数。
   - 调用时机：EncounterGameMenuBehavior 在请求会面菜单项上调用；DefaultEncounterModel 在判断是否可请求会面时调用。
 
+## 怎么用
+
+这是「主角能不能进这个地方、能不能做这件事」的唯一裁决点。它是本批里抽象方法最多的模型：93 行里有 80 多行是方法的 out 参数文档，实际抽象成员 6 个。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementAccessModel.cs:7`，默认实现注册点是 `SandBoxManager.cs:257` 的 `gameStarter.AddModel(new DefaultSettlementAccessModel())`，运行时走 `Campaign.Current.Models.SettlementAccessModel`。
+
+六个方法分两种返回形状，这是读它时最需要先分清的一件事。三个走 `void` + `out AccessDetails`：`CanMainHeroEnterSettlement` 在 `SettlementAccessModel.cs:81`、`CanMainHeroEnterLordsHall` 在 `:83`、`CanMainHeroEnterDungeon` 在 `:85`，它们不返回是否，只填访问级别、进入方式、受限原因与化解方案。三个走 `bool` + `out bool disableOption` + `out TextObject disabledText`：`CanMainHeroAccessLocation`（`:87`）、`CanMainHeroDoSettlementAction`（`:89`）、`IsRequestMeetingOptionAvailable`（`:91`）。
+
+所以「能不能进城镇」和「能不能访问酒馆」不是同一种问法，前者要读 `AccessDetails` 的级别，后者直接读 bool：
+
+```csharp
+SettlementAccessModel access = Campaign.Current.Models.SettlementAccessModel;
+Settlement target = Settlement.All[0];
+SettlementAccessModel.AccessDetails details;
+access.CanMainHeroEnterSettlement(target, out details);
+Debug.Print("能否进入=" + target.Name + " 级别=" + details.AccessLevel
+    + " 方式=" + details.AccessMethod + " 受限原因=" + details.AccessLimitationReason, 0);
+access.CanMainHeroEnterDungeon(target, out details);
+Debug.Print("地牢 级别=" + details.AccessLevel
+    + " 化解方案=" + details.LimitedAccessSolution, 0);
+bool disable;
+TextObject why;
+bool ok = access.CanMainHeroAccessLocation(target, "arena", out disable, out why);
+Debug.Print("访问 arena 可用=" + ok + " 禁用=" + disable + " 文案=" + why, 0);
+Debug.Print("能否执行 WatchTournament 动作=" +
+    access.CanMainHeroDoSettlementAction(target, SettlementAccessModel.SettlementAction.WatchTournament, out disable, out why), 0);
+```
+
+`AccessDetails` 是嵌套 `struct`（`SettlementAccessModel.cs:66`），六个字段全是值类型、无 getter/setter，所以它在栈上、不进存档。它的三个枚举也都是嵌套的：`AccessLevel`（`:9`，三值 `NoAccess` / `LimitedAccess` / `FullAccess`）、`AccessMethod`（`:16`）、以及 `AccessLimitationReason` 与 `LimitedAccessSolution`。枚举在存档里有独立注册，`SaveableCampaignTypeDefiner.cs:334` 就是 `AddEnumDefinition(typeof(SettlementAccessModel.AccessLevel), 2067)`。
+
+**最常见的坑**：跨战役重载缓存实例。`Campaign.Current.Models.SettlementAccessModel` 在每次新战役或读档时由 `GameModels` 重新解析，缓存进静态字段会在重载后指向已销毁对象。
+
 ## 示例
 
 裁决主英雄能否进入当前定居点，并据访问级别分支：

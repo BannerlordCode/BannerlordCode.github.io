@@ -124,6 +124,48 @@ private void RallyRoutedUnit(Agent unit)
 - **回调参数与属性在那一刻不一致。** `Mission.cs:2988-2989` 先触发事件再写 `affectedAgent.State`，所以在 `OnBeforeAgentRemoved` 回调里读属性得到的是**旧状态**。永远用参数 `agentState`。
 - **不要与 [AgentControllerType](../AgentControllerType) 混淆。** 溃逃的单位 `Controller` 仍是 `AI`；玩家自己的单位被击杀后 `Controller` 仍是 `Player`。两个枚举独立演进，没有组合关系。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public enum AgentState`（`TaleWorlds.Core/AgentState.cs:3`）。读入口是 `Agent.State`，通知入口是 `Mission.OnBeforeAgentRemoved` 委托（移除前触发，此刻还能安全读全部数据）。它也带 `DefineAsEngineStruct(..., "Agent_state", false, ...)`（`TaleWorlds.MountAndBlade/Properties/AssemblyInfo.cs:11`），但与 [AgentAttackType](../AgentAttackType) 不同——**`Agent.State` 带 setter，托管侧能写**。
+
+### 典型用法
+
+上面「真实示例」两段都是**读**：判主控还在不在、以及在死亡瞬间按状态分流。写这一侧只有一个正当场景——把溃逃的单位喊回战场：
+
+```csharp
+public class MyRallyLogic : MissionLogic
+{
+    public override void OnMissionTick(float dt)
+    {
+        Team team = Mission.Current.MainAgent != null ? Mission.Current.MainAgent.Team : null;
+        if (team == null)
+        {
+            return;
+        }
+        foreach (Agent unit in team.ActiveAgents)
+        {
+            // Routed 是唯一有正当理由从外部写回 Active 的目标状态
+            if (unit.State != AgentState.Routed)
+            {
+                continue;
+            }
+            unit.State = AgentState.Active;
+            MBDebug.Print("[MyMod] 把溃逃单位喊回：" + unit.Name);
+            // 一次只改一个：setter 没有托管层校验，批量写会和动画/物理打架
+            return;
+        }
+    }
+}
+```
+
+与上面「真实示例」的差别：那里只从状态里**读出信息**去打印或分流，写入一次都没有；这里唯一的一行赋值就是写入本身，而且它是**有方向的写**——从 `Routed` 回到 `Active`。`return` 不是省事，是必须的：同一帧里连写多个单位的 `State` 会让动画与状态脱节，而那正是下面那条坑描述的现象。
+
+### 最容易踩的坑
+
+**状态轴没有托管层校验。** `Agent.State` 的 setter 只做「值变了才写」（`Agent.cs:1534`）。**从 `Killed` 或 `Deleted` 写回 `Active` 不会抛异常**，你会得到一个状态与动画互相矛盾的单位。
+
 ## 跨版本提示
 
 `AgentState.cs` 在 1.4.5 里是 11 行、6 个成员，属于该版本极小文件批次（`AgentAttackType.cs` 10 行、`AgentControllerType.cs` 9 行同属），是原始源码形态。1.3.x / 1.4.6 的同名文件是反编译产物，行数显著变长但成员集合与 native 绑定名 `"Agent_state"` 一致。跨版本迁移时值得核对两件事：native 侧是否新增了状态成员（一旦新增，**你写死的 `switch` 缺 `default` 分支就会静默失效**），以及 `DefineAsEngineStruct` 的第三个参数是否仍为 `false`——若变成 `true`，说明 native 已把它改成位标志集，本页「判等而非位运算」的结论需要重新审视。

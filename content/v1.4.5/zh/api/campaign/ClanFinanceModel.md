@@ -158,6 +158,36 @@ float smooth = Campaign.Current.Models.ClanFinanceModel.RevenueSmoothenFraction(
 int dailyTax = (int)((float)town.TradeTaxAccumulated / smooth);
 ```
 
+## 怎么用
+
+**怎么拿到。** 类型声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/ClanFinanceModel.cs:8`（`public abstract class ClanFinanceModel : MBGameModel<ClanFinanceModel>`），全文 31 行、十二个抽象成员。默认实现在 `TaleWorlds.CampaignSystem.GameComponents/DefaultClanFinanceModel.cs`。
+
+解析在 `GameModels.cs:328` 的 `ClanFinanceModel = GetGameModel<ClanFinanceModel>();`，存入 `GameModels.cs:139`。
+
+**十一个成员里有四个返回 `int`、五个返回 `ExplainedNumber`、一个是 `float`、一个是 `int` 常量 —— 返回类型不统一，所以不能写一个通用的遍历函数。**
+
+**一段可直接跑的三行家族收支**（参数用命名实参，与引擎一致）：
+
+```csharp
+ClanFinanceModel fm = Campaign.Current.Models.ClanFinanceModel;
+ExplainedNumber delta = fm.CalculateClanGoldChange(clan, includeDescriptions: true, applyWithdrawals: false);
+Debug.Print("daily gold = " + delta.ResultNumber, 0);
+```
+
+**`applyWithdrawals` 的默认是 `false`，含义是「只算预估、不动账」。** 这十二个方法全是纯计算，真正扣钱在别处。**但引擎自己在每日结算时传的是 `true`** —— `TaleWorlds.CampaignSystem.CampaignBehaviors/ClanVariablesCampaignBehavior.cs:413`：
+
+```csharp
+int num = TaleWorlds.Library.MathF.Round(Campaign.Current.Models.ClanFinanceModel.CalculateClanGoldChange(clan, includeDescriptions: false, applyWithdrawals: true).ResultNumber);
+```
+
+**同一模型、同一个方法，两个 `applyWithdrawals` 值结果不同** —— 你要预测玩家明天有多少钱就用 `false`，你要复现引擎的每日结算就用 `true`。
+
+**`includeDescriptions` 与 `includeDetails` 是两个独立开关。** 前者决定返回的 `ExplainedNumber` 是否携带 UI 说明项，后者决定是否展开明细层级。`CalculateClanGoldChange` 四个参数都有，`CalculateTownIncomeFromTariffs` 只有三个（没有 `includeDescriptions`）—— **方法之间参数集不统一，照抄签名会编译不过。**
+
+**`PartyGoldLowerThreshold` 是「阈值」不是「上限」。** 它被 `Helpers/FactionHelper.cs:756` 与 `Helpers/PartyScreenHelper.cs:588` 用来判断部队是否该保留金币。**语义方向搞反会让 AI 的花钱行为整个反过来。**
+
+**最常见的坑：跨战役重载缓存实例。** `Campaign.Current.Models.ClanFinanceModel` 在每次新战役/读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长生命周期对象，会在重载后指向旧战役的已销毁对象。对它尤其危险的原因是：**所有方法的入参都是活对象（Clan / Town / Village / Workshop / MobileParty），方法本身无状态**，所以悬空引用算出来的数不会崩，只会算出一个看起来正常的错数字。
+
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)

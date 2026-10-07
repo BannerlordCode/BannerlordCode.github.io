@@ -65,6 +65,38 @@ SettlementProsperityModel 是一个纯计算的规则扩展点：Campaign 在启
   - 副作用：无，纯计算；会读取附庸城镇的 `Town` 与 [IssueModel](../IssueModel)。
   - 调用时机：`Village.HearthChange` / `Village.HearthChangeExplanation` 属性在每日结算与界面刷新时调用；传入 `includeDescriptions: true` 可得到带说明项的分解。
 
+## 怎么用
+
+这是繁荣度与炉灶的规则层，只有两个方法，却各自是几十项因子的汇总口。全文 12 行，是本批最小的模型之一。
+
+**怎么拿到它**：声明在 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementProsperityModel.cs:6`。默认实现注册点是 `SandBoxManager.cs:279` 的 `gameStarter.AddModel(new DefaultSettlementProsperityModel())`，运行时走 `Campaign.Current.Models.SettlementProsperityModel`。
+
+两个方法的入参类型不同，这是分流的第一道判据：`CalculateProsperityChange(Town fortification, bool includeDescriptions)` 在 `:8` 收城镇与城堡（判据是 `Settlement.IsFortification`，定义在 `Settlement.cs:393`），`CalculateHearthChange(Village village, bool includeDescriptions)` 在 `:10` 收村庄。两者都返回 `ExplainedNumber`。
+
+这两个方法各有一个「几乎就是它本身」的调用点，这是最稳的取用方式：`Town.cs:130` 的 `ProsperityChange` 属性直接返回 `CalculateProsperityChange(this).ResultNumber`，`Village.cs:134` 的 `HearthChange` 直接返回 `CalculateHearthChange(this).ResultNumber`。第三处是界面，`TownManagementVM.cs:665` 把繁荣度变化转成城镇管理面板的一行文本。
+
+```csharp
+SettlementProsperityModel prosperity = Campaign.Current.Models.SettlementProsperityModel;
+foreach (Settlement s in Settlement.All)
+{
+    if (s.IsFortification)
+    {
+        Town town = (Town)s;
+        ExplainedNumber detail = prosperity.CalculateProsperityChange(town, true);
+        Debug.Print(town.Name + " 繁荣度=" + town.Prosperity + " 日变化=" + detail.ResultNumber, 0);
+    }
+    else if (s.IsVillage)
+    {
+        Village v = (Village)s;
+        Debug.Print(v.Name + " 炉灶=" + v.Hearth + " 日变化=" + v.HearthChange, 0);
+    }
+}
+```
+
+注意 `Town.Prosperity` 是 `float` 不是 `int`（`Town.cs:112`），`Village.Hearth` 也是 `float`（`Village.cs:129`）——写面板时记得转换。
+
+**最常见的坑**：跨战役重载缓存实例。`Campaign.Current.Models.SettlementProsperityModel` 每次新战役或读档都由 `GameModels` 重新解析，缓存进静态字段会指向旧战役的已销毁对象。
+
 ## 示例
 
 读取某城镇的每日繁荣度净变化：

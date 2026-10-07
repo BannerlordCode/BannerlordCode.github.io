@@ -8,7 +8,7 @@ description: "GameMenuItemCreationData 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `struct GameMenuItemCreationData`
 **Base:** 无
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/GameMenuItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu/GameMenuItemVM.cs`
 
 ## 概述
 

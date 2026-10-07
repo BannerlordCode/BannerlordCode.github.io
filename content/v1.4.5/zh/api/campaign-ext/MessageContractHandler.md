@@ -8,7 +8,7 @@ description: "MessageContractHandler 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `internal class MessageContractHandler<T> : MessageContractHandler where T : MessageContract`
 **Base:** `MessageContractHandler where T : MessageContract`
-**File:** `TaleWorlds.Network/MessageContractHandler.2.cs`
+**File:** `TaleWorlds.Network/TaleWorlds.Network/MessageContractHandler.cs`
 
 ## 概述
 

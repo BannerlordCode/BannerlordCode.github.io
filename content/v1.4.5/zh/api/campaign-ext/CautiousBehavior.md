@@ -13,7 +13,7 @@ description: "「警觉」行为的完整实现：把 agent 的谨慎与巡逻�
 
 ## 概述
 
-这是 [AgentBehavior](AgentBehavior) 派生类里逻辑最密的一个，负责一件很具体的事：**让「处于谨慎状态」的 agent 做出符合直觉的表现**。它不移动 agent、不决策、不选目标，只做三件事——播动画（环顾四周 / 待机）、让 agent 把武器收回鞘里、以及在「巡逻时发现了可疑点」的情况下随机往别处挪一小步。
+这是 [AgentBehavior](../AgentBehavior) 派生类里逻辑最密的一个，负责一件很具体的事：**让「处于谨慎状态」的 agent 做出符合直觉的表现**。它不移动 agent、不决策、不选目标，只做三件事——播动画（环顾四周 / 待机）、让 agent 把武器收回鞘里、以及在「巡逻时发现了可疑点」的情况下随机往别处挪一小步。
 
 它处理的是**两个独立的 AI 状态**。`OwnerAgent.IsCautious()` 是「站定了，保持警惕」；`OwnerAgent.IsPatrollingCautious()` 是「在巡逻途中对某个可疑位置保持警惕」。前者只播动画，后者才会做随机位移。`GetAvailability` 对两者都给 **10f**（这是行为竞选的权重，不是布尔），对都不是才给 0f 退出竞选。
 
@@ -186,9 +186,9 @@ public class MyAlertStanceBehavior : AgentBehavior
 
 ## 依赖关系
 
-- 基类：[AgentBehavior](AgentBehavior) 的 `OwnerAgent` / `Mission` / `Navigator` 三个转发成员与 `IsActive` 的启用停用钩子，是本类全部上下文的来源
-- 调度方：[AgentBehaviorGroup](AgentBehaviorGroup) 的 `AddBehavior<T>()` 用 `Activator.CreateInstance(typeof(T), this)` 实例化本类，`GetScore` 拿 `GetAvailability` 的返回值做权重
-- 装配入口：[BehaviorSets](BehaviorSets) 与 [AgentBehaviorManager](AgentBehaviorManager) 决定哪些角色会拿到这条行为
+- 基类：[AgentBehavior](../AgentBehavior) 的 `OwnerAgent` / `Mission` / `Navigator` 三个转发成员与 `IsActive` 的启用停用钩子，是本类全部上下文的来源
+- 调度方：[AgentBehaviorGroup](../AgentBehaviorGroup) 的 `AddBehavior<T>()` 用 `Activator.CreateInstance(typeof(T), this)` 实例化本类，`GetScore` 拿 `GetAvailability` 的返回值做权重
+- 装配入口：[BehaviorSets](../BehaviorSets) 与 [AgentBehaviorManager](../AgentBehaviorManager) 决定哪些角色会拿到这条行为
 - AI 状态：`Agent.IsCautious()` / `IsPatrollingCautious()` / `IsAlarmed()` / `IsAIAtMoveDestination()` 四个判断来自 `TaleWorlds.MountAndBlade.Agent`，本类不自己判断状态
 - 动画：`ActionIndexCache.act_guard_cautious_look_around_1` / `act_guard_patrolling_cautious_look_around_1` / `act_none` 与 `Agent.SetActionChannel(...)` 是全部视觉输出
 - 计时：[Timer](../../core-extra/Timer) 的 `Check(float)` / `Reset(float)` / `Reset(float, float)` 三个方法构成本类的时间轴

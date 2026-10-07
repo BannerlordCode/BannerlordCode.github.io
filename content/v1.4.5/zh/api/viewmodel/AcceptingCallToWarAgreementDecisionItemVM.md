@@ -8,7 +8,7 @@ description: "王国内政面板里「是否接受参战要约」这条决议的
 **Module:** TaleWorlds.CampaignSystem.ViewModelCollection  
 **Type:** `public class AcceptingCallToWarAgreementDecisionItemVM : DecisionItemBaseVM`  
 **Base:** `DecisionItemBaseVM`  
-**File:** `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes/AcceptingCallToWarAgreementDecisionItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes/AcceptingCallToWarAgreementDecisionItemVM.cs`
 
 ## 概述
 

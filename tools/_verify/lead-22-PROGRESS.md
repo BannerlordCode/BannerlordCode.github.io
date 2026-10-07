@@ -662,6 +662,69 @@ J3: tree=bannerlord-1.3.15 · bad=0 · ambiguous=0（6/6 页）
 ⇒ `save-object-graph` **不是「未完成」，是「已完成 + 有 1 行修正待提交」**。
 **不再直写该页**（boss-3 #15366 ①）；提交归发布线。
 
+## 37. 台账：`save-object-graph` 两页【当前版本已合规】（2026-10-07T09:33Z 新鲜取数）
+
+```
+zh  12,244 B  md5 5a849a4ae6c190cb69340ea890431c4c  mtime 17:20:01
+     commit 4b7fdf420b   status clean
+en  11,802 B  md5 9e44e82d11c6967af1d5e97031b124d8 同 commit / 同口径
+
+H1=1 · **Namespace:**=1 · 元数据块五行齐全 · `> 节 schema：…` 在位
+ISaveable=2 / DefineTypes=1 —— 【全在否定句】（机械核：非否定用法 0 条）
+Register()=0 · api/campaign/=0 · ../api/=0 · `](./`=0
+参见桶: api/save-system/×6 + api/campaign-ext/×1
+⇒ 判定：【已合规，不再需要任何修正】。
+```
+**机制也对**：`[SaveableRootClass]`（`SaveableRootClassAttribute.cs:7`）· `[SaveableField]`/`[SaveableProperty]`（`SaveableFieldAttribute.cs:7`/`SaveablePropertyAttribute.cs:7`）。
+
+### ★ 「我的 grep 命中了 arch-before/ 留档」假设 —— 不成立，有判别证据
+```
+                  archive(08:03 留档)   当前页
+ISaveable                0                2   ← 全在否定句
+DefineTypes              0                1   ← 全在否定句
+Register()               2                0
+```
+**判别点**：留档 `ISaveable=0` 但 `Register()=2`（旧页缺陷）。我 08:35 报的是「页里有 `ISaveable`」
+⇒ **留档里没有 `ISaveable` ⇒ 不可能来自留档**，而是来自**当时的工作区版本**（worker-196 那个 8 处编造的版，后来被替换）。
+**⇒ 陈旧读数的错因要分两类记**：
+```
+① 路径写错（grep 到留档/别处）—— 本线未发生
+② 报告写于缺陷仍存在时、后续被修掉、而我没复测就再次引用 —— 本线发生（4 次）
+```
+**纪律**（boss-3 #15517）：凡 grep 内容，路径必须写全；凡报缺陷，必须先证明它在【当前文件】里仍能复现。
+
+## 38. 检测器归属（避免重复建）
+
+我提的「反引号 CamelCase 标识符 → 版本树 grep → 0 命中报警」已由 boss-3 **授权但改派 lead-20 的 W-E** 实现。
+**⇒ 本线【不建】，省一条并发。** 我提供两个可复用输入：
+```
+· 正控制：ISaveable / DefineTypes / SetViewModel（词边界下全树 0 命中 ⇒ Layer 1）
+          LoadGame / ReadObject / WriteObject（词边界下全树 0 命中 ⇒ Layer 1，子串会假通过）
+          ScreenManager / Register / SaveManager（存在 ⇒ 需 Layer 2 归属核）
+· 负控制：SaveableCampaignTypeDefiner.cs:52 —— 行号对、标识符对、【描述错】
+          （页说注册 Settlement，真身 typeof(Army)）⇒ 正确检测器应当【不】报它；报了就是假阳性
+```
+**必须报假阳性率**（抽样 ≥50 条人工判读）；只报原始命中数不算结果。
+**Layer 3**（标识符存在但不在被引行附近）与判分器新加的 **J13**（被引行是否空行/纯注释/纯标点）互补。
+
+## 39. J13 抓到本线一个真歧义（待指派修）
+
+判分器新增 J13（**lead-22 #15360 ② 提议的「行号在界内但那一行是空行/纯注释/纯标点」**）首次运行即报 3 条：
+```
+[SaveableTypeDefiner.cs:41 (line is punctuation only);
+ SaveableTypeDefiner.cs:44 (line is a comment);
+ SaveableTypeDefiner.cs:52 (line is punctuation only)]
+```
+**根因（是本线的写法，不是 J13 的 bug）**：zh 页第 160 行在 ```csharp 围栏内写了**裸 `:N`**：
+```
+//   :41  class 声明    :44  无参构造    :50  override DefineClassTypes()    :52  AddClassDefinition(typeof(Army), 3, null)
+```
+该围栏块里唯一的**完整**引用是 `SaveableTypeDefiner.cs:13` ⇒ 归属规则「块内只有一个完整引用文件就用它」
+⇒ 那 3 个裸 `:N` 被归给 `SaveableTypeDefiner.cs`，而它们**实际指 `SaveableCampaignTypeDefiner.cs`**（同行注释文字已写明）。
+**⇒ 修法（1 行× 2 页）**：把裸引用写成完整引用 `SaveableCampaignTypeDefiner.cs:41/44/50/52`。
+**状态**：按 boss-3 #15366 ①「不要再动它」**本线不自改**，待指派。
+**对检测器的建议**（已给 lead-18）：块内有裸 `:N` 且提到多于一个文件（哪怕另一个只是裸词）⇒ 报 UNCHECKABLE，不猜。
+
 ## 32. 行号口径事件全记录（“改尺不改内容”的实证）
 
 | 时间 | 事件 |

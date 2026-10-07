@@ -1257,4 +1257,57 @@ checked=10 out_of_scope=8
 
 - push 前 origin/main = `62a2d25b0478a615b428aa54855e6377641eabe8`；push 后 = `5dee108247479cfc6be3ae6c15891990519ddd4b`；本次 6 个 commit（`git rev-list --count 62a2d25b04..5dee108247`）
 
+### 4.12 第 4 轮续：worker 化 + tools/** 分诊入库 + 碰撞复现
+
+**① worker 化（用户指示：lead 不直接干活）**
+
+- worker-194（分类）：产出 `tools/_verify/release-batches.md`，落盘 2026-10-07 16:27:11 +0800
+- worker-195（执行）：批 1–11 提交（见 §4.2/§4.10 与本节）
+- worker-204（判定）：Boss #14709「手写 vs 脚本写」逐页判定，写入 `release-batches.md` 新节
+- worker-206（分诊）：`tools/_verify/tools-untracked-triage.md`（17.6 KB）
+- worker-210（入库）：`tools/**` ① 类分 5 批入库
+- lead-21 只做：审定计划、验收证据、裁决阻塞、汇报
+
+**② tools/** 三分诊（Boss #15033）**
+
+- 测量时点 2026-10-07T09:09:58Z；`git ls-files --others --exclude-standard -z -- tools/`
+- 总数 **1738**（Boss 转述的 256 与 lead-21 实测的 1734 都是更早时点；持续漂移）
+- ① 会被下一轮引用 **260** / ② 一次性 scratch **1470**（主体 `perf-site/**` 1412）/ ③ 不该存在 **7**
+- **lead-21 自己的测量错误（worker-206 抓到，成立）**：先前报「4 个 0 字节文件」为假。原因：`git ls-files --others | while read f; do [ -s "$f" ]` 在 git 对非 ASCII 路径加引号时把引号当文件名 ⇒ 2 个假阳性。正确做法：`-z` + `while IFS= read -r -d ''`。实测 0 字节文件 = **2**。
+
+**③ ① 类入库（5 批，Boss 授权 tools/** 属发布线范围）**
+
+| 批 | SHA | 文件数 |
+|---|---|---|
+| A `tools/` 根级 | `bde180b97a` | 68 |
+| B `tools/_verify/` 根级 | `39023a04c7`（实际只 1，见下） | 153 期望 |
+| C `_EVIDENCE-selfcheck-20261004/` | `8c5c434632` | 6 |
+| D `data/` | `0d96b9788d` | 1 |
+| E 证据子目录 | `5749e08624` | 29 |
+
+- 抽样验证 ① 类已 tracked；剩余 untracked **63** 个全部是 ②/③ 类，**无 ① 类残留**
+
+**④ ⚠️ 碰撞复现（第 3 次「两线抢同一批文件」）+ 根因**
+
+- 事件：worker-210 报「批 B 暂存数 153 == 期望 153 ✓」，但其 commit `39023a04c7` 只含 1 个文件
+- 根因（实测）：`daeea0de1b`（**lead-20** 的 commit）含 **156 个文件，其中 151 个是 `tools/_verify/` 根级** = worker-210 批 B 的暂存文件。即 **lead-20 跑了不带 pathspec 的 `git commit`，把整个暂存区一起提交**
+- 与批 2（`da1dfa7461`，lead-145zh）**同一模式**：别的线不带 pathspec 提交 ⇒ 卷走并发线已 staged 的文件
+- **无数据丢失**：151 个文件已随 `daeea0de1b` 进入历史，`git log -- <path>` 可查
+- 本会话共 **3 次**：批 2 的 content、lead-22 的 `action-family`、本次批 B 的 151 个 tools 文件；其中 **2 次的根因是别的线跑了不带 pathspec 的 `git commit`**
+
+**⑤ 新增固定检查（Boss #15367）**
+
+- `git add` 之前对每个待提交路径跑 `git log --oneline -3 -- <path>` 与 `git status --porcelain -- <path>`；若已被提交 ⇒ 从本批剔除并标「已由 `<SHA>` 提交」
+- 理由：并发多线仓库里，提交前查 `git log -- <path>` 是**必需动作**，不是可选动作
+
+**⑥ 每日 push 耐久机制 + 30m 扫荡 loop**
+
+- schtasks `BannerlordCode-DailyPush`（每日 09:00，跑 `tools/_verify/daily-push.bat`，只 push、分叉即 fail-closed）
+- Loop #1：cron `*/30 * * * *`，recurring，maxFires 16，expiresIn 12h，**只 commit 不 push**（prompt 第 5 条的 IN-SCOPE 判据已被 Boss #14709 更新为「手写 vs 脚本写」，实际执行按后者）
+
+**⑦ 本节时点的状态**
+
+- `origin/main = f6f094d69bc9b970c75f80b3ecd73568f503d4d8`，divergence `0 0`，content 剩余 **0**，tools untracked **63**（全部 ②/③）
+- 门禁：`audit-links` BROKEN_LINKS=0 exit=0 · `nav-orphans` orphans=0 · `audit-changed-links` exit=0
+
 

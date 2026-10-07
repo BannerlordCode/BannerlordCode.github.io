@@ -1,0 +1,12 @@
+content/v1.4.7/zh/api/system/GameKey.md
+content/v1.4.7/zh/api/system/HotKey.md
+content/v1.4.7/zh/api/system/Key.md
+content/v1.4.7/zh/api/system/Input.md
+content/v1.4.7/zh/api/system/GameKeyContext.md
+content/v1.4.7/zh/api/system/InputContext.md
+content/v1.4.7/zh/api/system/InputState.md
+content/v1.4.7/zh/api/system/HotKeyManager.md
+content/v1.4.7/zh/api/system/EmptyInputContext.md
+content/v1.4.7/zh/api/system/EmptyInputManager.md
+content/v1.4.7/zh/api/system/IInputContext.md
+content/v1.4.7/zh/api/system/IInputManager.md

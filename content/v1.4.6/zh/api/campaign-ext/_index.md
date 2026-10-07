@@ -10,7 +10,7 @@ description: "TaleWorlds.ObjectSystem 与 TaleWorlds.CampaignSystem 的五个子
 
 **为什么源码目录叫 `CampaignSystem`、文档桶却叫 `campaign-ext`**：因为 mod 作者真正在这块干的事只有两类——**实现一个接口**（自己的 `ICampaignBehavior`、自己的 `PartySizeLimitModel`、自己的 `IssueBase`）或者**读懂一个接口在做什么**（游戏为什么这么判、这个默认值从哪来）。这两件事的入口类型几乎全在这个桶，而它们的数据结构在 campaign 桶。
 
-## 已手写的类页（13 张）
+## 已手写的类页（28 张）
 
 - [MBObjectBase](./MBObjectBase) — 所有可保存实体的公共基类：持有 `StringId` / `Id`，承载注册、初始化与读档三段回调。`Hero`、`Settlement` 都由它派生，扩展点也主要长在它身上。
 - [MBObjectManager](./MBObjectManager) — 全局对象注册表：按类型与 StringId 登记所有 `MBObjectBase` 实例，负责 XML 定义加载、引用解析与读档后的对象图重建。
@@ -25,6 +25,21 @@ description: "TaleWorlds.ObjectSystem 与 TaleWorlds.CampaignSystem 的五个子
 - [AiVisitSettlementBehavior](./AiVisitSettlementBehavior) — 访问定居点 AI：决定 AI 是否、何时、以何种理由访问定居点，是访问决策的评分中枢。
 - [AllianceCampaignBehavior](./AllianceCampaignBehavior) — 联盟系统：处理联盟提议、响应与战争号召协议，本批唯一同时实现接口的类。
 - [BackstoryCampaignBehavior](./BackstoryCampaignBehavior) — 角色背景故事：在新战役创建时注入角色背景，是背景系统的入口。
+- [AllianceCampaignBehaviorTypeDefiner](./AllianceCampaignBehaviorTypeDefiner) — 联盟 Behavior 的存档类型定义器（嵌套于 `AllianceCampaignBehavior`）：注册 `Alliance` 与 `CallToWarAgreement`。
+- [BanditInteractionsCampaignBehavior](./BanditInteractionsCampaignBehavior) — 土匪交互：对话、贿赂与招募，是「招安土匪」玩法的落点。
+- [BanditInteractionsCampaignBehaviorTypeDefiner](./BanditInteractionsCampaignBehaviorTypeDefiner) — 土匪交互的存档类型定义器（嵌套）：注册 `PlayerInteraction` 枚举。
+- [BanditSpawnCampaignBehavior](./BanditSpawnCampaignBehavior) — 土匪刷新：管理土匪巢穴的生成与补充，控制数量与分布节奏。
+- [BannerCampaignBehavior](./BannerCampaignBehavior) — 旗帜系统：旗帜的授予、展示与回收。
+- [DiplomaticBartersBehavior](./DiplomaticBartersBehavior) — 外交交易：以外交为目的的交易（停战、结盟、领土），本子命名空间最大者。
+- [FiefBarterBehavior](./FiefBarterBehavior) — 领地交易：以领地（fief）为标的的交易。
+- [GoldBarterBehavior](./GoldBarterBehavior) — 金币交易：以金币为标的的交易。
+- [ItemBarterBehavior](./ItemBarterBehavior) — 物品交易：以物品（装备/物资）为标的的交易。
+- [LiftSiegeBarterBehavior](./LiftSiegeBarterBehavior) — 解除围城交易：以资源换围军撤退。
+- [SetPrisonerFreeBarterBehavior](./SetPrisonerFreeBarterBehavior) — 释放囚犯交易：以资源换囚犯释放。
+- [TransferPrisonerBarterBehavior](./TransferPrisonerBarterBehavior) — 囚犯转移交易：把囚犯从一个阵营转给另一个阵营。
+- [BattleCampaignBehavior](./BattleCampaignBehavior) — 战役战斗：把地图遭遇战接进战役状态，处理战前判定与战后结算。
+- [BuildingsCampaignBehavior](./BuildingsCampaignBehavior) — 建筑系统：定居点建筑的建造、升级与效果结算。
+- [CampaignBattleRecoveryBehavior](./CampaignBattleRecoveryBehavior) — 战后恢复：伤亡恢复、部队重整与状态清理。
 
 ## 尚未撰写的部分
 

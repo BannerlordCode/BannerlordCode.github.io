@@ -61,9 +61,9 @@ int[] counts = CustomBattleHelper.GetTroopCounts(100, composition);
 ```
 
 ## 参见
-- [CustomBattleData](CustomBattleData)
-- [CustomBattleProvider](CustomBattleProvider)
-- [CustomBattleCompositionData](CustomBattleCompositionData)
+- [CustomBattleData](../CustomBattleData)
+- [CustomBattleProvider](../CustomBattleProvider)
+- [CustomBattleCompositionData](../CustomBattleCompositionData)
 - [../../core-extra/Game](../../core-extra/Game)
 
 ## 导航

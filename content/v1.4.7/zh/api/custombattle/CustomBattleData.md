@@ -82,9 +82,9 @@ foreach (SiegeEngineType machine in CustomBattleData.GetAllAttackerMeleeMachines
 ```
 
 ## 参见
-- [CustomBattleHelper](CustomBattleHelper)
-- [CustomBattleProvider](CustomBattleProvider)
-- [CustomBattleCompositionData](CustomBattleCompositionData)
+- [CustomBattleHelper](../CustomBattleHelper)
+- [CustomBattleProvider](../CustomBattleProvider)
+- [CustomBattleCompositionData](../CustomBattleCompositionData)
 - [../../core-extra/Game](../../core-extra/Game)
 
 ## 导航

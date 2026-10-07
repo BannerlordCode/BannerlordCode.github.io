@@ -48,8 +48,8 @@ provider.StartCustomBattle();
 ```
 
 ## 参见
-- [CustomBattleData](CustomBattleData)
-- [CustomBattleHelper](CustomBattleHelper)
+- [CustomBattleData](../CustomBattleData)
+- [CustomBattleHelper](../CustomBattleHelper)
 - [../../core-extra/Game](../../core-extra/Game)
 
 ## 导航

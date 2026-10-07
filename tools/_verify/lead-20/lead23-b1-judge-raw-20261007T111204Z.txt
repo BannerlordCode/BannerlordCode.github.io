@@ -1,0 +1,48 @@
+# mode=--links require
+# judge sha256 = 16e9b98fb19b8eb479ae983c0045401cc776fcfff6f3f14125edcbc1445be23a
+# judge mtime  = 2026-10-07T10:44:20.520Z
+# judge working-tree = clean（与 HEAD 一致）
+FAIL  content/v1.4.5/en/api/campaign/IFaction.md
+      J1 fffd=0 · J2 missing=[概述,心智模型,怎么用,关键成员,真实示例,导航] · J3 tree=C:\WorkSpace\Bannerlord\bannerlord-1.4.5\Bannerlord.Source subject=IFaction.cs checked=3 (full=3 + inBlock=0 + subject=0) bad=0 ambiguous=0 · J4 unattributable=0
+      J5 dotSlash=0 indexLinks=0 · J5R unresolved=0 · J10 stray=0 · J11 trailSlash=0 · J8 11919B/10 · J9 csharp=27
+      J6=deep_pass · deepPass=true · tier=handwritten_deep · J7 markers=0
+      H2: Overview | Mental Model | How to use | Key Members | Real Example | See also | Navigation
+      J12 inconsistent-text=0 · navSlots=[Navigation] · J13 suspicious-lines=0
+      J2 参见族 via=[See also]  ← 别名命中（页里没有 `参见` 标题）
+      ✗ J2 missing=概述,心智模型,怎么用,关键成员,真实示例,导航
+FAIL  content/v1.4.5/en/api/mission-ext/IFormation.md
+      J1 fffd=0 · J2 missing=[概述,心智模型,怎么用,关键成员,真实示例,导航] · J3 tree=C:\WorkSpace\Bannerlord\bannerlord-1.4.5\Bannerlord.Source subject=IFormation.cs checked=3 (full=3 + inBlock=0 + subject=0) bad=0 ambiguous=0 · J4 unattributable=0
+      J5 dotSlash=0 indexLinks=0 · J5R unresolved=0 · J10 stray=0 · J11 trailSlash=0 · J8 8595B/10 · J9 csharp=21
+      J6=deep_pass · deepPass=true · tier=handwritten_deep · J7 markers=0
+      H2: Overview | Mental Model | How to use | Key Members | Real Example | See also | Navigation
+      J12 inconsistent-text=0 · navSlots=[Navigation] · J13 suspicious-lines=0
+      J2 参见族 via=[See also]  ← 别名命中（页里没有 `参见` 标题）
+      ✗ J2 missing=概述,心智模型,怎么用,关键成员,真实示例,导航
+FAIL  content/v1.4.5/en/api/save-system/ISaveDriver.md
+      J1 fffd=0 · J2 missing=[概述,心智模型,怎么用,关键成员,真实示例,导航] · J3 tree=C:\WorkSpace\Bannerlord\bannerlord-1.4.5\Bannerlord.Source subject=ISaveDriver.cs checked=3 (full=3 + inBlock=0 + subject=0) bad=0 ambiguous=0 · J4 unattributable=0
+      J5 dotSlash=0 indexLinks=0 · J5R unresolved=0 · J10 stray=0 · J11 trailSlash=0 · J8 7510B/10 · J9 csharp=23
+      J6=deep_pass · deepPass=true · tier=handwritten_deep · J7 markers=0
+      H2: Overview | Mental Model | How to use | Key Members | Real Example | See also | Navigation
+      J12 inconsistent-text=0 · navSlots=[Navigation] · J13 suspicious-lines=0
+      J2 参见族 via=[See also]  ← 别名命中（页里没有 `参见` 标题）
+      ✗ J2 missing=概述,心智模型,怎么用,关键成员,真实示例,导航
+FAIL  content/v1.4.5/en/api/core-extra/IViewModel.md
+      J1 fffd=0 · J2 missing=[概述,心智模型,怎么用,关键成员,真实示例,导航] · J3 tree=C:\WorkSpace\Bannerlord\bannerlord-1.4.5\Bannerlord.Source subject=IViewModel.cs checked=10 (full=10 + inBlock=0 + subject=0) bad=0 ambiguous=0 · J4 unattributable=0
+      J5 dotSlash=0 indexLinks=0 · J5R unresolved=0 · J10 stray=0 · J11 trailSlash=0 · J8 7854B/10 · J9 csharp=31
+      J6=deep_pass · deepPass=true · tier=handwritten_deep · J7 markers=0
+      H2: Overview | Mental Model | How to use | Key Members | Real Example | See also | Navigation
+      J12 inconsistent-text=0 · navSlots=[Navigation] · J13 suspicious-lines=0
+      J2 参见族 via=[See also]  ← 别名命中（页里没有 `参见` 标题）
+      ✗ J2 missing=概述,心智模型,怎么用,关键成员,真实示例,导航
+FAIL  content/v1.4.5/en/api/core-extra/IGameStateManagerListener.md
+      J1 fffd=0 · J2 missing=[概述,心智模型,怎么用,关键成员,真实示例,导航] · J3 tree=C:\WorkSpace\Bannerlord\bannerlord-1.4.5\Bannerlord.Source subject=IGameStateManagerListener.cs checked=15 (full=15 + inBlock=0 + subject=0) bad=0 ambiguous=0 · J4 unattributable=0
+      J5 dotSlash=0 indexLinks=0 · J5R unresolved=0 · J10 stray=0 · J11 trailSlash=0 · J8 6373B/10 · J9 csharp=26
+      J6=stub · deepPass=false · tier=handwritten_deep · J7 markers=0
+      H2: Overview | Mental Model | How to use | Key Members | Real Example | See also | Navigation
+      J12 inconsistent-text=0 · navSlots=[Navigation] · J13 suspicious-lines=0
+      J2 参见族 via=[See also]  ← 别名命中（页里没有 `参见` 标题）
+      ✗ J2 missing=概述,心智模型,怎么用,关键成员,真实示例,导航
+      ✗ J6 classifyPage=stub (no-real-example)
+
+JUDGE total=5 pass=0 fail=5
+# 两个口径（必须分开报）: deep_pass=4/5 · tier=handwritten_deep=5/5

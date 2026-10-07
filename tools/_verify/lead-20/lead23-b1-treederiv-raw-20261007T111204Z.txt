@@ -1,0 +1,43 @@
+# mode=--links require
+# judge sha256 = 16e9b98fb19b8eb479ae983c0045401cc776fcfff6f3f14125edcbc1445be23a
+# judge mtime  = 2026-10-07T10:44:20.520Z
+# judge working-tree = clean（与 HEAD 一致）
+FAIL  content/v1.4.6/zh/api/campaign/Campaign.md
+      J1 fffd=0 · J2 missing=[导航] · J3 tree=C:\WorkSpace\Bannerlord\bannerlord-1.4.6 subject=Campaign.cs checked=23 (full=10 + inBlock=11 + subject=2) bad=0 ambiguous=0 · J4 unattributable=0
+      J5 dotSlash=0 indexLinks=0 · J5R unresolved=0 · J10 stray=1 · J11 trailSlash=0 · J8 33088B/20 · J9 csharp=73
+      J6=deep_pass · deepPass=true · tier=handwritten_deep · J7 markers=0
+      H2: 概述 | 心智模型 | 关键成员 | 怎么用 | 真实示例 | 风险与边界 | 跨版本提示 | 依赖关系
+      J12 inconsistent-text=0 · navSlots=[] · J13 suspicious-lines=1
+      J2 参见族 via=[依赖关系]  ← 别名命中（页里没有 `参见` 标题）
+      ✗ J2 missing=导航
+      ✗ J10 links-outside-see/nav=1 [怎么用: ../CampaignBehaviorBase]
+      ! J13 suspicious-citation-lines=1 [[bannerlord-1.4.6] Campaign.cs:1889 (line is punctuation only)]
+FAIL  content/v1.4.7/zh/api/core-extra/ViewModel.md
+      J1 fffd=0 · J2 missing=[怎么用,关键成员,真实示例,导航] · J3 tree=C:\WorkSpace\Bannerlord\bannerlord-1.4.7 subject=ViewModel.cs checked=9 (full=9 + inBlock=0 + subject=0) bad=0 ambiguous=0 · J4 unattributable=0
+      J5 dotSlash=0 indexLinks=0 · J5R unresolved=0 · J10 stray=0 · J11 trailSlash=0 · J8 12609B/16 · J9 csharp=63
+      J6=deep_pass · deepPass=true · tier=handwritten_deep · J7 markers=0
+      H2: 概述 | 心智模型 | 何时使用 / 何时不要使用 | 成员说明 | 示例 | 风险与边界 | 依赖关系 | 参见
+      J12 inconsistent-text=0 · navSlots=[] · J13 suspicious-lines=0
+      J2 参见族 via=[依赖关系,参见]
+      ✗ J2 missing=怎么用,关键成员,真实示例,导航
+FAIL  content/v1.5.3/zh/api/campaign/Campaign.md
+      J1 fffd=0 · J2 missing=[关键成员,导航] · J3 tree=C:\WorkSpace\Bannerlord\bannerlord-1.5.3 subject=Campaign.cs checked=25 (full=9 + inBlock=3 + subject=13) bad=0 ambiguous=0 · J4 unattributable=0
+      J5 dotSlash=0 indexLinks=0 · J5R unresolved=0 · J10 stray=1 · J11 trailSlash=0 · J8 13001B/10 · J9 csharp=37
+      J6=deep_pass · deepPass=true · tier=handwritten_deep · J7 markers=0
+      H2: 概述 | 心智模型 | 怎么用 | 成员与调用时机 | 真实示例 | 风险与边界 | 依赖关系
+      J12 inconsistent-text=0 · navSlots=[] · J13 suspicious-lines=0
+      J2 参见族 via=[依赖关系]  ← 别名命中（页里没有 `参见` 标题）
+      ✗ J2 missing=关键成员,导航
+      ✗ J10 links-outside-see/nav=1 [概述: ../../mission/Mission]
+FAIL  content/v1.4.5/zh/api/campaign/Campaign.md
+      J1 fffd=0 · J2 missing=[概述,怎么用,关键成员] · J3 tree=C:\WorkSpace\Bannerlord\bannerlord-1.4.5\Bannerlord.Source subject=Campaign.cs checked=0 (full=0 + inBlock=0 + subject=0) bad=0 ambiguous=0 · J4 unattributable=0
+      J5 dotSlash=1 indexLinks=0 · J5R unresolved=0 · J10 stray=0 · J11 trailSlash=0 · J8 13843B/14 · J9 csharp=28
+      J6=deep_pass · deepPass=true · tier=handwritten_deep · J7 markers=0
+      H2: 一句话职责 | 心智模型 | 依赖关系 | 风险 | 成员笔记（按用途分组） | 真实示例 | 导航 | 参见
+      J12 inconsistent-text=0 · navSlots=[导航] · J13 suspicious-lines=0
+      J2 参见族 via=[依赖关系,参见]
+      ✗ J2 missing=概述,怎么用,关键成员
+      ✗ J5 dot-slash-links=1
+
+JUDGE total=4 pass=0 fail=4
+# 两个口径（必须分开报）: deep_pass=4/4 · tier=handwritten_deep=4/4

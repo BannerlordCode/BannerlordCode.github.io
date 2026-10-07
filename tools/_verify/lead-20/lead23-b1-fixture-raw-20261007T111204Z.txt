@@ -1,0 +1,24 @@
+# mode=--links require
+# judge sha256 = 16e9b98fb19b8eb479ae983c0045401cc776fcfff6f3f14125edcbc1445be23a
+# judge mtime  = 2026-10-07T10:44:20.520Z
+# judge working-tree = clean（与 HEAD 一致）
+FAIL  tools/_verify/lead-145zh-judge-fixture/content/v1.3.15/zh/api/campaign/CrossVersionRegression.md
+      J1 fffd=0 · J2 missing=[] · J3 tree=C:\WorkSpace\Bannerlord\bannerlord-1.3.15 subject=Mission.cs checked=7 (full=7 + inBlock=0 + subject=0) bad=0 ambiguous=0 · J4 unattributable=0
+      J5 dotSlash=0 indexLinks=0 · J5R unresolved=0 · J10 stray=0 · J11 trailSlash=0 · J8 2630B/10 · J9 csharp=8
+      J6=stub · deepPass=false · tier=handwritten_deep · J7 markers=0
+      H2: 概述 | 心智模型 | 怎么用 | 关键成员 | 真实示例 | 参见 | 导航
+      J12 inconsistent-text=0 · navSlots=[导航] · J13 suspicious-lines=0
+      J2 参见族 via=[参见]
+      ✗ J6 classifyPage=stub (weak-deps)
+FAIL  tools/_verify/lead-145zh-judge-fixture/content/v1.4.5/zh/api/campaign/CrossVersionRegression.md
+      J1 fffd=0 · J2 missing=[] · J3 tree=C:\WorkSpace\Bannerlord\bannerlord-1.4.5\Bannerlord.Source subject=Mission.cs checked=7 (full=7 + inBlock=0 + subject=0) bad=4 ambiguous=0 · J4 unattributable=0
+      J5 dotSlash=0 indexLinks=0 · J5R unresolved=0 · J10 stray=0 · J11 trailSlash=0 · J8 2630B/10 · J9 csharp=8
+      J6=stub · deepPass=false · tier=handwritten_deep · J7 markers=0
+      H2: 概述 | 心智模型 | 怎么用 | 关键成员 | 真实示例 | 参见 | 导航
+      J12 inconsistent-text=0 · navSlots=[导航] · J13 suspicious-lines=0
+      J2 参见族 via=[参见]
+      ✗ J3 bad-citations=4 [[bannerlord-1.4.5] Hero.cs:2500 (full: out-of-range, max=2406); [bannerlord-1.4.5] Hero.cs:2500 (full: out-of-range, max=2406); [bannerlord-1.4.5] Hero.cs:2500 (full: out-of-range, max=2406); [bannerlord-1.4.5] Hero.cs:2500 (full: out-of-range, max=2406)]
+      ✗ J6 classifyPage=stub (weak-deps)
+
+JUDGE total=2 pass=0 fail=2
+# 两个口径（必须分开报）: deep_pass=0/2 · tier=handwritten_deep=2/2

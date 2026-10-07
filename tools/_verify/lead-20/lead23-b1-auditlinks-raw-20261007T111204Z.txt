@@ -1,0 +1,18 @@
+FILES=39039
+TOTAL_LINKS=149836
+AUDIT_MODE=url
+BROKEN_LINKS=0
+RESOLVE_OK_URL=149644
+RESOLVE_OK_FILE=110356
+RESOLVE_OK_EITHER=149644
+RESOLVE_OK_BOTH=110356
+RESOLVE_URL_ONLY=39288
+RESOLVE_FILE_ONLY=0
+RESOLVE_NEITHER=2
+RESOLVE_STATIC=2
+# NOTE: RESOLVE_NEITHER is the CONTENT-ONLY caliber (neither content-URL nor
+#       content-file resolution found the target). It is deliberately left unchanged
+#       by the static-target widening, so a link resolved via static/ is still
+#       counted here AND in RESOLVE_STATIC. Broken = (not resolved anywhere);
+#       RESOLVE_STATIC is the size of the newly-admitted target class.
+FILES_WITH_BROKEN=0

@@ -1,0 +1,9 @@
+# N=5 sampled=2026-10-07T06:32:54Z frozen=lead-145zh-b01 v1.4.5/zh campaign-ext Actions
+# 来源：tools/_verify/lead6-w63-batch06.pages.txt（30 行，2026-10-05T07:29Z）中【未执行】的 Action 项，
+#       按原计划顺序取前 5 项。依据：lead6-w63-b06-done.pages.txt 只覆盖计划项 9/10/14/15/16。
+# 每行必须可解析为仓库相对路径；本清单只被 lead-145zh 消费，worker 不得改写。
+content/v1.4.5/zh/api/campaign-ext/DestroyShipAction.md
+content/v1.4.5/zh/api/campaign-ext/DisableHeroAction.md
+content/v1.4.5/zh/api/campaign-ext/EndMercenaryServiceAction.md
+content/v1.4.5/zh/api/campaign-ext/IncreaseSettlementHealthAction.md
+content/v1.4.5/zh/api/campaign-ext/InitializeWorkshopAction.md

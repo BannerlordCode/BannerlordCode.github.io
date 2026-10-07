@@ -8,7 +8,7 @@ description: "TaleWorlds.Network 的客户端会话抽象类，负责发起连�
 **模块：** `TaleWorlds.Network`
 **类型：** `public abstract class ClientsideSession`
 **基类：** `NetworkSession`
-**源文件：** `TaleWorlds.Network/ClientsideSession.cs`（声明见第 9 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.Network/ClientsideSession.cs`（声明见第 9 行）
 
 ## 概述
 

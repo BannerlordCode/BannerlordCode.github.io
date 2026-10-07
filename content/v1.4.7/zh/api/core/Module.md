@@ -8,7 +8,7 @@ description: "游戏运行时的全局模块宿主：持有当前模块实例、
 **模块：** `TaleWorlds.MountAndBlade`
 **类型：** `public sealed class Module : DotNetObject, IGameStateManagerOwner`
 **基类：** `TaleWorlds.DotNet.DotNetObject`，实现 `IGameStateManagerOwner`
-**源文件：** `TaleWorlds.MountAndBlade/Module.cs`（声明见第 31 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade/Module.cs`（声明见第 31 行）
 
 ## 概述
 

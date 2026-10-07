@@ -8,7 +8,7 @@ description: "输入管理器契约，定义输入设备状态查询接口"
 **模块：** `TaleWorlds.InputSystem`
 **类型：** `public interface`
 **基类：** 无（接口）
-**源文件：** `TaleWorlds.InputSystem/IInputManager.cs`（声明见第 7 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.InputSystem/IInputManager.cs`（声明见第 7 行）
 
 ## 概述
 

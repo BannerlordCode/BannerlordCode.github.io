@@ -8,7 +8,7 @@ description: "TaleWorlds.Network 中定义消息如何序列化到 NetworkMessag
 **模块：** `TaleWorlds.Network`
 **类型：** `public abstract class MessageContract`
 **基类：** `object`（抽象基类，不能直接实例化）
-**源文件：** `TaleWorlds.Network/MessageContract.cs`（声明见第 8 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.Network/MessageContract.cs`（声明见第 8 行）
 
 ## 概述
 

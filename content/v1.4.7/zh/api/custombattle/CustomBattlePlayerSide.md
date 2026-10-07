@@ -8,7 +8,7 @@ description: "自定义战斗中的玩家阵营枚举，区分攻方与守方。
 **模块：** `TaleWorlds.MountAndBlade.CustomBattle`
 **类型：** `enum`
 **基类：** `System.Enum`（enum 隐式继承）
-**源文件：** `TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattlePlayerSide.cs`（声明见第 6 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattlePlayerSide.cs`（声明见第 6 行）
 
 ## 概述
 `CustomBattlePlayerSide` 是一个枚举类型，用于表示自定义战斗中玩家所属的阵营。它区分攻方（Attacker）与守方（Defender），是自定义战斗逻辑中判断玩家角色、分配队伍、决定胜负条件的基础。对 mod 开发者而言，这个枚举是编写自定义战斗规则时最常被查询的类型之一。

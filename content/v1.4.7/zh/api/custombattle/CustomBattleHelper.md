@@ -8,7 +8,7 @@ description: "自定义战斗的静态工具类：把界面参数打包成 Custo
 **模块：** `TaleWorlds.MountAndBlade.CustomBattle`
 **类型：** `public static class CustomBattleHelper`
 **基类：** 无（静态类）
-**源文件：** `TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattleHelper.cs`（声明见第 12 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattleHelper.cs`（声明见第 12 行）
 
 ## 概述
 `CustomBattleHelper` 是自定义战斗子系统的静态工具类，承担「从配置到开战」的全部幕后工作：把界面参数打包成 `CustomBattleData`（`PrepareBattleData`）、按兵种构成计算部队人数（`GetTroopCounts`）、生成双方战斗单位 `CustomBattleCombatant`（`GetCustomBattleParties`）、把攻城器械类型归一化（`GetSiegeWeaponType`）、把游戏类型字符串映射为索引（`GetIndexFromGameTypeStringId`），以及最终调用 `BannerlordMissions` 开启任务（`StartGame`）。它是 View 层与任务系统之间的翻译层。

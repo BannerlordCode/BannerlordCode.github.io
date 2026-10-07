@@ -8,7 +8,7 @@ description: "自定义战斗模式在主菜单的入口登记处：实现 ICust
 **模块：** `TaleWorlds.MountAndBlade.CustomBattle`
 **类型：** `public class CustomBattleProvider : ICustomBattleProvider`
 **基类：** `ICustomBattleProvider`（接口）
-**源文件：** `TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattleProvider.cs`（声明见第 8 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattleProvider.cs`（声明见第 8 行）
 
 ## 概述
 `CustomBattleProvider` 是自定义战斗模式对外的「入口登记处」：实现 `ICustomBattleProvider` 接口，向游戏主菜单注册「陆地自定义战斗」（Land Custom Battle）这一游戏模式。它只负责两件事——告诉系统这个模式叫什么名字（`GetName`），以及玩家选择该模式后如何启动一局（`StartCustomBattle`）。

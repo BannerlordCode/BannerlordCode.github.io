@@ -8,7 +8,7 @@ description: "IInputManager 的空实现，在屏幕键盘激活时返回全零�
 **模块：** `TaleWorlds.InputSystem`
 **类型：** `internal class`
 **基类：** `IInputManager`
-**源文件：** `TaleWorlds.InputSystem/EmptyInputManager.cs`（声明见第 7 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.InputSystem/EmptyInputManager.cs`（声明见第 7 行）
 
 ## 概述
 

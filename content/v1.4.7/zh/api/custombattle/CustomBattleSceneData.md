@@ -8,7 +8,7 @@ description: "自定义战斗场景的数据结构，封装场景 ID、名称、
 **模块：** `TaleWorlds.MountAndBlade.CustomBattle`
 **类型：** `struct`
 **基类：** `System.ValueType`（struct 隐式继承）
-**源文件：** `TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattleSceneData.cs`（声明见第 9 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattleSceneData.cs`（声明见第 9 行）
 
 ## 概述
 `CustomBattleSceneData` 是一个值类型（struct），用于封装自定义战斗场景的全部配置参数。它把场景 ID、显示名称、主地形、可选地形列表、森林密度以及是否为攻城图/村庄图/领主大厅图等标志打包成一个不可变的数据单元，供自定义战斗系统在创建场景时读取。对 mod 开发者而言，这是描述「我要打一场什么样的自定义战斗」的核心数据结构。

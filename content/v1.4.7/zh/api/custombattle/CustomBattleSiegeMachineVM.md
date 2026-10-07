@@ -8,7 +8,7 @@ description: "CustomBattle 攻城器械选择界面的 ViewModel，封装器械�
 **模块：** `TaleWorlds.MountAndBlade.CustomBattle`
 **类型：** `class`
 **基类：** `ViewModel`
-**源文件：** `TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattleSiegeMachineVM.cs`（声明见第 8 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattleSiegeMachineVM.cs`（声明见第 8 行）
 
 ## 概述
 `CustomBattleSiegeMachineVM` 是 CustomBattle 模块中攻城器械（Siege Engine）选择界面的视图模型。它继承自 `ViewModel`，负责在战斗准备阶段向玩家展示可选的攻城器械类型，并在玩家做出选择或重置选择时通过回调通知上层逻辑。该类是连接 UI 层与战斗配置数据之间的桥梁，确保器械选择状态能够被正确传递到后续的战斗初始化流程中。

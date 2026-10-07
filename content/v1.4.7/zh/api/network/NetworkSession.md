@@ -8,7 +8,7 @@ description: "TaleWorlds.Network 中所有网络会话的抽象基类，统一�
 **模块：** `TaleWorlds.Network`
 **类型：** `public abstract class NetworkSession`
 **基类：** `无（直接继承 System.Object）`
-**源文件：** `TaleWorlds.Network/NetworkSession.cs`（声明见第 6 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.Network/NetworkSession.cs`（声明见第 6 行）
 
 ## 概述
 

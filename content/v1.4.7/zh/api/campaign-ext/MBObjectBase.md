@@ -8,7 +8,7 @@ description: "所有 MBObject 派生类型的根基类：承载 StringId、MBGUI
 **模块：** `TaleWorlds.ObjectSystem`
 **类型：** `public class MBObjectBase`
 **基类：** 无
-**源文件：** `TaleWorlds.ObjectSystem/MBObjectBase.cs`（声明见第 11 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.ObjectSystem/MBObjectBase.cs`（声明见第 11 行）
 
 ## 概述
 

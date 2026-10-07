@@ -8,7 +8,7 @@ description: "游戏实例与全局门面：持有当前 GameType（战役 / 沙
 **模块：** `TaleWorlds.Core`
 **类型：** `public sealed class Game : IGameStateManagerOwner`
 **基类：** 无，实现 `IGameStateManagerOwner`
-**源文件：** `TaleWorlds.Core/Game.cs`（声明见第 15 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.Core/Game.cs`（声明见第 15 行）
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MBObject 运行时对象注册表：负责类型注册、XML 加�
 **模块：** `TaleWorlds.ObjectSystem`
 **类型：** `public sealed class MBObjectManager`
 **基类：** 无
-**源文件：** `TaleWorlds.ObjectSystem/MBObjectManager.cs`（声明见第 18 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.ObjectSystem/MBObjectManager.cs`（声明见第 18 行）
 
 ## 概述
 

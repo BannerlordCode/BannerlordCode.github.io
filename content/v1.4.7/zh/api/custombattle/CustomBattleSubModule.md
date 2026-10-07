@@ -8,7 +8,7 @@ description: "自定义战斗的模块入口，继承 MBSubModuleBase，负责�
 **模块：** `TaleWorlds.MountAndBlade.CustomBattle`
 **类型：** `class`
 **基类：** `MBSubModuleBase`
-**源文件：** `TaleWorlds.MountAndBlade.CustomBattle/CustomBattleSubModule.cs`（声明见第 11 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleSubModule.cs`（声明见第 11 行）
 
 ## 概述
 `CustomBattleSubModule` 是自定义战斗（Custom Battle）玩法的模块入口类。它继承自 `MBSubModuleBase`，是 Bannerlord 模块加载器识别并调用的根对象。游戏启动时，模块系统会实例化这个子模块，并通过它完成自定义战斗所需的场景注册、行为挂载与子系统初始化。对 mod 开发者而言，这是接入自定义战斗流程的起点：只要让自己的 mod 依赖并扩展这个子模块，就能在自定义战斗场景中注入自己的逻辑。

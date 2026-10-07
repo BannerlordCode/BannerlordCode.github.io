@@ -8,7 +8,7 @@ description: "自定义战斗地图选择分组视图模型，管理地图列表
 **模块：** `TaleWorlds.MountAndBlade.CustomBattle`
 **类型：** `class`
 **基类：** `ViewModel`
-**源文件：** `TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/MapSelectionGroupVM.cs`（声明见第 12 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/MapSelectionGroupVM.cs`（声明见第 12 行）
 
 ## 概述
 

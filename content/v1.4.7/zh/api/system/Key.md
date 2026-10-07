@@ -8,7 +8,7 @@ description: "表示一个具体的输入键，区分键盘、鼠标按键、鼠
 **模块：** `TaleWorlds.InputSystem`
 **类型：** `class`
 **基类：** `object`
-**源文件：** `TaleWorlds.InputSystem/Key.cs`（声明见第 8 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.InputSystem/Key.cs`（声明见第 8 行）
 
 ## 概述
 

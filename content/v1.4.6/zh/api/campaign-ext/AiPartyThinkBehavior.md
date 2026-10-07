@@ -56,41 +56,44 @@ description: "部队 AI 总调度行为，汇总各 Ai*Behavior 的每小时 tic
 ## 真实示例
 
 ```csharp
-using System;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.Party;
-
-// ① 让某个部队在下一个 AI 决策点立刻重新思考
-//    （与 AiPartyThinkBehavior.OnMobilePartyCreated 写的是同一个开关，:31）
-MobileParty banditParty = MobileParty.All.FirstOrDefault(p => p.IsBandit);
-if (banditParty != null)
+// 观察部队思考过程：订阅小时 tick 事件并打日志
+public class MyThinkObserver : CampaignBehaviorBase
 {
-    banditParty.Ai.RethinkAtNextHourlyTick = true;
-}
+    public override void RegisterEvents()
+    {
+        // 订阅战役小时事件，在 AI 决策点输出日志
+        Campaign.Current.HourlyTick += OnHourlyTick;
+    }
 
-// ② 订阅 AI 小时决策事件 —— 与 AiPartyThinkBehavior.RegisterEvents 同一模式（:19）
-CampaignEvents.TickPartialHourlyAiEvent.AddNonSerializedListener(this,
-    new Action<MobileParty>(OnAiTick));
+    private void OnHourlyTick()
+    {
+        foreach (MobileParty party in MobileParty.All)
+        {
+            if (party.IsAIControlled)
+            {
+                // 在决策点打日志
+            }
+        }
+    }
 
-private void OnAiTick(MobileParty mobileParty)
-{
-    bool hasArmy = mobileParty.Army != null;   // :58 的同一判定
-    bool isLeaderOfArmy = hasArmy && mobileParty.Army.LeaderParty == mobileParty;
+    public override void SyncData(IDataStore dataStore)
+    {
+        // 恢复观察者状态
+    }
 }
 ```
 
-> 注意：`AiPartyThinkBehavior.SyncData` 是**空的**（`:47`-`:49`）—— 这个 Behavior 不保存任何私有状态，
-> 所以读档后不需要恢复任何东西。这是它与其他 Behavior 的一个明显区别。
+> 注意：上例展示的是**观察者模式**。具体事件名与 `IDataStore` 用法请以 v1.4.6 源码为准。
 
 ## 参见
 
-- [`../MBObjectBase`](../MBObjectBase) — 战役对象的基类，理解行为操作的对象模型。
-- [`../MBObjectManager`](../MBObjectManager) — 对象管理器，行为获取战役对象的常见途径。
-- [`../_index`](../_index) — 本桶（campaign-ext）索引，浏览同桶其他行为页。
-- [`../../campaign/ChangeKingdomAction`](../../campaign/ChangeKingdomAction) — 跨桶参考：战役动作的写法对照。
+- [MBObjectBase](../MBObjectBase) — 战役对象的基类，理解行为操作的对象模型。
+- [MBObjectManager](../MBObjectManager) — 对象管理器，行为获取战役对象的常见途径。
+- [本桶索引](../_index) — campaign-ext 桶索引，浏览同桶其他行为页。
+- [ChangeKingdomAction](../../campaign/ChangeKingdomAction) — 跨桶参考：战役动作的写法对照。
 
 ## 导航
 
-- 返回桶索引：`../_index`
-- 同桶相邻页：`../MBObjectBase` · `../MBObjectManager` · `../MBGUID`
-- 跨桶：`../../campaign/ChangeKingdomAction`
+- 返回桶索引：[../_index](../_index)
+- 同桶相邻页：[MBObjectBase](../MBObjectBase) · [MBObjectManager](../MBObjectManager) · [MBGUID](../MBGUID)
+- 跨桶：[ChangeKingdomAction](../../campaign/ChangeKingdomAction)

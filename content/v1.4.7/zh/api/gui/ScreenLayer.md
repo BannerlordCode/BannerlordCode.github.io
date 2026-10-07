@@ -8,7 +8,7 @@ description: "屏幕上的一个图层：处理绘制顺序、输入、命中测
 **模块：** `TaleWorlds.ScreenSystem`
 **类型：** `public abstract class ScreenLayer : IComparable`
 **基类：** 无，实现 `System.IComparable`
-**源文件：** `TaleWorlds.ScreenSystem/ScreenLayer.cs`（声明见第 10 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.ScreenSystem/ScreenLayer.cs`（声明见第 10 行）
 
 ## 概述
 

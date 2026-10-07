@@ -8,7 +8,7 @@ description: "CustomBattle 战斗时间枚举，定义一天中的不同时段�
 **模块：** `TaleWorlds.MountAndBlade.CustomBattle`
 **类型：** `enum`
 **基类：** `Enum`
-**源文件：** `TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattleTimeOfDay.cs`（声明见第 6 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattleTimeOfDay.cs`（声明见第 6 行）
 
 ## 概述
 `CustomBattleTimeOfDay` 是 CustomBattle 模块中用于定义战斗发生时间的枚举类型。它表示一天中的不同时段（如清晨、正午、黄昏、夜晚等），用于控制战斗场景的光照、天空盒、环境音效等氛围相关的渲染与逻辑。通过指定不同的时间值，Mod 开发者可以为同一张地图创造出截然不同的战斗体验。

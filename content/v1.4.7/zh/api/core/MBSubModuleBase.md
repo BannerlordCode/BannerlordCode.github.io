@@ -8,7 +8,7 @@ description: "所有模组 SubModule 的基类：31 个生命周期钩子覆盖�
 **模块：** `TaleWorlds.MountAndBlade`
 **类型：** `public abstract class MBSubModuleBase`
 **基类：** 无
-**源文件：** `TaleWorlds.MountAndBlade/MBSubModuleBase.cs`（声明见第 8 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade/MBSubModuleBase.cs`（声明见第 8 行）
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SandBox 的地图作弊项，执行时用 GainRenownAction 给玩�
 **模块：** `SandBox`
 **类型：** `public class Add100RenownCheat : GameplayCheatItem`
 **基类：** `GameplayCheatBase` → `GameplayCheatItem`
-**源文件：** `SandBox/Add100RenownCheat.cs`（声明见第 9 行）
+**源文件：** `bannerlord-1.4.7/SandBox/Add100RenownCheat.cs`（声明见第 9 行）
 
 ## 概述
 

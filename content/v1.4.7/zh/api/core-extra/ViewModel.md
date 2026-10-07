@@ -8,7 +8,7 @@ description: "Gauntlet UI 的数据绑定基类：实现 INotifyPropertyChanged�
 **模块：** `TaleWorlds.Library`
 **类型：** `public abstract class ViewModel : IViewModel, INotifyPropertyChanged`
 **基类：** 无，实现 `TaleWorlds.Library.IViewModel` 与 `System.ComponentModel.INotifyPropertyChanged`
-**源文件：** `TaleWorlds.Library/ViewModel.cs`（声明见第 10 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.Library/ViewModel.cs`（声明见第 10 行）
 
 ## 概述
 

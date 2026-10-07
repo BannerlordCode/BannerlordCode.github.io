@@ -8,7 +8,7 @@ description: "表示一个可绑定的游戏按键，同时保存键盘与手柄
 **模块：** `TaleWorlds.InputSystem`
 **类型：** `class`
 **基类：** `object`
-**源文件：** `TaleWorlds.InputSystem/GameKey.cs`（声明见第 6 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.InputSystem/GameKey.cs`（声明见第 6 行）
 
 ## 概述
 

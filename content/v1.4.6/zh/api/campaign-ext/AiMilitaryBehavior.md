@@ -58,7 +58,7 @@ description: "战役军事 AI 行为，为阵营挑选最佳攻击目标并评�
 
 ```csharp
 // 覆写军事决策：让 AI 优先攻击实力弱于我方的目标
-public class MyMilitaryBehavior : AiMilitaryBehavior
+public class MyMilitaryBehavior : CampaignBehaviorBase
 {
     public override void FindBestTargetAndItsValueForFaction(
         Army.ArmyTypes missionType, PartyThinkParams p, float ourStrength)
@@ -67,7 +67,11 @@ public class MyMilitaryBehavior : AiMilitaryBehavior
         base.FindBestTargetAndItsValueForFaction(missionType, p, ourStrength);
 
         // 在这里加入自定义规则：例如过滤掉实力过强的目标
-        // 实际字段名以 PartyThinkParams 的定义为准
+        MobileParty bestTarget = p.BestTarget;
+        if (bestTarget != null && bestTarget.IsStrongerThan(ourStrength))
+        {
+            p.BestTarget = null;
+        }
     }
 }
 ```
@@ -76,13 +80,13 @@ public class MyMilitaryBehavior : AiMilitaryBehavior
 
 ## 参见
 
-- [`../MBObjectBase`](../MBObjectBase) — 战役对象的基类，理解行为操作的对象模型。
-- [`../MBObjectManager`](../MBObjectManager) — 对象管理器，行为获取战役对象的常见途径。
-- [`../_index`](../_index) — 本桶（campaign-ext）索引，浏览同桶其他行为页。
-- [`../../campaign/ChangeKingdomAction`](../../campaign/ChangeKingdomAction) — 跨桶参考：战役动作的写法对照。
+- [MBObjectBase](../MBObjectBase) — 战役对象的基类，理解行为操作的对象模型。
+- [MBObjectManager](../MBObjectManager) — 对象管理器，行为获取战役对象的常见途径。
+- [本桶索引](../_index) — campaign-ext 桶索引，浏览同桶其他行为页。
+- [ChangeKingdomAction](../../campaign/ChangeKingdomAction) — 跨桶参考：战役动作的写法对照。
 
 ## 导航
 
-- 返回桶索引：`../_index`
-- 同桶相邻页：`../MBObjectBase` · `../MBObjectManager` · `../MBGUID`
-- 跨桶：`../../campaign/ChangeKingdomAction`
+- 返回桶索引：[../_index](../_index)
+- 同桶相邻页：[MBObjectBase](../MBObjectBase) · [MBObjectManager](../MBObjectManager) · [MBGUID](../MBGUID)
+- 跨桶：[ChangeKingdomAction](../../campaign/ChangeKingdomAction)

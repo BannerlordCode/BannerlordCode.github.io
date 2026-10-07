@@ -63,7 +63,18 @@ public class MyPatrollingBehavior : AiPatrollingBehavior
     {
         base.RegisterEvents();
         // 订阅战役事件，注入自定义巡逻逻辑
-        // 具体事件名以 v1.4.6 源码为准
+        Campaign.Current.HourlyTick += OnHourlyTick;
+    }
+
+    private void OnHourlyTick()
+    {
+        foreach (MobileParty party in MobileParty.All)
+        {
+            if (party.IsAIControlled && party.IsPatrolling)
+            {
+                // 自定义巡逻决策
+            }
+        }
     }
 
     public override void SyncData(IDataStore dataStore)
@@ -78,13 +89,13 @@ public class MyPatrollingBehavior : AiPatrollingBehavior
 
 ## 参见
 
-- [`../MBObjectBase`](../MBObjectBase) — 战役对象的基类，理解行为操作的对象模型。
-- [`../MBObjectManager`](../MBObjectManager) — 对象管理器，行为获取战役对象的常见途径。
-- [`../_index`](../_index) — 本桶（campaign-ext）索引，浏览同桶其他行为页。
-- [`../../campaign/ChangeKingdomAction`](../../campaign/ChangeKingdomAction) — 跨桶参考：战役动作的写法对照。
+- [MBObjectBase](../MBObjectBase) — 战役对象的基类，理解行为操作的对象模型。
+- [MBObjectManager](../MBObjectManager) — 对象管理器，行为获取战役对象的常见途径。
+- [本桶索引](../_index) — campaign-ext 桶索引，浏览同桶其他行为页。
+- [ChangeKingdomAction](../../campaign/ChangeKingdomAction) — 跨桶参考：战役动作的写法对照。
 
 ## 导航
 
-- 返回桶索引：`../_index`
-- 同桶相邻页：`../MBObjectBase` · `../MBObjectManager` · `../MBGUID`
-- 跨桶：`../../campaign/ChangeKingdomAction`
+- 返回桶索引：[../_index](../_index)
+- 同桶相邻页：[MBObjectBase](../MBObjectBase) · [MBObjectManager](../MBObjectManager) · [MBGUID](../MBGUID)
+- 跨桶：[ChangeKingdomAction](../../campaign/ChangeKingdomAction)

@@ -8,7 +8,7 @@ description: "TaleWorlds.Network 中承载消息元信息并在流上读写这�
 **模块：** `TaleWorlds.Network`
 **类型：** `public class MessageInfo`
 **基类：** `object`
-**源文件：** `TaleWorlds.Network/MessageInfo.cs`（声明见第 7 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.Network/MessageInfo.cs`（声明见第 7 行）
 
 ## 概述
 

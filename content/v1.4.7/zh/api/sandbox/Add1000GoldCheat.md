@@ -8,7 +8,7 @@ description: "SandBox 的地图作弊项，执行时用 GiveGoldAction 一次性
 **模块：** `SandBox`
 **类型：** `public class Add1000GoldCheat : GameplayCheatItem`
 **基类：** `GameplayCheatBase` → `GameplayCheatItem`
-**源文件：** `SandBox/Add1000GoldCheat.cs`（声明见第 9 行）
+**源文件：** `bannerlord-1.4.7/SandBox/Add1000GoldCheat.cs`（声明见第 9 行）
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "自定义战斗军队编组条目视图模型，管理单个兵种
 **模块：** `TaleWorlds.MountAndBlade.CustomBattle`
 **类型：** `class`
 **基类：** `ViewModel`
-**源文件：** `TaleWorlds.MountAndBlade.CustomBattle/ArmyCompositionItemVM.cs`（声明见第 14 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade.CustomBattle/ArmyCompositionItemVM.cs`（声明见第 14 行）
 
 ## 概述
 

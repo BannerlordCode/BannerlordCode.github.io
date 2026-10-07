@@ -8,7 +8,7 @@ description: "向服务端发起 HTTP 请求的 REST 客户端，支持 GET 与 
 **模块：** `TaleWorlds.Network`
 **类型：** `class`
 **基类：** `object`
-**源文件：** `TaleWorlds.Network/RESTClient.cs`（声明见第 14 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.Network/RESTClient.cs`（声明见第 14 行）
 
 ## 概述
 

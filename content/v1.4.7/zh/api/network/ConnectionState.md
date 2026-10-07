@@ -8,7 +8,7 @@ description: "TaleWorlds.Network 中表示连接生命周期阶段的枚举，�
 **模块：** `TaleWorlds.Network`
 **类型：** `public enum ConnectionState`
 **基类：** `无（枚举类型）`
-**源文件：** `TaleWorlds.Network/ConnectionState.cs`（声明见第 6 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.Network/ConnectionState.cs`（声明见第 6 行）
 
 ## 概述
 

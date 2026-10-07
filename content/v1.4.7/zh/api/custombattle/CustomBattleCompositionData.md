@@ -8,7 +8,7 @@ description: "描述自定义战斗部队构成的结构体，记录远程、骑
 **模块：** `TaleWorlds.MountAndBlade.CustomBattle`
 **类型：** `struct`
 **基类：** `System.ValueType`
-**源文件：** `TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattleCompositionData.cs`（声明见第 6 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattleCompositionData.cs`（声明见第 6 行）
 
 ## 概述
 `CustomBattleCompositionData` 是自定义战斗（Custom Battle）子系统中的一个结构体，用于描述一支部队的兵种构成。它以三个百分比字段记录部队中远程兵种、骑兵兵种以及骑射（远程骑兵）兵种所占的比例，并附带一个 `IsValid` 标记表示该构成数据是否有效。自定义战斗在生成或校验部队时会读取这份构成数据。

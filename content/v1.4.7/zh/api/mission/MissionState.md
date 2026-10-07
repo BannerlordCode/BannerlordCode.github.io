@@ -8,7 +8,7 @@ description: "任务状态机：打开 / 关闭一场任务，维护 MissionStat
 **模块：** `TaleWorlds.MountAndBlade`
 **类型：** `public class MissionState : GameState`
 **基类：** `TaleWorlds.Core.GameState`
-**源文件：** `TaleWorlds.MountAndBlade/MissionState.cs`（声明见第 13 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade/MissionState.cs`（声明见第 13 行）
 
 ## 概述
 

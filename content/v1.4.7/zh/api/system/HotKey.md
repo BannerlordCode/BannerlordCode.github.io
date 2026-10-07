@@ -8,7 +8,7 @@ description: "表示一个可包含修饰键与多键组合的快捷键，支持
 **模块：** `TaleWorlds.InputSystem`
 **类型：** `class`
 **基类：** `object`
-**源文件：** `TaleWorlds.InputSystem/HotKey.cs`（声明见第 9 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.InputSystem/HotKey.cs`（声明见第 9 行）
 
 ## 概述
 

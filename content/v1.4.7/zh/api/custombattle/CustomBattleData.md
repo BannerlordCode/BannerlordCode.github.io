@@ -8,7 +8,7 @@ description: "自定义战斗的参数载体：一场战斗的类型、场景、
 **模块：** `TaleWorlds.MountAndBlade.CustomBattle`
 **类型：** `struct`
 **基类：** `System.ValueType`
-**源文件：** `TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattleData.cs`（声明见第 10 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattleData.cs`（声明见第 10 行）
 
 ## 概述
 `CustomBattleData` 是自定义战斗子系统的核心数据结构，把一场自定义战斗的全部设置——战斗类型、场景、季节、时段、玩家英雄、双方部队、攻城器械、城墙耐久等——打包成一个值类型，在配置界面（View 层）与任务开启逻辑（`CustomBattleHelper.StartGame`）之间传递。它同时提供一组静态属性与静态方法，作为配置界面下拉选项的数据源（游戏类型、玩家类型、阵营、时段、季节、可选英雄与攻城器械清单）。

@@ -8,7 +8,7 @@ description: "CustomBattle 游戏类型选择组的 ViewModel，管理玩家类�
 **模块：** `TaleWorlds.MountAndBlade.CustomBattle`
 **类型：** `class`
 **基类：** `ViewModel`
-**源文件：** `TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/GameTypeSelectionGroupVM.cs`（声明见第 10 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/GameTypeSelectionGroupVM.cs`（声明见第 10 行）
 
 ## 概述
 `GameTypeSelectionGroupVM` 是 CustomBattle 模块中游戏类型选择组的视图模型。它继承自 `ViewModel`，负责管理玩家类型（`CustomBattlePlayerType`）与游戏类型之间的联动选择逻辑。当玩家类型发生变化时，可用的游戏类型列表会相应更新；当游戏类型发生变化时，上层逻辑通过回调通知并更新战斗配置。该类是 CustomBattle 准备界面中游戏模式选择的核心数据载体。

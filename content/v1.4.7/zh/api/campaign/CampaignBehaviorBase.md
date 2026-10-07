@@ -8,7 +8,7 @@ description: "战役层扩展的标准基类：让一个 Behavior 在战役创�
 **模块：** `TaleWorlds.CampaignSystem`
 **类型：** `public abstract class CampaignBehaviorBase : ICampaignBehavior`
 **基类：** 实现 `TaleWorlds.CampaignSystem.ICampaignBehavior`（无基类）
-**源文件：** `TaleWorlds.CampaignSystem/CampaignBehaviorBase.cs`（声明见第 6 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.CampaignSystem/CampaignBehaviorBase.cs`（声明见第 6 行）
 
 ## 概述
 

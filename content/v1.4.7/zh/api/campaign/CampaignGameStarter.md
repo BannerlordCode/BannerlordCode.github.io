@@ -8,7 +8,7 @@ description: "战役期扩展点的注册台：在 MBSubModuleBase.OnGameStart �
 **模块：** `TaleWorlds.CampaignSystem`
 **类型：** `public class CampaignGameStarter : IGameStarter`
 **基类：** 实现 `TaleWorlds.Core.IGameStarter`
-**源文件：** `TaleWorlds.CampaignSystem/CampaignGameStarter.cs`（声明见第 11 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.CampaignSystem/CampaignGameStarter.cs`（声明见第 11 行）
 
 ## 概述
 

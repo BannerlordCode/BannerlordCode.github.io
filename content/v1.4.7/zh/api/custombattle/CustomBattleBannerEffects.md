@@ -8,7 +8,7 @@ description: "自定义战斗旗帜效果的注册中心，集中提供伤害、
 **模块：** `TaleWorlds.MountAndBlade.CustomBattle`
 **类型：** `class`
 **基类：** `object`
-**源文件：** `TaleWorlds.MountAndBlade.CustomBattle/CustomBattleObjects/CustomBattleBannerEffects.cs`（声明见第 7 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleObjects/CustomBattleBannerEffects.cs`（声明见第 7 行）
 
 ## 概述
 `CustomBattleBannerEffects` 是自定义战斗（Custom Battle）子系统中的一个类，充当旗帜效果（BannerEffect）的注册中心。它在构造时创建并初始化全部十一种旗帜效果——涵盖近战伤害、对骑兵伤害、远程伤害、冲锋伤害、远程精度惩罚、士气冲击、承受伤害、盾牌伤害以及部队与坐骑移动速度等增益与减益——并通过静态属性对外统一暴露。自定义战斗中的部队编成逻辑通过静态属性读取这些效果，为阵型中的部队施加对应的加成。

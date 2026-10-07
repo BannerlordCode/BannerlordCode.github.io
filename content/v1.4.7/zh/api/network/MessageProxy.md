@@ -8,7 +8,7 @@ description: "远程方法调用的抽象代理，把方法名与参数打包成
 **模块：** `TaleWorlds.Network`
 **类型：** `abstract class`
 **基类：** `object`
-**源文件：** `TaleWorlds.Network/MessageProxy.cs`（声明见第 7 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.Network/MessageProxy.cs`（声明见第 7 行）
 
 ## 概述
 

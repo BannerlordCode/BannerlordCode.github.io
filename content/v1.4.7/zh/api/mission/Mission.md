@@ -8,7 +8,7 @@ description: "战斗场景的运行时根对象：持有 Scene、队伍、Agent 
 **模块：** `TaleWorlds.MountAndBlade`
 **类型：** `public sealed class Mission : DotNetObject, IMission`
 **基类：** `TaleWorlds.DotNet.DotNetObject`，实现 `IMission`
-**源文件：** `TaleWorlds.MountAndBlade/Mission.cs`（声明见第 42 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade/Mission.cs`（声明见第 42 行）
 
 ## 概述
 

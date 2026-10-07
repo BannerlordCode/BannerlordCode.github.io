@@ -8,7 +8,7 @@ description: "TaleWorlds.Network 中负责注册消息处理器并把到达的�
 **模块：** `TaleWorlds.Network`
 **类型：** `public class MessageContractHandlerManager`
 **基类：** `object`
-**源文件：** `TaleWorlds.Network/MessageContractHandlerManager.cs`（声明见第 8 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.Network/MessageContractHandlerManager.cs`（声明见第 8 行）
 
 ## 概述
 

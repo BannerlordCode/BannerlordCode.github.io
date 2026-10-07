@@ -8,7 +8,7 @@ description: "战斗层的行为基类：60 多个生命周期与事件回调覆
 **模块：** `TaleWorlds.MountAndBlade`
 **类型：** `public abstract class MissionBehavior : IMissionBehavior`
 **基类：** 无，实现 `TaleWorlds.MountAndBlade.IMissionBehavior`
-**源文件：** `TaleWorlds.MountAndBlade/MissionBehavior.cs`（声明见第 11 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade/MissionBehavior.cs`（声明见第 11 行）
 
 ## 概述
 

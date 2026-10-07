@@ -8,7 +8,7 @@ description: "输入上下文实现，把物理输入事件（键鼠、手柄）
 **模块：** `TaleWorlds.InputSystem`
 **类型：** `public class`
 **基类：** `IInputContext`（接口）
-**源文件：** `TaleWorlds.InputSystem/InputContext.cs`（声明见第 9 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.InputSystem/InputContext.cs`（声明见第 9 行）
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "Gauntlet UI 的具体图层实现：从 XML prefab 加载界面、
 **模块：** `TaleWorlds.Engine.GauntletUI`
 **类型：** `public class GauntletLayer : ScreenLayer`
 **基类：** `TaleWorlds.ScreenSystem.ScreenLayer`
-**源文件：** `TaleWorlds.Engine.GauntletUI/GauntletLayer.cs`（声明见第 15 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.Engine.GauntletUI/GauntletLayer.cs`（声明见第 15 行）
 
 ## 概述
 

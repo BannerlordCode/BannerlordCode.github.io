@@ -8,7 +8,7 @@ description: "引擎调试工具箱（静态类）：断言、日志、屏幕叠
 **模块：** `TaleWorlds.Engine`
 **类型：** `public static class MBDebug`
 **基类：** 无（静态类）
-**源文件：** `TaleWorlds.Engine/MBDebug.cs`（声明见第 11 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.Engine/MBDebug.cs`（声明见第 11 行）
 
 ## 概述
 

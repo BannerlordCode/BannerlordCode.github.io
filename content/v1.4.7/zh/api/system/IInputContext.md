@@ -8,7 +8,7 @@ description: "输入上下文契约，定义当前帧按键读数接口"
 **模块：** `TaleWorlds.InputSystem`
 **类型：** `public interface`
 **基类：** 无（接口）
-**源文件：** `TaleWorlds.InputSystem/IInputContext.cs`（声明见第 8 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.InputSystem/IInputContext.cs`（声明见第 8 行）
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "静态热键管理器，按类别维护所有 GameKeyContext，每
 **模块：** `TaleWorlds.InputSystem`
 **类型：** `public static class`
 **基类：** `object`（静态类）
-**源文件：** `TaleWorlds.InputSystem/HotKeyManager.cs`（声明见第 10 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.InputSystem/HotKeyManager.cs`（声明见第 10 行）
 
 ## 概述
 

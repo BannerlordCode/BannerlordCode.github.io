@@ -8,7 +8,7 @@ description: "存档系统的静态门面：初始化定义上下文、检查可
 **模块：** `TaleWorlds.SaveSystem`
 **类型：** `public static class SaveManager`
 **基类：** 无（静态类）
-**源文件：** `TaleWorlds.SaveSystem/SaveManager.cs`（声明见第 14 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.SaveSystem/SaveManager.cs`（声明见第 14 行）
 
 ## 概述
 

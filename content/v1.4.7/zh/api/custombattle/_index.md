@@ -8,9 +8,27 @@ description: "TaleWorlds.MountAndBlade.CustomBattle 及其子命名空间所在�
 
 对模组作者来说它的意义是**独立**。想做一个不依赖战役的竞技模式或者过场战斗，整条扩展链在这个桶和 [mission-ext](../mission-ext/) 之间：模式怎么定义在这里，怎么把它跑成一场战斗在那边。
 
-## 本区页面（0）
+## 本区页面（15）
 
-本目录收录 `TaleWorlds.MountAndBlade.CustomBattle` 及其子命名空间的全部类型，约 41 个。**本区当前没有页面**（撰写进度：0/41）。
+本目录收录 `TaleWorlds.MountAndBlade.CustomBattle` 及其子命名空间的全部类型，约 41 个。撰写进度：15/41。
+
+| 页面 | 说明 |
+| --- | --- |
+| [CustomBattleData](CustomBattleData) | 自定义战斗数据载体（struct） |
+| [CustomBattleProvider](CustomBattleProvider) | 自定义战斗提供者（ICustomBattleProvider 实现） |
+| [CustomBattleHelper](CustomBattleHelper) | 自定义战斗辅助工具（static class） |
+| [CustomBattleSubModule](CustomBattleSubModule) | 自定义战斗子模块（MBSubModuleBase） |
+| [CustomBattleSceneData](CustomBattleSceneData) | 自定义战斗场景数据（struct） |
+| [CustomBattlePlayerSide](CustomBattlePlayerSide) | 玩家阵营枚举 |
+| [CustomBattlePlayerType](CustomBattlePlayerType) | 玩家类型枚举（Commander/Sergeant） |
+| [CustomBattleCompositionData](CustomBattleCompositionData) | 战斗组成数据（struct） |
+| [CustomBattleBannerEffects](CustomBattleBannerEffects) | 旗帜效果 |
+| [CustomBattleSiegeMachineVM](CustomBattleSiegeMachineVM) | 攻城器械 ViewModel |
+| [CustomBattleTimeOfDay](CustomBattleTimeOfDay) | 战斗时间枚举 |
+| [GameTypeSelectionGroupVM](GameTypeSelectionGroupVM) | 游戏类型选择 ViewModel |
+| [MapSelectionGroupVM](MapSelectionGroupVM) | 地图选择 ViewModel |
+| [ArmyCompositionGroupVM](ArmyCompositionGroupVM) | 军队组成 ViewModel |
+| [ArmyCompositionItemVM](ArmyCompositionItemVM) | 军队组成项 ViewModel |
 
 ## 尚未收录
 

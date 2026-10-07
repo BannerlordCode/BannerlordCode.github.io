@@ -8,7 +8,7 @@ description: "自定义战斗军队编组分组视图模型，管理兵种构成
 **模块：** `TaleWorlds.MountAndBlade.CustomBattle`
 **类型：** `class`
 **基类：** `ViewModel`
-**源文件：** `TaleWorlds.MountAndBlade.CustomBattle/ArmyCompositionGroupVM.cs`（声明见第 11 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade.CustomBattle/ArmyCompositionGroupVM.cs`（声明见第 11 行）
 
 ## 概述
 

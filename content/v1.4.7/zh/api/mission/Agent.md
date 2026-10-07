@@ -8,7 +8,7 @@ description: "战斗中的一个可操作单位：承载角色、队伍、生命
 **模块：** `TaleWorlds.MountAndBlade`
 **类型：** `public sealed class Agent : DotNetObject, IAgent, IFocusable, IUsable, IFormationUnit, ITrackableBase`
 **基类：** `TaleWorlds.DotNet.DotNetObject`，实现 `IAgent`、`IFocusable`、`IUsable`、`IFormationUnit`、`ITrackableBase`
-**源文件：** `TaleWorlds.MountAndBlade/Agent.cs`（声明见第 19 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade/Agent.cs`（声明见第 19 行）
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "全局 UI 调度器（静态类）：维护屏幕栈与全局图�
 **模块：** `TaleWorlds.ScreenSystem`
 **类型：** `public static class ScreenManager`
 **基类：** 无（静态类）
-**源文件：** `TaleWorlds.ScreenSystem/ScreenManager.cs`（声明见第 14 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.ScreenSystem/ScreenManager.cs`（声明见第 14 行）
 
 ## 概述
 

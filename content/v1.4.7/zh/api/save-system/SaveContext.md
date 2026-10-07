@@ -8,7 +8,7 @@ description: "写入侧的序列化执行器：把对象图压成字符串表 + 
 **模块：** `TaleWorlds.SaveSystem`
 **类型：** `public class SaveContext : ISaveContext`
 **基类：** 无，实现 `TaleWorlds.SaveSystem.ISaveContext`
-**源文件：** `TaleWorlds.SaveSystem/Save/SaveContext.cs`（声明见第 12 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.SaveSystem/Save/SaveContext.cs`（声明见第 12 行）
 
 ## 概述
 

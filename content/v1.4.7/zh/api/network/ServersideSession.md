@@ -8,7 +8,7 @@ description: "TaleWorlds.Network 的服务器端会话抽象类，承接客户�
 **模块：** `TaleWorlds.Network`
 **类型：** `public abstract class ServersideSession`
 **基类：** `NetworkSession`
-**源文件：** `TaleWorlds.Network/ServersideSession.cs`（声明见第 6 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.Network/ServersideSession.cs`（声明见第 6 行）
 
 ## 概述
 

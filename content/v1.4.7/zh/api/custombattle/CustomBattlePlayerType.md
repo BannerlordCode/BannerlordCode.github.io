@@ -8,7 +8,7 @@ description: "自定义战斗中标识玩家参战身份的枚举，区分指挥
 **模块：** `TaleWorlds.MountAndBlade.CustomBattle`
 **类型：** `enum`
 **基类：** `System.Enum`
-**源文件：** `TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattlePlayerType.cs`（声明见第 6 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.MountAndBlade.CustomBattle/CustomBattle/CustomBattlePlayerType.cs`（声明见第 6 行）
 
 ## 概述
 `CustomBattlePlayerType` 是自定义战斗（Custom Battle）子系统中的一个枚举类型，用于标识玩家在自定义战斗中的参战身份。自定义战斗允许玩家在大地图上摆兵布阵后进行即时战斗，而玩家可以选择以「指挥官」（Commander）身份亲自上阵指挥，或以「军士」（Sergeant）身份作为阵型中的一名普通士兵参战。该枚举就是这一选择的类型化表达。

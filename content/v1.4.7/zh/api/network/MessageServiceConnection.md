@@ -8,7 +8,7 @@ description: "管理与后端消息服务之间连接生命周期的抽象连接
 **模块：** `TaleWorlds.Network`
 **类型：** `abstract class`
 **基类：** `object`
-**源文件：** `TaleWorlds.Network/MessageServiceConnection.cs`（声明见第 7 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.Network/MessageServiceConnection.cs`（声明见第 7 行）
 
 ## 概述
 

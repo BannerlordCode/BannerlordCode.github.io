@@ -8,7 +8,7 @@ description: "派系的统一只读契约：Clan、Kingdom 与小型派系组件
 **模块：** `TaleWorlds.CampaignSystem`
 **类型：** `[SaveableInterface(22001)] public interface IFaction`
 **基类：** 无（接口）
-**源文件：** `TaleWorlds.CampaignSystem/IFaction.cs`（声明见第 13–14 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.CampaignSystem/IFaction.cs`（声明见第 13–14 行）
 
 ## 概述
 

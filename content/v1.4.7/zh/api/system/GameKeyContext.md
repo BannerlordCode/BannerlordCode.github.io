@@ -8,7 +8,7 @@ description: "按键上下文基类，负责注册和查询游戏键、热键与
 **模块：** `TaleWorlds.InputSystem`
 **类型：** `public abstract class`
 **基类：** `object`（无显式基类）
-**源文件：** `TaleWorlds.InputSystem/GameKeyContext.cs`（声明见第 8 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.InputSystem/GameKeyContext.cs`（声明见第 8 行）
 
 ## 概述
 

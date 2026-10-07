@@ -8,7 +8,7 @@ description: "战役世界的根聚合对象（GameType 子类）：地图几何
 **模块：** `TaleWorlds.CampaignSystem`
 **类型：** `public class Campaign : GameType`
 **基类：** `TaleWorlds.Core.GameType`
-**源文件：** `TaleWorlds.CampaignSystem/Campaign.cs`（声明见第 42 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.CampaignSystem/Campaign.cs`（声明见第 42 行）
 
 ## 概述
 

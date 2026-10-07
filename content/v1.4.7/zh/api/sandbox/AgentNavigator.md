@@ -8,7 +8,7 @@ description: "SandBox 任务场景中单个 Agent 的导航与行为调度中枢
 **模块：** `SandBox`
 **类型：** `public sealed class AgentNavigator`
 **基类：** 无（sealed，不继承）
-**源文件：** `SandBox/AgentNavigator.cs`（声明见第 17 行）
+**源文件：** `bannerlord-1.4.7/SandBox/AgentNavigator.cs`（声明见第 17 行）
 
 ## 概述
 

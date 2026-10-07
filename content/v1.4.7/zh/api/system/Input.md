@@ -8,7 +8,7 @@ description: "输入系统的静态入口，聚合输入状态、调试输入与
 **模块：** `TaleWorlds.InputSystem`
 **类型：** `static class`
 **基类：** `object`
-**源文件：** `TaleWorlds.InputSystem/Input.cs`（声明见第 7 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.InputSystem/Input.cs`（声明见第 7 行）
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "按固定频率重复调用委托的节拍器。"
 **模块：** `TaleWorlds.Network`
 **类型：** `class`
 **基类：** `object`
-**源文件：** `TaleWorlds.Network/TickManager.cs`（声明见第 8 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.Network/TickManager.cs`（声明见第 8 行）
 
 ## 概述
 

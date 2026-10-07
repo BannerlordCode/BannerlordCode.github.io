@@ -8,7 +8,7 @@ description: "读取侧的反序列化执行器：按对象 ID / 容器 ID / 字
 **模块：** `TaleWorlds.SaveSystem`
 **类型：** `public class LoadContext`
 **基类：** 无
-**源文件：** `TaleWorlds.SaveSystem/Load/LoadContext.cs`（声明见第 11 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.SaveSystem/Load/LoadContext.cs`（声明见第 11 行）
 
 ## 概述
 

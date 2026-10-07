@@ -8,7 +8,7 @@ description: "战役层事件的唯一广播中枢：276 个静态属性把 IMbE
 **模块：** `TaleWorlds.CampaignSystem`
 **类型：** `public class CampaignEvents : CampaignEventReceiver`
 **基类：** `TaleWorlds.CampaignSystem.CampaignEventReceiver`
-**源文件：** `TaleWorlds.CampaignSystem/CampaignEvents.cs`（声明见第 39 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.CampaignSystem/CampaignEvents.cs`（声明见第 39 行）
 
 ## 概述
 

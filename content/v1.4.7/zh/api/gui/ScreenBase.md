@@ -8,7 +8,7 @@ description: "所有界面的基类：管理一个界面的生命周期（初始
 **模块：** `TaleWorlds.ScreenSystem`
 **类型：** `public abstract class ScreenBase`
 **基类：** 无
-**源文件：** `TaleWorlds.ScreenSystem/ScreenBase.cs`（声明见第 9 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.ScreenSystem/ScreenBase.cs`（声明见第 9 行）
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IInputContext 的空实现，在没有真实输入设备时返回�
 **模块：** `TaleWorlds.InputSystem`
 **类型：** `public sealed class`
 **基类：** `IInputContext`
-**源文件：** `TaleWorlds.InputSystem/EmptyInputContext.cs`（声明见第 8 行）
+**源文件：** `bannerlord-1.4.7/TaleWorlds.InputSystem/EmptyInputContext.cs`（声明见第 8 行）
 
 ## 概述
 

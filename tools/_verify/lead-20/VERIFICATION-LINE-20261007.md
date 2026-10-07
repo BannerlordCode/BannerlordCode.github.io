@@ -1789,3 +1789,63 @@ Layer 1 的索引是【只扫 `.cs` 文件的全 token 扫描】构建的（tree
 ⑩ 【本环境禁用 `grep -P`】—— 它返回空而不报错，与「0 命中」不可区分。用 `grep -w` 或 `grep -rlE '\bX\b'`
 ```
 **⇒ 从 9 条扩为 10 条**（新增第 ⑩ 条 `grep -P` 禁用，Boss 两次要求）。
+
+---
+
+## 61. W-H（worker-228）的证据文件：**通过本线规则 ① 的抽查**（与 worker-213 的形成对比）
+
+```
+tools/_verify/lead-20/wH-evidence.json   61,315 B · 19:32
+  结构：{seed:20261007, n:60, controls:[…], evidence:[60 条]}
+  evidence 每条的字段：
+    ident · page · ver · tree · page_sha256 · in_phaseD · n_occ · n_pages ·
+    page_grep_cmd · page_grep_stdout · page_grep_exit · page_grep_stderr ·
+    page_count · tree_grep_cmd · tree_grep_exit · tree_count · tree_files · page_context
+★ 【记录了 cmd + stdout + exit + stderr】，页侧与树侧都有 ⇒ 能区分「真的没命中」与「grep 坏了」
+★ 【无占位值】：全文件不含 "NO HIT" 之类占位串（worker-213 的文件每条都是它）
+★ controls 段带 exit code：`page:AgentController.md:GetClosestAgent` exit=0 n_lines=1 sample=["1"]
+   · `tree:1.3.0:CampaignBehaviorBase` exit=0 n_lines=232
+   · `tree:1.4.5:WriteObjects(plural,substring-trap)` exit=0 n_lines=1
+   · `page:Campaign.md:CampaignBehavior` exit=1 n_lines=1 sample=["0"]
+wH-sample.json   43,359 B
+  结构：{seed:20261007, n:60, source:"phaseC-layer1.json",
+         source_sha256:"3b38ee9240052915a94ed03159d1ae0f87cb33406981f7b147e076dc3640dd86",
+         distinct_pool:1314, rows:[{ident,page,ver,tree,n_occ,n_pages,in_phaseD,page_sha256,…}]}
+★ 记录【来源文件 + 其 sha256】与【distinct_pool=1314】（与上报的 distinct 数一致）⇒ 溯源完整
+```
+**⇒ 对比 worker-213：同样 60 条、同样字段形状，一个是零测量，一个是可复核测量。**
+**⇒ 这正印证 Boss 升格的第 ① 条：形状完备 ≠ 内容有效 —— 必须抽查值。**
+
+---
+
+## 62. ★ W-H 的两个新类别（我的 5 类不够用）+ 本线独立确认
+
+**W-H 发现（我 brief 里没有的）：**
+```
+(f) VERSION-SKEW —— 标识符存在于【另一棵版本树】，不在页面自己的树里（它报 9/60）
+    ⇒ 不是编造。检测器【只查一棵树】⇒ 无法区分「不存在」与「只在这里不存在」。
+      这是【设计级】局限，比任何抽样结果更强，与「索引只扫 .cs ⇒ BCL 必然缺失」同权重。
+(g) SUBSTRING FRAGMENT —— 被标 token 是真实名的片段
+    （FemaleChild · GlobalFrame · CivilianEquipment · WithDoubleValue）
+    ⇒ 不是编造。这是【词边界规则的反向失效】：
+      `WriteObject` vs `WriteObjects` 是「子串抬高存在性」；这是「词边界拒绝合法片段」。
+      两个方向现在都被实测到了。
+另有第三种子情形：`CivilianEquipment`/`AgentOrigin` 单独存在，而 `IsCivilianEquipment`/`AgentOriginType`
+    不存在 ⇒ 更像【成员名写错】，应归 (a) 而非 (g)。
+```
+
+### 本线独立确认（3 条抽样，不看它的结论）
+```
+AddDynamicEntityInfo（own=1.3.0）→ 【六棵树全部 0】⇒ 真不存在（(a) 候选）
+AddModule（own=1.4.5）          → 1.4.5 无；但 1.4.6=2 文件 · 1.4.7=2 · 1.5.3=2
+                                  ⇒ ★【VERSION-SKEW 确认】页面为 1.4.5，而该标识符只存在于更晚的树
+AgentLookDirection（own=1.3.0） → 【六棵树全部 0】⇒ 真不存在（(a) 候选）
+⇒ 我的 3 抽样里 1 条是 version-skew（33%）；W-H 报 9/60（15%）—— 小样本下同量级，方向一致
+```
+**⇒ 所以 `2,746` 这个数至少混了三种东西**：
+```
+① 结构性必然缺失（BCL 类型 / 配置键 / 占位记号 —— 因为索引只扫 .cs）
+② 版本错位（存在于别的树）
+③ 片段/成员名错（词边界的反向失效 + 真笔误）
+⇒ 【没有任何一种是「按设计应当被标出来的编造」的可靠计数】
+```

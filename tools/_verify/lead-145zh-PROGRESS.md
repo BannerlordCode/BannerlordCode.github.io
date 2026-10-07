@@ -682,6 +682,32 @@ lead-20 实测判分器被改（`c833eac06e` 新增 J11）：`21981B / mtime 15:
 **判分器**：`tools/_verify/lead-145zh-judge.mjs`
 sha256 `05c2a522adbc1183460edfae570875d995df2855d0b5030ef18ebfad99fa4dde`
 
+⚠ **尺在本冻结宣告之后又改了一次**（加上自我 sha 输出）：新 sha256
+`d844164e7bd02c58205964dffb9159b593b7d768fe7aa11ab1164f02e5c523ba`。
+**改动的「无判定影响」已实测证明**（同批同页、新旧尺读数逐项相同）：
+```
+b01 5/5 pass · deep_pass=5/5 · tier=5/5   （改前 = 改后）
+b02 5/5 pass · deep_pass=5/5 · tier=5/5   （改前 = 改后）
+b03 0/5 pass · deep_pass=0/5               （改前 = 改后）
+对照 1 正向 + 9 负向全部维持
+```
+**⇒ 冻结读数应以【取数时那一把尺】的 sha 为准**：上表 b01/b02 读数的尺是 `05c2a522adbc1183`。
+
+### 17.3.1 尺自我识别（结构性修正，不是纪律）
+
+lead-20 的发现一（读数不带尺 sha）的根修法不是「发布时记得附 sha」——那是一个**需要记得**的动作；
+而是**把 sha 打进输出**——那是一个**忘不掉**的动作：
+```
+$ node tools/_verify/lead-145zh-judge.mjs --manifest …
+# mode=--links require
+# judge sha256 = d844164e7bd02c58205964dffb9159b593b7d768fe7aa11ab1164f02e5c523ba
+# judge mtime  = 2026-10-07T07:45:48.808Z
+```
+且 `--json` 输出里也多了 `judgeSha256` 字段 ⇒ **归档的 JSON 自带尺的身份**。
+
+> 这与 `DISPATCH-TEMPLATE.md` 开篇那句同源：「判据的默认动作应该在【动作发生的地方】，
+> 不在一个需要记得去读的地方。」
+
 **宣告冻结时刻**：2026-10-07T07:46Z（`worker-175` 交付并验收后；本时刻之后不再写这 5 页）
 **读数**：`JUDGE total=5 pass=5 fail=0` · `deep_pass=5/5` · `tier=handwritten_deep=5/5` · 每页 `J11 trailSlash=0`
 

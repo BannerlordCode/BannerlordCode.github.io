@@ -66,6 +66,7 @@
 //   **权威读数永远是 audit-links.mjs，不是本判分器。**
 // ============================================================================
 import { readFileSync, existsSync, writeFileSync, readdirSync, statSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { basename, join, dirname, resolve, normalize, sep, posix } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -443,6 +444,15 @@ if (process.env.LEAD145ZH_CONTENT_ROOT) {
 }
 
 console.log(`# mode=--links ${mode}${doCross ? ' +cross-check' : ''}`);
+// ★ 自我识别：判分器把自己的 sha256 打进输出。
+//   理由（lead-20 #13207 实测）：本判分器在验证过程中被改过（c833eac06e 新增 J11，
+//   21981B/15:26 → 23649B/15:41），而当时已发布的 pass/deep_pass/tier 读数【没带 sha】
+//   ⇒ 无法判定那些读数是用哪把尺量的。
+//   把 sha 放进输出，比要求“发布时记得附 sha”更耐用：
+//   前者是一个忘不掉的动作，后者是一个需要记得的动作。
+const SELF_SHA = createHash('sha256').update(readFileSync(fileURLToPath(import.meta.url))).digest('hex');
+console.log(`# judge sha256 = ${SELF_SHA}`);
+console.log(`# judge mtime  = ${statSync(fileURLToPath(import.meta.url)).mtime.toISOString()}`);
 const results = pages.map((p) => judge(p, mode));
 for (const r of results) {
   console.log(`${r.pass ? 'PASS' : 'FAIL'}  ${r.page}`);
@@ -465,7 +475,8 @@ if (doCross) agree = crossCheck(results);
 
 if (jsonOut) {
   writeFileSync(jsonOut, JSON.stringify({
-    judgedAt: new Date().toISOString(), mode, total: results.length, pass: passed,
+    judgedAt: new Date().toISOString(), judgeSha256: SELF_SHA, mode,
+    total: results.length, pass: passed,
     deepPass, tierDeep, crossCheckAgree: agree, results,
   }, null, 2) + '\n');
 }

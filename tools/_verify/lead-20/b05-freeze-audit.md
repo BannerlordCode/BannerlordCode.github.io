@@ -113,3 +113,35 @@ content/v1.4.5/zh/api/campaign-ext/Add100InfluenceCheat.md            5864 B  34
      无版本记录的尺 = 无归属的读数。
 ```
 **⇒ 通则**：**「读数必须附尺 sha」只解决了一半；还必须保证【那个 sha 能取回】且【用于出判决的尺是被提交过的】。**
+
+---
+
+## ⑦ 从【仓库内】重跑冻结版的结果（Boss #16868 要求补上）
+
+```
+命令（在仓库内执行，把两个版本各落到 tools/_verify/ 下再跑）：
+  git show da1dfa7461:tools/_verify/lead-145zh-judge.mjs > tools/_verify/_tmpjudge-da1dfa7461.mjs
+  node tools/_verify/_tmpjudge-da1dfa7461.mjs --manifest tools/_verify/lead-20/manifest-b05-lead20.txt
+结果：
+  b05 @ 127ee75ae9c20d93（冻结版）  → JUDGE total=5 pass=5 fail=0 · deep_pass=5/5 · tier=5/5
+  b05 @ ec583b0bb84b22ea            → JUDGE total=5 pass=5 fail=0 · deep_pass=5/5 · tier=5/5
+  b05 @ b8c7c9e1c6092cbb（当前盘上） → JUDGE total=5 pass=5 fail=0 · deep_pass=5/5 · tier=5/5
+```
+
+### ★ 一个必须写明的【运行位置前提】（否则「冻结版可回放」是假的）
+```
+判分器对 `../lib/handwritten-policy.mjs` 是【相对导入】，
+并从 import.meta.url 推导 REPO ⇒ 放到 /tmp 或深度不对的目录会：
+  · MODULE_NOT_FOUND，或
+  · 静默地算出【错误的内容根】
+⇒ 只有放到 tools/_verify/<name>.mjs（与原件同深度）才跑得通。
+⇒ 本线第一次尝试也返回空输出 —— 那不是「版本不可复现」，是【运行环境不满足它的前提】。
+⇒ 结论：**「冻结版可回放」需要三样：① blob 可寻址 ② 运行位置正确 ③ 命令**。
+   缺 ② 时它可能不报错，而是【在错误的内容根上算出一个像样的数】—— 比报错更危险。
+```
+
+### 结论（Boss 指定措辞）
+> **b05 冻结可复现；先前「不可复现」的判断基于一个未提交的工作区瞬时态，已更正。**
+
+**⇒ 本条更正比原结论有价值**：它是「**先确认对象可寻址，再比较**」这条判据的实证 ——
+`3dc897bc91f672dd` 从未进入 git，它不是一个「版本」，只是【过程的快照】。

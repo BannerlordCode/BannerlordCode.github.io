@@ -1,4 +1,4 @@
-# N=5607 sampled=2026-10-07T08:34:07.219Z
+# N=5605 sampled=2026-10-07T11:09:55.597Z cmd: node tools/_verify/make-coverage-census.mjs [R1-filtered]
 BuildInfo
 EmptyGamepadNavigationContext
 GauntletGamepadNavigationContext
@@ -1776,7 +1776,6 @@ TaleWorlds.CampaignSystem.Hero
 TaleWorlds.CampaignSystem.HeroCreator
 TaleWorlds.CampaignSystem.HeroGetsBusyReasons
 TaleWorlds.CampaignSystem.IAgentBehaviorManager
-TaleWorlds.CampaignSystem.ICampaignBehavior
 TaleWorlds.CampaignSystem.ICampaignBehaviorManager
 TaleWorlds.CampaignSystem.ICampaignMission
 TaleWorlds.CampaignSystem.ICampaignMissionManager
@@ -5455,7 +5454,6 @@ TaleWorlds.SaveSystem.EntryId
 TaleWorlds.SaveSystem.FileDriver
 TaleWorlds.SaveSystem.FolderId
 TaleWorlds.SaveSystem.GameData
-TaleWorlds.SaveSystem.ISaveDriver
 TaleWorlds.SaveSystem.ISavedStruct
 TaleWorlds.SaveSystem.InMemDriver
 TaleWorlds.SaveSystem.LateLoadInitializationCallback

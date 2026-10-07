@@ -1,4 +1,4 @@
-# N=5604 sampled=2026-10-07T08:34:07.217Z
+# N=5603 sampled=2026-10-07T11:09:55.595Z cmd: node tools/_verify/make-coverage-census.mjs [R1-filtered]
 BuildInfo
 EmptyGamepadNavigationContext
 GauntletGamepadNavigationContext
@@ -1824,7 +1824,6 @@ TaleWorlds.CampaignSystem.ICampaignBehaviorManager
 TaleWorlds.CampaignSystem.ICampaignMission
 TaleWorlds.CampaignSystem.ICampaignMissionManager
 TaleWorlds.CampaignSystem.IDataStore
-TaleWorlds.CampaignSystem.IFaction
 TaleWorlds.CampaignSystem.IMainHeroVisualSupplier
 TaleWorlds.CampaignSystem.IMapEventVisualCreator
 TaleWorlds.CampaignSystem.IMbEvent

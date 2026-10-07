@@ -1,17 +1,16 @@
 # 覆盖率普查报告（20261007）
 
 - 生成脚本：`tools/_verify/make-coverage-census.mjs`（跑一次即出本报告）
-- 生成时间：2026-10-07T05:57:06.660Z
+- 生成时间：2026-10-07T11:09:55.599Z
 - 输入（**只读 JSON，未读任何 content/ 页面正文**）：
   - `tools/_verify/types-<ver>.json` × 6（ver ∈ 1.3.0, 1.3.15, 1.4.5, 1.4.6, 1.4.7, 1.5.3）
-  - `tools/_verify/tiers-v<ver>-<lang>.json` × 10（1.3.15 / 1.4.5 为扁平对象；1.4.6 / 1.4.7 / 1.5.3 为 `{pageCount, pages[]}` 汇总对象）
-  - v1.3.0 无 tiers 文件（分类未做）
+  - `tools/_verify/tiers-v<ver>-<lang>.json` × 12（1.3.0 / 1.3.15 / 1.4.5 为扁平对象；1.4.6 / 1.4.7 / 1.5.3 为 `{pageCount, pages[]}` 汇总对象）
 
 ## 分母定义
 
 - **类型分母**：`types-<ver>.json` 的 `uniqueTypeCount`。脚本内对 `types` 数组按 `Namespace.Name` 去重，去重后数量与该字段一致（已逐树验证）。
 - **页面分母**：`tiers-v<ver>-<lang>.json` 的页面条数（扁平对象取 key 数；汇总对象取 `pages.length`，与 `pageCount` 一致）。
-- **匹配规则（归一化，类型名与页面 basename 同规则）**：① 小写；② 去 `I` 前缀（仅当长度>1 且第二个字母大写）；③ 去 `__TaleWorlds_...` 后缀；④ 去泛型 `<...>`；⑤ 嵌套类取最后一个 `.` 之后；页面侧另取 basename 去 `.md`。
+- **匹配规则（归一化，类型名与页面 basename 同规则）**：① 小写；② 去 `__TaleWorlds_...` 后缀；③ 去泛型 `<...>`；④ 嵌套类取最后一个 `.` 之后；页面侧另取 basename 去 `.md`。**两侧同规则，不做 I 前缀剥离**（旧代码类型侧不剥、页面侧剥 ⇒ 不对称 ⇒ 分母虚高，已修）。
 - **歧义桶**：一个归一化名同时对应多个不同类型 ⇒ 既不计「有页面」也不计「缺页」，单独列出。
 - **缺页** = 类型集合 − 有页面 − 歧义桶。
 
@@ -32,7 +31,8 @@
 
 | 树 | 语言 | total | handwritten_deep | generated | shell | other |
 |---|---|---:|---:|---:|---:|---:|
-| v1.3.0 | zh / en | 待补（分类 worker 未交付） | — | — | — | — |
+| v1.3.0 | zh | 5300 | 301 | 1256 | 3743 | 0 |
+| v1.3.0 | en | 5300 | 147 | 1287 | 3866 | 0 |
 | v1.3.15 | zh | 5684 | 458 | 1226 | 4000 | 0 |
 | v1.3.15 | en | 5677 | 284 | 1278 | 4115 | 0 |
 | v1.4.5 | zh | 9477 | 916 | 1975 | 6586 | 0 |
@@ -44,30 +44,79 @@
 | v1.5.3 | zh | 146 | 144 | 0 | 0 | 2 |
 | v1.5.3 | en | 6 | 5 | 0 | 0 | 1 |
 
-量法（扁平对象，1.3.15 / 1.4.5）：`jq 'to_entries|group_by(.value)|map({key:.[0].value,n:length})|from_entries' tools/_verify/tiers-v<ver>-<lang>.json`
+量法（扁平对象，1.3.0 / 1.3.15 / 1.4.5）：`jq 'to_entries|group_by(.value)|map({key:.[0].value,n:length})|from_entries' tools/_verify/tiers-v<ver>-<lang>.json`
 量法（汇总对象，1.4.6 / 1.4.7 / 1.5.3）：`jq '.pages|group_by(.tier)|map({key:.[0].tier,n:length})|from_entries' tools/_verify/tiers-v<ver>-<lang>.json`
 
 > 注：v1.4.6 / v1.4.7 / v1.5.3 的 tiers 文件仅含重分类 worker 交付的子集（pageCount 远小于全树页面数），total 不代表全树页面总量。
 
-## 表3 无页面缺口
+## 表3 无页面缺口（缺页已按 R1 规则过滤）
 
-| 树 | 语言 | 类型数 | 有页面 | 缺页 | 歧义桶 | confidence |
-|---|---|---:|---:|---:|---:|---|
-| v1.3.0 | zh | 5095 | 0 | 4940 | 155 | low（该树缺 TaleWorlds.ObjectSystem/MBObjectManager，源码不完整） |
-| v1.3.0 | en | 5095 | 0 | 4940 | 155 | low（该树缺 TaleWorlds.ObjectSystem/MBObjectManager，源码不完整） |
-| v1.3.15 | zh | 5444 | 4883 | 291 | 270 | high |
-| v1.3.15 | en | 5444 | 4883 | 291 | 270 | high |
-| v1.4.5 | zh | 8779 | 6310 | 1349 | 1120 | high |
-| v1.4.5 | en | 8779 | 6311 | 1348 | 1120 | high |
-| v1.4.6 | zh | 10356 | 67 | 9025 | 1264 | medium（tiers 文件仅含重分类 worker 交付的子集，非全树页面） |
-| v1.4.6 | en | 10356 | 0 | 9092 | 1264 | medium（tiers 文件仅含重分类 worker 交付的子集，非全树页面） |
-| v1.4.7 | zh | 10358 | 17 | 9077 | 1264 | medium（tiers 文件仅含重分类 worker 交付的子集，非全树页面） |
-| v1.4.7 | en | 10358 | 17 | 9077 | 1264 | medium（tiers 文件仅含重分类 worker 交付的子集，非全树页面） |
-| v1.5.3 | zh | 10480 | 129 | 9093 | 1258 | medium（tiers 文件仅含重分类 worker 交付的子集，非全树页面） |
-| v1.5.3 | en | 10480 | 0 | 9222 | 1258 | medium（tiers 文件仅含重分类 worker 交付的子集，非全树页面） |
+| 树 | 语言 | 类型数 | 有页面 | 缺页 | 其中 R1 出局 | 歧义桶 | confidence |
+|---|---|---:|---:|---:|---:|---:|---|
+| v1.3.0 | zh | 5095 | 4889 | 4 | 47 | 155 | low（该树缺 TaleWorlds.ObjectSystem/MBObjectManager，源码不完整） |
+| v1.3.0 | en | 5095 | 4889 | 4 | 47 | 155 | low（该树缺 TaleWorlds.ObjectSystem/MBObjectManager，源码不完整） |
+| v1.3.15 | zh | 5444 | 5114 | 6 | 54 | 270 | high |
+| v1.3.15 | en | 5444 | 5114 | 6 | 54 | 270 | high |
+| v1.4.5 | zh | 8779 | 6564 | 4 | 1091 | 1120 | high |
+| v1.4.5 | en | 8779 | 6565 | 3 | 1091 | 1120 | high |
+| v1.4.6 | zh | 10356 | 70 | 5551 | 3471 | 1264 | medium（tiers 文件仅含重分类 worker 交付的子集，非全树页面） |
+| v1.4.6 | en | 10356 | 0 | 5621 | 3471 | 1264 | medium（tiers 文件仅含重分类 worker 交付的子集，非全树页面） |
+| v1.4.7 | zh | 10358 | 18 | 5603 | 3473 | 1264 | medium（tiers 文件仅含重分类 worker 交付的子集，非全树页面） |
+| v1.4.7 | en | 10358 | 18 | 5603 | 3473 | 1264 | medium（tiers 文件仅含重分类 worker 交付的子集，非全树页面） |
+| v1.5.3 | zh | 10480 | 131 | 5605 | 3486 | 1258 | medium（tiers 文件仅含重分类 worker 交付的子集，非全树页面） |
+| v1.5.3 | en | 10480 | 0 | 5736 | 3486 | 1258 | medium（tiers 文件仅含重分类 worker 交付的子集，非全树页面） |
 
-- 歧义桶按树计（与语言无关，同树两行数值相同）；缺页明细见 `tools/_verify/queue-missing-<ver>-<lang>.pages.txt`。
-- 量法：`tail -n +2 tools/_verify/queue-missing-<ver>-<lang>.pages.txt | wc -l`（v1.3.0 队列为 2 行头，用 `tail -n +3`）。
+- 歧义桶按树计（与语言无关，同树两行数值相同）；缺页明细见 `tools/_verify/missing-types-<ver>-<lang>.txt`。
+- 量法：`tail -n +2 tools/_verify/missing-types-<ver>-<lang>.txt | wc -l`。
+- **缺页分母已按项目自己的 R1 规则（`isR1TargetType`，见 `tools/lib/handwritten-policy.mjs`）过滤**：其中 N 个类型按 R1 规则属于出局范围，不计入缺口。各树 旧分母 → 新分母（剔除 Z，占 W%）：
+  - v1.3.0：zh 51 → 4（剔除 47，占 92.2%）；en 51 → 4（剔除 47，占 92.2%）
+  - v1.3.15：zh 60 → 6（剔除 54，占 90.0%）；en 60 → 6（剔除 54，占 90.0%）
+  - v1.4.5：zh 1095 → 4（剔除 1091，占 99.6%）；en 1094 → 3（剔除 1091，占 99.7%）
+  - v1.4.6：zh 9022 → 5551（剔除 3471，占 38.5%）；en 9092 → 5621（剔除 3471，占 38.2%）
+  - v1.4.7：zh 9076 → 5603（剔除 3473，占 38.3%）；en 9076 → 5603（剔除 3473，占 38.3%）
+  - v1.5.3：zh 9091 → 5605（剔除 3486，占 38.3%）；en 9222 → 5736（剔除 3486，占 37.8%）
+
+## 缺页分母与归属状态
+
+| 树 | 语言 | 缺页（R1 过滤后） | 归属状态 |
+|---|---|---:|---|
+| v1.3.0 | zh | 4 | lead-16 |
+| v1.3.0 | en | 4 | lead-16 |
+| v1.3.15 | zh | 6 | lead-16 |
+| v1.3.15 | en | 6 | lead-16 |
+| v1.4.5 | zh | 4 | lead-18 |
+| v1.4.5 | en | 3 | **未归属** |
+| v1.4.6 | zh | 5551 | **未归属** |
+| v1.4.6 | en | 5621 | **未归属** |
+| v1.4.7 | zh | 5603 | **未归属** |
+| v1.4.7 | en | 5603 | **未归属** |
+| v1.5.3 | zh | 5605 | **未归属** |
+| v1.5.3 | en | 5736 | **未归属** |
+
+- 现有归属：lead-18 → v1.4.5/zh；lead-16 → v1.3.0 + v1.3.15。
+- 未归属：v1.4.5/en（3） · v1.4.6（5551） · v1.4.7（5603） · v1.5.3（5605）。
+- v1.4.6 / v1.4.7 / v1.5.3 三棵树合计约 **16,759** 个缺页（zh 口径），当前无写作线认领。
+
+## R1 剔除率说明
+
+### v1.4.5 的 99.6% 剔除率
+
+v1.4.5 的 tiers 文件对游戏自身 API 已接近完整（6564/8779 类型有页面），因此其缺页集合被源码清单中的**第三方 SDK 类型**主导。R1 出局的 1091 个缺页候选按命名空间分布：
+
+- `Steamworks`：446
+- `Galaxy.Api`：248
+- `Newtonsoft.Json`：133
+- `SandBox.GauntletUI`：81
+- `System.Management`：53
+- `Jose`：44
+- `JetBrains.Annotations`：29
+- 其他：57
+
+这些正是 R1 噪声规则（`isR1TargetType`）要排除的类型。这把旧结论「v1.4.5 还缺 1095 页」修正为 **4 页**（虚高 273.8 倍）。
+
+### v1.3.0 反而不是异常
+
+Boss 先前猜测 v1.3.0 会因源码树不完整（缺 `TaleWorlds.ObjectSystem/MBObjectManager`）而在剔除率上异常。实测结果推翻了这一猜测：v1.3.0 的剔除率为 **92.2%**（51 → 4，剔除 47），是六树中最低之一，与 v1.3.15（90.0%）接近。其缺页集合以 `JetBrains.Annotations`（29）和 `TaleWorlds.GauntletUI.CodeGenerator`（18）为主，均为 R1 正常排除的噪声类型。源码树不完整影响的是 confidence（low），而非剔除率。
 
 ## 歧义桶明细（同名不同类型，上限 50 条/树）
 
@@ -428,16 +477,18 @@
 ## 全站合计
 
 - 类型总数（Σ uniqueTypeCount，6 树）：**50512**
-- 页面总数（Σ tiers total，10 个 树×语言；v1.3.0 无 tiers 记 0）：**28389**
-- 缺页总数（Σ 缺页，10 个 树×语言；v1.3.0 按 confidence=low 计入）：**67745**
+- 页面总数（Σ tiers total，12 个 树×语言）：**38989**
+- 缺页总数（Σ 缺页，12 个 树×语言，已按 R1 过滤）：**33746**
+- R1 出局总数（Σ 每树一次，6 树；不计入缺口）：**11622**
 - 歧义桶总数（Σ 每树歧义类型数，按树计一次）：**5331**
 
 ## 每个数字的量法（复现命令）
 
 - 重跑本报告：`node tools/_verify/make-coverage-census.mjs`
+- 旧的 `tools/_verify/queue-missing-*.pages.txt` 已废弃（SUPERSEDED），缺页明细以 `missing-types-*.txt` 为准。
 - 表1 任一行：`jq '{fileCount,sourceACount,uniqueTypeCount,disagreementCount}' tools/_verify/types-1.3.0.json`
 - 表2 扁平 tiers：`jq 'to_entries|group_by(.value)|map({key:.[0].value,n:length})|from_entries' tools/_verify/tiers-v1.3.15-zh.json`
 - 表2 汇总 tiers：`jq '.pages|group_by(.tier)|map({key:.[0].tier,n:length})|from_entries' tools/_verify/tiers-v1.4.6-zh.json`
-- 表3 缺页数：`tail -n +2 tools/_verify/queue-missing-1.3.15-zh.pages.txt | wc -l`（v1.3.0 队列 3 行头，用 `tail -n +3`）
+- 表3 缺页数：`tail -n +2 tools/_verify/missing-types-1.3.15-zh.txt | wc -l`
 - 表3 歧义桶：见上「歧义桶明细」节（脚本按归一化名分组，组内 >1 个类型即入桶）
 - 两来源不一致：`jq '{disagreementCount,sourceAOnlyCount,disagreements}' tools/_verify/types-1.3.0.json`

@@ -416,3 +416,58 @@ A avg=166.3s · B avg=71.8s · delta=94.5s · ~68.1 ms/页 · 结论「A 恒慢�
 **分母更正**：语义核当前是 **554 条 / 25 页**（b01–b05），不是 Boss 写的 477 / 20。
 
 **本线纪律**：不与正在基准测试的 worker 并发跑构建（避免争 CPU 破坏两边读数）。
+
+---
+
+## 18. Layer 3（OFFSET）规格缺陷：抽样 2/2 假阳性，**被标的页面其实是对的**
+
+Boss 新增 Layer 3：`identifier` 在文件里存在，但不在被引行附近 ⇒ 标 OFFSET。
+worker-202 产出 `phaseG-layer3.json` = **13,202 条**（`phaseG-layer3-uncheckable.json` = 12,650）。
+
+**本线抽样 2 条，2 条都是假阳性。** 页面 `content/v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md` 第 15 行：
+```
+…declared at `AcceptCallToWarAgreementDecision.cs:17`, … inside `AllianceCampaignBehavior` … (`AllianceCampaignBehavior.cs:140`, `:474`)
+
+源码实测：
+  AcceptCallToWarAgreementDecision.cs:17 = public class AcceptCallToWarAgreementDecision : KingdomDecision   ← 页面正确
+  AllianceCampaignBehavior.cs:140        = …new AcceptCallToWarAgreementDecision(…)                          ← 页面正确
+  AllianceCampaignBehavior.cs:17         = public class AllianceCampaignBehavior : CampaignBehaviorBase, …
+```
+
+### 两个各自独立的规格缺陷
+**A · 标识符↔引用配对错**：标 `ident=AllianceCampaignBehavior, claimed=AcceptCallToWarAgreementDecision.cs:17`，
+但 `AllianceCampaignBehavior` 属于**同一句里的另一条引用**（`:140`）。
+⇒ 「取引用附近的 backticked 标识符」会配上来邻近但属于别的引用的标识符。**配对必须限定在该引用自身的括号/短语内。**
+
+**B · 规格假定「被引行 = 该标识符的声明行」，但引用常指向【使用点】**
+标 `ident=AllianceCampaignBehavior, claimed=AllianceCampaignBehavior.cs:140` —— `:140` 是类内的**使用点**（`new` 调用），
+而检测器只找类名声明行（`:17`）⇒ **对每一条「使用点」引用都必然误报**。
+⇒ 正确性判据不能是「声明行」，只能是「该行是否包含被点名的标识符」（声明/成员/调用/参数皆可）。
+
+**⇒ `13,202` 不得作为缺陷数使用。** 且 **控制过 ≠ 整体精度可用**：worker-202 报两个控制都过，而全局随机抽 2 条即 2 条假阳性。
+**⇒ 窗口调参不可用于「修掉」这两个缺陷 —— 它们是结构性的，调窗口只会掩盖。**
+
+**正面结论（不依赖上面数字）**：Boss 的正控制经本线复核仍然成立
+（`SettlementAccessModel.cs` 的 `CanMainHeroEnterSettlement` 声明在 `:81`；`:52/:54/:56` 分别是 `}`、`public enum SettlementAction`、`RecruitTroops,`）
+⇒ **「行号在界内但指向别处」这个缺陷类是真的**，Layer 3 的方向对，问题在配对与判据定义。
+
+---
+
+## 19. prev/next 覆盖分析：**两次独立测量逐数一致**
+
+```
+                  worker-198     本线独立测量
+JSON routes           38177          38177
+Leaf on disk          38500          38500
+Missing from JSON       323            323
+```
+**⇒ 两个独立测量得到同样三个数。** 本线另测：**缺的 323 页全部比 JSON 新**（`newer=323 / older=0`）⇒ 缺口 100% 由陈旧造成。
+
+**Category 2（在 JSON 里但 prev=next=null）= 3 —— 本线核实后判定【不是缺陷】**：
+```
+/v1.3.15/en/xml-reference/bugs/ · /v1.3.15/zh/xml-reference/bugs/ · /v1.4.5/zh/xml-reference/bugs/
+⇒ 都是 xml-reference 桶里的【单页桶】，无兄弟页 ⇒ 没有 prev/next 是【正确行为】
+```
+**⇒ 不得把这 3 条计入缺口分母。**
+
+**路由键陷阱**：JSON 键带前后斜杠（`/v1.3.15/en/architecture/action-family/`）。不带前导斜杠构造路由 ⇒ 报 38,358 缺（真值 323）。

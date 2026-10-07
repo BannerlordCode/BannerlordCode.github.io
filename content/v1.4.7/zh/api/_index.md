@@ -1,6 +1,6 @@
 ---
 title: "API 参考 — 按任务找入口"
-description: "v1.4.7 的 API 按命名空间分成 17 个桶：一个类型只属于一个桶，同桶重名用 Namespace__Type 区分。中文树当前 30 篇类页。"
+description: "v1.4.7 的 API 按命名空间分成 17 个桶：一个类型只属于一个桶，同桶重名用 Namespace__Type 区分。中文树当前 35 篇类页。"
 ---
 # API 参考 — 按任务找入口
 
@@ -8,7 +8,7 @@ description: "v1.4.7 的 API 按命名空间分成 17 个桶：一个类型只�
 
 下面两张表里的页数都是**当前的真实页数**。有 3,598 篇类页曾由脚本批量生成并一度挂在这些目录下，现已撤出文档树；每个桶的索引页都写明了自己覆盖哪个命名空间、约多少类型、当前几页。要查某个类型有没有页面，看 [缺口清单](../../GAPS)。
 
-## 有页面的桶（8 个，30 篇）
+## 有页面的桶（8 个，35 篇）
 
 | 桶 | 页数 | 覆盖 | 页面 |
 | --- | ---: | --- | --- |
@@ -17,7 +17,7 @@ description: "v1.4.7 的 API 按命名空间分成 17 个桶：一个类型只�
 | [gui](gui/) | 3 | `ScreenSystem` / `GauntletUI` / `TwoDimension` | [ScreenManager](gui/ScreenManager) · [ScreenBase](gui/ScreenBase) · [ScreenLayer](gui/ScreenLayer) |
 | [save-system](save-system/) | 3 | `TaleWorlds.SaveSystem` | [SaveManager](save-system/SaveManager) · [SaveContext](save-system/SaveContext) · [LoadContext](save-system/LoadContext) |
 | [core](core/) | 2 | 模块加载入口 | [Module](core/Module) · [MBSubModuleBase](core/MBSubModuleBase) |
-| [core-extra](core-extra/) | 9 | `TaleWorlds.Core` 长尾 + 分类法兜底桶 | [Game](core-extra/Game) · [ViewModel](core-extra/ViewModel) · [BoardGameHelper](core-extra/BoardGameHelper) · [AIDifficulty](core-extra/AIDifficulty) · [BoardGameState](core-extra/BoardGameState) · [CaravanHelper](core-extra/CaravanHelper) · [AlleyHelper](core-extra/AlleyHelper) · [BarterHelper](core-extra/BarterHelper) · [BuildingHelper](core-extra/BuildingHelper) |
+| [core-extra](core-extra/) | 14 | `TaleWorlds.Core` 长尾 + 分类法兜底桶 | [Game](core-extra/Game) · [ViewModel](core-extra/ViewModel) · [BoardGameHelper](core-extra/BoardGameHelper) · [AIDifficulty](core-extra/AIDifficulty) · [BoardGameState](core-extra/BoardGameState) · [CaravanHelper](core-extra/CaravanHelper) · [AlleyHelper](core-extra/AlleyHelper) · [BarterHelper](core-extra/BarterHelper) · [BuildingHelper](core-extra/BuildingHelper) · [DialogHelper](core-extra/DialogHelper) · [EquipmentHelper](core-extra/EquipmentHelper) · [CraftingHelper](core-extra/CraftingHelper) · [ItemHelper](core-extra/ItemHelper) · [SkillHelper](core-extra/SkillHelper) |
 | [campaign-ext](campaign-ext/) | 2 | `CampaignSystem` 子命名空间 + `ObjectSystem` | [MBObjectBase](campaign-ext/MBObjectBase) · [MBObjectManager](campaign-ext/MBObjectManager) |
 | [engine](engine/) | 2 | `TaleWorlds.Engine` + `Diamond` 访问层 | [GauntletLayer](engine/GauntletLayer) · [MBDebug](engine/MBDebug) |
 

@@ -1,25 +1,37 @@
 {
   "$schema": "known-failures/links@1",
-  "$what": "KNOWN-FAILURE BASELINE IS CURRENTLY EMPTY. This file is NOT dead weight and must NOT be deleted: an EMPTY baseline and a MISSING baseline are two different states, and only this file existing distinguishes them. If this file is absent or unreadable, the gate exits 2 (NO VERDICT) -- it must never treat that as 'no known failures'.",
+  "$what": "Dead hrefs that are ALREADY dead at the recorded commit and were never fixed. They are NOT forgiven -- they are enumerated so that \"net new = 0\" is a reachable, violable predicate instead of a permanently red one.",
   "$gate": "node tools/_check_links_exist.mjs  (non---gate mode)",
   "$predicate": "net_new = current_dead_set MINUS this set, compared item-by-item on (page, href). net_new > 0 -> exit 1. net_new = 0 -> exit 0.",
-  "$why_empty": "At HEAD 7eaa634c3f3cb4c8bf1804b3496520f82ac0a4f9 both rulers measure 0: audit-links BROKEN_LINKS=0 / TOTAL_LINKS=145602 exit 0; _check_links_exist dead=0/145602 net new=0 exit 0. All 162 entries were fixed, not forgiven: 98 A (level-off-by-one) + 41 (36 A + 4 B + 1 E) + 23 A = 162. Attribution C=0 D=0 E=0 for the links batch -- not one target was missing, so no page was fabricated and no citation was withdrawn.",
   "$how_to_raise": "node tools/_check_links_exist.mjs --emit-baseline tools/data/known-failures-links.json -- commit that single file on its own. Raising the baseline is only legitimate when the new entry is itself a known/accepted failure; it is NEVER a way to make a red gate green.",
   "$how_to_revoke_one_entry": "Fix the dead link on the page, re-run the gate (the entry will then be reported as RESOLVED), and delete that one entry in its own commit. Entries are never auto-deleted by the gate -- deletion is always a human action.",
-  "$how_to_shrink_the_file": "This file is already at zero. Any future entry must be a genuinely accepted failure, reviewed as data. Raising it is NEVER a way to make a red gate green -- that is the one thing this baseline must not be used for.",
-  "$deletedAt": {
-    "commit": "7eaa634c3f3cb4c8bf1804b3496520f82ac0a4f9",
-    "workingTree": "dirty-168",
+  "$how_to_shrink_the_file": "Every removed entry is a real fix. An entry that is no longer failing is reported as RESOLVED and left in place on purpose, so the diff that shrinks this file is always a human decision.",
+  "$registration_note": "HAND-REGISTERED, not emitted by --emit-baseline. Only the 2 pairs whose target genuinely exists under static/ are recorded. The other 33 net-new pairs at the same commit are REAL link-form defects (./ vs ../ and trailing-slash forms in newly written v1.3.15 architecture pages) and are deliberately NOT registered: emitting the whole dead set here would be using the baseline to make a red gate green, which this file forbids.",
+  "$does_not_affect": "tools/audit-links.mjs -- it reads NO baseline at all (grep -nE known|baseline|allow|failures tools/audit-links.mjs returns nothing), so audit-links BROKEN_LINKS is UNCHANGED by this registration. audit-links and _check_links_exist are two different rulers with different predicates.",
+  "$prior_history": {
+    "note": "This file previously reached zero at commit 7eaa634c3f3cb4c8bf1804b3496520f82ac0a4f9 (162 entries, all fixed not forgiven). It is no longer empty; see $registration_note.",
     "previousKnownFailureCount": 162,
-    "previousRawDeadFindings": 186,
-    "measuredAfterDeletion": {
-      "audit_links_BROKEN_LINKS": 0,
-      "audit_links_TOTAL_LINKS": 145602,
-      "check_links_dead": 0,
-      "check_links_hrefs": 145602
-    }
+    "previousRawDeadFindings": 186
   },
-  "rawDeadFindings": 0,
-  "knownFailureCount": 0,
-  "known": []
+  "recordedAt": {
+    "commit": "fe8190ea1756ad71806cb0e9b3ce6e2d07365170",
+    "workingTree": "dirty (writing lines active)",
+    "note": "Recorded by hand. Values here are DATA, reviewed like any other data change."
+  },
+  "rawDeadFindings": 51,
+  "knownFailureCount": 2,
+  "known": [
+    {
+      "page": "v1.3.15/en/native-1.3.15-src/COMPLETE-FUNCTIONS.md",
+      "href": "../ALL-FUNCTIONS-LIST.txt",
+      "route": "/v1.3.15/en/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt",
+      "note": "Pre-existing dead href recorded as a KNOWN FAILURE. Revoke = fix the link on the page, then delete THIS entry alone in its own commit (never bundled with unrelated work). WHY ACCEPTED: Target EXISTS at static/v1.3.15/{en,zh}/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt (166428 B). Zola publishes static/ verbatim -- established by an INDEPENDENT POSITIVE CONTROL, not by trusting documentation: a minimal fixture with static/probe.txt and static/sub/dir/nested.txt produced public/probe.txt and public/sub/dir/nested.txt byte-identical after `zola build` (zola 0.22.1). So /v1.3.15/{en,zh}/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt is reachable on a COMPLETED build. Both rulers (audit-links.mjs, _check_links_exist.mjs) resolve targets only under content/, which is the ruler coverage gap, not a content defect. CAVEAT RECORDED: the public/ tree on disk at registration time came from a KILLED build and contains no static/ files at all (not even shell.css), so it is NOT evidence either way -- the fixture control is what settles it."
+    },
+    {
+      "page": "v1.3.15/zh/native-1.3.15-src/COMPLETE-FUNCTIONS.md",
+      "href": "../ALL-FUNCTIONS-LIST.txt",
+      "route": "/v1.3.15/zh/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt",
+      "note": "Pre-existing dead href recorded as a KNOWN FAILURE. Revoke = fix the link on the page, then delete THIS entry alone in its own commit (never bundled with unrelated work). WHY ACCEPTED: Target EXISTS at static/v1.3.15/{en,zh}/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt (166428 B). Zola publishes static/ verbatim -- established by an INDEPENDENT POSITIVE CONTROL, not by trusting documentation: a minimal fixture with static/probe.txt and static/sub/dir/nested.txt produced public/probe.txt and public/sub/dir/nested.txt byte-identical after `zola build` (zola 0.22.1). So /v1.3.15/{en,zh}/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt is reachable on a COMPLETED build. Both rulers (audit-links.mjs, _check_links_exist.mjs) resolve targets only under content/, which is the ruler coverage gap, not a content defect. CAVEAT RECORDED: the public/ tree on disk at registration time came from a KILLED build and contains no static/ files at all (not even shell.css), so it is NOT evidence either way -- the fixture control is what settles it."
+    }
+  ]
 }

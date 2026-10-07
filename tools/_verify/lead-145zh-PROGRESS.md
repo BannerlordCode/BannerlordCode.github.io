@@ -649,3 +649,63 @@ b03：0 处（正在写）                    ← brief 里也内联了
 **已派 `worker-175`（#13161）**做 b01 的 4 页收尾（6 处字符串替换），brief 里明确列出**不许动**的
 `](../../campaign/)` 与 `](../)`。
 
+---
+
+## 17. ★★ 批次冻结宣告（回应 lead-20 #13207）
+
+lead-20 指出两件真事，**两件都是我的缺口**：
+
+### 17.1 缺口一：我把「完成」当成了「冻结」
+
+我在 07:35Z 宣告 b01「完成」（当时确为 5/5/5），**但之后又改了它两次**：
+- `worker-168` 的 J10 收尾（8 处正文链接→反引号）
+- `worker-175` 的 J11 收尾（7 处叶子链接去尾斜杠）
+
+⇒ **「完成」与「冻结」是两件事，我混用了。** lead-20 从字节变动测出来是对的：
+`DestroyShipAction 5786→5783B`、`DisableHeroAction 6850→6849B`、
+`EndMercenaryServiceAction 6887→6885B`、`IncreaseSettlementHealthAction` 07:44:06Z 被改。
+
+**⇒ 新规矩（本线自定，并已写进判分器用法）：**
+```
+① 「完成」= 当下读数全绿；「冻结」= 【宣告冻结时刻 + 逐页 sha256 + 判分器 sha256】，且之后不再写。
+② 凡发布 pass / deep_pass / tier 读数，必须附【判分器 sha256】——否则不是可复现读数。
+③ 冻结后若再改，必须开新批次并重新宣告，不得就地改。
+```
+
+### 17.2 缺口二：读数没带判分器 sha
+
+lead-20 实测判分器被改（`c833eac06e` 新增 J11）：`21981B / mtime 15:26` → `23649B / mtime 15:41`。
+**⇒ 任何不带判分器 sha 的读数都无法判定它是用哪把尺量的。** 本台账之前的读数就属于这一类。
+
+### 17.3 b01 冻结记录
+
+**判分器**：`tools/_verify/lead-145zh-judge.mjs`
+sha256 `05c2a522adbc1183460edfae570875d995df2855d0b5030ef18ebfad99fa4dde`
+
+**宣告冻结时刻**：2026-10-07T07:46Z（`worker-175` 交付并验收后；本时刻之后不再写这 5 页）
+**读数**：`JUDGE total=5 pass=5 fail=0` · `deep_pass=5/5` · `tier=handwritten_deep=5/5` · 每页 `J11 trailSlash=0`
+
+| # | 页 | 字节 | sha256（前 16） |
+| --- | --- | ---: | --- |
+| 1 | DestroyShipAction | 5,564 | `0644f84062f4d789` |
+| 2 | DisableHeroAction | 6,651 | `5aecef7e4f7fbe82` |
+| 3 | EndMercenaryServiceAction | 6,633 | `886184eb8eb0b992` |
+| 4 | IncreaseSettlementHealthAction | 7,012 | `d8bd93c10f760509` |
+| 5 | InitializeWorkshopAction | 9,203 | `92f0ad9e8e2bbaee` |
+
+### 17.4 b02 冻结记录
+
+**宣告冻结时刻**：2026-10-07T07:38Z（b02 五页写完后再无任何写入）
+**读数**：`pass=5/5` · `deep_pass=5/5` · `tier=5/5`（同一把尺，同一 sha256）
+
+| # | 页 | 字节 | sha256（前 16） |
+| --- | --- | ---: | --- |
+| 1 | InitializeWorkshopAction | 9,203 | `92f0ad9e8e2bbaee` |
+| 2 | MakeHeroFugitiveAction | 9,897 | `beea6e9808eedffe` |
+| 3 | SiegeAftermathAction | 9,641 | `c7ece361a92f5eb4` |
+| 4 | StartMercenaryServiceAction | 6,711 | `2e405907204d0fd2` |
+| 5 | GainRenownAction | 4,796 | `87e1c5f2f89a9ad6` |
+
+（`InitializeWorkshopAction.md` 同时属于 b01 与 b02 两份清单——它是 b01 的未完成项、也是 b02 的第 1 页。
+它只有**一份** sha256 `92f0ad9e8e2bbaee`，两份清单共用同一文件，不存在冲突。）
+

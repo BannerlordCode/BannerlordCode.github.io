@@ -1,0 +1,23 @@
+# RELEASE GATE — tools/audit-links.mjs
+# command: node tools/audit-links.mjs
+# run_at_utc: 2026-10-07T04:54:44Z
+# HEAD: 55658f4d9d0450335f2b12e160bfb8c9b37fbc57
+# exit_code: 1  (1 = broken links found; fail-closed contract)
+
+FILES=39027
+TOTAL_LINKS=148932
+AUDIT_MODE=url
+BROKEN_LINKS=1
+RESOLVE_OK_URL=148745
+RESOLVE_OK_FILE=110047
+RESOLVE_OK_EITHER=148746
+RESOLVE_OK_BOTH=110046
+RESOLVE_URL_ONLY=38699
+RESOLVE_FILE_ONLY=1
+RESOLVE_NEITHER=0
+FILES_WITH_BROKEN=1
+
+## v1.4.5/zh/api/campaign-ext/SellGoodsForTradeAction.md  (1)
+   -> ./SellItemsAction
+
+# exit_code_recheck: 0

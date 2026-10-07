@@ -23,9 +23,9 @@ Think of the save process as a **depth-first traversal of a tree**:
 
 1. The **root node** is the `Campaign` object, which holds references to all subsystems (Party, Settlement, Hero, etc.).
 2. Each class registered via `AddClassDefinition(type, saveId)` (`SaveableTypeDefiner.cs:100`) in a `SaveableTypeDefiner` is a **serializable node**; whether a member is saved is determined by `[SaveableField]`/`[SaveableProperty]`.
-3. `SaveManager` starts from the root, pushes the root object into the `_objectsToIterate` work queue (`SaveContext.cs:116`), and processes nodes one by one; there is no `ISaveable.Write` callback.
+3. `SaveManager` starts from the root, pushes the root object into the `_objectsToIterate` work queue (`SaveContext.cs:116`), and processes nodes one by one; there is no per-object Write callback.
 4. `DefinitionContext.FillWithCurrentTypes()` (`DefinitionContext.cs:173`) performs type collection and ID allocation once at startup; the method `DefineTypes` does not exist.
-5. Loading reverses the process: `LoadContext.Load` (`LoadContext.cs:64`) rebuilds objects according to the type definitions in the save stream; there is no `ISaveable.Read` callback.
+5. Loading reverses the process: `LoadContext.Load` (`LoadContext.cs:64`) rebuilds objects according to the type definitions in the save stream; there is no per-object Read callback.
 
 Key insight: **object references are replaced with integer IDs**. If two fields point to the same object, it is serialized only once; subsequent references write just the ID. This saves space while preserving the topology of the object graph.
 
@@ -35,18 +35,18 @@ Key insight: **object references are replaced with integer IDs**. If two fields 
 
 1. Call `SaveManager.SaveGame(string saveName)` to trigger a save.
 2. `SaveManager` creates a `SaveContext` with the target file stream.
-3. `SaveContext` first calls `DefinitionContext.DefineTypes()`, traversing all `ISaveable` types and assigning IDs.
-4. Then `SaveManager` starts from `Campaign` and recursively calls each `ISaveable.Write(SaveContext)`.
-5. Each `Write()` writes its own fields first, then writes referenced child objects via `SaveContext.WriteObject()`.
+3. `DefinitionContext.FillWithCurrentTypes()` (`DefinitionContext.cs:173`) performs type collection and ID allocation once at startup.
+4. `SaveManager` pushes the root object into the `_objectsToIterate` work queue (`SaveContext.cs:116`) and processes nodes one by one.
+5. Each node's members are written according to its registered definition; references are deduplicated by object id, so a shared object is serialized once.
 6. Once everything is written, `SaveContext` closes the stream and the save is complete.
 
 ### Load Flow
 
-1. Call `SaveManager.LoadGame(string saveName)` to trigger a load.
+1. Call `SaveManager.Load(string saveName, ISaveDriver driver)` (`SaveManager.cs:149`) to trigger a load; for late initialization use `SaveManager.Load(string saveName, ISaveDriver driver, bool loadAsLateInitialize)` (`SaveManager.cs:155`).
 2. `SaveManager` creates a `LoadContext` with the source file stream.
 3. `LoadContext` reads the type table first, building an ID-to-type mapping.
-4. Then starting from the root object, it recursively calls each `ISaveable.Read(LoadContext)`.
-5. Each `Read()` reads its own fields first, then rebuilds references via `LoadContext.ReadObject()` by ID.
+4. `LoadContext.Load` (`LoadContext.cs:64`) rebuilds objects according to the type definitions in the save stream.
+5. Objects are rebuilt from the type definitions in the save stream by `LoadContext.Load(LoadData loadData, bool loadAsLateInitialize)` (`LoadContext.cs:64`). **There is no per-object `ReadObject` callback.**
 6. Once everything is read, the object graph is fully restored and the game continues.
 
 ### Custom Save Fields
@@ -67,7 +67,7 @@ The facade of the save system, coordinating the complete save and load pipeline.
 - `SaveManager.cs:14` — Class declaration, inherits from `SaveManagerBase`.
 - `SaveManager.cs:17` — Static instance access point, the global entry.
 - `SaveManager.cs:69` — `SaveGame` method implementation, creates `SaveContext` and starts serialization.
-- `SaveManager.cs:149` — `LoadGame` method implementation, creates `LoadContext` and starts deserialization.
+- `SaveManager.cs:149` — `public static LoadResult Load(string saveName, ISaveDriver driver)`: the load entry point.
 
 ### DefinitionContext
 
@@ -96,7 +96,7 @@ A utility class that defines serializable types for a specific module.
 The write channel during save, providing a type-safe serialization API.
 
 - `SaveContext.cs:12` — Class declaration, wraps the underlying binary writer.
-- `SaveContext.cs:27` — `WriteObject` method, writes an object reference (deduplicated by ID).
+- `SaveContext.cs:27` — `public DefinitionContext DefinitionContext { get; private set; }`: the context used to look up type definitions while saving.
 - `SaveContext.cs:46` — `Write` generic method, writes primitive type fields.
 - `SaveContext.cs:278` — Reference table management, records IDs of already-written objects.
 
@@ -105,7 +105,7 @@ The write channel during save, providing a type-safe serialization API.
 The read channel during load, providing a type-safe deserialization API.
 
 - `LoadContext.cs:11` — Class declaration, wraps the underlying binary reader.
-- `LoadContext.cs:31` — `ReadObject` method, reads an object reference by ID.
+- `LoadContext.cs:31` — `public DefinitionContext DefinitionContext { get; private set; }`: the context used to look up type definitions while loading.
 - `LoadContext.cs:64` — `Read` generic method, reads primitive type fields.
 
 ### SaveableCampaignTypeDefiner
@@ -164,10 +164,10 @@ public class MyTypeDefiner : SaveableTypeDefiner
 {
     public MyTypeDefiner(DefinitionContext context) : base(context) { }
 
-    public override void DefineTypes()
+    protected override void DefineClassTypes()
     {
-        DefineType<MyCustomComponent>();
-        DefineType<MyOtherComponent>();
+        base.AddClassDefinition(typeof(MyCustomComponent), 1);
+        base.AddClassDefinition(typeof(MyOtherComponent), 2);
     }
 }
 ```

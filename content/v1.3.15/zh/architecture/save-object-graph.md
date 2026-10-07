@@ -23,9 +23,9 @@ Bannerlord 的存档系统基于**对象图序列化**模型。`SaveManager` 是
 
 1. **根节点**是 `Campaign` 对象，它持有所有子系统（Party、Settlement、Hero 等）的引用。
 2. 每个已在 `SaveableTypeDefiner` 里 `AddClassDefinition(type, saveId)`（`SaveableTypeDefiner.cs:100`）注册过的类，才是一个**可序列化节点**；成员是否入档由 `[SaveableField]`/`[SaveableProperty]` 决定。
-3. `SaveManager` 从根出发，把根对象压入 `_objectsToIterate` 工作队列（`SaveContext.cs:116`）后逐节点处理；没有 `ISaveable.Write` 这种回调。
+3. `SaveManager` 从根出发，把根对象压入 `_objectsToIterate` 工作队列（`SaveContext.cs:116`）后逐节点处理；没有逐对象 Write 回调。
 4. `DefinitionContext.FillWithCurrentTypes()`（`DefinitionContext.cs:173`）在启动期一次性完成类型收集与 ID 分配；`DefineTypes` 这个方法不存在。
-5. 读档时反向进行：由 `LoadContext.Load`（`LoadContext.cs:64`）按存档流里的类型定义重建对象；没有 `ISaveable.Read` 这种回调。
+5. 读档时反向进行：由 `LoadContext.Load`（`LoadContext.cs:64`）按存档流里的类型定义重建对象；没有逐对象 Read 回调。
 
 关键洞察：**对象引用被替换为整数 ID**。如果两个字段指向同一个对象，序列化时只写一次，后续引用只写 ID。这既节省空间，也保留了对象图的拓扑结构。
 
@@ -33,21 +33,18 @@ Bannerlord 的存档系统基于**对象图序列化**模型。`SaveManager` 是
 
 ### 存档流程
 
-1. 调用 `SaveManager.SaveGame(string saveName)` 触发存档。
-2. `SaveManager` 创建 `SaveContext`，传入目标文件流。
-3. `SaveContext` 首先调用 `DefinitionContext.DefineTypes()`，遍历所有 `ISaveable` 类型并分配 ID。
-4. 然后 `SaveManager` 从 `Campaign` 开始，递归调用每个 `ISaveable.Write(SaveContext)`。
-5. 每个 `Write()` 内部先写自身字段，再写引用的子对象（通过 `SaveContext.WriteObject()`）。
-6. 全部写完后，`SaveContext` 关闭流，存档完成。
+1. **启动期先一次性收齐类型定义。** `SaveManager.InitializeGlobalDefinitionContext()`（`SaveManager.cs:17`）内部只做两件事：`new DefinitionContext()`，然后 `FillWithCurrentTypes()`（`DefinitionContext.cs:173`）。类型定义不是存档时才收的。
+2. **存档入口。** `SaveManager.Save(object target, MetaData metaData, string saveName, ISaveDriver driver)`（`SaveManager.cs:69`）。`target` 就是对象图的根。
+3. **内部构造 `SaveContext`。** 构造签名是 `SaveContext(DefinitionContext definitionContext)`（`SaveContext.cs:46`）；真正干活的是 `SaveContext.Save(object target, MetaData metaData, out string errorMessage)`（`SaveContext.cs:278`）。
+4. **遍历是队列式 worklist，不是逐对象回调。** `SaveContext.Save` 先把根记下来（`this.RootObject = target;`，`SaveContext.cs:289`），再把根压进待处理队列（`this._objectsToIterate.Enqueue(this.RootObject);`，`SaveContext.cs:116`）。**没有 `ISaveable.Write` 这种回调**——对象不需要自己实现任何接口。
+5. **谁被写进去由类型定义决定。** 只有已在某个 `SaveableTypeDefiner` 里用 `AddClassDefinition(type, saveId)`（`SaveableTypeDefiner.cs:100`）注册过的类才是可序列化节点。
 
 ### 读档流程
 
-1. 调用 `SaveManager.LoadGame(string saveName)` 触发读档。
-2. `SaveManager` 创建 `LoadContext`，传入源文件流。
-3. `LoadContext` 先读类型表，建立 ID 到类型的映射。
-4. 然后从根对象开始，递归调用每个 `ISaveable.Read(LoadContext)`。
-5. 每个 `Read()` 内部先读自身字段，再通过 `LoadContext.ReadObject()` 按 ID 重建引用。
-6. 全部读完后，对象图恢复完毕，游戏继续运行。
+1. **读档入口。** `SaveManager.Load(string saveName, ISaveDriver driver)`（`SaveManager.cs:149`）；需要延迟初始化时用 `SaveManager.Load(string saveName, ISaveDriver driver, bool loadAsLateInitialize)`（`SaveManager.cs:155`）。
+2. **内部构造 `LoadContext`。** 构造签名是 `LoadContext(DefinitionContext definitionContext, ISaveDriver driver)`（`LoadContext.cs:39`）；真正干活的是 `LoadContext.Load(LoadData loadData, bool loadAsLateInitialize)`（`LoadContext.cs:64`）。
+3. **存档与读档共用同一个 `DefinitionContext`。** `SaveContext` 和 `LoadContext` 都持有它（`SaveContext.cs:27`、`LoadContext.cs:31`）——这是存档能对齐类型的前提。
+4. **没有 `ISaveable.Read` 这种回调。** 对象是按存档流里的类型定义重建的。
 
 ### 自定义存档字段
 
@@ -67,7 +64,7 @@ Bannerlord 的存档系统基于**对象图序列化**模型。`SaveManager` 是
 - `SaveManager.cs:14` — 类声明，继承自 `SaveManagerBase`。
 - `SaveManager.cs:17` — 静态实例访问点，全局唯一入口。
 - `SaveManager.cs:69` — `SaveGame` 方法实现，创建 `SaveContext` 并启动序列化。
-- `SaveManager.cs:149` — `LoadGame` 方法实现，创建 `LoadContext` 并启动反序列化。
+- `SaveManager.cs:149` — `public static LoadResult Load(string saveName, ISaveDriver driver)`：读档入口。
 
 ### DefinitionContext
 
@@ -96,7 +93,7 @@ Bannerlord 的存档系统基于**对象图序列化**模型。`SaveManager` 是
 存档时的写入通道，提供类型安全的序列化 API。
 
 - `SaveContext.cs:12` — 类声明，封装底层二进制写入。
-- `SaveContext.cs:27` — `WriteObject` 方法，写入对象引用（按 ID 去重）。
+- `SaveContext.cs:27` — `public DefinitionContext DefinitionContext { get; private set; }`：存档时查类型定义用的上下文。
 - `SaveContext.cs:46` — `Write` 泛型方法，写入基本类型字段。
 - `SaveContext.cs:278` — 引用表管理，记录已写入对象的 ID。
 
@@ -105,7 +102,7 @@ Bannerlord 的存档系统基于**对象图序列化**模型。`SaveManager` 是
 读档时的读取通道，提供类型安全的反序列化 API。
 
 - `LoadContext.cs:11` — 类声明，封装底层二进制读取。
-- `LoadContext.cs:31` — `ReadObject` 方法，按 ID 读取对象引用。
+- `LoadContext.cs:31` — `public DefinitionContext DefinitionContext { get; private set; }`：读档时查类型定义用的上下文。
 - `LoadContext.cs:64` — `Read` 泛型方法，读取基本类型字段。
 
 ### SaveableCampaignTypeDefiner
@@ -159,15 +156,23 @@ hero2.Party = party;
 ### 示例三：类型定义流程
 
 ```csharp
-// SaveableTypeDefiner 子类示例
+// 官方范本 SaveableCampaignTypeDefiner：
+//   :41  class 声明    :44  无参构造    :50  override DefineClassTypes()    :52  AddClassDefinition(typeof(Army), 3, null)
 public class MyTypeDefiner : SaveableTypeDefiner
 {
-    public MyTypeDefiner(DefinitionContext context) : base(context) { }
+    // 基类构造是 protected SaveableTypeDefiner(int saveBaseId)（SaveableTypeDefiner.cs:13）
+    // ⇒ 传的是【基号】，不是 DefinitionContext
+    public MyTypeDefiner() : base(1001) { }
 
-    public override void DefineTypes()
+    protected override void DefineClassTypes()          // SaveableTypeDefiner.cs:30
     {
-        DefineType<MyCustomComponent>();
-        DefineType<MyOtherComponent>();
+        AddClassDefinition(typeof(MyCustomComponent), 1);   // SaveableTypeDefiner.cs:100
+        AddClassDefinition(typeof(MyOtherComponent), 2);
+    }
+
+    protected override void DefineContainerDefinitions()    // SaveableTypeDefiner.cs:70
+    {
+        ConstructContainerDefinition(typeof(List<MyCustomComponent>));  // SaveableTypeDefiner.cs:157
     }
 }
 ```

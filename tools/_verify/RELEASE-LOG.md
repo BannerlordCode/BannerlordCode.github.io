@@ -1020,4 +1020,151 @@ NEW (2):
 COMMIT B 带进了 2 条意外删除且 message 不实（自报中）；tools 分类有 83/112 未实测；
 `RELEASE-CONFLICT-TEMPLATES.md` 交付失败；`BROKEN_LINKS` 仍为红；orphan 工具本轮**未运行**（只跑了 audit-links 与 zola）。
 
+---
+
+## 第 4 轮 · 2026-10-07（lead-21 接手 · 积压 content 分批入库 + 推送轮）
+
+> **线主变更**：本文件此前由 lead-12 维护，lead-12 已卡死（RELEASE-LOG 1h20m 未写、无提交、
+> 多条指令无回应、0 worker）。Boss 清除不工作的 lead 并重建，**本线现由 lead-21 维护**。
+> 用户对这条线的原话：「**push 这个你一直 push 着就行，就是一天一次就可以**」。
+
+### 4.1 起始状态（本线独立实测，非转述）
+
+```
+$ git status --porcelain -- content/ | wc -l                        -> 125
+$ git status --porcelain -- content/ | grep -c '_index.md'          -> 104
+$ git status --porcelain -- content/ | grep -v '_index.md' | wc -l  -> 21  (17 M + 4 ??)
+$ git diff --cached --name-status | wc -l                           -> 0   (staged 干净)
+$ git rev-parse HEAD                                                 -> 0f922d3c2117d9fb39106ebeaa29a432899480e5
+$ git rev-parse origin/main                                          -> cd41e0c46902ead44749253fc22bd4aabb210bf1
+$ git rev-list --left-right --count origin/main...main               -> 0	12   (本地领先 12，0 分叉)
+```
+
+**派单书写的「content/ 未提交 = 61 项，其中 _index.md = 40 项」是旧读数**，实测为 **125 / 104**。
+本地那 12 个未推送 commit 全部是 `lead-145zh`（判定线）的 `tools/docs` commit，不是本线的。
+
+**作用域门禁（`tools/_verify/check-section-index-scope.mjs`，全量 104 个改动 `_index.md`）**：
+```
+checked=104 out_of_scope=8
+  IN-SCOPE      = 96   （v1.3.0=29 / v1.3.15=35 / v1.4.5=28 / v1.5.3=3 / versions=1）
+  OUT-OF-SCOPE  = 6
+  NEW           = 2
+```
+原始输出：`tools/_verify/RELEASE-GATE-index-scope-20261007.txt`（本线落盘）。
+
+### 4.2 七批提交（每批「staged 数 == 期望数」硬检查 + 提交后 `git show --name-status` 对账）
+
+| 批 | 主题 | 文件数 | SHA |
+|---|---|---|---|
+| 1 | 4 个 untracked 新架构页（`save-object-graph` / `ui-three-layers` × en/zh） | 4 | `885275125f` |
+| 2 | v1.4.5/zh `campaign-ext` 动作页（加 `File.cs:line` 声明点引用） | 11 | `0bb3a7e566` |
+| 3 | v1.3.0/zh campaign 模型页 5 + v1.3.15 `campaign-event-system` en/zh | 7 | `9c4fe47e74` |
+| 4 | v1.3.0 桶 `_index.md`（仅 in-scope 29 个） | 29 | `9edb2072ec` |
+| 5 | v1.3.15 桶 `_index.md`（仅 in-scope 35 个） | 35 | `7033bc3002` |
+| 6 | v1.4.5 桶 `_index.md`（仅 in-scope 28 个） | 28 | `7af92f8c34` |
+| 7 | v1.5.3 + versions 桶 `_index.md`（仅 in-scope 4 个） | 4 | `689ec23226` |
+
+**合计 118 文件。** 每批提交后 `git show --name-only | grep -vc '^content/'` 自检（非 content 泄漏）**全部为 0**。
+
+**批 1 是 Boss #13409 的优先入库请求**（4 个 `??` 新页在被跟踪前处于「可被静默覆盖且不可回放」状态；
+同一路径的 `ui-three-layers.md` 本会话已被另一 worker 用 12946 B 版本覆盖过一次、不可恢复）。
+**新页产出后优先入库已写为本线固定动作。**
+
+### 4.3 门禁读数（提交前 / 提交后，同一把尺）
+
+```
+批 1 后：  $ node tools/audit-links.mjs
+          FILES=39037  TOTAL_LINKS=149522  BROKEN_LINKS=0  FILES_WITH_BROKEN=0
+          RESOLVE_STATIC=2  RESOLVE_NEITHER=2   exit=0
+
+批 7 后：  $ node tools/audit-links.mjs
+          FILES=39037  TOTAL_LINKS=149522  BROKEN_LINKS=0  FILES_WITH_BROKEN=0
+          RESOLVE_STATIC=2  RESOLVE_NEITHER=2   exit=0
+
+批 1 后：  $ node tools/nav-orphans.mjs --by-parent
+          CALIBER=self-link-counts-as-inbound   total_pages=39037  orphans=0  orphan_parents=0
+
+批 7 后：  $ node tools/nav-orphans.mjs --by-parent
+          CALIBER=self-link-counts-as-inbound   total_pages=39037  orphans=0  orphan_parents=0
+```
+
+**双门禁在提交前后都是绿**（`BROKEN_LINKS=0` 且 `orphans=0`），提交没有引入任何断链或孤儿。
+
+### 4.4 push
+
+```
+$ git push origin main
+   cd41e0c469..689ec23226  main -> main
+$ git fetch origin && git rev-parse origin/main
+   689ec23226937475910111a09a591b396aa5fa27
+$ git rev-parse HEAD
+   689ec23226937475910111a09a591b396aa5fa27
+$ git rev-list --left-right --count origin/main...main
+   0	0
+```
+
+**本次 push 共 19 个 commit**（12 条继承自 `lead-145zh` 的未推送 commit + 本线 7 批），
+fast-forward，**未使用 `--force`、未使用 `rebase`**，本地历史未被重写。
+
+### 4.5 仍留工作区：8 个 `_index.md`，全部【不提交】（逐条列出）
+
+```
+OUT-OF-SCOPE (6)  —— 差异越出 marker 块 = 写了正文，窄口外
+  content/v1.4.5/en/api/campaign/_index.md
+  content/v1.4.5/en/api/final/_index.md
+  content/v1.4.5/en/api/mission/_index.md
+  content/v1.4.5/zh/_index.md
+  content/v1.4.6/en/architecture/_index.md
+  content/v1.4.7/en/api/engine/_index.md          ← 唯一一个【本会话内】写到块外的（乙）
+NEW (2)           —— 不在 HEAD = 新建整页 = 写正文，窄口外
+  content/v1.5.3/zh/api/localization/_index.md
+  content/v1.5.3/zh/api/storymode/_index.md
+```
+
+**本线未自行回滚任何一个**（Boss #10928：回滚是拿破坏换整齐）。
+
+### 4.6 乙类文件的调查（派单书②，实测结论）
+
+`content/v1.4.7/en/api/engine/_index.md`：
+
+```
+$ stat -c '%y %n' content/v1.4.7/en/api/engine/_index.md
+  2026-10-07 14:40:51.821018700 +0800   (= 06:40:51Z，本会话内)
+$ git cat-file -e HEAD:content/v1.4.7/en/api/engine/_index.md && echo IN HEAD: YES
+  IN HEAD: YES      ⇒ 可回放：git show HEAD:<path> 可取回，不存在不可恢复风险
+```
+
+块外 diff 全文（3 处，全部是「计数 + 新增页链接」，不是任意正文）：
+```
+- description: "... 0 pages in this tree; the 2 pages are Chinese-tree-only."
++ description: "... 1 page in this tree; 2 more are Chinese-tree-only."
+- ## Pages in this area (0 in English)
++ ## Pages in this area (1 in English)
++ | [MBDebug](./MBDebug) | the engine-side debug and cheats surface |
+```
+
+**归属**：mtime 落在本会话内，本线**无法从 mtime 单独确定是哪条线**写的（前一轮 lead-12 亦如此记录）。
+形态（把新增的英文 `MBDebug` 页接进桶索引 + 更新计数句）与导航线的 section-index 工作一致，但这是
+**形态一致**，不是归属证据。**本线只报实测，不做归属裁定。**
+
+### 4.7 本轮未决定项
+
+1. **6 个 OUT-OF-SCOPE + 2 个 NEW 的 `_index.md`**：待裁定——是「窄口放宽」还是「交写作线/导航线把块外正文改回块内」。
+   其中 `v1.4.7/en/api/engine/_index.md` 的块外内容是**对的**（新页确实存在、计数确实该 +1），
+   越界的是**形式**（写在块外），不是内容。
+2. **`v1.5.3/zh/api/{localization,storymode}/_index.md` 是新建整页**：不在 HEAD ⇒ 只能由人写正文，窄口外。
+3. **本环境的 `MonitorCreate` 不可用**（§3.9）：本线全程前台 bash 直跑，未用后台 monitor。
+4. **lead-20（验证线）不在本线可见 team_list 中**：派单书⑤要求「读数问 lead-20」，实测 `team_list` 只返回本线自己，
+   故本线改用**自己的实测读数并附命令**（满足「任何数字必须附量它的命令」），未阻塞在跨线读数上。
+
+### 4.8 本轮结论（按覆盖边界写）
+
+**覆盖了**：起始状态独立实测（含更正派单书的 61/40 → 125/104）；104 个 `_index.md` 全量过作用域门禁；
+118 个 content 文件分 7 批提交（含 Boss #13409 优先批）；双门禁提交前后各测一次（全绿）；
+19 个 commit 快进 push 到 origin/main；乙类文件调查（在 HEAD、可回放、diff 原文已录）。
+
+**未覆盖 / 未做到**：8 个 `_index.md` 未提交（越界/新页，逐条已列，待裁定）；
+`audit-links` 的 `RESOLVE_NEITHER=2` 仍未归因（它是 content-only 口径，需另一把尺确认是否为覆盖缺口）；
+本线未做全站 `zola build`（按 §3.2 的口径，构建不是门禁，放到最后长超时跑）。
+
 

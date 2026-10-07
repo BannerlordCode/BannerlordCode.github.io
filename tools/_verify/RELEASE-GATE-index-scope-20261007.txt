@@ -1,0 +1,212 @@
+fatal: path 'content/v1.5.3/zh/api/localization/_index.md' exists on disk, but not in 'HEAD'
+fatal: path 'content/v1.5.3/zh/api/storymode/_index.md' exists on disk, but not in 'HEAD'
+IN-SCOPE      content/v1.3.0/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/en/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/en/api/campaign-ext/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/en/api/campaign/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/en/api/core-extra/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/en/api/core/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/en/api/engine/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/en/api/gameplay/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/en/api/gui/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/en/api/localization/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/en/api/mission-ext/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/en/api/mission/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/en/api/system/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/en/api/viewmodel/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/en/guide/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/zh/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/zh/api/campaign-ext/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/zh/api/campaign/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/zh/api/core-extra/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/zh/api/core/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/zh/api/engine/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/zh/api/gameplay/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/zh/api/gui/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/zh/api/localization/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/zh/api/mission-ext/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/zh/api/mission/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/zh/api/system/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/zh/api/viewmodel/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/zh/guide/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/api/campaign/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/api/core-extra/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/api/core/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/api/engine/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/api/gui/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/api/localization/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/api/mission-ext/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/api/mission/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/api/save-system/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/api/system/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/api/viewmodel/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/architecture/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/guide/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/native-1.3.15-src/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/native/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/xml-reference/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/api/campaign/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/api/core-extra/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/api/core/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/api/engine/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/api/gui/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/api/localization/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/api/mission-ext/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/api/mission/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/api/save-system/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/api/system/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/api/viewmodel/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/architecture/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/guide/_index.md
+              -> all differences are inside the marker block (raw compare differed ONLY by CRLF vs LF)
+IN-SCOPE      content/v1.3.15/zh/native-1.3.15-src/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/native/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/xml-reference/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/en/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/en/api/campaign-ext/_index.md
+              -> all differences are inside the marker block (raw compare differed ONLY by CRLF vs LF)
+OUT-OF-SCOPE  content/v1.4.5/en/api/campaign/_index.md
+              -> first real difference outside the block at line 103 (CRLF-normalised); raw compare also differed
+IN-SCOPE      content/v1.4.5/en/api/core-extra/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/en/api/engine/_index.md
+              -> all differences are inside the marker block
+OUT-OF-SCOPE  content/v1.4.5/en/api/final/_index.md
+              -> first real difference outside the block at line 10 (CRLF-normalised); raw compare also differed
+IN-SCOPE      content/v1.4.5/en/api/gameplay/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/en/api/gui/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/en/api/localization/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/en/api/mission-ext/_index.md
+              -> all differences are inside the marker block
+OUT-OF-SCOPE  content/v1.4.5/en/api/mission/_index.md
+              -> first real difference outside the block at line 58 (CRLF-normalised); raw compare also differed
+IN-SCOPE      content/v1.4.5/en/api/save-system/_index.md
+              -> all differences are inside the marker block (raw compare differed ONLY by CRLF vs LF)
+IN-SCOPE      content/v1.4.5/en/api/system/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/en/api/viewmodel/_index.md
+              -> all differences are inside the marker block
+OUT-OF-SCOPE  content/v1.4.5/zh/_index.md
+              -> first real difference outside the block at line 2 (CRLF-normalised); raw compare also differed
+IN-SCOPE      content/v1.4.5/zh/api/campaign/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/core-extra/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/core/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/engine/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/gameplay/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/gui/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/localization/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/mission-ext/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/mission/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/save-system/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/system/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/viewmodel/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/architecture/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/guide/_index.md
+              -> all differences are inside the marker block (raw compare differed ONLY by CRLF vs LF)
+IN-SCOPE      content/v1.4.5/zh/native-1.3.15-src/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/native/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/xml-reference/_index.md
+              -> all differences are inside the marker block
+OUT-OF-SCOPE  content/v1.4.6/en/architecture/_index.md
+              -> first real difference outside the block at line 2 (CRLF-normalised); raw compare also differed
+OUT-OF-SCOPE  content/v1.4.7/en/api/engine/_index.md
+              -> first real difference outside the block at line 3 (CRLF-normalised); raw compare also differed
+IN-SCOPE      content/v1.5.3/en/architecture/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.5.3/zh/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.5.3/zh/architecture/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/versions/_index.md
+              -> all differences are inside the marker block
+NEW           content/v1.5.3/zh/api/localization/_index.md
+              -> not in HEAD (new page = writes prose, outside the exception)
+NEW           content/v1.5.3/zh/api/storymode/_index.md
+              -> not in HEAD (new page = writes prose, outside the exception)
+
+checked=104 out_of_scope=8

@@ -1803,6 +1803,73 @@ boss-3 #15434 称：
 · 「暂停」≠「无限期持有」（暂停必须带一个复测触发器）
 ```
 
+---
+
+## 39. ★★ J13 的 12 条修复已落地 + `J13` 收窄 + b01/b02 REV 2 / b06 首次冻结
+
+### 39.1 ★ 裁定：worker-211 的 13 处改动全部保留
+
+worker-211 指出：**12 条 J13 里有 4 条不是行号错，而是判分器的裸引用归属猜错。**
+**它的诊断可验证且正确**（我在页里核到：第 46 行所在块同时含 `BehaviorSets.cs:13` 与 `AgentNavigator.cs:478` ⇒ 裸 `:15` 确实歧义）。
+
+**⇒ 关键结论：两条归属启发式【都会错】**
+```
+规则 1（单文件块 ⇒ 用块文件）：worker-211 那页的块只含 SandBoxHelpers 的完整引用 ⇒ 归错
+规则 2（多文件块 ⇒ 用页面主语文件）：lead-20 的 Campaign.md 靠它修好 12 条假阳性，
+                                   但当裸引用指向【非主语文件】时同样归错
+```
+**⇒ `J13` 已收窄：只对【带显式文件名的引用】运行。** J13 是精度判据，不该跑在启发式归属上。
+（`J3` 仍跑裸引用，但 `full / inBlock / subject` 分开计数，置信度可见。）
+**⇒ worker-211 那 5 处「补全文件名」因此是【严格改进】（歧义引用 → 可核引用），保留不回退。**
+
+### 39.2 13 处改动明细（已提交 `4fa3d3e938`）
+
+| 页 | 真行号修正 | 补全文件名（歧义 → 显式） |
+| --- | --- | --- |
+| InitializeWorkshopAction | `:1253`→`:1255` · `:1265`→`:1266`（×2） | — |
+| MakeHeroFugitiveAction | `:25`→`:24`（×2） · `:10`→`:9` | — |
+| AgentBehaviorGroup | `:69`→`:67` · `:45`→`:41` | `:15`→`BehaviorSets.cs:15` · `:33`→`SandBoxHelpers.cs:33` · `:99`→`AgentBehaviorGroup.cs:99` · `:170`→`AgentBehaviorGroup.cs:170` · `:194`→`AgentBehaviorGroup.cs:194` |
+
+### 39.3 冻结宣告（尺 sha `bc05c1c74ebcaeb25e9d52b27f89c0d7671cb7b39176a7289afa9b24ed1538d7`）
+
+**b01 REV 2**（09:35Z）—— 仅 1 页 sha 变：
+```
+InitializeWorkshopAction  92f0ad9e8e2bbaee → 0ae1c07f73bee64e
+其余 4 页不变：0644f84062f4d789 5aecef7e4f7fbe82 886184eb8eb0b992 d8bd93c10f760509
+```
+**b02 REV 2**（同刻）—— 2 页 sha 变：
+```
+InitializeWorkshopAction  92f0ad9e8e2bbaee → 0ae1c07f73bee64e
+MakeHeroFugitiveAction    beea6e9808eedffe → eab6b59955a37e7d
+其余 3 页不变：c7ece361a92f5eb4 2e405907204d0fd2 87e1c5f2f89a9ad6
+```
+**b06 首次冻结**（同刻）：
+```
+Add100RenownCheat 17a295f380ec1166 · AddCraftingMaterialsCheat 7698fafe27592f1a
+AdditionType 1e63dacbc6817cee · AgentAlarmStateEnum 8c84affc11903a28 · AgentBehaviorGroup cc99227858b75254
+```
+**b03/b04/b05：sha 全部不变**（15 页）。
+
+### 39.4 ★ 四句边界（本会话最终版）
+
+```
+① 边界：N <= 文件行数（J3 bad=0）—— 30 页全量已核
+② 归属：full / inBlock / subject 分开计数，0 ambiguous
+③ 行号指向正确性：J13 —— 30 页【全部 0】（12 条已修）
+④ 语义正确性：未核（等 lead-20 的 W-E 数字）
+```
+
+### 39.5 ★★ `../../` 陷阱：今天命中三个不同的执行体
+
+| 执行体 | 错法 | 方向 |
+| --- | --- | --- |
+| worker-208 | 用【文件目录】心算 route | 少算一层 ⇒ `../campaign/` |
+| boss-3 | 自建抽查脚本按【文件目录】当基准 | 报出 8–46 条假断链（自认并把尺作废） |
+| 我（早先） | 把「作用域内 0」写成「全树 0」 | 子集当全树（另一个方向） |
+
+**⇒ 三个人、三种错法、同一个陷阱 ⇒ 这不是粗心，是【结构性陷阱】。**
+**⇒ 唯一可靠的判据：把解析器的数学在【真实树】上复算一遍**（`../../api/...` → EXISTS；`../api/...` → MISSING）。
+
 **已派 `worker-175`（#13161）**做 b01 的 4 页收尾（6 处字符串替换），brief 里明确列出**不许动**的
 `](../../campaign/)` 与 `](../)`。
 

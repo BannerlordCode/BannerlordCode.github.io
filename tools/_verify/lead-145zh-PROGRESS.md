@@ -1324,6 +1324,49 @@ en 页里 H2 含 ≥3 个中文节名的：0
 **排序（boss 定）**：b05 完成并冻结 → 做本改动 + 四格对照 → 冻结 b06。
 **不抢跑的理由**：b05 的 worker 正在用当前那把尺，批次进行中改尺会让 b05 的读数 sha 归属变糊。
 
+---
+
+## 31. ★★ `J12`：同页同文字必须同 href（boss-3 #14814 提出，我升级成尺判据）
+
+### 31.1 来源
+
+boss-3 观察：b03 那条 404 是**同一页里两条指向同一个类的链接一对一错**（第 155 行对、第 166 行错）：
+```
+155: - [InformationData](../../core-extra/InformationData)   ← 对
+166: - **相关：** [InformationData](../InformationData)      ← 错
+```
+⇒ 它建议把「单页自检」写进 worker brief。
+
+### 31.2 我把它升级成判据（而不是一条纪律）
+
+```
+J12：同一页内，【同一个链接文字】的所有出现必须使用【同一个 href】。
+     上例：文字都是 `InformationData` 而 href 不同 ⇒ FAIL
+```
+**理由**：「判据的默认动作应该在【动作发生的地方】，不在一个需要记得去读的地方」。
+**brief 里也会写（双保险），但尺能自动抓住才算真的防住。**
+**生效标记**：与 schema 改动一起标为【对 b06 及以后生效】；保留 `127ee75ae9c20d93` 可回放 b01–b05。
+
+### 31.3 ★ 批尾改用增量尺 —— **必须加限制条件**（lead-20 自查）
+
+boss-3 建议批尾用 `node tools/audit-changed-links.mjs`（秒级、直接给文件+目标）。**方向对，但：**
+```
+changed set = git diff --name-only HEAD ∪ git ls-files --others --exclude-standard
+⇒ 已提交但含断链的文件既不是 modified 也不是 untracked ⇒ 被排除 ⇒ 报 0 ⇒ 【假绿】
+```
+**正确顺序（已写进两个 worker 的 brief）：**
+```
+写完 → 跑 audit-changed-links.mjs（未提交，看得见）→ 修到 0 且 EXIT=0 → 【然后才 commit】
+全站 audit-links.mjs 仍是唯一权威。它是「便宜的自检」，不是「替代门禁」。
+```
+
+### 31.4 ★ 同一运行约束（对我自己 `7/2` 错误的硬约束）
+
+```
+node tools/audit-links.mjs > /tmp/gate.txt 2>&1
+然后【只从这个文件】取 BROKEN_LINKS / FILES_WITH_BROKEN / 明细行数，并核对三者自洽
+```
+
 **已派 `worker-175`（#13161）**做 b01 的 4 页收尾（6 处字符串替换），brief 里明确列出**不许动**的
 `](../../campaign/)` 与 `](../)`。
 

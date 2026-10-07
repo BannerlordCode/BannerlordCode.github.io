@@ -1584,3 +1584,66 @@ Boss 先前批准的那个廉价实验（测 Zola 的 load_data 是否缓存，�
 ⇒ 本线建议：**把该 worker 的预算改投这两条 HEAD 问题**，而不是继续测 R2 的缓存。
    （并且这两条按 Boss 的指派属于 lead-13 —— 它持有模板。）
 ```
+
+---
+
+## 52. Boss 升格：**「不报错」是判据的输出，「正确」是另一个断言**（#17210）
+
+```
+★ 报「已修」时必须验证【修法本身】—— 否则「删掉链接换绿」与「改对路径换绿」在门禁读数上完全一样。
+⇒ 本线实例：核了 314/315/317 三行的实际形态（同桶 `../X` · 跨桶 `../../campaign-ext/X`），
+   并逐条确认目标页存在 ⇒ 才能说「是改对了路径口径」。
+```
+**同族实例（本会话全部实测）**：
+```
+· 一个 0 要分清「判据坏」vs「语料空」
+· AGREE 在空集上不是证据（未区分「跑过且为空」与「没跑」）
+· 检测器的「命中数」在假阳性率出来前不是结果
+· 「发现了某不对称」≠「修好了某不对称」（台账记「发现」不等于记「修复」）
+```
+
+---
+
+## 53. ★ 基础设施：工作区有【两个同名的 `tools/` 树】（W-G 发现，本线核实）
+
+```
+C:\WorkSpace\Bannerlord\tools\_verify\                            ← cwd 根 · git 之外 · 含别线 scratch
+C:\WorkSpace\Bannerlord\BannerlordCode.github.io\tools\_verify\   ← 真仓库 · 301 entries
+```
+**它解释了三次各自被误诊过的异常：**
+```
+① W-G 的「artifact missing」假阴性（产物按 cwd 解析 ⇒ 明明在盘上却报缺失）
+② Boss 注意到的 `arch-topic-evidence.tsv` 两个尺寸（1201 B 仓库外 / 1330 B 仓库内）⇒ 不是两个版本，是两个树
+③ 本线自己早期的 bug：write 工具把 upcheck.mjs 落到仓库外，我手动 mv 才发现
+```
+**⇒ 规则（本线即刻生效）**：**派单与自建产物一律用绝对路径**；写 `tools/...` 相对路径时明确以仓库根为基准。
+**⇒ 并注意 W-G 的缓解措施有漂移风险**：它在两个根各放一份（现在字节一致），但 cwd 根那份在 git 之外
+⇒ **正本 = 仓库内那份**（已入库）；cwd 根那份标为【非权威副本】。
+
+---
+
+## 54. lead-23 四棵树复核：**已完成**（Boss #17210 要求时其实已交付）
+
+```
+交付：tools/_verify/lead-20/lead23-review-20261007T111204Z.md
+      23,555 B · sha256 1bb57814f34e80b0 · 315 行 · 入库 cef8619dac（已复测 clean）
+执行者：worker-227（W-G）· 另入库 8 个原始证据件 + 3 个 manifest
+```
+**Boss 六条重点逐条覆盖**（① 树推导无静默回退 · ② 19/19 引用在 bannerlord-1.4.5 界内 · ③ full=34/inBlock=0/subject=0/bad=0/ambiguous=0 分开计 · ④ j5r unresolved=0 ×5 + 全站 0 · ⑤ 四句边界 · ⑥ U+FFFD node+正控制）。
+**本线独立复算三条**：Finding A 真缺陷（`RegisterListener` 在 `GameStateManager.cs:102`，而页面 0 次提及、0 个真实调用）· Advisory（5/5 页硬编码 `Bannerlord.Source`）· 引用与链接读数一致。
+
+**Boss 两个新问题的答案：**
+```
+① 5 页产出【已入库且 clean】（IFaction/IFormation/ISaveDriver → a899c903；IViewModel/IGameStateManagerListener → 1e32e70a）
+② 「普查归一化不对称」是【已记录的关键发现】（lead-23-PROGRESS.md:18），但【「已修正」无法证实】——
+   那是普查线的工具（coverage-census.mjs），台账只记了发现，没记修复 ⇒ 需问普查线
+```
+
+**★ 真正剩下的**：那三棵 zh 树【目前无产出可审】
+```
+content/v1.4.6 total=112 · v1.4.7 total=97 · v1.5.3 total=153
+modified_since_09:00 = 1 / 1 / 5；lead-23 自述「大三棵（zh）16,765 页未动」
+⇒ 复核它们要等 lead-23 开始写；而那三棵树的布局与 1.4.5 不同（只有 1.4.5 有 Bannerlord.Source 层）
+⇒ 而 Batch-1 的页形【硬编码了 Bannerlord.Source】⇒ 直接复制会产生 `File:` 指向不存在目录
+⇒ 建议：让 lead-23 在开始那三棵树之前先定 `File:` 路径规则
+```

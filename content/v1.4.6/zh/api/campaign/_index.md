@@ -88,8 +88,8 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 
 ### `TaleWorlds.CampaignSystem`（根命名空间，102 个）
 
-- `ActionNotes` — 枚举，AI 与同伴互动时的备注标签库，共 26 个取值，从 `DefaultNote`、`NoQuarrel`、`CourtshipQuarrel`、`FiefQuarrel` 一路到 `SiegeAftermath`，决定 AI 在地图上遇到某人时挑哪句话 ✅ `TaleWorlds.CampaignSystem/ActionNotes.cs`
-- `AIBehaviorData` — 结构体（`IEquatable`），AI 行为树每个 tick 拿到的输入包：`Party`、`Position`、`AiBehavior`、`WillGatherArmy`、`IsFromPort`、`IsTargetingPort` ✅ `TaleWorlds.CampaignSystem/AIBehaviorData.cs`
+- [`ActionNotes`](./ActionNotes) — 枚举，AI 与同伴互动时的备注标签库，共 28 个取值，从 `DefaultNote`、`NoQuarrel`、`CourtshipQuarrel`、`FiefQuarrel` 一路到 `SiegeAftermath`，决定 AI 在地图上遇到某人时挑哪句话 ✅ `TaleWorlds.CampaignSystem/ActionNotes.cs`
+- [`AIBehaviorData`](./AIBehaviorData) — 结构体（`IEquatable`），AI 行为树每个 tick 拿到的输入包：`Party`、`Position`、`AiBehavior`、`WillGatherArmy`、`IsFromPort`、`IsTargetingPort` ✅ `TaleWorlds.CampaignSystem/AIBehaviorData.cs`
 - `Army` — 类，实现 `ITrackableCampaignObject` 与 `ITrackableBase`，地图上的军队聚合体：`ArmyType`、`ArmyOwner`、凝聚力 `Cohesion`、士气 `Morale`、`LeaderParty`，另有 `CalculateCurrentStrength` 与自定义强度覆写 ✅ `TaleWorlds.CampaignSystem/Army.cs`
 - `AtmosphereGrid` — 类，大气状态的空间插值网格，`Initialize` 之后用 `GetInterpolatedStateInfo` 按世界坐标取当前大气状态 ✅ `TaleWorlds.CampaignSystem/AtmosphereGrid.cs`
 - `BattleResultPartyData` — 结构体，一场战斗结算后回传给队伍的数据：一个 `Party` 加上随行的 `Characters` ✅ `TaleWorlds.CampaignSystem/BattleResultPartyData.cs`
@@ -198,18 +198,18 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 
 这一整个命名空间是同一个模式：**每个类型一个「改战役状态」的静态动作**，源码里基本都是 `public static class` 加一个 `Apply` 打头的静态方法（少数例外见下）。它们是改家族 / 王国 / 队伍 / 聚落 / 角色状态时**应该走的入口**——直接改实体字段会绕过事件，AI、界面和存档都不一定跟得上。
 
-- `AddCompanionAction` — 把同伴挂进家族的入口，成员是 `Apply(Clan, Hero)` ✅ `TaleWorlds.CampaignSystem/Actions/AddCompanionAction.cs`
-- `AddHeroToPartyAction` — 把领主塞进队伍（囚犯转化、征召等场景）的入口 ✅ `TaleWorlds.CampaignSystem/Actions/AddHeroToPartyAction.cs`
-- `AdoptHeroAction` — 收养一个英雄并改写其家族归属 ✅ `TaleWorlds.CampaignSystem/Actions/AdoptHeroAction.cs`
+- [`AddCompanionAction`](./AddCompanionAction) — 把同伴挂进家族的入口，成员是 `Apply(Clan, Hero)` ✅ `TaleWorlds.CampaignSystem/Actions/AddCompanionAction.cs`
+- [`AddHeroToPartyAction`](./AddHeroToPartyAction) — 把领主塞进队伍（囚犯转化、征召等场景）的入口 ✅ `TaleWorlds.CampaignSystem/Actions/AddHeroToPartyAction.cs`
+- [`AdoptHeroAction`](./AdoptHeroAction) — 收养一个英雄并改写其家族归属 ✅ `TaleWorlds.CampaignSystem/Actions/AdoptHeroAction.cs`
 - `ApplyHeirSelectionAction` — 领主选定继承人之后统一改写家族继承链 ✅ `TaleWorlds.CampaignSystem/Actions/ApplyHeirSelectionAction.cs`
-- `BeHostileAction` — 施加敌对行为的后果（态度、关系、贵族指数），源码里按强度分成 `ApplyHostileAction`、`ApplyMinorCoercionHostileAction`、`ApplyMajorCoercionHostileAction`、`ApplyEncounterHostileAction` 四档 ✅ `TaleWorlds.CampaignSystem/Actions/BeHostileAction.cs`
+- [`BeHostileAction`](./BeHostileAction) — 施加敌对行为的后果（态度、关系、贵族指数），源码里按强度分成 `ApplyHostileAction`、`ApplyMinorCoercionHostileAction`、`ApplyMajorCoercionHostileAction`、`ApplyEncounterHostileAction` 四档 ✅ `TaleWorlds.CampaignSystem/Actions/BeHostileAction.cs`
 - `BreakInOutBesiegedSettlementAction` — 强攻被围聚落的入口 ✅ `TaleWorlds.CampaignSystem/Actions/BreakInOutBesiegedSettlementAction.cs`
 - `BribeGuardsAction` — 行贿守卫以放行或换取入城 ✅ `TaleWorlds.CampaignSystem/Actions/BribeGuardsAction.cs`
 - `ChangeClanInfluenceAction` — 改写家族在王国里的影响力 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeClanInfluenceAction.cs`
 - `ChangeClanLeaderAction` — 更换家族首领 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeClanLeaderAction.cs`
 - `ChangeCrimeRatingAction` — 改写城镇的犯罪值 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeCrimeRatingAction.cs`
 - `ChangeGovernorAction` — 任免聚落总督 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeGovernorAction.cs`
-- `ChangeKingdomAction` — 让家族加入或退出某个王国 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeKingdomAction.cs`
+- [`ChangeKingdomAction`](./ChangeKingdomAction) — 让家族加入或退出某个王国 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeKingdomAction.cs`
 - `ChangeOwnerOfSettlementAction` — 更换聚落归属 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeOwnerOfSettlementAction.cs`
 - `ChangeOwnerOfWorkshopAction` — 更换工作坊归属 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeOwnerOfWorkshopAction.cs`
 - `ChangePlayerCharacterAction` — 切换主控角色的入口，`Apply(Hero)`。源码里类本身没标 `static`、方法却是静态的，这是个写法上的不一致，用的时候按静态方法调即可 ✅ `TaleWorlds.CampaignSystem/Actions/ChangePlayerCharacterAction.cs`

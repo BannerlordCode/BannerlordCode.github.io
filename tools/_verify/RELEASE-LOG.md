@@ -819,6 +819,97 @@ lead-13 随后在 #10056/#10057 放行修复轮 —— 也就是**写作线在�
 所以这次广播**不是**解除冻结的动作（冻结早已由 Boss 解除），它只是「构建已结束」的通知。
 把它记成「冻结直到我广播」会是一个错误陈述，下一轮不要这样引用。
 
+### 3.22 判据变更：`audit-links.mjs` 放宽解析目标空间（Boss #11426 授权）
+
+**变更类型：甲类（尺坏了 ⇒ 修尺），不是乙类（把缺陷登记掉）。**
+
+Boss #11426 原话要点：
+```
+✗ baseline 通道 / 白名单 / known-failures ⇒ 那是【把缺陷登记掉】= 掩盖
+✓ 授权的是【放宽解析目标空间】：content/ 解析失败时，再在 static/<同相对路径> 查一次
+  ⇒ 真正坏的链接仍然报 broken（负对照必须证明这一点）
+```
+
+**改了什么**（`git diff --stat tools/audit-links.mjs` = 59 insertions / 1 deletion，其中大部分是注释）：
+```
++ const REPO_ROOT = resolve(join(root, '..'));
++ const STATIC_DIR = join(REPO_ROOT, 'static');
++ contentRel(t)       // t 相对 content/ 的相对路径
++ existsAsStatic(t)   // static/<同相对路径> 是否存在
+  循环里：仅在 found === false 时才查 static/；命中则 okStatic++ 且不算 broken
++ RESOLVE_STATIC 计数器（新增，只增不改）
++ 一行 NOTE 解释 RESOLVE_NEITHER 是 content-only 口径
+```
+**未动**：任何阈值、白名单、known-failures 通道、`MODE` 语义、`exitCode` 规则。
+（机械核对：`git diff -- tools/audit-links.mjs | grep -E '^[+-]' | grep -E 'threshold|allow|white|known|skip|ignore|MODE *=|exit'`
+只命中我自己写的注释行。）
+
+**Boss 五条条件的逐条落地**：
+
+| # | 条件 | 落地证据 |
+|---|---|---|
+| 1 | 只放宽解析范围 | 见上；负对照见 #3 |
+| 2 | 报两套数 + 逐条证明只有那 2 条变化 | 54 → 52（occurrences）；unique pair 34 → 32，**移走的正好是 2 条 `../ALL-FUNCTIONS-LIST.txt`，新增集为空** |
+| 3 | 正/负对照 | 见下 |
+| 4 | lead-13 独立复现 | 已请（待回） |
+| 5 | 登记为判据变更 | 本节 |
+
+**正/负对照（用真工具、真 fixture，`AUDIT_CONTENT_ROOT` 指向临时 content）**：
+```
+fixture: content/probe.md 含两条链接；static/static-probe-real.txt 存在，static-probe-missing.txt 不存在
+$ AUDIT_CONTENT_ROOT=<probe>/content node tools/audit-links.mjs
+FILES=1
+BROKEN_LINKS=1        ← 只有 missing 那条
+RESOLVE_STATIC=1      ← real 那条被 static/ 解析掉（正对照成立）
+RESOLVE_NEITHER=2
+## probe.md  (1)
+   -> ../static-probe-missing.txt      ← 负对照成立：static 里不存在就【仍然报 broken】
+```
+
+**真实树上的 before / after（同一棵树、同一时刻，HEAD=`62926c297e`）**：
+
+```
+                        BEFORE(HEAD 版尺)   AFTER(放宽后)
+FILES                   39033               39033
+TOTAL_LINKS             149140              149140
+BROKEN_LINKS            54                  52
+RESOLVE_STATIC          (不存在)            2
+RESOLVE_NEITHER         2                   2
+FILES_WITH_BROKEN       4                   2
+```
+
+**“只有那 2 条变化”的机械证明**：
+```
+$ comm -23 <before broken-set> <after broken-set>     # 只出现在 before = 新解析掉
+   -> ../ALL-FUNCTIONS-LIST.txt
+   -> ../ALL-FUNCTIONS-LIST.txt
+## v1.3.15/en/native-1.3.15-src/COMPLETE-FUNCTIONS.md  (1)
+## v1.3.15/zh/native-1.3.15-src/COMPLETE-FUNCTIONS.md  (1)
+$ comm -13 <before> <after>                            # 只出现在 after = 新断链
+（空）
+```
+**推断闭合**：occurrences 降 2；unique pair 降 2 且新增集为空 ⇒ 被移走的 occurrence 就是那 2 对，
+不存在「移走一条又新增一条使 unique 集不变」的替换。
+
+### 3.23 ⚠️ 一个会误导人的输出细节（本线自查发现）
+
+上面的 `## <file> (N)` 里的 **N 是【该文件内去重后的 href 数】**，不是 occurrence 数：
+```js
+const hs = [...new Set(byFrom[f])];
+console.log('\n## ' + f + '  (' + hs.length + ')');
+```
+所以会出现「列表里数出来 32 条，但 `BROKEN_LINKS=52`」这种看起来矛盾的输出。
+实测：after = 2 个文件 × 16 unique = 32 unique，但 occurrences = 52（同一文件内 href 有重复）。
+**这不是打印截断**（本线先怀疑是 cap，读了源码才发现是 per-file dedup）。
+引用这个列表时必须用 `BROKEN_LINKS` 做总量，用列表做归属，不能把两者相加比较。
+
+### 3.24 与 Boss 报的数字不一致的原因
+
+Boss #11446 报 `BROKEN_LINKS=65 / FILES_WITH_BROKEN=7`；本线在 HEAD=`62926c297e`、
+2026-10-07T06:10:10Z 实测 before=54 / after=52、FILES_WITH_BROKEN=4。
+差异**不是矛盾**：写作线在并发修链（Boss 也报了 112→65 的下降），这是移动靶。
+⇒ 引用时**必须带 SHA 与时点**；Boss 要求的「65 → 63」应以**同一时刻的两把尺**重测。
+
 ### 3.13 本轮结论（按覆盖边界写，不用「全部完成」）
 **覆盖了**：merge 落地并推送（merge commit `55658f4d9d`，双 parent）；用户两个生产修复语义保留并核对；
 台账/快照/门禁读数/分类产物落盘并推送（`b46a3cfdc5`、`3ca61ac8eb`、`7b8b9880d2`）；

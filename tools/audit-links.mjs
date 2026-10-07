@@ -90,6 +90,49 @@ function existsAsPage(t) {
   return false;
 }
 
+// ---------------------------------------------------------------------------
+// STATIC TARGET SPACE  (criterion change, independently authorised)
+//
+// WHY: this gate resolved targets ONLY under `content/`. But the site also
+// publishes `static/`, and Zola copies `static/<path>` to `public/<path>`
+// verbatim. A href pointing at such a file is therefore REACHABLE in the built
+// site while this ruler called it dead. That is a coverage gap in the ruler, not
+// a content defect.
+//
+// EVIDENCE (positive control, not inference from a build artifact): a minimal
+// fixture with `static/probe.txt` and `static/sub/dir/nested.txt` produced
+// `public/probe.txt` and `public/sub/dir/nested.txt` byte-identical after
+// `zola build` (zola 0.22.1), subdirectories preserved. NOTE: the `public/` tree
+// in this repo was at one point the residue of a KILLED build and contained no
+// `static/` files at all, so it is not admissible evidence either way.
+//
+// SCOPE OF THE CHANGE: this widens the target space ONLY. No threshold, no
+// allowlist, no known-failures channel, no change to what "broken" means. A href
+// whose target exists in NEITHER content/ nor static/ is still reported broken --
+// that is the negative control, and it must keep failing.
+// ---------------------------------------------------------------------------
+const REPO_ROOT = resolve(join(root, '..'));
+const STATIC_DIR = join(REPO_ROOT, 'static');
+
+function contentRel(t) {
+  if (t === null) return null;
+  const a = toPosix(normalize(t));
+  const b = toPosix(normalize(root));
+  if (a === b) return '';
+  if (!a.startsWith(b + SLASH)) return null;
+  return a.slice(b.length + 1);
+}
+
+function existsAsStatic(t) {
+  const rel = contentRel(t);
+  if (rel === null || rel === '') return false;
+  try {
+    return existsSync(normalize(join(STATIC_DIR, rel)));
+  } catch {
+    return false;
+  }
+}
+
 function isSelfLink(hrefPath) {
   return hrefPath === '' || hrefPath === '.' || hrefPath === './';
 }
@@ -102,6 +145,7 @@ let okBoth = 0;
 let okUrlOnly = 0;
 let okFileOnly = 0;
 let okNeither = 0;
+let okStatic = 0;
 
 for (const l of allLinks) {
   const hrefPath = l.href.split('#')[0];
@@ -139,7 +183,19 @@ for (const l of allLinks) {
     t = tUrl;
   }
 
-  if (!found) broken.push({ ...l, target: t, foundUrl, foundFile });
+  // Static fallback: only consulted when the content/ resolution FAILED.
+  // Recorded in its own counter so the size of this widening stays visible.
+  let foundStatic = false;
+  if (!found) {
+    const tStatic = t !== null ? t : tUrl;
+    foundStatic = existsAsStatic(tStatic);
+    if (foundStatic) {
+      okStatic++;
+      found = true;
+    }
+  }
+
+  if (!found) broken.push({ ...l, target: t, foundUrl, foundFile, foundStatic });
 }
 
 console.log('FILES=' + files.length);
@@ -153,6 +209,8 @@ console.log('RESOLVE_OK_BOTH=' + okBoth);
 console.log('RESOLVE_URL_ONLY=' + okUrlOnly);
 console.log('RESOLVE_FILE_ONLY=' + okFileOnly);
 console.log('RESOLVE_NEITHER=' + okNeither);
+console.log('RESOLVE_STATIC=' + okStatic);
+console.log('# NOTE: RESOLVE_NEITHER is the CONTENT-ONLY caliber (neither content-URL nor\n#       content-file resolution found the target). It is deliberately left unchanged\n#       by the static-target widening, so a link resolved via static/ is still\n#       counted here AND in RESOLVE_STATIC. Broken = (not resolved anywhere);\n#       RESOLVE_STATIC is the size of the newly-admitted target class.');
 
 const byFrom = {};
 for (const b of broken) (byFrom[b.from] = byFrom[b.from] || []).push(b.href);

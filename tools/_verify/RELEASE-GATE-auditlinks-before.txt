@@ -1,7 +1,7 @@
 FILES=39033
 TOTAL_LINKS=149140
 AUDIT_MODE=url
-BROKEN_LINKS=52
+BROKEN_LINKS=54
 RESOLVE_OK_URL=148896
 RESOLVE_OK_FILE=110159
 RESOLVE_OK_EITHER=148948
@@ -9,13 +9,7 @@ RESOLVE_OK_BOTH=110107
 RESOLVE_URL_ONLY=38789
 RESOLVE_FILE_ONLY=52
 RESOLVE_NEITHER=2
-RESOLVE_STATIC=2
-# NOTE: RESOLVE_NEITHER is the CONTENT-ONLY caliber (neither content-URL nor
-#       content-file resolution found the target). It is deliberately left unchanged
-#       by the static-target widening, so a link resolved via static/ is still
-#       counted here AND in RESOLVE_STATIC. Broken = (not resolved anywhere);
-#       RESOLVE_STATIC is the size of the newly-admitted target class.
-FILES_WITH_BROKEN=2
+FILES_WITH_BROKEN=4
 
 ## v1.3.15/en/architecture/campaign-events.md  (16)
    -> ./campaign-event-system
@@ -35,6 +29,9 @@ FILES_WITH_BROKEN=2
    -> ./crash-boundaries
    -> ./sdk-overview
 
+## v1.3.15/en/native-1.3.15-src/COMPLETE-FUNCTIONS.md  (1)
+   -> ../ALL-FUNCTIONS-LIST.txt
+
 ## v1.3.15/zh/architecture/campaign-events.md  (16)
    -> ./campaign-event-system
    -> ../api/campaign-ext/CampaignEvents/
@@ -52,3 +49,6 @@ FILES_WITH_BROKEN=2
    -> ./save-system
    -> ./crash-boundaries
    -> ./sdk-overview
+
+## v1.3.15/zh/native-1.3.15-src/COMPLETE-FUNCTIONS.md  (1)
+   -> ../ALL-FUNCTIONS-LIST.txt

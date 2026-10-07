@@ -1678,6 +1678,59 @@ worker-208（b06/W-N）开工前报「派单链接事实错误」：
 
 ---
 
+## 46. ★★ b07：worker 同时抓到我的一个【真错】与提出一个【错论断】
+
+### 46.1 ★ 它对的那半：我的 brief 里有一个【不存在的目标】
+
+```
+我写的：../../core-extra/IDataStore   → zh/api/core-extra/IDataStore.md   【MISSING】❌
+它用的：../IDataStore（同桶）          → zh/api/campaign-ext/IDataStore.md  【EXISTS】✅
+```
+**⇒ 它用「只写确实存在的目标」绕过了它，记它一功。**
+**⇒ 我随后把它 brief 里全部 16 个目标逐个复算：15 OK · 1 BAD（就是那一个）⇒ 它抓到的是唯一那一个错。**
+（本会话内建的那条纪律在这里生效了：**内联事实必须逐条核，而 worker 有异议权**。）
+
+### 46.2 ✗ 它错的那半：跨桶形态（第三个执行体踩同一个陷阱）
+
+```
+页：content/v1.4.5/zh/api/campaign-ext/AgentTrackTypes.md
+route：/v1.4.5/zh/api/campaign-ext/AgentTrackTypes/   ← clean URL，多一层
+
+  ../../campaign/Hero      → zh/api/campaign/Hero.md      EXISTS ✅  ← brief 里的形态（对）
+  ../../api/campaign/Hero  → zh/api/api/campaign/Hero.md  MISSING ❌  ← 它提的形态（错）
+  ../campaign/Hero         → zh/api/campaign-ext/campaign/Hero.md MISSING
+```
+**它的错因**：用 `content/v1.4.5/zh/` 下的目录列表判断「没有 `zh/campaign/`」⇒ 推出 `../../campaign/` 会指到 `zh/campaign/`。
+**但解析基准是【页面自己的 route】，不是【页面所在文件的目录】。**
+
+**第二条独立证据**：本线 30 页里 `../../campaign/*` 约 **500 次**（MobileParty 110 · Campaign 108 · Hero 97 · Settlement 84 · Clan 58），
+**全部 `J5R unresolved=0`** ⇒ 若这个形态是错的，那 500 条不可能全绿。
+
+### 46.3 ★★ `../../` 陷阱：现已命中【三个不同的执行体】
+
+| 执行体 | 错法 | 方向 |
+| --- | --- | --- |
+| worker-208（b06） | 用文件目录心算 route | 少算一层 ⇒ `../campaign/` |
+| boss-3 的抽查脚本 | 按页面目录当基准 | 报出 8–46 条假断链（自认并作废尺） |
+| **worker-225（b07）** | 用 `zh/` 下目录列表判断 | 多算一层 ⇒ `../../api/campaign/` |
+
+**⇒ 三人、三错法、同一陷阱 ⇒ 【结构性陷阱】，不是粗心。**
+**⇒ 唯一可靠判据：把解析器的数学在【真实树】上复算一遍。**
+
+### 46.4 ★★ 一条新的分法：**报告不可整体判定，必须逐条裁定**
+
+> 同一份报告里两条断言【一对一错】，而两条都是同一轮、用同一份证据提出的。
+> ⇒ 「报告整体可信 / 不可信」是个错误的分法；正确做法是【逐条裁定】。
+
+**⇒ 它提的 `IDataStore` 那条救了一个破链；它提的跨桶那条若被采纳会造一批破链。两条都要分开看。**
+**⇒ 这是今天那条通式的另一面：**
+```
+结论对 ≠ 归因对（原向）
+一条对 ≠ 同一份报告里另一条也对（反向）
+```
+
+---
+
 ## 37. ★★ `J13`：行号在界内但指错行 —— 在我自己的已冻结批次里抓到 12 条
 
 ### 37.1 来源

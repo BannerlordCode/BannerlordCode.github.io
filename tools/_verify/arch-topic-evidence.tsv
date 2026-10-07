@@ -1,0 +1,8 @@
+module-system-loading	Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Module.cs:30	public sealed class Module : DotNetObject, IGameStateManagerOwner
+module-system-loading	Bannerlord.Source/bin/TaleWorlds.ModuleManager/TaleWorlds.ModuleManager/ModuleInfo.cs:13	public readonly List<SubModuleInfo> SubModules;
+gamemodel-decorator	Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignGameStarter.cs:59	public T GetModel<T>() where T : GameModel
+gamemodel-decorator	Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignGameStarter.cs:76	public void AddModel<T>(MBGameModel<T> gameModel) where T : GameModel
+save-system	Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveManager.cs:13	public static class SaveManager
+save-system	Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/SaveableCampaignTypeDefiner.cs:40	public class SaveableCampaignTypeDefiner : SaveableTypeDefiner
+mission-ui-boundary	Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionBehavior.cs:9	public abstract class MissionBehavior : IMissionBehavior
+mission-ui-boundary	Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/ViewModel.cs:9	public abstract class ViewModel : IViewModel, INotifyPropertyChanged

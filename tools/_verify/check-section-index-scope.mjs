@@ -44,6 +44,18 @@ const BEGIN = '<!-- BEGIN SECTION INDEX -->';
 const END = '<!-- END SECTION INDEX -->';
 const REMOVED = '\n<SECTION-INDEX-BLOCK-REMOVED>\n';
 
+/**
+ * Representation normalisation FIRST (project rule: "表示层归一化先行").
+ * `git show HEAD:<path>` returns the blob (LF, per .gitattributes eol=lf for
+ * content/**), while readFileSync returns the working-tree bytes, which are
+ * frequently CRLF. Comparing those directly reports EVERY line as different and
+ * makes the gate scream OUT-OF-SCOPE at line 1 on files that are perfectly
+ * in-scope. That is a false accusation of the worst kind (it accuses the nav
+ * line of crossing the narrow exception). So we compare normalised text, and we
+ * also report the raw verdict so the difference stays visible instead of hidden.
+ */
+const normalize = (t) => t.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+
 function git(args) {
   return execFileSync('git', args, { encoding: 'utf8', maxBuffer: 1 << 28 });
 }
@@ -107,15 +119,28 @@ for (const path of targets) {
   }
   const a = stripBlock(head);
   const b = stripBlock(work);
-  if (a === b) {
-    rows.push(['IN-SCOPE', path, 'all differences are inside the marker block']);
+  const rawSame = a === b;
+  const aN = normalize(a);
+  const bN = normalize(b);
+  if (aN === bN) {
+    rows.push([
+      'IN-SCOPE',
+      path,
+      rawSame
+        ? 'all differences are inside the marker block'
+        : 'all differences are inside the marker block (raw compare differed ONLY by CRLF vs LF)',
+    ]);
   } else {
     failures++;
-    const al = a.split('\n');
-    const bl = b.split('\n');
+    const al = aN.split('\n');
+    const bl = bN.split('\n');
     let i = 0;
     while (i < al.length && i < bl.length && al[i] === bl[i]) i++;
-    rows.push(['OUT-OF-SCOPE', path, `first difference outside the block at line ${i + 1}`]);
+    rows.push([
+      'OUT-OF-SCOPE',
+      path,
+      `first real difference outside the block at line ${i + 1} (CRLF-normalised)${rawSame ? '' : '; raw compare also differed'}`,
+    ]);
   }
 }
 

@@ -614,8 +614,127 @@ staged = 0
 3. **83 行 NOT MEASURED 的 tools 路径**：未分类，不能当已处理。
 4. **本线从未提交过任何 content/**：至本轮结束，content 的 3395 项仍全在工作区。
 
-### 3.13 本轮结论（按覆盖边界写，不用「全部完成」）
+### 3.14 🔴 归因更正（Boss #11033）——删除的授权出处
 
+本节 3.8 曾写「这 2 条删除本来是**写作线的意图**……我只是把**别人的半成品**删除了」。
+**这个归因是错的，而且方向相反**，必须更正（不改历史，改记录）：
+
+```
+那 2 条删除是【Boss 的裁定】——Path A（#10714），三条硬条件，
+由【导航线的 worker I2】执行（git rm + 复测），是一条【已完成、已授权】的动作，
+不是「写作线的半成品」，也不是「别人的东西」。
+⇒ 内容是对的，删除是终态。若记成「半成品」，下一个人会以为发生过一次未授权删除。
+```
+
+**仍然成立的那一半**（这才是真正的缺陷）：`7b8b9880d2` 的 message 声称
+「No content/** in this commit. No git add -A. Pathspec-limited commits only.」，
+**与实际内容不符**（它含 2 条 `D`）。根因是本线漏写 `git commit -- <paths>` 的 pathspec。
+本仓禁止 force-push，所以**以本条记录更正，不改写已推送的历史**。
+
+Boss 裁定选 **(B)**：不还原、不改写历史、不 force-push。理由（引用 Boss 原话意思）：
+还原 2 个 119B 垫片 = 把 `static/` 那份 166KB 真列表重新盖成死文件，
+等于「为了簿记整齐去恢复一个已实测的线上缺陷」。
+
+**独立实测确认了 static/ 那一半**：
+```
+$ ls -la static/v1.3.15/en/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt
+  -rw-r--r-- 1 ModerRAS 197609 166428 Jun 21 20:34 .../en/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt
+$ ls -la static/v1.3.15/zh/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt
+  -rw-r--r-- 1 ModerRAS 197609 166428 Jun 21 20:34 .../zh/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt
+```
+⇒ 真列表在 `static/`（166,428 B），Zola 原样发布 `static/`，所以该 URL 实际可达；
+门禁只解析 `content/` 是它的**覆盖缺口**，不是内容缺陷。
+
+**链接形态已由导航线修好**（本线独立实测，非转述）：
+```
+$ grep -n 'ALL-FUNCTIONS-LIST' content/v1.3.15/{en,zh}/native-1.3.15-src/COMPLETE-FUNCTIONS.md
+  en/.../COMPLETE-FUNCTIONS.md:18:| Full list | [ALL-FUNCTIONS-LIST.txt](../ALL-FUNCTIONS-LIST.txt) |
+  zh/.../COMPLETE-FUNCTIONS.md:22:| 完整列表 | [ALL-FUNCTIONS-LIST.txt](../ALL-FUNCTIONS-LIST.txt) |
+```
+（已从 `./` 改成 `../`。）剩下的 `static/` 覆盖缺口按 Boss #10920 走 **known-failures 登记**（登记、非屏蔽；
+`tools/data/known-failures-links.json` 存在且已跟踪）。
+
+### 3.15 🔴 门禁实测：`BROKEN_LINKS=51`，不是 2，也不是 0
+
+Boss #11051 期待「这两步落地后 BROKEN_LINKS 应为 0」。**实测不是。**
+本线在 HEAD=`2a2e94118d`、2026-10-07T05:50:45Z 实测：
+
+```
+$ node tools/audit-links.mjs
+exit=1
+FILES=39031
+TOTAL_LINKS=149077
+AUDIT_MODE=url
+BROKEN_LINKS=51
+RESOLVE_OK_URL=148840
+RESOLVE_OK_FILE=110149
+RESOLVE_OK_EITHER=148884
+RESOLVE_OK_BOTH=110105
+RESOLVE_URL_ONLY=38735
+RESOLVE_FILE_ONLY=44
+RESOLVE_NEITHER=7
+FILES_WITH_BROKEN=7
+```
+
+全部 51 条（7 个文件），逐条如下（这是提交 content 前置条件未满足的**真实规模**）：
+
+| 文件 | 条数 | 目标 |
+|---|---|---|
+| `v1.3.0/zh/api/campaign/DefaultAgeModel.md` | 3 | `../AlleyCampaignBehavior` · `../CommonTownsfolkCampaignBehavior` · `../ClanMemberRolesCampaignBehavior` |
+| `v1.3.15/en/architecture/campaign-event-system.md` | 14 | `../api/campaign/Campaign/` · `../api/campaign-ext/{CampaignEventDispatcher,CampaignEventReceiver,CampaignBehaviorBase,MbEvent,IMbEvent,ReferenceMBEvent,CampaignGameStarter,CampaignEvents}/` · `../api/save-system/SaveManager/` · `./module-system` · `./save-system` · `./sdk-overview` · `./crash-boundaries` |
+| `v1.3.15/en/architecture/mission-lifecycle.md` | 1 | `../../api/mission/MissionState/` |
+| `v1.3.15/en/native-1.3.15-src/COMPLETE-FUNCTIONS.md` | 1 | `../ALL-FUNCTIONS-LIST.txt`（= 3.14 的 `static/` 覆盖缺口） |
+| `v1.3.15/zh/architecture/campaign-event-system.md` | 14 | 同 en 那份 |
+| `v1.3.15/zh/architecture/mission-lifecycle.md` | 1 | 同 en 那份 |
+| `v1.3.15/zh/native-1.3.15-src/COMPLETE-FUNCTIONS.md` | 1 | 同 en 那份 |
+
+**读数漂移警告**：本线在同一 HEAD 附近短时间内测到 **2 → 49 → 51** 三个值（`FILES` 39027 → 39029 → 39031）。
+写作线在并发写入，所以这是一个**移动靶**。任何引用都必须带时点。
+**趋势**：不是「快归零了」，而是「在变多」——新增的 `architecture/campaign-event-system.md` 一类新页带来 28 条，
+形态集中在两种：尾斜杠（`../api/campaign/Campaign/`）与 `./` 同行页写法（`./module-system`）。
+
+### 3.16 本线自报：作用域门禁的 CRLF 假阳性已修（修前/修后都保留）
+
+**缺陷**：`check-section-index-scope.mjs` 直接比较 `git show HEAD:<path>`（blob，LF，
+因 `.gitattributes` 对 `content/**` 规定 `eol=lf`）与 `readFileSync`（工作区字节，常为 CRLF）。
+两者直接比 → **每一行都不同** → 门禁在**第 1 行**就报 OUT-OF-SCOPE，
+即使该文件完全在块内。这是最坏的一类假阳性：它**指控导航线越界**。
+
+**修法**（遵循项目规则「表示层归一化先行」）：比较前先 `\r\n → \n`，并把**原始比较结果也一并报告**，
+让行尾差异可见而不是被隐藏。修前/修后对 31 个文件的**判定结论完全相同**（23 in-scope / 6 out / 2 new），
+**只有报告的行号与理由变得可信**（例如 campaign/_index.md 的「第 1 行」实为**第 103 行**）。
+
+### 3.17 6 个 out-of-block `_index.md` 的逐条归因（Boss #10928 要求）
+
+判定口径：本会话开工 ≈ 2026-10-07T04:33Z；**mtime 早于该时刻 ⇒ 甲（本会话前的存量）**。
+`??` 与 `M` 分开算。
+
+| # | 路径 | 只落在 marker 块内？ | mtime | 属本会话前存量？ | 归因 |
+|---|---|---|---|---|---|
+| 1 | `content/v1.4.5/en/api/campaign/_index.md` | 否（归一后第 103 行） | 2026-10-03 22:18:38 +0800 | 是（在 snap1 里） | **甲** |
+| 2 | `content/v1.4.5/en/api/final/_index.md` | 否（第 10 行） | 2026-10-05 00:25:02 +0800 | 是（在 snap1 里） | **甲** |
+| 3 | `content/v1.4.5/en/api/mission/_index.md` | 否（第 58 行） | 2026-10-03 22:18:38 +0800 | 是（在 snap1 里） | **甲** |
+| 4 | `content/v1.4.5/zh/_index.md` | 否（第 2 行） | 2026-10-03 20:42:16 +0800 | 是（在 snap1 里） | **甲** |
+| 5 | `content/v1.4.6/en/architecture/_index.md` | 否（第 2 行） | 2026-10-05 00:25:02 +0800 | 是（在 snap1 里） | **甲** |
+| 6 | `content/v1.4.7/en/api/engine/_index.md` | 否（第 3 行） | **2026-10-07 13:13:52 +0800 = 05:13:52Z** | **否（不在 snap1 里）** | **乙** |
+
+**#6 是唯一一个乙**（本会话内写到了块外），其块外 diff 是 frontmatter `description:` + 正文计数句
+（`0 pages in this tree` → `1 page in this tree`）。**本线未自行回滚**（Boss #10928：回滚是拿破坏换整齐）。
+写入方归属：mtime 落在本会话构建窗口内，本线**无法确定是哪条线**，按 Boss 要求列清单待裁。
+
+**另需澄清一处口径混淆**：Boss #10928 说「那 2 个 out-of-scope 的新页（`gamemodel-decorator.md` ×2）」。
+实测这是**两对不同的东西**，不能合并：
+
+```
+?? content/v1.3.15/en/architecture/gamemodel-decorator.md   ← Boss 说的那一对（纯新增页）
+?? content/v1.3.15/zh/architecture/gamemodel-decorator.md
+?? content/v1.5.3/zh/api/localization/_index.md             ← 本线门禁报的 NEW 那一对（不在 HEAD 的 _index.md）
+?? content/v1.5.3/zh/api/storymode/_index.md
+```
+
+前一对不属本门禁范围（不叫 `_index.md`）；后一对才是门禁的 2 个 NEW（新建整页 = 写正文，窄口外）。
+
+### 3.13 本轮结论（按覆盖边界写，不用「全部完成」）
 **覆盖了**：merge 落地并推送（merge commit `55658f4d9d`，双 parent）；用户两个生产修复语义保留并核对；
 台账/快照/门禁读数/分类产物落盘并推送（`b46a3cfdc5`、`3ca61ac8eb`、`7b8b9880d2`）；
 全站构建前台跑完一次（2011s / 38486 pages / 30 orphan，标注为非静止树读数）；

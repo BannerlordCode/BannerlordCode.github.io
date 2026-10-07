@@ -1,18 +1,61 @@
-FILES=39027
-TOTAL_LINKS=149005
+FILES=39031
+TOTAL_LINKS=149077
 AUDIT_MODE=url
-BROKEN_LINKS=2
-RESOLVE_OK_URL=148819
-RESOLVE_OK_FILE=110101
-RESOLVE_OK_EITHER=148819
-RESOLVE_OK_BOTH=110101
-RESOLVE_URL_ONLY=38718
-RESOLVE_FILE_ONLY=0
-RESOLVE_NEITHER=2
-FILES_WITH_BROKEN=2
+BROKEN_LINKS=51
+RESOLVE_OK_URL=148840
+RESOLVE_OK_FILE=110149
+RESOLVE_OK_EITHER=148884
+RESOLVE_OK_BOTH=110105
+RESOLVE_URL_ONLY=38735
+RESOLVE_FILE_ONLY=44
+RESOLVE_NEITHER=7
+FILES_WITH_BROKEN=7
+
+## v1.3.0/zh/api/campaign/DefaultAgeModel.md  (3)
+   -> ../AlleyCampaignBehavior
+   -> ../CommonTownsfolkCampaignBehavior
+   -> ../ClanMemberRolesCampaignBehavior
+
+## v1.3.15/en/architecture/campaign-event-system.md  (14)
+   -> ../api/campaign/Campaign/
+   -> ../api/campaign-ext/CampaignEventDispatcher/
+   -> ../api/campaign-ext/CampaignEventReceiver/
+   -> ../api/campaign-ext/CampaignBehaviorBase/
+   -> ../api/save-system/SaveManager/
+   -> ../api/campaign-ext/MbEvent/
+   -> ../api/campaign-ext/IMbEvent/
+   -> ../api/campaign-ext/ReferenceMBEvent/
+   -> ../api/campaign-ext/CampaignGameStarter/
+   -> ../api/campaign-ext/CampaignEvents/
+   -> ./module-system
+   -> ./save-system
+   -> ./sdk-overview
+   -> ./crash-boundaries
+
+## v1.3.15/en/architecture/mission-lifecycle.md  (1)
+   -> ../../api/mission/MissionState/
 
 ## v1.3.15/en/native-1.3.15-src/COMPLETE-FUNCTIONS.md  (1)
-   -> ./ALL-FUNCTIONS-LIST.txt
+   -> ../ALL-FUNCTIONS-LIST.txt
+
+## v1.3.15/zh/architecture/campaign-event-system.md  (14)
+   -> ../api/campaign/Campaign/
+   -> ../api/campaign-ext/CampaignEventDispatcher/
+   -> ../api/campaign-ext/CampaignEventReceiver/
+   -> ../api/campaign-ext/CampaignBehaviorBase/
+   -> ../api/save-system/SaveManager/
+   -> ../api/campaign-ext/MbEvent/
+   -> ../api/campaign-ext/IMbEvent/
+   -> ../api/campaign-ext/ReferenceMBEvent/
+   -> ../api/campaign-ext/CampaignGameStarter/
+   -> ../api/campaign-ext/CampaignEvents/
+   -> ./module-system
+   -> ./save-system
+   -> ./sdk-overview
+   -> ./crash-boundaries
+
+## v1.3.15/zh/architecture/mission-lifecycle.md  (1)
+   -> ../../api/mission/MissionState/
 
 ## v1.3.15/zh/native-1.3.15-src/COMPLETE-FUNCTIONS.md  (1)
-   -> ./ALL-FUNCTIONS-LIST.txt
+   -> ../ALL-FUNCTIONS-LIST.txt

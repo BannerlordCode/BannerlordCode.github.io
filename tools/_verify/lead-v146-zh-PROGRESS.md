@@ -498,6 +498,77 @@ git cat-file -e HEAD:content/v1.4.6/zh/api/campaign/PartyBase.md       # → 不
 
 > `MissionObject.md` 的 J13 轨迹：**8 → 2 → 0**（共修两轮）；`SaveContext.md`：`J13=14 + 2 条裸引用` → `J13=0 bare=0`。两页都是先被判分器放行（`fail=0`）、后被 `j13-hard-gate` 拦下的。
 
+## ✅ 批 6 第二笔提交：`320795a69b`（4 页 campaign）
+
+```
+[main 320795a69b] content(v1.4.6-zh): hand-write 4 campaign deep pages (MobileParty/PartyBase/TroopRoster/Kingdom) + wire into index
+ 5 files changed, 929 insertions(+), 1 deletion(-)
+```
+
+| 项 | 值 |
+| --- | --- |
+| SHA | `320795a69b692af284892e7356b9c9011504860c`（短 `320795a69b`） |
+| 父提交 | `5ca645f74c` |
+| 提交文件（5） | `campaign/MobileParty.md`（新）· `campaign/PartyBase.md`（新）· `campaign/TroopRoster.md`（新）· `campaign/Kingdom.md`（新）· `campaign/_index.md`（M） |
+| 计数不变量 | 4 页 ⇒ campaign 索引新增 **4** 条链接行（实测 `git diff \| grep -c`） |
+| 提交前 | 暂存区 **0** 行；暂存后 **5** 行 = 预期 |
+| 提交集合自洽 | `SELFCHECK_FAIL=0` |
+
+四判据读数（提交时）：
+
+| 页 | bad | checked | members | J13 | bare |
+| --- | --- | --- | --- | --- | --- |
+| `campaign/MobileParty.md` | 0 | 113 | 113 | 0 | 0 |
+| `campaign/PartyBase.md` | 0 | 59 | 59 | 0 | 0 |
+| `campaign/TroopRoster.md` | 0 | 46 | 46 | 0 | 0 |
+| `campaign/Kingdom.md` | 0 | 66 | 44 | 0 | 0 |
+
+> `MobileParty` 的 `checked` 轨迹：**0 → 113**（根因是「关键成员」表缺行号列，不是写手疏忽）；`PartyBase`：**0 → 59**。两页的跨桶链接深度错（`../campaign-ext/` → `../../campaign-ext/`）也已修正。
+
+### 提交后复测
+
+```bash
+node tools/audit-links.mjs   # → BROKEN_LINKS=2 · FILES_WITH_BROKEN=1 · EXIT=1
+```
+
+| 病灶 | 归属 |
+| --- | --- |
+| `v1.4.6/zh/api/campaign/MapEvent.md` | **本线在制品**（`??`，不在 HEAD） |
+
+**本笔 5 个文件一个也没出现在 broken 列表里** ✅。且全站 broken 由上一笔后的 **4 → 2**（我这两笔修掉了 `MobileParty`/`PartyBase` 的深度错；v1.4.7 线也自行提交修掉了 `Hero`）。
+
+```bash
+node tools/nav-orphans.mjs    # → total_pages=39211 · orphans=1 → v1.4.6/zh/api/campaign/MapEvent/
+git cat-file -e HEAD:content/v1.4.6/zh/api/campaign/MapEvent.md   # → 不在 HEAD ⇒ HEAD 干净
+```
+
+### 规则 A §1.2 状态（campaign 桶）：已达标
+
+```
+grep -oE '\]\(\./[A-Za-z0-9_]+\)' content/v1.4.6/zh/api/campaign/_index.md | sort -u | wc -l   # → 30
+git ls-tree -r --name-only HEAD content/v1.4.6/zh/api/campaign/ | grep -c '\.md$'                    # → 31（30 叶子 + _index）
+```
+
+⇒ **linked 30 = tracked 30**，campaign 桶的页面表已完整列出磁盘全集。头部声称已由陈旧的 `19` 改为实测 `30`。
+
+### 🔖 链接降级登记（待恢复）——按 boss 规则②
+
+| 页 | 降级的出边 | 原因 | 恢复条件 |
+| --- | --- | --- | --- |
+| `campaign/Kingdom.md` | `../MapEvent` | 提交时 `MapEvent.md` 未落盘且本身 `bare=1` 未修 | `MapEvent.md` 过四判据并入库后恢复 |
+| `campaign/Kingdom.md` | `../CampaignEventDispatcher` | `CampaignEventDispatcher.md` 未落盘 | 同上 |
+
+降级写法：`· \`MapEvent\`（尚未落盘，本批不链）` —— 保留信息（它们是同桶相关页），只去掉 markdown 链接形态。
+**恢复时必须实测**：`../MapEvent` 已入 HEAD（`git cat-file -e`）再改回链接，不凭计划恢复。
+
+### `MapEvent.md` 现存缺陷（已发令 worker-274）
+
+```
+FAIL  bad=0  checked= 104  members= 65  J13= 0  bare= 1   campaign/MapEvent.md
+```
+
+只差 **`bare=1`**（1 条裸 `:N`）。`checked=104 ≥ members=65` 与 `J13=0` 均过。裸引用会绕过 J13（判分器只对带文件名的引用跑 J13）⇒ 必须补文件名后才能入库。
+
 ## 操作教训（本线实测，写给后续 Lead）
 
 **artifact 声明必须用绝对路径。** Lead 的 cwd 是工作区根 `C:/WorkSpace/Bannerlord`，而该根下**另有一个 `tools/` 目录**（`C:/WorkSpace/Bannerlord/tools/_verify` 实测存在）。用相对路径 `tools/_verify/<台账>.md` 声明 artifact 时，存在性检查落到工作区根那份 ⇒ 假报「missing artifact」（本线已实测触发一次 supervisor error，文件其实一直在仓库里）。正确写法：

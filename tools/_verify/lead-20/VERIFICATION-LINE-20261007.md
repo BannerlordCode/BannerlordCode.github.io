@@ -1114,3 +1114,74 @@ breadcrumb/父级链接 ⇒ 提供【上行】⇒ 对治「回不来」与「不
 · 每个控制样本必须附【我实测过它】的证据：文件 + 行号 + 那一行的原文 + 命令
   （未实测的控制样本会成为新的误差源：Boss 给的反向控制 `SaveManager.cs:69` 本身就是偏移 8 的缺陷案例）
 ```
+
+---
+
+## 35. ⛔ 门禁转红（10:24:13Z）：14 条断链 / 1 文件 · **新缺陷类：源码命名空间路径当页面链接**
+
+```
+UTC 2026-10-07T10:24:13Z   node tools/audit-links.mjs   sha256_16=efa042c2c32fed59（自带）
+FILES=39039 · TOTAL_LINKS=149778 · BROKEN_LINKS=14 · FILES_WITH_BROKEN=1 · RESOLVE_NEITHER=16 · RESOLVE_STATIC=2
+```
+
+### 病灶（四样证据）
+```
+content/v1.3.0/zh/api/campaign/DefaultTournamentModel.md
+① stat       size=19266  mtime=2026-10-07 18:19:25 +0800
+② sha256     6e7819e883e4834df6a56b3c5ad4785c8db0e7e28bea36b144174ee1492998c5
+③ git log -1 b671496b45
+④ git diff --stat  1 file changed, 263 insertions(+), 94 deletions(-)   ← 有未提交改动
+```
+
+### 缺陷类：把 **C# 命名空间目录路径** 当成 wiki 页面路由
+```
+页里写（14 条）：../TournamentGames/X · ../ComponentInterfaces/TournamentModel · ../SandBox/Missions/…/ArenaPracticeFightMissionController
+              · ../Settlements/Town · ../SkillObject · ../Equipment · ../ItemObject
+实际目标页（逐条实测，全部存在，都在【扁平桶路径】下）：
+  TournamentCampaignBehavior/TournamentManager/FightTournamentGame/TournamentGame/TournamentModel
+    → content/v1.3.0/zh/api/campaign/*.md
+  ArenaPracticeFightMissionController → content/v1.3.0/zh/api/campaign-ext/*.md
+⇒ 修法：换成扁平桶路径（同桶 ./X，跨桶 ../<桶>/X）；【不要】创建命名空间目录。
+```
+**⇒ 与今天另两类同族**：`.md` 后缀（8 条）· 桶名写错（6 条）。
+**共同形态：路径看着合理、目标真实存在、只有【路径口径】错 ⇒ 形态检查抓不到，只有解析式门禁能抓。**
+
+### 本线读数格式已补成【四样】（Boss 第 11 种成因）
+```
+stat -c '%s %y' <path>          # 大小与 mtime
+sha256sum <path>                # 内容指纹
+git log --oneline -1 -- <path>  # 最后一次提交
+git diff --stat -- <path>       # ★ 未提交改动是什么（空 = 干净）
+⇒ 前三条回答「变了没有 / 属于哪个提交」，第四条回答「当前未提交的是什么」。
+⇒ 第 11 种成因与前十种性质不同：前十种是【数本身不可复核】；第 11 种是【状态归属不可判定】。
+```
+
+---
+
+## 36. Boss 裁定：Layer 3 规格错误，**窄而准优于宽而吵**（本线确认）
+
+```
+缺陷 A（配对错）：「取引用附近的 backticked 标识符」⇒ 会把邻近但属于别的引用的标识符配上来
+缺陷 B（判据错）：「该标识符的声明行」⇒ 但引用经常指向【使用点】
+⇒ 两者都必然产生假阳性，与页面质量无关。
+裁定：用 (a)+(b) 组合 —— ① 配对限定在该引用【自身的括号/短语】内
+                        ② 判据 = 「被引那一行是否包含被点名的标识符」（声明点/使用点都算）
+⇒ 含义收成一句可判定的话：「你引的这一行，压根没提到你说它关于的那个东西」
+```
+
+### ★ 但真正优先的是【窄形态 J13】
+```
+J13（只报「被引行是空行/纯注释/纯标点」）在 lead-18 已冻结的 30 页里抓到【12 条真缺陷】，且几乎无假阳性
+Layer 3 宽形态：13,202 条标记，随手抽 2 条 = 2 条假阳性 ⇒ 精度不足以支持任何结论
+⇒ 判据：当一个检测目标可以用「窄且高精度」的方式表达时，不要用「宽且需要人工筛」的方式。
+  因为后者的成本不是「多花时间」，而是【它产出的数字不可用】。
+```
+**⇒ 处置**：① Layer 3 按 (a)+(b) 重实现并报精度率；精度率出来前 13,202 不得出现在任何结论里
+（本线已如此）② 若精度率仍不可接受 ⇒ 放弃 Layer 3，把 J13 作为该目标的正式判据
+③ 报告须写明：**「通过控制」只证明检测器在控制点上行为正确，不证明它在全局的精度。**
+
+### ★ 本线最该被记住的一条（Boss 将写进判据文档）
+> **没有精度率的裸计数不是结果。** 一个检测器的「命中数」在它自己的假阳性率出来之前，
+> 只说明它跑了，不说明它发现了什么。
+
+**⇒ 本线据此刻意拒绝把 `layer1_flagged=2746`、`layer3=13,202/4,708` 当作缺陷数上报 —— 这不是谨慎，是纪律。**

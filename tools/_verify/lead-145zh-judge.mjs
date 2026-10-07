@@ -23,6 +23,9 @@
 //   J5R ★ 链接解析: 页内每条 markdown 链接必须真的能解析（见下方「解析算法是副本」）
 //   J10 ★ 链接位置: markdown 链接只允许出现在【参见族】与【导航】小节里。
 //       其余位置（正文叙述）写链接 = FAIL —— 这是政策 #12761 的机械形式。
+//   J11 ★ 链接形态: 【叶子目标】不得带尾斜杠（写 `../X` 而非 `../X/`）。
+//       但【节索引】带尾斜杠是对的（`../`、`../../<桶>/`）—— 所以判据不是「不能有斜杠」，
+//       而是「去掉尾斜杠后若存在同名叶子页 `X.md` ⇒ 该目标本就是叶子 ⇒ 尾斜杠是缺陷」。
 //   J6 机械深页: classifyPage() === deep_pass
 //   J7 脱离自动档: 全文不得含生成标记
 //   J8 体量: 正文（frontmatter 之后）字节 > 2500 且 H2/H3 >= 1
@@ -170,6 +173,23 @@ function existsAsStatic(t) {
 }
 
 const LINK_RE = /\[([^\]]*)\]\(([^)\s]+)\)/g;
+function relativeLinks(text) {
+  const out = [];
+  LINK_RE.lastIndex = 0;
+  let m;
+  while ((m = LINK_RE.exec(text))) {
+    const href = m[2].split(/\s/)[0];
+    if (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('#')) continue;
+    out.push(href);
+  }
+  return out;
+}
+
+function pageFromUrl(pageRel) {
+  const route = fileToRoute(resolve(REPO, pageRel));
+  return route.endsWith('/') ? route : route + '/';
+}
+
 function unresolvedLinks(pageRel, text) {
   const abs = resolve(REPO, pageRel);
   const route = fileToRoute(abs);
@@ -293,6 +313,23 @@ function judge(pageRel, mode) {
     if (stray.length) out.fail.push(`J10 links-outside-see/nav=${stray.length} [${stray.slice(0, 4).join('; ')}]`);
   }
 
+  // J11：叶子目标的链接不得带尾斜杠（节索引允许）
+  if (!isIndex) {
+    const fromUrl = pageFromUrl(pageRel);
+    const trailing = [];
+    for (const href of relativeLinks(text)) {
+      const h = href.split('#')[0];
+      if (!h.endsWith('/')) continue;
+      if (h === '../' || h === './' || h === '/') continue; // 父节索引
+      const stripped = h.replace(/\/+$/, '');
+      const t = resolveTarget(fromUrl, stripped);
+      // 去掉尾斜杠后存在同名叶子页 ⇒ 目标本就是叶子 ⇒ 尾斜杠是缺陷
+      if (t !== null && existsSync(normalize(t + '.md'))) trailing.push(href);
+    }
+    out.checks.J11_trailing_slash = trailing;
+    if (trailing.length) out.fail.push(`J11 leaf-link-with-trailing-slash=${trailing.length} [${[...new Set(trailing)].join(', ')}]`);
+  }
+
   // J6 + 两个口径
   const cp = classifyPage(pageRel, text);
   const nonLinkReasons = cp.reasons.filter((r) => !LINK_FAMILY_REASONS.includes(r));
@@ -410,7 +447,7 @@ const results = pages.map((p) => judge(p, mode));
 for (const r of results) {
   console.log(`${r.pass ? 'PASS' : 'FAIL'}  ${r.page}`);
   console.log(`      J1 fffd=${r.checks.J1_fffd} · J2 missing=[${(r.checks.J2_missing || []).join(',')}] · J3 cites=${r.checks.J3_citations} bad=${(r.checks.J3_bad || []).length} · J4 bare=${r.checks.J4_bare_line_refs}`);
-  console.log(`      J5 dotSlash=${r.checks.J5_dot_slash ?? 'n/a'} indexLinks=${r.checks.J5_index_links ?? 'n/a'} · J5R unresolved=${(r.checks.J5R_unresolved || []).length} · J10 stray=${(r.checks.J10_stray_links || []).length} · J8 ${r.checks.J8_bodyBytes}B/${r.checks.J8_h2h3} · J9 csharp=${r.checks.J9_csharp_lines}`);
+  console.log(`      J5 dotSlash=${r.checks.J5_dot_slash ?? 'n/a'} indexLinks=${r.checks.J5_index_links ?? 'n/a'} · J5R unresolved=${(r.checks.J5R_unresolved || []).length} · J10 stray=${(r.checks.J10_stray_links || []).length} · J11 trailSlash=${(r.checks.J11_trailing_slash || []).length} · J8 ${r.checks.J8_bodyBytes}B/${r.checks.J8_h2h3} · J9 csharp=${r.checks.J9_csharp_lines}`);
   console.log(`      J6=${r.checks.J6_classifyPage?.status} · deepPass=${r.checks.deepPass} · tier=${r.checks.tier} · J7 markers=${(r.checks.J7_gen_markers || []).length}`);
   if (r.checks.J2_h2?.length) console.log(`      H2: ${r.checks.J2_h2.join(' | ')}`);
   if (r.checks.J2_see_via?.length) console.log(`      J2 参见族 via=[${r.checks.J2_see_via.join(',')}]${r.checks.J2_see_via.includes('参见') ? '' : '  ← 别名命中（页里没有 `参见` 标题）'}`);

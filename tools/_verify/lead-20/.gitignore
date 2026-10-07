@@ -1,0 +1,12 @@
+# lead-20 verification-line scratch: large machine-generated indexes and phase intermediates.
+# These are regenerable; they must not be committed (64MB). Keep only the reports + manifests.
+idx-*.json
+phase*-*.json
+phase*-*.mjs
+phaseA-pages.json
+probe-*.txt
+!nav-up-link-gap.*
+!VERIFICATION-LINE-*.md
+!manifest-*.txt
+!no-up-link-*.txt
+!upcheck.mjs

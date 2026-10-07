@@ -1,0 +1,347 @@
+===== LAYER1 REVIEW SAMPLE (50) =====
+
+[bannerlord-1.4.5] v1.4.5/zh/api/campaign-ext/Test_CreateChatRoomMessage.md  ident=Test_CreateChatRoomMessage
+   L2: title: "Test_CreateChatRoomMessage"
+   L3: description: "Test_CreateChatRoomMessage 的自动生成类参考。"
+   L5: # Test_CreateChatRoomMessage
+
+[bannerlord-1.3.15] v1.3.15/en/api/viewmodel/HintViewModel.md  ident=EndHintEvent
+   L24: `HintViewModel` is a **one-shot, read-only projection** type of ViewModel: it does not hold game state, it only holds one already-localized hint string (`HintText`), and it exposes two commands for XML to call when `Begi
+   L85: - `public void ExecuteEndHint()`: calls `MBInformationManager.HideInformations()` (internally `InformationManager.HideTooltip()`) to hide the tooltip. Fired by the control's `EndHintEvent`; the mapped command name is `En
+   L129: The corresponding Gauntlet control binds via `DataSource="{AddFocusHint}"`, and maps `BeginHintEvent` / `EndHintEvent` to the `BeginHint` / `EndHint` commands, so the hint shows on hover and hides on leave.
+
+[bannerlord-1.3.15] v1.3.15/zh/native-1.3.15-src/COMPLETE-FUNCTIONS.md  ident=DllMain
+   L40: | `DllMain` | `TaleWorlds.Native.dll.h:21264` | `TaleWorlds.Native.dll.c:1787079` | Windows DLL 入口 |
+
+[bannerlord-1.3.15] v1.3.15/en/api/campaign-ext/ScreenBase.md  ident=ViewSubModule
+   L105: The 1.4.5 `ViewSubModule` also opens the options screen through `ScreenManager.PushScreen(ViewCreator.CreateOptionsScreen(...))`. Let the state/view factory decide when a screen is created; do not cache and reuse an inst
+
+[bannerlord-1.3.15] v1.3.15/en/api/mission-ext/CosmeticsManager.md  ident=TypeInitializationException
+   L38: `TypeInitializationException` on whatever member you happened to touch first. The reader is also not
+   L92: constructor, every later access to any `CosmeticsManager` member fails with a `TypeInitializationException`,
+
+[bannerlord-1.4.5] v1.4.5/zh/api/campaign/AllianceModel.md  ident=ForDeclaringPeace
+   L16: `AllianceModel` 是**外交规则的单一可替换点**。它把四类问题全部抽象出去：结盟**能不能**做（`CanMakeAlliance`）、结盟**好不好**（`GetScoreOfStartingAlliance` / `GetSupportScoreOfStartingAllianceForClan`）、参战**值不值**（`GetScoreOfCallingToWar` / `GetScoreOfJoiningWar`
+   L51: | `GetAllianceFactorForDeclaringPeace` | `public abstract float GetAllianceFactorForDeclaringPeace(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)` | 宣和的镜像系数。 |
+
+[bannerlord-1.3.15] v1.3.15/zh/api/mission-ext/MBGameManager.md  ident=MultiplayerGameManager
+   L189: - 真实子类方面：v1.3.15 已有 `SandBoxGameManager`、`MultiplayerGameManager`、`CustomGameManager`、`EditorGameManager`；v1.4.5 额外包含 `EditorSceneMissionManager` 等编辑器用途子类，对模组扩展面无影响。
+
+[bannerlord-1.4.5] v1.4.5/zh/api/campaign-ext/MapEventResultExplainer.md  ident=MapEventResultExplainer
+   L2: title: "MapEventResultExplainer"
+   L3: description: "MapEventResultExplainer 的自动生成类参考。"
+   L5: # MapEventResultExplainer
+
+[bannerlord-1.3.0] v1.3.0/zh/api/campaign/AccessDetails.md  ident=CanMainHeroEnterXxx
+   L128: - **只能在 `SettlementAccessModel` 的三个 `CanMainHeroEnterXxx` 里拿到它。** 另外三个 `CanMainHeroAccessLocation` / `CanMainHeroDoSettlementAction` / `IsRequestMeetingOptionAvailable` 返回的是 `out bool disableOption, out TextObject disabl
+   L190: **变的是各个 `CanMainHeroEnterXxx` 实现里对字段的赋值组合。** `AccessLimitationReason` 在后续版本持续追加成员，相应的分支也变多；`PreliminaryAction*` 两个枚举也可能获得新值。但**结构体本身的形状是这份契约里最稳定的一环**。
+   L196: - 宿主类型：[SettlementAccessModel](../SettlementAccessModel) 是嵌套它的抽象模型类，判定结果经三个 `CanMainHeroEnterXxx` 的 `out` 参数交出
+
+[bannerlord-1.4.5] v1.4.5/zh/api/save-system/SaveablePropertyAttribute.md  ident=RelicInfo
+   L52: public sealed class RelicInfo
+   L60: public RelicInfo(TextObject name, Hero owner)
+   L73: AddClassDefinition(typeof(RelicInfo), 1);
+
+[bannerlord-1.4.7] v1.4.7/zh/architecture/version-delta.md  ident=MapEventResultExplainer
+   L36: | `MapEventResultExplainer` | `TaleWorlds.CampaignSystem.MapEvents` | 地图事件结果提示，模组极少直接用 |
+
+[bannerlord-1.4.5] v1.4.5/zh/architecture/version-delta.md  ident=GetHeroPartyRole
+   L89: | [`MobileParty`](../../../../versions/MobileParty/) | `GetHeroPartyRole`, `RemoveHeroPartyRole` | 使用新的 FirstMate/Navigator API |
+
+[bannerlord-1.4.5] v1.4.5/zh/api/campaign-ext/Test_DeleteChatRoomMessage.md  ident=Test_DeleteChatRoomMessage
+   L2: title: "Test_DeleteChatRoomMessage"
+   L3: description: "Test_DeleteChatRoomMessage 的自动生成类参考。"
+   L5: # Test_DeleteChatRoomMessage
+
+[bannerlord-1.3.15] v1.3.15/zh/api/campaign-ext/CampaignMission.md  ident=OpenNavalRaidMission
+   L240: - 1.4.5 的 `CampaignMission` / `ICampaignMissionManager` 增加 `OpenNavalRaidMission`，并扩充 manager 的 `OpenMeetingMission` 等契约；这些不是 1.3.15 `CampaignMission.cs` 的可用静态入口。
+
+[bannerlord-1.4.5] v1.4.5/zh/architecture/version-delta.md  ident=GetBattleSizeOffset
+   L92: | [`Mission`](../../../../versions/Mission/) | `GetBattleSizeOffset`, `GetBattleSizeFactor` | 战斗规模计算重构 |
+
+[bannerlord-1.4.5] v1.4.5/zh/api/campaign-ext/SandBoxManager.md  ident=CampaignBehavior
+   L3: description: "单人战役（Sandbox）模块的装配中心：由 Campaign 创建并持有，负责注册全部原版 CampaignBehavior 与默认 Model、加载 XML 对象数据，并暴露任务/智能体/存档三个子系统管理器。"
+   L19: 把 `SandBoxManager` 想成**战役世界的「配电盘」**：游戏启动时由 `Campaign` 插上电（创建并注册为 `GameHandler`），然后它把几百个原版 `CampaignBehavior` 和几十个默认 `Model` 一股脑接到 `CampaignGameStarter` 上，再把 `NPCCharacters`、`Heroes`、`Settlements`、`Kingdoms` 等 XML 对象加载进 `
+   L36: - 装配目标（被它挂到战役上）：原版 `CampaignBehavior` 群（如 [TournamentCampaignBehavior](../TournamentCampaignBehavior/)、[PregnancyCampaignBehavior](../PregnancyCampaignBehavior/)）与默认 `Model` 群（如 [TournamentModel](../TournamentModel/)、[Pr
+
+[bannerlord-1.3.0] v1.3.0/zh/api/viewmodel/kingdommanagement/_index.md  ident=ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements
+   L33: | [`ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements`](../ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements/) | ItemComparerBase 是一
+
+[bannerlord-1.3.15] v1.3.15/en/api/campaign-ext/SetPartyAiAction.md  ident=AiBehaviorData
+   L23: Each hour, `AiPartyThinkBehavior` compares candidate `AiBehaviorData` and uses this class to commit travel, patrol, raid, siege, engagement, defense, escort, or return-to-land behavior to a map party. Caravan, villager, 
+
+[bannerlord-1.3.15] v1.3.15/en/api/campaign/Town.md  ident=OnSettlementProsperityChanged
+   L39: - **Do not treat `Prosperity` / `Loyalty` / `Security` as persistent targets you assign directly.** The daily `DailyTick` recomputes the delta via `SettlementXxxModel` and **accumulates over** your value, and writing the
+
+[bannerlord-1.4.7] v1.4.7/en/api/sandbox/_index.md  ident=VillageLottery
+   L22: - **Map events**: `MapEventSide`, `MapEvent`, `VillageLottery` and the map-event trigger family — the layer where the player encounters things on the map.
+
+[bannerlord-1.4.5] v1.4.5/zh/api/campaign-ext/IssueManager.md  ident=CampaignBehavior
+   L21: - 模组的 `IssueBehavior`（一个 `CampaignBehavior`）在 `OnCheckForIssue` 事件里把候选任务写成 `PotentialIssueData` 交给它；
+   L35: - **它驱动 / 被驱动**：`IssuesCampaignBehavior`（位于 `TaleWorlds.CampaignSystem.CampaignBehaviors`）在每日/每小时检查里调用 `CheckForIssues` 和 `CreateNewIssue`；`IssueManager` 自己订阅 `CampaignEventDispatcher` 的事件（英雄死亡、据点进入/离开、据点易主等）来推进或取消任务。
+   L60: - 驱动行为：`IssuesCampaignBehavior`（在 `TaleWorlds.CampaignSystem.CampaignBehaviors` 中）负责每日/每小时巡检并调用 `CreateNewIssue`。
+
+[bannerlord-1.4.5] v1.4.5/zh/api/campaign/HeroRelations.md  ident=CampaignBehavior
+   L74: - **死亡英雄悬挂引用**：英雄死亡后若没清关系，`_relations` 里会留下指向已消逝角色的哈希键；`CharacterRelationCampaignBehavior` 通过 `Campaign.Current.CharacterRelationManager.RemoveHero(hero)`（`CharacterRelationCampaignBehavior.cs:88`）清理，但如果你自己绕过并重建关系表，可能残留死
+   L77: - **读档重建顺序**：`HeroRelations` 是 `CharacterRelationManager` 的 `[SaveableField(1)]`，随 `Campaign` 分阶段反序列化。自定义 `CampaignBehavior` 若在 `OnGameLoaded` 之前访问关系值，可能拿到未完成重建的表；应等 `AfterLoad` / 加载完成事件后再读。
+
+[bannerlord-1.3.15] v1.3.15/en/api/campaign-ext/NavigationHelper.md  ident=TryX
+   L23: Think of every method here as **"ask the nav-mesh a question, get an answer or get the input back unchanged"**. There is no exception-based failure mode, no `TryX` suffix, no null on failure. That design is the source of
+
+[bannerlord-1.4.5] v1.4.5/zh/api/campaign-ext/Test_DeleteChatRoomMessage.md  ident=ChatRoomId
+   L25: | `ChatRoomId` | `public Guid ChatRoomId { get; }` |
+
+[bannerlord-1.4.5] v1.4.5/zh/native-1.3.15-src/COMPLETE-TYPES.md  ident=CounterFrequencyToTensOfNanos
+   L738: | 1828 | `CounterFrequencyToTensOfNanos` |
+
+[bannerlord-1.4.7] v1.4.7/zh/api/save-system/_index.md  ident=SaveableType
+   L13: | 1 | `SaveableTypeDefiner`（未收录） | 在加载时注册"我的类型由我来存" |
+   L30: 3 页是这个桶的骨架，但它是整个文档树里最不完整的一个：保存/读取的实现方法、`SaveableTypeDefiner`、条目 ID 与存档基类、`Definition` 下的存档格式版本机制、以及驱动器（`FileDriver`、`InMemDriver`、`AsyncFileSaveDriver`）都还没有页面。
+   L34: 按命名空间属于这个桶、但没有页面的类型包括：`SaveableTypeDefiner`（自定义类型注册的入口）、`SaveableType`、`SaveableEntry`、`EntryId`、`IArchiveContext`、`ArchiveSerializer` / `ArchiveDeserializer` / `ArchiveConcurrentSerializer`、`FileDriver` 与 `InMemDriver` 
+
+[bannerlord-1.5.3] v1.5.3/zh/api/campaign/GameModels.md  ident=VillageModel
+   L87: - 聚落与家族：`SettlementProsperityModel`、`SettlementPatrolModel`、`VillageModel`、`ClanGovernmentModel`、`ClanMilestoneModel`、`KingdomDecisionModel`、`RaidModel`、`HideoutModel`、`MinorFactionsModel`、`AllianceModel`、`DiplomacyModel
+
+[bannerlord-1.4.5] v1.4.5/en/api/mission/IMBAgentVisuals.md  ident=ByBoneType
+   L72: **What to watch out for.** The trap here is expecting `AddMesh` to work. It is declared, it is bound to a real native symbol, it looks like the obvious way to attach a mesh to a unit — and there is no managed caller and 
+   L93: | `AddPrefabToAgentVisualBoneByBoneType` / `...ByRealBoneIndex` | `CompositeComponent AddPrefabToAgentVisualBoneByBoneType(UIntPtr, string prefabName, HumanBone boneType)` `IMBAgentVisuals.cs:183` and `CompositeComponent
+   L94: | `AddMesh` / `RemoveMesh` | `void AddMesh(UIntPtr, UIntPtr meshPointer)` `IMBAgentVisuals.cs:60` and `void RemoveMesh(UIntPtr, UIntPtr meshPointer)` `IMBAgentVisuals.cs:63` | Attach or detach a raw mesh on a visual — an
+
+[bannerlord-1.4.5] v1.4.5/zh/api/boardgames/_index.md  ident=CampaignBehavior
+   L8: **一句话职责：** `SandBox.BoardGames` 是 Bannerlord 内嵌的「棋类小游戏」系统。基类 `BoardGameBase` 定义棋盘状态、回合切换与胜负判定的统一契约；六种具体棋（Bagh-Chal、Konane、Mu-Torere、Puluc、Seega、Tablut）各自实现规则；`State`/`Move`/`PawnInformation` 等数据类承载局面与走法，由 [CampaignBehavi
+   L12: 把一次下棋想成「一张棋盘状态（State）+ 一系列走法（Move）+ 双方（BoardGameSide）+ 回合（PlayerTurn）」。`BoardGameBase` 持有 `State`，每步 `Move` 经过规则校验后更新 `State` 并切换 `PlayerTurn`，直到 `GameOverEnum` 判定结束；被吃棋子进入 `CapturedPawnsPool`。阅读顺序：先看 [CampaignBehaviorBa
+   L18: - 不要在棋类逻辑里写战役字段；棋局是独立的微型对局，结果只通过 `BoardGameCampaignBehavior` 回写（如奖励）。
+
+[bannerlord-1.4.5] v1.4.5/en/api/viewmodel/ArmyManagementVM.md  ident=GauntletViewModelBinder
+   L40: - **Who news it up.** **There is no `new ArmyManagementVM(...)` anywhere in the tree.** The name occurs only in its own file (the constructor at line 972). It is constructed reflectively by `GauntletViewModelBinder` from
+   L57: | Constructor | `public ArmyManagementVM(Action onClose)` (`:972-1024`) | **The only creation path, invoked reflectively by `GauntletViewModelBinder` from the prefab's class name.** Builds the whole panel in one pass: wa
+   L217: - 🔴 **No code-level creation entry point.** The name occurs only in this file (constructor at line 972), constructed reflectively by `GauntletViewModelBinder` from the class name in the XML. **Replacing it means editing
+
+[bannerlord-1.3.15] v1.3.15/en/guide/campaign-system.md  ident=OnUnitJoinedParty
+   L288: CampaignEvents.OnUnitJoinedParty.AddNonSerializedListener(this, OnUnitJoined);
+   L324: | `OnUnitJoinedParty` | Unit joined party |
+
+[bannerlord-1.3.0] v1.3.0/zh/api/campaign/GameModels.md  ident=MapFogType
+   L52: | `MapVisibilityModel` | `public MapVisibilityModel MapVisibilityModel { get; private set; }` | 地图迷雾可见性。`:14`，全类第一个属性。读它要知道的是「不是地图可见性开关」而是「按 `MapFogType` / 队伍位置算某个点是否可见」的模型。 |
+
+[bannerlord-1.3.15] v1.3.15/zh/api/campaign-ext/CultureObject.md  ident=FemaleTeenager
+   L92: `TournamentMaster`、`Villager`、`CaravanMaster`、`CaravanGuard`、`PrisonGuard`、`Guard`、`Blacksmith`、`Weaponsmith`、`Townswoman`（及其 `Infant` / `Child` / `Teenager` 变体）、`Townsman`（含 `Infant` / `Child` / `Teenager`）、`VillageWoma
+
+[bannerlord-1.3.15] v1.3.15/zh/api/mission-ext/BattleMoraleModel.md  ident=SandboxBattleMoraleModel
+   L12: **默认实现:** `SandBox.GameComponents/SandboxBattleMoraleModel.cs`（以及 `MountAndBlade` 中的 `CustomBattleMoraleModel`）
+   L28: `MissionGameModels.Current.BattleMoraleModel` 持有当前实例。默认实例是 `SandboxBattleMoraleModel`，游戏在任务初始化阶段通过 `IGameStarter.AddModel` 注册；自定义模型也必须在任务系统开始查询前完成注册。模块加载早期、标题界面或没有任何活动任务时，`MissionGameModels.Current` 为 `null`，不能在静态字段初始化或菜
+
+[bannerlord-1.5.3] v1.5.3/zh/api/storymode/PurchaseItemTutorialQuestTask.md  ident=QuestTask
+   L2: title: "PurchaseItemTutorialQuestTask"
+   L5: # PurchaseItemTutorialQuestTask
+   L7: **Namespace:** StoryMode.Quests.QuestTasks
+
+[bannerlord-1.3.15] v1.3.15/zh/api/campaign-ext/CampaignEventDispatcher.md  ident=Detach
+   L154: public void Detach()
+   L165: `CampaignEventDispatcher.Instance` 是真实的运行时获取路径；`Detach` 只清除此 owner 的监听。它不会撤销一个通过 `Campaign.Current.AddCampaignEventReceiver(...)` 追加的 receiver，因此长期基础设施必须自行设计生命周期，普通 mod 不应把临时 UI 对象直接注册为 receiver。
+
+[bannerlord-1.3.15] v1.3.15/en/guide/common-patterns.md  ident=MyScreen
+   L41: │       ├── MyScreen.cs
+   L71: | Screen | `My` | `MyScreen` |
+
+[bannerlord-1.3.15] v1.3.15/zh/api/campaign-ext/MobilePartyMoraleModel.md  ident=MyMobilePartyMoraleModel
+   L92: public class MyMobilePartyMoraleModel : MobilePartyMoraleModel
+   L106: // 注册：在 SubModule 初始化时通过 Campaign.Current.Models 的注册入口登记 MyMobilePartyMoraleModel。
+   L122: 1. 继承并实现两个抽象方法（见上方最小真实示例中的 `MyMobilePartyMoraleModel`）。
+
+[bannerlord-1.3.15] v1.3.15/zh/api/campaign-ext/CampaignEventDispatcher.md  ident=OnXxx
+   L3: description: "战役层的同步事件转发器：把 Action、Campaign 生命周期和 tick 产生的 OnXxx 调用按 receiver 顺序转发到 CampaignEvents、IssueManager、QuestManager 以及扩展 receiver。"
+   L17: 它不保存事件业务状态，也不产生世界变更；它只把战役代码已经发出的 `OnXxx` 调用同步扇出给一组 `CampaignEventReceiver`。
+   L27: - 每个公开的 `OnXxx`/tick 方法都做同一件事：按数组顺序逐个调用 receiver 的同名虚方法。源码没有异常隔离、优先级或异步队列。
+
+[bannerlord-1.3.15] v1.3.15/zh/native-1.3.15-src/COMPLETE-TYPES.md  ident=IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion
+   L863: ### 3.4 `IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion` (Line 97)
+   L865: union IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion {
+
+[bannerlord-1.4.5] v1.4.5/zh/api/campaign-ext/DisableHeroAction.md  ident=EnableHeroAction
+   L73: - **退场不可逆。** 没有对应的 `EnableHeroAction`；要让英雄回到世界需要手动 `ChangeState(Active)` 并重建社会关系。
+
+[bannerlord-1.3.15] v1.3.15/en/api/gui/LayoutBox.md  ident=Margin
+   L3: description: "Internal Gauntlet layout value type that caches a child widget's allocated rectangle (Left/Right/Top/Bottom) while a StackLayout lays out, then hands it back to the child via Widget.Layout. Mods can only in
+   L38: - **Diagnosing why a control is not where you expect:** inspect its `WidthSizePolicy` / `HeightSizePolicy`, `Margin*`, the container's `LayoutMethod`, and its alignment — those are the real source of each `LayoutBox` rec
+   L52: XML[movie XML: SizePolicy / Margin / LayoutMethod] --> WIDGET[Widget]
+
+[bannerlord-1.5.3] v1.5.3/zh/api/storymode/CampaignStoryMode.md  ident=SandBoxCampaign
+   L15: `CampaignStoryMode` 不是一个普通的行为类，而是**整个「主线战役」游戏类型的定义**。`SandBoxGameManager` 平时用 `SandBoxCampaign` 当 GameType，走沙盒流程；一旦玩家从「New Campaign」开局，换成 `new CampaignStoryMode(...)`，这个类型就接管了整个战役的生命周期。它自己代码极短（不到 90 行），只做四件事：持有一个可存档的 [St
+
+[bannerlord-1.3.0] v1.3.0/zh/api/mission-ext/AgentLastHitInfo.md  ident=LastHitInfo
+   L2: title: "AgentLastHitInfo"
+   L6: # AgentLastHitInfo
+   L10: **Type:** `public struct AgentLastHitInfo`
+
+[bannerlord-1.3.15] v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES.md  ident=PxMat33
+   L735: | 1813 | `PxMat33` |
+
+[bannerlord-1.4.7] v1.4.7/zh/api/sandbox/_index.md  ident=VillageLottery
+   L22: - **地图事件**：`MapEventSide`、`MapEvent`、`VillageLottery` 与整个地图事件触发家族 —— 这是玩家在地图上遇到事情的那一层。
+
+[bannerlord-1.3.15] v1.3.15/zh/api/save-system/IEnumResolver.md  ident=OldName
+   L16: `IEnumResolver` 是保存系统提供的**枚举跨版本兼容钩子**，只有一个方法：`string ResolveObject(string originalObject)`。它的职责是在**加载旧档**时，把存档里记录的枚举“原始表示”（通常是枚举成员名或序列化字符串）翻译为当前游戏版本里**对应的枚举表示**。当官方或 mod 在某次更新中重命名、合并或重排了某个枚举的成员（例如把 `OldName` 改为 `NewName`
+
+[bannerlord-1.4.5] v1.4.5/zh/native-1.3.15-src/COMPLETE-TYPES.md  ident=Foundation
+   L737: | 1823 | `Foundation` |
+
+[bannerlord-1.4.5] v1.4.5/zh/api/campaign/AiPartyThinkBehavior.md  ident=SetMoveXxx
+   L24: - **不要使用**：不要在外部直接给 `party.DefaultBehavior` 赋值来指挥移动——那会被本行为的汇总覆盖且不刷新短行为；必须走 [SetPartyAiAction](../../campaign-ext/SetPartyAiAction) 或 `SetMoveXxx`。不要在本行为之外复制它的“选最高分并调用 Action”逻辑（那是唯一的落地点，重复实现会导致不一致）。也不要在 `PartyHourlyAiTi
+
+[bannerlord-1.3.15] v1.3.15/en/api/mission-ext/BattleMoraleModel.md  ident=SandboxBattleMoraleModel
+   L12: **Default implementation:** `SandBox.GameComponents/SandboxBattleMoraleModel.cs` (and `CustomBattleMoraleModel` in `MountAndBlade`)
+   L28: `MissionGameModels.Current.BattleMoraleModel` holds the active instance. The default instance is `SandboxBattleMoraleModel`, registered by the game during mission initialization through `IGameStarter.AddModel`; a custom 
+
+
+===== LAYER2 REVIEW SAMPLE (50) =====
+
+[bannerlord-1.4.6] v1.4.6/zh/api/core-extra/BannerComponent.md  ident=RegisterEvents  cite=BannerComponent.cs:48  resolved=["TaleWorlds.Core/BannerComponent.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/zh/api/core-extra/AssemblyLoader.md  ident=CollectModuleAssemblyTypes  cite=GameApplicationDomainController.cs:49  resolved=["Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/GameApplicationDomainController.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/en/api/mission-ext/BoardGameView.md  ident=BoardGameView  cite=UsableMissionObjectComponent.cs:10  resolved=["TaleWorlds.MountAndBlade/UsableMissionObjectComponent.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/zh/api/core-extra/AgentData.md  ident=AlleyCampaignBehavior  cite=LocationCharacter.cs:83  resolved=["TaleWorlds.CampaignSystem/Settlements/Locations/LocationCharacter.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/zh/api/mission-ext/ActionStage.md  ident=HasFlag  cite=CustomBattleAutoBlockModel.cs:21  resolved=["TaleWorlds.MountAndBlade/CustomBattleAutoBlockModel.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/en/api/mission-ext/BannerBuilderEditableAreaWidget.md  ident=HasVisualIdentifier  cite=BannerBuilderEditableAreaWidget.cs:87  resolved=["Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.BannerBuilder/BannerBuilderEditableAreaWidget.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/zh/api/core-extra/AgentOriginUtilities.md  ident=SmallShield  cite=Equipment.cs:285  resolved=["Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/Equipment.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/en/api/mission-ext/DLCInstallationQueryView.md  ident=MissionView  cite=DLCInstallationQueryView.cs:13  resolved=["TaleWorlds.MountAndBlade.View/TaleWorlds/MountAndBlade/View/DLCInstallationQueryView.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/zh/api/localization/DefaultTextProcessor.md  ident=DefaultTextProcessor  cite=MBTextManager.cs:32  resolved=["Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization/MBTextManager.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/en/api/mission-ext/BattleObserverMissionLogic.md  ident=NaN  cite=BattleObserverMissionLogic.cs:101  resolved=["TaleWorlds.MountAndBlade/BattleObserverMissionLogic.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/en/api/campaign/DefaultDelayedTeleportationModel.md  ident=InitializeGameStarter  cite=SandBoxManager.cs:338  resolved=["TaleWorlds.CampaignSystem/SandBoxManager.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/en/api/core-extra/AtmosphereInfo.md  ident=DeserializeFrom  cite=DefaultMapWeatherModel.cs:132  resolved=["Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultMapWeatherModel.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/en/api/mission-ext/IFaceGeneratorHandler.md  ident=BodyGeneratorView  cite=IFaceGeneratorHandler.cs:9  resolved=["TaleWorlds.MountAndBlade/IFaceGeneratorHandler.cs"]
+
+
+[bannerlord-1.5.3] v1.5.3/zh/api/storymode/StoryModeBannerEffects.md  ident=DragonBannerEffect  cite=BannerEffect.cs:8  resolved=["TaleWorlds.Core/BannerEffect.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/en/api/core-extra/AgentData.md  ident=AgentRace  cite=NotableHelperCharacterCampaignBehavior.cs:76  resolved=["Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/NotableHelperCharacterCampaignBehavior.cs"]
+
+
+[bannerlord-1.5.3] v1.5.3/zh/api/storymode/StoryModeEvents.md  ident=Instance  cite=StoryModeManager.cs:84  resolved=["StoryMode/StoryModeManager.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/en/api/mission-ext/MissionHintLogic.md  ident=MissionGauntletHintView  cite=MissionHintLogic.cs:17  resolved=["TaleWorlds.MountAndBlade/Missions/MissionLogics/MissionHintLogic.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/en/api/core-extra/AgentControllerType.md  ident=CanRide  cite=AssemblyInfo.cs:13  resolved=["Bannerlord.Source/bin/GalaxyCSharp/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/jose-jwt/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/Newtonsoft.Json/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/Steamworks.NET/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/System.Management/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/System.Numerics.Vectors/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.AchievementSystem/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.ActivitySystem/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.Core/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.Diamond/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.Diamond.AccessProvider.GDK/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.Diamond.AccessProvider.GOG/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.Diamond.AccessProvider.Steam/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.Diamond.AccessProvider.Test/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.DotNet/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.DotNet.AutoGenerated/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.Engine/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.Engine.AutoGenerated/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.Engine.GauntletUI/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.GauntletUI/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.GauntletUI.CodeGenerator/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.GauntletUI.Data/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.InputSystem/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.Library/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.LinQuick/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.Localization/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.ModuleManager/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.MountAndBlade/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.MountAndBlade.AutoGenerated/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Helpers/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Steam/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Multiplayer.Test/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.NavigationSystem/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.Network/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.ObjectSystem/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.PlatformService/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.PlatformService.Epic/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.PlatformService.GOG/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.PlatformService.Steam/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.PlayerServices/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.PSAI/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.SaveSystem/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.ScreenSystem/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.ServiceDiscovery.Client/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.Starter.Library/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.TwoDimension/Properties/AssemblyInfo.cs","Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.BirthAndDeath/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.FastMode/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.AutoGenerated/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI.AutoGenerated.0/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI.AutoGenerated.1/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.Platform.PC/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.SandBox/SandBox/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI.AutoGenerated.0/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI.AutoGenerated.1/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.SandBox/SandBox.View/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.StoryMode/StoryMode/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI.AutoGenerated/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.StoryMode/StoryMode.View/Properties/AssemblyInfo.cs","Bannerlord.Source/Modules.StoryMode/StoryMode.ViewModelCollection/Properties/AssemblyInfo.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/en/api/mission-ext/IMissionSystemHandler.md  ident=NullReferenceException  cite=Mission.cs:3349  resolved=["TaleWorlds.MountAndBlade/Mission.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/zh/api/campaign-ext/ActivityManager.md  ident=SetActivityAvailability  cite=IActivityService.cs:19  resolved=["TaleWorlds.ActivitySystem/IActivityService.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/zh/api/core-extra/AgentMovementMode.md  ident=DefineAsEngineStruct  cite=Agent.cs:2660  resolved=["Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Agent.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/en/api/core-extra/AgentFlag.md  ident=IsHumanoid  cite=Monster.cs:571  resolved=["Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/Monster.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/zh/api/core-extra/AgentData.md  ident=AgentCharacter  cite=NotableHelperCharacterCampaignBehavior.cs:76  resolved=["Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/NotableHelperCharacterCampaignBehavior.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/zh/api/save-system/ContainerType.md  ident=IsContainer  cite=VariableSaveData.cs:44  resolved=["Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/VariableSaveData.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/zh/api/campaign/ActionNotes.md  ident=CharacterInsultedLogEntry  cite=TraitLevelingHelper.cs:158  resolved=["Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterDevelopment/TraitLevelingHelper.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/zh/api/core-extra/AgentSaveData.md  ident=AgentSpawnPointTags  cite=AutoGeneratedSaveManager.cs:153  resolved=["SandBox/Sandbox/AutoGeneratedSaveManager.cs","StoryMode/AutoGeneratedSaveManager.cs","TaleWorlds.CampaignSystem/AutoGeneratedSaveManager.cs","TaleWorlds.Core/AutoGeneratedSaveManager.cs","TaleWorlds.Localization/AutoGeneratedSaveManager.cs","TaleWorlds.MountAndBlade/AutoGeneratedSaveManager.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/zh/api/campaign/CampaignWarManagerBehavior.md  ident=SyncData  cite=StanceLink.cs:171  resolved=["Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/StanceLink.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/en/api/campaign/DefaultNotablePowerModel.md  ident=DefaultNotablePowerModel  cite=CampaignGameStarter.cs:95  resolved=["TaleWorlds.CampaignSystem/CampaignGameStarter.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/zh/api/mission-ext/MBDebugManager.md  ident=WatchVariable  cite=MBDebug.cs:275  resolved=["Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/MBDebug.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/en/api/mission-ext/RangedSiegeWeapon.md  ident=UsableMachine  cite=RangedSiegeWeapon.cs:25  resolved=["Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RangedSiegeWeapon.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/zh/api/mission/ItemType.md  ident=Invalid  cite=ItemInnerData.cs:18  resolved=["Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ItemInnerData.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/en/api/mission/IMBGame.md  ident=MissionBehavior  cite=MBGameManager.cs:10  resolved=["Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBGameManager.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/en/api/mission/IMBBannerlordConfig.md  ident=BannerlordConfig  cite=IMBBannerlordConfig.cs:9  resolved=["Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBBannerlordConfig.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/zh/api/gui/BrushOverlayMethod.md  ident=OverlaySprite  cite=BrushOverlayMethod.cs:8  resolved=["TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/BrushOverlayMethod.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/en/api/mission-ext/BarterItemCountTextWidget.md  ident=AutoHideRichTextWidget  cite=BarterItemCountTextWidget.cs:23  resolved=["Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Barter/BarterItemCountTextWidget.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/zh/api/campaign-ext/SettlementGarrisonModel.md  ident=CalculateBaseGarrisonChange  cite=Town.cs:639  resolved=["Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Town.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/zh/api/core-extra/ApplicationVersionJsonConverter.md  ident=ReadJson  cite=ApplicationVersion.cs:8  resolved=["Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/ApplicationVersion.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/en/api/campaign/DefaultKingdomCreationModel.md  ident=DefaultKingdomCreationModel  cite=CampaignGameStarter.cs:95  resolved=["TaleWorlds.CampaignSystem/CampaignGameStarter.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/en/api/campaign/DefaultFleetManagementModel.md  ident=InitializeGameStarter  cite=SandBoxManager.cs:242  resolved=["TaleWorlds.CampaignSystem/SandBoxManager.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/zh/api/core-extra/AgentData.md  ident=IsFemale  cite=FaceGen.cs:83  resolved=["TaleWorlds.Core/FaceGen.cs","TaleWorlds.MountAndBlade/FaceGen.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/zh/api/core-extra/Equipment.md  ident=Clone  cite=CharacterObject.cs:438  resolved=["TaleWorlds.CampaignSystem/CharacterObject.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/zh/api/core-extra/ActionSetCode.md  ident=GenerateActionSetNameWithSuffix  cite=MonsterMissionData.cs:24  resolved=["Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MonsterMissionData.cs"]
+
+
+[bannerlord-1.5.3] v1.5.3/zh/api/save-system/ISaveDriver.md  ident=Task  cite=Game.cs:332  resolved=["TaleWorlds.Core/Game.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/zh/api/core-extra/AmbientInformation.md  ident=MBObjectBase  cite=AtmosphereInfo.cs:72  resolved=["TaleWorlds.Library/AtmosphereInfo.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/en/api/mission-ext/MissionDifficultyModel.md  ident=MissionGameModels  cite=MissionDifficultyModel.cs:10  resolved=["TaleWorlds.MountAndBlade/ComponentInterfaces/MissionDifficultyModel.cs"]
+
+
+[bannerlord-1.5.3] v1.5.3/zh/api/storymode/RecruitTroopsTutorialQuest.md  ident=QuestGiver  cite=TutorialPhase.cs:143  resolved=["StoryMode/StoryModePhases/TutorialPhase.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/en/api/core-extra/AgentFlag.md  ident=MoveAsHerd  cite=Formation.cs:1251  resolved=["Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Formation.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/zh/api/core-extra/AtmosphereInfo.md  ident=BannerlordMissions  cite=AtmosphereInfo.cs:5  resolved=["Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/AtmosphereInfo.cs"]
+
+
+[bannerlord-1.3.0] v1.3.0/zh/api/campaign/AcceptCallToWarAgreementDecision.md  ident=ShouldBeCancelledInternal  cite=DecisionOutcome.cs:134  resolved=["TaleWorlds.CampaignSystem/Election/DecisionOutcome.cs"]
+
+
+[bannerlord-1.4.5] v1.4.5/zh/api/campaign/AgingCampaignBehavior.md  ident=CampaignEventReceiver  cite=HeroSpawnCampaignBehavior.cs:85  resolved=["Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/HeroSpawnCampaignBehavior.cs"]
+

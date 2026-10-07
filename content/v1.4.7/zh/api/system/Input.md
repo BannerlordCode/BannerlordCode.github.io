@@ -43,17 +43,40 @@ if (Input.IsPlaystation(controller))
 
 | 成员 | 用途 |
 | --- | --- |
-| `InputState` | 本帧输入状态快照 |
-| `DebugInput` | 调试用输入通道 |
-| `InputManager` | 底层输入管理器；屏幕键盘激活时返回空实现 |
-| `IsPlaystation` | 扩展方法，判断是否为 PS 手柄 |
+| `InputState` | 本帧输入状态快照。包含鼠标位置（归一化 + 像素）、分辨率、鼠标是否变化等。每帧由引擎更新。 |
+| `DebugInput` | 调试用输入通道。类型是 `IInputContext`，默认指向空实现，可在调试时替换为自定义输入源。 |
+| `InputManager` | 底层输入管理器。类型是 `IInputManager`，提供鼠标位置、滚轮、手柄连接状态等设备级查询。**屏幕键盘激活时返回 `_emptyInputManager`**，此时所有设备状态不可信。 |
+| `IsPlaystation` | 扩展方法，判断是否为 PS 手柄。通过 `ControllerTypes` 的位标志判断，不是按键存在性检查。 |
 
 ## 真实示例
 
+读取输入状态：
+
 ```csharp
-var state = Input.InputState;
-bool isPs = Input.IsPlaystation(someController);
-var mgr = Input.InputManager;
+InputState state = Input.InputState;
+Vec2 mouseRanged = state.MousePositionRanged;   // 归一化鼠标位置 [0,1]
+Vec2 mousePixel = state.MousePositionPixel;     // 像素坐标
+bool changed = state.MousePositionChanged;      // 本帧鼠标是否移动
+```
+
+判断手柄平台：
+
+```csharp
+Input.ControllerTypes controller = Input.InputManager.GetControllerType();
+if (Input.IsPlaystation(controller))
+{
+    // 针对 PS 手柄做按键图标适配
+}
+```
+
+检查输入管理器是否可用：
+
+```csharp
+// 屏幕键盘激活时 InputManager 返回空实现
+if (Input.InputManager.GetControllerType() == Input.ControllerTypes.None)
+{
+    // 无输入设备，跳过依赖输入的逻辑
+}
 ```
 
 ## 参见

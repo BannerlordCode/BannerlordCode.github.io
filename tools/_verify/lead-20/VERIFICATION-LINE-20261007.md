@@ -471,3 +471,46 @@ Missing from JSON       323            323
 **⇒ 不得把这 3 条计入缺口分母。**
 
 **路由键陷阱**：JSON 键带前后斜杠（`/v1.3.15/en/architecture/action-family/`）。不带前导斜杠构造路由 ⇒ 报 38,358 缺（真值 323）。
+
+---
+
+## 20. `verify-prevnext-perf.md` 交付已验证并入库
+
+```
+tools/_verify/verify-prevnext-perf.md  11,538 B · mtime 17:29 · sha256 前16 b473d35e37b59ff3 · commit a2fd18e329
+perf-site/ 已清理（实测目录不存在）
+```
+
+**A/B 读数（本线复算内部一致性，全部自洽）**：
+```
+A: 156.2 / 176.5 / 160.2 / 156.1  → mean 162.3 · spread 20.4
+B:  69.3 /  74.2 /  70.2 /  72.1  → mean  71.5 · spread  4.9
+delta 90.8 s ✓ · 每页 65.4 ms ✓ · 全站 39,039 × 65.4 ms ≈ 42.6 min ✓
+信噪比 4.4×（A 展布）· 18.5×（B 展布）· 每轮页数恒等 1,390 ✓
+```
+**⇒ 「分片是为速度还是只为防崩」的答案：速度也是。**
+
+### ★ 调用数更正：**39,039**，不是 39,038
+```
+templates/index.html 第 1 行 = {% extends "section.html" %}
+section.html 的 {% block content %}（第 7 行）内第 31 行即宏调用
+⇒ 根 _index.md 【也调宏】⇒ 38,500 + 538 + 1 = 39,039
+```
+**⇒ 本线先前向 Boss 转报 39,038，是采信了 worker 早先的错判而未自核。worker 后来自行更正，本线在更正之前已转报。**
+**⇒ 第 11 次同族错误：转发未核实数字。已记入本线账。**
+
+### 标签澄清
+缺失分布最后一格：worker 报 `versions=9`，本线早先报 `(other)=9`。**同一个 9**，实测为 `content/versions/task-*.md` 共 9 个 ⇒ `versions=9` 标签更准。
+
+### Category 2 已由本线独立核实（worker 列为未核实项④）
+```
+3 条 = /v1.3.15/en/xml-reference/bugs/ · /v1.3.15/zh/xml-reference/bugs/ · /v1.4.5/zh/xml-reference/bugs/
+⇒ xml-reference 桶里的【单页桶】，无兄弟页 ⇒ 无 prev/next 是正确行为，【不是缺陷】
+```
+
+### 丙 的三条设计输入现已全部有实测支撑
+```
+① 新鲜度：323 个缺 route 页【全部】比 JSON 新（newer=323 / older=0）⇒ 分片产物必须可独立重新生成
+② 速度：  65.4 ms/页 × 39,039 ≈ 42.6 min ⇒ 分片（18.8MB → 1–2MB）预计降 10–20×
+③ 不崩：  验收子集可从这 323 页挑（样本 content/v1.3.15/en/architecture/action-family.md）
+```

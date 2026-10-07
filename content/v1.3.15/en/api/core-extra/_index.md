@@ -608,4 +608,5 @@ description: Core / Library extension class reference index
 - [XmlHelper](./XmlHelper)
 
 
+- [platform-tail](./platform-tail/)
 <!-- END SECTION INDEX -->

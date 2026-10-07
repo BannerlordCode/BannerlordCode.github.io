@@ -641,4 +641,5 @@ description: Core / Library 相关扩展类参考目录
 - [XmlHelper](./XmlHelper)
 
 
+- [platform-tail](./platform-tail/)
 <!-- END SECTION INDEX -->

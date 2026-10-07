@@ -1717,4 +1717,6 @@ description: Mission extension class reference index
 - [XmlInformationType](./XmlInformationType)
 
 
+- [mountandblade-tail](./mountandblade-tail/)
+- [source-handlers](./source-handlers/)
 <!-- END SECTION INDEX -->

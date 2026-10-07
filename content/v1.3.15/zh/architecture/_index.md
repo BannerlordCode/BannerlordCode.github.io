@@ -107,6 +107,7 @@ Layer 0  基础库        →  Library / Localization
 - [SDK 总览 — 模块地图与开发者路线图](./sdk-overview)
 - [存档系统 / Save System](./save-system)
 - [模块系统详解 / Module System](./module-system)
+- [GameModel Decorator](./gamemodel-decorator)
 - [版本差异 / Version Delta](./version-delta)
 - [文档契约 / Doc Contract](./doc-contract)
 - [开发者任务路线图 / Developer Roadmap](./developer-roadmap)
@@ -115,5 +116,7 @@ Layer 0  基础库        →  Library / Localization
 - [SandBox/StoryMode/Native 阅读政策](./sandbox-native-policy)
 - [原生互操作 / Native Interop](./native-interop)
 - [验收场景 E — 仅靠文档完成五个典型 mod 任务](./scenario-acceptance-E)
+- [战役事件系统 / Campaign Event System](./campaign-event-system)
+- [Mission 生命周期 — 从创建到销毁](./mission-lifecycle)
 
 <!-- END SECTION INDEX -->

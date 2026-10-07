@@ -204,4 +204,5 @@ description: TaleWorlds.SaveSystem 存档系统类参考目录
 - [ZipExtensions](./ZipExtensions)
 
 
+- [MetaDataExtensions](./MetaDataExtensions)
 <!-- END SECTION INDEX -->

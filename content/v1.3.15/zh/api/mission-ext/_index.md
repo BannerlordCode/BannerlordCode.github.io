@@ -1747,4 +1747,6 @@ description: 战斗扩展类（MissionBehavior/AgentComponent 等）参考目录
 - [XmlInformationType](./XmlInformationType)
 
 
+- [mountandblade-tail](./mountandblade-tail/)
+- [source-handlers](./source-handlers/)
 <!-- END SECTION INDEX -->

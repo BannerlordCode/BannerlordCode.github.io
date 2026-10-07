@@ -110,7 +110,10 @@ See [SDK Overview](./sdk-overview) for details.
 - [Developer Task Roadmap](./developer-roadmap)
 - [Crash & Save Boundaries](./crash-boundaries)
 - [Module System](./module-system)
+- [GameModel Decorator](./gamemodel-decorator)
 - [Save System](./save-system)
 - [Version Delta](./version-delta)
+- [Campaign Event System](./campaign-event-system)
+- [Mission Lifecycle — From Creation to Destruction](./mission-lifecycle)
 
 <!-- END SECTION INDEX -->

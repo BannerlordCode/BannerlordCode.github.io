@@ -199,6 +199,44 @@ string b = ActionSetCode.GenerateActionSetNameWithSuffix(variant, true, "_villag
 - **没有任何反向解析能力。** 想从 `"as_human_female_villager"` 反查出「这是市民」没有对应方法（`grep -rn "ActionSetCode" bannerlord-1.3.0/` 里除定义外只有拼接调用）。要反查只能自己写 `StartsWith` / `Contains` 链。
 - **`VillagerCarryFront2Suffix` 的 `_v2` 是资源版本号不是规则版本。** 它对应动画资源的第二版，别名里的 `2` 是为了让常量名合法且可读。抄这个命名法做自定义时要注意别让名字和实际资源版本脱节。
 
+## 怎么用
+
+### 怎么拿到它
+
+不要 `new`——它是 `public static class ActionSetCode`（`TaleWorlds.Core/ActionSetCode.cs:6`），46 个后缀全是 `const string`，编译期就内联成字面量，没有运行时初始化顺序问题。你真正要「拿到」的是**一个名字**：本类唯一的逻辑在同文件 `ActionSetCode.cs:9` 的 `GenerateActionSetNameWithSuffix(Monster, bool, string)`。调用点只有一个场合——生成 NPC 行为的那一刻，官方把它当 `LocationCharacter` 构造函数的 `actionSet` 实参传进去（守卫、酒馆仆役、囚犯、路人共用这一处）。
+
+### 典型用法
+
+同一批生成的 NPC 会共用动作集名，这是 `BaseMonster` 优先于 `StringId` 的直接后果：变体怪物折回基础怪物，于是两个不同的 `Monster` 拿到同一个 `code`。要在生成前就发现这件事：
+
+```csharp
+public class MyActionSetNamer
+{
+    private readonly HashSet<string> _used = new HashSet<string>();
+
+    // 返回可直接塞进 LocationCharacter 的 actionSet 实参
+    public string Reserve(AgentData agentData, string suffix)
+    {
+        string code = ActionSetCode.GenerateActionSetNameWithSuffix(
+            agentData.AgentMonster, agentData.AgentIsFemale, suffix);
+
+        if (!_used.Add(code))
+        {
+            // 纯字符串函数不会报错：撞名的代价只是这个 NPC 站着不动，所以要在这里拦
+            MBDebug.Print("[MyMod] 动作集名碰撞 " + agentData.AgentMonster.StringId + " -> " + code);
+        }
+
+        return code;
+    }
+}
+```
+
+与上面「真实示例」那三段的差别：那里都是在**造一个** NPC（守卫、性别分流、自造后缀），每个名字只用一次；这里仍逐个调 `GenerateActionSetNameWithSuffix`，但多了一步「这个 code 之前有没有人用过」——因为它是纯字符串函数，折叠和手滑都不会替你发现。
+
+### 最容易踩的坑
+
+**名字对不上资源不会报错。** `GenerateActionSetNameWithSuffix` 只拼字符串，不查动画数据库。拼出一个不存在的动作集名，agent 就会站在原地或回退默认动作，**没有异常、没有日志**。自定义后缀时先回资源里确认名字真的存在。
+
 ## 跨版本提示
 
 `ActionSetCode.cs` 在 `bannerlord-1.3.0/`（156 行 / 5282 字节）与 1.3.15、1.4.6、1.4.7、1.5.3 **四棵树 `grep -v Token` 逐行 diff 后完全一致**（md5 也一致：`98fff8ce…`）。**46 个常量的名字与值、`GenerateActionSetNameWithSuffix` 的三段拼接逻辑、`BaseMonster` 优先规则，全部跨 1.3 → 1.5 三个大版本零变化。**

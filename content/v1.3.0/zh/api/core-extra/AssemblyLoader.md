@@ -99,6 +99,48 @@ public class MySubModule : MBSubModuleBase
 - **失败时 `Debug.Print` 会打印 `InnerException`。** 排查加载失败时先看日志里的 `"ERROR: " + assemblyFile + ": " + ex.Message`，那行比后面的 `"Assembly load result: NULL"` 有用得多。
 - **路径要自己拼。** `ManagedDllFolder.Name` 是前缀（末尾带分隔符），`LoadFrom` 接受相对或绝对路径，全靠调用方拼对。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Library/AssemblyLoader.cs:8`，`public static class`，零实例成员、一个静态字段 `_loadedAssemblies`（`AssemblyLoader.cs:100`）。入口有两个，且大部分 mod 只看见第二个：
+
+- **`LoadFrom(string assemblyFile, bool show_error = true)`（`AssemblyLoader.cs:26`）** —— 显式加载一个 dll，四个官方调用点：[Module](../../core/Module) 的 `LoadPlatformServices`、[CoreManaged](../../mission-ext/CoreManaged)、[EngineManaged](../../engine/EngineManaged)，以及它自己的递归。
+- **静态构造函数的副作用。** 第一次碰这个类就会跑 `AssemblyLoader.cs:11`：把当前 `AppDomain` 里已加载的程序集全部塞进 `_loadedAssemblies`，然后 `AppDomain.CurrentDomain.AssemblyResolve += OnAssemblyResolve`（`AssemblyLoader.cs:17`）。也就是说，**在 `OnSubModuleLoad` 里写一句 `AssemblyLoader.LoadFrom(...)` 会顺带把整套程序集解析钩子装上**，哪怕你只想要解析器不想要加载。
+
+**一段可直接跑的「先装钩子，再预热」写法**：
+
+```csharp
+public class MySubModule : MBSubModuleBase
+{
+    protected override void OnSubModuleLoad()
+    {
+        base.OnSubModuleLoad();
+
+        // 这一句同时触发 AssemblyLoader.cs:11 的静态构造函数：
+        // AppDomain 的 AssemblyResolve 钩子从这一刻开始生效。
+        Assembly myMod = AssemblyLoader.LoadFrom(ManagedDllFolder.Name + "MyMod.Data.dll", false);
+        if (myMod == null)
+        {
+            Debug.Print("[MyMod] MyMod.Data.dll 未加载，后续 GetType 调用会返回 null", 0);
+            return;
+        }
+
+        Type t = myMod.GetType("MyMod.Data.ItemTable");
+        Debug.Print("[MyMod] item table type = " + (t == null ? "<missing>" : t.FullName), 0);
+    }
+}
+```
+
+`AssemblyLoader.Initialize()`（`AssemblyLoader.cs:21`）是一个**空方法**，调用它没有任何效果——它存在的唯一价值是让调用方的意图可读。
+
+**最常见的坑：你传了 `show_error: false`，却仍然弹出了模态错误框。** 在 `Runtime.DotNetCore` 分支里，`LoadFrom` 会读出被加载程序集的引用程序集列表，然后对每个非系统引用**递归调用自己**（`AssemblyLoader.cs:45`–`:53`）。而那次递归调用的第二个参数是**硬编码的 `true`**：
+
+```csharp
+text = referencedAssemblies[i].Name + ".dll";   // AssemblyLoader.cs:48
+AssemblyLoader.LoadFrom(text, true);            // AssemblyLoader.cs:51 —— 你的 false 到不了这里
+```
+
+失败时 `AssemblyLoader.cs:67` 会调 `Debug.ShowMessageBox` 弹一个模态框。后果：你为「mod 缺失依赖时安静降级」写了 `false`，结果你 DLL 的某个**传递依赖**缺失时照样弹框；而且递归里传的是**裸文件名**（`AssemblyLoader.cs:48` 没拼 `ManagedDllFolder.Name`），能不能找到取决于当前工作目录，于是同一个安装在不同启动方式下可能一个弹框一个不弹。要真正安静，就在 `LoadFrom` 之后自己判空并短路，别指望 `show_error` 能一路传下去。
+
 ## 跨版本提示
 
 `AssemblyLoader.cs` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里**行数相同但字节数不同**：1.3.0 是 3188 字节，1.3.15 是 3195 字节，1.4.6 / 1.4.7 / 1.5.3 都是 3768 字节。

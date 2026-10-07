@@ -136,6 +136,52 @@ private void OnAchievementReceived(Achievement achievement)
 - **`TargetProgress` 可能为 0 或负数，DTO 里没有约束。** 直接 `CurrentProgress * 100 / TargetProgress` 会抛 `DivideByZeroException`。算百分比必须先判分母。
 - **`TaleWorlds.AchievementSystem` 在文档工具链里被归为 noise 命名空间**（`tools/lib/handwritten-policy.mjs` 的 `isR1ExtraNoiseNamespace` 正则含 `TaleWorlds\.(?:AchievementSystem|ActivitySystem|...)`）。它之所以还有页面，是因为人工深写绕开了自动分类器——别指望批量工具会重新生成它。
 
+## 怎么用
+
+### 怎么拿到它
+
+`Achievement` 是一个纯数据载体，声明在 `TaleWorlds.AchievementSystem/Achievement.cs:6`，八个成员**全部是自动属性**，没有任何计算逻辑。获取方式只有两种：
+
+| 方式 | 条件 | 说明 |
+| --- | --- | --- |
+| 平台侧回传 | 由宿主的成就服务实现返回 | **v1.3.0 托管树里没有这条路径**：`IAchievementService` 四个成员的返回类型分别是 `bool` / `Task<int>` / `Task<int[]>` / `bool`（`IAchievementService.cs:10`、`:13`、`:16`、`:19`），**没有任何一个返回 `Achievement`**；`AchievementManager` 转发的三个方法同样只回 `bool` 与 `int`（`AchievementManager.cs:15`、`:21`、`:27`）。实现方在 Steamworks 那一侧，不在这棵树里 |
+| 自己 new | `new Achievement { ... }` | 类是 `public class` 且没有显式构造函数，编译器生成的隐式无参构造是 `public`，所以这条永远可用 |
+
+第二条路的含义要说清楚：**这不是「官方方式」，而是因为托管层根本不给，才成了唯一方式。**
+
+### 典型用法
+
+既然拿不到引擎的实例，就用同构的形状自己记录进度——注意下面三个字段要**你手动保持一致**：
+
+```csharp
+using TaleWorlds.AchievementSystem;
+
+public class MyProgress
+{
+    public string Id { get; set; }
+    public int CurrentProgress { get; set; }
+    public int TargetProgress { get; set; }
+    public bool IsUnlocked { get; set; }
+
+    // IsUnlocked 是一个没有逻辑的自动属性（Achievement.cs:41），
+    // 引擎不会替你把 CurrentProgress >= TargetProgress 翻译成解锁。
+    public void Report(int current)
+    {
+        CurrentProgress = current;
+        if (CurrentProgress >= TargetProgress && TargetProgress > 0)
+        {
+            IsUnlocked = true;
+        }
+    }
+}
+```
+
+### 最容易踩的坑
+
+**以为 `CurrentProgress` 到 `TargetProgress` 会自动把 `IsUnlocked` 翻成 `true`。** 源码里这三个是三个互不相干的自动属性（`Achievement.cs:36`、`:41`、`:46`），**没有任何 setter 会去联动另一个**。后果：你的成就条永远停在 0%，或者反过来在进度为 0 时就显示「已解锁」——而且不会有任何异常，因为赋值本身完全合法。
+
+第二个坑是把它当成可查询的对象。在 v1.3.0 托管层里没有任何 API 返回 `Achievement`（上面表格里那四个返回类型就是全部证据），所以**「先查一下玩家已解锁哪些成就」这个需求在托管层无法实现**，只能改读 `AchievementManager.GetStat` / `GetStats` 拿到的整数，自己在 mod 侧维护 id 到状态的映射。
+
 ## 跨版本提示
 
 `Achievement.cs` 在 `bannerlord-1.3.0` / `1.3.15` / `1.4.6` / `1.4.7` / `1.5.3` 五棵树里**逐字节一致**：都是 48 行、同样 8 个 `public { get; set; }` 属性、同样的顺序与命名，**没有任何字段被增删或改类型**。跨 1.3 → 1.5 三个大版本，公开面零变化。1.4.5 树是裁剪过的部分源码，无法作为对照。

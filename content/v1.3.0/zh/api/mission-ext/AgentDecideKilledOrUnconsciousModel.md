@@ -192,6 +192,45 @@ public class MyStateDecider : MissionBehavior, IAgentStateDecider
 - **它是 `MBGameModel<T>`，所以覆盖靠注册顺序。** `GetGameModel<T>()` 倒序扫「最外层」。照 [GameModel](../../core-extra/GameModel) 那套装饰链来理解。
 - **抽象类只有 12 行。** 行为契约全在 `Mission.GetAgentState` 一处，别从本类推测更多。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public abstract class AgentDecideKilledOrUnconsciousModel : MBGameModel<AgentDecideKilledOrUnconsciousModel>`（`TaleWorlds.MountAndBlade/ComponentInterfaces/AgentDecideKilledOrUnconsciousModel.cs:7`）。它自己不 new：读入口是 `MissionGameModels.Current.AgentDecideKilledOrUnconsciousModel` 那个已注册的实例，写入口是 `GameStarter.AddModel<AgentDecideKilledOrUnconsciousModel>(你的实例)`（见下面示例里的 `InitializeGameStarter`）。
+
+### 典型用法
+
+上面「真实示例」第一段按「是不是英雄」分流，第二段是注册。真正高频的改法是按**伤害维度**分流——同样的两个人，拿矛捅和拿箭射应该是两种死亡率，而 `weaponFlags` 与 `damageType` 两个参数就是为此存在的：
+
+```csharp
+public class MyLethalityModel : MBGameModel<AgentDecideKilledOrUnconsciousModel>
+{
+    public override float GetAgentStateProbability(
+        Agent affectorAgent, Agent effectedAgent, DamageTypes damageType,
+        WeaponFlags weaponFlags, out float useSurgeryProbability)
+    {
+        // 远程武器：RangedWeapon 是 WeaponFlags 的第 2 位（值为 2）
+        if (weaponFlags.HasFlag(WeaponFlags.RangedWeapon))
+        {
+            // 先取官方基础概率（含濒死区间宽度），再放大致死率
+            float baseChance = this.BaseModel.GetAgentStateProbability(
+                affectorAgent, effectedAgent, damageType, weaponFlags, ref useSurgeryProbability);
+            return MathF.Min(1f, baseChance * 1.4f);
+        }
+
+        // 其余路径原样转发；out 参数由 BaseModel 赋值
+        return this.BaseModel.GetAgentStateProbability(
+            affectorAgent, effectedAgent, damageType, weaponFlags, ref useSurgeryProbability);
+    }
+}
+```
+
+与上面「真实示例」的差别：那里是**按受害者身份**分流（英雄 / 非英雄）后直接返回一个常数概率；这里先向 `BaseModel` 要一个基准值、再按**攻击手段**（`WeaponFlags` 位标志）缩放它，并显式 `MathF.Min(1f, ...)` 夹住上界——因为本方法不保证返回值落在 `[0,1]`。
+
+### 最容易踩的坑
+
+**`IAgentStateDecider` 旁路会完全绕过模型。** `Mission.GetAgentState` 的 `using` 块遇到第一个 [IAgentStateDecider](../IAgentStateDecider) 就 `break`。它仍收到你的 `deathProbability` 作参数，但最终状态由它决定。「我的模型怎么没生效」的第一个排查点就是这个。
+
 ## 跨版本提示
 
 `AgentDecideKilledOrUnconsciousModel` 的 12 行在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 里完全一致——**一个抽象方法，从没变过**。消费方 `Mission.GetAgentState` 的结构（模型 → `IAgentStateDecider` 旁路 → 随机 → 友伤清 flag）在这些版本间也没改。

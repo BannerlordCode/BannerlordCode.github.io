@@ -214,6 +214,56 @@ public class MyHumanOnlyRule : MissionLogic
 - **不注册为引擎结构体，但仍走 `IMBAgent` 整型传参。** 改名安全，重排也不改 ABI，但反过来——**原生层永远只认整数**，你在托管侧定义新成员（比如加一个 `Scripted`）会编译通过，但 `SetController` 传出去的整数原生不认，行为未定义。
 - **`Mission.MainAgent` 是单例。** 多次把不同 agent 设成 `Player` 会互相顶掉，前一个 setter 里 `Mission.MainAgent = this` 的效果被后一个覆盖，但 `OnAgentControllerSetToPlayer` 已经广播过了。
 
+## 怎么用
+
+### 怎么拿到它
+
+它是 `public enum AgentControllerType`（`TaleWorlds.Core/AgentControllerType.cs:6`，无 `: byte`，底层 `int`）。读入口是 `Agent.Controller`（`TaleWorlds.MountAndBlade/Agent.cs:1074`）与 `MissionBehavior.OnAgentControllerChanged(Agent, AgentControllerType)` 的 `oldController` 形参；**写入口只有 `Agent.Controller` 的 setter 一条**。还有第三个读点值得记住：`Agent.Build` 在 `Agent.cs:5467` 用它决定非人形单位一律回落到 `AI`，所以你在 `AgentBuildData.Controller(...)` 上写什么，对马和攻城器械都不算数。
+
+### 典型用法
+
+把控制权从 AI 交到玩家是一次性的、有副作用的动作，不适合在回调里顺手改。收集候选、把副作用集中到一次：
+
+```csharp
+public class MyControlArbiter : MissionBehavior
+{
+    private readonly List<Agent> _candidates = new List<Agent>();
+
+    protected internal override void OnAgentControllerChanged(Agent agent, AgentControllerType oldController)
+    {
+        if (agent == null || agent.Controller != AgentControllerType.AI)
+        {
+            return;
+        }
+        // 非人形单位赋 Player 也没用：Agent.Build 会打回 AI，白跑一遍 setter
+        if (!agent.IsHumanoid)
+        {
+            return;
+        }
+        _candidates.Add(agent);
+    }
+
+    // 11 个副作用只在这一处付：重挂编队、设 Mission.MainAgent、加 AgentFlag.CanRide……
+    public AgentControllerType PromoteFirstCandidate()
+    {
+        if (_candidates.Count == 0)
+        {
+            return AgentControllerType.None;
+        }
+        Agent agent = _candidates[0];
+        _candidates.RemoveAt(0);
+        agent.Controller = AgentControllerType.Player;
+        return agent.Controller;
+    }
+}
+```
+
+与上面「真实示例」那两段的差别：那里一段在**生成时**就写定控制权、另一段在回调里**读**出来判断；这里是在回调里**攒候选**、在你自己选定的时刻**写**一次——因为 setter 的副作用是全局的（`Mission.MainAgent` 是单例），在谁的控制权变化回调里抢写都会互相覆盖。
+
+### 最容易踩的坑
+
+**setter 有 11 个副作用，改一次控制权不是改一个字段。** 最容易踩的三条：变成 `Player` 会重挂编队（从 `_detachment` 移除再 `AttachUnit`）；会设 `Mission.MainAgent`（全局单例）；会 `|=` 上 `AgentFlag.CanRide` 且**只加不减**，没有对应的清除分支。
+
 ## 跨版本提示
 
 `AgentControllerType.cs` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` **五棵树里 md5 完全一致**（`acb39c17…`），17 行 / 289 字节，成员、值、顺序一字未改。**跨 1.3 → 1.5 三个大版本零变化**，你的 `Controller(AgentControllerType.Player)` 升到 1.5.3 依然编译通过、行为一致。

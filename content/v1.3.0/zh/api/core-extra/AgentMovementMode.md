@@ -190,6 +190,45 @@ public class MyMachineGateLogic : MissionLogic
 - **`IsOnLand()` / `IsInWater()` / `IsAbleToUseMachine()` 是方法不是属性。** 调用时带括号：`agent.IsInWater()`。它们同时受 `NoPhysics` 影响吗？不影响——因为三个方法都先 `& 3` 掩掉了高位，物理开关怎么变都不改变它们的返回值。
 - **序列化后会重置。** `MovementMode` 存在原生指针指向的内存里，不在任何 `[SaveableField]` 之下。读档回来时 agent 由原生场景重建，介质重新求值——**不要把「刚才在水里」这种状态缓存到自己的持久化数据里当作可信值**。
 
+## 怎么用
+
+### 怎么拿到它
+
+它是 `public enum AgentMovementMode : byte` 加 `[Flags]`（`TaleWorlds.Core/AgentMovementMode.cs:7`）。唯一读入口是 `Agent.MovementMode`，而它是个 **get-only 属性**（`TaleWorlds.MountAndBlade/Agent.cs:184`），内部转手 `AgentHelper.GetAgentMovementMode(this._movementModePointer)` 打到原生指针上——**托管侧没有任何写入口**，写发生在引擎原生侧。所以这一页的「怎么用」只有读，没有构造。
+
+### 典型用法
+
+把它当能力门禁用：问「这个人现在能不能被交互 / 能不能被命中」，而不是问「他在哪个介质」——后者是上面那两段示例已经写过的：
+
+```csharp
+public static class InteractionGate
+{
+    public static bool CanTriggerHere(Agent agent)
+    {
+        // 低 2 位是介质：None=0/Land=1/WaterSurface=2/WaterDiving=3，MovementModeMask 就是 3
+        AgentMovementMode medium = agent.MovementMode & AgentMovementMode.MovementModeMask;
+        if (medium == AgentMovementMode.None)
+        {
+            // 空中或尚未初始化：此时交互、上马、寻敌全部无效，且不报错
+            return false;
+        }
+        if (medium != AgentMovementMode.Land)
+        {
+            return false;
+        }
+        // 高位单独问，不能整体比相等：叠加后 5/6/7 都是合法值
+        bool physics = (agent.MovementMode & AgentMovementMode.PhysicsCheck) == AgentMovementMode.PhysicsCheck;
+        return physics;
+    }
+}
+```
+
+与上面「真实示例」那两段的差别：那里剥完掩码后**穷举四种介质并各自做什么**（提示、水下摄像机夹角）；这里不关心介质本身，只把它当成一个「此刻这个单位的状态是否可用」的前置门禁，并额外把 `PhysicsCheck` 高位单独取出来判断——因为 `medium == Land` 这种写法在叠加了高位之后永远不成立。
+
+### 最容易踩的坑
+
+**`MovementMode` 只读，想改只能改源头。** 托管侧只有 `Agent.MovementMode` 这个 get-only 属性（`Agent.cs:184`），没有 setter、没有增量方法。试图在 mod 里改介质或开物理检查是做不到的，只能改生成它的源头（动画、行为树、原生侧）。
+
 ## 跨版本提示
 
 `AgentMovementMode.cs` 在 1.3.0（24 行 / 501 字节）与 1.3.15、1.4.6、1.4.7、1.5.3 **全部是 24 行 / 501 字节**；`grep -v Token` 逐行 diff 后 1.3.15 与 1.4.6 **完全一致**，成员、值、顺序一字未改。跨 1.3 → 1.5 三个大版本零变化，**你的 `(mode & AgentMovementMode.MovementModeMask) == AgentMovementMode.Land` 升到 1.5.3 行为一致**。

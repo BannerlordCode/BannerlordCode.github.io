@@ -222,6 +222,71 @@ public static void ForceNeutralAndRefresh(IFaction a, IFaction b)
 7. **已消灭派系会悄悄“失去意义”。** 一旦 `IsEliminated` 被置位，所有查询返回否定答案，`RemoveFactionsFromCampaignWars` 也会丢掉该派系的链接。恢复一个王国却不重建立场，它在外交上就是孤立的。
 8. **`GetRelationBetweenClans` 的不对称与年龄门槛。** 结果取决于参数顺序，且年龄低于 `AgeModel.HeroComesOfAge` 的英雄被完全排除。把它当作权重启发式使用，而不是稳定的存储值。
 
+## 怎么用
+
+### 怎么拿到它
+
+不用拿。**你要用的方法全是 `static`**，直接 `FactionManager.DeclareWar(...)` 就行；类型在 `TaleWorlds.CampaignSystem`，源码 `TaleWorlds.CampaignSystem/FactionManager.cs`。
+
+`FactionManager` 类本身（`:12`）只有一个公开实例属性 `Instance`（`:34`），它的 getter 就是 `return Campaign.Current.FactionManager;`（`:38`）——**这就是 `Instance` 会 NPE 的原因**。而 `DeclareWar`（`:131`）、`SetNeutral`（`:141`）、`IsAtWarAgainstFaction`（`:158`）、`IsNeutralWithFaction`（`:185`）、`GetRelationBetweenClans`（`:223`）全都不经过 `Instance` 这个入口（内部该用的时候自己取），**所以查询和写入都不要求你先拿到实例，但全都要求 `Campaign.Current` 已经存在**。
+
+一条要记住的分界：**这个类里没有同盟关系。** `AcceptCallToWarAgreementDecision.IsAllowed` 判的是 `CallingKingdom.IsAllyWith(base.Kingdom)`，那个 `IsAllyWith` 在 `TaleWorlds.CampaignSystem/Kingdom.cs:931`，底层走 `IAllianceCampaignBehavior`，跟 `FactionManager` 的战争/中立图是两套东西。
+
+### 典型用法
+
+宣战，并且**立刻验证**：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Settlements;
+
+public static class Diplomacy
+{
+    public static bool TryDeclareWar(IFaction aggressor, IFaction target)
+    {
+        // 前置条件由 DiplomacyModel 决定；不满足时 DeclareWar 是空操作。
+        FactionManager.DeclareWar(aggressor, target);
+
+        // 必须回读确认。DeclareWar 返回 void，失败时没有任何提示。
+        return FactionManager.IsAtWarAgainstFaction(aggressor, target);
+    }
+
+    public static bool AreAtPeace(IFaction a, IFaction b)
+    {
+        // IsAtWarAgainstFaction 已经涵盖了中立判断，
+        // 别自己再叠加 !IsNeutralWithFaction —— 那会把两者都排除的情况算成和平。
+        return !FactionManager.IsAtWarAgainstFaction(a, b);
+    }
+}
+```
+
+参数核对：`DeclareWar(IFaction faction1, IFaction faction2)`、`IsAtWarAgainstFaction(IFaction faction1, IFaction faction2)`，**两个参数，都接受 `IFaction`**——所以 `Clan` 与 `Kingdom` 可以混着传，这一点很容易写错成 `Kingdom`。
+
+### 最容易踩的坑
+
+**以为 `DeclareWar` 没能生效时，原因是外交前置条件没满足。有时不是——它写了一整个对象，然后把它扔了。**
+
+顺着调用链看：`DeclareWar`（`:131`）在 `:136` 调 `SetStance`，`SetStance`（`:118`）在 `:120` 调 `GetStanceLinkInternal(IFaction, IFaction)`。而 `GetStanceLinkInternal`（`:86`）是这么写的：
+
+```csharp
+FactionManager.cs:88    StanceLink stanceLink = this._stances.GetStance(faction1, faction2);
+FactionManager.cs:89    if (stanceLink == null)
+FactionManager.cs:91        stanceLink = new StanceLink(..., faction1, faction2);
+FactionManager.cs:92        this.AddStance(faction1, faction2, stanceLink);
+FactionManager.cs:94    return stanceLink;          // 不管有没有存进去，都把这个对象返回出去
+```
+
+关键在 `AddStance`（`:98`）的第一句 `:100`：
+
+```csharp
+if (!faction1.IsEliminated && !faction2.IsEliminated
+    && Campaign.Current.Models.DiplomacyModel.GetShallowDiplomaticStance(faction1, faction2) == null)
+```
+
+**只要有一方已被消灭，这个新建的 `StanceLink` 就不会被存进 `_stances`。** 但 `GetStanceLinkInternal` 在 `:94` 照样把它返回了，于是 `SetStance` 的 `:122` 把 `StanceType` 写在了这个**临时对象**上，然后 `:123` 判出涉及 War、`:125` 与 `:126` 对两个派系各调一次 `UpdateFactionsAtWarWith()`（声明在 `TaleWorlds.CampaignSystem/IFaction.cs:155`）。
+
+后果：外部看起来「宣战生效了」——更新事件派发了、依赖 `FactionsAtWarWith` 的 UI 可能重画了一次——但**存档里什么都没记**。退出重进游戏，战争就消失了，因为 `_stances` 里那条链接从来没被写进去。这就是为什么**宣战之后必须立刻 `IsAtWarAgainstFaction` 回读**：它是唯一能分辨"真的开战了"和"只派发了事件"的办法，而这个差别从返回值上看不出来。
+
 ## 跨版本提示
 
 - 这九个公开成员、`DiplomacyModel` 的查询顺序以及 `[SaveableField(20)]` 的立场存储在 1.3.x 与 1.4.x 中完全一致。

@@ -334,6 +334,95 @@ public sealed class BattleWatcherBehavior : CampaignBehaviorBase
 8. **`PartyBase` 不是 `Team`。** 不要在任务代码里读战役部队数据并以为它能活过这场战斗，也不要把任务状态写进它。战斗回写只在结算时发生一次。
 9. **逐 tick 扫描。** `PartyBase.MainParty` 与宿主查找很廉价，但逐 tick 枚举每个部队的名册并不廉价。请订阅 `CampaignEvents.DailyTickPartyEvent`。
 
+## 怎么用
+
+### 怎么拿到它
+
+**先搞清楚它和 `MobileParty` 的关系——这是全篇最容易搞错的一条。**
+
+`PartyBase` 的声明是 `public sealed class PartyBase : IBattleCombatant, IRandomOwner, IInteractablePoint`（`TaleWorlds.CampaignSystem/Party/PartyBase.cs:21`）。**它 `sealed`，而且全树没有任何类型继承它**——它不是 `MBObjectBase`（整个文件里 `MBObjectBase` 出现 0 次），身份字段是 `Index`（`:462`），由构造器里的 `Campaign.Current.GeneratePartyId(this)` 分配（`:1131`，实现在 `TaleWorlds.CampaignSystem/Campaign.cs:1558`）。
+
+而 `MobileParty` 是另一个独立的 `public sealed class MobileParty`（`TaleWorlds.CampaignSystem/Party/MobileParty.cs:26`），**它不是 `PartyBase` 的派生类**。两者是**持有关系**：
+
+```
+TaleWorlds.CampaignSystem/Party/MobileParty.cs:26    public sealed class MobileParty : CampaignObjectBase, ...
+TaleWorlds.CampaignSystem/Party/MobileParty.cs:724   public PartyBase Party { get; private set; }
+TaleWorlds.CampaignSystem/Party/MobileParty.cs:1507  this.Party = new PartyBase(this);      // 在自己的构造函数里
+```
+
+`Settlement` 也持有一个（`TaleWorlds.CampaignSystem/Settlements/Settlement.cs:931`：`this.Party = new PartyBase(this);`）。拿玩家部队用静态属性 `PartyBase.MainParty`（`PartyBase.cs:409`），它的 getter 已经判过 `Campaign.Current == null`（`:413`），否则返回 `Campaign.Current.MainParty.Party`（`:417`）。
+
+### 典型用法
+
+从 `MobileParty` 取战斗侧数据：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
+
+public static class PartyInspector
+{
+    public static int ActiveTroops(MobileParty party)
+    {
+        // PartyBase 不是 MobileParty 的基类，必须显式取 .Party。
+        PartyBase combatant = party.Party;
+
+        if (combatant == null)
+        {
+            return 0;
+        }
+
+        return combatant.MemberRoster.TotalManCount;
+    }
+
+    public static int GarrisonSize(Settlement settlement)
+    {
+        // Settlement 自己也有一个 PartyBase，用的是 PartyBase(Settlement) 构造函数。
+        PartyBase garrison = settlement.Party;
+
+        return garrison == null ? 0 : garrison.MemberRoster.TotalManCount;
+    }
+
+    public static int PlayerPartySize()
+    {
+        // 战役之外会返回 null —— MainParty 自己判过 Campaign.Current。
+        PartyBase main = PartyBase.MainParty;
+
+        return main == null ? 0 : main.MemberRoster.TotalManCount;
+    }
+}
+```
+
+### 最容易踩的坑
+
+**`new PartyBase(someSettlement)` 造出来的东西看着能用，其实是个跟战役脱钩的孤儿。**
+
+两个构造函数都是 `public`：`PartyBase(MobileParty mobileParty)`（`PartyBase.cs:1119`）和 `PartyBase(Settlement settlement)`（`PartyBase.cs:1124`），都转发到私有的 `PartyBase(MobileParty, Settlement)`（`:1129`）。而那个私有构造器里：
+
+```csharp
+PartyBase.cs:1132    this.MobileParty = mobileParty;
+PartyBase.cs:1133    this.Settlement  = settlement;
+PartyBase.cs:1134    this.ItemRoster   = new ItemRoster();
+PartyBase.cs:1135    this.MemberRoster = new TroopRoster(this);
+```
+
+**每个 `PartyBase` 都有自己的新名册。** 所以：
+
+```
+PartyBase preview = new PartyBase(settlement);        // 造了个孤儿
+preview.MemberRoster.AddToCounts(troop, 100);         // 兵进了这个孤儿的名册
+settlement.Party.MemberRoster.TotalManCount           // 还是原来的数，一个都没多
+```
+
+后果有三个，第三个最隐蔽：
+
+1. **改动不落在战役上**。聚落守备军的真实名册是 `Settlement.cs:931` 那次构造出来的那个，你手里这个是另一个对象。
+2. **它不进存档**。`PartyBase` 不是 `MBObjectBase`，不在 `MBObjectManager` 里，没有 `StringId`——重进游戏它就没了，连同你加的兵。
+3. **它消耗了一个部队 id**。`:1131` 的 `GeneratePartyId` 是自增的（`Campaign.cs:1558`），每造一个孤儿就占掉一个编号。战斗逻辑里凡是按 `Index` 排布双方队伍的（`PartyBase` 实现的是 `IBattleCombatant`），编号错位会让双方阵型判断出错，而这个错误**只在战斗里才暴露**，跟你造孤儿的那一刻毫无关系。
+
+如果你要的只是「看这个聚落有多少兵」，用 `settlement.Party.MemberRoster`；如果要在战斗中把这份数据用上，就把 `MobileParty.Party` 传进去，不要自己造。
+
 ## 跨版本提示
 
 - 双宿主构造、三个名册以及 `Add*` 系列在 1.3.x 与 1.4.x 中完全一致。

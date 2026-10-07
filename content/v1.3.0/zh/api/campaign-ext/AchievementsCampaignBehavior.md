@@ -187,6 +187,102 @@ if (behavior != null)
 - **`OnSettlementEnter` 里有除零风险。** 第 334 行起：`int num2 = MathF.Floor((float)num / 30f); int num3 = this._settlementIntegerSetList[num2];`，索引来自「按 30 个一批」的分桶数组。`_settlementIntegerSetList` 只在 `CacheAndInitializeAchievementVariables` 里填，**启动窗口内（async void 未完成）进城镇会读到默认空列表**。
 - **`const float SettlementCountStoredInIntegerSet = 30f;`（第 911 行）是个命名与类型都不符的常量。** 值 30 是「每个整数集合存多少个定居点」，常量名说成「Float 存储的数量」，读代码时别被名字带偏。
 
+## 怎么用
+
+### 怎么拿到它
+
+这是一个 `CampaignBehaviorBase` 派生类，声明在 `StoryMode/GameComponents/CampaignBehaviors/AchievementsCampaignBehavior.cs:30`。它**不由任何人 new 给你**——走 campaign 行为注册链：
+
+```
+CampaignGameStarter.AddCampaignBehavior(...)  →  CampaignBehaviorManager 持有
+    ├─ SyncData(IDataStore)      :33   只同步一个 bool：_deactivateAchievements
+    └─ RegisterEvents()          :39   注册约 30 个 CampaignEvents 监听
+取用：Campaign.Current.GetCampaignBehavior<AchievementsCampaignBehavior>()
+```
+
+三个 public 成员是 mod 唯一能碰到它的面：`CheckAchievementSystemActivity(out TextObject reason)`（`:326`）、`OnRadagosDuelWon()`（`:461`）、`DeactivateAchievements(TextObject, bool, bool)`（`:887`）。
+
+所有 stat 写入都汇到私有的 `SetStatInternal`（`:902`），它第一件事就是检查开关：
+
+```csharp
+private void SetStatInternal(string statId, int value)
+{
+    if (!this._deactivateAchievements)
+    {
+        AchievementManager.SetStat(statId, value);
+    }
+}
+```
+
+### 典型用法
+
+自己也要写统计时，**先过同一个门禁**，而不是直接调 `AchievementManager.SetStat`：
+
+```csharp
+using TaleWorlds.AchievementSystem;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Localization;
+
+public static bool TryWriteMyStat(string statId, int value)
+{
+    if (Campaign.Current == null)
+    {
+        return false;
+    }
+
+    // 用官方行为自己的门禁，而不是自己猜「现在能不能写」。
+    // CheckAchievementSystemActivity 在 :326，它同时看 _deactivateAchievements、
+    // DumpIntegrityCampaignBehavior 是否存在、以及游戏完整性是否达标。
+    AchievementsCampaignBehavior behavior =
+        Campaign.Current.GetCampaignBehavior<AchievementsCampaignBehavior>();
+    if (behavior == null || !behavior.CheckAchievementSystemActivity(out TextObject reason))
+    {
+        return false;
+    }
+
+    // 注意返回值只代表「服务接受了」（见 AchievementManager 一页）。
+    return AchievementManager.SetStat(statId, value);
+}
+```
+
+要跟随同一批事件，就用同样的注册形状自己写一个行为：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+public class MyAchievementBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        // 和官方行为完全同形（AchievementsCampaignBehavior.cs:39 那一段）。
+        // AddNonSerializedListener 不进存档，所以 SyncData 可以不写。
+        CampaignEvents.HeroKilledEvent.AddNonSerializedListener(this, OnHeroKilled);
+    }
+
+    private void OnHeroKilled(Hero victim, Hero killer,
+        KillCharacterAction.KillCharacterActionDetail detail, bool showNotification = true)
+    {
+        if (killer == Hero.MainHero)
+        {
+            AchievementManager.SetStat("MyMod_Kills", 1);
+        }
+    }
+}
+```
+
+### 最容易踩的坑
+
+**以为 `DeactivateAchievements` 只是「关一个开关」，事后把开关拨回去就能恢复。** 它做了两件事，而第二件是不可逆的：
+
+```
+_deactivateAchievements = (!temporarily || this._deactivateAchievements);   // :888
+CampaignEventDispatcher.Instance.RemoveListeners(this);                      // :889
+```
+
+`RemoveListeners(this)` 一次性摘掉本行为在 `RegisterEvents`（`:39`）里挂上的**全部**监听，而这个类**没有任何地方会再次调用 `RegisterEvents`**。后果是：一旦调用过，本局剩余时间里成就统计**永久停止累积**——`_cached*` 字段不再更新、`SetStatInternal` 被开关挡住、事件也不再进来。你把 `_deactivateAchievements` 改回 `false` 也救不回来，因为字段是 `private` 且没有重注册入口。
+
+第二个坑是 `temporarily` 参数的语义反直觉。`:888` 那行的含义是「只有传 `temporarily: true` **并且**当前已经处于停用状态，才保持停用」；传 `temporarily: false`（默认值）会把开关**永久**置上。想做「本次会话临时停一下」必须显式传 `true`，而即便如此监听也已经没了——**`temporarily` 这个名字比它的实际效果乐观得多。**
+
 ## 跨版本提示
 
 `AchievementsCampaignBehavior` 在 1.3.0 → 1.5.3 之间的变化**全部落在 private 成员上，8 个 public 成员一个没动**（逐行比对 public/protected 声明集合：1.3.0 与 1.5.3 完全一致，差集为空）。但有两处私有签名变了，且**都会让照抄的 mod 代码编译失败**：

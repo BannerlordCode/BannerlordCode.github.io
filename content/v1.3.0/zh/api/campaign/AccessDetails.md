@@ -127,6 +127,62 @@ public override void CanMainHeroEnterLordsHall(Settlement settlement, out Access
 - **字段之间没有不变式保护。** `AccessLevel == FullAccess` 而 `LimitedAccessSolution == Bribe` 这种自相矛盾的组合，编译器不拦、运行期也不拦，只会在下游联判时走进未定义分支。**填的时候成套填。**
 - **只能在 `SettlementAccessModel` 的三个 `CanMainHeroEnterXxx` 里拿到它。** 另外三个 `CanMainHeroAccessLocation` / `CanMainHeroDoSettlementAction` / `IsRequestMeetingOptionAvailable` 返回的是 `out bool disableOption, out TextObject disabledText`，**不涉及 `AccessDetails`**。别拿它回答「能不能做 X」。
 
+## 怎么用
+
+### 怎么拿到它
+
+它没有工厂、没有静态属性，**只能作为 `out` 参数被交出来**。三个交出它的方法是 `SettlementAccessModel` 的 `CanMainHeroEnterSettlement` / `CanMainHeroEnterLordsHall` / `CanMainHeroEnterDungeon`，声明在 `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementAccessModel.cs:12`、`:15`、`:18`，形状都是 `(Settlement settlement, out AccessDetails accessDetails)`，两个参数、无返回值。
+
+模型本身从 `Campaign.Current.Models.SettlementAccessModel` 拿（属性在 `TaleWorlds.CampaignSystem/GameModels.cs:479`，由 `GameModels.cs:721` 填充），官方实现在 `TaleWorlds.CampaignSystem/SandBoxManager.cs:275` 注册。`Settlement` 在 `TaleWorlds.CampaignSystem.Settlements`（`TaleWorlds.CampaignSystem/Settlements/Settlement.cs:24`）。
+
+### 典型用法
+
+每次问、每次重新判定，不要把结果存下来：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.CampaignSystem.Settlements;
+
+public static class AccessProbe
+{
+    // 按"此刻的状态"回答，而不是按"上次进来时的状态"。
+    public static bool CanWalkIn(Settlement settlement)
+    {
+        if (settlement == null)
+        {
+            return false;
+        }
+
+        // out 参数只能接变量名，不能接表达式或属性。
+        SettlementAccessModel.AccessDetails details;
+        Campaign.Current.Models.SettlementAccessModel.CanMainHeroEnterSettlement(settlement, out details);
+
+        // 许可与手续要同时成立：FullAccess 配 Direct 才是"无门槛"。
+        return details.AccessLevel == SettlementAccessModel.AccessLevel.FullAccess
+            && details.AccessMethod == SettlementAccessModel.AccessMethod.Direct;
+    }
+
+    // 换个场所就是换个方法，别拿地牢的判定回答内城的问题。
+    public static bool CanEnterKeep(Settlement settlement)
+    {
+        SettlementAccessModel.AccessDetails details;
+        Campaign.Current.Models.SettlementAccessModel.CanMainHeroEnterDungeon(settlement, out details);
+        return details.AccessLevel != SettlementAccessModel.AccessLevel.NoAccess;
+    }
+}
+```
+
+### 最容易踩的坑
+
+**把 `AccessDetails` 存进字段缓存起来，然后在别处继续读。官方自己就是这么写的，而那个字段并不总是被刷新。**
+
+`EncounterGameMenuBehavior` 有一个 `private SettlementAccessModel.AccessDetails _accessDetails;`（`TaleWorlds.CampaignSystem/CampaignBehaviors/EncounterGameMenuBehavior.cs:3238`），没有初始化器，也就是永远是 `default(AccessDetails)` 起步。它在两处被刷新：构造流程里的 `InitializeAccessDetails()`（`EncounterGameMenuBehavior.cs:91`，调用点 `:86` 与 `:839`），以及每次菜单打开时——`game_menu_town_outside_on_init` 在 `EncounterGameMenuBehavior.cs:2180`、`game_menu_castle_outside_on_init` 在 `:2274`。
+
+问题出在 `InitializeAccessDetails` 自己身上。`EncounterGameMenuBehavior.cs:94` 的守卫是 `if (currentSettlement != null && ...)`：**`Settlement.CurrentSettlement` 为 null 时它直接跳过，一个字段都不写**，而下游 `EncounterGameMenuBehavior.cs:2188`、`:2231`、`:2316`、`:2584` 全都在读这个字段。后果是玩家从一个聚落走到另一个聚落、或者在"不在聚落里"的时刻触发了刷新，菜单就可能把**上一个聚落的判定**当成当前答案——提示文案错、菜单项该关的没关，而且全程没有异常。
+
+还有第二层：两个菜单打开回调传的是 `PlayerEncounter.EncounterSettlement`（`EncounterGameMenuBehavior.cs:2178`、`:2272`），而 `InitializeAccessDetails` 传的是 `Settlement.CurrentSettlement`（`EncounterGameMenuBehavior.cs:96`）。**两个不是同一个值。** 遭遇战进行中两者可以不同步。所以 mod 里只要自己缓存，就至少要把"判定针对哪个 `Settlement`"和判定结果绑在一起存，并在这两个来源切换时作废。
+
 ## 跨版本提示
 
 `AccessDetails` 的六个字段在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里**完全一致**：同样六个字段、同样顺序、同样全是 `public` 字段（无一个变成属性）、仍然是 `public struct`（没被改成 class）。跨 1.3 → 1.5 三个大版本零变化。

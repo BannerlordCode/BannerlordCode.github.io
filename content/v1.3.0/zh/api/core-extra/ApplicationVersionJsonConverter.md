@@ -94,6 +94,33 @@ Debug.Print(bannerText, 0);
 - **反序列化时会有一次装箱。** `ReadJson` 返回 `object`，值类型被装箱后再由 Newtonsoft 拆箱。版本比较在热路径上大量出现时不值得为此建缓存。
 - **序列化字符串不是双向稳定的。** [ApplicationVersion](../ApplicationVersion).`ApplicationVersionTypeFromString` 不接受 `"i"`，所以 `Invalid` 通道的版本（也就是 `Empty`）写出去再读回来会失败。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Library/ApplicationVersionJsonConverter.cs:8`，`public class ApplicationVersionJsonConverter : JsonConverter`，无字段、无 ctor、三个重写方法。**你不应该 new 它** —— 入口是挂在被序列化类型上的特性：`ApplicationVersion.cs:8` 有一行 `[JsonConverter(typeof(ApplicationVersionJsonConverter))]`，它作用在 `ApplicationVersion` 这个 struct 声明上。所以只要你的对象上出现一个 `ApplicationVersion` 属性，Newtonsoft 就会自动选中这个转换器；mod 侧唯一「主动拿到它」的场景是处理一个你控制不了的第三方类型时，把 `[JsonConverter(typeof(ApplicationVersionJsonConverter))]` 贴到那个属性上。
+
+它是 `TaleWorlds.Library` 程序集里的类，所以 `using Newtonsoft.Json;` 是必需的（文件顶部就是这么写的）。它对 `TaleWorlds.Library` 之外的世界一无所知 —— 只认 `_version` 这一个键。
+
+**一段可直接跑的形状契约检查**（先确认自己写出的 JSON 能被同一个转换器吃回来）：
+
+```csharp
+// WriteJson（:33）只写一个键：{"_version":"v1.3.0.89406"}。
+// GetPrefix + 四个 int 就是 ToString()（:208）的全部内容，没有别的字段。
+string json = JsonConvert.SerializeObject(
+    ApplicationVersion.FromString("v1.3.0.89406", 0));
+Debug.Print(json, 0);
+
+// 反方向只认 _version 这个键名（ReadJson :19）。
+ApplicationVersion back = JsonConvert.DeserializeObject<ApplicationVersion>(
+    "{\"_version\":\"v1.3.0.89406\"}");
+Debug.Print("major = " + back.Major + " type = " + back.ApplicationVersionType, 0);
+```
+
+`CanWrite` 是硬编码 `return true;`（`ApplicationVersionJsonConverter.cs:24`），所以写不写由你决定不了：任何 `ApplicationVersion` 一旦被序列化，就一定是嵌套的 `{"_version": ...}` 对象，而不是展开成字段。想把版本号摊平成字符串字段，唯一办法是在自己的类型上用 `string` 而不是 `ApplicationVersion`。
+
+**最常见的坑：JSON 里少了 `_version`，抛出来的异常指向的是错误的地方。** `ReadJson` 写的是 `ApplicationVersion.FromString((string)JObject.Load(reader)["_version"], 0)`（`ApplicationVersionJsonConverter.cs:19`）。键不存在时 `JObject["_version"]` 返回 `null`，强转成 `string` 仍然得到 `null`，于是 `FromString` 的第一行 `versionAsString.Split(...)`（`ApplicationVersion.cs:69`）解引用空引用——**抛的是 `NullReferenceException`，堆栈最上面那一帧是你的 `JsonConvert.DeserializeObject` 调用处，不是那个 JSON 文件**。
+
+后果很具体：读一个由旧版本写出的存档（那时字段名还是 `version`），你会得到一个看起来跟「JSON 格式不对」完全一样的空引用异常，于是去检查序列化配置、检查字段名映射、检查大小写——而真正的原因是那条 `catch` 里的 `_version` 键不存在。凡是接外部输入，先自己 `JObject` 取一次 `_version` 判空，再交给转换器。
+
 ## 跨版本提示
 
 `ApplicationVersionJsonConverter.cs` 在五棵树（`bannerlord-1.3.0/` / `bannerlord-1.3.15/` / `bannerlord-1.4.6/` / `bannerlord-1.4.7/` / `bannerlord-1.5.3/`）里**公开表面完全一致**：`CanConvert` / `ReadJson` / `CanWrite` / `WriteJson` 四个成员、签名一字不差。

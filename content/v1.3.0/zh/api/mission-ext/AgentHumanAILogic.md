@@ -163,6 +163,39 @@ public static void OrderFollow(Agent follower, Agent leader)
 - **`AgentHumanAILogic` 与 [AgentCommonAILogic](../AgentCommonAILogic) 都注册才有完整 AI。** 只有前者不挂 `CommonAIComponent`，士气相关 API 依然失效；只有后者则人类 AI 没有决策能力。
 - **没有字段、没有构造器。** 被 `Mission` 用 `AddMissionBehavior` 加进 `MissionLogics`，不由你 new。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class AgentHumanAILogic : MissionLogic`（`TaleWorlds.MountAndBlade/AgentHumanAILogic.cs:7`），只有隐式公开构造。它不是单例——官方在 Mission 建立时把一个实例 `AddMissionBehavior` 进去（`Mission.cs:4306`），靠回调看到每个新建的 Agent。你要拿到的效果是「Agent 上挂着 `HumanAIComponent`」，判据是 `agent.HumanAIComponent != null`。
+
+### 典型用法
+
+上面「真实示例」两段都在处理**组件装配**。本页还有一个成员与组件完全无关：`OnAgentMount` 不判空、不判 `IsHuman`、不看控制器——**任何单位上马都会走这一行**，包括马匹载具之间的转移：
+
+```csharp
+public class MyMountWatcher : MissionBehavior
+{
+    public override void OnAgentMount(Agent agent)
+    {
+        base.OnAgentMount(agent);
+
+        // 官方在这之后做的是 Mission.Current.UpdateMountReservationsAfterRiderMounts
+        if (agent == null || agent.MountAgent == null)
+        {
+            return;
+        }
+        MBDebug.Print("[MyMod] " + agent.Name + " 上了 " + agent.MountAgent.Name);
+    }
+}
+```
+
+与上面「真实示例」的差别：那两段是**在装配缺失时补装配**，判据都绕着 `HumanAIComponent` 是否为 null；这里处理的是**一个与 AI 无关的生命周期钩子**——它不看控制器也不看组件，所以既可以用来看上马事件，也可以用来在挂马那一刻挂一个自己的 `AgentComponent`，两者互不干扰。
+
+### 最容易踩的坑
+
+**`OnAgentCreated` 不去重。** 官方已经注册了它，你再挂一次会有两个 `HumanAIComponent` 同时 tick。**先查 `agent.HumanAIComponent != null`。**
+
 ## 跨版本提示
 
 44 行内容在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 里一致，三个覆写都没变。`AgentControllerType` 的四个成员同样稳定。

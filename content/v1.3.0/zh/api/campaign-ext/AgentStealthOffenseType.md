@@ -131,6 +131,83 @@ private static string PredictOffenseType(bool isStealthModeEnabled, bool isInVis
 - **兄弟枚举 `AgentAlarmStateEnum` 有 5 个值且 `None = -1`，与本枚举容易混淆。** `AgentAlarmStateEnum` 的 `Suspicious`（序号 4）和 `Visible`（序号 5）**在 `UpdateAlarmState` 里从来没被赋值**——那 5 个 if/else 只产出 `Alarmed` / `Cautious` / `PatrollingCautious` / `None` 四个。**`AgentAlarmStateEnum.Suspicious` 与 `Visible` 是死值。**
 - **`UpdateAlarmState` 有一个可空的解引用。** `:150` 的 `MathF.Clamp(alarmedBehaviorGroup.AlarmFactor / 2f, 0f, 1f)` 没有 null 检查——`alarmedBehaviorGroup` 在 `:145` 是三元表达式算出来的（`agentNavigator != null ? ... : null`），而 `agentNavigator` 本身来自 `agent.GetComponent<CampaignAgentComponent>().AgentNavigator`（`:142`，**`GetComponent` 的结果没判 null**）。只有 `HasFlag(3)`（Alarmed）那条分支会提前短路跳过这一行。
 
+## 怎么用
+
+### 怎么拿到它
+
+声明在 `SandBox.ViewModelCollection/Missions/MainAgentDetection/MissionDisguiseMarkerItemVM.cs:346`，嵌套在 `MissionDisguiseMarkerItemVM` 里，完整写法 `MissionDisguiseMarkerItemVM.AgentStealthOffenseType`。成员：
+
+| 成员 | 行号 | 值 |
+| --- | --- | --- |
+| `None` | `:349` | **-1** |
+| `Default` | `:351` | 0 |
+| `Visible` | `:353` | 1 |
+| `Suspicious` | `:355` | 2 |
+
+它和 [AgentAlarmStateEnum](../AgentAlarmStateEnum) 是同一对孪生枚举，但**写它的地方只有一处**：私有方法 `GetOffenseTypeIdentifier(StealthOffenseTypes)`（`:90`）。那个方法的返回值是 `_offenseType.ToString()`（`:95`、`:109`），而 `_offenseType` 字段本身是 **private**（`:299`）。
+
+对外唯一的出口是字符串属性 `OffenseTypeIdentifier`，它的 setter 在 `:184-186`，只有值变化时才通知。取值链：
+
+```
+RefreshVisuals()                                       :25
+  └─ OffenseTypeIdentifier = GetOffenseTypeIdentifier(...)   :28 → :90
+       └─ return _offenseType.ToString()                :95 / :109
+```
+
+**必须先有 `RefreshVisuals()`，字符串才是当次计算的结果。**
+
+### 典型用法
+
+读公开字符串，并且把「尚未计算」和「确实是 None」区分开：
+
+```csharp
+using SandBox.ViewModelCollection.Missions.MainAgentDetection;
+
+public static bool NeedsHostileMarker(MissionDisguiseMarkerItemVM marker)
+{
+    if (marker == null)
+    {
+        return false;
+    }
+
+    // OffenseTypeIdentifier 是 private _offenseType 的字符串出口
+    // （GetOffenseTypeIdentifier 在 :90，返回 _offenseType.ToString()）。
+    string identifier = marker.OffenseTypeIdentifier;
+
+    // 空字符串 = 还没调过 RefreshVisuals，或者 marker 是复用来的。
+    // "None" = 引擎确实算出来是 None。两者含义完全不同，不要合并。
+    return !string.IsNullOrEmpty(identifier) &&
+           identifier != MissionDisguiseMarkerItemVM.AgentStealthOffenseType.None.ToString();
+}
+```
+
+需要在若干候选里挑出「可疑」那一档时：
+
+```csharp
+using SandBox.ViewModelCollection.Missions.MainAgentDetection;
+
+public static bool IsSuspicious(MissionDisguiseMarkerItemVM marker)
+{
+    if (marker == null)
+    {
+        return false;
+    }
+
+    // 直接比字符串，避免 Parse 在脏值上抛异常。
+    // 枚举没有 [Flags]，所以 == 而不是 HasAnyFlag。
+    return marker.OffenseTypeIdentifier ==
+           MissionDisguiseMarkerItemVM.AgentStealthOffenseType.Suspicious.ToString();
+}
+```
+
+### 最容易踩的坑
+
+**把「没算过」和「`None`」当成同一件事。** 两者对外都是「看起来没有类型」，但来源完全不同：`None` 是 `GetOffenseTypeIdentifier` 在 `StealthOffenseTypes.None` 分支里**显式赋的值**（`:94-95`），而空字符串是 `_offenseTypeIdentifier`（`:311`）从未被赋值的初始状态。后果：在 `RefreshVisuals()` 之前去读，得到空串；如果你写 `string.IsNullOrEmpty(id) || id == "None"` 把两者合并，**那些只是「还没被发现」的目标会被你当成「引擎已判定无罪」而画上普通标记**——玩家会以为系统已经排查过，而实际上它根本没算。
+
+第二个坑是 `None` 等于 -1（`:349`），而 `Default` 是 0。所以 `default(AgentStealthOffenseType)` 是 `Default` 而不是 `None`——**这个枚举的默认成员不是它的哨兵成员**。任何用 `default` 初始化的字段都不代表「无」。
+
+第三个坑是缓存这个字符串。它的 setter（`:184-186`）只做「变了才通知」，值本身由 `RefreshVisuals()` 重算。**构造时取一次存进自己的字段，就再也不会更新了**，因为引擎不会主动推给你。
+
 ## 跨版本提示
 
 - **本类型在 1.3.15 与 1.4.5 两棵残缺树里没有对应文件**（缺 `SandBox.ViewModelCollection/Missions/MainAgentDetection/` 目录）。在 1.3.0 / 1.4.6 / 1.4.7 / 1.5.3 四棵树上，**16 条 public/protected 声明逐字相同**，`AgentStealthOffenseType` 的四个成员及其序号（`None = -1` / `Default` / `Visible` / `Suspicious`）**没有任何增删或重排**。

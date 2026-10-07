@@ -231,6 +231,39 @@ public class MomentumModel : MBGameModel<AgentApplyDamageModel>
 - **`CalculateAlternativeAttackDamage` 返回伤害，其余几个返回倍率。** 量纲不一致，混用会得到平方级的偏差。
 - **`agentCharacter` 参数只出现在 `CalculatePassiveAttackDamage`。** 那一处给的是 `BasicCharacterObject` 不是 `Agent`，所以不能用 `IsHuman` 之外的那些 Agent 成员。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public abstract class AgentApplyDamageModel : MBGameModel<AgentApplyDamageModel>`（`TaleWorlds.MountAndBlade/ComponentInterfaces/AgentApplyDamageModel.cs:8`）。它自己**不 new**：读入口是全局那个已安装的实例——`MissionGameModels.Current.AgentApplyDamageModel`（属性声明在 `MissionGameModels.cs:34`，`{ get; private set; }`，外部赋不了值，只能靠 `GameModelsManager` 的注册机制装上去）。写入口是派生一个 `MBGameModel<AgentApplyDamageModel>` 让引擎替换掉它。
+
+### 典型用法
+
+24 个抽象成员里你通常只关心一个。上面的示例改的是四段伤害管线，下面这段改的是**身体部位倍率**——四个维度各自独立，其余维度原样转发：
+
+```csharp
+public class MyHeadshotModel : MBGameModel<AgentApplyDamageModel>
+{
+    public override float GetDamageMultiplierForBodyPart(
+        BoneBodyPartType bodyPart, DamageTypes type, bool isHuman, bool isMissile)
+    {
+        // 只接管人形单位上的直接头伤；投射物与非人形一律走默认倍率
+        if (isHuman && !isMissile && bodyPart == BoneBodyPartType.Head)
+        {
+            return 1.75f;
+        }
+        // BaseModel 是 MBGameModel<T> 上的 private protected T getter，派生类可读
+        return this.BaseModel.GetDamageMultiplierForBodyPart(bodyPart, type, isHuman, isMissile);
+    }
+}
+```
+
+与上面「真实示例」的差别：那两段一段是**四段管线的四连改**、一段是**动量公式重算**，都落在 `CalculateDamage` 的主干上；这段改的是一个**旁路钩子**——它不在 `CalculateDamage` 的四段管线里，而是被别处单独调用的维度函数，所以只覆写它不会影响主伤害数值，只影响按部位的倍率。
+
+### 最容易踩的坑
+
+**`CalculateDamage` 非 `virtual`。** 写 `public override float CalculateDamage(...)` **编译不过**。要改行为就改钩子——本类型 24 个抽象成员里没有一个是 `virtual` 的实现体入口。
+
 ## 跨版本提示
 
 `AgentApplyDamageModel` 在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 里**结构一致**：`CalculateDamage` 始终非虚且始终绕过 `this`，四段管线的顺序始终不变，`CalculateDefaultRemainingMomentum` 始终是唯一的 protected 实现。

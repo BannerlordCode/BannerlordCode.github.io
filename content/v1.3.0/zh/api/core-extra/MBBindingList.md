@@ -195,6 +195,40 @@ public class AuditBindingList<T> : MBBindingList<T>
 - **不是 `INotifyCollectionChanged`。** 它只发 `ListChangedEventHandler`。想接 WPF / XAML 绑定或者第三方 MVVM 库，需要在派生类里自己桥接。
 - **`_list` 与 `base.Items` 指向同一对象。** 这是设计如此（构造函数里 `this._list = (List<T>)base.Items;`）。推论：**永远不要用 `base.Items` 装一个不是 `List<T>` 的 `IList<T>`**——构造器没给你这个机会，但如果你 override 了什么并改动 `Items` 的底层，会与 `_list` 的强转脱钩，`Sort()` 就会 `InvalidCastException` 之后的空引用或错位。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Library/MBBindingList.cs:9`，声明是 `public class MBBindingList<T> : Collection<T>, IMBBindingList, IList, ICollection, IEnumerable`。它的用途**只有一个场景：给 ViewModel 声明一个「界面会自己重新读」的集合属性**。
+
+唯一构造函数是 `MBindingList() : base(new List<T>(64))`（`MBBindingList.cs:12`），构造体里第一件事是 `this._list = (List<T>)base.Items;` —— 把自己从 `Collection<T>` 的内部 `List<T>` 里把底层引用抓出来。**容量硬编码为 64**，这是引擎给的默认初始容量，不是你能在语法上改的参数（要改得派生后自己 `Add` 预热或传别的容器）。
+
+所以标准的三步流程是固定的：先 `new MBBindingList<T>()`，再声明成 ViewModel 上的 `{ get; private set; }` 属性（引擎的全套 ViewModel 都这么写，因为绑定层需要在 set 时挂上变更通知），最后**靠集合自身的增删去驱动事件**。
+
+**一段可直接跑的最小宿主**（基类是 `bannerlord-1.3.0/TaleWorlds.Library/ViewModel.cs:10` 的 `public abstract class ViewModel : IViewModel, INotifyPropertyChanged`）：
+
+```csharp
+public class MyListVM : ViewModel
+{
+    public MBBindingList<MyRowVM> Rows { get; private set; }
+    public MyListVM() { this.Rows = new MBBindingList<MyRowVM>(); }
+}
+```
+
+`{ get; private set; }` 的 `private set` 是有意选的 —— 业务层会写这个属性，但外部代码只该读。
+
+**通知是自动的，不需要手动 refresh。** 本类覆写了 `Collection<T>` 的四个受保护钩子（`MBBindingList.cs:40/47/54/62` 的 `ClearItems` / `InsertItem` / `RemoveItem` / `SetItem`），它们各自转调私有的 `FireListChanged(type, index)` 触发 `ListChanged` 事件。**所以往 `Rows` 里 `Add` 一个元素，绑定层就会收到一次 `ListChanged`** —— 本类没有 `RefreshBinding()` 之类的成员，凭空写这个名字编译不过。
+
+要改通知行为就派生覆写 `OnListChanged(ListChangedEventArgs e)`（`MBBindingList.cs:75`），它是本类**唯一真正的扩展点**。
+
+**批量改内容用 `ApplyActionOnAllItems`，别写 foreach。** 它的方法体（`MBBindingList.cs:117`）是 `for` 循环逐个 `action(obj)`，**内部不发任何事件** —— 也就是「改了 T 的属性、但集合结构没变」这种情况，用它不会打扰绑定层：
+
+```csharp
+this.Rows.ApplyActionOnAllItems(row => row.Refresh());
+```
+
+反过来，`Sort(IComparer<T> comparer)`（`MBBindingList.cs:94`）**会**发 `ListChangedType.Sorted` 事件，但它先调 `IsOrdered(comparer)` 做短路判断。
+
+**最常见的坑：`IsOrdered` 用 `== 1` 而不是 `> 0`。** 循环体是 `if (comparer.Compare(this._list[i - 1], this._list[i]) == 1) return false;`（`MBBindingList.cs:104`）。`IComparer<T>.Compare` 的契约只保证「大于时返回正数」，**不保证正好是 1**。自己写比较器时若返回 `(float)(a.X - b.X)` 这类非 -1/0/1 的值，这里会判定「未乱序」，`Sort` 于是跳过排序也不发事件 —— 界面顺序错乱且没有任何异常。
+
 ## 跨版本提示
 
 `MBBindingList.cs` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五个源码树里都是 **3686 字节**，是本批十个文件里跨版本最稳定的一个。唯一的差异是格式化：`1.3.0` 写 `public MBBindingList() : base(new List<T>(64))` 单行，1.3.15+ 拆成构造函数体 + 独立的 `: base(new List<T>(64))` 行。**public/protected 成员集合逐字节等价**：还是那个 `base(new List<T>(64))` 预分配、还是 6 种 `ListChangedType`、还是 `RemoveItem` 前后双发、`IsOrdered` 的 `== 1` 也一个字没改。

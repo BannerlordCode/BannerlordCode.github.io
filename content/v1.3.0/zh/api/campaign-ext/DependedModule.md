@@ -122,6 +122,73 @@ for (int i = 0; i < list.Count; i++)
 - **别名 `TaleWorlds.ModuleManager` / `TaleWorlds.MountAndBlade` 的 `Module.cs` 是同一个东西的两层。** [Module](../../core/Module)（`TaleWorlds.MountAndBlade`）在 `OnBeforeGameStart` 收尾时会拿 `moduleInfo2.DependedModules` 去比对「被某模块请求停用的模块列表」（`Module.cs:1787-1795`），拼出来的 `mblist` 只用于 `.Any(x => !x.IsOfficial)` 判断和一次**没有被使用的** `string.Join`——同样是无副作用的死代码。
 - **别指望它出现在 campaign 运行期。** `ModuleHelper` 的依赖解析发生在模块加载/启动器阶段，早于 `Campaign` 被构造。mod 的 `OnGameStart` 里能读到的是已经解析好的 `ModuleInfo` 列表，而不是这个 struct 本身。
 
+## 怎么用
+
+### 怎么拿到它
+
+`DependedModule` 是 **struct**（`TaleWorlds.ModuleManager/DependedModule.cs:7`），三个字段全是 `private set`（`:12`、`:17`、`:22`），所以只能走构造函数（`:25`）：
+
+```csharp
+public DependedModule(string moduleId, ApplicationVersion version, bool isOptional = false)
+```
+
+它几乎总是被引擎造好再交给你，而不是你 new。真实构造点全在 `ModuleInfo` 解析模块 XML 的循环里，**同一个结构出现在三个列表**：
+
+| 列表 | 行号 | 版本实参 |
+| --- | --- | --- |
+| `DependedModules` | `ModuleInfo.cs:177` | 从 XML 属性解析出来的真实 `version` |
+| `ModulesToLoadAfterThis` | `ModuleInfo.cs:187` | `ApplicationVersion.Empty` |
+| `IncompatibleModules` | `ModuleInfo.cs:197` | `ApplicationVersion.Empty` |
+
+所以**从哪个列表拿到它，比它本身重要**：前两个列表里的 `Version` 是真实声明版本，后两个固定是 `Empty`。
+
+### 典型用法
+
+读出来做兼容性判断（它不是引擎判断的依据，但适合做 mod 自己的判断）：
+
+```csharp
+using TaleWorlds.Library;
+using TaleWorlds.ModuleManager;
+
+public static bool RequiresNativeAtLeast(ApplicationVersion mine, ModuleInfo info)
+{
+    foreach (DependedModule depended in info.DependedModules)
+    {
+        // ModulesToLoadAfterThis / IncompatibleModules 里的 Version 恒为
+        // ApplicationVersion.Empty（ModuleInfo.cs:187 / :197），不要拿它们比版本。
+        if (ApplicationVersion.Compare(depended.Version, ApplicationVersion.Empty) == 0)
+        {
+            continue;
+        }
+
+        if (ApplicationVersion.Compare(depended.Version, mine) > 0)
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+```
+
+注意 `isOptional` 是带默认值的可选参数（`:25`）——引擎解析 `DependedModules` 时会从 XML 的 `optional` 属性填它，而后两个列表硬编码传 `false`（`:187`、`:197`）。
+
+### 最容易踩的坑
+
+**调用 `UpdateVersionChangeSet()` 来「更新版本」。** 看它的实现（`:33-36`）：
+
+```csharp
+public void UpdateVersionChangeSet()
+{
+    this.Version = new ApplicationVersion(this.Version.ApplicationVersionType,
+        this.Version.Major, this.Version.Minor, this.Version.Revision, 89406);
+}
+```
+
+它**根本不比较任何东西**——它只是把 changeSet 硬写成字面量 `89406`，同时丢掉原来的 changeSet。后果：你以为在「对齐版本」，实际上是把声明的版本号改成了另一个值；如果这段代码参与任何版本比较或存档兼容判断，**模块的版本声明就与 XML 里写的不一致了**，而且没有任何日志提示你改了什么。
+
+第二个坑是它是 struct。`foreach (DependedModule d in list)` 拿到的是**副本**，对它做任何赋值都不会回写到列表里。要真正改列表里的某一项，必须取出下标、构造新值、写回——这一点和 class 版本相反。
+
 ## 跨版本提示
 
 - **类型形状完全没变。** 六个源码树（1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3；1.4.5 是残缺树、没有 `TaleWorlds.ModuleManager/DependedModule.cs`）比对 public/protected 声明，结果都是 **6 条、逐字相同**：三个 `get; private set;` 属性、一个三参构造函数、一个 `UpdateVersionChangeSet`。两个 `ModuleHelper` 值拷贝调用点在各版本都原样保留。

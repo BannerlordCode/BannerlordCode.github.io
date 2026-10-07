@@ -164,6 +164,114 @@ private void CanHeroDie(Hero hero, KillCharacterAction.KillCharacterActionDetail
 - **`RemoveListeners` 是 270 个 `public override` 里的唯一一个非触发器。** 其余 269 个方法体都是单行 `Invoke`。
 - **默认参数在两层重复声明。** 例如 `OnHeroKilled(..., bool showNotification = true)` 在 `CampaignEventReceiver` 上有一份、`CampaignEvents` 的 override 上又写了一份。改不动任何一边——它们是各自独立的编译单元。
 
+## 怎么用
+
+### 怎么拿到它
+
+**不用拿到它——直接写 `CampaignEvents.某个事件` 就是订阅入口。** 但要知道它到底是什么。
+
+类型是 `public class CampaignEvents : CampaignEventReceiver`（`TaleWorlds.CampaignSystem/CampaignEvents.cs:31`），字段全是 `static` 属性，getter 转发给一个实例：
+
+```csharp
+CampaignEvents.cs:35    private static CampaignEvents Instance
+CampaignEvents.cs:39            return Campaign.Current.CampaignEvents;
+CampaignEvents.cs:386   public static IMbEvent OnCharacterCreationIsOverEvent
+CampaignEvents.cs:390           return CampaignEvents.Instance._onCharacterCreationIsOverEvent;
+CampaignEvents.cs:4689  private readonly MbEvent _onCharacterCreationIsOverEvent = new MbEvent();
+```
+
+两点结论：**其一，访问任何 `CampaignEvents.XxxEvent` 都会解引用 `Campaign.Current`**（`:39`），战役之外必然 NPE。**其二，它们不是 C# 的 `event` 委托**，而是 `IMbEvent` / `IMbEvent<T>` 这种接口（`TaleWorlds.CampaignSystem/IMbEvent.cs:6`、`TaleWorlds.CampaignSystem/IMbEvent.2.cs:6`），所以不能用 `+=`，只能调 `AddNonSerializedListener`。
+
+真正的用法几乎都在 `CampaignBehaviorBase.RegisterEvents()` 里——`AgingCampaignBehavior.RegisterEvents`（`TaleWorlds.CampaignSystem/CampaignBehaviors/AgingCampaignBehavior.cs:17`）一口气挂了九个，是最好的范本。
+
+### 典型用法
+
+```csharp
+using System;
+using TaleWorlds.CampaignSystem;
+
+public class MySettlementWatcher : CampaignBehaviorBase
+{
+    public MySettlementWatcher() : base("my_settlement_watcher")
+    {
+    }
+
+    public override void RegisterEvents()
+    {
+        // 泛型版：Action<Settlement>。签名是 IMbEvent<T>.AddNonSerializedListener(object, Action<T>)
+        // 见 TaleWorlds.CampaignSystem/IMbEvent.2.cs:9
+        CampaignEvents.DailyTickSettlementEvent.AddNonSerializedListener(this, this.OnSettlementTick);
+
+        // 非泛型版：Action。见 TaleWorlds.CampaignSystem/IMbEvent.cs:9
+        CampaignEvents.OnCharacterCreationIsOverEvent.AddNonSerializedListener(
+            this, this.OnCharacterCreationDone);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+    }
+
+    private void OnSettlementTick(Settlement settlement)
+    {
+        if (settlement == null || settlement.Party == null)
+        {
+            return;
+        }
+    }
+
+    private void OnCharacterCreationDone()
+    {
+    }
+}
+```
+
+签名核对：`DailyTickSettlementEvent` 是 `public static IMbEvent<Settlement>`（`CampaignEvents.cs:2162`），`DailyTickClanEvent` 是 `IMbEvent<Clan>`（`:2194`）。**第一个参数是 owner 实例，用来退订，不是"谁触发的"**。
+
+### 最容易踩的坑
+
+**同一个 owner 订阅两次就会触发两次，而 `ClearListeners` 一次只退掉一个。**
+
+看实现。`MbEvent<T>.AddNonSerializedListener`（`TaleWorlds.CampaignSystem/MbEvent.2.cs:9`）只有 7 行：
+
+```csharp
+MbEvent.2.cs:11    MbEvent<T>.EventHandlerRec<T> eventHandlerRec = new MbEvent<T>.EventHandlerRec<T>(owner, action);
+MbEvent.2.cs:12    MbEvent<T>.EventHandlerRec<T> nonSerializedListenerList = this._nonSerializedListenerList;
+MbEvent.2.cs:13    this._nonSerializedListenerList = eventHandlerRec;
+MbEvent.2.cs:14    eventHandlerRec.Next = nonSerializedListenerList;
+```
+
+**从头插进链表，全程没有任何"是否已存在"的检查。** 订阅两次就是两个节点。
+
+再看退订。`ClearListeners(object o)`（`:34`）转到 `ClearListenerOfList`（`:40`），它只做一件事：
+
+```csharp
+MbEvent.2.cs:43    while (eventHandlerRec != null && eventHandlerRec.Owner != o)
+MbEvent.2.cs:45        eventHandlerRec = eventHandlerRec.Next;
+MbEvent.2.cs:47    if (eventHandlerRec == null) { return; }
+MbEvent.2.cs:51-67  // 把**找到的那一个**节点摘掉
+```
+
+`:43` 找到的是**第一个** `Owner == o` 的节点，摘掉它之后函数就结束了。
+
+后果写成对照表就是这样：
+
+```
+RegisterEvents() 里调两次 AddNonSerializedListener(this, sameMethod)
+    -> Invoke 一次会跑两遍
+
+ClearListeners(this) 调一次
+    -> 只摘掉一个节点，另一个还在
+
+ClearListeners(this) 调两次
+    -> 才真正干净
+```
+
+实际打中最常见的是「行为被重复注册」的场景：`InitializeGameStarter` 被调了两次（或者你既在 `RegisterEvents` 里订了、又在别处订了），于是每个聚落的每日 tick 都跑两遍你的逻辑——而 `DailyTickSettlementEvent` 是逐聚落触发的，开销按聚落数放大。
+
+排查时先数一遍 `AddNonSerializedListener` 的调用点，**不要只看 `Invoke` 那边**。稳妥的写法是在 `SyncData` 之外提供一个幂等的 `Subscribe()`：先 `ClearListeners(this)` 清干净（多调一次无害，找不到就 `:50` 直接返回），再 `AddNonSerializedListener`。
+
+补充一个边界，免得把范围搞错：这些事件对象挂在**每个战役自己的** `Campaign.Current.CampaignEvents` 实例上（`:39`、`:4689`），所以监听器**不会**跨战役残留——问题只在同一局内。
+
 ## 跨版本提示
 
 `CampaignEvents` 是 1.3 → 1.5 三个大版本里**增长最猛的类型之一**。基类 [CampaignEventReceiver](../CampaignEventReceiver) 的 `public virtual void` 数量从 1.3.0 的 273 持续增加——海战、蒸汽机产业、编队系统各自带来新的一批 `OnShipXxx` / `OnSteamXxx` 回调。`CampaignEvents` 作为镜像同步增加对应属性与触发器。

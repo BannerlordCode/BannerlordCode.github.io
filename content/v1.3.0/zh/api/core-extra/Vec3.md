@@ -169,6 +169,28 @@ Vec3 pos = origin + facing * 10f + right * 2f + Vec3.Up * 5f;
 - **`StackArray8Vec3` 是嵌套类型，完整名要带外层。** 它只声明在 `Vec3.cs` 内部（`TaleWorlds.Library.Vec3.StackArray8Vec3`），全树唯一一处。写 `using TaleWorlds.Library;` 后直接写 `StackArray8Vec3` **解析不到**——必须写 `Vec3.StackArray8Vec3`，或者在 `using` 里额外引入嵌套命名空间。这是本类型唯一一处「看起来像顶层类型其实不是」的声明。
 - **没有 `IEquatable<Vec3>`。** 对比 [Vec2i](../Vec2i)（实现了 `IEquatable<Vec2i>`）和 [Vec3i](../Vec3i)，整数版本做了接口，整数化更高效。`Vec3` 走 `object.Equals` 会有装箱。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Library/Vec3.cs:9`，纯值类型，四个构造函数全是 public（`Vec3.cs:42` 的 `Vec3(float x = 0f, float y = 0f, float z = 0f, float w = -1f)` 四个参数全带默认值）。也就是说**你可以零参数 `new Vec3()` 得到零向量**（`w` 自动是 `-1f`，不是 `0f`）。三条真实入口：
+
+- 读单位位置：`Agent.Position`（`Agent.cs:174`）本身就是 `Vec3`，getter 每次都进原生层取样，不缓存。
+- 从平面升维：`Vec3` 的 `Vec3(Vec2 xy, float z = 0f, float w = -1f)`（`Vec3.cs:60`），或 `Vec2.ToVec3(float z = 0f)`。
+- 降维回平面：`AsVec2`（`Vec3.cs:525`），注意它是**属性且有 setter** —— `someVec3.AsVec2 = someVec2` 会把 x/y 写回去但保留 z 和 w。
+
+**一段可直接跑的三行平滑**（`alpha` 按帧时长缩放，形态照 `SandBox/Missions/MissionLogics/DisguiseMissionLogic.cs:946` 的引擎写法）：
+
+```csharp
+Vec3 avg = Hero.MainHero.Position;
+avg = Vec3.Lerp(avg, someTargetPosition, dt * 0.6f);
+Debug.Print("avg = " + avg.RotationZ, 0);
+```
+
+第三个参数是 **alpha 不是 t**，方法体只有一句 `return v1 * (1f - alpha) + v2 * alpha;`（`Vec3.cs:134`）——它不做任何 clamp，`alpha > 1f` 会真的外插出目标之外。所以引擎里每一处都写成 `dt * 系数` 而不是裸 `dt`。
+
+取角度用 `RotationZ`（`Vec3.cs:584`），实现是 `MathF.Atan2(-this.x, this.y)`，与 [Vec2](../Vec2) 的 `RotationInRadians` 同一套「零度 +Y、顺时针为正」约定，两者混用不需要换算。
+
+**最常见的坑：`w` 参与不了任何比较。** `Equals` 与 `GetHashCode` 都只看 x/y/z，所以 `new Vec3(1f, 2f, 3f, 0f) == new Vec3(1f, 2f, 3f, -1f)` 结果是 `true`。这在「`w` 只是临时槽位」的语义下没错，但如果你想靠 `w` 区分两个向量，用 `==`、`Equals`、`Dictionary` 全都区分不出来。要区分就直接比 `yourVec.w`。这条已在「风险与边界」首条展开。
+
 ## 跨版本提示
 
 `Vec3.cs` 在 1.3.0 是 20150 字节，1.3.15 起到 1.5.3 都是 **20305 字节**。差的 155 字节是一个**真实的新增成员**：`public Vec3 CrossProductWithUpAsLeftParameter()`，实现是 `return new Vec3(-this.y, this.x, 0f, -1f);`。它是 `CrossProductWithUp()`（返回 `(y, -x, 0)`）的**手性相反版本**——原版是 `Cross(Up, this)`，新版是 `Cross(this, Up)`。1.3.0 里没有这个成员，1.3.15 起才有。

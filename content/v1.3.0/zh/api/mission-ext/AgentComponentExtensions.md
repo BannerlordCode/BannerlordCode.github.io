@@ -203,6 +203,68 @@ public static void RetreatNearest(Mission mission, Agent agent)
 - **扩展方法不是继承来的。** `[Agent](../../mission/Agent)` 上并没有这些成员；只要 `using TaleWorlds.MountAndBlade;` 就在作用域里。也因此**你不能覆写它们**，只能写同名的静态方法遮蔽（不推荐）。
 - **全部是同步转发。** 没有排队、没有延迟生效。想在下一帧才生效要自己用 [MissionBehavior](../../mission/MissionBehavior) 的 tick 钩子包一层。
 
+## 怎么用
+
+### 怎么拿到它
+
+**你从不拿到它**——`public static class AgentComponentExtensions`（`bannerlord-1.3.0/TaleWorlds.MountAndBlade/AgentComponentExtensions.cs:7`）是纯静态扩展类，没有字段也没有构造器，22 个 `public static` 方法从 `:10`（`GetMorale`）排到 `:180`（`SetFollowedUnit`），全文 185 行。
+
+它没有注册表也没有工厂：**`using TaleWorlds.MountAndBlade;` 一句就把 22 个方法铺进任何 `Agent` 的实例语法里。** `[Agent](../../mission/Agent)` 上并不存在这些成员，它们纯粹是编译期的语法糖（所以你也无法用继承或 `override` 来拦掉其中任何一个）。
+
+前置条件只有一个，但它决定了哪些方法能调：`agent.HumanAIComponent` 与 `agent.CommonAIComponent` 这两个属性只有在**任务确实往这个 agent 上挂了对应组件**时才非 null。挂载发生在 `Agent.AddComponent(AgentComponent)`（`Agent.cs:4600`）里——`CommonAIComponent` 命中就赋给属性（`Agent.cs:4604-4606`）、`HumanAIComponent` 命中就赋给属性（`Agent.cs:4609-4612`）；`Agent.RemoveComponent(AgentComponent)`（`Agent.cs:4617`）会把它们重新置回 `null`（`Agent.cs:4623-4630`）。所以「组件在不在」是一个**任务生命周期内的运行时状态**，不是类型系统能保证的事。
+
+### 典型用法
+
+把那 8 个裸调方法包一层自己的守卫扩展，让调用点永远不必记哪一档会崩——`HumanAIComponent` 为 null 时直接返回，语义与 `GetFollowedUnit` 那档一致：
+
+```csharp
+using TaleWorlds.MountAndBlade;
+
+public static class SafeAgentAi
+{
+    // 返回 bool 表示「有没有真的下发」。原版方法本身是 void，
+    // 裸调时组件缺失会直接 NullReferenceException（AgentComponentExtensions.cs:109）
+    public static bool TryMoveToObject(
+        this Agent agent, UsableMissionObject usedObject, IDetachment detachment)
+    {
+        if (agent.HumanAIComponent == null)
+        {
+            return false;
+        }
+
+        // 第三个参数有默认值 Agent.AIScriptedFrameFlags.NoAttack，
+        // 这里显式传 NoAttack，与官方 HideoutMissionController.cs:89 的读法一致
+        agent.AIMoveToGameObjectEnable(usedObject, detachment, Agent.AIScriptedFrameFlags.NoAttack);
+        return true;
+    }
+
+    // 守卫也可以直接用零档那个安全读法：AIMoveToGameObjectIsEnabled 只读
+    // AIStateFlags 的 UseObjectMoving 位（AgentComponentExtensions.cs:115），
+    // 组件缺失也能安全返回 false —— 官方 HideoutMissionController.cs:89-91 就是这么配对的
+    public static void MoveToObjectOrClear(this Agent agent, UsableMissionObject obj, IDetachment det)
+    {
+        if (agent.HumanAIComponent == null)
+        {
+            return;
+        }
+        if (agent.AIMoveToGameObjectIsEnabled())
+        {
+            agent.AIMoveToGameObjectDisable();
+        }
+        else
+        {
+            agent.AIMoveToGameObjectEnable(obj, det);
+        }
+    }
+}
+```
+
+参数类型都是真实签名的一部分：`AIMoveToGameObjectEnable` 是 `(this Agent, UsableMissionObject, IDetachment, Agent.AIScriptedFrameFlags = NoAttack)`（`AgentComponentExtensions.cs:103`），`AIDefendGameObjectEnable` 是 `(this Agent, UsableMissionObject, IDetachment)`（`AgentComponentExtensions.cs:121`）——两者都能编译通过。
+
+### 最容易踩的坑
+
+**同一个文件里的三档防御强度差异，会让同一个循环里一半调用崩、一半调用静默无效，而两种症状看起来完全不像同一类问题。** 具体说：8 个裸调方法（`AIMoveToGameObjectEnable` / `AIMoveToGameObjectDisable` / `AIDefendGameObjectEnable` / `AIDefendGameObjectDisable` / `AIDefendGameObjectIsEnabled` / `AIInterestedInAnyGameObject` / `AIInterestedInGameObject` / `SetFollowedUnit`）在 `agent.HumanAIComponent == null` 时直接抛 `NullReferenceException`，而紧挨着的 4 个位标志方法（`AIUseGameObject*` 与 `AIMoveToGameObjectIsEnabled`）根本不碰组件，照常工作。后果：写一个 `foreach (Agent a in mission.Agents)` 对全场单位统一下指令时，马匹、攻城器械这类没挂 `HumanAIComponent` 的单位会让循环**当场抛异常中断**——前面的 agent 已经收到指令、后面的一个都没收到，而如果那几行恰好用的是 `AIUseGameObject*`，同样的循环却会「什么都没发生」地跑完。两种失败都没有日志线索，所以规则只有一条：**调用本类任何方法前先判对应组件非 null**，或者像上面那样把判空收进你自己的包装里。
+
 ## 跨版本提示
 
 `AgentComponentExtensions` 的 22 个方法在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 里**成员集合与签名完全一致**（185 行）。这条稳定性意味着：**你的调用代码在 1.3 → 1.5 之间不会编译失败。**

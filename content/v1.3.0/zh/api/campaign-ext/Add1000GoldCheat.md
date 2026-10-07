@@ -195,6 +195,73 @@ new Add1000GoldCheat().ExecuteCheat();
 - **用了作弊之后成就会被停掉，但本类自己不负责这件事。** 停成就是 `GauntletStoryModeMapCheatsView.cs:38-40` 做的：`campaignBehavior.CheckAchievementSystemActivity(out reason)` 之后 `DeactivateAchievements(..., true, false)`。而 `CheckAchievementSystemActivity` 里有 `|| MBDebug.IsTestMode()`，**测试模式下成就不会被停**。见 [AchievementsCampaignBehavior](../AchievementsCampaignBehavior) 与 [DumpIntegrityCampaignBehavior](../DumpIntegrityCampaignBehavior)。
 - **`SandBox` 是沙盒模块命名空间，不是核心。** 裸战役（无 `SandBox` 模块）里这个类型根本不存在，编译都过不了。
 
+## 怎么用
+
+### 怎么拿到它
+
+声明在 `SandBox/Add1000GoldCheat.cs:9`，继承 `GameplayCheatItem`（`GameplayCheatItem.cs:6`），后者再继承 `GameplayCheatBase`（`GameplayCheatBase.cs:7`）。整条继承链只有两个抽象成员：`GetName()`（`GameplayCheatBase.cs:10`）和 `ExecuteCheat()`（`GameplayCheatItem.cs:9`）。
+
+它不是自己注册到界面上的，而是被静态工厂 yield 出来：
+
+```csharp
+// SandBox/GameplayCheatsManager.cs:12
+public static IEnumerable<GameplayCheatBase> GetMapCheatList()
+{
+    yield return new Add1000GoldCheat();   // :14
+    ...
+}
+```
+
+消费方是 `GauntletMapCheatsView`（`SandBox.GauntletUI/Map/GauntletMapCheatsView.cs:21`）调用 `GetMapCheatList()`，遍历拿到 `GameplayCheatBase`，用 `GetName()` 取显示文本、用 `ExecuteCheat()` 执行。
+
+### 典型用法
+
+自己写一个同类作弊项并挂进列表：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.Localization;
+
+public class Add500GoldCheat : GameplayCheatItem
+{
+    public override void ExecuteCheat()
+    {
+        // 第一个参数传 null 表示「无来源角色」，和官方实现同形（Add1000GoldCheat.cs:14）。
+        // 第四个参数 showNotification 传 true，玩家会看到金币变动提示。
+        GiveGoldAction.ApplyBetweenCharacters(null, Hero.MainHero, 500, true);
+    }
+
+    public override TextObject GetName()
+    {
+        // 花括号里是本地化 key，不能随便改。
+        return new TextObject("{=MyMod_Add500Gold}Add 500 Gold", null);
+    }
+}
+```
+
+挂上去（要在 `GetMapCheatList` 之外追加时，只能自己包一层）：
+
+```csharp
+using SandBox;
+
+public static System.Collections.Generic.IEnumerable<GameplayCheatBase> MyCheatList()
+{
+    foreach (GameplayCheatBase cheat in GameplayCheatsManager.GetMapCheatList())
+    {
+        yield return cheat;
+    }
+
+    yield return new Add500GoldCheat();
+}
+```
+
+### 最容易踩的坑
+
+**绕过 `ExecuteCheat()` 直接写 `Hero.MainHero.Gold += 1000`。** 官方实现走的是 `GiveGoldAction.ApplyBetweenCharacters`（`Add1000GoldCheat.cs:14`），这是**正规的金钱变动通道**。后果：直接改属性**不会有存档变更记录**，游戏崩溃或读档时这次加钱会整个消失；同时**不会触发 AI 的反应**（领主对你的态度、金币变化的日志），也不会写入战役日志。数值看起来加上了，但它不在游戏的状态机里。
+
+第二个坑是 `ExecuteCheat()` 里没有任何前置条件检查——它直接假定 `Hero.MainHero` 存在。**在角色创建界面、或者 `Hero.MainHero` 为 null 的早期时序里调用它，会直接空引用。** 需要在非战役上下文（独立 DLL 宿主、菜单）里安全调用时，自己先判空。
+
 ## 跨版本提示
 
 `Add1000GoldCheat.cs` 在 `bannerlord-1.3.0` / `1.4.6` / `1.4.7` / `1.5.3` 四棵树里**逐字节一致**：都是 23 行、同样的两个方法、同样的 `GiveGoldAction.ApplyBetweenCharacters(null, Hero.MainHero, 1000, true)` 调用、同样的 `"{=KLbeF6gf}Add 1000 Gold"` 本地化键。**跨 1.3 → 1.5 三个大版本，公开面与实现体零变化**，本地化键也没有被改掉（改键会破坏玩家已安装的官方语言包）。

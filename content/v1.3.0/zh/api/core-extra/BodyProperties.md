@@ -239,6 +239,32 @@ public static BodyProperties ClampAgeOnly(BodyProperties original, float minAge,
 - **`SetBits` / `GetBitsValueFromKey` 是精确的位运算。** `MathF.PowTwo64(int x)` 在 `TaleWorlds.Library/MathF.cs:95` 的实现就是 `return 1UL << x;`——名字里的「MathF」和「Float」有误导性，**它没有任何浮点误差**。所以 `SetBits(part, 19, 6, v)` 与 `GetBitsValueFromKey(part, 19, 6)` 精确互逆，没有精度担忧。唯一的边界是 `x >= 64` 时 C# 的移位会按取低 6 位处理。
 - **struct 无引用相等。** 放进 `Dictionary` / `HashSet` 依赖 `Equals` + `GetHashCode`，两者都基于值。**512 位脸型参与哈希，性能上要留意**——`GetHashCode` 每次都要算 `StaticBodyProperties` 的哈希。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Core/BodyProperties.cs:12`，值类型，唯一构造函数是 `BodyProperties(DynamicBodyProperties dynamicBodyProperties, StaticBodyProperties staticBodyProperties)`（`BodyProperties.cs:145`），方法体只是把两个字段赋一遍。**所以要造它，你必须先造两个半结构体** —— 这就是它与其他向量类最大的不同：`new BodyProperties(age, weight, build)` 这种写法不存在。
+
+三条真实入口：
+
+- **读英雄的现成外观**：`Hero.BodyProperties`（`TaleWorlds.CampaignSystem/Hero.cs:443`）的 getter 就是 `return new BodyProperties(new DynamicBodyProperties(this.Age, this.Weight, this.Build), this.StaticBodyProperties);` —— 每次访问都 new 一个结构体出来，改它不影响英雄本体。
+- **从 XML 节点解析**：`FromXmlNode(XmlNode node, out BodyProperties bodyProperties)`（`BodyProperties.cs:152`），内部先用局部默认值 `age=30f / weight=0.5f / build=0.5f` 再尝试覆盖。
+- **自己造动态部分**：`new DynamicBodyProperties(age, weight, build)`（`TaleWorlds.Core/DynamicBodyProperties.cs:11`），静态部分用 `default(StaticBodyProperties)`。
+
+**一段可直接跑的三行覆盖年龄**（形态取自 `TaleWorlds.CampaignSystem/HeroCreator.cs:392` 的引擎写法）：
+
+```csharp
+BodyProperties bp = new BodyProperties(new DynamicBodyProperties(6f, hero.Weight, hero.Build), hero.StaticBodyProperties);
+hero.StaticBodyProperties = bp.StaticProperties;
+Debug.Print(bp.DynamicProperties.Age, 0);
+```
+
+第一行把 `DynamicBodyProperties` 的三个分量都显式给出，年龄改 6、身高体重沿用英雄本身 —— 这是「只改一个维度」的标准做法，也是 `HeirComingOfAgeFemaleSceneNotificationItem.cs:52` 用的形状。
+
+**赋值方向要注意：只有 `StaticBodyProperties` 能写回英雄。** `Hero.BodyProperties` 是每次现造的新结构体，你改它的 `DynamicProperties` 什么都不会发生；引擎真正持久化的是 `Hero.StaticBodyProperties` 字段。所以上面第三行只是读，而第二行才是「写回去」。
+
+**需要随机外观就走 `GetRandomBodyProperties`。** 它在 `BodyProperties.cs:225`，八个必填参数加一个可选 `variationAmount`：`int race, bool isFemale, BodyProperties min, BodyProperties max, int hairCoverType, int seed, string hairTags, string beardTags, string tattooTags, float variationAmount = 0f`。**`seed` 决定结果**，同 seed 同参数必然同结果。
+
+**最常见的坑：三处默认值不一致。** `Default` 是 20/0/0（`BodyProperties.cs:330` 的 getter 写死了 `new DynamicBodyProperties(20f, 0f, 0f)`），`FromXmlNode` 是 30/0.5/0.5，私有常量 `DefaultAge`/`DefaultWeight`/`DefaultBuild` 也是 30/0.5/0.5。**「默认外观」在不同代码路径下不是同一个东西。** 这条已在「风险与边界」首条展开；就写法而言它的后果是：拿 `BodyProperties.Default` 去当「引擎的默认外观」来对齐 XML 缺失时的结果，会在年龄与体型上产生可见偏差。
+
 ## 跨版本提示
 
 `BodyProperties.cs` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵源码树里**public 成员集合完全一致**——两个转发属性（`StaticProperties` / `DynamicProperties`）、三个动态转发（`Age` / `Weight` / `Build`）、八个 `KeyPart`、构造器、`Default`、`FromXmlNode` / `FromString` / `GetRandomBodyProperties` / `ToString` / `Equals` / `GetHashCode` / `ClampForMultiplayer` 与两个运算符，全部相同，没有任何增删。

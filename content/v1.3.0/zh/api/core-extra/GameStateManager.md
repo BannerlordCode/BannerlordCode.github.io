@@ -212,6 +212,35 @@ public class MyStackWatcher : IGameStateManagerListener
 - **完全无线程安全。** `Queue<GameStateJob>` 和 `List<GameState>` 都没有锁。后台 `Task` 调 `PushState` 会与主线程竞争。
 - **`GameStateJob` 完全 private。** 想查看队列状态（比如「有没有排着 Push」）没有任何公开入口，调试时只能靠 `OnStateStackEmpty` 被调没被调来反推。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Core/GameStateManager.cs:9`，普通类。两个入口：
+
+- **静态** `GameStateManager.Current`（`GameStateManager.cs:14`）。
+- **从 `Game` 上读** `Game.GameStateManager`（`Game.cs:109`，`{ get; private set; }`）。
+
+注意上面那行 `Destroy` 的事实：`Game.Destroy()` 会把 `GameStateManager.Current` 和 `Game.GameStateManager` **都置 null**，所以这两个入口在游戏结束后同样不可用。
+
+**它没有无参构造函数。** 唯一构造是 `GameStateManager(IGameStateManagerOwner owner, GameStateManagerType gameStateManagerType)`（`GameStateManager.cs:86`），两个参数都由 `Game` 在构造时提供 —— 所以你不需要也不该自己造。
+
+**push / pop 是配对的，且带一个你必须记住的 level。** 两个方法签名是 `PushState(GameState gameState, int level = 0)`（`GameStateManager.cs:235`）与 `PopState(int level = 0)`（243），**level 默认都是 0**。
+
+**一段可直接跑的三行配对**：
+
+```csharp
+GameStateManager mgr = Game.GameStateManager;
+mgr.PushState(myState, 1);
+mgr.PopState(1);
+```
+
+**这两行是同步生效的，不是排队等下一帧。** 方法体各自只有三句：构造一个 `GameStateJob`、`this._gameStateJobs.Enqueue(item)`、然后立刻 `this.DoGameStateJobs();`。`DoGameStateJobs()`（`GameStateManager.cs:397`）是一个 `while (this._gameStateJobs.Count > 0)` 循环，把队列排空。
+
+**这个设计有一个必须知道的后果：在 `PushState` 里再调 `PushState` 会立刻嵌套执行。** 因为外层的 `DoGameStateJobs` 正在循环里 `Dequeue`，内层新调用的 `DoGameStateJobs` 会把外层还没处理的 job 一并吃掉。所以 job 的执行顺序不是「先到先服务」的纯 FIFO。
+
+**`LastOrDefault<T>()` 是安全取当前状态的入口。** `GameStateManager.cs:175` 的 `public T LastOrDefault<T>() where T : GameState` —— **先判 null 再用**，这是从管理器拿状态的正确姿势。
+
+**最常见的坑：`PopState(level)` 弹出不存在的 level 会抛 `ArgumentOutOfRangeException`。** `OnPopState`（`GameStateManager.cs:299`）里是 `int index = this._gameStates.FindLastIndex((GameState state) => state.Level == level); GameState gameState = this._gameStates[index];` —— `-1` 直接索引。必须记住自己 push 时用的 level；而且因为异常是从队列排空循环里冒出来的，**报错位置离你的调用点很远**。这条已在「风险与边界」首条展开。
+
 ## 跨版本提示
 
 `GameStateManager.cs` 在 1.3.0 是 14892 字节，1.3.15 是 14963，1.4.6 / 1.4.7 是 15374，1.5.3 是 15515——**四档递增**。但我把 `public` 行抽出来排序做 `diff`，**1.3.0 与 1.5.3 的输出为空**：public 成员集合跨 1.3 → 1.5 三个大版本**一条都没变**，包括 `Current` / `ActiveState` / `Listeners` / `GameStates` / `CurrentType` / `Owner` / `ActiveStateDisabledByUser`、两个 `CreateState<T>` 重载、四个栈方法、`OnTick`、两个 listener 注册方法、`GetListenerOfType<T>`、`LastOrDefault<T>`、两个 disable-request 方法、`OnSavedGameLoadFinished`，以及 public 静态字段 `StateActivateCommand`。

@@ -231,6 +231,68 @@ private static string DescribeController()
 - **「Xbox」在 1.3.0 托管树里没有任何精确比较点。** 所有 Xbox 分支都是「非 PS」的 else。**这意味着如果将来出现第三种主机手柄，它会自动落进 Xbox 分支**——这不是 bug，但你在读 `if (IsPlaystation()) … else …` 时要知道 else 是「一切非 PS」。
 - **`InputKeyVisualWidget` 的 DualShock 精确比较不包括 DualSense。** `:1527` 与 `:1575` 都是 `== PlayStationDualShock`。PS5 手柄在这两处会走另一条分支——**这是「同码不同义」的反例：IsPlaystation() 为 true 而这两个判断为 false**。
 
+## 怎么用
+
+### 怎么拿到它
+
+`ControllerTypes` 是**嵌套在 `Input` 静态类里的枚举**，声明在 `TaleWorlds.InputSystem/Input.cs:647`，完整写法是 `Input.ControllerTypes`。四个成员在 `:650`、`:652`、`:654`、`:656`：
+
+| 成员 | 行号 | 值 |
+| --- | --- | --- |
+| `None` | `Input.cs:650` | 0 |
+| `Xbox` | `Input.cs:652` | 1 |
+| `PlayStationDualShock` | `Input.cs:654` | 2 |
+| `PlayStationDualSense` | `Input.cs:656` | **4**（显式赋值，所以 3 是空洞） |
+
+获取方式是读静态属性 `Input.ControllerType`（`Input.cs:223`），变化监听是静态委托 `Input.OnControllerTypeChanged`（`Input.cs:641`）。
+
+### 典型用法
+
+要在手柄接入时切换 UI 提示，就订阅那个静态委托：
+
+```csharp
+using TaleWorlds.InputSystem;
+
+public static void WatchController()
+{
+    // OnControllerTypeChanged 是 static Action<Input.ControllerTypes>（Input.cs:641），
+    // 重复订阅会多次触发，自己负责退订。
+    Input.OnControllerTypeChanged -= OnControllerChanged;
+    Input.OnControllerTypeChanged += OnControllerChanged;
+
+    LogCurrentController(Input.ControllerType);
+}
+
+private static void OnControllerChanged(Input.ControllerTypes controllerType)
+{
+    LogCurrentController(controllerType);
+}
+
+private static void LogCurrentController(Input.ControllerTypes controllerType)
+{
+    if (controllerType == Input.ControllerTypes.None)
+    {
+        return;
+    }
+
+    // 用位判断而不是 == ，理由见下面的坑。
+    bool isPlaystation = controllerType.HasAnyFlag(Input.ControllerTypes.PlayStationDualShock) ||
+                         controllerType.HasAnyFlag(Input.ControllerTypes.PlayStationDualSense);
+
+    System.Console.WriteLine("controller=" + controllerType + " playstation=" + isPlaystation);
+}
+```
+
+引擎自己的写法可以直接对照 `IsPlaystation` 扩展方法（`Input.cs:10-12`），它判断的是 `HasAnyFlag((Input.ControllerTypes)6)`——**6 = 2 | 4**。
+
+### 最容易踩的坑
+
+**用 `==` 去比。** 引擎把这个枚举当**位标志集合**使用（`Input.cs:12` 那个 `6` 就是两个成员按位或），所以运行时的值可能是**组合值**，而不是任何一个具名成员。后果：`controllerType == Input.ControllerTypes.PlayStationDualShock` 在值为 `6` 时**永远为 false**，而且不会报任何错——你的 PlayStation 分支静默不执行，UI 上什么也不变。用 `HasAnyFlag` 才和引擎语义一致。
+
+第二个坑是值 `3` 没有对应成员。`PlayStationDualSense` 显式写成 `4`（`Input.cs:656`），所以 **3 是空洞**。后果：任何用 `switch` 且没有 `default` 分支的代码，遇到值 `3`（未来新增设备、或组合位恰好等于 3）**会整个穿透，一个分支都不进**，也没有编译器警告。
+
+第三个坑是把枚举值持久化。它没有 `Flags` 特性，但引擎按标志位使用；一旦你把它的数值存进存档或配置文件，**将来引擎新增成员时旧存档里的数字含义就变了**。存字符串更安全。
+
 ## 跨版本提示
 
 - **枚举本身的四个成员与序号（`None=0, Xbox=1, PlayStationDualShock=2, PlayStationDualSense=4`）在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 上逐字相同**，连 `PlayStationDualSense = 4` 这个显式赋值都没变。1.4.5 是残缺树，没有 `TaleWorlds.InputSystem/Input.cs`。

@@ -138,6 +138,43 @@ public static MyAgentController FindAndDetach(Agent agent)
 - **官方只有三个派生类，全在沙盒赛事。** 引擎自己的战斗/攻城逻辑不用这套机制。这说明它是给「临时赛事状态」准备的扩展点，不是通用组件框架；要给 Agent 挂常驻行为，[AgentComponent](../AgentComponent) 才是对的容器。
 - **`AgentController.cs` 只有 23 行。** 不要指望从它读到生命周期契约——`AddController` / `RemoveController` / `GetController<T>` 三个调用点才是契约的真正所在。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class AgentController`（`TaleWorlds.MountAndBlade/AgentController.cs:6`，无基类）。**它不由你 new**——入口是 `Agent.AddController(Type)`（`Agent.cs:4234`），它按类型 `Activator` 出一个实例、先回填 `Owner` 与 `Mission`，再调一次 `OnInitialize()`；创建失败或类型不对时**返回 `null` 而不是抛异常**。要拿回来也只有这一条路：`AddController` 的返回值。
+
+### 典型用法
+
+上面「真实示例」的两段是「派生 + 挂上去 + 取回」。真正的难点在坑里那一条：**没有 tick 钩子**。所以周期性的活必须在 `OnInitialize` 里自己订阅一个任务级回调，否则挂上去之后它就是一块静止的状态：
+
+```csharp
+public class MyScoringController : AgentController
+{
+    public int Score { get; private set; }
+
+    public override void OnInitialize()
+    {
+        base.OnInitialize();
+
+        // Owner 与 Mission 此时已就绪：AddController 先赋值再调 OnInitialize
+        if (this.Owner == null || this.Mission == null)
+        {
+            return;
+        }
+
+        // 没有 OnTick 可覆写，要每帧更新只能自己订阅任务级回调（Mission.cs:4306）
+        this.Mission.AddMissionBehavior(new MyScoreTickBehavior(this));
+    }
+}
+```
+
+与上面「真实示例」的差别：那两段都是**一次性**的——在 `OnInitialize` 里打一行日志、或挂一次拿一次就结束；这里处理的是「挂上去之后怎么让它继续干活」这个本类型根本没提供钩子的问题，代价是多养一个 `MissionBehavior` 来当节拍器，而不是靠 `AgentController` 自己。
+
+### 最容易踩的坑
+
+**没有 tick 钩子。** 这是它和 [AgentComponent](../AgentComponent) 的根本差别。想每帧执行必须自己在 `OnInitialize` 里订阅别的回调来源；只写 `OnInitialize` 的控制器在挂上之后就是一块静止的状态。
+
 ## 跨版本提示
 
 `AgentController` 的三个成员在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 逐字一致（23 行，两个自动属性 + 一个空虚方法）。`Agent.AddController(Type)` / `RemoveController(Type)` / `GetController<T>()` 三个入口的签名也没有变化。

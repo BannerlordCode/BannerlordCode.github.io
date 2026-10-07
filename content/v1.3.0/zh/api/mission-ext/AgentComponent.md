@@ -254,6 +254,43 @@ public static void AttachAndQuery(Agent agent)
 - **没有抽象成员，但有 protected 构造器。** 你不需要实现任何东西，但也不能从外部 `new`——必须走 `Agent.AddComponent`，否则 `this.Agent` 是 null。
 - **`Initialize()` 的调用点不在托管源码树里。** 它由 `Agent.InitializeComponents()` 内部方法调用，而那个内部方法的调用者来自 native 或任务启动流程。想确认时机请在实现里打日志，别猜。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public abstract class AgentComponent`（`TaleWorlds.MountAndBlade/AgentComponent.cs:8`）。构造器是 `protected`，所以**外部不能 `new`**——唯一入口是 `Agent.AddComponent(AgentComponent)`（`Agent.cs:4600`），传的是已经 `new` 好的实例。取回也只有一个入口：`Agent.Components` 列表，元素按添加顺序正序回调。
+
+### 典型用法
+
+上面「真实示例」两段用的都是**回调型**钩子（`OnHit`、`OnAIInputSet`）。还有两个成员不是回调而是**被查询**的——`CommonAIComponent` 更新士气时会把 `Agent.Components` 里所有组件的 `GetMoraleAddition()` 求和（`CommonAIComponent.cs:82`），所以你的组件是靠「被问」参与士气的：
+
+```csharp
+public class MoraleSteadyComponent : AgentComponent
+{
+    public MoraleSteadyComponent(Agent agent) : base(agent) { }
+
+    public bool Steadied { get; set; }
+
+    // 每帧被 CommonAIComponent 求和一次；不覆写就是默认 0f
+    public override float GetMoraleAddition()
+    {
+        return this.Steadied ? 12f : 0f;
+    }
+
+    // 默认返回 1f（不衰减的恒等元）；这里给已稳定的单位减半衰减
+    public override float GetMoraleDecreaseConstant()
+    {
+        return this.Steadied ? 0.5f : 1f;
+    }
+}
+```
+
+与上面「真实示例」的差别：那两段都是**你推事件、引擎回调你**（受伤计数、改写 AI 输入输出）；这里完全反过来——你不写任何回调，组件挂上去之后由 `CommonAIComponent` 每帧来问你一次要贡献多少士气，所以它对时机的要求是「挂得够早」，而不是「回调写对」。
+
+### 最容易踩的坑
+
+**`Agent.Components` 返回 `MBReadOnlyList<AgentComponent>`，而 `MBReadOnlyList<T>` 继承 `List<T>`。** 所以遍历走的是真实的 `List<T>` 枚举器——**在遍历中 `AddComponent` / `RemoveComponent` 会抛 `InvalidOperationException`**。`OnHit` 的派发点（`Mission.cs:5528`）正是这种遍历。
+
 ## 跨版本提示
 
 `AgentComponent` 的 21 个虚方法与 1 个 protected 字段在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 里**完全一致**（116 行）。这意味着：**新版本加钩子会放宽限制，改签名会破坏你的覆写，而目前两者都没发生。**

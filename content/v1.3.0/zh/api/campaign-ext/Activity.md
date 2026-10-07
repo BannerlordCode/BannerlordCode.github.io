@@ -137,6 +137,70 @@ public static async System.Threading.Tasks.Task LogRealActivityState()
 - **活动 ID 是无注册表的裸字符串。** `"CompleteMainQuest"` 只在两处字面量里出现，没有常量、没有校验、没有「未注册」的返回值。传错 ID 的表现是静默无效。
 - **`TaleWorlds.ActivitySystem` 在文档工具链里被归为 noise 命名空间**（`tools/lib/handwritten-policy.mjs` 的 `isR1ExtraNoiseNamespace` 正则含 `TaleWorlds\.(?:AchievementSystem|ActivitySystem|...)`）。它有页面是因为人工深写绕开了自动分类器。
 
+## 怎么用
+
+### 怎么拿到它
+
+`Activity` 是纯数据载体，声明在 `TaleWorlds.ActivitySystem/Activity.cs:6`，四个成员全是自动属性：`Id`（`:11`）、`IsCompleted`（`:16`）、`IsInProgress`（`:21`）、`IsAvailable`（`:26`）。
+
+拿到实例的**唯一托管路径**是异步服务调用：
+
+```
+ActivityManager.GetActivity(activityId)              // ActivityManager.cs:33  → 转发到 :35
+    → IActivityService.GetActivity(activityId)       // IActivityService.cs:16，返回 Task<Activity>
+        → 平台实现，或默认的 TestActivityService
+```
+
+默认实现 `TestActivityService` 的 `GetActivity` 直接 `return Task.FromResult<Activity>(new Activity());`（`TestActivityService.cs:24`）——**返回一个字段全是默认值的空对象**，四个属性分别是 `null` / `false` / `false` / `false`。
+
+这个类没有显式构造函数，但有自动属性，编译器会生成 `public` 无参构造，所以 `new Activity()` 本身也是可用的——只是那样得到的对象和上面那个空对象没有任何区别。
+
+### 典型用法
+
+因为默认值和「真的不可用」在字段上长得一模一样，读状态时必须先确认服务是不是真的：
+
+```csharp
+using System.Threading.Tasks;
+using TaleWorlds.ActivitySystem;
+
+public static async Task<string> DescribeActivityAsync(string activityId)
+{
+    // TestActivityService 返回 new Activity()（TestActivityService.cs:24），
+    // 四个字段全是默认值。用它来识别「这台机器上根本没有真实活动服务」。
+    if (ActivityManager.ActivityService is TestActivityService)
+    {
+        return "no-real-activity-service";
+    }
+
+    Activity activity = await ActivityManager.GetActivity(activityId);
+    if (activity == null)
+    {
+        return "unknown-activity";
+    }
+
+    // Id 可能为 null：默认实现从不填它，所以先判空再拼进任何 key。
+    string id = string.IsNullOrEmpty(activity.Id) ? activityId : activity.Id;
+
+    if (activity.IsCompleted)
+    {
+        return id + ":completed";
+    }
+
+    if (activity.IsInProgress)
+    {
+        return id + ":in-progress";
+    }
+
+    return activity.IsAvailable ? id + ":available" : id + ":unavailable";
+}
+```
+
+### 最容易踩的坑
+
+**把 `Activity` 实例缓存下来，或者拿它和另一次调用返回的对象做引用比较。** `GetActivity` 每调一次都经过一次服务往返，而 `IActivityService` 的返回类型是 `Task<Activity>`（`IActivityService.cs:16`）——**它没有任何「同一实例」的保证**，契约里也没有 `Activity` 作为参数出现。所以两次调用返回的是两个独立对象，`ReferenceEquals` 为 false。后果：状态刚变过，你的缓存对象还是旧字段；而如果你用引用相等判断「有没有变化」，会得到「每次都在变」的错误结论。
+
+第二个坑是默认实现让「不可用」和「没数据」无法区分。`TestActivityService` 返回的空对象里 `IsAvailable == false`（`Activity.cs:26` 的默认值），和平台侧真的告诉你这个活动不可用**在字段上一模一样**。后果是在本地／编辑器里跑的一段「不可用就不显示」的 UI 逻辑，永远走隐藏分支，你根本看不到它是否正确。
+
 ## 跨版本提示
 
 `Activity.cs` 在 `bannerlord-1.3.0` / `1.3.15` / `1.4.6` / `1.4.7` / `1.5.3` 五棵树里**逐字节一致**：都是 28 行、同样 4 个 `public { get; set; }` 属性、同样的顺序（`Id` / `IsCompleted` / `IsInProgress` / `IsAvailable`）、同样的类型。跨 1.3 → 1.5 三个大版本公开面零变化——**没有任何字段被增删或改类型**。

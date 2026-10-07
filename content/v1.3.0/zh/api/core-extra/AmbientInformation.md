@@ -87,6 +87,33 @@ public static void WriteAmbient(IWriter writer, AmbientInformation ambient)
 - **`AmbientColor` 序列化的是 3 个 float。** [Vec3](../Vec3) 内部那个 `w`（默认 `-1f`）不参与 `WriteVec3`，别拿它当 alpha 用。
 - **没有任何 public 扩展点。** 它不是 `abstract` 也没有 `virtual` 成员，想加字段只能自己写一份等价 struct 并同步 native 侧——那已经不叫 mod 了。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Library/AmbientInformation.cs:6`，`public struct`，没有工厂、没有注册表、没有 `MBObjectBase` 身份。在 1.3.0 树里它只出现三次：自己、`AtmosphereInfo.cs:72` 的字段声明，以及 `TaleWorlds.Engine/Properties/AssemblyInfo.cs:15` 把它注册成 native 结构 `ambient_information` 的程序集特性。所以「拿到一个 `AmbientInformation`」在托管侧只有一条路——**从一个已经被 `AtmosphereInfo.DeserializeFrom(IReader)` 填满的 `AtmosphereInfo` 上读它的 `AmbientInfo` 字段**，填充点在 `AtmosphereInfo.cs:34`，排在 `SunInfo` / `RainInfo` / `SnowInfo` 之后。
+
+需要一份「还没加载」的占位块时用 `AtmosphereInfo.GetInvalidAtmosphereInfo()`（`AtmosphereInfo.cs:20`）：它只把 `AtmosphereName` 置成空串，别的字段保持默认值。
+
+**一段可直接跑的加载—调参—回写链路**（`reader` / `writer` 由调用方传入，本类型不负责造它们）：
+
+```csharp
+AtmosphereInfo scene = new AtmosphereInfo();
+scene.DeserializeFrom(reader);                          // AtmosphereInfo.cs:29，第 34 行填 AmbientInfo
+if (!scene.IsValid)                                      // AtmosphereInfo.cs:11
+{
+    scene = AtmosphereInfo.GetInvalidAtmosphereInfo();   // AtmosphereInfo.cs:20：名字为空，其余字段全 0
+}
+
+AtmosphereInfo tuned = scene;                            // struct 整体拷贝
+tuned.AmbientInfo.EnvironmentMultiplier = scene.AmbientInfo.EnvironmentMultiplier * 1.15f;
+tuned.AmbientInfo.MieScatterStrength = 0.35f;
+
+tuned.SerializeTo(writer);                               // AtmosphereInfo.cs:44：AmbientInfo 固定是第 4 位
+```
+
+`AtmosphereInfo tuned = scene;` 那行是**必需**的，不是风格问题：`AtmosphereInfo` 与 `AmbientInformation` 都是 struct，直接写 `scene.AmbientInfo.MieScatterStrength = ...` 只改到 scene 上；要跨函数传递就必须整块拷贝再写回。
+
+**最常见的坑：`IsValid` 只看名字，不看你即将推进渲染的四个浮点数。** 它的实现就是 `!string.IsNullOrEmpty(this.AtmosphereName)`（`AtmosphereInfo.cs:11`），与 `AmbientInformation` 的字段无任何关系。于是 `GetInvalidAtmosphereInfo()` 那份在名字为空时判为无效，可一旦名字被填上、或拿到的是一份名字有效但二进制流只读到一半的块，`IsValid` 立刻转 true，而 `AmbientInfo.EnvironmentMultiplier` 可能仍是 `0f`。后果不是抛异常，而是**整个场景的环境光被乘成 0、物体只剩直接光照明**，且整条调用链上没有任何一层会提示你。判断是否真的可渲染，要自己看那四个字段，别信 `IsValid`。
+
 ## 跨版本提示
 
 `AmbientInformation.cs` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里**逐字节一致**：都是 1040 字节、38 行、1 个 `public` struct、2 个方法 + 4 个 `public` 字段的公开表面。跨 1.3 → 1.5 三个大版本零变化。

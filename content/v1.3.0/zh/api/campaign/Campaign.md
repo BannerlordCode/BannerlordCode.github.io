@@ -301,6 +301,89 @@ public static bool IsNightHour()
 6. **管理器归属。** `MapEventManager`、`SiegeEventManager` 与 `MapMarkerManager` 是 `internal set`；mod 给它们赋值无法对引擎程序集编译。
 7. **热路径分配。** `GetComponents<T>()` 与 `GetCampaignBehaviors<T>()` 每次调用都新建集合。如果逐帧轮询，请在 `OnCampaignStart` 里缓存一次。
 
+## 怎么用
+
+### 怎么拿到它
+
+`Campaign` 没有工厂，只有一个静态单例：`public static Campaign Current { get; private set; }`（`TaleWorlds.CampaignSystem/Campaign.cs:508`）。
+
+**它什么时候才非 null，决定了你能写什么代码。** 全流程的关键节点按先后顺序是这样：
+
+```
+SandBox/SandBoxGameManager.cs:89    campaign.SetLoadingParameters(1)      -> Campaign.cs:1859  Campaign.Current = this
+Campaign.cs:1897                     this.SandBoxManager.Initialize(campaignGameStarter)      官方模型注册
+Campaign.cs:1898                     base.GameManager.InitializeGameStarter(...)            模块子模块在这里扇出
+Campaign.cs:1904                     base.GameManager.OnGameStart(...)                     -> MBGameManager.cs:185  你的 OnGameStart
+Campaign.cs:1906                     this._gameModels = ...AddGameModelsManager<GameModels>(...)   模型被冻结
+Campaign.cs:1935                     this.AddCampaignBehaviorManager(new CampaignBehaviorManager(...))   行为被冻结
+Campaign.cs:1936                     base.GameManager.OnAfterCampaignStart(base.CurrentGame)  你的 OnAfterCampaignStart
+```
+
+退出时反过来：`Campaign.cs:1631` 先 `MBSaveLoad.OnGameDestroy()`，`:1632` 才 `Campaign.Current = null`。
+
+### 典型用法
+
+需要在战役完全就绪后做一次初始化，就用 `OnAfterCampaignStart`：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public class MyModule : MBSubModuleBase
+{
+    protected override void OnAfterCampaignStart(Game game)
+    {
+        // Campaign.cs:1936 才走到这里。此时：
+        //   Campaign.Current 已经存在（:1859）
+        //   Campaign.Current.Models 已冻结（:1906）
+        //   CampaignBehaviorManager 已建好并开始 RegisterEvents（:1935）
+        Campaign campaign = Campaign.Current;
+
+        if (campaign == null)
+        {
+            return;
+        }
+
+        // 模型可以放心读了。
+        int comingOfAge = campaign.Models.AgeModel.HeroComesOfAge;
+    }
+
+    protected override void OnGameEnd(Game game)
+    {
+        // Campaign.cs:1632 之后 Campaign.Current 会变成 null，
+        // 所以不要在这里缓存 Campaign.Current 的引用跨局使用。
+    }
+}
+```
+
+两个钩子的签名：`protected override void OnAfterCampaignStart(Game game)`（实现在 `SandBox/SandBoxGameManager.cs:122`）与 `protected override void OnGameEnd(Game game)`（`SandBox/SandBoxGameManager.cs:56`）。
+
+### 最容易踩的坑
+
+**把「注册」写在了已经来不及的钩子里。`OnAfterCampaignStart` 适合读，不适合注册。**
+
+看上面那张时序表——`Campaign.cs:1906` 把模型列表**拷贝**进 `GameModels`（基类构造器 `TaleWorlds.Core/GameModelsManager.cs:13`），`Campaign.cs:1935` 把行为列表**拷贝**进 `CampaignBehaviorManager`（`TaleWorlds.CampaignSystem/CampaignBehaviors/CampaignBehaviorManager.cs:29`）。而你的 `OnAfterCampaignStart` 是在 `:1936` 触发的，**晚于这两个快照**。
+
+于是：
+
+```
+:1936  OnAfterCampaignStart 里 starter.AddModel<X>(...)   -> _models.Add 成功，没有异常
+:1906  已经过去了                                          -> Campaign.Current.Models.X 仍是旧实现或 null
+```
+
+后果与"忘了注册"完全一样，但你排查时会去检查注册代码，而那行代码明明跑了、也没报错。这就是本页风险第 4 条说的"模型由各模块的 `AddModel` 填充"的另一面：**不是填得对不对，而是填得够不够早**。
+
+分工是这样的：
+
+```
+要注册模型 / 行为   -> InitializeGameStarter（Campaign.cs:1898，在两个快照之前）
+要读 Campaign.Current.Models -> OnGameStart 或 OnAfterCampaignStart 都行（:1904 / :1936）
+要挂 CampaignEvents -> CampaignBehaviorBase.RegisterEvents（行为在 :1935 就已就位）
+```
+
+把注册写进 `RegisterEvents` 或 `OnAfterCampaignStart` 的 mod，在新战役下"看起来完全没生效"，而在某些重进游戏的路径下又可能"莫名其妙生效了"——因为读档路径走的是 `Campaign.cs:1941` 的 `InitializeCampaignBehaviors`，时序不同。**这种时有时无的行为是这类 bug 最难缠的地方**，所以务必按上表分清职责。
+
 ## 跨版本提示
 
 - 上面的成员列表对应 1.3.0 的反编译接口面。后续 1.3.x / 1.4.x 构建增加了面向海战的属性（如 `PlayerRegionSwitchCostFromLandToSea`、海军速度估计），但顶层结构保持不变。

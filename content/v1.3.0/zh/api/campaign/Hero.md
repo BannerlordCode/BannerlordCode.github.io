@@ -325,6 +325,85 @@ public static int CountLordsAtWarWithPlayer()
 7. **对部队的跨域依赖。** 在任务回调里读 `PartyBelongedTo` 是合法的，但在战斗回写期间修改它会让 `PartyBase.MemberRoster` 失去同步。
 8. **逐 tick 扫描成本。** 每个行为每 tick 都对完整英雄列表做 `Hero.FindAll`，规模大时代价可观。优先改用 `CampaignEvents.DailyTickHeroEvent` / `HourlyTickEvent`，它们会直接把对象交给你。
 
+## 怎么用
+
+### 怎么拿到它
+
+三个静态查找：
+
+- `public static Hero FindFirst(Func<Hero, bool> predicate)` —— `TaleWorlds.CampaignSystem/Hero.cs:2564`，走 `Campaign.Current.Characters.FirstOrDefault(x => x.IsHero && predicate(x.HeroObject))`（`:2566`）
+- `public static Hero Find(string stringId)` —— `:2575`，`return Campaign.Current.CampaignObjectManager.Find<Hero>(stringId);`（`:2577`）
+- `public static IEnumerable<Hero> FindAll(Func<Hero, bool> predicate)` —— `:2581`
+
+**都不接受 `new Hero(...)`**——页面风险第 1 条已经说明：绕开 `MBObjectManager` 的英雄会凭空消失。
+
+`Hero` 是 `public sealed class Hero : MBObjectBase, ITrackableCampaignObject, ITrackableBase, IRandomOwner`（`:27`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+public static class HeroTools
+{
+    public static Hero FindLordOf(string settlementId)
+    {
+        // Find 可能返回 null，也可能返回非领主。
+        Hero lord = Hero.FindFirst(
+            h => h != null && h.IsAlive && h.IsLord && h.IsActive);
+
+        return lord;
+    }
+
+    public static bool IsMainHero(Hero hero)
+    {
+        // MainHero 走的是 Game 层，不是 Campaign 层 —— 见下。
+        Hero main = Hero.MainHero;
+
+        return main != null && hero == main;
+    }
+
+    public static Hero FindOrNull(string heroId)
+    {
+        // 按 id 查：CampaignObjectManager.Find<Hero>
+        return Hero.Find(heroId);
+    }
+}
+```
+
+### 最容易踩的坑
+
+**用 `Campaign.Current != null` 当 `Hero.MainHero` 的前置守卫。这个守卫挡不住它真正会炸的那一层。**
+
+`Hero.MainHero` 的 getter 只有一行（`Hero.cs:2610` 到 `:2616`）：
+
+```csharp
+Hero.cs:2614    return CharacterObject.PlayerCharacter.HeroObject;
+```
+
+顺着往下：`CharacterObject.PlayerCharacter`（`TaleWorlds.CampaignSystem/CharacterObject.cs:404`）的函数体是
+
+```csharp
+CharacterObject.cs:408    return Game.Current.PlayerTroop as CharacterObject;
+```
+
+所以整条链是 **`Game.Current` → `PlayerTroop` → `HeroObject`**——**一次都没有碰 `Campaign.Current`**。而 `PlayerTroop` 在 `TaleWorlds.Core/Game.cs:72` 是 `public static BasicCharacterObject PlayerTroop { get; set; }`，**在玩家角色被创建出来之前它是 null**。
+
+三个由此产生的后果：
+
+1. **`Campaign.Current` 非 null 不代表 `Hero.MainHero` 非 null。** 战役对象建好了、但玩家角色还没创建时，`Campaign.Current != null` 成立，而 `CharacterObject.cs:408` 里的 `Game.Current.PlayerTroop` 是 null——`as` 转换静默得到 null，接着 `Hero.cs:2614` 的 `.HeroObject` 就 NPE 了。**崩在 `HeroObject`，不在你以为的 `Campaign.Current`。**
+2. **`Campaign.Current` 为 null 时 `Hero.MainHero` 反而可能是好的。** `Game.Current` 的生命周期比战役长（任务内、主菜单都可能还在）。用 `Campaign.Current` 是否为空来推断"是不是玩家"，在任务代码里会得到相反的答案。
+3. **`as` 转换不报错。** `:408` 是 `Game.Current.PlayerTroop as CharacterObject`，如果 `PlayerTroop` 的实际类型不是 `CharacterObject`，这里得到的是 null 而不是异常——错误被推迟到下一行的 `.HeroObject`。
+
+正确的守卫是直接判返回值本身：
+
+```csharp
+Hero main = Hero.MainHero;      // 可能为 null，直接判它
+if (main == null) { return; }
+```
+
+而不是先判 `Campaign.Current`。顺带一句：`FindFirst` 的谓词收到的是 `x.HeroObject`（`Hero.cs:2566`），所以**谓词内部第一件事也应该是判空**，而不是假定参数非 null。
+
 ## 跨版本提示
 
 - 成员列表对应 1.3.0 的反编译接口面。`Hero` 在后续 1.3.x 补丁中新增了少量导航与车队相关字段，但状态机、技能与关系 API 保持不变。

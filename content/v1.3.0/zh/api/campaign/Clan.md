@@ -313,6 +313,91 @@ public static void GrantIndependence(Clan clan)
 7. **易主不是对称操作。** `Clan.CalculateTotalSettlementValueForFaction` 读取聚落实时状态，在转移过程中调用可能观察到只更新了一半的所有权集合。
 8. **热循环开销。** 在 `DailyTickEvent` 上对 `Clan.All` 做 `FindAll`，在多个行为叠加时是实打实的帧成本。改用 `CampaignEvents.DailyTickClanEvent`，或缓存需要过滤的列表。
 
+## 怎么用
+
+### 怎么拿到它
+
+现成的氏族：`Clan.All`（`TaleWorlds.CampaignSystem/Clan.cs:1457`）、`Clan.FindFirst(Predicate<Clan> predicate)`（`:1436`）。玩家氏族是 `public static Clan PlayerClan`（`:694`）。
+
+**注意 `PlayerClan` 的真实形状**：
+
+```csharp
+Clan.cs:694    public static Clan PlayerClan
+Clan.cs:698        return Campaign.Current.PlayerDefaultFaction;
+```
+
+**它不是 `Campaign.Current.PlayerClan`**，而是**穿透一层**去读 `Campaign.Current.PlayerDefaultFaction`。所以在战役建立之前（模块加载、静态初始化、主菜单）调用它，崩的是 `Campaign.Current` 为 null，而不是你以为的那一层。
+
+新建走 `CreateClan`（页面风险第 3 条已说明不要直接 `new Clan()`）。
+
+### 典型用法
+
+遍历氏族并安全地读它的归属：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+public static class ClanTools
+{
+    public static float TotalInfluenceOfKingdom(Kingdom kingdom)
+    {
+        float total = 0f;
+
+        foreach (Clan clan in Clan.All)
+        {
+            // Leader 可能为 null —— 无领袖氏族在游戏里是存在的。
+            if (clan.Leader == null)
+            {
+                continue;
+            }
+
+            if (clan.Kingdom == kingdom)
+            {
+                total += clan.Leader.Influence;
+            }
+        }
+
+        return total;
+    }
+
+    public static bool IsPlayerClan(Clan clan)
+    {
+        // PlayerClan 自己没有判空，战役外会 NPE。
+        return Campaign.Current != null && clan == Clan.PlayerClan;
+    }
+}
+```
+
+### 最容易踩的坑
+
+**用 `clan.Kingdom = 同一个王国` 来"刷新"王国的氏族索引。它是一个彻底的空操作。**
+
+`Clan.Kingdom` 的 setter（`Clan.cs:401`）第一句就是这个：
+
+```csharp
+Clan.cs:407    set
+Clan.cs:409    {
+Clan.cs:409        if (this._kingdom != value)
+Clan.cs:411            this.SetKingdomInternal(value);
+Clan.cs:412        }
+```
+
+也就是说，赋一个**相同**的 `Kingdom` 时，`SetKingdomInternal` 根本不会被调用。而 `SetKingdomInternal`（`:1324`）才是真正做事的那个方法：
+
+```csharp
+Clan.cs:1326    if (this.Kingdom != null)  -> :1328  this.LeaveKingdomInternal();
+Clan.cs:1330    this._kingdom = value;
+Clan.cs:1331    if (this.Kingdom != null)  -> :1333  this.EnterKingdomInternal();
+Clan.cs:1335    this.UpdateBannerColorsAccordingToKingdom();
+Clan.cs:1336    this.LastFactionChangeTime  = CampaignTime.Now;
+```
+
+而 `EnterKingdomInternal`（`:1340`）里 `:1342` 是 `this._kingdom.AddClanInternal(this);`，紧接着 `:1345` 对每个 `Hero` 调 `this._kingdom.OnHeroAdded(hero);`——**王国的 `Clans` / `Heroes` / `AliveLords` 全靠这条路径重建**（它们是 `Kingdom.InitializeCachedLists` 建出来的缓存 `MBList`）。
+
+后果：你想通过"重新赋一次 Kingdom"来让王国重新索引这个氏族，结果**什么都没发生**——没有异常、没有日志，`SetKingdomInternal` 一次都没跑。于是 `Kingdom.Clans` 里可能仍然缺这个氏族，`Kingdom.Heroes` 里缺它的成员，而你的 mod 读到的就是不完整的数据。这种不一致**不会自己恢复**，也不会在下一次读档时被修好。
+
+要真正触发，只能让值真的发生变化（先置 `null` 再赋回去），或者直接调用正规的改归属 API —— 不要指望同值赋值能"重播"一遍流程。
+
 ## 跨版本提示
 
 - 上面列出的 1.3.0 接口面与 1.3.x 一致。后续构建保持 `Influence`、`Renown`、`Tier`、`CalculateTotalSettlementValueForFaction` 与 `ClanLeaveKingdom` 稳定。

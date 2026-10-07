@@ -192,6 +192,63 @@ private void OnDecisionAdded(KingdomDecision decision, bool isPlayerInvolved)
 - **`GetQueriedDecisionOutcome` 只找赞成方。** `FirstOrDefault(...)` 找不到就返回 null ——**在 `DetermineInitialCandidates` 之外（比如读旧存档时）可能返回 null。**
 - **嵌套类在同一个文件里。** `AcceptCallToWarAgreementDecisionOutcome` 声明在 `AcceptCallToWarAgreementDecision.cs:319`，完整名是 `AcceptCallToWarAgreementDecision.AcceptCallToWarAgreementDecisionOutcome`，它的独立页面是 [AcceptCallToWarAgreementDecisionOutcome](../AcceptCallToWarAgreementDecisionOutcome)。
 
+## 怎么用
+
+### 怎么拿到它
+
+它没有工厂，**只能 `new`**——构造函数是 `AcceptCallToWarAgreementDecision(Clan proposerClan, Kingdom callingKingdom, Kingdom kingdomToCallToWarAgainst)`，声明在 `TaleWorlds.CampaignSystem/Election/AcceptCallToWarAgreementDecision.cs:66`。参数顺序有严格含义：第一个是提案家族，第二个是**发起号召的盟友**，第三个是**要向之宣战的敌人**。注意构造函数体（`:70`）里已经算过一次代价：`this.CallToWarCost = Campaign.Current.Models.AllianceModel.GetCallToWarCost(callingKingdom, proposerClan.Kingdom, kingdomToCallToWarAgainst);`——**实例一诞生，代价就定死了**。
+
+官方的生产者是外交行为。`TaleWorlds.CampaignSystem/CampaignBehaviors/AllianceCampaignBehavior.cs:140` 直接 `new` 之后在 `:141` 注册；地图通知确认路径走 `ConfirmCallToWarAgreementOffer`（`AllianceCampaignBehavior.cs:472`），同样在 `:474` `new`。注册动作是 `Kingdom.AddDecision(KingdomDecision kingdomDecision, bool ignoreInfluenceCost = false)`（`TaleWorlds.CampaignSystem/Kingdom.cs:1001`）。
+
+### 典型用法
+
+自己提一个决议：先问 `IsAllowed()`，再注册，然后读代价和票数。
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Election;
+
+public static class ForcedCallToWar
+{
+    public static void Propose(Kingdom callingKingdom, Kingdom targetKingdom)
+    {
+        Kingdom playerKingdom = Clan.PlayerClan.Kingdom;
+
+        // 参数顺序：提案家族 / 发起号召的盟友 / 要打的敌人。
+        var decision = new AcceptCallToWarAgreementDecision(
+            Clan.PlayerClan, callingKingdom, targetKingdom);
+
+        // IsAllowed 判的是"能不能提"，不是"现在还能不能做"。三个条件全是外交状态。
+        if (!decision.IsAllowed())
+        {
+            return;
+        }
+
+        // 第二个参数 true = 免掉提案影响力花费。官方两处都传 true。
+        playerKingdom.AddDecision(decision, true);
+
+        // CallToWarCost 在构造时就已定，不要指望它随外交关系变化。
+        int cost = decision.CallToWarCost;
+
+        // CalculateSupport 只给"赞成方向"打分；反对方向要用 DetermineSupport(clan, outcome)。
+        DecisionOutcome accept = decision.DetermineInitialCandidates().First();
+        float support = decision.DetermineSupport(Clan.PlayerClan, accept);
+    }
+}
+```
+
+签名核对：`CanMakeDecision` 成功时 `reason` 是 `TextObject.GetEmpty()` 而不是 `null`，要用 `IsEmpty()` 判；`Kingdom.RemoveDecision(KingdomDecision kingdomDecision)` 在 `TaleWorlds.CampaignSystem/Kingdom.cs:1029`，可以先把同类型旧决议删掉。
+
+### 最容易踩的坑
+
+**注册时忘了第二个参数，影响力会被真扣。**
+
+`AddDecision` 的第二个参数默认值是 `false`。`TaleWorlds.CampaignSystem/Kingdom.cs:1003` 的分支是 `if (!ignoreInfluenceCost)`，进去以后 `Kingdom.cs:1006` 取 `kingdomDecision.GetInfluenceCost(proposerClan)`，`Kingdom.cs:1007` 直接 `ChangeClanInfluenceAction.Apply(proposerClan, -(float)influenceCost)`。而 `GetInfluenceCost`（`TaleWorlds.CampaignSystem/Election/KingdomDecision.cs:151`）两个分支都返回 `GetProposalInfluenceCost()`——在本决议里就是 `Campaign.Current.Models.AllianceModel.GetInfluenceCostOfCallingToWar(base.ProposerClan)`（`AcceptCallToWarAgreementDecision.cs:82`）。
+
+官方两处注册都显式传 `true`：`AllianceCampaignBehavior.cs:141` 和同文件的 `:468`。这不是疏忽，是因为这两条决议是**由盟友的号召或玩家的地图通知触发的**，提案方不是玩家意愿的产物。
+
+后果写得很具体：你写 `kingdom.AddDecision(decision);`（等价于传 `false`），玩家的家族影响力会当场被扣掉一大截，而玩家根本没有主动提议过；影响力不够时这笔扣除照样发生，`AddDecision` 不检查余额，只在 `Kingdom.cs:1003` 之外做派发，于是玩家看到一个自己没提议、还倒扣了影响力的决议。反过来，若你的 mod 就是想模拟"玩家主动提议"，那才应该传 `false`，并提前用 `decision.GetProposalInfluenceCost()` 检查 `Clan.PlayerClan.Influence`。
+
 ## 跨版本提示
 
 `AcceptCallToWarAgreementDecision` 的 public 表面在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里**高度稳定**：同样 14 个 `public override` 成员、同样三个 `readonly Kingdom`/`int` 字段、同一个懒加载的 `AllianceCampaignBehavior` 属性。跨三个大版本没有签名级变化。

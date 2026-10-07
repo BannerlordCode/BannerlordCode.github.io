@@ -185,6 +185,68 @@ mapScreen.MapNotificationView.RegisterMapNotificationType(
 - **`StoryMode.ViewModelCollection` 是模块工程。** 裸战役（无 `StoryMode` 模块）里这整个类型不存在，`StoryModeGauntletUISubModule` 那条注册链也不会跑。
 - **这条链有四层 indirection，每层都可能断。** `MapScreen.MapNotificationView`（虚拟方法，基类空实现）→ `GauntletMapNotificationView`（覆写）→ `MapNotificationVM._itemConstructors`（一个 `Dictionary<Type, Type>`）→ 反射构造。**排查「通知不出现」时要从后往前逐个确认，别只盯着 VM 类本身。**
 
+## 怎么用
+
+### 怎么拿到它
+
+声明在 `StoryMode.ViewModelCollection/Map/ConspiracyQuestMapNotificationItemVM.cs:8`，继承 `MapNotificationItemBaseVM`。**它不由 UI 层 new，而是由通知数据创建**：
+
+```
+故事模式代码发出地图通知
+    Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(
+        new ConspiracyQuestMapNotification(this, 侧边文本))     StoryMode/Quests/SecondPhase/ConspiracyQuestBase.cs:87
+                                                       或        StoryMode/Quests/SecondPhase/ConspiracyQuests/DisruptSupplyLinesConspiracyQuest.cs:327
+        ↓
+    通知框架把数据包成对应的 ItemVM
+        ↓
+    构造 ConspiracyQuestMapNotificationItemVM(data)             :15
+```
+
+**你要做的只是发出 `ConspiracyQuestMapNotification`，不要自己碰这个 VM。** 构造函数（`:15`）从数据里取出 `Quest`（`:19`），并把 `NotificationIdentifier` 固定为 `"conspiracyquest"`（`:18`）。
+
+### 典型用法
+
+发出通知，让框架去做包装：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+public static void NotifyConspiracyProgress(QuestBase quest, TextObject sideText)
+{
+    if (quest == null)
+    {
+        return;
+    }
+
+    // 框架根据通知类型找到 ConspiracyQuestMapNotificationItemVM（:15）。
+    // VM 的构造函数不需要你参与。
+    Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(
+        new ConspiracyQuestMapNotification(quest, sideText));
+}
+```
+
+如果只是想在 UI 里读到那个任务：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Quests;
+using StoryMode.ViewModelCollection.Map;
+
+// Quest 是 public get、无 setter（:12），构造时就固定了。
+public static QuestBase GetQuest(ConspiracyQuestMapNotificationItemVM vm)
+{
+    return vm?.Quest;
+}
+```
+
+### 最容易踩的坑
+
+**把它当成可复用的通知对象，在多次调用之间缓存。** 构造函数里把 `this._onInspect` 绑成了一个捕获 `data` 的委托（`:20-28`），而 `data` 是构造参数。后果：一旦通知被丢弃、而你还持有这个 VM，**点击它就会拿着过期的 data 去导航**，可能跳到一个已经结束的阴谋任务上。它是「一次通知一个实例」。
+
+第二个坑是 `Quest` 可能不是你以为的那个任务。它是在构造函数里从 `data.ConspiracyQuest` 直接取的（`:19`），**没有任何校验**。后果：你用别的任务类型构造通知，编译能过（如果类型兼容），但点开之后导航到的是一个没有界面处理的任务——**点击无反应**，而不是报错。
+
+第三个坑是不处理 `NavigationHandler` 为 null 的情况。`_onInspect` 里显式判了 null 就 return（`:22-26`）。后果：通知在还没有导航处理器的时序里出现时，**点击完全静默无效**——这是设计上的静默，不是你的代码漏了处理。
+
 ## 跨版本提示
 
 `ConspiracyQuestMapNotificationItemVM.cs` 在 `bannerlord-1.3.0` / `1.4.6` / `1.4.7` / `1.5.3` 四棵树里**公开面一字未改**：2 个 public 成员（`Quest` 属性 + 构造函数），逐行比对差集为空。

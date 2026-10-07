@@ -247,6 +247,29 @@ public class MyAgentLabelLogic : MissionLogic
 - **`TroopTraitsMask` 的 `LowTier`(128) / `HighTier`(256) / `All`(511) 这三个位，本方法从不设置。** 想按装备档次筛 troop 得自己去读 `troop.Tier`，这个工具不管。
 - **不要把 `Agent.GetTraitsMask()` 当成这个方法的等价物。** 两者分支结构相同但数据源不同（见示例里的对照表）：agent 版用 `HasMount` / `IsRangedCached` / `AgentStatCalculateModel.HasHeavyArmor(agent)` 这些**运行期缓存**，origin 版用**构造期快照**。同一时刻两者可能给出不同答案。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Core/AgentOriginUtilities.cs:6`，声明是 `public class AgentOriginUtilities`，但它**没有任何构造函数**（所以你也 new 不出有意义的东西）—— 全类只有两个成员，**都是 `public static`**：
+
+- `GetDefaultTraitsMask(IAgentOriginBase origin)`（`AgentOriginUtilities.cs:9`）
+- `GetDefaultTroopTraits(BasicCharacterObject troop, out bool hasThrownWeapon, out bool hasSpear, out bool hasShield, out bool hasHeavyArmor)`（`AgentOriginUtilities.cs:44`）
+
+**所以它也不需要「拿到」**，直接写 `AgentOriginUtilities.GetDefaultTroopTraits(...)` 即可。你会看到引擎自己就是这么调的：`TaleWorlds.CampaignSystem/AgentOrigins/PartyAgentOrigin.cs:195`、`PartyGroupAgentOrigin.cs:20`、`SimpleAgentOrigin.cs:180`、`TaleWorlds.MountAndBlade/BasicBattleAgentOrigin.cs:133` —— 四个 origin 类在构造时都调它，参数都是自己持有的 `Troop`。
+
+**一段可直接跑的三行调用**：
+
+```csharp
+bool hasSpear, hasShield, hasThrownWeapon, hasHeavyArmor;
+AgentOriginUtilities.GetDefaultTroopTraits(hero.CharacterObject, out hasThrownWeapon, out hasSpear, out hasShield, out hasHeavyArmor);
+Debug.Print("spear=" + hasSpear + " shield=" + hasShield, 0);
+```
+
+`out` 参数的位置是固定的四个（thrown / spear / shield / heavyArmor），**名字顺序不能记错** —— 它们都是 `out bool`，类型相同，写反了编译器不会报错，只会给你错误的含义。四个值在方法开头都被显式置 `false`，所以 `troop.FirstBattleEquipment == null` 时你拿到的是四个 `false` 而不是一个没被赋值的 `out` 参数。
+
+**它内部只看 5 个装备槽。** 方法体是 `Equipment firstBattleEquipment = troop.FirstBattleEquipment;` 然后 `for (int i = 0; i < 5; i++)` 遍历，跳过 `equipmentElement.IsEmpty` 的项，再逐个读 `equipmentElement.Item.PrimaryWeapon.WeaponClass` 做区间判定。**它读的是「初始战斗装备」，不是当前装备** —— 战斗中途换武器不会影响这里的结果。
+
+**最常见的坑：区间判断绑死 `WeaponClass` 的编号。** `weaponClass - WeaponClass.OneHandedPolearm > 2` 依赖 `OneHandedPolearm`、`TwoHandedPolearm`、`LowGripPolearm` 在枚举里**恰好连续**。往 [WeaponClass](../WeaponClass) 中间插一个成员会静默改变这几个标志的含义，编译通过、行为错。这条已在「风险与边界」首条展开。
+
 ## 跨版本提示
 
 `AgentOriginUtilities.cs` 在 `bannerlord-1.3.0/`（86 行 / 2170 字节）与 1.3.15、1.4.6、1.4.7、1.5.3 **四棵树 `grep -v Token` 逐行 diff 后完全一致**（md5 不同仅因 `// Token:` 注释）。**方法签名、两个 out 参数顺序、`FirstBattleEquipment` 的 5 槽循环、三层 `WeaponClass` 区间、`24f` 阈值，全部跨 1.3 → 1.5 三个大版本零变化。**

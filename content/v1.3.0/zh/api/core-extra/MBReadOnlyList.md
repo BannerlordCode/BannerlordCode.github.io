@@ -108,6 +108,29 @@ public static List<ItemModifier> SnapshotModifiers(ItemModifierGroup group)
 - **序列化系统认识它。** `SaveableCoreTypeDefiner` 为 `EntitySystem<>` 之类做类型登记时，`MBReadOnlyList<T>` 走的是标准 `List<T>` 路径，不会有额外的存档行为。
 - **与 `System.Collections.ObjectModel.ReadOnlyCollection<T>` 无继承或实现关系。** 名字相似纯属巧合，不要尝试互转。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Library/MBReadOnlyList.cs:7`，全文件 25 行，声明是 `public class MBReadOnlyList<T> : List<T>`，然后**三个构造函数、零个字段、零个属性、零个方法** —— 没有任何一个成员是这个类自己写的。所以它不存在「先 new 再配置」这个流程：拿到实例只有两条路。
+
+- **被动接受引擎的返回值。** 这是主用途。`MBReadOnlyList<T>` 在 1.3.0 树里的公开返回值有几百处（`MobileParty` 38 处、`MapEventParty` 43 处、`CharacterObject` 36 处），典型形状是某个属性直接 `return this._internalList;`。你拿到它时它已经装满了。
+- **自己 new 一个当真只读容器。** 三个构造分别是 `()` / `(int capacity)` / `(IEnumerable<T> collection)`。注意**没有** `(List<T>)` 那个重载 —— 传一个 `List<T>` 进去会走 `IEnumerable<T>` 路线，语义一样但少了 `List<T>` 内部那次 `CopyTo` 快路径。
+
+`using TaleWorlds.Library;` 是必需的：这个类型在几十个核心类型（`ViewModel`、`MBSubModuleBase` 等）的签名里出现，漏掉会在一串类型上连环报错。
+
+**一段可直接跑的三行防御性消费**（`Settlement.All` 是 `Settlement.cs:1394` 的真实 `MBReadOnlyList<Settlement>` 属性）：
+
+```csharp
+MBReadOnlyList<Settlement> all = Settlement.All;
+List<Settlement> forts = new List<Settlement>();
+foreach (Settlement s in all) { if (s.IsFortification) forts.Add(s); }
+```
+
+第二行是必要步骤而不是可选优化：想要可写集合就得自己拷，因为拿到的 `all` 背后就是引擎的内部列表。
+
+**更要紧的是：编译器不会拦住你。** `MBReadOnlyList<T>` 从 `List<T>` 继承，所以 `all.Sort()` / `all.Reverse()` / `all.Clear()` **全部编译通过**。真要消费引擎给的只读列表，规则只有一条：**只读不写、只遍历不重排**。
+
+**最常见的坑：没有运行期只读保护。** 任何一次 `(List<T>)readOnlyList` 转型、或通过 `List<T>` 变量接收，都会绕开全部「只读」承诺。引擎自身从不这么做，但它无法阻止 mod 这么做，**把它当护栏用是危险的**。这条已在「风险与边界」首条展开。
+
 ## 跨版本提示
 
 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵源码树里，本类的 **public 成员集合完全一致**——始终是三个构造器，没有任何新增。

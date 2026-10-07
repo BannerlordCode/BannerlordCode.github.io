@@ -153,6 +153,85 @@ foreach (DecisionOutcome candidate in decision.DetermineInitialCandidates())
 - **不进存档之外的东西。** 四个字段都有 `[SaveableField]`，所以 outcome 本身可存档；**但 `SponsorClan` 来自基类 `DecisionOutcome`，它的持久化方式不同**（`GetDecisionDescription` 里读 `base.SponsorClan`，读档后是否已绑定取决于基类的存档机制）。
 - **`ImageIdentifier` 的命名空间是 `TaleWorlds.Core.ImageIdentifiers`。** 外层决议的 `using` 里有它，本类则在自己的文件顶部声明——引用时注意别漏 `using`。
 
+## 怎么用
+
+### 怎么拿到它
+
+**不要自己 new。** 这个实例由外层决议产出：`DetermineInitialCandidates()` 在 `TaleWorlds.CampaignSystem/Election/AcceptCallToWarAgreementDecision.cs:142` 用 `yield return` 交出**恰好两个**实例——`:144` 一个 `ShouldAcceptCallToWar = true`，`:145` 一个 `false`。所以拿它的正规路径是：
+
+```csharp
+foreach (DecisionOutcome outcome in decision.DetermineInitialCandidates())
+```
+
+构造函数 `AcceptCallToWarAgreementDecisionOutcome(bool shouldAcceptCallToWar, Kingdom kingdom, Kingdom callingKingdom, Kingdom kingdomToCallToWarAgainst)` 声明在 `AcceptCallToWarAgreementDecision.cs:322`，四个参数、无返回值。它只在需要临时算分时有用：外层的 `CalculateSupport(Clan clan)`（`:250`）就是这么干的——每次调用都 `new` 一个 `true` 的实例出来算完就丢。
+
+### 典型用法
+
+遍历候选，逐个算分，并按 `ShouldAcceptCallToWar` 分流：
+
+```csharp
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Election;
+using TaleWorlds.Localization;
+
+public static class CallToWarVote
+{
+    public static void Report(KingdomDecision decision, Clan voter)
+    {
+        foreach (DecisionOutcome outcome in decision.DetermineInitialCandidates())
+        {
+            // 关键：只能靠这个 bool 区分两个候选。
+            var typed = (AcceptCallToWarAgreementDecision.AcceptCallToWarAgreementDecisionOutcome)outcome;
+
+            // 必须传外层决议给的原始实例，DetermineSupport 内部是硬转型。
+            float support = decision.DetermineSupport(voter, outcome);
+
+            TextObject description = typed.GetDecisionDescription();
+            if (description == null)
+            {
+                continue;
+            }
+
+            if (typed.ShouldAcceptCallToWar)
+            {
+                // 只有赞成方向会拿到模型给的加入理由；反对方向恒为硬编码英文。
+                Debug.Print("accept: " + support, 0);
+            }
+            else
+            {
+                Debug.Print("reject: " + support, 0);
+            }
+        }
+    }
+}
+```
+
+签名核对：`DetermineSupport(Clan clan, DecisionOutcome possibleOutcome)` 返回 `float`；`GetDecisionDescription()` 无参数、返回 `TextObject`（`AcceptCallToWarAgreementDecision.cs:339`）。模型侧 `GetScoreOfJoiningWar`（`TaleWorlds.CampaignSystem/ComponentInterfaces/AllianceModel.cs:36`）的第五个参数是 `out TextObject reason`，参数个数不能写成四个。
+
+### 最容易踩的坑
+
+**用 `Kingdom` / `CallingKingdom` / `KingdomToCallToWarAgainst` 当中两个候选的区分键。它们三个字段的值完全一样。**
+
+看 `DetermineInitialCandidates` 的两行就清楚了：
+
+```
+AcceptCallToWarAgreementDecision.cs:144   new ...(true,  base.Kingdom, this.CallingKingdom, this.KingdomToCallToWarAgainst)
+AcceptCallToWarAgreementDecision.cs:145   new ...(false, base.Kingdom, this.CallingKingdom, this.KingdomToCallToWarAgainst)
+```
+
+三个王国引用逐字相同，**唯一差别是第一个 bool**。所以下面这些写法会静默给出错误结果：
+
+```
+outcome.Kingdom == otherOutcome.Kingdom                       -> 永远为 true，两边都匹配
+new Dictionary<Kingdom, DecisionOutcome>(outcomes)            -> 第二个实例直接覆盖第一个
+FirstOrDefault(o => o.CallingKingdom == callingKingdom)       -> 永远拿到赞成方
+```
+
+后果分两种。覆盖式的容器会把**反对方挤掉**，你统计出来的票永远只有赞成一票，`ApplyChosenOutcome`（`AcceptCallToWarAgreementDecision.cs:179`）于是永远进 `if` 分支——决议看上去"全票通过"，而反对票从来没被记过。反过来，用 `==` 做的过滤会同时匹配到两个候选，你会在一个 `foreach` 里把同一条决议数两遍。
+
+`GetQueriedDecisionOutcome`（`AcceptCallToWarAgreementDecision.cs:244`）用的是同一个思路：它只按 `ShouldAcceptCallToWar` 找，`FirstOrDefault` 找不到就返回 `null`。你自己遍历时若用 `foreach (var o in outcomes)` 然后 `foreach` 外面再按三个王国字段回查，一样会踩。
+
 ## 跨版本提示
 
 `AcceptCallToWarAgreementDecisionOutcome` 的 public 表面在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里**完全一致**：4 个 `readonly` 字段（100–103）、1 个构造器、4 个 `public override TextObject/string/ImageIdentifier`。0 新增 / 0 移除 / 0 签名变化。

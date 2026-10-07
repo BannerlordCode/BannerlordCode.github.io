@@ -147,6 +147,38 @@ public class MyLootTableHost : GameModelsManager
 - **`AddGameModelsManager<T>` 每个类型只能调一次。** 字典键是 `typeof(T)`，第二次会抛 `ArgumentException`。同名但不同程序集的两个 `T` 是不同的 `Type`，能各注册一次——但它们会各自持有一份独立快照。
 - **不是 `MBObjectBase`，不参与存档。** 没有 `StringId`/`Id`，`MBObjectManager` 不注册它，也不要指望模型引用能跨存档存活。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Core/GameModelsManager.cs:8`，全文 39 行，`public abstract class GameModelsManager`，**只有三个成员**：一个 `protected` 构造器、`protected T GetGameModel<T>()`、`public MBReadOnlyList<GameModel> GetGameModels()`。
+
+**所以这个类你不能也不需要 new。** 实例由引擎用反射创建，路径是 `Game.AddGameModelsManager<T>(IEnumerable<GameModel> inputComponents)`（`Game.cs:86`），方法体是：
+
+```csharp
+T t = (T)Activator.CreateInstance(typeof(T), new object[] { inputComponents });
+this._gameModelManagers.Add(typeof(T), t);
+return t;
+```
+
+两件事直接决定你的写法：**① 它跑反射，所以你的类必须有一个接受 `IEnumerable<GameModel>` 的构造器**（写成 `protected MyModels(IEnumerable<GameModel> inputComponents) : base(inputComponents)`）；**② 它按 `typeof(T)` 做键存进字典**，所以每个管理器类型全局只能注册一次，重复注册就是覆盖。
+
+官方在四处调用：`Game.cs:475`（`this.BasicModels = this.AddGameModelsManager<BasicGameModels>(models);`）、`TaleWorlds.MountAndBlade/MBGameManager.cs:187`（`MissionGameModels`）、`TaleWorlds.CampaignSystem/Campaign.cs:1906`（`Campaign.GameModels`）。`inputComponents` 一路来自 `IGameStarter` 收集的那串模型。
+
+**一段可直接跑的三行读用**（`GetGameModel<T>` 是 `protected`，所以只能在子类里调）：
+
+```csharp
+public class MyModels : GameModelsManager
+{
+    public MyModels(IEnumerable<GameModel> inputComponents) : base(inputComponents) { this.LootTable = this.GetGameModel<MyLootTableModel>(); }
+    public MyLootTableModel LootTable { get; private set; }
+}
+```
+
+调用点在**构造器末尾**，不是 `OnAfterInitialize` —— 因为 `base(inputComponents)` 一执行列表就齐了，早一步没有对象可读。
+
+**取值必须判空，而且值类型派生更糟。** `GetGameModel<T>()` 的方法体在循环结束后是 `return default(T);` —— **返回 null，不抛异常**。对引用类型你至少能判 `!= null`；对值类型派生，`default(T)` 是 0 或全零结构体，`if (models.X == 0)` 永远成立，你根本无从发现这个槽位根本没人填。
+
+**最常见的坑：`GetGameModel<T>()` 返回 `null` 而不是抛异常。** 官方 144 个槽位由沙盒/故事模式保证填充，你新加的没人管。要么判空，要么在自己的管理器里对必需槽位做构造期断言。这条已在「风险与边界」首条展开。
+
 ## 跨版本提示
 
 `GameModelsManager.cs` 在 1.3.0 是 1006 字节，1.3.15 起到 1.5.3 都是 **989 字节**。差的 17 字节不是行为变化，是编译产物命名：1.3.0 里 `GetGameModel<T>` 用 `T result;` 而 1.3.15+ 用 `T t;`。**public/protected 成员集合跨 1.3 → 1.5 三个大版本逐字节等价**：还是那个 `protected` 构造器、`GetGameModel<T>`、`GetGameModels()`、那个 `private readonly MBList<GameModel>` 字段，倒序 `Count - 1` 的循环一行没改。

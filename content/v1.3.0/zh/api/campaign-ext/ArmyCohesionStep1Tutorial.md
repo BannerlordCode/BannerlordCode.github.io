@@ -238,6 +238,87 @@ public static void DebugCohesionTutorial()
 - **构造函数在游戏启动期被反射调用，不能有副作用。** 前面「用法一」的第 1 条隐含契约值得重复：这是 `[Tutorial]` 特性自动发现的代价。
 - **`StoryMode.GauntletUI` 是模块工程，不是核心。** 裸战役（无 `StoryMode` 模块）里这整个类型不存在。
 
+## 怎么用
+
+### 怎么拿到它
+
+**不要 new，也不要注册。** 它靠反射被自动发现并实例化。完整的发现链在 `SandBox.GauntletUI/Tutorial/GauntletTutorialSystem.cs` 的 `RegisterTutorialTypes()`（`:605`）：
+
+```
+遍历 AppDomain.CurrentDomain 的所有程序集（:607）
+  if 继承 TutorialItemBase 且非抽象                       :609
+      TutorialAttribute attr = type.GetCustomAttribute<>()  :611   ← 没特性就 FailedAssert 并跳过
+      ctor = type.GetConstructor(Type.EmptyTypes)           :618   ← 没有无参构造就 FailedAssert 并跳过
+      item = (TutorialItemBase)ctor.Invoke(new object[0])   :625   ← 反射调用无参构造
+      _mappedTutorialItems[attr.TutorialIdentifier] = item  :633   ← 用特性里的字符串做 key
+```
+
+本类的特性是 `[Tutorial("ArmyCohesionStep1")]`（`StoryMode.GauntletUI/Tutorial/ArmyCohesionStep1Tutorial.cs:11`），**那个字符串就是它在教程系统里的唯一身份**。构造函数在 `:15`，里面只做一件事：设 `HighlightedVisualElementID = "ArmyOverlayArmyManagementButton"`（`:18`）。
+
+### 典型用法
+
+写自己的教程项，只要满足那三个硬条件（特性 + 无参构造 + 基类）：
+
+```csharp
+using SandBox.GauntletUI.Tutorial;
+
+[Tutorial("MyMod_Step1")]                       // 必须有：否则 RegisterTutorialTypes 跳过（:611）
+public class MyModStep1Tutorial : TutorialItemBase
+{
+    public MyModStep1Tutorial()
+    {
+        // 只能设字段，不要在这里碰 Campaign.Current —— 这段代码在游戏启动、
+        // 教程系统初始化时被反射调用（:625），campaign 那时还不存在。
+        this.HighlightedVisualElementID = "SomeRealElementId";
+    }
+
+    public override TutorialContexts GetTutorialsRelevantContext()
+    {
+        // TutorialContexts 的成员是 None / PartyScreen / InventoryScreen /
+        // CharacterScreen / MapWindow / RecruitmentScreen / ClanScreen /
+        // KingdomScreen / Mission / EncyclopediaWindow / ArmyManagement /
+        // QuestsScreen / EducationScreen / OptionsScreen / CraftingScreen /
+        // GameOverScreen / EscapeMenu（TaleWorlds.Core/TutorialContexts.cs）。
+        return TutorialContexts.MapWindow;
+    }
+
+    public override bool IsConditionsMetForActivation()
+    {
+        return true;
+    }
+}
+```
+
+判断「现在是不是该激活这条教程」，要和引擎一样同时看上下文和游戏状态：
+
+```csharp
+using SandBox.GauntletUI.Tutorial;
+using TaleWorlds.CampaignSystem.Party;
+
+public static bool ShouldShowCohesionHint()
+{
+    // 官方 Step1 的激活判定（ArmyCohesionStep1Tutorial.cs:45-46）：
+    // 先看上下文，再看军队存在、玩家是统帅、凝聚力低于阈值。
+    // 四个条件缺一不可，只判上下文会在菜单里误触发。
+    Army army = MobileParty.MainParty?.Army;
+    if (army == null || army.LeaderParty != MobileParty.MainParty)
+    {
+        return false;
+    }
+
+    return TutorialHelper.CurrentContext == TutorialContexts.MapWindow &&
+           army.Cohesion < TutorialHelper.MaxCohesionForCohesionTutorial;
+}
+```
+
+### 最容易踩的坑
+
+**在无参构造函数里访问 `Campaign.Current` 或任何 UI 对象。** `:625` 是 `constructor.Invoke(new object[0])`，发生在教程系统初始化时；`:618` 已经要求了无参构造，等于**明确禁止你把初始化推迟到别处**。后果：教程系统在 campaign 建立之前就调用它，`Campaign.Current` 为 null，**空引用异常发生在启动阶段**，堆栈指向引擎的反射调用而不是你的教程项，排查成本极高。
+
+第二个坑是 `[Tutorial("...")]` 里的标识符写错或不加特性。`RegisterTutorialTypes` 遇到没有特性的类型只 `Debug.FailedAssert` 然后**跳过**（`GauntletTutorialSystem.cs:611-615`），不会抛异常。后果：你的教程项**永远不会被实例化**，游戏正常运行、教学系统也正常，就是这条教学永远不出现；Release 构建里断言可能根本不打印，你连线索都没有。
+
+第三个坑是那个字符串必须与 prefab 里的元素 id 一致。`HighlightedVisualElementID`（`:18`）是**纯字符串契约**，拼错没有任何反馈。后果：高亮框找不到目标，教程文本弹出来但**高亮位置是空的**。
+
 ## 跨版本提示
 
 `ArmyCohesionStep1Tutorial.cs` 在 `bannerlord-1.3.0` / `1.4.6` / `1.4.7` / `1.5.3` 四棵树里**5 个 public 成员与全部 private 成员的声明集合完全一致**——逐行比对 public 与 private 声明，**1.3.0 与 1.5.3 的差集都是空的**。文件字节数从 1771B 涨到 1852B，但增长不在成员声明上（推测是注释或格式）。

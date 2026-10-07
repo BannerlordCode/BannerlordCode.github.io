@@ -143,6 +143,49 @@ public static AgentList CopyFromList(List<Agent> source)
 - **命名空间是 `TaleWorlds.MountAndBlade.Missions`，不是 `TaleWorlds.MountAndBlade`。** 需要 `using TaleWorlds.MountAndBlade.Missions;`，与 `Agent` 本体不同。
 - **它只装 Agent，没有任何 Agent 特有的行为。** 没有按队伍/存活状态过滤的辅助方法——那些筛选全在 [Mission](../../mission/Mission) 上（如 `GetNearbyAgents` / `GetNearbyAllyAgents`）。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class AgentList : AgentReadOnlyList`（`TaleWorlds.MountAndBlade/Missions/AgentList.cs:7`），三个构造器、无成员。**你几乎不需要自己 new 它**——`Mission` 在建立时已经 `new AgentList(256)` 造了两份名册，通过 `Mission.Agents` 与 `Mission.AllAgents` 交给你。真正该 new 的是它作为**收集器**的用法，这和 `Mission` 自己的用法是同一个形状。
+
+### 典型用法
+
+上面「真实示例」两段都是「从名册里筛出一份普通 `List<Agent>` 副本」。反过来用它才是它作为 `MBList` 同族的本职：当收集器。下面这段把本局接过的玩家累积起来，`Mission` 内部两份名册用的就是这个容量预分配形状：
+
+```csharp
+public class MySeenPlayerTracker : MissionBehavior
+{
+    // Mission 自己就是 new AgentList(256) 建名册；你照同一形状造一份收集器
+    private readonly AgentList _seen = new AgentList(64);
+
+    public override void OnAgentControllerChanged(Agent agent, AgentControllerType oldController)
+    {
+        if (agent == null || agent.Controller != AgentControllerType.Player)
+        {
+            return;
+        }
+        // Contains 走的是继承来的 List<T>，O(n)；这份名册很小，不必自己维护 HashSet
+        if (this._seen.Contains(agent))
+        {
+            return;
+        }
+        this._seen.Add(agent);
+    }
+
+    public int SeenCount()
+    {
+        return this._seen.Count;
+    }
+}
+```
+
+与上面「真实示例」的差别：那两段的 `AgentList` 都是**中转容器**——造出来只是为了把筛选结果装进去，最后立刻 `new List<Agent>(buffer)` 拷走丢掉；这里它是**长期持有的累积器**，只在构造器里用一次容量预分配，之后靠 `Add` / `Contains` 增量维护，并用 `Count` 直接回答查询。
+
+### 最容易踩的坑
+
+**「ReadOnly」不成立。** `MBReadOnlyList<T>` 直接继承 `List<T>`，链上没有任何写保护。`mission.Agents.Clear()` 会编译通过、会执行成功、会直接破坏 [Mission](../../mission/Mission) 的内部遍历。**永远把它当只读用，靠自律而不是靠类型。**
+
 ## 跨版本提示
 
 `AgentList` 的三个构造器和 `AgentReadOnlyList` 的三个构造器在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 逐字一致，`MBReadOnlyList<T> : List<T>` 这条继承关系也从未变过。也就是说：**这个「假只读」在所有版本里都成立**，你的防御性代码要一直写下去。

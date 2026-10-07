@@ -188,6 +188,67 @@ public static void BroadcastBodyFlags(MissionObject target, BodyFlags flags)
 - **不能从客户端主动发。** `[DefineGameNetworkMessageType(GameNetworkMessageSendType.FromServer)]` 声明了方向，客户端构造并 `WriteMessage` 会被引擎的消息路由拒绝。发送前必须自己判 `GameNetwork.IsServerOrRecorder`。
 - **`sealed` + `private set` 意味着子类与外部代码都无法改这三个属性。** 想复用这条消息的逻辑，只能照抄它的 `OnWrite`/`OnRead` 配对，不能继承。
 
+## 怎么用
+
+### 怎么拿到它
+
+声明在 `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/AddMissionObjectBodyFlags.cs:10`，上面一行（`:9`）挂着 `[DefineGameNetworkMessageType(GameNetworkMessageSendType.FromServer)]`——**FromServer 意味着只有服务端发、客户端收**。
+
+两种角色：
+
+| 角色 | 入口 | 说明 |
+| --- | --- | --- |
+| 发送方（通常轮不到你） | `SynchedMissionObject.AddBodyFlagsSynched(BodyFlags, bool)`（`TaleWorlds.MountAndBlade/SynchedMissionObject.cs:382`） | 它内部先判重，再在 `IsServerOrRecorder` 分支里 broadcast（`SynchedMissionObject.cs:389`），最后才 `base.GameEntity.AddBodyFlags` 本地生效 |
+| 接收方 | 框架用**无参构造函数**（`:36`）造实例，再走 `OnRead()`（`:41`）填三个字段 | 你不new 它，只注册处理器 |
+
+三个属性全是 `private set`（`:15`、`:20`、`:25`），所以**只能走三参构造函数**（`:28`）：
+
+```csharp
+public AddMissionObjectBodyFlags(MissionObjectId missionObjectId, BodyFlags bodyFlags, bool applyToChildren)
+```
+
+### 典型用法
+
+要发这个消息，走同步入口而不是手写 broadcast：
+
+```csharp
+using TaleWorlds.MountAndBlade;
+
+public static void MakePropMovable(SynchedMissionObject missionObject)
+{
+    if (missionObject == null)
+    {
+        return;
+    }
+
+    // 这一行内部就是 BeginBroadcastModuleEvent + WriteMessage(new AddMissionObjectBodyFlags(...))
+    // + EndBroadcastModuleEvent(AddToMissionRecord)（SynchedMissionObject.cs:388-390）。
+    missionObject.AddBodyFlagsSynched(BodyFlags.Moveable, true);
+}
+```
+
+要在本地构造一个用于检查/测试的实例：
+
+```csharp
+using TaleWorlds.MountAndBlade;
+using TaleWorlds.MountAndBlade.NetworkMessages.FromServer;
+
+// 属性是 private set，所以必须走三参构造。
+// 第四个参数 ApplyToChildren 会原样进入 OnWrite（AddMissionObjectBodyFlags.cs:55）。
+AddMissionObjectBodyFlags message = new AddMissionObjectBodyFlags(
+    missionObject.Id,
+    BodyFlags.Moveable,
+    true);
+
+// 想把它发出去，仍然需要外层的 Begin/Write/End 三件套。
+```
+
+### 最容易踩的坑
+
+**自己 `new AddMissionObjectBodyFlags()` 然后给属性赋值。** 无参构造函数（`:36`）是空的，实例化后 `MissionObjectId` 是 `null`、`BodyFlags` 是 `0`、`ApplyToChildren` 是 `false`；而三个属性都是 `private set`，**从外部赋值根本编译不过**。如果绕过编译问题把这样一个空实例丢给 `WriteMessage`，`OnWrite`（`:51`）会执行 `GameNetworkMessage.WriteMissionObjectIdToPacket(this.MissionObjectId)`，**把 null 写进包**。后果在接收端：整条消息反序列化失败，`OnRead`（`:41`）返回 false，**这一批 broadcast 里的所有后续消息一起被丢弃**——表现为「客户端莫名其妙少了一批动作」，而不是一条清晰报错。
+
+第二个坑在自己写新消息类时：`GameNetwork.CollectGameNetworkMessagesFromAssembly` 的筛选条件（`TaleWorlds.MountAndBlade/GameNetwork.cs:1313`）同时要求 **继承 `GameNetworkMessage`、`IsSealed`、以及有公开无参构造函数**，再加上特性。漏掉任何一条，这个类型就**被静默跳过、根本不注册**。后果是：编译通过、启动无异常、但处理器永远不触发，消息在网络上凭空消失。
+
 ## 跨版本提示
 
 `AddMissionObjectBodyFlags.cs` 在 `bannerlord-1.3.0` / `1.3.15` / `1.4.6` / `1.4.7` / `1.5.3` 五棵树里**公开面与线格式完全冻结**：同样是 9 个成员（3 个属性 + 2 个构造函数 + `OnRead` / `OnWrite` / `OnGetLogFilter` / `OnGetLogFormat`），逐行比对 1.3.0 与 1.5.3 的 public/protected 声明集合，**差集为空**。`OnWrite` 里三个字段的写入顺序和 `CompressionBasic.FlagsCompressionInfo` 的用法一字未改，`OnGetLogFormat` 里那个写反的三元也**一直没有被修**。

@@ -178,6 +178,98 @@ private void OnCharacterCreationIsOver()
 - **`HeroComesOfAgeEvent` 等事件由本类自己派发。** 注意链路方向：`AgingCampaignBehavior` 既是这些事件的**订阅者**（`DailyTickHero` → `CampaignEventDispatcher.Instance.OnHeroComesOfAge(hero)`）**又是它们的处理者**（`OnHeroComesOfAge`）。**你在自己 mod 里订阅 `HeroComesOfAgeEvent` 时，监听顺序取决于注册次序**——而 `MbEvent` 是头插链表，后注册先跑。
 - **重病阈值是 3 天。** `if (Campaign.Current.MainHeroIllDays > 3)` 之后每天扣 `MathF.Ceiling(Hero.MainHero.HitPoints * (0.05f * MainHeroIllDays))` 点血。
 
+## 怎么用
+
+### 怎么拿到它
+
+**没有入口——它是引擎替你构造的。** `AgingCampaignBehavior` 是 `CampaignBehaviorBase` 的具体子类，生命周期由注册决定：把一个实例交给 `CampaignGameStarter.AddBehavior(CampaignBehaviorBase)`（`TaleWorlds.CampaignSystem/CampaignGameStarter.cs:48`），战役启动时 `Campaign.cs:1935` 会把它收进 `CampaignBehaviorManager`，然后逐个调 `RegisterEvents`。
+
+它的 `RegisterEvents()` 在 `TaleWorlds.CampaignSystem/CampaignBehaviors/AgingCampaignBehavior.cs:17`，一口气挂了九个静态事件：
+
+```
+:19  CampaignEvents.DailyTickHeroEvent               Action<Hero>
+:20  CampaignEvents.OnCharacterCreationIsOverEvent   Action
+:21  CampaignEvents.HeroComesOfAgeEvent              Action<Hero>
+:22  CampaignEvents.HeroReachesTeenAgeEvent          Action<Hero>
+:23  CampaignEvents.HeroGrowsOutOfInfancyEvent       Action<Hero>
+:24  CampaignEvents.PerkOpenedEvent                  Action<Hero, PerkObject>
+:25  CampaignEvents.HeroCreated                      Action<Hero, bool>
+:26  CampaignEvents.HeroKilledEvent                  Action<Hero, Hero, KillCharacterActionDetail, bool>
+:27  CampaignEvents.OnGameLoadedEvent                Action<CampaignGameStarter>
+```
+
+**注意链路方向**：`HeroComesOfAgeEvent` 这类事件是本类自己在 `OnHeroComesOfAge` 里派发的，外部行为监听它不会造成循环。
+
+### 典型用法
+
+一个只想跟着年龄走的 companion 行为：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CharacterDevelopment;
+
+public class MyCompanionAgingBehavior : CampaignBehaviorBase
+{
+    public MyCompanionAgingBehavior() : base("my_companion_aging_behavior")
+    {
+    }
+
+    public override void RegisterEvents()
+    {
+        // 与 AgingCampaignBehavior 挂同一批事件；都是 NonSerialized，不会重复订阅。
+        CampaignEvents.HeroComesOfAgeEvent.AddNonSerializedListener(this, this.OnHeroComesOfAge);
+        CampaignEvents.HeroReachesTeenAgeEvent.AddNonSerializedListener(this, this.OnHeroReachesTeenAge);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+    }
+
+    private void OnHeroComesOfAge(Hero hero)
+    {
+        // ComeOfAge 的判定来自 AgeModel，不是硬编码 18。
+        if (hero.Age < Campaign.Current.Models.AgeModel.HeroComesOfAge)
+        {
+            return;
+        }
+
+        hero.MbShouldGrantTraitGain = true;
+    }
+
+    private void OnHeroReachesTeenAge(Hero hero)
+    {
+    }
+}
+```
+
+签名核对：两个委托都是 `Action<Hero>`（见上面 `:21`、`:22`）。`AddNonSerializedListener` 的第一个参数是监听者实例，**同一个实例重复注册会收到两次回调**。
+
+### 最容易踩的坑
+
+**以为「额外生命」那个字典会自己清干净。它不会——英雄死了，条目还留着。**
+
+先把机制说清。`AddExtraLife(Hero hero)`（`AgingCampaignBehavior.cs:57`）第一件事是 `if (hero.IsAlive)`（`:59`），所以**死的英雄永远不会被加进来**。加进来的只有两个地方：`OnPerkOpened` 里 `DefaultPerks.Medicine.CheatDeath` 给自己加一条（`:74` 到 `:76`），`DefaultPerks.Medicine.HealthAdvise` 给**氏族里每一个活着的英雄各加一条**（`:78` 到 `:90`，前提是开这个特性的人是氏族领袖）。
+
+条目只在被**消耗**时移除：`IsItTimeOfDeath`（`:303`）在 `:308` 取出、在 `:311` 归零后于 `:313` `Remove`。
+
+问题出在 `OnHeroKilled(Hero victim, Hero killer, ...)`（`:48`）。它的整个方法体只有：
+
+```csharp
+AgingCampaignBehavior.cs:50   if (this._heroesYoungerThanHeroComesOfAge.ContainsKey(victim))
+AgingCampaignBehavior.cs:52       this._heroesYoungerThanHeroComesOfAge.Remove(victim);
+```
+
+**只清 `_heroesYoungerThanHeroComesOfAge`，完全不碰 `_extraLivesContainer`。**
+
+后果：一个在战场上战死的英雄，他名下的额外生命既没被消耗（`IsItTimeOfDeath` 只在 `:304` 那串"活到老年且本次判定成立"的条件下才会跑）也没被删除，**条目永久留在字典里**。而这个字典是存档的一部分——`SyncData` 在 `:33` 用 `SyncData<Dictionary<Hero, int>>("_extraLivesContainer", ref ...)` 把它写进存档。
+
+于是两个后果叠加：
+
+- 存盘点只增不减，长期存档里会攒下一堆早已死亡的 `Hero` 键，每个键都要求存档系统在读档时把那个 `Hero` 对象解析回来；
+- 更要紧的是 **`HealthAdvise` 的分发范围**：它给整个氏族的活人各加一条（`:83` 到 `:88`），而 `AddExtraLife` 在 `:61` 只做 `ContainsKey` 判断后 `++`（`:64`），**没有任何上限**。你要是照着这个形状给自己 mod 里的某个特性也发「额外生命」，就会做出一个玩家可以反复开特性、无限囤积的数值。
+
+想做「死亡时退还」的话，钩 `CampaignEvents.HeroKilledEvent`（`Action<Hero, Hero, KillCharacterAction.KillCharacterActionDetail, bool>`，见 `:26`）自己清；官方这条路径上是不清的。
+
 ## 跨版本提示
 
 `AgingCampaignBehavior` 的 public 表面极小且高度稳定：两个 `public override`（`RegisterEvents` / `SyncData`）加一个继承来的无参构造器（用 `GetType().Name` 作为 `StringId`）。这一层在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里没有变化。

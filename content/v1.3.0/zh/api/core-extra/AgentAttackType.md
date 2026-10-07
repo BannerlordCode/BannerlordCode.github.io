@@ -142,6 +142,47 @@ public class MyOnAgentHitBehavior : MissionLogic
 - **`KillingBlow.AttackType` 需要单独赋值。** `KillingBlow` 有自己的同名字段，不是继承自 `Blow` 的。构造 `KillingBlow` 时忘了拷 `AttackType`，在 `OnAgentRemoved` 里读到的就是默认值 `Standard`。
 - **音效分支的顺序不可假设。** `BlowWeaponRecord.GetHitSound` 里 `Bash` / `Kick` 的判定排在 `isCriticalBlow` 之前。你自定义 `DamageTypes` 或暴击规则时，改伤害不会改音效。
 
+## 怎么用
+
+### 怎么拿到它
+
+它是 `public enum AgentAttackType`（`TaleWorlds.Core/AgentAttackType.cs:6`，无 `: byte`，底层 `int`），**没有工厂也没有单例——这个枚举不会被「拿到」，只会被回调递给你**。三个入口按可靠度排：`MissionLogic.OnAgentRemoved` 的 `killingBlow.AttackType`（权威值，击杀那一刻定格）、`MissionLogic.EnemyHitReward` 的 `attackType` 形参（官方三个战斗控制器就是这么接的）、`Agent.LastBlowAttackType`（缓存值，还没打中过时是 `Standard` 初值）。
+
+### 典型用法
+
+往自定义 MissionEvent 或存档里塞数据时，穿过边界的是裸 `int` 而不是枚举。回读那一侧必须自己兜住越界值——`Count` 是从不更新的假哨兵，拿它当数组长度或上界都会漏：
+
+```csharp
+public static class AttackTypeCodec
+{
+    // 只认这三个分支：Collision 在 1.3.0 托管侧零引用，进来也没有对应处理
+    public static AgentAttackType Decode(int raw)
+    {
+        if (raw == (int)AgentAttackType.Kick)
+        {
+            return AgentAttackType.Kick;
+        }
+        if (raw == (int)AgentAttackType.Bash)
+        {
+            return AgentAttackType.Bash;
+        }
+        return AgentAttackType.Standard;
+    }
+
+    // 不要顺手写 new AgentAttackType[(int)AgentAttackType.Count]，Count 不会随成员增加而更新
+    public static int Encode(AgentAttackType type)
+    {
+        return (int)type;
+    }
+}
+```
+
+与上面「真实示例」那三段的差别：那里都是**战斗回调当场**分流或转发，枚举刚从引擎出来、一定是合法值；这里假设它已经穿过了存档或网络边界，回来时是一个可能越界的 `int`，要做的不是分流而是**在边界上把它变回合法枚举**。
+
+### 最容易踩的坑
+
+**枚举顺序是 ABI，不能动。** 它注册成了引擎结构体 `Agent_attack_type`，原生层按整数值读。往中间插一个成员会同时错乱托管与原生两侧；跨版本新增成员只能追加在 `Count` 之前。`Count` 本身还是个假哨兵，永远不会有人真的按它分配数组。
+
 ## 跨版本提示
 
 `AgentAttackType.cs` 在 `bannerlord-1.3.0/` 与 `bannerlord-1.3.15/`、`1.4.6/`、`1.4.7/`、`1.5.3/` 四棵树里**都是 19 行 / 341 字节**，成员集合一字未改。`diff` 逐行比较后，唯一差异是 `// Token: 0x0400…` 注释里的 RID 编号（1.3.0 是 `0x040002E6`–`0x040002EA`，1.3.15 是 `0x040002F2`–`0x040002F6`，1.4.6 是 `0x040002F5`–`0x040002F9`）——纯粹是同一程序集里成员顺序在前面的类型增加了。**枚举成员、值、顺序全部稳定，1.3.0 的代码升到 1.5.3 不会编译不过。**

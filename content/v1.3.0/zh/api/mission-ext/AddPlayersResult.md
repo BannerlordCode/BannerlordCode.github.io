@@ -156,6 +156,71 @@ public static void TryAdmitNewClients(PlayerConnectionInfo[] infos)
 - **它是 `GameNetwork` 的嵌套类型。** 写全名要带 `GameNetwork.`，`using TaleWorlds.MountAndBlade;` 不会把它带进作用域。
 - **`GetParameter<object>("IsAdmin")` 的值强转没有保护。** 第三方连接实现塞了非 bool 会抛 `InvalidCastException`，且这段没有 catch。
 
+## 怎么用
+
+### 怎么拿到它
+
+**你不会构造它，也构造不了有意义的东西**——`GameNetwork.AddPlayersResult` 是 `public struct`（`bannerlord-1.3.0/TaleWorlds.MountAndBlade/GameNetwork.cs:1771`），只有两个 public 字段 `Success`（`:1774`）与 `NetworkPeers`（`:1777`），没有构造器。它是**两个 `public static` 方法的返回值**：
+
+- `GameNetwork.AddNewPlayersOnServer(PlayerConnectionInfo[] playerConnectionInfos, bool serverPeer)`（`GameNetwork.cs:629`）
+- `GameNetwork.HandleNewClientsConnect(PlayerConnectionInfo[] playerConnectionInfos, bool isAdmin)`（`GameNetwork.cs:894`）
+
+这两个方法是托管树里仅有的入口，而且第一个在 1.3.0 全树里**只有一个调用点**——就是第二个自己（`GameNetwork.cs:896`）。所以 mod 侧真正该调的是 `HandleNewClientsConnect`：它在 `AddNewPlayersOnServer` 之上多做了 `_handler.OnNewPlayerConnect` 的逐个派发（`GameNetwork.cs:901`），而那段派发只在 `addPlayersResult.Success` 为真时才发生（`:897-903`）。入参 `PlayerConnectionInfo` 从 `mission` 那侧来，是联机连接建立时引擎交给你的对象；第二个参数是裸 `bool`，没有包装类型能告诉你它此刻是什么意思。
+
+### 典型用法
+
+走完整的那一层，让引擎替你完成「填充数组 + 逐个通知」这套配套动作：
+
+```csharp
+using TaleWorlds.MountAndBlade;
+
+public static void AdmitBatch(PlayerConnectionInfo[] infos)
+{
+    if (!GameNetwork.IsServerOrRecorder)   // GameNetwork.cs:31
+    {
+        return;
+    }
+
+    // 第二个参数在这一层叫 isAdmin，但 HandleNewClientsConnect 把它原样传给
+    // AddNewPlayersOnServer 的 serverPeer 形参（GameNetwork.cs:896）
+    GameNetwork.AddPlayersResult result = GameNetwork.HandleNewClientsConnect(infos, false);
+
+    if (!result.Success)
+    {
+        // 这时 NetworkPeers 仍然非 null、长度仍然等于 infos.Length，只是每个元素都是 null
+        return;
+    }
+
+    for (int i = 0; i < result.NetworkPeers.Length; i++)
+    {
+        NetworkCommunicator peer = result.NetworkPeers[i];
+        if (peer == null)
+        {
+            // as 转型（GameNetwork.cs:640）可能给出 null，即使 Success 为 true
+            continue;
+        }
+        // UserName（NetworkCommunicator.cs:121）与 Index（NetworkCommunicator.cs:111）
+        // 是读 peer 身份的真实成员；引擎此时已经回调过 OnNewPlayerConnect
+        Debug.Print("admitted " + peer.UserName + " as peer " + peer.Index, 0);
+    }
+}
+```
+
+想绕过通知、自己控制节奏时才直接调底层那一个——代价是 `_handler.OnNewPlayerConnect` 不再被调用：
+
+```csharp
+GameNetwork.AddPlayersResult raw = GameNetwork.AddNewPlayersOnServer(infos, false);
+// raw 与上面拿到的结构字段完全一样，区别只是没人替你通知 handler
+```
+
+### 最容易踩的坑
+
+**两个方法的第二个 `bool` 形参名字不一样，但占的是同一个位置。** `AddNewPlayersOnServer(PlayerConnectionInfo[], bool serverPeer)` 把第二个参数叫 `serverPeer` 并一路透传给 `AddNewPlayerOnServer`；而 `HandleNewClientsConnect(PlayerConnectionInfo[], bool isAdmin)` 把同一个位置叫 `isAdmin`，然后**原封不动地当成 `serverPeer` 传下去**（`GameNetwork.cs:896`）。后果：你在外层写 `HandleNewClientsConnect(infos, true)`，心里想的是「把这批人标成管理员」，实际发生的是「这批人**每一个**都以 `serverPeer = true` 的身份被接入」。批量子级的语义被静默放大成了全局，而且没有任何异常或警告——它只是让整批新客户端带着错误的 peer 身份进服。**在这一层传值时，参数只有「true / false」两态，没有「哪一个是管理员」这层信息**，要标单个管理员得自己读 `NetworkCommunicator.IsAdmin`（`NetworkCommunicator.cs:107`）并在派发后修正。
+
+同源还有一个读法陷阱：**不要用 `NetworkPeers.Length` 反推「成功加了几个人」**。那个数组在 `CanAddNewPlayersOnServer` 返回之后就被**无条件**分配（`GameNetwork.cs:632`），成功失败都一样长——它等于入参的 `playerConnectionInfos.Length`，不是成功数。官方 `HandleNewClientsConnect` 之所以能直接 `addPlayersResult.NetworkPeers[i]` 而不判元素，是因为整段都包在 `if (addPlayersResult.Success)` 里（`GameNetwork.cs:897`，取值在 `GameNetwork.cs:901`）；**你若在 `Success` 为假时照抄那个下标写法，拿到的就是一批 null。**
+
+
+
 ## 跨版本提示
 
 `AddPlayersResult` 的两个 public 字段在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 的 `GameNetwork.cs` 里一致（8 行，两个字段）。`AddNewPlayersOnServer` 的「先分配数组再进 if」的顺序也是稳定的——这是本类的核心契约，不随版本变。

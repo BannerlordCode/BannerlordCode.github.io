@@ -203,6 +203,28 @@ public static List<ModuleInfo> GetSortedModules(string[] moduleIDs)
 - **`BilinearLerp` 的内层 `minimumDifference` 硬编码 `1E-05f`，无法配置。** 两次内层 `Lerp` 都用它。
 - **`WrapAngleSafe` 对大角度极慢。** 名字里的 "Safe" 是指「不依赖 `Math.IEEERemainder` 的精度行为」，不是「更安全」。传 `1e9` 给它就是几亿次循环。**默认用 `WrapAngle`。**
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Library/MBMath.cs:8`，声明就是 `public static class MBMath` —— 没有实例、没有构造器、没有 `Instance` 单例。**它不需要「拿到」，直接写类名调静态方法即可**，这也是为什么全树 2000+ 处调用都写成 `MBMath.Xxx(...)` 而没有任何一处 `new MBMath()`。
+
+三个最常用的入口，按「什么时候会用到」分：
+
+- 任何从 `0f` 到 `1f` 的权重：`ClampFloat(value, minValue, maxValue)`（`MBMath.cs:61`），引擎全树用它替代 `Math.Clamp`，例如 `SandBox/GameComponents/SandboxAgentStatCalculateModel.cs:907`。
+- 任何「按距离/数值淡入淡出」的 UI 或天气权重：`SmoothStep(edge0, edge1, value)`（`MBMath.cs:212`），方法体三行 —— 先 clamp 再走 `num*num*(3-2*num)` 的平滑曲线，`edge0 == edge1` 时会除零得 `Infinity`/`NaN`，所以两个边界必须不同。
+- 任何角度累加：`WrapAngle(angle)`（`MBMath.cs:266`）把结果压回 `(-π, π]`，长时间累加旋转量而不调它，精度会单向劣化。
+
+**一段可直接跑的三行调用链**（把两个阈值之间的连续量变成 0..1 权重）：
+
+```csharp
+float t = MBMath.SmoothStep(threshold - 0.65f, threshold + 0.65f, currentValue);
+float clamped = MBMath.ClampFloat(t, 0f, 1f);
+Debug.Print("weight = " + clamped, 0);
+```
+
+**一条选择规则。** 边界判断有两个成员，语义不同：`IsBetween(numberToCheck, bottom, top)`（`MBMath.cs:295`）的实现是 `numberToCheck > bottom && numberToCheck < top` —— **两端都不含**，也就是开区间；命中值时要用 `IsBetweenInclusive`。引擎在 `SandboxAgentApplyDamageModel.cs:595` 判定躯干部位用的就是 `MBMath.IsBetween(blow.VictimBodyPart, 0, 6)`，即 0 和 6 本身都算**不在**范围内。
+
+**最常见的坑：`PI` 是 `float`。** `MBMath.cs:1003` 写的是 `public const float PI = 3.1415927f;`（同理 `TwoPI = 6.2831855f`、`HalfPI = 1.5707964f`，都是 `const float`）。只有约 7 位有效数字，而 `Math.PI` 有 16 位。引擎内部一致用 `float`，**混用 `MathF.PI` / `Math.PI` 会出现细微的角度漂移** —— 这条已在「风险与边界」首条展开，此处只强调它在算式里的具体后果：单次看不出差别，但经过 `LerpRadians` 多次插值后，角度误差会累积成肉眼可见的朝向偏移，而全程没有任何异常。
+
 ## 跨版本提示
 
 `MBMath.cs` 在 1.3.0 是 29928 字节，1.3.15 是 29786 字节，1.4.6 起（含 1.4.7 / 1.5.3）是 30013 字节——**三档不同的内容**。但我把 `public` 行抽出来排序做 `diff`，**1.3.0 与 1.5.3 的输出为空**。也就是说**这 1500 字节的差异全部来自方法体内部的局部变量重命名与反编译格式**，public API 表面跨 1.3 → 1.5 三个大版本**一条都没变**。

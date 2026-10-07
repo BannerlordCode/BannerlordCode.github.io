@@ -143,6 +143,47 @@ public class MyLauncherAccessObject : AccessObject { /* ... */ }
 - **`TaleWorlds.Diamond` 在文档工具链里被归为 noise 命名空间**（见 `tools/lib/handwritten-policy.mjs` 的 `isBaseNoiseNamespace` 正则含 `TaleWorlds\.Diamond`）。它之所以还有页面，是因为这一批是人工深写、不走自动分类器。你在别处批量生成文档时会发现这个类型「消失」，那不是 bug。
 - **这个基类对普通玩法 mod 没有任何用处。** 它属于登录/联机凭证通道，和 [Campaign](../../campaign/Campaign)、[Mission](../../mission/Mission) 都不沾边。除非你在写平台层或联机启动器，否则正确答案是「不要碰」。
 
+## 怎么用
+
+### 怎么拿到它
+
+这个类是 `abstract`（`TaleWorlds.Diamond/AccessObject.cs:9`），你**永远不会在 mod 里直接 `new` 它**。三条获取路径：
+
+| 路径 | 入口 | 说明 |
+| --- | --- | --- |
+| 反序列化时由转换器 new | `AccessObjectJsonConverter.ReadJson`（`AccessObjectJsonConverter.cs:17`） | 转换器按 payload 里的 `Type` 字符串走 if-else 链，new 出对应派生类，再 `serializer.Populate` 把其余字段灌进去（`:50`） |
+| 自己派生 | 继承 `AccessObject` 并在构造函数里写 `Type = "你的标签"` | 只有走上面那个转换器才有意义；标签必须命中 if-else 链里已有的分支 |
+| 平台侧注入 | 由宿主平台（Steam / Epic 等）的启动器校验流程构造 | 这一侧的实现不在 v1.3.0 托管树里 |
+
+判别式是 `Type` 这个**自动属性**（`AccessObject.cs:14`），它同时是 `[JsonConverter(typeof(AccessObjectJsonConverter))]` 的读取依据——属性声明在 `:14`，转换器特性挂在类上（`:7`）。
+
+### 典型用法
+
+消费端拿到的 `AccessObject` 几乎总是「可能为 null」，因为转换器对未知标签返回 `null`（`AccessObjectJsonConverter.cs:46`）。下面这段把判别式读出来，用于日志与降级分支：
+
+```csharp
+using TaleWorlds.Diamond;
+
+public static string DescribeAccessObject(AccessObject accessObject)
+{
+    // ReadJson 对未知 Type 返回 null（AccessObjectJsonConverter.cs:46），所以先判空。
+    if (accessObject == null)
+    {
+        return "unknown-or-unsupported-launcher";
+    }
+
+    // Type 是 AccessObject 上的自动属性（AccessObject.cs:14），不是判别式的权威来源：
+    // 它可以被任何代码改写，所以只用于展示，不要用于决定走哪条业务分支。
+    return accessObject.GetType().Name + " (Type=\"" + accessObject.Type + "\")";
+}
+```
+
+### 最容易踩的坑
+
+**把 `SetType`／`Type` 当成可靠判别式去写业务分支。** `Type` 是公开可写的自动属性（`AccessObject.cs:14`），任何一行代码都能改它；真正的类型身份是 `GetType()`。后果是：一个被改写了 `Type` 的对象会让你走进错误的启动器分支，最终调到一个不存在的 API 上——而且因为类型本身没变，**不会抛任何异常**，只是行为静默地错了。
+
+第二个坑是忘记 `ReadJson` 可能返回 `null`：未知标签落进 `AccessObjectJsonConverter.cs:44-46` 的 `if (!(a == "Test")) return null;`，于是 `JsonConvert.DeserializeObject<AccessObject>(json)` **不报错、直接给 null**。后果是空引用异常出现在离真正原因很远的地方，而不是在反序列化点。
+
 ## 跨版本提示
 
 `AccessObject` 在 `bannerlord-1.3.0` / `1.3.15` / `1.4.6` / `1.4.7` / `1.5.3` 五棵树里**逐字节一致**：都是 16 行、只有一个 `public string Type { get; set; }`、同样的 `[JsonConverter(typeof(AccessObjectJsonConverter))] [Serializable]` 两个特性。跨 1.3 → 1.5 三个大版本，公开面零变化。

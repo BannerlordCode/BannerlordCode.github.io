@@ -129,6 +129,90 @@ BattleSimulationResult probe = new BattleSimulationResult(null, BattleSideEnum.A
 - **`TaleWorlds.CampaignSystem` 名字带 `CampaignSystem` 但它不是 campaign 层 API。** 它在 `TaleWorlds.CampaignSystem` 程序集里，但语义上属于战斗模拟（`BattleSimulation` / `SPScoreboardVM` 那条链），不涉及 `Campaign.Current`、不涉及存档、不涉及事件。**别按命名空间归属去猜它的用途。**
 - **这个类型在 1.4.6 起已被删除**（见下）。**这是本批 14 个类型里唯一一个跨版本消失的**，也是最需要警惕的一个。
 
+## 怎么用
+
+### 怎么拿到它
+
+声明在 `TaleWorlds.CampaignSystem/BattleSimulationResult.cs:7`，一个三字段的结果记录。三个属性都是 `private set`（`:12`、`:17`、`:22`），**只能通过三参构造函数**（`:25`）填充：
+
+```csharp
+public BattleSimulationResult(UniqueTroopDescriptor troopDescriptor, BattleSideEnum side, TroopProperty troopProperty)
+```
+
+在 v1.3.0 这棵树里，它是挂在 `BattleSimulationResultArgs.RoundResults` 这一个列表上的元素：
+
+```csharp
+// TaleWorlds.CampaignSystem/BattleSimulationResultArgs.cs:16
+public List<BattleSimulationResult> RoundResults;
+```
+
+`BattleSimulationResultArgs` 无参构造时把该列表初始化为空（`:12`）。所以真实形状是：**一个 args 对象持有一串按回合排列的 `BattleSimulationResult`**。
+
+注意这个类型与 `BattleSimulationResultArgs` 是**两个不同的类**，前者描述「某个部队在某一方、某种属性下的模拟结果」，后者只是装它们的袋子。
+
+### 典型用法
+
+按「先取 args，再遍历结果」的形状读：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+public static int DeadCount(BattleSimulationResultArgs args)
+{
+    // RoundResults 在无参构造时被初始化（BattleSimulationResultArgs.cs:12），
+    // 但 args 本身可能为 null —— 调用方要自己保证。
+    if (args?.RoundResults == null)
+    {
+        return 0;
+    }
+
+    int dead = 0;
+    foreach (BattleSimulationResult result in args.RoundResults)
+    {
+        // 三个属性都由构造函数填好（BattleSimulationResult.cs:25）。
+        // 注意列表是 class 列表，元素本身可能是 null。
+        if (result == null)
+        {
+            continue;
+        }
+
+        // TroopProperty 的成员是 None=-1 / Upgrade / Kill / GainXp /
+        // Dead / Wounded / Routed / Remaining（TaleWorlds.CampaignSystem/TroopProperty.cs）。
+        if (result.TroopProperty == TroopProperty.Dead)
+        {
+            dead++;
+        }
+    }
+
+    return dead;
+}
+```
+
+要造一个用于自己流程的实例：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+// BattleSideEnum 的成员：None=-1 / Defender / Attacker / NumSides
+// （TaleWorlds.Core/BattleSideEnum.cs）。注意 Defender 是 0，不是 None。
+BattleSimulationResult result = new BattleSimulationResult(
+    someUniqueTroopDescriptor,
+    BattleSideEnum.Attacker,
+    TroopProperty.Kill);
+```
+
+### 最容易踩的坑
+
+**用 `None` 当「未设置」的初始值判断。** 两个枚举都把 `None` 定义成 **-1**（`TroopProperty.cs:9`、`BattleSideEnum.cs:9`），而 C# 里枚举的默认值是 **0**。后果极其隐蔽：`default(TroopProperty)` 不是 `None`，**而是 `Upgrade`**；`default(BattleSideEnum)` 不是 `None`，**而是 `Defender`**。于是任何一个 `default(BattleSimulationResult)`——或者任何通过 `new BattleSimulationResult(d, default, default)` 构造的实例——都会被你的代码判成「守方 + 升级」，**不是「无效数据」，而是完全合法的一个组合**。没有任何异常，你只是把进攻方的战果记成了守方的战果。
+
+要判无效，必须显式比 -1：
+
+```csharp
+if ((int)result.Side == (int)BattleSideEnum.None) { /* 无效 */ }
+```
+
+第二个坑是 `RoundResults` 一定非空这个假设。它在无参构造时被初始化成空列表（`BattleSimulationResultArgs.cs:12`），所以 `args.RoundResults[0]` 在列表为空时抛 `ArgumentOutOfRangeException`，**而不是返回 null**。后果：「模拟还没跑完就读结果」这类时序错误，会在一个看起来毫无异常的调用栈上炸掉，且报错信息完全指不到真正原因。
+
 ## 跨版本提示
 
 **`BattleSimulationResult` 在 `bannerlord-1.4.6` / `1.4.7` / `1.5.3` 三棵树里完全不存在。** 逐项核查结果：

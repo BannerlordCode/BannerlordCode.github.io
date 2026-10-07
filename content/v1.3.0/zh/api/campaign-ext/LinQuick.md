@@ -148,6 +148,83 @@ Party[] unstable = partyArray.OrderByQ(p => p.Id);
 - **全类没有 `MinQ`。** 也没有 `Aggregate`、`Zip`、`Distinct`、`GroupBy`、`First`、`Last`、`ElementAt`、`Reverse`、`OrderByDescending`、`ThenBy`、`Skip` / `Take`。找不到的动词不是「漏了」，是这个类本来就没有——用 LINQ 就行。
 - **命名空间是 `TaleWorlds.LinQuick`，不是 `System.Linq`。** `using TaleWorlds.LinQuick;` 之后 `list.Where(...)` 和 `list.WhereQ(...)` 同时可用，**同时可见**。想全程用引擎版必须改写方法名，没有「禁用 LINQ」的开关。
 
+## 怎么用
+
+### 怎么拿到它
+
+声明在 `TaleWorlds.LinQuick/LinQuick.cs:8`，**`public static class`**——它既不能被 new，也不需要实例。它是一组**扩展方法**，每个方法名的最后一个字母都是 `Q`（`AllQ` / `AnyQ` / `AverageQ` / `ContainsQ` / `CountQ` / ...）。
+
+关键的获取方式是**加命名空间**，扩展方法才会出现在 IntelliSense 里：
+
+```csharp
+using TaleWorlds.LinQuick;   // 不加这一行，下面所有 XxxQ 都编译不过
+```
+
+然后直接对集合调用：
+
+```csharp
+using System.Collections.Generic;
+using TaleWorlds.LinQuick;
+
+List<int> values = new List<int> { 3, 1, 4 };
+
+bool allPositive = values.AllQ(x => x > 0);          // :11 附近那组重载之一
+bool anyLarge = values.AnyQ(x => x > 3);           // :81 附近
+int countOfOne = values.CountQ(1);                 // :337 附近
+```
+
+注意每个名字都有**四组重载**：`T[]`、`List<T>`、`IReadOnlyList<T>`、`IEnumerable<T>`（`AllQ` 的四个入口分别在 `:11`、`:25`、`:39`、`:63`）。它们存在的意义是**避开 `Enumerable` 的延迟求值与装箱**。
+
+### 典型用法
+
+在热路径上用它替掉 LINQ：
+
+```csharp
+using System.Collections.Generic;
+using TaleWorlds.LinQuick;
+
+public static bool EveryRosterSlotHasTroops(ItemRoster roster, int minimum)
+{
+    if (roster == null)
+    {
+        return false;
+    }
+
+    // ItemRoster 同时实现 IReadOnlyList<ItemRosterElement> 与
+    // IEnumerable<ItemRosterElement>（TaleWorlds.CampaignSystem/Roster/ItemRoster.cs:12），
+    // 所以会绑到 IReadOnlyList<T> 那个重载。Amount 是 int 属性。
+    return roster.AllQ(element => element.Amount >= minimum);
+}
+```
+
+同一个名字在四组重载上都能用，**编译器按实参类型选**：
+
+```csharp
+using System.Collections.Generic;
+using TaleWorlds.LinQuick;
+
+public static int CountMatches<T>(T[] array, List<T> list, IEnumerable<T> enumerable, T value)
+{
+    int total = 0;
+
+    total += array.CountQ(value);        // 走 T[] 重载
+    total += list.CountQ(value);         // 走 List<T> 重载
+    total += enumerable.CountQ(value);  // 走 IEnumerable<T> 重载
+
+    return total;
+}
+```
+
+引擎自己在故事模式第三阶段就是用这种写法之一：`StoryMode/StoryModePhases/ThirdPhase.cs` 的 `:103`、`:107`、`:111` 三行连续调 `ActivityManager.EndActivity("CompleteMainQuest", ...)`，按三种 outcome 分支关闭主线任务活动。
+
+### 最容易踩的坑
+
+**忘记 `using TaleWorlds.LinQuick;`。** 扩展方法是靠命名空间解析的，不加就等于方法不存在。后果：编译器报「找不到 `AllQ`」——这个还很好查。**真正难查的是反过来的情况**：`IEnumerable<T>` 重载（`AllQ` 的 `:63` 那个）和 `System.Linq` 的 `Enumerable.All` 名字不同，所以**不会静默走到 LINQ 上**；但如果你的集合类型恰好有同名的实例方法，**实例方法优先于扩展方法**，于是你调用的是自己那个，而不是 LinQuick 的那份优化版本——后果是性能回归，而且代码读起来完全一样。
+
+第二个坑是它**不保证返回顺序，也不提供 LINQ 的组合算子**。这里只有谓词型的 `AllQ` / `AnyQ` / `ContainsQ` / `CountQ` 和聚合型的 `AverageQ`。后果：想写 `OrderByQ` 之类的链式写法时，别假设它存在——**这个文件的行号会告诉你到底有哪些成员**，超出这个集合的方法就得回 LINQ。
+
+第三个坑是 `AverageQ` 只覆盖 `float`（`:140` 的 `float[]` 和 `:156` 的 `IEnumerable<float>`）。传 `int` 集合要自己先转，**否则会命中不同的重载或直接编译失败**。
+
 ## 跨版本提示
 
 - **88 条 public 声明在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 五棵树上逐字相同**（1.4.5 是残缺树，没有 `TaleWorlds.LinQuick/LinQuick.cs`）。没有一个动词被删、被改名或被加参数，`MaxElements3` 也没有被替换成别的形状。

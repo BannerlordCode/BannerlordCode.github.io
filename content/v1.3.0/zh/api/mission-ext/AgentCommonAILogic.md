@@ -118,6 +118,46 @@ public static void EnsureCommonAI(Agent agent)
 - **没有构造器，也不需要。** `MissionLogic` 的默认构造足够。它是被 `Mission` 用 `AddMissionBehavior` 加进去的，不由你 new。
 - **同族的 [AgentHumanAILogic](../AgentHumanAILogic) 会再加一层。** 两个逻辑都注册时，AI 人类单位会同时挂 `CommonAIComponent` 和 `HumanAIComponent`——这是设计，不是冲突。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class AgentCommonAILogic : MissionLogic`（`TaleWorlds.MountAndBlade/AgentCommonAILogic.cs:7`），只有隐式公开构造。它不是单例——**官方在 Mission 建立时就把一个实例 `AddMissionBehavior` 进去了**（`Mission.cs:4306` 是那条入口），它自己靠 `OnAgentCreated` 这个回调看到每一个新建的 Agent。你要拿到的效果就是「Agent 上挂着一个 `CommonAIComponent`」，读法是 `agent.CommonAIComponent != null`。
+
+### 典型用法
+
+它只有一个 virtual 扩展点，所以派生一份是最省事的做法——让官方那份先跑完，再在同一帧挂你自己的组件：
+
+```csharp
+public class MyExtendedAILogic : AgentCommonAILogic
+{
+    private readonly HashSet<Agent> _tagged = new HashSet<Agent>();
+
+    public override void OnAgentCreated(Agent agent)
+    {
+        // 先让官方那份跑完，CommonAIComponent 才会就位
+        base.OnAgentCreated(agent);
+
+        if (!agent.IsAIControlled)
+        {
+            return;
+        }
+        // 官方的 OnAgentCreated 不去重：判断得你自己做，否则两个组件会同时 tick
+        if (!this._tagged.Add(agent))
+        {
+            return;
+        }
+        agent.AddComponent(new MyTacticalComponent(agent));
+    }
+}
+```
+
+与上面「真实示例」的差别：那两段是在**官方逻辑之外**做善后（查组件、手动补挂），都是一次性、针对单个 Agent 的工具函数；这里是把官方逻辑**接在基类位置上**继承，让「创建时挂什么」这件事在每次 Agent 创建时自动发生，且用 `_tagged` 把去重这个官方没做的动作补在了派生类里。
+
+### 最容易踩的坑
+
+**`OnAgentCreated` 不去重。** 官方已经注册了它，你再 `new CommonAIComponent(agent)` + `AddComponent`，会有两个组件同时 tick，而各自的 `Morale` 彼此独立——士气会被分裂成两份。**先查 `agent.CommonAIComponent != null` 再挂。**
+
 ## 跨版本提示
 
 `AgentCommonAILogic` 的 34 行在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 里一致，两个覆写的判据（`IsAIControlled` 与 `AgentControllerType.AI`）都没变。

@@ -125,6 +125,96 @@ public class MySettlementAccessModel : SettlementAccessModel
 - **它只描述「进入」，不描述「在内部能做什么」。** 进了内城之后能去哪个 Location、能用哪个菜单项，是 `CanMainHeroAccessLocation` / `CanMainHeroDoSettlementAction` 的事，返回的是 `out bool disableOption, out TextObject disabledText`，**不返回 `AccessDetails`**。别拿 `AccessLevel` 去回答「我能不能做 X」。
 - **1.3.0 里消费者极少。** 全树只有 `EncounterGameMenuBehavior`、`PlayerTownVisitCampaignBehavior`、`GuardsCampaignBehavior` 三处读它，全部在 `TaleWorlds.CampaignSystem/CampaignBehaviors/` 下。这意味着改枚举值的影响面小，但**也意味着几乎没有第三方参照实现**——你看到的行为就是全部。
 
+## 怎么用
+
+### 怎么拿到它
+
+`AccessLevel` 是嵌套枚举，没有构造函数也没有静态入口。**它唯一能被"拿到"的路径是从 `AccessDetails` 里读出来**，而 `AccessDetails` 又只可能由模型通过 `out` 参数交给你。所以真正的入口是那个模型，不是这个枚举：`Campaign.Current.Models.SettlementAccessModel` 声明在 `TaleWorlds.CampaignSystem/GameModels.cs:479`，由同文件 `GameModels.cs:721` 的 `base.GetGameModel<SettlementAccessModel>()` 填充。官方实现在 `SandBoxManager.Initialize` 里注册——`TaleWorlds.CampaignSystem/SandBoxManager.cs:275` 一行 `gameStarter.AddModel<SettlementAccessModel>(new DefaultSettlementAccessModel());`。
+
+要改判定就覆盖这个模型。mod 的接入点是 `InitializeGameStarter`，`SandBox/SandBoxSubModule.cs:28` 就是沙盒自己声明的那个回调。
+
+### 典型用法
+
+只放宽一条规则、其余全部转发给官方实现——这是覆盖模型时最省事也最不容易漏的写法：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.CampaignSystem.GameComponents;
+using TaleWorlds.Core;
+using TaleWorlds.Localization;
+using TaleWorlds.MountAndBlade;
+
+public class MySettlementAccessModel : SettlementAccessModel
+{
+    // 类型参数要用抽象的 SettlementAccessModel，不是 DefaultSettlementAccessModel。
+    private readonly SettlementAccessModel _stock = new DefaultSettlementAccessModel();
+
+    public override void CanMainHeroEnterSettlement(Settlement settlement, out AccessDetails accessDetails)
+    {
+        // 先让官方实现填满六个字段，再只改你要改的那一个。
+        this._stock.CanMainHeroEnterSettlement(settlement, out accessDetails);
+
+        // 本方势力且部队在镇内时，把"有限制"提升为"直接进"。
+        if (accessDetails.AccessLevel == SettlementAccessModel.AccessLevel.LimitedAccess
+            && settlement.MapFaction == Hero.MainHero.MapFaction)
+        {
+            accessDetails.AccessLevel = SettlementAccessModel.AccessLevel.FullAccess;
+            accessDetails.AccessMethod = SettlementAccessModel.AccessMethod.Direct;
+        }
+    }
+
+    // 剩下五个抽象成员原样转发。基类一个默认实现都没有，
+    // 少任何一个这个类就仍然是抽象的，new 不出来。
+
+    public override void CanMainHeroEnterLordsHall(Settlement settlement, out AccessDetails accessDetails)
+    {
+        this._stock.CanMainHeroEnterLordsHall(settlement, out accessDetails);
+    }
+
+    public override void CanMainHeroEnterDungeon(Settlement settlement, out AccessDetails accessDetails)
+    {
+        this._stock.CanMainHeroEnterDungeon(settlement, out accessDetails);
+    }
+
+    public override bool CanMainHeroAccessLocation(Settlement settlement, string locationId, out bool disableOption, out TextObject disabledText)
+    {
+        return this._stock.CanMainHeroAccessLocation(settlement, locationId, out disableOption, out disabledText);
+    }
+
+    public override bool CanMainHeroDoSettlementAction(Settlement settlement, SettlementAccessModel.SettlementAction settlementAction, out bool disableOption, out TextObject disabledText)
+    {
+        return this._stock.CanMainHeroDoSettlementAction(settlement, settlementAction, out disableOption, out disabledText);
+    }
+
+    public override bool IsRequestMeetingOptionAvailable(Settlement settlement, out bool disableOption, out TextObject disabledText)
+    {
+        return this._stock.IsRequestMeetingOptionAvailable(settlement, out disableOption, out disabledText);
+    }
+}
+
+public class MyModule : MBSubModuleBase
+{
+    protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+    {
+        if (game.GameType is Campaign)
+        {
+            gameStarterObject.AddModel<SettlementAccessModel>(new MySettlementAccessModel());
+        }
+    }
+}
+```
+
+`CanMainHeroEnterSettlement` 声明为 `(Settlement settlement, out AccessDetails accessDetails)`（`TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementAccessModel.cs:12`），两个参数，不要写成带返回值的形态。`DefaultSettlementAccessModel` 是 `public class`（`TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementAccessModel.cs:15`），在 `GameComponents` 命名空间，可以直接 `new`。
+
+### 最容易踩的坑
+
+**以为注册新模型之后，官方模型还会继续兜底。不会。** `AddModel<T>`（`TaleWorlds.CampaignSystem/CampaignGameStarter.cs:95`）确实会把上一个模型通过 `gameModel.Initialize(model)` 递进来，但那个被存起来的字段 `BaseModel` 在 `TaleWorlds.Core/MBGameModel.cs:11` 声明成 `private protected T BaseModel`——**既要求派生、又要求同程序集**，你的 mod 在另一个程序集里，所以读不到它。这行代码直接写 `BaseModel` 是编译不过的。
+
+于是只剩两条路：要么像上面那样**自己 `new` 一份官方实现转发**（六个字段都由它填满，你只改一两个）；要么什么都不转发——那么你的模型就是唯一实现，官方那套判定整条消失。后果是静默的、没有任何异常或日志：罪犯靠乔装进内城那条规则（`DefaultSettlementAccessModel.cs:95`）、`CrimeRating` 对应的贿赂路径（`DefaultSettlementAccessModel.cs:104`）、以及 lordshall 和 prison 都空时把 `LimitedAccess` 降级成 `NoAccess` 的那条收尾逻辑（`DefaultSettlementAccessModel.cs:136`）全部不再执行，玩家直接走进本该进不去的地方。
+
+判断你到底装上了没有，看 `BasicGameStarter.cs:27` 的 `GetModel<T>()`：它的循环从 `_models.Count - 1` 往回走（`BasicGameStarter.cs:29`），**最后一次注册的那个赢**。
+
 ## 跨版本提示
 
 `AccessLevel` 的三个成员 `NoAccess` / `LimitedAccess` / `FullAccess` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里**完全一致**：同样的三个名字、同样的声明顺序、同样的隐式 0/1/2，没有新增成员、没有重排。

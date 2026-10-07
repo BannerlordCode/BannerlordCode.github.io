@@ -167,6 +167,66 @@ public class MyModArmyStep3Tutorial : TutorialItemBase
 - **同族 step1 / step2 的分工是硬编码的两个教程项。** `ArmyCohesionStep1Tutorial` 的激活条件是 `TutorialHelper.CurrentContext == 4`（`MapWindow`）+ 军队长 + `Cohesion < 30f`；step2 是 `== 10`（`ArmyManagement`）+ 多一个 `CurrentMenuContext == null`。**两个教程项在条件上高度重叠（都要求军队长 + 凝聚力<30），只是 context 不同。** 这就是为什么 step2 多了一个 `CurrentMenuContext == null` —— 军队管理界面通常以菜单形式打开，不查这个会两个教程同时弹。
 - **`MouseRequired = true` 是硬编码的。** 手柄玩家无法完成这一步（点不了按钮），教程会一直挂着。
 
+## 怎么用
+
+### 怎么拿到它
+
+和 [ArmyCohesionStep1Tutorial](../ArmyCohesionStep1Tutorial) 同理，**不要 new，也不要注册**——它同样靠反射被自动发现。特性是 `[Tutorial("ArmyCohesionStep2")]`（`StoryMode.GauntletUI/Tutorial/ArmyCohesionStep2Tutorial.cs:12`），类声明在 `:13`，无参构造在 `:16`。
+
+发现链完全一样，位置在 `SandBox.GauntletUI/Tutorial/GauntletTutorialSystem.cs` 的 `RegisterTutorialTypes()`（`:605`）：读特性（`:611`）→ 取无参构造（`:618`）→ 反射调用（`:625`）→ 用特性里的字符串做 key 存入（`:633`）。
+
+**两页的区别在回调**：Step1 没有 `OnArmyCohesionByPlayerBoosted`，而 Step2 有这个覆写（`ArmyCohesionStep2Tutorial.cs:30`）。也就是说 **Step1 是「先激活、再看条件」，Step2 是「等事件来推动」**。
+
+### 典型用法
+
+写同族的下一条教程项：
+
+```csharp
+using SandBox.GauntletUI.Tutorial;
+
+[Tutorial("MyMod_Step2")]                       // 无参构造 + 特性，两个缺一不可
+public class MyModStep2Tutorial : TutorialItemBase
+{
+    private bool _isActivated;
+
+    public MyModStep2Tutorial()
+    {
+        // 只设字段，不要碰 Campaign.Current（反射调用发生在 :625）。
+        this.HighlightedVisualElementID = "SomeRealElementId";
+    }
+
+    public override TutorialContexts GetTutorialsRelevantContext()
+    {
+        return TutorialContexts.MapWindow;
+    }
+
+    public override bool IsConditionsMetForActivation()
+    {
+        // 把结果粘滞进字段，回调里才能读到「本轮是否激活」。
+        this._isActivated = TutorialHelper.CurrentContext == TutorialContexts.MapWindow;
+        return this._isActivated;
+    }
+
+    public override void OnArmyCohesionByPlayerBoosted(
+        ArmyCohesionBoostedByPlayerEvent obj)
+    {
+        // 只有激活期间才算数，否则激活前发生的事件也会被计进去。
+        if (this._isActivated)
+        {
+            OnTutorialEnd();
+        }
+    }
+}
+```
+
+### 最容易踩的坑
+
+**在事件回调里不判「本轮是否激活」就累加。** `OnArmyCohesionByPlayerBoosted`（`:30`）这类回调**在整个教程会话期间都会被调用**，激活与否由 `IsConditionsMetForActivation`（`:42`）决定，而不是由回调本身决定。后果：在教程激活之前发生的那些事件**也会被你计数**，等教程激活时进度已经领先一步——玩家看到的是「我什么都没干/tutorial 就已经完成了」。所以官方那种「先算完存进字段，回调里读同一个字段」的写法不是风格问题，是必需的。
+
+第二个坑是构造函数里访问 campaign 对象。`:625` 是 `constructor.Invoke(new object[0])`，在教程系统初始化时就执行。后果：`Campaign.Current` 为 null，**空引用异常发生在启动阶段**，堆栈顶是引擎的反射调用而不是你的类名。
+
+第三个坑和 Step1 一样：`[Tutorial("...")]` 标识符写错不会报错，只是**这条教程永远不被实例化**（`GauntletTutorialSystem.cs:611-615` 只断言并跳过）。
+
 ## 跨版本提示
 
 - **本文件在 1.3.15 与 1.4.5 两棵残缺树里不存在**（缺 `StoryMode.GauntletUI/Tutorial/`）。在 1.3.0 / 1.4.6 / 1.4.7 / 1.5.3 三棵树上，**8 条 public/protected 声明（类 + 无参构造 + 4 个 override）逐字相同**，`[Tutorial("ArmyCohesionStep2")]`、`Placement = Right`、`HighlightedVisualElementID = "ArmyManagementBoostCohesionButton"`、`MouseRequired = true`、以及 `IsConditionsMetForActivation` 的五段 `&&` **全部一致**。

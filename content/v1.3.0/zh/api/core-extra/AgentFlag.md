@@ -188,6 +188,45 @@ if (agentFlags.HasAllFlags(AgentFlag.IsHumanoid | AgentFlag.CanAttack))
 - **没有 `Count` 哨兵。** 与 [AgentAttackType](../AgentAttackType) / [AgentControllerType](../AgentControllerType) 不同，本枚举末位是真实能力位。`Enum.GetValues(typeof(AgentFlag)).Length` 会返回 **27**（含 `None`），别拿它当「有多少种能力」。
 - **`Extensions.HasAnyFlag<T>` 是泛型扩展方法，需要 `using TaleWorlds.Library;`**。只用 `using TaleWorlds.Core;` 编译不过——`AgentFlag` 在 Core，扩展方法在 Library。
 
+## 怎么用
+
+### 怎么拿到它
+
+它是 `public enum AgentFlag : uint` 加 `[Flags]`（`TaleWorlds.Core/AgentFlag.cs:7`）。读入口是 `Agent.GetAgentFlags()`，写入口是 `Agent.SetAgentFlags(AgentFlag)`——**只有整体覆盖，没有增量版本**。判断用 `TaleWorlds.Library` 的扩展方法 `HasAnyFlag<T>` / `HasAllFlags<T>`（`TaleWorlds.Library/Extensions.cs:393`），不要手写 `(flags & X) > 0`，官方的零基准是 `> AgentFlag.None`。
+
+### 典型用法
+
+自定义怪物走 XML 时，`Monster.cs` 是从枚举成员名反查属性名的（`xmlNode.Attributes[agentFlag.ToString()]`）。所以你的加载器应该在 XML 进来时把名字**解析一遍**，而不是等能力静默消失：
+
+```csharp
+public static class FlagNameParser
+{
+    // 自定义怪物 XML 的属性名必须与枚举成员名逐字一致，拼错不会抛异常
+    public static AgentFlag Parse(IEnumerable<string> names)
+    {
+        AgentFlag flags = AgentFlag.None;
+        foreach (string name in names)
+        {
+            AgentFlag parsed;
+            if (!Enum.TryParse(name, false, out parsed))
+            {
+                // 官方也是静默忽略：这里主动打一条日志，是你能拿到的唯一信号
+                MBDebug.Print("[MyMod] Flags 属性名对不上枚举成员：" + name);
+                continue;
+            }
+            flags |= parsed;
+        }
+        return flags;
+    }
+}
+```
+
+与上面「真实示例」那两段的差别：那里都是**对活着的 Agent** 读标志位（`HasAnyFlag` 判能不能踢）或整体加一位（`SetAgentFlags(current | CanSprint)`）；这里面对的是**尚未成活的配置数据**，做的是名字到枚举的解析与报错——它决定了后面那次 `SetAgentFlags` 到底会不会生效。
+
+### 最容易踩的坑
+
+**XML 属性名 = 枚举成员名，改名会静默失效。** 引擎的循环是 `xmlNode.Attributes[agentFlag.ToString()]`——从枚举出发找属性。改了枚举名，旧 XML 里的属性名就再也匹配不上，**不抛异常、不报警告，那个能力直接消失**。派生 mod 加新位时也要明白：你的位名会要求你自带新的 XML。
+
 ## 跨版本提示
 
 `AgentFlag.cs` 在 1.3.0（64 行 / 1692 字节）到 1.3.15（1692 字节）**成员与值一字未改**（两者 md5 不同但 `grep -v Token` 逐行 diff 为空，差异仅在 `// Token:` 注释编码）。**从 1.4.6 起新增了一个成员**：

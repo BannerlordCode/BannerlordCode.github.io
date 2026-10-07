@@ -109,6 +109,84 @@ public class MySettlementAccessModel : SettlementAccessModel
 - **嵌套类型。** 完整名是 `SettlementAccessModel.AccessMethod`，与 `AccessLevel` 同父。[AccessDetails](../AccessDetails) 的第二个字段类型就是它。
 - **`AccessMethod` 不描述「在内部能做什么」。** 进了之后能去哪个 Location、能做哪个动作，是 `CanMainHeroAccessLocation` / `CanMainHeroDoSettlementAction` 的事，它们返回 `out bool disableOption, out TextObject disabledText` 而**不是** `AccessDetails`。
 
+## 怎么用
+
+### 怎么拿到它
+
+`AccessMethod` 是嵌套枚举，没有任何能直接调用它的入口。**它只可能作为 `AccessDetails` 的第二个字段被读出来**，而 `AccessDetails` 只由模型用 `out` 参数交出。入口是 `Campaign.Current.Models.SettlementAccessModel`——属性声明在 `TaleWorlds.CampaignSystem/GameModels.cs:479`，值由同文件 `GameModels.cs:721` 的 `base.GetGameModel<SettlementAccessModel>()` 填进来。官方实现的注册点在 `TaleWorlds.CampaignSystem/SandBoxManager.cs:275`：`gameStarter.AddModel<SettlementAccessModel>(new DefaultSettlementAccessModel());`。mod 要介入就在 `InitializeGameStarter` 里覆盖，`SandBox/SandBoxSubModule.cs:28` 是沙盒自己声明这个回调的地方。
+
+### 典型用法
+
+先拿到官方判定，再**在最后一步把 `AccessLevel` 与 `AccessMethod` 成套改写**：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.CampaignSystem.GameComponents;
+using TaleWorlds.Core;
+using TaleWorlds.Localization;
+using TaleWorlds.MountAndBlade;
+
+public class MySettlementAccessModel : SettlementAccessModel
+{
+    private readonly SettlementAccessModel _stock = new DefaultSettlementAccessModel();
+
+    public override void CanMainHeroEnterLordsHall(Settlement settlement, out AccessDetails accessDetails)
+    {
+        // 起点是官方实现，六个字段都由它填。
+        this._stock.CanMainHeroEnterLordsHall(settlement, out accessDetails);
+
+        AccessLevel level = accessDetails.AccessLevel;
+        AccessMethod method = accessDetails.AccessMethod;
+        bool ownerHatesPlayer = settlement.OwnerClan.Leader.GetRelationWithPlayer() < -4f;
+
+        // 两个字段一起写。分两次写就会留下"新许可 + 旧手续"的组合。
+        if (level == AccessLevel.FullAccess && method == AccessMethod.ByRequest && ownerHatesPlayer)
+        {
+            accessDetails.AccessLevel = AccessLevel.NoAccess;
+            accessDetails.AccessMethod = AccessMethod.None;
+            accessDetails.AccessLimitationReason = AccessLimitationReason.RelationshipWithOwner;
+        }
+    }
+
+    // 其余五个抽象成员：基类没有默认实现，少一个这个类就 new 不出来。
+    public override void CanMainHeroEnterSettlement(Settlement settlement, out AccessDetails accessDetails)
+    {
+        this._stock.CanMainHeroEnterSettlement(settlement, out accessDetails);
+    }
+
+    public override void CanMainHeroEnterDungeon(Settlement settlement, out AccessDetails accessDetails)
+    {
+        this._stock.CanMainHeroEnterDungeon(settlement, out accessDetails);
+    }
+
+    public override bool CanMainHeroAccessLocation(Settlement settlement, string locationId, out bool disableOption, out TextObject disabledText)
+    {
+        return this._stock.CanMainHeroAccessLocation(settlement, locationId, out disableOption, out disabledText);
+    }
+
+    public override bool CanMainHeroDoSettlementAction(Settlement settlement, SettlementAccessModel.SettlementAction settlementAction, out bool disableOption, out TextObject disabledText)
+    {
+        return this._stock.CanMainHeroDoSettlementAction(settlement, settlementAction, out disableOption, out disabledText);
+    }
+
+    public override bool IsRequestMeetingOptionAvailable(Settlement settlement, out bool disableOption, out TextObject disabledText)
+    {
+        return this._stock.IsRequestMeetingOptionAvailable(settlement, out disableOption, out disabledText);
+    }
+}
+```
+
+签名核对：`CanMainHeroEnterLordsHall(Settlement settlement, out AccessDetails accessDetails)`，两个参数、无返回值，声明在 `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementAccessModel.cs:15`。`Settlement.OwnerClan` 在 `TaleWorlds.CampaignSystem/Settlements/Settlement.cs:1467`，`Clan.Leader` 在 `TaleWorlds.CampaignSystem/Clan.cs:704`，`Hero.GetRelationWithPlayer()` 在 `TaleWorlds.CampaignSystem/Hero.cs:2460`。`DefaultSettlementAccessModel` 是 `public class`（`TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementAccessModel.cs:15`）。
+
+### 最容易踩的坑
+
+**把 `AccessMethod` 当成和 `AccessLevel` 一起被判定过的字段，然后按"官方不会产出矛盾组合"来写消费端。官方会。**
+
+具体机制是：官方实现先用对象初始化器同时填好 `AccessLevel` 和 `AccessMethod`，然后**在后续分支里只改 `AccessLevel`、再也不碰 `AccessMethod`**。`TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementAccessModel.cs:356` 先给出 `AccessLevel = FullAccess` + `AccessMethod = ByRequest`，紧接着 `:361` 在敌对检查里把 `AccessLevel` 单独改成 `NoAccess` 并 `return`——**`AccessMethod` 原封不动留在 `ByRequest`**。`:370` 与 `:375` 是同一形状。`:390` 则直接写死了 `NoAccess` 配 `ByRequest`。
+
+后果是具体的：任何按"先看 `AccessLevel`，是 `NoAccess` 就直接忽略 `AccessMethod`"来写的代码没事；但只要你在 `NoAccess` 分支里还想拿 `AccessMethod` 去决定提示文案或决定"要不要弹请求按钮"，你读到的 `ByRequest` 描述的是一条**根本不存在的手续**——官方在 `:363` 已经 `return` 了，根本没有任何请求逻辑会被触发。整棵树里 `AccessMethod` 只被显式赋值 14 次，全部在 `DefaultSettlementAccessModel.cs`（`:25` 到 `:435`），最后一次是 `:435`；任何"完整"的 `AccessMethod` 取值分布都得考虑它可能是上一次赋值留下的残留。
+
 ## 跨版本提示
 
 `AccessMethod` 的三个成员 `None` / `Direct` / `ByRequest` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里**完全一致**：同样的名字、同样的声明顺序、同样的隐式 0/1/2，无新增、无重排。

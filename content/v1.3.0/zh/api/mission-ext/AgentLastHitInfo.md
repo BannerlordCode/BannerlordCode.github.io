@@ -178,6 +178,56 @@ public class MyBlowLedger
 - **struct + private setter。** 它是值类型。`var a = agent.LastHitInfo;` 拿到的是副本；直接改副本的属性改不动原对象（本来也没法改，setter 是 private）。
 - **`AgentAttackType` 是另一个嵌套枚举。** 它的定义在 `Agent.cs` 的另一处，写全名要带 `Agent.`；同时 `TaleWorlds.Core` 下有一个同名概念，别混。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public struct AgentLastHitInfo`，结构体本体在 `TaleWorlds.MountAndBlade/Agent.cs:6212`。**托管侧拿不到挂在真 Agent 上的那一份**——`Agent._lastHitInfo` 是 private 字段，`Agent` 上既没有 `LastHitInfo` 属性也没有 `GetLastHitInfo()`。所以你的「怎么拿到」只能是 `new`：这个类型不依赖任何 Agent 实例，可以自己造一份做独立计时记账。
+
+### 典型用法
+
+上面「真实示例」第一段是**观察引擎给出的结果**（`KillingBlow`），第二段是给单个受害者记一份账。本页真正需要单独处理的是**一份账本在多攻击者之间轮换**时的复位语义：`Initialize()` 不是重置，而是**新建一个 `BasicMissionTimer`**，同时把 `LastBlowOwnerId` 置成 `-1`：
+
+```csharp
+public class MyBlowLedger
+{
+    // 自己 new 的副本：真 Agent 上那一份托管侧读不到
+    private readonly Agent.AgentLastHitInfo _info = new Agent.AgentLastHitInfo();
+
+    private readonly List<int> _recentOwners = new List<int>();
+
+    // 换人记账前必须 Initialize：它把归属置 -1，并新建计时器
+    public void Reset()
+    {
+        this._info.Initialize();
+        this._recentOwners.Clear();
+    }
+
+    public void Record(Agent attacker)
+    {
+        // 马上的攻击归骑手，不归马
+        int ownerId = attacker.RiderAgent != null ? attacker.RiderAgent.Index : attacker.Index;
+        if (!this._recentOwners.Contains(ownerId))
+        {
+            this._recentOwners.Add(ownerId);
+        }
+        this._info.RegisterLastBlow(ownerId, AgentAttackType.Standard);
+    }
+
+    // CanOverrideBlow 只问「5 秒内且有人认领」，不问当前攻击者是谁
+    public bool IsFresh()
+    {
+        return this._info.CanOverrideBlow;
+    }
+}
+```
+
+与上面「真实示例」的差别：那里第二段是**一对一**的账本（一个受害者一份 `_info`，马→骑手的分支只用来决定归属给谁）；这里处理的是**轮换与多人**——一份 `_info` 被反复 `Initialize` 后给不同攻击者用，同时额外维护一份「本轮出现过谁」的列表，因为 `CanOverrideBlow` 本身不会告诉你攻击者换没换。
+
+### 最容易踩的坑
+
+**它没有任何公开的读出入口。** `Agent._lastHitInfo` 是 private 字段，`Agent` 上没有 `LastHitInfo` 属性、没有 `CanOverrideBlow` 的转发方法。你唯一能合法持有的实例是**自己 new 出来的副本**；想读真 Agent 的那一份，得靠 Harmony 打补丁。
+
 ## 跨版本提示
 
 `AgentLastHitInfo` 的两个属性、`CanOverrideBlow` 的 getter、`Initialize()` 与 `RegisterLastBlow(int, AgentAttackType)` 的签名，以及「马→骑手、人→`b.OwnerId`」的记账分支，在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 的 `Agent.cs` 里保持一致。

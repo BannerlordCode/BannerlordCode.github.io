@@ -187,6 +187,94 @@ line.Variation("greet_cold", "{=myGreetCold}Word.");
 - **`AddRepeatablePlayerLine` 会注册两句话。** 主句 id 是你传的 `id`，翻页句 id 是 `id + "_continue"`。id 撞车会导致 `ConversationManager.AddDialogLine` 拿到重复项。
 - **`AddGameMenuOption` 依赖菜单已存在。** 它只 `AddOption`，不给菜单文本与初始化委托。对一个没人注册过的 menuId，它会造出一个空 `GameMenu` 再挂上选项——那个菜单没有 `menuText`，UI 上不会出现。
 
+## 怎么用
+
+### 怎么拿到它
+
+**它不是你去拿的，是引擎传进来的。** 整条链在 `TaleWorlds.CampaignSystem/Campaign.cs`：
+
+```
+:1896   CampaignGameStarter campaignGameStarter = new CampaignGameStarter(this.GameMenuManager, this.ConversationManager);
+:1897   this.SandBoxManager.Initialize(campaignGameStarter);       官方模型在这里注册
+:1898   base.GameManager.InitializeGameStarter(base.CurrentGame, campaignGameStarter);   模块子模块在这里扇出
+:1905   base.CurrentGame.SetBasicModels(campaignGameStarter.Models);
+:1906   this._gameModels = base.CurrentGame.AddGameModelsManager<GameModels>(campaignGameStarter.Models);
+:1928   this.SandBoxManager.OnCampaignStart(campaignGameStarter, ...);
+:1935   this.AddCampaignBehaviorManager(new CampaignBehaviorManager(campaignGameStarter.CampaignBehaviors));
+:1941   this._campaignBehaviorManager.InitializeCampaignBehaviors(campaignGameStarter.CampaignBehaviors);
+```
+
+你的接入口就是 `:1898` 那一行的回调，也就是 `MBSubModuleBase.InitializeGameStarter(Game game, IGameStarter gameStarterObject)`。但**参数类型是 `IGameStarter`**，它只声明了 `AddModel(GameModel)`、`AddModel<T>(MBGameModel<T>)` 和 `Models`（`TaleWorlds.Core/IGameStarter.cs:7`）。行为注册、`AddGameMenu`、`AddDialogFlow` 这些都不在接口上，所以要先转型成 `CampaignGameStarter`。
+
+### 典型用法
+
+在一个回调里把模型、行为、菜单都注册好：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.CampaignSystem.GameComponents;
+using TaleWorlds.CampaignSystem.GameMenus;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public class MyModule : MBSubModuleBase
+{
+    protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+    {
+        if (!(game.GameType is Campaign))
+        {
+            return;
+        }
+
+        // 接口上没有这些方法，必须先转型。
+        var starter = (CampaignGameStarter)gameStarterObject;
+
+        // 类型参数用抽象模型，具体实现当值传。
+        starter.AddModel<AgeModel>(new MyAgeModel());
+
+        starter.AddBehavior(new MyTollBehavior());
+
+        // 先有菜单，再挂选项：AddGameMenuOption 不负责创建菜单。
+        starter.AddGameMenu("my_menu", "My Menu", OnInit);
+        starter.AddGameMenuOption("my_menu", "my_option", "Do it", OnCondition, OnConsequence);
+    }
+
+    private static void OnInit(MenuCallbackArgs args)
+    {
+    }
+
+    private static bool OnCondition(MenuCallbackArgs args)
+    {
+        return true;
+    }
+
+    private static void OnConsequence(MenuCallbackArgs args)
+    {
+    }
+}
+```
+
+签名核对：`AddModel<T>(MBGameModel<T> gameModel) where T : GameModel`（`TaleWorlds.CampaignSystem/CampaignGameStarter.cs:95`）；`AddBehavior(CampaignBehaviorBase)`（`:48`）；`AddGameMenu(string menuId, string menuText, OnInitDelegate initDelegate, GameMenu.MenuOverlayType overlay = ..., GameMenu.MenuFlags menuFlags = ..., object relatedObject = null)`（`:103`）；`AddGameMenuOption(string menuId, string optionId, string optionText, GameMenuOption.OnConditionDelegate condition, GameMenuOption.OnConsequenceDelegate consequence, bool isLeave = false, int index = -1, bool isRepeatable = false, object relatedObject = null)`（`:115`）——**七个参数，后四个都有默认值。**
+
+### 最容易踩的坑
+
+**注册晚了。不报错，但完全不生效。**
+
+两个集合在战役启动过程中都被**拷贝成了快照**，之后你再改原对象没有任何意义：
+
+```
+TaleWorlds.Core/GameModelsManager.cs:13          this._gameModels = inputComponents.ToMBList<GameModel>();
+TaleWorlds.CampaignSystem/CampaignBehaviors/CampaignBehaviorManager.cs:29
+                                                this._campaignBehaviors = inputComponents.ToList<CampaignBehaviorBase>();
+```
+
+`GameModels` 那个快照发生在 `Campaign.cs:1906`，行为那个在 `Campaign.cs:1935`（存档路径则是 `Campaign.cs:1941`）。而 `GameModels` 的构造函数（`GameModels.cs:759`）一构造就把每个 `GetGameModel<T>()` 的结果**存成了字段**——比如 `AgeModel` 在 `GameModels.cs:705`、`SettlementAccessModel` 在 `GameModels.cs:721`。
+
+后果链条是这样的：你从某个行为的事件回调里、或从 `OnCampaignStart` 之后的任何时机去 `starter.AddModel<XModel>(...)`，`starter` 本身不报错（`_models.Add` 成功），但 `GameModels` 里那个字段早就定死了。你以为装上了自己的实现，`Campaign.Current.Models.XModel` 实际要么是官方的旧实现，要么——如果这条注册路径压根没被走过——是 `default(T)`，也就是 **null**。然后你会得到一个 `NullReferenceException`，**栈顶离真正的错误原因隔了好几层**，报错位置在某个业务逻辑里，而不是在注册那一行。
+
+所以：**注册只做在 `InitializeGameStarter` 里**。`Campaign.cs:1898` 在 `:1906` 和 `:1935` 两个快照之前，是唯一安全的窗口；它晚于 `:1897` 的 `SandBoxManager.Initialize`，所以后注册的会赢。
+
 ## 跨版本提示
 
 `CampaignGameStarter` 的 public 表面在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里高度稳定：`CampaignBehaviors` / `Models` 两个属性、两个 `AddModel` 重载、`GetModel<T>`、`AddBehavior`、两个 `RemoveBehavior*`、`UnregisterNonReadyObjects`、`GetPresumedGameMenu`、三个 `AddGameMenu*`、六个对话方法，签名与可见性均无变化。

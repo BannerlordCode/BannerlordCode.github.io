@@ -82,6 +82,34 @@ public static void WriteArea(IWriter writer, AreaInformation area)
 - **没有 public 扩展点。** 没有 `abstract`、没有 `virtual` 成员，加字段就得同时改原生侧，已经超出 mod 的范围。
 - **单位没有写进类型。** `Temperature` 是开尔文还是摄氏度、`Humidity` 是 0–1 还是 0–100，源码里查不到，只存在于渲染端约定；跨层传值时这是最常见的错源。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Library/AreaInformation.cs:6`，`public struct`，两个方法两个字段，无 ctor、无属性、无 `MBObjectBase` 身份。1.3.0 全树里它只出现三处：自己、`AtmosphereInfo.cs:87` 的字段声明 `public AreaInformation AreaInfo;`、以及 `TaleWorlds.Engine/Properties/AssemblyInfo.cs:20` 把它注册成 native 结构 `area_information` 的程序集特性。所以取值只有一条路——**从一个已加载的 `AtmosphereInfo` 上读 `AreaInfo`**，填充点是 `AtmosphereInfo.cs:39`，排在 `SunInfo` / `RainInfo` / `SnowInfo` / `AmbientInfo` / `FogInfo` / `SkyInfo` / `NauticalInfo` / `TimeInfo` 之后，是十个内嵌块里的**最后一个**（`PostProInfo` 在它后面）。
+
+「还没加载」的占位块用 `AtmosphereInfo.GetInvalidAtmosphereInfo()`（`AtmosphereInfo.cs:20`）—— 它只把 `AtmosphereName` 置成空串，九个内嵌块全是默认值。
+
+**一段可直接跑的气候归一化**（把「改副本」和「交回整块」写在一起）：
+
+```csharp
+// 直接改 atmosphere.AreaInfo 只改到当前栈帧的那份变量；
+// 要跨越调用边界就得整块拷贝出去，调用方自己决定写回哪。
+public static AtmosphereInfo WithNormalizedClimate(AtmosphereInfo scene, float temperatureOffset)
+{
+    AtmosphereInfo result = scene;
+    result.AreaInfo.Temperature = scene.AreaInfo.Temperature + temperatureOffset;
+
+    // 两个字段都没有 clamp（AreaInformation.cs:23 / :26），越界值会原样进渲染层。
+    result.AreaInfo.Humidity = Math.Min(1f, Math.Max(0f, scene.AreaInfo.Humidity));
+    return result;
+}
+```
+
+`Math.Min` / `Math.Max` 这两行不是可选的洁癖：`Humidity` 读的是原生那个无界浮点，序列化时不做任何范围检查（`SerializeTo` 只有两行 `WriteFloat`，`AreaInformation.cs:16`），你从一个手改过的大气配置里读出来的 `1.8` 会被原样交给着色器。
+
+**最常见的坑：`Temperature = 0` 既可能是真实读数，也可能是「这块根本没填过」，而你在代码里分不出来。** `AtmosphereInfo` 是 struct，`new AtmosphereInfo()` 和 `GetInvalidAtmosphereInfo()` 给出的十个内嵌块全是默认值；只有 `DeserializeFrom(IReader)` 跑过之后 `AreaInfo` 才是真数据（`AtmosphereInfo.cs:39`）。两个值都是 `0f`，类型系统给不出任何提示，`Debug.Print` 出来也一样。后果是你的气候逻辑会把「未加载」当成「0°C」参与计算——在正午场景里突然冻一轮，或者按温度筛出的区域集合整个空掉。
+
+判断办法是看宿主而不是看本类型：`AtmosphereInfo.IsValid` 检查的是 `!string.IsNullOrEmpty(this.AtmosphereName)`（`AtmosphereInfo.cs:11`），跟 `AreaInfo` 的两个浮点数无关。所以**先把 `AtmosphereName` 和 `IsValid` 一起当作加载完成的凭据，再去读温度**；不要单独给 `Temperature` 设一个「不可能出现的哨兵值」——你不知道引擎用的是摄氏度还是开尔文，而源码里没有任何单位声明。
+
 ## 跨版本提示
 
 `AreaInformation.cs` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里**逐字节一致**：都是 668 字节、28 行、2 个方法 + 2 个 `public` 字段的公开表面。跨 1.3 → 1.5 三个大版本零变化。

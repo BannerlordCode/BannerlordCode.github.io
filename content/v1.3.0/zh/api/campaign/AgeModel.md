@@ -153,6 +153,98 @@ Debug.Print("child band = " + minAge + ".." + maxAge, 0);
 - **`AgeModel` 不是 `sealed`，但也没有虚方法可覆写。** 七个属性与一个方法都是 `abstract`，你只能继承实现，不能组合。
 - **注册时机有截止点。** `GameModels` 在 `Campaign.cs:1905` 构造，那一刻 `GetGameModel<AgeModel>()` 才倒序扫一次。**在 `InitializeGameStarter` 之后注册就对已建好的 `GameModels` 无效。**
 
+## 怎么用
+
+### 怎么拿到它
+
+它没有构造函数调用点给外部——七个属性全是 `abstract`。拿法只有一种：**读当前战役的模型实例**。
+
+```csharp
+int comingOfAge = Campaign.Current.Models.AgeModel.HeroComesOfAge;
+```
+
+`Campaign.Current.Models` 是 `GameModels`（属性在 `TaleWorlds.CampaignSystem/Campaign.cs:529`），`AgeModel` 那一项声明在 `TaleWorlds.CampaignSystem/GameModels.cs:384`，由同文件 `GameModels.cs:705` 的 `base.GetGameModel<AgeModel>()` 填进来。官方实现在 `TaleWorlds.CampaignSystem/SandBoxManager.cs:314` 注册：`gameStarter.AddModel<AgeModel>(new DefaultAgeModel());`。
+
+真正被大量调用的其实是那个方法，不是七个属性。典型形态是「问某个 NPC 的年龄区间」，调用点遍布各个沙盒行为里：
+
+```
+SandBox/CampaignBehaviors/BarberCampaignBehavior.cs:132        Campaign.Current.Models.AgeModel.GetAgeLimitForLocation(barber, ..., "Barber");
+SandBox/CampaignBehaviors/AlleyCampaignBehavior.cs:384         Campaign.Current.Models.AgeModel.GetAgeLimitForLocation(character, ..., "AlleyGangMember");
+SandBox/CampaignBehaviors/CommonTownsfolkCampaignBehavior.cs:371   ...GetAgeLimitForLocation(townsman, ..., "");
+```
+
+### 典型用法
+
+改年龄模型，并且把官方的职业分支转发下去：
+
+```csharp
+using TaleWorlds.Core;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.CampaignSystem.GameComponents;
+using TaleWorlds.MountAndBlade;
+
+public class MyAgeModel : AgeModel
+{
+    private readonly AgeModel _stock = new DefaultAgeModel();
+
+    public override int BecomeInfantAge { get { return 4; } }
+    public override int BecomeChildAge { get { return 7; } }
+    public override int BecomeTeenagerAge { get { return 15; } }
+    public override int HeroComesOfAge { get { return 20; } }
+    public override int MiddleAdultHoodAge { get { return 36; } }
+    public override int BecomeOldAge { get { return 56; } }
+    public override int MaxAge { get { return 130; } }
+
+    public override void GetAgeLimitForLocation(
+        CharacterObject character, out int minimumAge, out int maximumAge, string additionalTags = "")
+    {
+        // additionalTags 一定要原样转下去：官方 16 个标签分支全靠它。
+        this._stock.GetAgeLimitForLocation(character, out minimumAge, out maximumAge, additionalTags);
+
+        // 两个 out 在任何返回路径上都必须赋值。
+        if (minimumAge < 4)
+        {
+            minimumAge = 4;
+        }
+    }
+}
+
+public class MyModule : MBSubModuleBase
+{
+    protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+    {
+        if (game.GameType is Campaign)
+        {
+            // 类型参数是抽象的 AgeModel，不是 DefaultAgeModel。
+            gameStarterObject.AddModel<AgeModel>(new MyAgeModel());
+        }
+    }
+}
+```
+
+签名核对：`GetAgeLimitForLocation(CharacterObject character, out int minimumAge, out int maximumAge, string additionalTags = "")`，**四个参数**，最后一个有默认值（`TaleWorlds.CampaignSystem/ComponentInterfaces/AgeModel.cs:38`）。`AddModel<T>(MBGameModel<T> gameModel) where T : GameModel` 在 `TaleWorlds.CampaignSystem/CampaignGameStarter.cs:95`。
+
+### 最容易踩的坑
+
+**以为 `additionalTags` 说了算。它只在两个职业分支里被读。**
+
+`DefaultAgeModel.GetAgeLimitForLocation`（`TaleWorlds.CampaignSystem/GameComponents/DefaultAgeModel.cs:80`）的结构是**先判职业、再判标签**，而且职业分支会直接 `return`：
+
+```
+:82   character.Occupation == Occupation.TavernWench     -> 20..28，return（标签根本没被读）
+:88   character.Occupation == Occupation.Tawnsfolk      -> 才进入 16 个 additionalTags == "..." 分支
+:190  else（其余职业）                                  -> TavernGameHost / Musician / ArenaMaster /
+                                                        ShopWorker / Tavernkeeper / RansomBroker /
+                                                        杂货与马匹类，逐一 return（标签又被跳过）
+:234  additionalTags == "AlleyGangMember"               -> 30..40，return
+:240  兜底                                                -> HeroComesOfAge .. MaxAge
+```
+
+所以同一个 `"TavernVisitor"` 标签，传给 `Occupation.Townsfolk` 的 NPC 会生效（`:90`），传给 `Occupation.TavernWench` 的 NPC 则被 `:82` 提前挡掉，永远拿不到 20..60 那个窗口。
+
+后果落在覆盖模型上更狠：**如果你自己实现 `GetAgeLimitForLocation` 而没有照抄这些职业分支，16 个标签分支全成了死代码**——因为除了 `Townsfolk` 之外，没有任何一条路径会去读标签。于是所有年龄门控的 NPC 一起掉进 `:240` 的兜底区间 `HeroComesOfAge .. MaxAge`（默认 18..128）：14 岁的孩子能当竞技场主持人、理发师、城镇闲人、黑道帮成员。不会崩、不会警告，只是世界里的人全变年轻了。
+
 ## 跨版本提示
 
 `AgeModel` 的 abstract 表面在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里**完全一致**：都是 7 个抽象 `int` 属性 + 1 个抽象方法 `GetAgeLimitForLocation(CharacterObject, out int, out int, string additionalTags = "")`，0 新增 / 0 移除 / 0 签名变化。

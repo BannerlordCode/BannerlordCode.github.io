@@ -176,6 +176,64 @@ private static string DescribeInfluence()
 - **作弊菜单本身有开关。** `MapScreen.OpenGameplayCheats()`（`MapScreen.cs:2277`）由地图界面的调用点触发，而 `MapScreen.CloseGameplayCheats()` 在 `:2284` 带一条 `Debug.FailedAssert("Requested remove map cheats but cheats is not enabled", ...)` —— **说明存在一个「cheats 已启用」的标志位**，未启用时关闭界面会走断言。
 - **`ExecuteCheat` 没有 `base.` 调用，也没有其他前置检查。** 它是一次纯粹的 Action 调用，不检查是否已有足够影响力、不检查任务阶段、不检查 `IsMainCampaign`。
 
+## 怎么用
+
+### 怎么拿到它
+
+声明在 `SandBox/Add100InfluenceCheat.cs:9`，继承链和 [Add1000GoldCheat](../Add1000GoldCheat) 完全一致：`GameplayCheatItem`（`GameplayCheatItem.cs:6`）→ `GameplayCheatBase`（`GameplayCheatBase.cs:7`），只需实现 `GetName()` 与 `ExecuteCheat()`。
+
+注册点在同一个静态工厂里，紧挨着金币那一项：
+
+```csharp
+// SandBox/GameplayCheatsManager.cs:12
+public static IEnumerable<GameplayCheatBase> GetMapCheatList()
+{
+    yield return new Add1000GoldCheat();       // :14
+    yield return new Add100InfluenceCheat();   // :15
+    ...
+}
+```
+
+消费方同样是 `GauntletMapCheatsView`（`SandBox.GauntletUI/Map/GauntletMapCheatsView.cs:21`）。
+
+### 典型用法
+
+注意它作用的对象和金币那一项**完全不同**——影响力是**氏族**属性，不是英雄属性：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.Localization;
+
+public class Remove100InfluenceCheat : GameplayCheatItem
+{
+    public override void ExecuteCheat()
+    {
+        // 负值就是扣。ChangeClanInfluenceAction.Apply 只有两个参数（Add100InfluenceCheat.cs:14），
+        // 没有通知开关——和金币那一项的 ApplyBetweenCharacters 四参数签名不同。
+        ChangeClanInfluenceAction.Apply(Clan.PlayerClan, -100f);
+    }
+
+    public override TextObject GetName()
+    {
+        return new TextObject("{=MyMod_Remove100Inf}Remove 100 Influence", null);
+    }
+}
+```
+
+### 最容易踩的坑
+
+**把它当成英雄属性去改，或者传成 `Hero.MainHero`。** 官方实现是 `ChangeClanInfluenceAction.Apply(Clan.PlayerClan, 100f)`（`Add100InfluenceCheat.cs:14`）——**第一个参数的类型是 `Clan`，不是 `Hero`**。所以下面的写法编译不过：
+
+```csharp
+// 错：ChangeClanInfluenceAction.Apply 的第一个参数是 Clan
+ChangeClanInfluenceAction.Apply(Hero.MainHero, 100f);
+```
+
+而如果绕开它改成 `Hero.MainHero.Clan.Influence += 100`，后果更隐蔽：**影响力变化不会走 clan 变动通道**，因而**不会触发依赖影响力阈值的 AI 决策**（招募、效忠、雇佣），日志里也不会留下这次变化——数值变了，世界没反应。
+
+第二个坑是 `float` 参数与「100 是整数」的心智模型。官方传的是 `100f`（带 `f` 后缀）。自己写整数字面量在有重载歧义或扩展方法竞争时会选到另一条重载，**编译通过但语义不是你想要的那条**。
+
 ## 跨版本提示
 
 - **8 条 public/protected 声明（类 + 两个 override + `GameplayCheatItem` / `GameplayCheatBase` 的形状）在 1.4.6 / 1.4.7 / 1.5.3 上与 1.3.0 逐字相同**；1.3.15 与 1.4.5 是残缺树，没有 `SandBox/Add100InfluenceCheat.cs`。**`ExecuteCheat` 的方法体（`ChangeClanInfluenceAction.Apply(Clan.PlayerClan, 100f)`）与 `GetName()` 的 `{=6TgRwB2Q}` 字符串键在所有存在的版本里没有变过。**

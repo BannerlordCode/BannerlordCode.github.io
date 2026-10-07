@@ -230,6 +230,31 @@ public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, Ag
 - **没有 `Count` 哨兵。** `Enum.GetValues(typeof(AgentState)).Length == 6`，别拿它当「有多少种活法」——`None` 不是活法，`Active` 之外的都是死法。
 - **`Agent.IsActive()` 只判 `Active`。** 溃退、昏迷、死亡全都不算 active，但它们的处理逻辑完全不同。想要「还占着编队位置」得判 `State != Routed && State != Unconscious && State != Killed && State != Deleted`。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Core/AgentState.cs:6`，枚举，**六个成员、共 17 行**，没有任何方法也没有 `Count` 哨兵：
+
+`None`(0) · `Active`(1) · `Routed`(2) · `Unconscious`(3) · `Killed`(4) · `Deleted`(5)
+
+**它不会自己造出实例值，只有两条来路**：
+
+- **读 `Agent.State`**。`Agent.cs:1723` 的 `public AgentState State` 是个**有 setter 的属性**：getter 是 `return AgentHelper.GetAgentState(this._statePointer);`（每次读都进原生层），setter 是 `if (this.State != value) { MBAPI.IMBAgent.SetStateFlags(this.GetPtr(), value); }` —— 也就是说它**去重写了**，重复赋同一个值不会重复进原生。
+- **收 `OnAgentRemoved` 的参数**。`TaleWorlds.MountAndBlade/MissionBehavior.cs:113` 的签名是 `public virtual void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`，这个 `agentState` 是引擎传进来的，你不能决定它。
+
+**一段可直接跑的三行分支判定**：
+
+```csharp
+if (affectedAgent.State == AgentState.Killed) { Debug.Print("down", 0); }
+else if (affectedAgent.State == AgentState.Unconscious) { Debug.Print("down but alive", 0); }
+else if (affectedAgent.State == AgentState.Routed) { Debug.Print("fled", 0); }
+```
+
+**必须枚举名，不能写数字。** `stage == 4` 编译不过。反编译产物里常见 `== 0 || == 1 || == 2` 这种写法，那是 IL 层的形态，不是可编译的 C#。
+
+**判「不再是活跃单位」用 `!= AgentState.Active`，别写 `> AgentState.Active`。** `Routed`(2) 与 `Unconscious`(3) 都大于 `Active`(1)，但语义上它们是两种完全不同的结果（逃跑 vs 倒地）。枚举没有顺序语义，排序比较是在借用整数值。
+
+**最常见的坑：`OnAgentRemoved` 的参数只可能是 3 个值，但 `switch` 不写 `default` 会留下空洞。** 官方 `TaleWorlds.MountAndBlade/BattleObserverMissionLogic.cs:68` 的 `default:` 分支写的是 `throw new ArgumentOutOfRangeException("agentState", agentState, null);` —— 它只处理 `Routed` / `Unconscious` / `Killed` 三个 case，其余一律抛出。你自己写 `switch` 时若省略 `default`，将来若引擎多派发一个值，你会静默什么都不做 —— 这通常比抛异常更难查。这条已在「风险与边界」首条展开。
+
 ## 跨版本提示
 
 `AgentState.cs` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` **五棵树全部是 21 行 / 384 字节**，`grep -v Token` 逐行 diff 后 1.3.15 与 1.4.6 **完全一致**，成员、值、顺序一字未改。跨 1.3 → 1.5 三个大版本零变化，**你的 `switch (agentState)` 升到 1.5.3 行为一致**。

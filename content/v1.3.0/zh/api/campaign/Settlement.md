@@ -329,6 +329,100 @@ public static void EnsureGarrison(Settlement settlement)
 7. **对任务的跨域依赖。** `LocationComplex` 只在任务内部有效。在每日 tick 处理器里读它没问题，在那里创建任务对象则不行。
 8. **可见性门控。** `IsVisible` / `IsInspected` 随玩家视野变化；通过通知泄露守备军规模等于绕过了游戏本就该有的战争迷雾模型。
 
+## 怎么用
+
+### 怎么拿到它
+
+三个静态查找，按需求选：
+
+- `public static Settlement Find(string idString)` —— `TaleWorlds.CampaignSystem/Settlements/Settlement.cs:1375`，函数体就一句 `return MBObjectManager.Instance.GetObject<Settlement>(idString);`（`:1377`）。**按 id 查，可能返回 null。**
+- `public static Settlement FindFirst(Func<Settlement, bool> predicate)` —— `:1381`，走 `Settlement.All.FirstOrDefault(predicate)`（`:1383`）。
+- `public static MBReadOnlyList<Settlement> All` —— `:1394`，getter 是 `return Campaign.Current.Settlements;`（`:1398`）。
+
+**不要 `new Settlement(...)`。** `Settlement` 是 `public sealed class Settlement : MBObjectBase, ...`（`:27`），而页面风险第 2 条已经说明：手动构造会跳过 `OnGameCreated` / `OnSessionStart` / `AfterLoad`。
+
+### 典型用法
+
+按类型筛选，并安全地读它的子组件：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Settlements;
+
+public static class SettlementTools
+{
+    public static Settlement FindTownsOfCulture(CultureObject culture)
+    {
+        return Settlement.FindFirst(
+            s => s.IsTown && s.Owner != null && s.Owner.Culture == culture);
+    }
+
+    public static int GarrisonSize(string settlementId)
+    {
+        // Find 可能返回 null。
+        Settlement settlement = Settlement.Find(settlementId);
+        if (settlement == null)
+        {
+            return 0;
+        }
+
+        // Party 是 public PartyBase，不是 MobileParty 的派生类。
+        if (settlement.Party == null)
+        {
+            return 0;
+        }
+
+        return settlement.Party.MemberRoster.TotalManCount;
+    }
+
+    public static bool IsFortified(Settlement settlement)
+    {
+        // 注意：村庄永远返回 false，见下。
+        return settlement != null && settlement.IsFortification;
+    }
+}
+```
+
+签名核对：`FindAll(Func<Settlement, bool> predicate)`（`:1387`）返回 `IEnumerable<Settlement>`；`IsTown`（`:808`）、`IsCastle`（`:818`）、`IsFortification`（`:828`）、`IsVillage`（`:838`）都是无参只读属性。`Settlement.Party` 是 `public PartyBase Party { get; private set; }`（`Settlement.cs:233`）。
+
+### 最容易踩的坑
+
+**把 `IsFortification` 当成「有城防的聚落」。它不包括村庄。**
+
+```csharp
+Settlement.cs:832    return this.IsTown || this.IsCastle;
+```
+
+就这一行。而 `IsTown`（`:812`）是 `this.Town != null && this.Town.IsTown`，`IsCastle`（`:822`）是 `this.Town != null && this.Town.IsCastle`，村庄的 `Town` 字段是 null，所以两条都为 false。对照 `IsVillage`（`:842`）走的是另一个字段 `this.Village != null`。
+
+后果集中在准入判定上。官方那条最快的进聚落路径是 `TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementAccessModel.cs:20`：
+
+```
+if (settlement.IsFortification && Hero.MainHero.MapFaction == settlement.MapFaction && ...)
+    -> AccessLevel = FullAccess, AccessMethod = Direct
+```
+
+**玩家的部队进自己的村庄，永远走不到这条捷径**，因为 `IsFortification` 对村庄是 false。村庄随后被 `DefaultSettlementAccessModel.CanMainHeroEnterVillage` 单独处理（`DefaultSettlementAccessModel.cs:307`），那是另一套规则。
+
+所以典型的 bug 长这样：mod 里写
+
+```csharp
+if (settlement.IsFortification && settlement.Owner.MapFaction == Hero.MainHero.MapFaction)
+{
+    // 按城镇的逻辑处理
+}
+```
+
+在城镇和城堡上一切正常，一旦玩家的领地里有村庄就被漏掉——村庄走不到这个分支。**排查时先打印 `settlement.IsVillage`**，别去怀疑所有权判断。
+
+对应的两个正确写法：
+
+```
+要"城镇 + 城堡"      settlement.IsFortification
+要"三种聚落都要"      settlement.IsFortification || settlement.IsVillage
+要"纯村庄"            settlement.IsVillage
+```
+
 ## 跨版本提示
 
 - 上面列出的 1.3.0 接口面与 1.3.x 一致。后续 1.3.x / 1.4.x 构建在港口路径上增加了海军相关属性，并为征服机制重做添加了额外状态标志，但 `Owner`、`OwnerClan`、`Party`、`SettlementComponent` 与城墙 API 形状不变。

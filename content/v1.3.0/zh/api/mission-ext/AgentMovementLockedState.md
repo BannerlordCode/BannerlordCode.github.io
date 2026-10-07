@@ -136,6 +136,46 @@ public static void MoveAgentTo(Agent agent, Vec2 target)
 - **不要在锁定期依赖同步写入。** `SetTargetPositionSynched` 在锁定期的守卫条件可能为 false，从而整条调用被跳过且不广播——联机上会表现为「服务端改了但客户端没动」。
 - **`AgentMovementLockedState.cs` 是独立文件，不是 `Agent.cs` 里的嵌套枚举。** 这是本桶少数几个提到 `TaleWorlds.MountAndBlade` 命名空间但物理上独立的枚举；写 `using` 时和 `Agent.ActionStage`（嵌套，需写全名）不同，本类型直接写短名即可。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public enum AgentMovementLockedState`（`TaleWorlds.MountAndBlade/AgentMovementLockedState.cs:8`）。只读入口是 `Agent.MovementLockedState`，而且它的值来自 **native 侧强转**——所以除了三个已知成员，你还要把「其它取值」当成一种可能来写。它没有写入口：状态由引擎在脚本/传送接管时自己置上。
+
+### 典型用法
+
+上面「真实示例」那段是在写位置前**先问一句能不能写**。真正的用法是一个调度器：锁态不只决定「写不写」，还决定**写一个还是写两个**——`PositionLocked` 期间朝向不参与脏检查，只送位置会被引擎插值，只送朝向则完全不生效：
+
+```csharp
+public static void DriveTarget(Agent agent, Vec2 position, Vec2 direction)
+{
+    AgentMovementLockedState state = agent.MovementLockedState;
+
+    if (state == AgentMovementLockedState.None)
+    {
+        // 位置与朝向一起送：第二个参数是 Vec3，不是 Vec2（Agent.cs:2188）
+        Vec3 dir = new Vec3(direction.x, direction.y, 0f);
+        agent.SetTargetPositionAndDirectionSynched(ref position, ref dir);
+        return;
+    }
+
+    if (state == AgentMovementLockedState.PositionLocked)
+    {
+        // 位置脏检查仍会触发一次插值，朝向不参与：这里只能送位置（Agent.cs:2167）
+        agent.SetTargetPositionSynched(ref position);
+        return;
+    }
+
+    // FrameLocked：位置与朝向都已被脚本接管，脚本侧不该再写，也别退化成 ClearTargetFrame()
+}
+```
+
+与上面「真实示例」的差别：那两段都是**单点操作**——「能不能写」返回一个 bool，或「能写才写位置」；这里是一个**按锁态分派的调度器**，同一份输入在三态下走三条不同的 API 路径，并且用相等判断而不是位运算（它是三个独立值不是位标志）。
+
+### 最容易踩的坑
+
+**它不是位标志。** `PositionLocked | FrameLocked` 能编译但值 3 无意义，`Enum.HasFlag` 在这里语义错误。按真实形状，正确的写法就是 `state == AgentMovementLockedState.X`——`Agent.cs` 里那一串比较全是相等判断，没有一处位运算。
+
 ## 跨版本提示
 
 三值枚举与 `[EngineStruct("Agent_movement_locked_state", true, "amls", false)]` 标记在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 逐字一致。读取入口 `Agent.MovementLockedState` 与私有 `GetMovementLockedState()` 的形状也没变。

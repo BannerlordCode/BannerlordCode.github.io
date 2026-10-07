@@ -150,6 +150,109 @@ protected override void InitializeGameStarter(Game game, IGameStarter gameStarte
 - **不存档。** 它不是 `MBObjectBase`，无 `StringId`，不在 `MBObjectManager` 里。读档时 `Campaign` 重新构造，模型从模块注册链重新装配。
 - **123 个槽位是同步填充的一次性快照。** 构造器里有 124 次线性倒序扫描，每次 `O(n)`，总复杂度 `O(123 × n)`。注册链上 mod 很多时这个数字会变大，但相对于整个战役初始化可以忽略——它不是你需要优化的东西。
 
+## 怎么用
+
+### 怎么拿到它
+
+**从 `Campaign.Current.Models` 读，不要自己 new。**
+
+- `public GameModels Models` —— `TaleWorlds.CampaignSystem/Campaign.cs:529`
+- `public sealed class GameModels : GameModelsManager` —— `TaleWorlds.CampaignSystem/GameModels.cs:9`
+- 构造器 `public GameModels(IEnumerable<GameModel> inputComponents) : base(inputComponents)` —— `GameModels.cs:759`，函数体只有一句 `this.GetSpecificGameBehaviors();`（`:761`）
+
+**全战役只有一个实例，在战役启动时造一次**：`TaleWorlds.CampaignSystem/Campaign.cs:1906` 的 `this._gameModels = base.CurrentGame.AddGameModelsManager<GameModels>(campaignGameStarter.Models);`。基类构造器立刻做了快照（`TaleWorlds.Core/GameModelsManager.cs:13`：`this._gameModels = inputComponents.ToMBList<GameModel>();`），随后 123 个槽位各自被填成固定的字段值。
+
+### 典型用法
+
+读官方模型，同时把自己那个不在目录里的模型自己握住：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+// GameModels 是 sealed 且槽位固定，自己加不进 Campaign.Current.Models，
+// 所以静态引用自己留一份。
+public class MyAgeModel : AgeModel
+{
+    public static MyAgeModel Current { get; private set; }
+
+    // 七个属性 + 一个方法，全部 abstract，一个都不能少。
+    public override int BecomeInfantAge { get { return 4; } }
+    public override int BecomeChildAge { get { return 7; } }
+    public override int BecomeTeenagerAge { get { return 15; } }
+    public override int HeroComesOfAge { get { return 20; } }
+    public override int MiddleAdultHoodAge { get { return 36; } }
+    public override int BecomeOldAge { get { return 56; } }
+    public override int MaxAge { get { return 130; } }
+
+    public override void GetAgeLimitForLocation(CharacterObject character, out int minimumAge, out int maximumAge, string additionalTags = "")
+    {
+        minimumAge = 18;
+        maximumAge = 70;
+    }
+}
+
+public class MyModule : MBSubModuleBase
+{
+    protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+    {
+        if (!(game.GameType is Campaign))
+        {
+            return;
+        }
+
+        var starter = (CampaignGameStarter)gameStarterObject;
+
+        // 必须在 Campaign.cs:1906 之前，也就是这个回调里。
+        starter.AddModel<AgeModel>(new MyAgeModel());
+
+        MyAgeModel.Current = starter.GetModel<AgeModel>() as MyAgeModel;
+    }
+}
+
+public static class AgeReader
+{
+    public static int ComingOfAge()
+    {
+        // AgeModel 是一个真槽位，读它没问题：GameModels.cs:384 声明，
+        // GameModels.cs:705 填充。
+        return Campaign.Current.Models.AgeModel.HeroComesOfAge;
+    }
+}
+```
+
+### 最容易踩的坑
+
+**槽位是 null 时，不会有人告诉你；而且这一次会话里它永远是 null。**
+
+填槽位的函数是 `protected T GetGameModel<T>() where T : GameModel`，声明在 `TaleWorlds.Core/GameModelsManager.cs:17`，它的最后一行是：
+
+```csharp
+GameModelsManager.cs:19    for (int i = this._gameModels.Count - 1; i >= 0; i--)
+GameModelsManager.cs:22            if ((result = (this._gameModels[i] as T)) != null)
+GameModelsManager.cs:27    return default(T);
+```
+
+扫不到就返回 `default(T)`。对 123 个 `GameModel` 子类（全是引用类型）来说，`default(T)` 就是 **null**。而 `GameModels` 上每个槽位都是 `{ get; private set; }`，构造完就不再变——**没有 `TryGet`，没有重新解析，没有运行期刷新**。
+
+所以后果分两级：
+
+1. **忘了注册**，或者**注册晚了**（晚于 `Campaign.cs:1906`），那么 `Campaign.Current.Models.你的模型` 就是 null；
+2. 崩的地方不是注册点，而是**第一个消费它的地方**——栈顶在某个 `DefaultXxxModel` 内部，离真正的原因隔了十几层。你会看到"某个模型在第 800 行 NRE"，而不是"你少注册了一个模型"。
+
+还有一个容易被误判的分支：`GetSpecificGameBehaviors()`（`GameModels.cs:627`）整体包在 `:629` 的守卫里——
+
+```csharp
+GameModels.cs:629   if (Campaign.Current.GameMode == CampaignGameMode.Campaign
+                  || Campaign.Current.GameMode == CampaignGameMode.Tutorial)
+```
+
+也就是说**在非战役/非教程模式下，这一整批槽位根本不会被赋值**。同一个 mod 在主菜单或编辑器模式下跑出一堆 null，不是你的注册写错了，而是守卫没放行。排查时先把 `Campaign.Current.GameMode` 打出来，再怀疑注册时机。
+
+最后一条实用建议：**别依赖 `Campaign.Current.Models` 取你自己的模型**。它没有你的槽位（`sealed` + 固定 123 个属性，改不了），绕道去取只会拿到 null；像上面那样在 `InitializeGameStarter` 里 `AddModel` 之后用 `starter.GetModel<T>()` 自己留一份，才是能稳定工作的路径。
+
 ## 跨版本提示
 
 `GameModels` 是版本演进最明显的模型聚合器：**槽位数量持续增长**。1.3.0 有 123 个属性，往后版本随沙盒、海战、编队、蒸汽机（1.5 引入的产业系统）等新系统继续追加。

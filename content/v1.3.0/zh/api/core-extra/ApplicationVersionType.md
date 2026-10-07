@@ -88,6 +88,36 @@ public static bool SupportsNewSaveSchema(ApplicationVersion saveVersion)
 - **`Debug.FailedAssert` 的行为取决于构建配置。** 开发者构建里它通常会中断，正式构建里往往只打日志——所以「前缀写错」在两种构建下的表现完全不同，别用「有没有崩」来判断前缀合法性。
 - **`Empty` 的字符串形态很怪。** `new ApplicationVersion(Invalid, -1, -1, -1, -1).ToString()` 是 `"i-1.-1.-1.-1"`，因为 `GetPrefix` 的 `default` 分支和负数直接拼字符串。[Campaign](../../campaign/Campaign).`OnLoad` 确实把这个字符串写进 `_previouslyUsedModules`。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Library/ApplicationVersionType.cs:6`，`public enum`，六个成员、零方法、零字段。在 1.3.0 全树里它只出现在三个地方：自己的声明、`ApplicationVersion.cs:16` 那个同名属性、以及 `ApplicationVersion.cs:136` 的静态工厂 `ApplicationVersionTypeFromString(string)`。所以你几乎不会自己写 `switch` 去产生它——**入口是版本串的第一个字符**，`ApplicationVersion.FromString` 在 `ApplicationVersion.cs:77` 取 `array[0][0]`（只取一位）交给这个工厂。
+
+想正向造一个值，就用五参数构造 `new ApplicationVersion(type, major, minor, revision, changeSet)`（`ApplicationVersion.cs:43`），或者更省事地直接造整串 `GetPrefix(type) + "1.3.0.0"`（`GetPrefix` 在 `ApplicationVersion.cs:180`）。
+
+**一段可直接跑的通道门禁**（把「正式通道」写成白名单而不是黑名单）：
+
+```csharp
+// GetPrefix（:180）只产出 a / b / e / v / d 五个字符，default 分支给 Invalid 产出 "i"。
+ApplicationVersion devBuild = ApplicationVersion.FromString("d1.3.0.89406", 0);
+
+// 序数从 0 开始：Invalid = -1、Alpha = 0、Beta = 1、EarlyAccess = 2、Release = 3、Development = 4。
+// 所以「>= Release」会把 Development 放行。
+Debug.Print("channel = " + devBuild.ApplicationVersionType
+    + "  passes '>= Release' = "
+    + (devBuild.ApplicationVersionType >= ApplicationVersionType.Release), 0);
+
+// 要「正式通道」就别用 >=，逐个列出。
+public static bool IsShippedChannel(ApplicationVersion v)
+{
+    return v.ApplicationVersionType == ApplicationVersionType.Release
+        || v.ApplicationVersionType == ApplicationVersionType.EarlyAccess;
+}
+```
+
+**最常见的坑：把这个枚举当版本大小用。** `ApplicationVersion.IsOlderThan` 的第一件事就是比通道（`ApplicationVersion.cs:97`），`operator >` 也是（`ApplicationVersion.cs:251`）。而 `Development` 的序数 4 **高于** `Release` 的 3。后果是跨通道比较会整个翻转：`d1.0.0` 被判定为比 `v9.9.9` 更新，于是任何「存档版本 ≥ v1.3.0 才走新 schema」的门槛在开发版存档上一律通过，哪怕它的三段号只有 1.0.0。做版本门槛时先确认两个 `ApplicationVersion` 的 `ApplicationVersionType` 相同，否则三个比较方法（`IsOlderThan` / `operator >` / `IsSame`）没有一个能给你想要的语义。
+
+顺带一条解析侧的约束：`ApplicationVersionTypeFromString` 只认五个单字符，遇到别的会走 `Debug.FailedAssert` 然后返回 `Invalid`（`ApplicationVersion.cs:149`），**不抛异常**。写 `Invalid` 的判断时不要指望它替你发现拼写错误。
+
 ## 跨版本提示
 
 `ApplicationVersionType.cs` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里**逐字节一致**：都是 403 字节、21 行、同样的六个取值与同样的声明顺序。

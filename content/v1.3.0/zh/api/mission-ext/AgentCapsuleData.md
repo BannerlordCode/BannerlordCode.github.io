@@ -146,6 +146,35 @@ public static bool IsPointInsideBody(Monster monster, Vec3 worldPoint)
 - **改胶囊体不会改动画或移动。** 胶囊体是物理碰撞形状。`Monster` 上的 `BodyCapsuleRadius` 等属性是动画/移动的另一套参数，两者不要混用。
 - **`AgentCapsuleData.cs` 只有 15 行，不要指望从它读到任何行为契约。** 想知道这些胶囊体怎么被 native 用，只能去看 [native-interop](../../../architecture/native-interop)。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public struct AgentCapsuleData`（`TaleWorlds.MountAndBlade/AgentCapsuleData.cs:7`），值类型，两个字段都是 public 可写的。它没有构造器，也没有工厂——官方唯一的生产者是 `MonsterExtensions.FillCapsuleData(this Monster)`（`TaleWorlds.MountAndBlade/MonsterExtensions.cs:129`），内部读 `Monster` 的 `BodyCapsule*` / `CrouchedBodyCapsule*` 现场拼出来。要自己造就 `new AgentCapsuleData { BodyCap = ..., CrouchedBodyCap = ... }`。
+
+### 典型用法
+
+它是纯数据，所以「怎么用」的正确形态是**一次性判完就丢**，而不是存成字段当长期状态。下面这段做的是一件官方不会替你做的事：校验某个怪物的两个胶囊是否站在同一个地面上——站立与蹲伏的底面 y 不一致时，原生侧的碰撞与动画会错位，而托管侧不会报任何错：
+
+```csharp
+public static bool FeetAligned(Monster monster)
+{
+    AgentCapsuleData data = monster.FillCapsuleData();
+
+    // GetBoxMin/GetBoxMax 是 CapsuleData 上的真实成员（CapsuleData.cs:109 / :115）
+    float standFloor = data.BodyCap.GetBoxMin().y;
+    float crouchFloor = data.CrouchedBodyCap.GetBoxMin().y;
+
+    return MathF.Abs(standFloor - crouchFloor) < 0.01f;
+}
+```
+
+与上面「真实示例」的差别：那两段是**造一份新的**（覆盖某个怪物的胶囊体）和**拿它做点包含判定**（拿 `BodyCap` 的包围盒判世界点）；这里不造也不判包含，而是**同时看两个胶囊的一致性**——判断依据是两者之间的关系，而不是单个胶囊的绝对位置，用完即弃。
+
+### 最容易踩的坑
+
+**纯数据，无行为。** 构造完它的全部作用就是被 `ref` 递给 native。留着它当长期状态没有任何意义——怪物属性变了它不会跟着变。
+
 ## 跨版本提示
 
 `AgentCapsuleData` 的两个 public 字段在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 逐字一致，`MonsterExtensions.FillCapsuleData` 的实现也没有变化。`Mission.CreateAgentInternal` 的参数列表在这几个版本间保持同样的 `ref AgentCapsuleData` 形状。

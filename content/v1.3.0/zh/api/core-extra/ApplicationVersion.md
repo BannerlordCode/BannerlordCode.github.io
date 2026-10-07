@@ -143,6 +143,33 @@ for (int i = 0; i < known.Length; i++)
 - **`DefaultChangeSet` 无引用。** 它是 1.3.0 的构建号常量，全树没有任何地方读它。别拿它当「当前版本」的可靠来源。
 - **struct 值拷贝。** 同其它 struct，赋值即拷贝；`Empty` 是 `static readonly`，赋给局部变量后修改局部变量不会影响 `Empty`。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Library/ApplicationVersion.cs:10`，`public struct`，全部五个属性都是 `private set`（`ApplicationVersion.cs:16` / `:22` / `:28` / `:34` / `:40`）。所以你只有三种拿法：五参数构造 `ApplicationVersion(ApplicationVersionType, int, int, int, int)`（`ApplicationVersion.cs:43`）、静态工厂 `FromString(string, int defaultChangeSet = 0)`（`ApplicationVersion.cs:67`）、静态工厂 `FromParametersFile(string path = null)`（`ApplicationVersion.cs:53`，读 `Parameters/Version.xml`，内容为空时返回 `ApplicationVersion.Empty`）。`Empty` 是唯一的静态字段，值为 `(Invalid, -1, -1, -1, -1)`（`ApplicationVersion.cs:299`）。
+
+引擎自己拿它做存档迁移，模式是固定的：拿 `MBSaveLoad.IsUpdatingGameVersion` 当闸门，再拿存档记录的版本跟你写死的门槛比 —— [ClanVariablesCampaignBehavior](../../campaign/ClanVariablesCampaignBehavior) 第 297 行写的是 `MBSaveLoad.LastLoadedGameVersion < ApplicationVersion.FromString("v1.2.9", 0)`，[SandBoxSaveHelper](../../campaign-ext/SandBoxSaveHelper) 第 42 行写的是 `saveVersion.IsOlderThan(ApplicationVersion.FromString("v1.3.0", 0))`，两种写法引擎自己都在用。
+
+**一段可直接跑的「同版本不同 build」判别**（这是本类型独有的能力，值得单独写成方法）：
+
+```csharp
+// IsSame 的第二个参数决定 ChangeSet 参不参与比较（ApplicationVersion.cs:89）。
+// 两个 build 号不同、三段版本号相同的版本，IsSame(_, false) 为 true 而 IsSame(_, true) 为 false。
+public static bool IsSameReleaseButOlderBuild(ApplicationVersion save, ApplicationVersion installed)
+{
+    return save.IsSame(installed, false) && !save.IsSame(installed, true);
+}
+
+// 跨版本门槛一律走 IsOlderThan / IsSame，不要用 operator >（原因见下方）。
+public static bool NeedsSchemaMigration(ApplicationVersion from, ApplicationVersion floor)
+{
+    return from.IsOlderThan(floor);
+}
+```
+
+**最常见的坑：把 `ApplicationVersion` 放进 `Dictionary` / `HashSet` 当键。** 它违反相等性契约：`Equals` 和 `operator ==`（`ApplicationVersion.cs:243` / `:225`）是**结构化**比较，而 `GetHashCode()` 直接 `return base.GetHashCode();`（`ApplicationVersion.cs:237`），也就是对象身份。同一个 `v1.3.0.89406` 你 new 两次就得到两个哈希桶，字典查找会 miss。后果最难受的形态不是崩溃，而是**按版本号分发的存档迁移静默不触发**——`Dictionary<ApplicationVersion, Action>` 里注册了迁移，用 `if (table.ContainsKey(saveVersion))` 判断，条件永远为 false，游戏正常加载但你的迁移一次都没跑，而你没有任何报错可查。
+
+顺带一个同源问题：`operator >`（`ApplicationVersion.cs:249`）只比 `ApplicationVersionType` / `Major` / `Minor` / `Revision`，**不比 `ChangeSet`**，而 `IsOlderThan`（`ApplicationVersion.cs:95`）比全五项。所以两个只有 build 号不同的版本，`a > b` 与 `!a.IsOlderThan(b)` 会给出相反的结论。列表排序统一走 `IsOlderThan`，不要走 `>`。
+
 ## 跨版本提示
 
 `ApplicationVersion.cs` 在五棵树（`bannerlord-1.3.0/` / `bannerlord-1.3.15/` / `bannerlord-1.4.6/` / `bannerlord-1.4.7/` / `bannerlord-1.5.3/`）里**公开表面完全一致**：同样是 5 个 `private set` 属性、1 个构造函数、`FromParametersFile` / `FromString` / `IsSame` / `IsOlderThan` / `IsNewerThan` / `ApplicationVersionTypeFromString` / `GetPrefix` / `ToString` / 6 个运算符 / `Equals` / `GetHashCode` / `DefaultChangeSet` / `Empty`。

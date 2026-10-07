@@ -201,6 +201,72 @@ float zoomAxis = this.Input.GetGameKeyAxis("MyModZoomAxis");
 - **`IsBinded` 是 `internal`，你读不到。** `internal bool IsBinded { get; private set; }`（`:42`），构造函数里 `this.IsBinded = (this.PositiveKey != null || this.NegativeKey != null);`。mod 在外部程序集里**无法判断一根轴键到底绑没绑键盘**，只能自己检查 `PositiveKey` / `NegativeKey` 是否为 null（那两个是 public）。
 - **它是嵌套类型，`using` 导入不了。** `using TaleWorlds.InputSystem;` 只导入命名空间，`GameAxisKey.AxisType` 必须写全名，或者额外 `using static TaleWorlds.InputSystem.GameAxisKey;`（那样才能裸写 `AxisType.X`）。
 
+## 怎么用
+
+### 怎么拿到它
+
+`AxisType` 是**嵌套在 `GameAxisKey` 类里的两值枚举**，声明在 `TaleWorlds.InputSystem/GameAxisKey.cs:101`，完整写法是 `GameAxisKey.AxisType`。只有两个成员：`X` 与 `Y`。
+
+它不是用来直接读输入的，而是**贴在一条已注册的轴上、告诉引擎取 `Vec2` 的哪个分量**。真正读值的是 `GameAxisKey.GetAxisState`（`:63`），关键三行：
+
+```csharp
+keyState = this.AxisKey.GetKeyState();                  // :76   得到一个 Vec2
+if (this.Type == GameAxisKey.AxisType.X) return keyState.X;   // :78
+if (this.Type == GameAxisKey.AxisType.Y) return keyState.Y;   // :82
+return 0f;                                               // :86
+```
+
+拿到它的两条路径：
+
+| 路径 | 说明 |
+| --- | --- |
+| 注册轴时指定 | `GameAxisKey` 构造函数第五个参数 `type`，**默认值就是 `AxisType.X`**（`:45`） |
+| 从已有轴读 | 公共属性 `GameAxisKey.Type`（`:37`，`private set`，只读） |
+
+### 典型用法
+
+注册一条自己用的轴，并且明确写出 `AxisType.Y`：
+
+```csharp
+using TaleWorlds.InputSystem;
+using TaleWorlds.Library;
+
+// 第五个参数决定这条轴取 Vec2 的哪个分量。默认值是 AxisType.X（GameAxisKey.cs:45），
+// 所以 Y 轴必须显式写出来。
+GameAxisKey verticalAxis = new GameAxisKey(
+    "CameraAxisY",
+    InputKey.MouseWheel,
+    null,
+    null,
+    GameAxisKey.AxisType.Y);
+
+// 读值用 GetAxisState，四个 bool 分别是键鼠 / 鼠标键 / 滚轮 / 手柄 的允许位。
+float value = verticalAxis.GetAxisState(true, true, true, true);
+```
+
+从引擎已经建好的轴上反过来读类型：
+
+```csharp
+using TaleWorlds.InputSystem;
+
+// Type 是 public get / private set（GameAxisKey.cs:37），只读。
+public static string DescribeAxis(GameAxisKey axis)
+{
+    if (axis == null)
+    {
+        return "(none)";
+    }
+
+    return axis.Id + " : " + axis.Type.ToString();
+}
+```
+
+### 最容易踩的坑
+
+**注册 Y 轴时忘了传第五个参数。** 它的默认值是 `AxisType.X`（`GameAxisKey.cs:45`），而 `GetAxisState` 又是按 `Type` 决定取哪个分量（`:78` / `:82`）。后果：**这条轴会返回 `Vec2.X` 的值，读到的是水平分量**——玩家推上下，程序收到的是横向输入。不抛异常、不报警告，只是行为静默地反了；而且因为 `X` 在多数场景下也有合法数值，你的死区/归一化逻辑不会发现任何异常。
+
+第二个坑是以为它能选择「读哪个输入设备」。它只能选 `Vec2` 的 X / Y 分量，**输入类型完全由构造函数的 `positiveKey` / `negativeKey` 决定**（`:45` 那两个参数）。要限制设备应该走 `GetAxisState` 的四个 bool 参数，而不是改 `AxisType`。
+
 ## 跨版本提示
 
 `GameAxisKey.cs` 在 `bannerlord-1.3.0` / `1.3.15` / `1.4.6` / `1.4.7` / `1.5.3` 五棵树里**公开面完全冻结**：同样是 9 个成员（6 个属性 + 构造函数 + `IsKeyAllowed` + `GetAxisState` + `ToString`）+ 嵌套 `AxisType` 两值。逐行比对 1.3.0 与 1.5.3 的 public/protected 声明集合，**差集为空**。

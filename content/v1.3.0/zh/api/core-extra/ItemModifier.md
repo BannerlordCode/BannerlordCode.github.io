@@ -220,6 +220,36 @@ public static void ShowHashMismatch(ItemModifierGroup group)
 - **`sealed`。** 继承不了。想扩展只能自己写一个平行类型。
 - **`Deserialize` 依赖对象管理器。** 加载路径上才有意义，手工 `new` 出来的 `ItemModifier` 只会拿到构造器设的 `Name = TextObject.GetEmpty()`，其余全是 0。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Core/ItemModifier.cs:11`，声明是 `public sealed class ItemModifier : MBObjectBase` —— 它**继承了 `MBObjectBase`，所以它是被 `MBObjectManager` 登记的正式游戏对象**，不是随手 new 的数据类。
+
+**唯一的正确入口是按 `StringId` 查。** `SandBox/Missions/MissionLogics/MountAgentLogic.cs:68` 写的是 `MBObjectManager.Instance.GetObject<ItemModifier>("lame_horse");`，同样的写法在 `TaleWorlds.CampaignSystem/CampaignBehaviors/CampaignBattleRecoveryBehavior.cs:26` 和 `SandBox/Missions/MissionEvents/OpenInventoryWithGivenItemsEventListenerLogic.cs:116` 各出现一次。**所以拿它的标准三段式是「已知字符串 id → `GetObject<ItemModifier>` → 交给消费方」**。
+
+那个无参构造器 `public ItemModifier()`（`ItemModifier.cs:102`）你**应该当它不存在** —— 方法体只有一句 `this.Name = TextObject.GetEmpty();`，构造出来的东西没有 `StringId`，是个未登记的孤儿。真正的数据由 `Deserialize(MBObjectManager, XmlNode)`（`ItemModifier.cs:108`）从 XML 填入。
+
+**一段可直接跑的三行取值与比较**：
+
+```csharp
+ItemModifier lame = MBObjectManager.Instance.GetObject<ItemModifier>("lame_horse");
+ItemModifier same = MBObjectManager.Instance.GetObject<ItemModifier>("lame_horse");
+Debug.Print("equal = " + lame.Equals(same) + ", hash = " + (lame.GetHashCode() == same.GetHashCode()), 0);
+```
+
+**这个例子里三个结果会分岔，这正是要点。** `Equals(same)` 返回 `true`（它按 `StringId` 比）；`GetHashCode()` 也相等（方法体是 `base.StringId.GetDeterministicHashCode()`）。但如果你把 `same` 换成**另一个 `StringId` 不同但数值恰好相同的**对象，或者干脆用 `object` 类型的变量去比：
+
+```csharp
+object a = MBObjectManager.Instance.GetObject<ItemModifier>("lame_horse");
+object b = MBObjectManager.Instance.GetObject<ItemModifier>("lame_horse");
+Debug.Print("objectEqual = " + a.Equals(b), 0);
+```
+
+`a.Equals(b)` 会走 `object.Equals` 的引用比较路径。**所以「相等语义」与「哈希语义」在这个类上是分叉的**，这不是 bug 而是 `sealed` + 重载 `Equals` 的直接后果。
+
+**要比较就直接写 `StringId ==`。** `Equals(ItemModifier)` 是 `other != null && base.StringId == other.StringId`（`ItemModifier.cs:222`），显式写出来没有歧义，也不依赖调用点的静态类型。
+
+**最常见的坑：`Equals(ItemModifier)` 没有 `override`。** 它是重载而非覆写，所以 `(object)a == (object)b`、`HashSet<ItemModifier>` 里的去重、以 `object` 为键的字典，都会走引用比较。这条已在「风险与边界」首条展开。
+
 ## 跨版本提示
 
 `ItemModifier.cs` 在 1.3.0（307 行 / 10501 字节）与 1.3.15（307 行 / 10501 字节）之间**完全相同**。**从 1.4.6 起新增一个成员**：

@@ -306,6 +306,99 @@ public static void GrantPolicy(Kingdom kingdom, PolicyObject policy)
 7. **记账钩子不幂等。** 直接调用 `OnHeroAdded` 或 `OnFortificationAdded` 会在 `Heroes`、`AliveLords` 与 `Fiefs` 中产生重复条目。
 8. **决策的影响力。** `AddDecision(..., ignoreInfluenceCost: true)` 会跳过影响力检查直接授予决策；在面向玩家的流程中用它会让王国显得毫无约束。
 
+## 怎么用
+
+### 怎么拿到它
+
+现成的王国从两处拿：`Kingdom.All`（`TaleWorlds.CampaignSystem/Kingdom.cs:650`，getter 就是 `return Campaign.Current.Kingdoms;` `:654`），或者玩家那边 `Clan.PlayerClan.Kingdom`。
+
+**新建只有一个入口：`public static Kingdom CreateKingdom(string stringID)`（`Kingdom.cs:834`）。** 它做三件事：
+
+```
+Kingdom.cs:836   stringID = Campaign.Current.CampaignObjectManager.FindNextUniqueStringId<Kingdom>(stringID);
+Kingdom.cs:837   Kingdom kingdom = new Kingdom();
+Kingdom.cs:838   kingdom.StringId = stringID;
+Kingdom.cs:839   Campaign.Current.CampaignObjectManager.AddKingdom(kingdom);
+```
+
+注意 `:836` —— **它会把重名的 id 改掉**，下一页「最容易踩的坑」讲的就是这件事。造出来之后还必须调 `InitializeKingdom`（`Kingdom.cs:844`）把内容填上，否则它是个空壳。
+
+### 典型用法
+
+建一个王国并初始化：
+
+```csharp
+using TaleWorlds.Core;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Settlements;
+using TaleWorlds.Localization;
+
+public static class KingdomFactory
+{
+    public static Kingdom CreateMyKingdom(CultureObject culture, Settlement capital)
+    {
+        // 唯一的新建入口。
+        Kingdom kingdom = Kingdom.CreateKingdom("my_mod_kingdom");
+
+        // 十个参数：name, informalName, culture, banner, color1, color2,
+        //          initialHomeSettlement, encyclopediaText, encyclopediaTitle, encyclopediaRulerTitle
+        kingdom.InitializeKingdom(
+            new TextObject("{=abc}My Kingdom", null),
+            new TextObject("{=def}My Realm", null),
+            culture,                                  // 不能为 null，见下
+            null,                                     // Banner
+            0xFF0000FFu,                              // Color
+            0xFF00FF00u,                              // Color2
+            capital,
+            null,                                     // EncyclopediaText
+            null,                                     // EncyclopediaTitle
+            null);                                    // EncyclopediaRulerTitle
+
+        // id 可能被改过，要用返回值而不是你传进去的字面量。
+        return kingdom;
+    }
+}
+```
+
+参数个数核对：`InitializeKingdom` 是 **10 个**（`Kingdom.cs:844`）。取回用 `Kingdom.All`（`Kingdom.cs:650`）遍历，或直接用 `CreateKingdom` 的返回值。
+
+### 最容易踩的坑
+
+**以为 `CreateKingdom("sweden")` 造出来的 `StringId` 就是 `"sweden"`。重名时它会被悄悄改名，而且改成的名字不好预测。**
+
+顺着 `Kingdom.cs:836` 往下看。`CampaignObjectManager.FindNextUniqueStringId<T>`（`TaleWorlds.CampaignSystem/CampaignObjectManager.cs:637`）转给静态版本（`:929`）：
+
+```csharp
+CampaignObjectManager.cs:931    if (!...Exist(lists, id))
+CampaignObjectManager.cs:933        return id;                       // 不重名：原样返回
+CampaignObjectManager.cs:935    ValueTuple<string, uint> idParts = ...GetIdParts(id);
+CampaignObjectManager.cs:938        num = MathF.Max(num, lists.Max((CampaignObjectType<T> x) => x.MaxCreatedPostfixIndex));
+CampaignObjectManager.cs:939        num = num + 1U;
+CampaignObjectManager.cs:940        return item + num;
+```
+
+关键在 `:938` 那个 `lists.Max(...)`。**取的是「所有 Kingdom 里的最大后缀编号」，不是「同前缀下的最大编号」。**
+
+后果就是：如果你在存档里已经有 `"battania3"`（`MaxCreatedPostfixIndex` 被抬到 3，见 `CampaignObjectManager.cs:803` 到 `:805`），那么再调一次 `CreateKingdom("sweden")` 拿到的是 **`"sweden4"`**，而不是直觉上的 `"sweden1"`。
+
+```
+第一次 CreateKingdom("sweden")   -> "sweden"
+存档里有 battania3，MaxCreatedPostfixIndex = 3
+第二次 CreateKingdom("sweden")   -> "sweden4"      // 不是 sweden1
+```
+
+而整个过程**没有任何异常、没有日志**。真正爆出来的是后面那一串：
+
+```
+你在 Kingdom.All 里按 "sweden" 比对 StringId      -> 找不到，以为王国没建成
+存档里那个对象                                   -> StringId 实际叫 "sweden4"
+下次读档                                         -> 官方按真实 id 还原，你那个名字再也对不上
+```
+
+修法很简单：`CreateKingdom` **返回实例**，所以永远用 `kingdom.StringId` 回读，别拿自己写进去的字面量去比对。（注：1.3.0 这份源码树里不含 `MBObjectManager` 的实现，所以按 id 反查对象的具体 API 无法在此核实；要查的话以你自己的引用为准。）
+
+顺带一个同源的小坑：`InitializeKingdom` 末尾会 `foreach (PolicyObject policy in this.Culture.DefaultPolicyList) this.AddPolicy(policy);`（`Kingdom.cs:858` 到 `:861`）。**`culture` 传 null 就在这一行抛 `NullReferenceException`**，而且是在 `CreateKingdom` 已经成功、`AddKingdom` 已经入册之后才崩——你会看到一个"建了一半"的王国留在 `Kingdom.All` 里。
+
 ## 跨版本提示
 
 - `CreateKingdom`、`InitializeKingdom`、`RulingClan`、`CreateArmy` 与各 `Is*` 外交判定在 1.3.x 与 1.4.x 中形状相同。

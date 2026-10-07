@@ -245,6 +245,34 @@ public static ItemObject ResolveCraftedItem(string hashedCode)
 - **`[LoadInitializationCallback] private void OnLoad()` 会重算 `BuildHashedCode`。** 读档时 `HashedCode` 是重算出来的，不是存档字段。所以**旧档里手工改过的哈希不会被保留**。
 - **`CalculatePivotDistances` 依赖 `Template.BuildOrders` 的顺序。** 模板换了但 `UsedPieces` 没跟着换，算出来的轴心距离就是错的。而两者都是 `readonly` 引用，重建 `WeaponDesign` 是唯一的修正途径。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Core/WeaponDesign.cs:11`，普通类，**唯一构造函数 `WeaponDesign(CraftingTemplate template, TextObject weaponName, WeaponDesignElement[] usedPieces)`（`WeaponDesign.cs:153`）**。它不是 `MBObjectBase` 派生，所以不进 `MBObjectManager`、不能按 id 查。
+
+四个官方 new 点，形态各不相同，值得分别记住：
+
+- `TaleWorlds.Core/Crafting.cs:88` 的 `this.CurrentWeaponDesign = new WeaponDesign(this.CurrentCraftingTemplate, null, array);` —— 制造台当前设计，`weaponName` 传 **null**。
+- `TaleWorlds.CampaignSystem/CampaignBehaviors/CraftingCampaignBehavior.cs:678` 的 `new WeaponDesign(randomElement, TextObject.GetEmpty(), this.GetWeaponPieces(randomElement, pieceTier));` —— 随机生成一件武器设计。
+- 同文件 `:724` 与 `:318` 是同一形状的另两处。
+
+`UsedPieces`（`WeaponDesign.cs:98`）的静态类型是 **`WeaponDesignElement[]` 数组**，不是列表 —— 索引访问没有边界检查。
+
+**一段可直接跑的三行安全构造**（关键是保证第三个参数长度 ≥ 3）：
+
+```csharp
+WeaponDesignElement[] pieces = GetPiecesForTier(template, tier);
+if (pieces.Length < 3) { return null; }
+WeaponDesign wd = new WeaponDesign(template, TextObject.GetEmpty(), pieces);
+```
+
+**构造器本身就可能抛异常，而且是在构造过程中。** 方法体按序调了 `CalculatePivotDistances()` → `CalculateWeaponLength()` → `CalculateHolsterShiftAmount()` → `BuildHashedCode()`，其中 `CalculateHolsterShiftAmount()`（`WeaponDesign.cs:283`）第一句就是 `WeaponDesignElement weaponDesignElement = this.UsedPieces[2];` —— **无判空直接索引**。所以 `new` 的那一刻就要求数组至少 3 个元素。
+
+**这与它下面两行的写法形成刺眼的不对称**：紧接着的 `if (this.UsedPieces[1] != null)` 对下标 1 判空了，下标 2 却没有。
+
+**`HolsterShiftAmount` 与 `CraftedWeaponLength` 是构造期算好的 `public readonly` 字段。** 声明在 `WeaponDesign.cs:361` 与 `377`，不是属性也没有 setter —— 它们在构造器里被赋值后就冻结，不随外部变化而更新。`WeaponFlags`（341）同样 readonly，在构造器末尾用 `|=` 逐件累加 `CraftingPiece.AdditionalWeaponFlags` 求得。
+
+**最常见的坑：`UsedPieces` 长度必须 >= 3。** `CalculateHolsterShiftAmount()` 里 `this.UsedPieces[2]` 无判空，长度 2 或更短 → 构造器抛 `IndexOutOfRangeException`，而且栈顶指向引擎内部而不是你的 `new` 那行。这条已在「风险与边界」首条展开。
+
 ## 跨版本提示
 
 `WeaponDesign.cs` 在 **1.3.15 起有一次明确的破坏性变更**——这是本批里跨版本差异最大的类型。

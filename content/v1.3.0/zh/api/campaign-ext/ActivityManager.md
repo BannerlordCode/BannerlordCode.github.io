@@ -169,6 +169,68 @@ private static async Task<bool> IsActivityLiveAsync(string id)
 - **`activityId` 没有白名单，但也不该随便用。** 托管层只有 `"CompleteMainQuest"` 一个真实取值；`TestActivityService` 对任意字符串都返回 `true`，所以**写错 id 在开发期完全看不出来**，到接了平台服务才会失败。
 - **`ActivityManager` 不是静态类。** `new ActivityManager()` 能编译，得到一个什么也不做的对象。五个方法全是 `static`，继承没有 virtual 切入点。
 
+## 怎么用
+
+### 怎么拿到它
+
+和 [AchievementManager](../AchievementManager) 完全是同一套设计。声明在 `TaleWorlds.ActivitySystem/ActivityManager.cs:7`，一个静态槽位加五个静态转发：
+
+| 成员 | 行号 | 转发到接口的 |
+| --- | --- | --- |
+| `public static IActivityService ActivityService { get; set; }` | `:12`，默认值 `new TestActivityService()` | —— |
+| `StartActivity(string)` | `:15` → `:17` | `IActivityService.StartActivity`（`IActivityService.cs:10`） |
+| `EndActivity(string, ActivityOutcome)` | `:21` → `:23` | `IActivityService.EndActivity`（`:13`） |
+| `SetActivityAvailability(string, bool)` | `:27` → `:29` | `IActivityService.SetAvailability`（`:19`） |
+| `GetActivity(string)` | `:33` → `:35` | `IActivityService.GetActivity`（`:16`） |
+| `GetActivityTransition(string)` | `:39` → `:41` | `IActivityService.GetActivityTransition`（`:25`） |
+
+真实安装点和成就那一行紧挨着，在 `TaleWorlds.MountAndBlade/Module.cs:1013`。
+
+### 典型用法
+
+完整的开→关闭环，注意 `EndActivity` 的 `ActivityOutcome` 是必需参数，没有重载能省掉它：
+
+```csharp
+using TaleWorlds.ActivitySystem;
+
+public static bool RunMainQuestActivity(string activityId)
+{
+    // 先确认不是测试桩：TestActivityService 的 StartActivity / EndActivity /
+    // SetAvailability 全部硬编码 return true（TestActivityService.cs:12、:18、:30）。
+    if (ActivityManager.ActivityService is TestActivityService)
+    {
+        return false;
+    }
+
+    if (!ActivityManager.StartActivity(activityId))
+    {
+        return false;
+    }
+
+    // ActivityOutcome 三个值：Abandoned / Failed / Completed（ActivityOutcome.cs:9-13）。
+    // 这里传 Completed；写错值是把失败当成成功上报，平台侧会真的记成完成。
+    return ActivityManager.EndActivity(activityId, ActivityOutcome.Completed);
+}
+```
+
+控制可用性走的是**名字不同**的那一个转发：
+
+```csharp
+using TaleWorlds.ActivitySystem;
+
+public static void LockFeature(string activityId, bool available)
+{
+    // 注意这一层叫 SetActivityAvailability，接口上叫 SetAvailability。
+    ActivityManager.SetActivityAvailability(activityId, available);
+}
+```
+
+### 最容易踩的坑
+
+**在 `EndActivity` 里传一个凭感觉选的 `ActivityOutcome`。** 枚举只有三个值——`Abandoned`、`Failed`、`Completed`（`TaleWorlds.ActivitySystem/ActivityOutcome.cs:9`、`:11`、`:13`），**全部是隐式值 0/1/2，没有具名常量、没有校验**。而默认实现对任何 outcome 都返回 `true`（`TestActivityService.cs:18`），所以传错值在本地完全看不出问题。后果是：玩家实际失败、平台侧却记成 `Completed`，成就被永久锁定在错误的状态上，而且**这种错误一旦上报就无法回滚**。
+
+第二个坑是方法名与接口名不一致带来的误读：`SetActivityAvailability`（`ActivityManager.cs:27`）转发的是 `SetAvailability`（`IActivityService.cs:19`）。按接口名去实现自定义服务时把方法写成 `SetActivityAvailability`，编译不过；反过来实现了 `SetAvailability` 却在静态分析里找不到对应关系，容易误判成「引擎没调用它」。
+
 ## 跨版本提示
 
 - **7 条 public 声明（类 + 1 属性 + 5 方法）在 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 上逐字相同**，`bannerlord-1.4.5` 是残缺树（无 `TaleWorlds.ActivitySystem/ActivityManager.cs`）。**没有一个方法被改名、被加参数或被删**，`GetActivityTransition` 的同步形状在所有版本里都保持。

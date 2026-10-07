@@ -194,6 +194,45 @@ public static void DescribeAgentData(AgentData data)
 - **`IsCivilianEquipment` 与 `LocationCharacter` 的 `useCivilianEquipment` 是两个开关。** 前者是 `AgentData` 上的属性，后者是 `LocationCharacter` 构造函数第 7 个形参。官方 `GuardsCampaignBehavior.cs:386` 传的是 `false`（不用平民装备），而 `.CivilianEquipment(true)` 也要单独调。**两个都不设就是「用 AgentData 的默认」。**
 - **1.3.15 起多了一个 `PrepareImmediately`。** 它带同名 fluent 方法 `SetPrepareImmediately()`。**1.3.0 里没有**，所以从 1.3.0 抄到新版本的代码不受影响，反向（新版本抄回 1.3.0）会编译失败。
 
+## 怎么用
+
+### 怎么拿到它
+
+它是 `public class AgentData`（`TaleWorlds.Core/AgentData.cs:6`，无基类、无接口、无析构）。入口是构造函数 `AgentData(IAgentOriginBase)` 加一串 fluent 方法，全部返回 `this`，所以只能链式用；成品有两个消费者——`LocationCharacter`（城镇里的 NPC）和 `AgentBuildData(AgentData)`（战斗里的单位）。**它是一个可变构造器，不是一个值对象**：链上每一步都是就地赋值。
+
+### 典型用法
+
+批量造 NPC 时最容易出的事是复用同一份 `AgentData` 实例。fluent 方法全是就地赋值，上一个 NPC 写进去的标志位会跟着流到下一个，而 `GenderOverriden` 这类有效标志位一旦被误置为 `true`，下游就会采信一个从没被覆盖过的值：
+
+```csharp
+public class MyRecruitSpawner
+{
+    public AgentData BuildOne(CharacterObject hero, Monster monster, bool female, Equipment kit)
+    {
+        // 每个 NPC 一份新实例：不要把 AgentData 缓存成字段跨 NPC 复用
+        AgentData data = new AgentData(new SimpleAgentOrigin(hero, -1, null, default(UniqueTroopDescriptor)))
+            .Monster(monster)
+            .IsFemale(female)          // 正确入口（AgentData.cs:253）；.Race() 会错置标志位
+            .NoHorses(true)
+            .Equipment(kit);
+
+        // 读回校验：GenderOverriden 为 false 时，AgentIsFemale 是构造函数从 FaceGen 推出来的原值
+        if (!data.GenderOverriden)
+        {
+            MBDebug.Print("[MyMod] " + hero.Name + " 的性别覆盖没生效，检查是不是误用了 Race()");
+        }
+
+        return data;
+    }
+}
+```
+
+与上面「真实示例」那两段的差别：那里是在**造一个** NPC（守卫的三段链、装备槽的掏空），`AgentData` 用完就丢；这里讲的是**复用与读回校验**——同一份实例被复用或被漏掉某个 setter 时，属性值还在、但有效标志位是错的，而这种错误不会在生成时报出来，只会在下游读出性别/年龄时变成一个说不清的值。
+
+### 最容易踩的坑
+
+**`Race(int)` 有官方 bug：置错了标志位。** 它的实现（`AgentData.cs:261`）是 `AgentRace = race; GenderOverriden = true;`——**没有 `RaceOverriden` 这个字段**。后果是 `.Race(3)` 之后 `GenderOverriden` 变成 `true` 而 `AgentIsFemale` 保持原值，下游读到「性别被覆盖」但读到的是未覆盖的值。这个 bug 从 1.3.0 到 1.5.3 全程未修，要改外观请走 `.Monster(...)`。
+
 ## 跨版本提示
 
 `AgentData.cs` 在 1.3.0（275 行 / 9984 字节）与 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3（288 行 / 10415 字节）**只差一个成员**：1.3.15 起在 `BodyPropertiesOverriden` 之前插入了

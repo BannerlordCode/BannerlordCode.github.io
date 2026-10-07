@@ -217,6 +217,48 @@ public class GateAutoOpenBehavior : MissionBehavior
 - **命名空间带 `Source` 一层。** `TaleWorlds.MountAndBlade.Source.Objects.Siege`，需要 `using TaleWorlds.MountAndBlade.Source.Objects.Siege;`。这个命名空间下的类型属于攻城内部实现，跨程序集引用时注意程序集边界。
 - **类不继承任何东西，也没有接口。** 你无法用继承加拦截，只能构造后自己包一层。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class AgentPathNavMeshChecker`（`TaleWorlds.MountAndBlade/Source/Objects/Siege/AgentPathNavMeshChecker.cs:8`），**只能 new**，没有单例也没有工厂。八个参数的构造器是唯一入口，函数体只是八行顺序赋值、零校验。官方唯一的生产者是 [CastleGate](../CastleGate)，实参是 `(Mission.Current, gateFrame, 2f, NavigationMeshId, BattleSideEnum.Defender, BothDirections, 14f, 3f)`。拿到之后必须由你自己每帧调 `Tick`。
+
+### 典型用法
+
+上面「真实示例」第一段是照抄官方的构造，第二段是每帧驱动 + 查询。注意官方用的是 `BothDirections`——它在 `Tick` 里把方向向量置成 `Vec2.Zero`，**零向量被 native 当作「不限方向」**。要做真正的单向门只需要换掉那一个枚举：
+
+```csharp
+public class OneWayGateBehavior : MissionBehavior
+{
+    private AgentPathNavMeshChecker _checker;
+
+    public override void OnMissionTick(float dt)
+    {
+        if (this._checker == null)
+        {
+            this._checker = new AgentPathNavMeshChecker(
+                Mission.Current,
+                gate.GetGlobalFrame(),
+                2f,
+                navMeshId,
+                BattleSideEnum.Defender,
+                // ForwardOnly：只接受顺着 gateFrame.rotation.f 穿过门框的路径
+                AgentPathNavMeshChecker.Direction.ForwardOnly,
+                14f,
+                3f);
+        }
+
+        this._checker.Tick(dt);
+    }
+}
+```
+
+与上面「真实示例」的差别：那两段都用了官方的 `BothDirections` 并且只回答「门有没有被占」；这里换掉了方向枚举本身，于是判定从「有没有人经过」变成「有没有人朝这个方向经过」——这是同一个类在构造参数上唯一的语义分叉，其余七个参数照抄即可。
+
+### 最容易踩的坑
+
+**构造器零校验。** `mission` 为 null 会在第一次 `Tick` 的 `this._mission.CurrentTime` 上 NRE；`navMeshId` 传错值会让第一条判定路径永不命中；`radiusToCheck` 传 0 会让贴近判定退化成「距离严格小于 0」即永不命中。
+
 ## 跨版本提示
 
 `AgentPathNavMeshChecker` 的 158 行在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 里一致：三个公开方法、十三个 private 字段、三个 `Direction` 枚举值全部未变。唯一消费者 [CastleGate](../CastleGate) 的构造实参 `(2f, NavigationMeshId, BattleSideEnum.Defender, BothDirections, 14f, 3f)` 也保持不变。

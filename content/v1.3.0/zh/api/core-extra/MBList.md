@@ -118,6 +118,32 @@ public class MySettlementRegistry
 - **`MBList2D<T>` 是另一个类型。** `grep` 时注意前缀区分，`MBList<` 的统计必须排除 `MBList2D<`（见 [MBList2D](../MBList2D)）。
 - **跨程序集可见性没有特殊处理。** 它在 `TaleWorlds.Library` 里，是公开类型，mod 可以直接用，也应该直接用——引擎签名要求如此。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Library/MBList.cs:7`，全文件只有 30 行 —— 声明是 `public class MBList<T> : MBReadOnlyList<T>`，然后**四个构造函数、零个字段、零个属性、零个方法**。换句话说 `MBList<T>` 没有任何自己的行为，它存在的唯一理由就是让泛型参数处的静态类型读起来是 `MBList` 而不是 `List`。
+
+拿到实例的三条真实路径：
+
+- **直接 `new` 空收集器**（引擎里最常见）：`new MBList<Agent>()`。四个构造里三个带容量/集合参数，收集器模式一律用不带参的那个。
+- **从 LINQ 查询转**：`Extensions.ToMBList<T>(IEnumerable<T>)`，例如 `SandBox.View/SandBoxViewCheats.cs:304` 写的就是 `Extensions.ToMBList<Settlement>(from t in Settlement.All where ...)`。这是个扩展方法，不在 `MBList` 本体上。
+- **当作出参接别人的返回值**：`Mission.GetNearbyAgents(Vec2 center, float radius, MBList<Agent> agents)`（`Mission.cs:6614`）就是这种形状 —— 你 `new` 一个空壳传进去，方法体第一句 `agents.Clear()` 然后就地填充，最后 `return agents`。
+
+**一段可直接跑的三行收集器模式**：
+
+```csharp
+MBList<Hero> candidates = new MBList<Hero>();
+foreach (Hero hero in Hero.AllAliveHeroes)
+{
+    if (hero.Clan != Clan.PlayerClan) candidates.Add(hero);
+}
+```
+
+注意这里用的是 `Add` 而不是任何自定义的「加并通知」方法 —— `MBList<T>` 不会发事件，也不会检查重复。要去重就在外面用 `HashSet`，或者自己在填充前判一次。
+
+**四个构造全是拷贝，没有一个是包装。** `MBList(IEnumerable<T>)` 与 `MBList(List<T>)` 都是 `: base(collection)`，即把元素复制进 `List<T>` 的内部数组。所以「传进去一个还会继续填充的列表，然后指望 `mbList` 跟着变」是错的 —— 你拿到的是**当下的一份快照**。想要「同一份数据换个类型」，只能自己取 `mbList.GetEnumerator()` 逐个搬，没有零成本转换。
+
+**最常见的坑：`MBReadOnlyList<T>` 并不只读。** 签名写着 `MBReadOnlyList<T>`、变量名带 ReadOnly，但它继承自 `List<T>`，`Add`/`RemoveAt`/`Clear` 全部可用。**看到 `MBReadOnlyList<T>` 就假定不能改，会写出静默污染共享状态的 bug。** 这条已在「风险与边界」首条展开；就本页而言它的具体后果是 —— 拿到别人 `return` 出来的 `MBReadOnlyList` 直接 `Add`，编译器一声不吭，你改的是引擎内部正在用的那个集合。想真正只读必须自己拷贝。
+
 ## 跨版本提示
 
 `MBList.cs` 在 1.3.0 是 700 字节，1.3.15 起到 1.5.3 都是 **712 字节**，差的 12 字节纯粹是代码格式化：`1.3.0` 写 `public MBList(int capacity) : base(capacity)` 单行，1.3.15+ 拆成构造函数体与 `: base(capacity)` 两行（这是新版反编译器/格式化工具的输出风格）。**四个构造函数的集合、基类、修饰符跨 1.3 → 1.5 三个大版本完全一致**，class 仍是 class，仍零成员，仍 `MBList<T> : MBReadOnlyList<T>`。

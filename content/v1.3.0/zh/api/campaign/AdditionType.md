@@ -90,6 +90,75 @@ public override ExplainedNumber CalculateDailyConstructionPower(Town town, bool 
 - **隐式值绑定声明顺序。** 两个成员都没写数值，`Add == 0` / `AddFactor == 1`。不是 `Flags`，按位或无意义且不报错。
 - **嵌套类型。** 完整名 `FeatObject.AdditionType`。`FeatObject.Initialize` 的第五个参数签名里写的就是 `FeatObject.AdditionType`。
 
+## 怎么用
+
+### 怎么拿到它
+
+它没有入口，**只在 `FeatObject.Initialize` 的第五个参数里出现**。`public void Initialize(string name, string description, float effectBonus, bool isPositiveEffect, FeatObject.AdditionType incrementType)` 声明在 `TaleWorlds.CampaignSystem/CharacterDevelopment/FeatObject.cs:42`，五个参数，第四个是 `bool`。
+
+一个文化特制的完整生产链是这样的（`TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultCulturalFeats.cs`）：
+
+```
+Campaign.cs:2008                this.DefaultFeats = new DefaultCulturalFeats();
+DefaultCulturalFeats.cs:22        RegisterAll()
+DefaultCulturalFeats.cs:50-52     Create(stringId)
+                                  -> Game.Current.ObjectManager.RegisterPresumedObject<FeatObject>(new FeatObject(stringId))
+DefaultCulturalFeats.cs:46        InitializeAll()
+DefaultCulturalFeats.cs:58-75     每个特性各调一次 Initialize(..., AdditionType.xxx)
+```
+
+消费侧靠 `CultureObject.HasFeat(FeatObject feat)`（`TaleWorlds.CampaignSystem/CultureObject.cs:42`）判断，再自己读 `EffectBonus`。
+
+### 典型用法
+
+注册一个自己的文化特性：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CharacterDevelopment;
+
+public static class MyCultureFeat
+{
+    public static FeatObject Feat { get; private set; }
+
+    public static void Register()
+    {
+        Feat = Game.Current.ObjectManager.RegisterPresumedObject<FeatObject>(
+            new FeatObject("my_culture_my_feat"));
+
+        // name, description, effectBonus, isPositiveEffect, incrementType
+        Feat.Initialize(
+            "{=!}my_culture_my_feat",
+            "{=abc123}My custom cultural bonus.",
+            0.25f,
+            true,
+            FeatObject.AdditionType.AddFactor);
+    }
+}
+```
+
+参数个数核对：上面是 5 个。`FeatObject(stringId)` 单参构造在 `FeatObject.cs:37`。**注册一定要走 `Game.Current.ObjectManager.RegisterPresumedObject<FeatObject>`**——`stringId` 是存档标识，直接 `new FeatObject(...)` 得到的对象不会被存档系统认识。
+
+### 最容易踩的坑
+
+**以为 `AdditionType` 决定了「加」还是「乘」。它不决定——决定的是消费它的那段代码，而这两者并不一致。**
+
+三个都声明成 `AddFactor` 的特性，在同一个文件里被两种完全不同的算术消费：
+
+```
+DefaultArmyManagementCalculationModel.cs:109   num  += num  * EmpireArmyInfluenceFeat.EffectBonus;   // 乘：0.25f => x1.25
+DefaultArmyManagementCalculationModel.cs:175   num11 +=     VlandianArmyInfluenceFeat.EffectBonus;   // 加：0.2f  => +0.2
+DefaultArmyManagementCalculationModel.cs:179   num11 +=     SturgianArmyInfluenceCostFeat.EffectBonus; // 加：-0.5f => -0.5
+```
+
+而 `DefaultCulturalFeats.cs:65` 给 `EmpireArmyInfluenceFeat` 的 `EffectBonus` 是 `0.25f`、`AdditionType.AddFactor`，`:75` 给 `VlandianArmyInfluenceFeat` 的是 `0.2f`、同样是 `AddFactor`。**同样的枚举、同样的数值量级，一个被当乘数、一个被当加数。**
+
+再加上一层：全树没有任何地方读 `FeatObject.IncrementType`（它只在 `FeatObject.cs:29` 声明、`:46` 赋值），所以**你传错这个参数不会有任何反馈**——不抛异常、不进断言、不影响任何计算。
+
+后果就是你 mod 里的数值会以完全错误的量级落地。照抄一条相近的特性、把 `EffectBonus` 写成 `0.25f`、习惯性带上 `AddFactor`，结果被 `num += bonus` 那样消费时得到的是 **+0.25 而不是 ×1.25**：一个"四分之一"的加成变成了"四分之一个单位"。这类 bug 不会崩，只会让某个数值莫名其妙偏一点点，因此极难被发现。
+
+正确的做法：**不要靠 `AdditionType` 推断语义，去读真正会消费你这个特性的那个 `DefaultXxxModel`，看它对 `EffectBonus` 做的是 `+=` 还是 `*=`。** 决定算术的是消费点，不是枚举值。
+
 ## 跨版本提示
 
 `FeatObject.AdditionType` 的两个成员 `Add` / `AddFactor` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里**完全一致**：同样的两个名字、同样的顺序、无新增无重排。

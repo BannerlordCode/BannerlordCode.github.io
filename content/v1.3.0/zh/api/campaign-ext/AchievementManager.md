@@ -168,6 +168,72 @@ int readBack = AchievementManager.GetStat("MyMod_Kills").Result;   // 永远是 
 - **`name` 没有任何校验与常量表。** 全部 1.3.0 托管源码里没有任何一处调用 `AchievementManager.SetStat` / `GetStat`——**stat 名字的取值完全在平台服务实现（Steamworks 等）那一侧，托管层是空白的。** mod 自造名字时无法从引擎得知是否会与官方 stat 冲突。
 - **`AchievementManager` 不是静态类。** 你可以 `new` 它，但实例什么也做不了。别指望通过继承加功能——三个方法都是 `static`，virtual 的机会为零。
 
+## 怎么用
+
+### 怎么拿到它
+
+**这个类不需要「拿到」——它没有实例。** 声明在 `TaleWorlds.AchievementSystem/AchievementManager.cs:7`（注意是 `public class`，不是 `static class`），内容只有一个静态属性槽加三个静态转发方法。
+
+那个槽位的默认值在属性初始化器里（`AchievementManager.cs:12`）：
+
+```csharp
+public static IAchievementService AchievementService { get; set; } = new TestAchievementService();
+```
+
+真实的安装点只有一个，在 `TaleWorlds.MountAndBlade/Module.cs:1012`：
+
+```csharp
+AchievementManager.AchievementService = platformServices.GetAchievementService();
+ActivityManager.ActivityService = platformServices.GetActivityService();
+```
+
+这一行在 `if (platformServices != null)` 分支内，紧跟 `PlatformServices.Setup(...)` / `PlatformServices.Initialize(...)` 之后。**没有平台服务就永远是默认实现。**
+
+### 典型用法
+
+改服务之前，先判断当前装的到底是不是真服务——默认实现有四个「看起来成功」的方法（`TestAchievementService.cs:12`、`:18`、`:24`、`:30`），所以单看返回值区分不出来：
+
+```csharp
+using TaleWorlds.AchievementSystem;
+
+public static bool HasRealPlatformService()
+{
+    // TestAchievementService 把 GetStat 写死成 Task.FromResult<int>(0)（:18），
+    // GetStats 写死成 new int[names.Length]（:24）—— 真平台服务不会这样。
+    IAchievementService service = AchievementManager.AchievementService;
+
+    // 注意：不要用 IsInitializationCompleted() 做这个判断，测试实现对它也返回 true（:30）。
+    return !(service is TestAchievementService);
+}
+```
+
+确认之后才替换（`AchievementService` 是无保护的 `public static set`，任何一行代码都能改）：
+
+```csharp
+using TaleWorlds.AchievementSystem;
+
+public class MySubModule : MBSubModuleBase
+{
+    public override void OnGameStart(Game game, IGameStarter gameStarter)
+    {
+        base.OnGameStart(game, gameStarter);
+
+        // 放在 OnGameStart 而不是更早的地方：平台注入在 Module.cs:1012 完成，
+        // 在那之前赋值会被静默覆盖。
+        if (!HasRealPlatformService())
+        {
+            AchievementManager.AchievementService = new MyLocalStatService();
+        }
+    }
+}
+```
+
+### 最容易踩的坑
+
+**把 `GetStats` 的返回值当成长度等于 `names.Length` 的定长数组来按下标取。** 默认实现确实是 `new int[names.Length]`（`TestAchievementService.cs:24`），所以**在本地／编辑器里按下标取值永远不会越界**。但 `IAchievementService.GetStats` 的契约只有返回类型 `Task<int[]>`（`IAchievementService.cs:16`），**托管层没有任何代码校验长度**，真实平台实现完全可能返回更短的数组。后果是：**一段在本地跑一百遍都正常的取下标代码，在接了平台服务的发行版上抛 `IndexOutOfRangeException`**，而且只在玩家真正解锁到后面几个成就时才触发——这正是最难复现的那种崩溃。
+
+第二个坑是 `IsInitializationCompleted` 不在这个类上。它只在接口上（`IAchievementService.cs:19`），`AchievementManager` 没有转发；要等它就绪必须写 `AchievementManager.AchievementService.IsInitializationCompleted()`。
+
 ## 跨版本提示
 
 - **5 条 public 声明（1 个属性 + 1 个类 + 3 个方法）在 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 上数量与名称完全一致**，但有**一处真实的行为差异**：`GetStat` 与 `GetStats` 在 1.3.0 里声明为 `public static async Task<...>`，在 1.3.15 及之后变成了 `public static Task<...>`——方法体被反编译成了手写的 `AsyncTaskMethodBuilder` 状态机（`AchievementManager.cs` 里能看到 `<GetStat>d__6` 这种编译器生成类型的显式堆栈初始化）。这是**反编译产物形态的差异，不是签名变化**：你写 `await AchievementManager.GetStat(name)` 或 `.Result` 在两个版本上行为相同。

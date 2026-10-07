@@ -159,6 +159,82 @@ private static void CommitBannerToClan(Banner editedBanner)
 - **`Tick` 里 `_isFinalized` 检查了两次。** `:58` 的外层 `if (!this._isFinalized)` 与 `:60` 的 `if (this._isFinalized) return;`。第二次检查是为了「`OnTick` 期间发生了 finalize」的罕见情形——但 **`OnTick` 里没有任何 finalize 触发点**，所以那个早退分支实际上不可达。
 - **`GetLayers()` 每次 new 一个 List。** `:39-45`。如果管理器在一次会话里多次问 layers，你会拿到多个引用同一对 layer 的不同 List ——**不是新 layer**，所以去重要小心。
 
+## 怎么用
+
+### 怎么拿到它
+
+声明在 `SandBox.GauntletUI/CharacterCreation/CharacterCreationBannerEditorView.cs:18`，上面挂着**阶段注册特性**（`:17` 附近）：
+
+```csharp
+[CharacterCreationStageView(typeof(CharacterCreationBannerEditorStage))]
+public class CharacterCreationBannerEditorView : CharacterCreationStageViewBase
+```
+
+也就是说，**角色创建系统靠这个特性把它当作一个「阶段」**，而不是靠你手动把它加进流程。
+
+它有两个构造函数：
+
+| 构造函数 | 行号 | 用途 |
+| --- | --- | --- |
+| 便捷版 | `:21` | 直接用 `CharacterObject.PlayerCharacter` 与 `Clan.PlayerClan.Banner`，自己转调下面的完整版 |
+| 完整版 | `:26` | 显式传 `BasicCharacterObject character` 与 `Banner banner` |
+
+完整版**前六个参数没有默认值**（角色、旗帜、确定委托、确定文字、取消委托、取消文字），后面五个有。
+
+### 典型用法
+
+最省事的写法就是那个便捷构造：
+
+```csharp
+using SandBox.GauntletUI.CharacterCreation;
+
+public static CharacterCreationBannerEditorView CreateDefaultStage(
+    ControlCharacterCreationStage affirmative,
+    TextObject affirmativeText,
+    ControlCharacterCreationStage negative,
+    TextObject negativeText)
+{
+    // :21 的便捷构造内部就是 :26 的完整构造，
+    // 角色固定取 CharacterObject.PlayerCharacter，旗帜固定取 Clan.PlayerClan.Banner。
+    return new CharacterCreationBannerEditorView(
+        affirmative,
+        affirmativeText,
+        negative,
+        negativeText);
+}
+```
+
+要接管旗帜数据（比如预览某个 NPC 的旗帜）就用完整构造：
+
+```csharp
+using SandBox.GauntletUI.CharacterCreation;
+
+public static CharacterCreationBannerEditorView CreateForBanner(
+    BasicCharacterObject character,
+    Banner banner,
+    ControlCharacterCreationStage affirmative,
+    TextObject affirmativeText,
+    ControlCharacterCreationStage negative,
+    TextObject negativeText)
+{
+    return new CharacterCreationBannerEditorView(
+        character,
+        banner,
+        affirmative,
+        affirmativeText,
+        negative,
+        negativeText);
+}
+```
+
+### 最容易踩的坑
+
+**以为它只是个 view，可以随时 new 一个显示出来。** 它是 `CharacterCreationStageViewBase` 的子类，**被角色创建框架按阶段推进**，而框架是靠类上的 `[CharacterCreationStageView(typeof(...))]` 特性发现它的。后果：手动 new 出来的那一份**不属于任何阶段流程**——`PreviousStage()`（`:42`）、`NextStage()`（`:48`）、`GetVirtualStageCount()`（`:68`）这些都由框架在正确的时机调用，你自己再调一次就会**把阶段计数推进两次**，玩家返回上一步时看到错位的界面。
+
+第二个坑是不配“取消”那一路。`OnFinalize`（`:80`）负责收尾，而它依赖取消委托。后果：传 null 或空实现时，**退出角色创建后资源不释放**——按正常的阶段收尾路径走完看起来一切正常，泄漏却已经发生。
+
+第三个坑是便捷构造的隐含假设。`:21` 那个重载把角色固定为 `CharacterObject.PlayerCharacter`、旗帜固定为 `Clan.PlayerClan.Banner`。后果：如果你想在角色创建**预览一个非玩家角色**的旗帜却用了便捷构造，**画面上编辑的是玩家氏族自己的旗帜**——没有报错，只是改错了对象。
+
 ## 跨版本提示
 
 - **12 条 public/protected 声明（类 + 两个构造函数 + 8 个 override + `GetLayers` / `Tick` / `GoToIndex` / `LoadEscapeMenuMovie` / `ReleaseEscapeMenuMovie` / `OnFinalize`）在 1.4.6 / 1.4.7 / 1.5.3 上与 1.3.0 逐字相同。** 自动比对里出现的唯一「差异」是两条构造函数签名在更高版本被拆成了多行（`: this(...)` 与 `: base(...)` 各自独占一行），签名本身一字未改。1.3.15 与 1.4.5 是残缺树（无 `SandBox.GauntletUI/CharacterCreation/`）。

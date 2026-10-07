@@ -140,6 +140,42 @@ public class SlowAdvanceVisualOrder : AdvanceVisualOrder
 - **它属于 `ViewModelCollection` 程序集的 View 侧，不是任务逻辑。** 在 `TaleWorlds.MountAndBlade`（任务逻辑程序集）里引不到它。
 - **命名空间极深**：`TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual.Default.Orders.MovementOrders`。8 个 `using` 才凑得齐官方 [DefaultVisualOrderProvider](../DefaultVisualOrderProvider) 那份引用列表。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class AdvanceVisualOrder : VisualOrder`（`TaleWorlds.MountAndBlade.View/TaleWorlds/MountAndBlade/ViewModelCollection/Order/Visual/Default/Orders/MovementOrders/AdvanceVisualOrder.cs:7`）。**没有无参构造**，实例化必须给图标 id；官方在 `DefaultVisualOrderProvider` 的默认布局与 legacy 布局里各 `new` 一次，都传 `"order_movement_advance"`。它不是全局单例——命令表里每格各有一个实例，你要拿就从自己的 `VisualOrderProvider` 里按格子取，而不是去全局找。
+
+### 典型用法
+
+下面「真实示例」两段都是在**读**这个命令（读名字、查编队高亮）。真正**下发**它走的是 `ExecuteOrder`，而它自己会在两种下法之间二选一：
+
+```csharp
+public static void IssueAdvance(OrderController controller, VisualOrderExecutionParameters parameters)
+{
+    AdvanceVisualOrder order = new AdvanceVisualOrder("order_movement_advance");
+
+    // IsTargeted() 恒返回 true：它声明这一格要先选目标，UI 排布与指令优先级都按这个来
+    if (!order.IsTargeted())
+    {
+        return;
+    }
+
+    // ExecuteOrder 自己分派：parameters.Formation 非空走 OrderController.SetOrderWithFormation
+    // （OrderController.cs:1061），否则走 SetOrder（OrderController.cs:255）
+    order.ExecuteOrder(controller, parameters);
+
+    // 两个 SetOrder 都是 void，没有成功/失败返回值：下发之后无从判断对方是否接受了
+    MBDebug.Print("[MyMod] advance 已下发，结果不可读回");
+}
+```
+
+与上面「真实示例」的差别：那两段都是把实例当**只读查询器**用（`GetName`、OnGetFormationHasOrder），调用方都是 UI；这里是把同一个实例当**写入通道**用，调用方是 AI/脚本，且必须知道结果不可读回——所以要自己打日志。
+
+### 最容易踩的坑
+
+**基类 `VisualOrder` 与参数类型 `VisualOrderExecutionParameters` 不在 1.3.0 托管源码树里。** 上面的签名都是从本文件的 `override` 声明里读出来的，字面正确；但基类还有哪些成员、这些 override 之外的调用时机如何，只能从同目录的其他 8 个 `*VisualOrder` 派生类反推。写代码前先确认基类契约。
+
 ## 跨版本提示
 
 `AdvanceVisualOrder` 的 43 行内容在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 里逐字一致，`{=A38xbjqm}Engage` 这个本地化 key 也一直用着（稳定 key 不保证稳定文案——改 key 会导致你的硬编码比较失效）。

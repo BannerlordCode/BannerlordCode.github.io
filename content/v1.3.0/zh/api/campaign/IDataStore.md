@@ -151,6 +151,77 @@ public class LoyaltyLedgerBehavior : CampaignBehaviorBase
 - **`IsSaving` 与 `IsLoading` 不构成第三态。** 没有「两者都 false」的合法时刻（`IsLoading` 是 `!IsSaving`）。不要写 `if (!IsSaving && !IsLoading)` 这种分支。
 - **别在 `SyncData` 里做重活。** 它在存档时对每个行为各调一次、读档时再调一次，一次都在加载/保存的关键路径上。`AgingCampaignBehavior` 的两行字典搬运就是本类型的性能标尺。
 
+## 怎么用
+
+### 怎么拿到它
+
+**它不由你 new。** `IDataStore` 是接口，你拿到的永远是引擎传进 `SyncData` 的那个参数。路径是：
+
+```
+Campaign 存档/读档
+  -> CampaignBehaviorDataStore.SaveBehaviorData / LoadBehaviorData
+     -> campaignBehavior.SyncData(dataStore)
+        -> 你在这里拿到 IDataStore
+```
+
+落点有两处，都在 `TaleWorlds.CampaignSystem/CampaignBehaviorDataStore.cs`：`:22` 用 `new CampaignBehaviorDataStore.BehaviorSaveData(true)` 造保存用的 store，`:44` 从 `_behaviorDict` 取回读档用的那个。唯一的实现类是 `internal class BehaviorSaveData : IDataStore`（`CampaignBehaviorDataStore.cs:86`），构造函数收一个 `bool isSaving`（`:89`）。
+
+因为实现是 `internal`，**mod 无法自己实现 `IDataStore`，也无法 new 它**。你能做的全部事情就是在 `SyncData` 里用它的三个成员。
+
+### 典型用法
+
+一个键对应一个值，存取共用同一段代码：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+public class MyTollBehavior : CampaignBehaviorBase
+{
+    private int _tollsPaid;
+    private string _lastTown;
+
+    public MyTollBehavior() : base("my_toll_behavior")
+    {
+    }
+
+    public override void RegisterEvents()
+    {
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        // key 与 T 在存档和读档之间必须完全一致。
+        dataStore.SyncData("tolls_paid", ref this._tollsPaid);
+        dataStore.SyncData("last_town", ref this._lastTown);
+    }
+}
+```
+
+### 最容易踩的坑
+
+**在同一次 `SyncData` 调用里对同一个 `key` 调两次 `SyncData`。存盘时直接抛 `ArgumentException`，而且是在写存档的那一刻才抛。**
+
+看实现就明白为什么：
+
+```csharp
+TaleWorlds.CampaignSystem/CampaignBehaviorDataStore.cs:95    public bool SyncData<T>(string key, ref T data)
+TaleWorlds.CampaignSystem/CampaignBehaviorDataStore.cs:97        if (this.IsSaving)
+TaleWorlds.CampaignSystem/CampaignBehaviorDataStore.cs:99            this._records.Add(key, data);
+```
+
+`_records` 是 `Dictionary`，而 `Dictionary.Add` 遇到重复键抛 `ArgumentException`——**它不会像索引器那样覆盖**。于是：
+
+```
+dataStore.SyncData("tolls_paid", ref this._tollsPaid);   // 第一次，正常
+dataStore.SyncData("tolls_paid", ref this._tollsPaid);   // 第二次，抛异常
+```
+
+后果有两个，都不好查。第一，**异常发生在存盘流程中而不是你的逻辑里**，栈顶是 `SaveBehaviorData`（`CampaignBehaviorDataStore.cs:23` 调 `SyncData`），报错信息里只有一句 "An item with the same key has already been added"，**不告诉你是哪个行为、哪个键**。第二，你写的第二份值根本没写进去——如果第二次调用本来是想覆盖同一个概念，值就停留在第一次写的那份。
+
+容易踩的场景是「想在存档里同时存总量和增量」时顺手复用了同一个 key，或者把常量写成了两个字面量相同但一个是拼接结果的字符串。
+
+读档方向不会抛重复键的异常，但它有另一个坑：`:103` 的 `TryGetValue` 取出旧对象后，`:105` 直接 `data = (T)obj;`。**如果旧存档里这个键存的是另一种 `T`，这里抛 `InvalidCastException`**；键不存在则返回 `false`、你的字段保持原值——所以读档"没生效"和"类型变了"是两种完全不同的表现，先看返回的 `bool` 再决定查哪里。
+
 ## 跨版本提示
 
 `IDataStore` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵源码树里**逐字节一致**：都是 16 行、都只声明 `SyncData<T>` / `IsSaving` / `IsLoading` 三个成员。跨 1.3 → 1.5 三个大版本零变化，这是 mod 存档代码里最不需要担心的契约。

@@ -190,6 +190,78 @@ public class MyModMapScreen : MapScreen
 - **`IsInBattleSimulation` 会影响一大票地图交互。** `MapScreen.cs:1211` 那个巨型 `if` 里它是八个否定条件之一——战斗模拟期间所有地图操作（右键菜单、军团界面、婚姻提议弹窗、地图事件、百科界面）都被禁用。**`OnBattleSimulationStarted` 一置 true 就把整张地图锁住**，`:1873-1878` 的 `OnBattleSimulationEnded` 才解锁。
 - **本类在 1.4.6 及之后仍然存在且仍然是空壳**，所以这不是一个被淘汰的历史遗留。但它也没有任何可扩展的公开面——**想改战斗模拟界面，唯一杠杆是 `CreateSimulationScoreboardDatasource` 这个 `protected virtual`（换成自己的 `SPScoreboardVM` 派生），而不是往这个空壳类里加成员。**
 
+## 怎么用
+
+### 怎么拿到它
+
+这个文件的全部内容就是一行声明：
+
+```csharp
+// SandBox.View/Map/BattleSimulationMapView.cs:6
+public class BattleSimulationMapView : MapView
+{
+}
+```
+
+**它没有任何成员**——没有字段、没有属性、没有覆写方法。它存在的唯一理由是**给引擎一个稳定的类型名**，真正的实现类在别处。
+
+拿到实例要走完整这条链，每一环都有确切位置：
+
+```
+MapScreen.AddMapView<BattleSimulationMapView>(datasource)          SandBox.View/Map/MapScreen.cs:1860
+  ├─ 约束 where T : MapView, new()                                  MapScreen.cs:475
+  ├─ 已存在则直接返回旧实例，不新建                                  MapScreen.cs:478-482
+  ├─ SandBoxViewCreator.CreateMapView<T>(parameters)                MapScreen.cs:484
+  │    ├─ 按 [OverrideView] 特性查 _actualViewTypes 登记表            SandBoxViewCreator.cs:136
+  │    └─ Activator.CreateInstance(实际类型, parameters)             SandBoxViewCreator.cs:148
+  └─ 回填 MapScreen / MapState，再 Add + CreateLayout()              MapScreen.cs:485-489
+```
+
+登记表是启动时扫特性建的：`[OverrideView(typeof(BattleSimulationMapView))]` 挂在 UI 实现类上（`SandBox.GauntletUI/Map/GauntletMapBattleSimulationView.cs:13`），扫描点在 `SandBox.View/SandBoxViewCreator.cs:49`。
+
+### 典型用法
+
+`BattleSimulationMapView` 本身不用写。要加自己的视图，**成对**地写两个类：
+
+```csharp
+using SandBox.View.Map;
+
+// 1) 稳定的类型名类：必须有无参构造函数，因为 AddMapView<T> 的约束是 new()。
+public class MyOverlayMapView : MapView
+{
+    public MyOverlayMapView()
+    {
+    }
+}
+```
+
+```csharp
+using SandBox.View.Map;
+using TaleWorlds.CampaignSystem.ViewModelCollection.Map;
+
+// 2) 真正的实现类：构造函数签名要和 AddMapView<T> 传入的实参对上。
+//    MapScreen.cs:1860 传的是 CreateSimulationScoreboardDatasource(...)，
+//    官方实现对应的形参是 SPScoreboardVM（GauntletMapBattleSimulationView.cs:17）。
+[OverrideView(typeof(MyOverlayMapView))]
+public class GauntletMyOverlayMapView : MapView
+{
+    private readonly SPScoreboardVM _dataSource;
+
+    public GauntletMyOverlayMapView(SPScoreboardVM dataSource)
+    {
+        this._dataSource = dataSource;
+    }
+}
+```
+
+### 最容易踩的坑
+
+**给 `MapView` 派生的那个「类型名类」加带参构造函数。** `AddMapView<T>` 的约束是 `where T : MapView, new()`（`MapScreen.cs:475`），**`new()` 意味着编译器隐式生成的无参构造必须存在**。后果：你写 `MyOverlayMapView(object datasource)` 之后，`AddMapView<MyOverlayMapView>(...)` **根本编译不过**（CS0310），而不是运行期才炸。
+
+第二个坑是以为实参绑定到你传的那个类型。`parameters` 最终进的是 `Activator.CreateInstance(实际类型, parameters)`（`SandBoxViewCreator.cs:148`），而 `实际类型` 是从 `_actualViewTypes` 登记表里按 `[OverrideView]` 查出来的**实现类**。后果：如果你的 UI 实现类没有写 `[OverrideView]`，登记表里没有这条记录，`Activator` 就会退回到你传入的 `BattleSimulationMapView`——**那个空类被真的 new 出来，什么都不画**，运行时没有任何报错。
+
+第三个坑是重复添加。`MapScreen.cs:478-482` 在类型已存在时只 `Debug.Print` 一行然后返回旧实例，**不会抛异常也不会覆盖**。后果是你以为「重新初始化了一遍视图」，实际拿到的是上一次的旧对象，新数据永远不显示。
+
 ## 跨版本提示
 
 `BattleSimulationMapView.cs` 在 `bannerlord-1.3.0` / `1.4.6` / `1.4.7` / `1.5.3` 四棵树里**逐字节一致**：都是 8 行、都是 `public class BattleSimulationMapView : MapView {}`、都是零成员。**跨 1.3 → 1.5 三个大版本，这个文件一个字节都没变。**

@@ -160,6 +160,73 @@ private void OnCallToWarEnded(Kingdom callingKingdom, Kingdom calledKingdom, Kin
 - **类名里的 `Accept` 是「已被接受」。** 这是协议成立之后的**事后通知**。发邀请的是 `ProposeCallToWarOfferMapNotification`（另一个类型，见 [ProposeCallToWarOfferMapNotification](../ProposeCallToWarOfferMapNotification)）。**搞错这两个会导致在错误的时机弹提示。**
 - **`setter` 全部私有。** 三个属性都是 `get; private set;`，外部改不了，只能通过构造器。
 
+## 怎么用
+
+### 怎么拿到它
+
+**它不是被"获取"的，是被"发出去"的。** 没有工厂，没有注册表；你只能 `new`，然后交给 `Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(...)`。构造函数有两个，声明在 `TaleWorlds.CampaignSystem/MapNotificationTypes/AcceptCallToWarOfferMapNotification.cs:84`（三参数版，收 `(Kingdom offeringKingdom, Kingdom kingdomToCallToWarAgainst, TextObject descriptionText)`）和 `:92`（单参数版，收 `TextObject description`，那是存档系统用的）。
+
+**官方生产者是外交行为。** `IAllianceCampaignBehavior.OnCallToWarAgreementProposedToPlayerKingdom` 的实现里，`TaleWorlds.CampaignSystem/CampaignBehaviors/AllianceCampaignBehavior.cs:128` 是全树唯一一处 `new AcceptCallToWarOfferMapNotification(...)`，前面先在 `:125` 拼好描述文案、`:126` 与 `:127` 填两个 `{...}` 变量。
+
+### 典型用法
+
+自己发一条，并且立刻验证它是否还活着：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.MapNotificationTypes;
+using TaleWorlds.Localization;
+
+public static class CallToWarNotice
+{
+    public static void Post(Kingdom offeringKingdom, Kingdom targetKingdom)
+    {
+        TextObject body = new TextObject("{=*}A call to war has arrived from the {KINGDOM_NAME}.", null);
+        body.SetTextVariable("KINGDOM_NAME", offeringKingdom.Name);
+
+        // 一定要用三参数版：只有它会设置 TriggerTime。
+        var notice = new AcceptCallToWarOfferMapNotification(offeringKingdom, targetKingdom, body);
+
+        // IsValid() 只判时间，发之前自己确认一次。
+        if (!notice.IsValid())
+        {
+            return;
+        }
+
+        Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(notice);
+    }
+
+    public static bool StillOnTheMap(Kingdom offeringKingdom)
+    {
+        // 唯一能问"还有没有"的入口；命中后自己再判 IsValid()。
+        return Campaign.Current.CampaignInformationManager.InformationDataExists<AcceptCallToWarOfferMapNotification>(
+            n => n.OfferingKingdom == offeringKingdom);
+    }
+}
+```
+
+签名核对：`NewMapNoticeAdded(InformationData)`；`InformationDataExists<T>(Func<T, bool> predicate) where T : InformationData`（`TaleWorlds.CampaignSystem/CampaignInformationManager.cs:92`）—— **一个泛型方法，不要写成非泛型形式**。`TitleText`（`:65`）与 `SoundEventPath`（`:75`）都是无参只读属性。
+
+### 最容易踩的坑
+
+**等这条通知出现，结果在正常的多氏族王国里永远等不到。**
+
+看 `AllianceCampaignBehavior.cs:121` 那个方法的分岔：`AllianceCampaignBehavior.cs:123` 判的是 `if (Clan.PlayerClan.Kingdom.Clans.Count == 1)`。
+
+```
+:123  Clans.Count == 1  ->  :128  发地图通知，然后 :129 return
+:131  其它情况          ->  :140  new AcceptCallToWarAgreementDecision(...)
+                             :141  Clan.PlayerClan.Kingdom.AddDecision(..., true)
+```
+
+也就是说**这条地图通知只属于"玩家王国只有一个氏族"这一条支线**。王国有两个以上氏族时，同一个盟友的参战号召走的是另一条路——直接变成一个王国决议（`AcceptCallToWarAgreementDecision`），根本不会有 `AcceptCallToWarOfferMapNotification`。所以：
+
+- 你的 mod 用 `InformationDataExists<AcceptCallToWarOfferMapNotification>` 监听邀请，在任何常规战役里**恒为 false**，因为压根没发过这种通知；
+- 反过来，玩家抱怨"看到了邀请通知但点不动"，多半是他处在单氏族支路上——那条路只发通知，不发决议，两者是互斥的；
+- 想在两种情况下都拦住，正确做法是同时监听 `AcceptCallToWarOfferMapNotification` 与 `AcceptCallToWarAgreementDecision` 两条路径，而不是指望一条通知覆盖两种流程。
+
+排查时先打印 `Clan.PlayerClan.Kingdom.Clans.Count`，不要先去改监听逻辑。
+
 ## 跨版本提示
 
 `AcceptCallToWarOfferMapNotification` 的 public 表面在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里**完全一致**：3 个 `[SaveableProperty]` 属性（编号 1/2/3）、2 个构造器、2 个 `public override`（`TitleText` / `SoundEventPath`）、1 个 `public override bool IsValid()`。0 新增 / 0 移除 / 0 签名变化。

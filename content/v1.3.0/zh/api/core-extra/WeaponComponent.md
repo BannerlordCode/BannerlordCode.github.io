@@ -193,6 +193,36 @@ public static ItemObject BuildTwoUsageItem(CraftingTemplate template, ItemModifi
 - **`ItemObject.Name` 的 setter 是 `private`。** 外部代码没有修改物品显示名的正规途径，名字只能由 `Deserialize` 填。`WeaponComponentData` 的构造函数接受 `ItemObject item`，但不会替你写名字。
 - **`GetItemType()` 只看主武器。** 一把有备用用法的武器报出的类型可能与某条备用用法不匹配。要按用法判断请遍历 `Weapons`。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Core/WeaponComponent.cs:10`，声明是 `public class WeaponComponent : ItemComponent`。**它不是一个你可以自由构造的独立对象 —— 它是某个 `ItemObject` 的组件。**
+
+引擎自己 new 它的地方是 `TaleWorlds.Core/ItemObject.cs:572` 的 `this.ItemComponent = new WeaponComponent(this);`（另一处在 `ItemObject.cs:789`：`itemComponent = (this.ItemComponent ?? new WeaponComponent(this));`）。所以正确的拿法是**从物品上取组件，而不是自己造一个**：
+
+```csharp
+WeaponComponent wc = someWeaponItem.ItemComponent as WeaponComponent;
+```
+
+`ItemObject.ItemComponent`（`ItemObject.cs:32`）的声明是 `public ItemComponent ItemComponent { get; private set; }` —— **静态类型是基类 `ItemComponent`，所以必须 `as` 或 `is` 转一次**，直接赋给 `WeaponComponent` 变量编译不过。
+
+组件本身三个关键成员：`Weapons`（`WeaponComponent.cs:26`，返回 `MBReadOnlyList<WeaponComponentData>`）、`PrimaryWeapon`（36）、`AddWeapon(WeaponComponentData, ItemModifierGroup)`（45）。
+
+**一段可直接跑的三行安全读取**（关键是先判空再加武器）：
+
+```csharp
+WeaponComponent wc = item.ItemComponent as WeaponComponent;
+if (wc != null && wc.Weapons.Count > 0)
+{
+    Debug.Print("primary = " + wc.PrimaryWeapon.WeaponClass, 0);
+}
+```
+
+**`AddWeapon` 有两个参数，不是一个。** 方法体（`WeaponComponent.cs:45`）只有两句：`base.ItemModifierGroup = itemModifierGroup;` 然后 `this._weaponList.Add(weaponComponentData);`。所以**它同时改写了组件的 `ItemModifierGroup`** —— 传不同的 modifier group 连续调两次，前一次的 group 会被后一次覆盖。
+
+**`GetCopy()` 返回的是空组件。** `WeaponComponent.cs:54` 的实现是 `return new WeaponComponent(base.Item);` —— 只带物品引用，**不复制 `_weaponList`**。所以复制出来的组件读 `PrimaryWeapon` 依然会抛。
+
+**最常见的坑：`PrimaryWeapon` 不判空。** getter 的方法体就是 `return this._weaponList[0];`（`WeaponComponent.cs:40`），`GetItemType()` 同理（`WeaponComponent.cs:66`）。`new WeaponComponent(item)` 之后、`AddWeapon` 之前，读这两个都会炸。这条已在「风险与边界」首条展开。
+
 ## 跨版本提示
 
 `WeaponComponent.cs` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵源码树里**public 成员集合完全一致**：始终是 `Weapons`、`PrimaryWeapon`、`AddWeapon`、`GetItemType`、`GetCopy`、`Deserialize`、`WeaponComponent(ItemObject)` 七个，没有任何增删。字节数 2773（1.3.0 / 1.4.6 / 1.4.7 / 1.5.3）与 2784（1.3.15）之间的差异同样只是 `: base(...)` 换行的排版差别，不改变任何签名。

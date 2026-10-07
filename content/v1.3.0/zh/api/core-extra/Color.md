@@ -155,6 +155,32 @@ Color currentColor = Color.Lerp(startColor, endColor, fadeAmount);
 - **与 [Vec3](../Vec3) 的互转都丢 alpha。** `ToVec3()` 无 alpha 概念（`Vec3` 的 `w` 是默认 `-1f` 的独立槽位，语义完全不同）；`FromVector3(Vec3)` 固定 alpha = 1f。**要保留透明度就别经过 `Vec3`。**
 - **不实现任何接口。** 没有 `IEquatable<Color>`，和实现了 `IEquatable<Vec2i>` 的整数版本不同。泛型约束到接口的用法在这里不成立。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Library/Color.cs:8`，值类型，唯一构造函数 `Color(float red, float green, float blue, float alpha = 1f)`（`Color.cs:11`）—— **只有这一个构造，没有无参构造**。四个分量是 **public 字段**（`Color.cs:278/281/284/287` 的 `Red` / `Green` / `Blue` / `Alpha`），不是属性，所以可以直接 `color.Red = 0.5f`。
+
+三条真实入口：
+
+- **从 `uint` 进来**（最常用）。`Color.FromUint(uint)`（`Color.cs:140`）把 32 位拆成 ARGB 四个字节再各自 `* 0.003921569f` 归一到 0..1。引擎的地图与视觉层几乎全走这条：`SandBox.View/Map/MapSiege/MapSiegePOIVM.cs:90` 写的是 `Color.FromUint((mapFaction != null) ? mapFaction.Color : 0U)`。
+- **从字符串进来**：`ConvertStringToColor(string)`（`Color.cs:207`）与反向的 `UIntToColorString(uint)`（`Color.cs:248`）。
+- **自己造**：`new Color(r, g, b)`，alpha 默认 1f。
+
+**一段可直接跑的三行取色与插值**：
+
+```csharp
+Color factionColor = Color.FromUint(mapFaction.Color);
+Color faded = Color.Lerp(factionColor, Color.White, 0.25f);
+Debug.Print(faded.ToString(), 0);
+```
+
+`Lerp`（`Color.cs:221`）是逐分量线性插值，**四个分量（含 alpha）一起算**，方法体没有 clamp —— `ratio` 传大于 1 会真的外插出目标之外。
+
+`ToString()`（`Color.cs:231`）不是调试输出，它生成的是给 XML / 配置用的 `#RRGGBBAA` 八位十六进制串：四个分量各 `* 255f` 转 `byte` 再 `ToString("X2")`。这就是它能被 `Equipment.CalculateEquipmentCode()` 之类逻辑直接吃下的原因。
+
+**双向转换会丢精度。** `FromUint` 是「字节 ÷ 255」，`ToUnsignedInteger()` 是反向乘回，两者都不是无损的往返 —— 中间经过浮点。所以不要用 `color.ToUnsignedInteger()` 生成的数去和原始的 `mapFaction.Color` 比相等，那可能差 1。
+
+**最常见的坑：`GetHashCode()` 直接返回 `base.GetHashCode()`。** 方法体就一句（`Color.cs:92`），这是**基于对象身份**的哈希，不是基于值的。对结构体来说这是明确的错误用法 —— 两个相等的 `Color` 放进 `Dictionary` 会变成两个独立的键。**绝对不要把 `Color` 作为 `Dictionary` / `HashSet` 的键。** 这条已在「风险与边界」首条展开。
+
 ## 跨版本提示
 
 `Color.cs` 在 1.3.0 是 8121 字节，1.3.15 起到 1.5.3 都是 **8143 字节**，差 22 字节**全部来自反编译输出的局部变量重命名**：`float red/green/blue/alpha` 被改成 `num/num2/num3/num4`，`Color b` 被改成 `Color color`，`string s/s2/s3/s4` 被改成 `string text/text2/text3/text4`。我把两版的 `public` 行抽出来排序做 `diff`，**输出为空**——public 成员集合跨 1.3 → 1.5 三个大版本逐条等价。

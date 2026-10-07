@@ -200,6 +200,75 @@ if (Hero.MainHero.IsPrisoner)
 - **`RegisterEvents` 用 `AddNonSerializedListener`。** 四个监听器都不参与存档，读档后由 `InitializeQuestOnGameLoad` 重建——**但它只重建了对话，事件监听器由 QuestBase 基类自己重新注册**。
 - **`HideoutBattleEndState` 虽是 public 嵌套枚举，但状态字段是 private。** 外部代码拿不到「当前处于哪个状态」，只能通过 `MobileParty` 状态或藏处en's `IsInfested` 间接推断。
 
+## 怎么用
+
+### 怎么拿到它
+
+声明在 `StoryMode/Quests/FirstPhase/ArzagosBannerPieceQuest.cs:22`，继承 `StoryModeQuestBase`。**唯一构造点**在故事模式自己的行为里：
+
+```csharp
+// StoryMode/GameComponents/CampaignBehaviors/FirstPhaseCampaignBehavior.cs:84
+new ArzagosBannerPieceQuest(antiImperialMentor, this.FindSuitableHideout(antiImperialMentor)).StartQuest();
+```
+
+注意 `.StartQuest()` 是**紧跟在构造后面的链式调用**——构造本身不启动任务。构造函数签名（`:55`）：
+
+```csharp
+public ArzagosBannerPieceQuest(Hero questGiver, Settlement hideout)
+    : base("arzagos_banner_piece_quest", questGiver,
+           StoryModeManager.Current.MainStoryLine.FirstPhase.FirstPhaseEndTime)
+```
+
+三个参数分别是：**给予者**、**藏身处**、以及基类要用的**任务 id 字面量**与**截止时间**（截止时间来自 `FirstPhase.FirstPhaseEndTime`，不是任务自己算的）。
+
+### 典型用法
+
+自己发一个同族任务：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Settlements;
+
+public static void StartMyPieceQuest(Hero questGiver, Settlement hideout)
+{
+    if (questGiver == null || hideout == null)
+    {
+        return;
+    }
+
+    // 构造 + StartQuest 分开写也可以；官方写成链式只是紧凑。
+    MyPieceQuest quest = new MyPieceQuest(questGiver, hideout);
+    quest.StartQuest();
+}
+```
+
+读一个任务当前可观察的状态：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Quests;
+
+public static bool IsStillRunning(QuestBase quest)
+{
+    // IsRemainingTimeHidden 只在 :46 被覆写为 true，说明这个任务的时间条
+    // 不显示 —— 它不是「任务没在跑」的判据。
+    if (quest == null)
+    {
+        return false;
+    }
+
+    return !quest.IsCompleted;
+}
+```
+
+### 最容易踩的坑
+
+**只 `new` 不调 `StartQuest()`。** 构造函数（`:55`）只把参数交给基类，官方调用点（`FirstPhaseCampaignBehavior.cs:84`）**明确在后面接了 `.StartQuest()`**。后果：任务对象存在但从未进入活动任务系统——**玩家看不到任务、不会触发 `OnTick`、也无法通过 `Campaign.Current.QuestManager` 检索到**，整个任务等于不存在，而且不会有任何报错。
+
+第二个坑是 `base(...)` 里那个 `FirstPhaseEndTime`。它在**构造那一刻**就去读 `StoryModeManager.Current.MainStoryLine.FirstPhase`（`:55`）。后果：如果在故事模式主线尚未建立时构造，**`MainStoryLine` 或 `FirstPhase` 为 null**，空引用发生在构造期；即使不为 null，截止时间也是**当时快照的值**，之后主线时间变了也不会跟着更新。
+
+第三个坑是以为任务标题可以随便改。`Title`（`:36`）是 override 属性，它读的是任务 id 对应的本地化条目，而 id 在基类构造里硬编码为 `"arzagos_banner_piece_quest"`。**id 写错就是取不到标题**，而这与「翻译缺失」的表现一样（空字符串或 key 本身），两者很难区分。
+
 ## 跨版本提示
 
 - **8 条 public/protected 声明（类 + 构造函数 + `Title` + `IsRemainingTimeHidden` + 4 个 override）在 1.4.6 / 1.4.7 / 1.5.3 上与 1.3.0 完全一致。** 自动比对里唯一出现的「差异」只是构造函数那一行在更高版本被拆成了多行（`: this(...)` 单独一行），签名本身逐字相同。1.3.15 与 1.4.5 是残缺树，没有 `StoryMode/Quests/FirstPhase/` 目录。

@@ -139,6 +139,78 @@ _bannerEditorView.OnDeactivate();   // 释放 3D 场景（这一步不会自动�
 - **`_agentVisuals` 数组长度硬编码为 2，`_agentVisuals[num]` 的下标是 `(index + 1) % 2`。** 双缓冲写死成两个槽位，**不能靠继承扩展成三个**——`% 2` 与 `new AgentVisuals[2]` 是同一个常数在两个地方。
 - **`SandBox.GauntletUI` 是模块工程。** 裸战役（无 `SandBox` 模块）里这个类不存在。
 
+## 怎么用
+
+### 怎么拿到它
+
+声明在 `SandBox.GauntletUI/BannerEditor/BannerEditorView.cs:26`。它**不由角色创建系统直接 new**，而是被两种调用方之一构造：
+
+| 调用方 | 行号 | 传参个数 |
+| --- | --- | --- |
+| 旗帜编辑独立界面 | `SandBox.GauntletUI/BannerEditor/GauntletBannerEditorScreen.cs:23` | 11 个（含 `character` 与 `banner`） |
+| 角色创建里嵌编辑器 | `SandBox.GauntletUI/CharacterCreation/CharacterCreationBannerEditorView.cs:28` | 11 个，**全部为委托** |
+
+构造函数在 `:69`，签名里除了 `BasicCharacterObject character` 和 `Banner banner` 之外，**其余九个全是委托**（`ControlCharacterCreationStage` / `ControlCharacterCreationStageReturnInt` / `ControlCharacterCreationStageWithInt`）。后面七个有默认值，**前两个委托没有**——即「确定」「取消」两路必须提供。
+
+构造函数会建立两个图层：`GauntletLayer`（`:31`）和 `SceneLayer`（`:66`）。
+
+### 典型用法
+
+只读数据、驱动外部刷新，最小写法：
+
+```csharp
+using SandBox.GauntletUI.BannerEditor;
+
+public static void RefreshBanner(BannerEditorView view)
+{
+    if (view == null)
+    {
+        return;
+    }
+
+    // Banner 与 DataSource 都是 public get / private set（:41 与 :36），
+    // 在构造函数里确定之后不再变化。
+    view.GoToIndex(0);
+
+    // 每帧推进动画状态；不调用它，编辑器不会动。
+    view.OnTick(0.016f);
+}
+```
+
+带完整委托的构造（照抄官方形状）：
+
+```csharp
+using SandBox.GauntletUI.BannerEditor;
+using TaleWorlds.Core;
+using TaleWorlds.Localization;
+
+public static BannerEditorView CreateEditor(
+    BasicCharacterObject character,
+    Banner banner,
+    ControlCharacterCreationStage onAffirmative,
+    ControlCharacterCreationStage onNegative)
+{
+    // 前两个 TextObject 是按钮文字，null 会让按钮没有标题。
+    return new BannerEditorView(
+        character,
+        banner,
+        onAffirmative,
+        new TextObject("{=MyMod_Done}Done", null),
+        onNegative,
+        new TextObject("{=MyMod_Cancel}Cancel", null));
+
+    // 后五个委托省略，走默认值。
+}
+```
+
+### 最容易踩的坑
+
+**把后五个委托当成必须传的。** 它们带默认值，但**前两个委托没有默认值**（`:69`），少传编译不过；反过来多传一个不存在的参数位置，编译也过不了。后果不在编译期，而在运行期：如果你把“取消”那一路接成了空委托（`null`），退出时 `Exit(bool isCancel)`（`:197`）会去调用它，**编辑器关不掉、界面卡在这一步**——因为传 null 只是让回调消失，不会报错。
+
+第二个坑是忘记 `OnTick`。`OnTick(float dt)`（`:126`）是每帧回调，它推进的是 3D 场景里的旗帜预览。后果：编辑器打开了、鼠标能点、但**预览永远停在初始姿势**，看起来像卡死。
+
+第三个坑是生命周期。`OnFinalize`（`:182`）和 `OnDeactivate`（`:537`）负责收尾图层。**提前丢掉引用而不调它们，两个图层不会被释放**——后果是反复开关编辑器后累积出多个未释放的 `GauntletLayer` / `SceneLayer`。
+
 ## 跨版本提示
 
 `BannerEditorView.cs` 在 `bannerlord-1.3.0` / `1.4.6` / `1.4.7` / `1.5.3` 四棵树里**公开面一字未改**：逐行比对 public/protected 声明，1.3.0 与 1.5.3 的差集**为空**。九个公开成员（4 个属性 + 5 个方法）签名完全一致，构造函数那 12 个参数的名字与顺序也没变。

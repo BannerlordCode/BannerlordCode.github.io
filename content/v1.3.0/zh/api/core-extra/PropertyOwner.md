@@ -214,6 +214,30 @@ public static void ResetDeveloperTraits()
 - **不是 `MBObjectBase`。** 本类自身不会被对象管理器注册，是被 `CharacterObject` / `HeroDeveloper` / `Campaign` 直接 `new` 出来的普通对象。`new PropertyOwner<SkillObject>()` 在任何时候都合法。
 - **键的比较是引用相等。** 同一 `StringId` 的 `SkillObject` 从对象管理器取两次拿到的是同一个实例，所以能命中；但如果你自己 `new` 了一个同名的属性对象，它和注册表里那个**是两个键**，会存成两条。这个类**没有**按 `StringId` 做值语义的兜底。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Core/PropertyOwner.cs:11`，声明是 `public class PropertyOwner<T> : IReadOnlyPropertyOwner<T> where T : MBObjectBase`。
+
+**你几乎不需要 new 它 —— 引擎已经到处都准备好了。** 全树持有 `PropertyOwner<T>` 的地方包括：`TaleWorlds.CampaignSystem/Hero.cs:1916` 的 `this._heroSkills = new PropertyOwner<SkillObject>();` 与 1917 的 `this._heroTraits = new PropertyOwner<TraitObject>();`，以及 `TaleWorlds.CampaignSystem/Campaign.cs:2440` 的 `public PropertyOwner<PropertyObject> PlayerTraitDeveloper { get; private set; }`（在 `Campaign.cs:2124` 处构造）。
+
+所以实际写法是**从持有方读**：加技能用 `hero.HeroSkills` 系的 `SetPropertyValue`，加玩家特性用 `Campaign.Current.PlayerTraitDeveloper.SetPropertyValue(...)`。四个核心成员是 `SetPropertyValue(T, int)`（`PropertyOwner.cs:32`）、`GetPropertyValue(T)`（46）、`HasProperty(T)`（62）、`GetProperties()`（74，返回 `MBList<T>`）。
+
+**一段可直接跑的三行加减**：
+
+```csharp
+Campaign.Current.PlayerTraitDeveloper.SetPropertyValue(myTrait, 2);
+Debug.Print("points = " + Campaign.Current.PlayerTraitDeveloper.GetPropertyValue(myTrait), 0);
+Campaign.Current.PlayerTraitDeveloper.SetPropertyValue(myTrait, 0);
+```
+
+第三行是**删除**，不是「清零」。`SetPropertyValue` 的方法体（`PropertyOwner.cs:32`）先 `if (value != 0) { this._attributes[attribute] = value; return; }`，只有值为 0 才走 `if (this.HasProperty(attribute)) { this._attributes.Remove(attribute); }`。所以加点和减点是同一个方法，写法对称。
+
+**拷贝构造是真拷贝。** `PropertyOwner(PropertyOwner<T> propertyOwner)`（`PropertyOwner.cs:26`）的方法体是 `new Dictionary<T, int>(propertyOwner._attributes)` —— **深拷贝**，两个实例此后互不影响。要做「存档快照」就用它；要做「共享同一份数据」它反而是错的。
+
+**零值不是唯一需要小心的事：字典的键是 `T` 本身。** `T` 的约束是 `MBObjectBase`，所以按值语义比较会退化成引用比较 —— 两个内容相同但不是同一个注册实例的 `SkillObject` 会被当作两个不同的键。实践中从 `MBObjectManager` 取出来的都是同一实例，但如果你自己 `new` 过就务必警惕。
+
+**最常见的坑：写 0 是删除，不是写零。** 副作用是这个键从字典里摘掉：`GetProperties()` 少一项、序列化输出少一行，以及基于键存在性做判断的逻辑行为翻转。这条已在「风险与边界」首条展开。
+
 ## 跨版本提示
 
 `PropertyOwner.cs` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵源码树里**public 成员集合完全一致**——两个构造器加六个方法（`SetPropertyValue` / `GetPropertyValue` / `HasProperty` / `ClearAllProperty` / `GetProperties` / `Deserialize`），八个，没有增删。

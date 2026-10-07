@@ -156,6 +156,71 @@ public static bool IsInsideStrikeBand(Agent agent)
 - **枚举是 `Agent` 的嵌套类型，写全名要带外层。** 代码里必须写 `Agent.ActionCodeType` 而不是 `ActionCodeType`；`using TaleWorlds.MountAndBlade;` 只解决命名空间，不解决嵌套。
 - **取值只能在有动作通道的 Agent 上做。** `GetCurrentActionType(0)` 与 `(1)` 语义不同：官方读法几乎全是通道 1（玩家/攻击通道），通道 0 用于下马之类。读错通道会拿到看似合理但恒定的旧值。
 
+## 怎么用
+
+### 怎么拿到它
+
+**你永远不会 `new` 它**——它是 `Agent` 的嵌套枚举（`bannerlord-1.3.0/TaleWorlds.MountAndBlade/Agent.cs:6546`，紧跟着上一行的 `[EngineStruct("Action_code_type", true, "actt", false)]` 引擎结构标记），值类型，由 [Agent](../../mission/Agent) 当作成员读出来。托管树里只有两条入口：
+
+- **实例侧（问「这个人现在在干嘛」）**：`Agent.GetCurrentActionType(int channelNo)`（`Agent.cs:2885`），函数体只有一句 `return (Agent.ActionCodeType)MBAPI.IMBAgent.GetCurrentActionType(this.GetPtr(), channelNo);`（`Agent.cs:2887`）。它需要你手上有一个活着的 `Agent`——通常是 `Mission.Current.Agents` 遍历出来的，或 `Mission.Current.MainAgent`。
+- **静态侧（问「这个动作索引属于哪一码」）**：`MBAnimation.GetActionType(ActionIndexCache actionIndex)`（`MBAnimation.cs:44`），只吃一个 `ActionIndexCache`，并对 `act_none` 特判返回 `Other`（`MBAnimation.cs:46-50`）。
+
+除此之外没有任何工厂、静态属性或注册点：`GetCurrentActionType` 每次调用都直接向 native 要一个整数，没有缓存，也没有生命周期回调会主动把它推给你。
+
+### 典型用法
+
+把动作码翻成玩法需要的「打击档位」——注意这里显式做了范围校验，并且 `switch` 带 `default`，这样 native 报出表外值时不会静默走进「都不是」那条分支：
+
+```csharp
+using TaleWorlds.MountAndBlade;
+
+public enum StrikeLevel
+{
+    None,
+    Light,
+    Medium,
+    Heavy,
+    KnockBack
+}
+
+public static StrikeLevel GetStrikeLevel(Agent agent)
+{
+    // 通道 1 是官方通用读法：CustomBattleAutoBlockModel.cs:20 与
+    // MissionGamepadEffectsView.cs:247 都走这条通道
+    Agent.ActionCodeType code = agent.GetCurrentActionType(1);
+
+    // GetCurrentActionType 不做范围检查（Agent.cs:2887 是裸强转），
+    // 所以「不认识」和「不在攻击」必须先分开
+    if (!Enum.IsDefined(typeof(Agent.ActionCodeType), code))
+    {
+        return StrikeLevel.None;
+    }
+
+    switch (code)
+    {
+        case Agent.ActionCodeType.StrikeLight:
+            return StrikeLevel.Light;
+        case Agent.ActionCodeType.StrikeMedium:
+            return StrikeLevel.Medium;
+        case Agent.ActionCodeType.StrikeHeavy:
+            return StrikeLevel.Heavy;
+        case Agent.ActionCodeType.StrikeKnockBack:
+            return StrikeLevel.KnockBack;
+        default:
+            // Count = 53 不是有效码，和全部非打击码都落到这里
+            return StrikeLevel.None;
+    }
+}
+```
+
+### 最容易踩的坑
+
+**`GetCurrentActionType` 是裸强转，不带任何范围校验。** 函数体（`Agent.cs:2887`）直接把 `MBAPI.IMBAgent.GetCurrentActionType` 返回的 `int` 转型成枚举，托管层既不查 `Enum.IsDefined` 也不查 `Count`。后果是：一旦 native 报出一个不在 0..53 里的整数，你**拿不到异常、也拿不到警告**——那一整串 `code == Agent.ActionCodeType.XXX` 全部返回 false，代码安静地走进「都不是攻击」那条分支。对 AI 脚本来说症状是「单位明明在挥刀，我的格挡/闪避永远不触发」，而且日志里一行线索都没有。所以上面那段先 `Enum.IsDefined`、再带 `default:` 的写法不是洁癖，是唯一能让你在出问题时看见症状的写法。
+
+这不是我给的自创规则形状，引擎自己就是这么选的：官方 `BattleObserverMissionLogic.OnAgentRemoved`（`BattleObserverMissionLogic.cs:52`）里的 `switch (agentState)` 同样带 `default:`（`BattleObserverMissionLogic.cs:68`），而那一行的方法体是 `throw new ArgumentOutOfRangeException("agentState", agentState, null);`（`BattleObserverMissionLogic.cs:69`）。**面对同一个问题，官方选的是「遇到不认识的值就抛出来」，不是「静默走 default」**——这正是你那段裸强转丢掉的信息。
+
+
+
 ## 跨版本提示
 
 `ActionCodeType` 的 0..53 那一段在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 五个源码树里保持同一顺序与同一数值，`StrikeBegin = 48` 这类显式赋值也逐字一致。变化集中在这张表的**尾部追加**——新版本会在 `MountStrike` 之后继续加动作码，`Count` 随之变大，而那些区间标记的显式值必须跟着调整。

@@ -119,6 +119,48 @@ public override void OnVillageLooted(Village village)
 - **不存档。** 它是枚举而非 `MBObjectBase`，值是 `int`。日志条目自身有 `[SaveableField]` 存的是它。
 - **嵌套在日志条目里被持有。** 两条日志的构造函数参数类型就是它，所以它没有别的宿主类型——想找它就搜 `CharacterInsultedLogEntry` 与 `PlayerReputationChangesLogEntry` 的第四/第三个参数。
 
+## 怎么用
+
+### 怎么拿到它
+
+它是一个纯枚举，**没有入口**——你不是"拿到"它，而是把它当参数传进两个日志条目的构造函数。全树读它的公开面就两处：
+
+- `CharacterInsultedLogEntry(Hero insultee, Hero insulter, CharacterObject overWhat, ActionNotes note)`，`TaleWorlds.CampaignSystem/LogEntries/CharacterInsultedLogEntry.cs:89`，四个参数
+- `PlayerReputationChangesLogEntry(TraitObject trait, Hero referenceHero, ActionNotes note)`，`TaleWorlds.CampaignSystem/LogEntries/PlayerReputationChangesLogEntry.cs:53`，三个参数
+
+真正把它变成玩家可见文字的，是这两个条目被 `LogEntry.AddLogEntry` 收下之后：`AddLogEntry(LogEntry logEntry)` 在 `TaleWorlds.CampaignSystem/LogEntries/LogEntry.cs:165`，`AddLogEntry(LogEntry logEntry, CampaignTime gameTime)` 在 `:176`。**不调 `AddLogEntry`，构造出来的条目永远不会出现在编年史里。**
+
+### 典型用法
+
+记一条「因为某件事而冒犯」的记录：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.LogEntries;
+
+// insultee = 被侮辱的人，insulter = 施加侮辱的人。
+// overWhat 是 CharacterObject（可以是道具/马/物品），传 null 表示无具体缘由。
+LogEntry.AddLogEntry(
+    new CharacterInsultedLogEntry(victim, offender, overWhat, ActionNotes.DishonestBusinessQuarrel));
+
+// 或者走声望那条路：先改声望，再挂一个 ActionNotes 上下文。
+var reputationLog = new PlayerReputationChangesLogEntry(
+    DefaultTraits.Honor, referenceHero, ActionNotes.VengeanceQuarrel);
+LogEntry.AddLogEntry(reputationLog, CampaignTime.Now);
+```
+
+签名核对：上面两个构造函数参数个数分别是 4 和 3，**不要按 `Hero` 的个数猜**。`AddLogEntry` 的第二个重载要显式给 `CampaignTime`；只给 `LogEntry` 的那个重载让引擎用当前时间。
+
+### 最容易踩的坑
+
+**挑了一个「听起来最贴切」的成员值，然后发现玩家看到的是一句泛泛的默认文案。**
+
+`ActionNotes` 有 28 个成员，但真正有专属文案的是少数几个。最容易踩的是 `NoQuarrel`——它的名字读起来像「这次没有争吵」，于是你会把它当成"通用/无特殊原因"的选择传进去。它的隐式值是 1，不是 0；而 0 是 `DefaultNote`。**`DefaultNote` 才是没有专属分支的那个默认档。**
+
+后果：条目照常写入、照常显示在编年史里，`LogEntry` 也不报错，只是那句描述落到了 `switch` 的 `default` 分支。玩家看到的是一条语义不明的记录，而你以为已经标注了原因。这类问题的隐蔽之处在于它**不会崩、不会警告**，只能靠回头核对文案来发现。
+
+同一个坑对 `ActionNotes` 里那些看起来"专用"但其实没有专属分支的成员一样成立：`VengeanceQuarrel` 在 `PlayerReputationChangesLogEntry` 里没有专门分支，`NoQuarrel` 也没有。**先确认你要落的那条路径（侮辱条目还是声望条目）上有没有这个值的 `case`，再决定传哪个**——同一个值在两条路径上的支持度不一样。
+
 ## 跨版本提示
 
 `ActionNotes` 的 28 个成员在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里**完全一致**：同样的名字、同样的顺序、同样的隐式 0…27，无新增、无重排、无删除。

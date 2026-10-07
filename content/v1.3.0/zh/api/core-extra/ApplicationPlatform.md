@@ -96,6 +96,41 @@ public static void DescribeRuntime()
 - **`CurrentEngine` 几乎恒定。** 全树只有 [BasePath](../BasePath) 读它，且只判 `== EngineType.UnrealEngine`。想靠它区分 Standalone 与 RGL 是没用的，源码里没人这么写。
 - **无事件、无失效通知。** 改了也不会有回调告诉你，只能自己再读一次。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Library/ApplicationPlatform.cs:6`，`public static class`，零字段、零实例成员，只有一组静态属性和一组静态方法。它没有工厂也没有 ctor，mod 侧**只有一个用法：读**。
+
+写入路径存在但对 mod 关闭：`Initialize(EngineType, Platform, Runtime)`（`ApplicationPlatform.cs:24`）是唯一能改值的方法，而三个属性的 setter 全是 `private`（`ApplicationPlatform.cs:11` / `ApplicationPlatform.cs:16` / `ApplicationPlatform.cs:21`）。我 grep 过 1.3.0 整棵托管树，**`Initialize` 没有任何托管调用点** —— 它由原生引导代码在托管程序集起来之前调用。所以 `ApplicationPlatform.CurrentPlatform = ...` 编译不过，mod 也不要试图绕过。
+
+值的来源因此是「读别人的判断」而不是「问自己」：`BasePath.cs:16`–`:28` 用 `CurrentEngine` / `CurrentPlatform` 决定根目录形态，`ManagedDllFolder.cs:18` / `:22` 用它选程序集目录，`AssemblyLoader.cs:32` / `:89` 同时看 `CurrentRuntimeLibrary` 与 `IsPlatformWindows()`，`NewsManager.cs:55` 拿它做发布过滤。
+
+**一段可直接跑的平台族判定**（重点是把「是不是 Windows」和「有没有 Steam 门面」拆开）：
+
+```csharp
+public static string DescribePlatformFamily()
+{
+    // ApplicationPlatform.cs:38：控制台只有 Orbis / Durango 两个成员。
+    if (ApplicationPlatform.IsPlatformConsole())
+    {
+        return "console";
+    }
+
+    // ApplicationPlatform.cs:32：Windows 判定含 WindowsEpic / WindowsNoPlatform /
+    // WindowsSteam / WindowsGOG / GDKDesktop 五个成员，比下面这个「门面」判定宽得多。
+    if (!ApplicationPlatform.IsPlatformWindows())
+    {
+        return "desktop-other";
+    }
+
+    return ApplicationPlatform.CurrentPlatform == Platform.WindowsSteam
+        || ApplicationPlatform.CurrentPlatform == Platform.WindowsEpic
+        ? "windows-storefront"
+        : "windows-without-storefront";
+}
+```
+
+**最常见的坑：拿 `IsPlatformWindows()` 当「有 Steam 成就」的前置条件。** 这两个判定不是包含关系——`IsPlatformWindows()` 覆盖五个成员，而成就分支只认 `Platform.WindowsSteam`（[Module](../../core/Module) 第 946 行就是这么写的）。于是在 `GDKDesktop` 与 `WindowsGOG` 上，前者为 true、后者为 false。后果是 mod 在 GOG 版本的存档里会走进一条「我以为有成就服务」的分支，然后去加载一个 `TaleWorlds.PlatformService.Steam.dll`——`AssemblyLoader.LoadFrom` 抛的是文件找不到，跟你的成就判断毫无关系，排查起来会绕很远。凡是要加载门面程序集或读成就数据，一律显式比 `Platform.WindowsSteam`，不要用 `IsPlatformWindows()` 兜。
+
 ## 跨版本提示
 
 `ApplicationPlatform.cs` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里**逐字节一致**：都是 1976 字节、43 行、3 个静态属性 + 1 个 `Initialize` + 2 个判定方法的公开表面。跨 1.3 → 1.5 零变化。

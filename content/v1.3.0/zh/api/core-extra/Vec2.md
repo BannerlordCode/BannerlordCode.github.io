@@ -173,6 +173,30 @@ public class MyPatrolMovement
 
 包括那个重复实现——`TransformToParentUnitFLeftHanded` 与 `TransformToLocalUnitFLeftHanded` 的重复在 1.5.3 里同样存在。**所以这个坑不会因为升级而修好，也不会变得更深。** 真正的升级风险不在 `Vec2` 自身，而在依赖它签名的外部代码：`Mission.GetNearbyAgents(Vec2 center, float radius, MBList<Agent> agents)` 这类签名如果哪版改了坐标语义，是 mod 编译期才发现的事。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Library/Vec2.cs:8`，是一个纯值类型，没有工厂、没有注册表、不继承 `MBObjectBase` —— 所以**唯一拿到它的方式是从别的对象上「读」出来，或自己 `new`**。三个真实入口：
+
+- `Agent.Position` 是 `Vec3`，降到平面用属性 `AsVec2`（`Vec3.cs:525`）。`Agent.cs:174` 的 `Position` 是个只读属性，getter 直接调 `AgentHelper.GetAgentPosition(this.PositionPointer)` —— 每次访问都是一次进原生层的取样，不是缓存字段。
+- `Settlement.Position`（`Settlements/Settlement.cs:562`）与 `MobileParty.Position`（`Party/MobileParty.cs:3061`）返回的**都不是 `Vec2`**，而是 `CampaignVec2`。要拿 `Vec2` 必须显式调 `CampaignVec2.ToVec2()`（`CampaignVec2.cs:149`，方法体只有一句 `return this._position;`）。这一跳省不掉，写 `party.Position.DistanceSquared(x)` 会直接编译不过。
+- 自己造：`new Vec2(x, y)`，或从角度用 `Vec2.FromRotation(rad)`。
+
+**一段可直接跑的三行调用链**（一次性拿到附近单位，第三个参数是复用缓冲区）：
+
+```csharp
+Vec2 me = Agent.Main.Position.AsVec2;
+MBList<Agent> near = Mission.Current.GetNearbyAgents(me, 30f, new MBList<Agent>());
+Debug.Print("nearby = " + near.Count, 0);
+```
+
+第二个参数是**半径本身**，不是平方。`Mission.cs:6614` 的形参名就是 `radius`，方法体两行：`agents.Clear()` 之后转给私有的 `GetNearbyAgentsAux`（`Mission.cs:1211`），后者再调 `MBAPI.IMBMission.GetNearbyAgentsAux` 进原生层 —— 平方优化发生在原生侧，托管侧不做。
+
+由此得出一条必须记住的性质：**传入的 `MBList` 会被 `Clear()` 后就地填充，同一个实例可以反复复用**，所以别每帧 `new` 一个出来当参数，也不要指望传进去的旧内容还在。想要「追加」而不是「重填」，就走 `Mission.GetNearbyAgentsAux` 的公开重载或自己遍历 `Mission.Current.Agents`。
+
+**三个顺序不能颠倒的操作步骤。** 判「零向量」用 `IsNonZero()` 而不是比较 `== 0`，因为 `==` 是精确浮点相等；**归一化用 `Normalized()` 而不是 `Normalize()`**，后者会就地改结构体本身，把它写进字段就是静默改状态；**比较用 `NearlyEquals` 而不是 `==`**，后者没有 epsilon。
+
+**最常见的坑：角度约定。** `Vec2` 零度是 +Y、正角顺时针，`FromRotation(MathF.PI)` 给的是 `(0, -1)`（朝南）而不是数学惯例的 `(-1, 0)`（朝西）。从别的库抄旋转公式过来一定要先转坐标：`mathAngle = MBMath.PI / 2f - engineAngle`。这一条已在上节「风险与边界」首条展开，此处只强调它在**写调用代码时**的具体后果 —— 你按标准数学直觉写出的朝向偏移 90°，而且不抛异常，只表现为 UI 或 AI 转向偏了一个直角。
+
 ## 依赖关系
 
 - 三维对应：[Vec3](../Vec3) 与本类无继承关系但方法名大量重合；降维是 `Vec3.AsVec2` 属性，升维是本类的 `ToVec3(float z = 0f)`

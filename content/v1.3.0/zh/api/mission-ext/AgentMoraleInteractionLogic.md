@@ -167,6 +167,56 @@ public class GentleMoraleModel : MBGameModel<BattleMoraleModel>
 - **命名空间是 `TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic`**，不是 `TaleWorlds.MountAndBlade`。这是一层 `Source` 子命名空间，需要 `using TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic;`。
 - **私有辅助方法全部是 `private`。** 拆掉选人逻辑自己重写是唯一出路。
 
+## 怎么用
+
+### 怎么拿到它
+
+**你 `new` 它，然后用 `Mission.AddMissionBehavior` 挂上去。** 构造器是 `public AgentMoraleInteractionLogic()`（`bannerlord-1.3.0/TaleWorlds.MountAndBlade/Source/Missions/Handlers/Logic/AgentMoraleInteractionLogic.cs:12`），函数体只有两句 `this._nearbyAgentsCache = new MBList<Agent>(); this._nearbyAllyAgentsCache = new MBList<Agent>();`（`:14-15`）——这两个字段是 `readonly` 且**没有字段初始化器**，所以构造器是它们唯一的赋初值途径。
+
+挂载入口是 `Mission.AddMissionBehavior(MissionBehavior missionBehavior)`（`Mission.cs:4306`），它做四件事：把 behavior 塞进 `MissionBehaviors`（`:4308`）、**回填 `missionBehavior.Mission = this`**（`:4309`）、按 `BehaviorType` 分流（`:4310-4321`）、最后调 `OnCreated()`（`:4322`）。本类的 `BehaviorType` 来自基类 `MissionLogic` 的 `override`（`MissionLogic.cs:13-19`），恒为 `MissionBehaviorType.Logic`，所以它会落进 `this.MissionLogics` 那个分支（`Mission.cs:4320`）。
+
+官方挂载点是 `BannerlordMissions.cs:159` 与 `:232`（以及 `SandBoxMissions.cs` 里的六处）——都是把 `new AgentMoraleInteractionLogic()` 直接塞进一个 `MissionBehavior[]` 数组，让整个任务一起创建。**你不需要自己写 `MissionBehavior` 外壳**：直接 `AddMissionBehavior` 一个新实例即可。
+
+### 典型用法
+
+挂上它，然后把「谁会被这次伤亡影响到」复现一份出来。这一步不是多余的：两个目标集合 `_agentsToReceiveMoraleLoss`（`:197`）与 `_agentsToReceiveMoraleGain`（`:194`）都是 `private HashSet<Agent>`，引擎不会回传给你，而 `OnAgentRemoved` 是在派发遍历里**同步结算完**的。
+
+```csharp
+using TaleWorlds.Library;
+using TaleWorlds.MountAndBlade;
+
+public static class MoraleAudienceProbe
+{
+    public static void Attach(Mission mission)
+    {
+        // 构造器必须走，因为两个 MBList 缓存字段是 readonly 且无初始化器
+        mission.AddMissionBehavior(new
+            TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic.AgentMoraleInteractionLogic());
+    }
+
+    public static MBList<Agent> RecomputeAffected(Agent affectedAgent, out int cap)
+    {
+        MBList<Agent> nearby = new MBList<Agent>();
+
+        // Mission.GetNearbyAgents(Vec2, float, MBList<Agent>)（Mission.cs:6614）
+        // 注意它第一件事就是把你传进去的 list Clear 掉（Mission.cs:6616），所以别复用共享缓存
+        Mission.Current.GetNearbyAgents(
+            affectedAgent.GetWorldPosition().AsVec2,
+            4f,
+            nearby);
+
+        // 4f 与 10 都是源码里的字面量：常量 MoraleEffectRadius / MaxNumAgentsToLoseMorale
+        // 被声明了但源码从未引用它们，所以没有公开旋钮可以改这两个数
+        cap = 10;
+        return nearby;
+    }
+}
+```
+
+### 最容易踩的坑
+
+**`OnAgentRemoved` 与 `OnAgentFleeing` 的派发顺序是相反的，所以「结算后处理」在这两条路径上不会看到同一份数据。** `Mission.OnAgentRemoved` 用正向 `foreach` 遍历 `MissionBehaviors` 派发（`Mission.cs:2582-2585`），而 `Mission.OnAgentFleeing` 是 `for (int i = this.MissionBehaviors.Count - 1; i >= 0; i--)` 倒序派发（`Mission.cs:6746-6749`）。后果：你用 `AddMissionBehavior` 把自己的 behavior 挂在这串的**末尾**（最常见的写法），那么在伤亡回调里它排在 `AgentMoraleInteractionLogic` **之后**跑、看到的是已被改过的士气；在恐慌回调里它却排在**之前**跑、看到的是改之前的士气。同一个 `PostProcessMorale()` 方法写在两条回调里，会得到不对称的结果，而你在读代码时完全看不出这个不对称。**唯一可靠的读法是在挂载顺序上做选择——把它放在末尾以保证伤亡路径上读到结算后的值，并明确接受恐慌路径读不到。**
+
 ## 跨版本提示
 
 `AgentMoraleInteractionLogic` 的 211 行在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 里一致：两个 public 覆写、三个 private 方法、六个 `private const`、七个 `readonly` 字段，全部没变。

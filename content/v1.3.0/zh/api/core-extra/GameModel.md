@@ -133,6 +133,39 @@ public class MyLootTableHost : GameModelsManager
 - **取到 null 不抛异常。** `GetGameModel<T>()` 扫不到就 `return default(T)`，即 `null`。对引用类型没异常，对值类型会得到 0 而后静默算错——如果你的 `T` 恰好是值类型派生（官方 144 个全是引用类型），这个失败模式会非常难查。
 - **两端倒序扫描是隐式契约。** `BasicGameStarter.GetModel<T>` 和 `GameModelsManager.GetGameModel<T>` 都是 `Count - 1` 递减。它们必须同向，否则「包装」的语义就反了。这不是文档承诺，是当前实现的性质。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Core/GameModel.cs:6` —— **全文 9 行，其中 5 行是空行与注释，类体 `{}` 里什么都没有**。声明是 `public abstract class GameModel`，零构造函数、零字段、零属性、零方法、零抽象成员。
+
+**所以「派生 `GameModel` 要实现什么」的答案是：什么都不用。** 它是 `abstract` 所以不能 `new`，但仅此而已。它唯一的作用是给引擎一个**可被按类型检索的标记基类**。
+
+你的实例只可能从这条链上来：
+
+- `GameModelsManager` 的构造函数 `protected GameModelsManager(IEnumerable<GameModel> inputComponents)`（`GameModelsManager.cs`）把它 `ToMBList<GameModel>()` 存起来。
+- 那个 `inputComponents` 来自 `Game.AddGameModelsManager<T>(IEnumerable<GameModel>)`（`Game.cs:86`），官方在 `Game.cs:475`（`this.BasicModels = this.AddGameModelsManager<BasicGameModels>(models);`）、`MBGameManager.cs:187`、`Campaign.cs:1906` 调用它。
+- 而 `models` 是 `IGameStarter` 上收集的那一串 —— **mod 追加模型的入口就是往 game starter 里加**。
+
+**一段可直接跑的三行**：
+
+```csharp
+public class MyLootTableModel : GameModel
+{
+    public int Roll(int tier) { return tier * 2; }
+}
+public class MyModels : GameModelsManager
+{
+    public MyLootTableModel LootTable { get; private set; }
+}
+```
+
+注意第一行：`class MyLootTableModel : GameModel` 的类体里那个 `Roll` 是**它自己声明的**，不是覆写基类的任何东西。`GameModel` 上没有成员可供 `override`，所以写 `override` 编译不过。
+
+- **一个必须知道的注册顺序事实。** `GameModelsManager.GetGameModel<T>()` 的循环是 `for (int i = this._gameModels.Count - 1; i >= 0; i--)` —— **倒序扫描，先命中后注册**。也就是说同类型注册两次时，**后加的那个赢**。这与 [EntitySystem](../EntitySystem) 的 `GetComponent` 正好相反（那个取 `list[0]`，先注册赢），从 model 体系转到 entity 体系时极易踩反。
+
+- **你的管理器必须恰好有一个 `IEnumerable<GameModel>` 构造。** `Game.cs:86` 的 `AddGameModelsManager<T>` 的方法体是 `Activator.CreateInstance(typeof(T), new object[] { inputComponents })` —— **反射调用，会跑你写的构造器**。所以你要么照官方那样写一个 `protected MyModels(IEnumerable<GameModel> inputComponents) : base(inputComponents)`，要么在构造体末尾自己把所需的 `GameModel` 从 `inputComponents` 里挑出来赋给属性；**写了无参构造它不会用**。
+
+**最常见的坑：零成员，零抽象成员。** 不要指望从 `GameModel` 身上读出任何行为契约 —— 行为契约在每个 `XxxModel` 抽象类里各自声明。这条已在「风险与边界」首条展开；就写法而言它的后果是：你以为要实现一组接口方法，结果写完直接编译通过、但引擎调的还是官方实现。
+
 ## 跨版本提示
 
 `GameModel.cs` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五个源码树里**逐字节一致**：都是 9 行、都只含 `public abstract class GameModel { }`、public/protected 成员数都是 **0**。跨 1.3 → 1.5 三个大版本零变化——这个标记基类的稳定性可以完全信任，你的 `MBGameModel<T>` 派生类不会因为游戏升级而编译不过。

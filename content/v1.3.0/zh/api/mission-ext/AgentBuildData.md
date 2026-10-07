@@ -226,6 +226,44 @@ public static bool WillRandomizeColors(BasicCharacterObject character)
 - **本类没有 `Dispose`、没有校验、没有任何行为。** 它是一次性参数包，`SpawnAgent` 之后就无用了。
 - **构造器里的默认值只有五行是显式写的。** 其余全是 `default`（0 / false / null）。**「不设置」与「设置为 0」在本类里不可区分**——除非那个字段有配套的 `*Overriden` 标志。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class AgentBuildData`（`TaleWorlds.MountAndBlade/AgentBuildData.cs:9`，无基类）。无参构造是 `private`，所以外部只能从三个公开构造器进：`AgentBuildData(AgentData)`（接管已有数据）、`AgentBuildData(IAgentOriginBase)`、`AgentBuildData(BasicCharacterObject)`（最常用）。它是一个**纯链式构造器**：所有 `Xxx(...)` 方法都返回 `this`，没有单独的 Apply 步骤；成品交给 `Mission.SpawnAgent(buildData, false)`。
+
+### 典型用法
+
+上面「真实示例」两段都是直接生成。批量生成时更稳的做法是**在进 `SpawnAgent` 之前先干跑一遍校验**，因为两个必需字段的失败方式完全不同——一个抛异常，另一个不抛：
+
+```csharp
+public static bool CanSpawn(AgentBuildData data)
+{
+    // SpawnAgent 的第一个守卫：AgentCharacter 为 null 直接抛
+    // MBNullParameterException，且消息里的参数名硬编码成 "npcCharacterObject"
+    if (data.AgentCharacter == null)
+    {
+        MBDebug.Print("[MyMod] AgentCharacter 为 null，SpawnAgent 会抛异常（消息里的 npcCharacterObject 是硬编码的，别当真）");
+        return false;
+    }
+
+    // 这一项不抛：SpawnAgent 会照样往下走，直到 CreateAgent 里才崩，更难查
+    if (data.AgentMonster == null)
+    {
+        MBDebug.Print("[MyMod] AgentMonster 为 null，会崩在 CreateAgent 内部");
+        return false;
+    }
+
+    return true;
+}
+```
+
+与上面「真实示例」的差别：那两段都是**造完就生成**的完整链路，出错就让它在 `SpawnAgent` 里炸；这里是把生成前的检查单独抽出来，让一批单位里缺字段的那一个在进 Mission 之前就被拦下并留下可读日志——因为这两种失败的报错质量差得非常远。
+
+### 最容易踩的坑
+
+**`AgentCharacter` 为 null 会抛 `MBNullParameterException`。** `SpawnAgent` 的第一件事就是 `if (agentCharacter == null) throw new MBNullParameterException("npcCharacterObject");`——注意**异常消息里的参数名是硬编码的 `npcCharacterObject`**，即使你传的是 `BasicCharacterObject`。排查时别被这个名字误导。
+
 ## 跨版本提示
 
 `AgentBuildData` 的 655 行在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 里的**成员集合一致**（三个 public 构造器、一个 private 无参构造、约 40 个 public 属性、约 40 个链式方法），所以**你的生成代码在 1.3 → 1.5 之间不会编译失败**。

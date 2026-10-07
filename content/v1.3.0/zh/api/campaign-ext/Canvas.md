@@ -177,6 +177,106 @@ public class MyCanvasHost : Widget
 - **整棵子树依赖 `EventManager.Context` 的全局资源。** 构造函数收的 `SpriteData` / `FontFactory` 都是宿主从 `EventManager.Context` 上摘的，不是自己加载的。**`FontFactory` 是从 context 上直接取的引用（不 new、不缓存、不释放），`Canvas` 也没有任何 `Dispose` / `Unload`。**
 - **`TaleWorlds.GauntletUI.Canvas` 这一整组在 1.4.6 起被删除**（见跨版本段）。**这是本批 14 个类型里第二个跨版本消失的类型**，而 `BattleSimulationResult` 只是数据契约、本类型是可直接使用的 UI 组件——**这个的消失影响更大。**
 
+## 怎么用
+
+### 怎么拿到它
+
+`Canvas` 是 Gauntlet UI 的即时模式（immediate-mode）绘制入口，声明在 `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/Canvas/Canvas.cs:9`。**它不自己 new 自己**，而是由 widget 持有一个：
+
+```csharp
+// TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/Canvas/CanvasWidget.cs:99
+this._canvas = new Canvas(base.EventManager.Context.SpriteData, base.EventManager.Context.FontFactory);
+this._canvas.LoadFrom(this.CanvasNode);      // :100
+```
+
+所以两个构造参数都来自 `CanvasWidget` 的 `EventManager.Context`——**你不能随便造 `SpriteData` / `FontFactory`**，它们属于当前 Gauntlet 上下文。
+
+四个属性/方法构成一条固定的绘制链，顺序不能乱：
+
+```
+Canvas(spriteData, fontFactory)      :12
+LoadFrom(XmlNode canvasNode)         :29   先把 _root 置 null，再建 Root
+Update(float scale)                  :60   → _root.Update(scale)
+DoMeasure(bool,bool,float,float)     :66   → _root.BeginMeasure(...)
+DoLayout()                           :72   → _root.DoLayout()
+DoRender(Vector2, TwoDimensionDrawContext)  :78   → _root.DoRender(...)
+```
+
+这四个方法**全部直接解引用 `this._root`**，没有任何 null 检查。
+
+### 典型用法
+
+在自定义 widget 里持有一块画布，并每帧跑完这四步：
+
+```csharp
+using System.Numerics;
+using System.Xml;
+using TaleWorlds.GauntletUI;
+using TaleWorlds.GauntletUI.Canvas;
+using TaleWorlds.Library;
+using TaleWorlds.TwoDimension;
+
+public class MyCanvasWidget : Widget
+{
+    private Canvas _canvas;
+
+    // 在 OnInitialized 里建，因为 EventManager.Context 那时才可用。
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        this._canvas = new Canvas(
+            this.EventManager.Context.SpriteData,
+            this.EventManager.Context.FontFactory);
+
+        // LoadFrom 的参数是 XmlNode，不是字符串或文件路径（Canvas.cs:29）。
+        if (this.CanvasNode != null)
+        {
+            this._canvas.LoadFrom(this.CanvasNode);
+        }
+    }
+
+    public override void DoMeasure(float widthMeasureSpec, float heightMeasureSpec)
+    {
+        // Canvas 自己的 DoMeasure 是四个参数（Canvas.cs:66）：
+        // fixedWidth / fixedHeight / width / height。
+        if (this._canvas?.Root == null)
+        {
+            return;
+        }
+
+        this._canvas.DoMeasure(false, false, widthMeasureSpec, heightMeasureSpec);
+
+        // Root 是只读属性（Canvas.cs:20），只能读。
+        this.Width = this._canvas.Root.Width;
+        this.Height = this._canvas.Root.Height;
+    }
+
+    protected override void OnRender(TwoDimensionContext twoDimensionContext, TwoDimensionDrawContext drawContext)
+    {
+        base.OnRender(twoDimensionContext, drawContext);
+
+        if (this._canvas == null)
+        {
+            return;
+        }
+
+        // 第一个参数是全局左上角坐标 —— 官方传的是 AreaRect.TopLeft
+        //（CanvasWidget.cs:110-111），不是任何 drawContext 上的常量。
+        Vector2 topLeft = this.AreaRect.TopLeft;
+        this._canvas.DoRender(topLeft, drawContext);
+    }
+}
+```
+
+### 最容易踩的坑
+
+**构造完之后再去改 `CanvasNode`，指望画面重建。** `CanvasWidget.UpdateCanvas`（`CanvasWidget.cs:97-101`）是先 `new` 再 `LoadFrom` 再把 `_requiresUpdate` 置 false；也就是说 **XML → Canvas 的转换只在 `UpdateCanvas` 里发生一次**。后果：你换掉了 `CanvasNode` 属性，但**新 XML 没有被重新 `LoadFrom`**，画面上还是旧的内容，而且因为属性 setter 走的是正常的属性变更通知，**不会抛异常、也不会有任何提示**。要么自己再调一次 `LoadFrom`，要么在换 XML 的同时重建整个 `Canvas`。
+
+第二个坑是往 `LoadFrom` 传 `null`。`LoadFrom`（`:29`）**第一句就是 `this._root = null;`**，然后只有在 `canvasNode != null` 时才重建。后果：`Root` 变成 null，而后面四个绘制方法全都直接解引用它——`Update`（`:60`）的 `this._root.Update(scale)`、`DoMeasure`（`:66`）、`DoLayout`（`:72`）、`DoRender`（`:78`）会**全部抛 `NullReferenceException`**。这不是「静默地不画」，是**下一帧就崩**，而且堆栈里只有 `_root`，看不出是哪个 XML 没传。
+
+第三个坑是 `Root` 是**只读属性**（`:20`，内部返回私有字段 `_root`）。它没有 setter，想换内容只能重新 `LoadFrom`，不能 `canvas.Root = something`。
+
 ## 跨版本提示
 
 **`TaleWorlds.GauntletUI.Canvas` 命名空间下的整组类型在 `bannerlord-1.4.6` / `1.4.7` / `1.5.3` 三棵树里完全不存在。** 逐项核查：

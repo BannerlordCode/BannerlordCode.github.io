@@ -161,6 +161,60 @@ public class ManagedActionButton
 - **`ManagedOptionsType.Language = 0` 这个巧合是整个 `IsAction` 逻辑的地基。** 若将来该枚举前面插入新成员，`IsAction()` 会静默失效——string 构造的实例不再被当成动作项。**这是本类最脆的跨版本假设。**
 - **它属于设置界面数据层，不属于任务逻辑。** 在 `TaleWorlds.MountAndBlade.Options` 命名空间，需要 `using TaleWorlds.MountAndBlade.Options;` 与 `using TaleWorlds.Engine.Options;`（`IOptionData` 在后者）。
 
+## 怎么用
+
+### 怎么拿到它
+
+**你 `new` 它**，因为它没有工厂、没有静态属性、也没有注册表。三个构造器都在 `bannerlord-1.3.0/TaleWorlds.MountAndBlade/Options/ActionOptionData.cs`：managed 版在 `:15`、native 版在 `:22`、string 版在 `:29`。三个都要求第二个参数是 `Action`，没有无参构造。
+
+整个 1.3.0 托管树里它只有一个生产点：`OptionsProvider.GetVideoGeneralOptions(bool, Action, Action, Action)`（`TaleWorlds.MountAndBlade/Options/OptionsProvider.cs:21`），三次 `new` 分别在 `:25`（string）、`:27` 与 `:28`（native）。但**那个方法是 `private static`**，你调不到它；它是被同一文件里公开的 `GetVideoOptionCategory(bool, Action, Action, Action)`（`OptionsProvider.cs:15`）调用的，而那 7 个公开的分类工厂（`OptionsProvider.cs:15`、`:55`、`:180`、`:192`、`:341`）每个都把选项硬编码在方法体的 `yield return` 里，**没有任何「追加一项」的入口**。
+
+所以你实际的入口是自己把 `ActionOptionData` 塞进 `OptionGroup`（`OptionGroup.cs:12`，签名 `OptionGroup(TextObject groupName, IEnumerable<IOptionData> options)`）再塞进 `OptionCategory`（`OptionCategory.cs:11`，签名 `OptionCategory(IEnumerable<IOptionData> baseOptions, IEnumerable<OptionGroup> groups)`）。
+
+### 典型用法
+
+自建一个分类，里面放一个自己的按钮。三个构造器里只用 string 那一个——它是唯一显式写了 `this._nativeType = NativeOptions.NativeOptionsType.None;` 的（`ActionOptionData.cs:29-33`），因此只有它 `IsAction()` 稳定为 `true`：
+
+```csharp
+using System;
+using System.Collections.Generic;
+using TaleWorlds.Engine.Options;
+using TaleWorlds.Localization;
+using TaleWorlds.MountAndBlade.Options;
+
+public static OptionCategory BuildModCategory(Action onOpenReadme)
+{
+    // 一个按钮 = 一条 ActionOptionData。第一个参数只是给界面分派用的字符串键，
+    // 引擎不拿它去查任何配置——所以它不需要在任何地方先注册
+    List<IOptionData> entries = new List<IOptionData>
+    {
+        new ActionOptionData("MyMod_Readme", onOpenReadme)
+    };
+
+    // TextObject(string value, Dictionary<string, object> attributes = null)（TextObject.cs:78）
+    List<OptionGroup> groups = new List<OptionGroup>
+    {
+        new OptionGroup(new TextObject("My mod"), entries)
+    };
+
+    // OptionCategory 只做两件事：把 BaseOptions 与 Groups 原样存成 readonly（OptionCategory.cs:13-14）
+    return new OptionCategory(entries, groups);
+}
+```
+
+回调从属性取，不额外订阅——`OnAction` 是 `public Action { get; private set; }`（`ActionOptionData.cs:12`），UI 点击时读到的就是你构造时传进去的那个委托：
+
+```csharp
+ActionOptionData button = new ActionOptionData("MyMod_ResetKeybinds", OnResetKeybinds);
+button.OnAction();   // 等价于用户点它；构造后 setter 是 private，换不掉
+```
+
+### 最容易踩的坑
+
+**照抄 `GetVideoGeneralOptions` 的 `yield return` 列表是加不进任何东西的。** 那是一个 `private static` 方法（`OptionsProvider.cs:21`），三个 `new ActionOptionData` 都写死在它的方法体里；`OptionsProvider` 上公开的那几个分类工厂全部是从零构造整份列表，没有任何扩展点。更要命的是，这 7 个公开工厂在 `bannerlord-1.3.0` 整个托管树里**一个调用点都搜不到**（`grep -rn "GetVideoOptionCategory\|OptionsProvider\." --include=*.cs .` 除了自身声明文件外 0 命中）——真正调用它们的代码不在这棵树里。后果是：你按官方形状写出来的 `yield return new ActionOptionData(...)` 既编译不过（方法私有），也不会被塞进任何已有分类。**唯一能落地的路径就是自己造 `OptionCategory` + `OptionGroup`**，像上面那样整份构造出来。
+
+
+
 ## 跨版本提示
 
 `ActionOptionData.cs` 的 99 行在 1.3.0 / 1.3.15 / 1.4.6 / 1.5.3 逐字一致，包括那个有缺陷的 managed 构造器。这意味着：**升级不会让你的代码编译失败，也不会自动修好这个 bug。**

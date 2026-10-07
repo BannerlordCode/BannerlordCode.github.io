@@ -363,6 +363,39 @@ public static float ReadUseRealisticBlocking(Agent agent)
 - **`AiShooterError`(38) 是常量。** 官方 `SetAiRelatedProperties` 直接写死 `0.008f`，不随 AI 等级变化——它是「远程 AI 散射误差」，硬编码意味着**所有难度的远程 AI 散射都完全一样**。想改只能覆写模型。
 - **`AgentStatCalculateModel` 有一批断言方法带 `[Conditional("_RGL_KEEP_ASSERTS")]`。** 这类方法在发布构建里被**整条编译掉**，调用点连参数求值都不会发生。跨程序集调它们时不要依赖返回值做逻辑分支。
 
+## 怎么用
+
+### 怎么拿到它
+
+`public class AgentDrivenProperties`（`TaleWorlds.MountAndBlade/AgentDrivenProperties.cs:8`）。它不由你 new——入口是 `Agent.AgentDrivenProperties` 这个 public 只读属性。构造器只做一件事：`this._statValues = new float[93];`，**93 格全是 0f，没有「默认值」概念**。写入的正路是覆写模型，绕过模型的旁路是 `SetStat`。
+
+### 典型用法
+
+上面「真实示例」两段分别是「覆写模型」和「单点 `SetStat`」。第三种是**全量导出**做调试或存档比对——它必须自己把边界写对，因为 `GetStat` 不做范围检查：
+
+```csharp
+public static void DumpAll(AgentDrivenProperties props, List<string> into)
+{
+    if (props == null)
+    {
+        return;
+    }
+    // 有效下标是 0..92：Count 是哨兵不是槽位，写 i <= Count 必然越界
+    for (int i = 0; i < (int)DrivenProperty.Count; i++)
+    {
+        DrivenProperty key = (DrivenProperty)i;
+        // 0 表示「还没被算过」，不表示「这一项为零」
+        into.Add(key.ToString() + " = " + props.GetStat(key).ToString("0.####"));
+    }
+}
+```
+
+与上面「真实示例」的差别：那两段都是**单点写**——要么改模型公式，要么 `SetStat` 打一个补丁；这里是**单点读的批量版**，一次把 93 格全取出来，代价是你要自己处理两件引擎替你处理过的事：哨兵边界，以及「0 = 未初始化」这个语义。
+
+### 最容易踩的坑
+
+**`DrivenProperty.Count = 93` 必然越界。** 数组长 93、有效下标 0..92。`GetStat(Count)` / `SetStat(Count, x)` 抛 `IndexOutOfRangeException`。任何 `for (int i = 0; i <= (int)DrivenProperty.Count; i++)` 都是错的。
+
 ## 跨版本提示
 
 `AgentDrivenProperties` 的 1436 行在 1.3.0 / 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 里的**数组长度与具名属性集合是本类最需要盯的两项**：

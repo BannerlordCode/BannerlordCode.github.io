@@ -267,6 +267,69 @@ public class MyNetwork : MissionNetwork
 - **`sealed` 不是风格问题。** 派生类会被扫描器直接跳过（`typeFromHandle.IsAssignableFrom(type)` 通过，但之后拿到的派生类型也没有那个特性 / 或者被 `flag` 挡掉），所以继承 `AddPeerComponent` 是无效的。
 - **命名空间不在 `TaleWorlds.*` 下。** `NetworkMessages.FromServer` 是 global-adjacent 的独立命名空间，`using TaleWorlds.MountAndBlade;` **不覆盖它**——本类的 `using` 列表里同时有 `TaleWorlds.MountAndBlade`（为了 `NetworkCommunicator` / `CompressionBasic`）和 `TaleWorlds.MountAndBlade.Network.Messages`（为了 `GameNetworkMessage`）。写 `using NetworkMessages.FromServer;` 时别忘了基类那个命名空间。
 
+## 怎么用
+
+### 怎么拿到它
+
+声明在 `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/AddPeerComponent.cs:9`，`:8` 是 `[DefineGameNetworkMessageType(GameNetworkMessageSendType.FromServer)]`。语义是：**服务端告诉客户端「某个 peer 新增了一个网络组件」**。
+
+| 角色 | 入口 | 说明 |
+| --- | --- | --- |
+| 发送方 | `NetworkCommunicator` 内部 | 有两处：`NetworkCommunicator.cs:290`（`BeginModuleEventAsServer` 分支，只发给目标 peer）和 `NetworkCommunicator.cs:294`（`BeginBroadcastModuleEvent` 分支，带 `ExcludeTargetPlayer`） |
+| 扩展方法 | `PeerExtensions` | `TaleWorlds.MountAndBlade/PeerExtensions.cs:79` 是第三个发送点 |
+| 接收方 | 框架用无参构造函数（`:29`）造实例，再 `OnRead()`（`:41`）填 `Peer` 与 `ComponentId` | 你只注册处理器 |
+
+两个属性都是 `private set`（`:14`、`:19`），只有两参构造函数（`:22`）能填。
+
+### 典型用法
+
+读取端的处理器签名拿到的就是这两个字段：
+
+```csharp
+using TaleWorlds.MountAndBlade;
+using TaleWorlds.MountAndBlade.NetworkMessages.FromServer;
+
+public static void OnPeerComponentAdded(AddPeerComponent message)
+{
+    if (message == null || message.Peer == null)
+    {
+        return;
+    }
+
+    // Peer 是 NetworkCommunicator，不是 NetworkPeer —— 见下面的坑。
+    uint componentId = message.ComponentId;
+    string userName = message.Peer.UserName;
+    int peerIndex = message.Peer.Index;
+
+    // ComponentId 对应 MissionNetwork 组件的 TypeId。
+}
+```
+
+发送端不要自己 new，除非你确实要绕过引擎的两种广播模式：
+
+```csharp
+using TaleWorlds.MountAndBlade;
+using TaleWorlds.MountAndBlade.NetworkMessages.FromServer;
+
+public static void AnnounceComponent(NetworkCommunicator peer, uint componentTypeId)
+{
+    GameNetwork.BeginBroadcastModuleEvent();
+    GameNetwork.WriteMessage(new AddPeerComponent(peer, componentTypeId));
+
+    // ExcludeTargetPlayer：目标 peer 自己已经知道这件事，不用再发一遍。
+    GameNetwork.EndBroadcastModuleEvent(
+        GameNetwork.EventBroadcastFlags.ExcludeTargetPlayer |
+        GameNetwork.EventBroadcastFlags.AddToMissionRecord,
+        peer);
+}
+```
+
+### 最容易踩的坑
+
+**把 `message.Peer` 当成 `NetworkPeer`。** 它的类型是 `NetworkCommunicator`（`:14`），不是 `NetworkPeer`。后果：用错类型时代码可能因为隐式转换或继承关系**仍然编译通过**，但你拿到的是服务端侧的通信器对象而不是客户端侧的 peer 表示；`Index`、`UserName` 这类属性在两端语义不同，**跨端读到的值可能不是你以为的那个**。
+
+第二个坑是 `OnGetLogFormat` 会解引用 `Peer`（`:56` 起，它拼的是 `this.Peer.UserName` 与 `this.Peer.Index`）。用无参构造函数（`:29`）造出来的实例 `Peer` 是 null，**一旦被日志系统格式化就抛空引用**。所以无参构造函数只给反序列化器用，不要在别处自己调用它。
+
 ## 跨版本提示
 
 - **9 条 public 声明（`sealed` 类 + 两个构造 + 两个属性 + 四个 protected override）在 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 上逐字相同**；1.4.5 是残缺树（无 `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/`）。`[DefineGameNetworkMessageType(GameNetworkMessageSendType.FromServer)]` 特性、`sealed`、两个构造函数、`OnWrite` 的两行序列化顺序都没有变。

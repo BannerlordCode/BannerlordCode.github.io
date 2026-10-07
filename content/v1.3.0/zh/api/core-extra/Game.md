@@ -278,6 +278,34 @@ public static void InspectGlobals()
 - **`Save` 的回调是异步的。** `onSaveCompleted` 不在调用栈内执行——不要指望 `Save` 返回时已经写盘。
 - **`DefaultMonster` 与 `MonsterMissionDataCreator` 是两条线。** 前者是怪物模板，后者是怪物任务的创建器，跨版本升级时要分别确认。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Core/Game.cs:15`，声明是 `public sealed class Game : IGameStateManagerOwner`。
+
+**它不能被 new。** 唯一构造函数是 `private Game(GameType gameType, GameManagerBase gameManager, MBObjectManager objectManager)`（`Game.cs:263`）—— **私有**。所以你唯一的入口是静态属性 `Game.Current`（`Game.cs:164`）。
+
+那个静态属性的 setter 是 **`internal`** 而不是 private，方法体是 `Game._current = value;` 加一次 `OnGameCreated?.Invoke()`。**mod 侧看不到 `internal`，所以从你的程序集里它就是只读的** —— 你能读 `Game.Current`，不能写。
+
+拿到之后，三个最常被用的服务都挂在它上面，且**都是 `{ get; private set; }`**（所以只读）：
+
+- `Game.ObjectManager`（`Game.cs:66`）：`MBObjectManager.Instance.GetObject<T>(id)` 全部走它。
+- `Game.GameStateManager`（`Game.cs:109`）。
+- 各类 model 经由它持有的 `GameModelsManager` 体系取。
+
+**一段可直接跑的三行安全访问**：
+
+```csharp
+Game g = Game.Current;
+if (g == null) { return; }
+ItemObject item = g.ObjectManager.GetObject<ItemObject>("item_test_sword");
+```
+
+**`Destroy()` 的方法体说明了销毁顺序。** `Game.cs:375` 里按序做了：置 `CurrentState = Destroying` → 遍历 `GameHandler` 调 `OnGameEnd()` → `GameManager.OnGameEnd(this)` → `GameType.OnDestroy()` → `ObjectManager.Destroy()` → 清 `EventManager` 并置 null → **`GameStateManager.Current = null`** → **`this.GameStateManager = null`** → **`Game.Current = null`** → 置 `CurrentState = Destroyed` → `MemoryCleanupGC(false)`。
+
+**所以「读时判空」这一格不是保守，是必需。** 三件事同时变 null：`Game.Current`、`Game.GameStateManager`、`Game.ObjectManager` 的内部状态。在异步回调、定时器或跨存档流程里持有的那个 `Game` 引用，会在 `Destroy` 之后变成一个所有成员都不可用的对象。
+
+**最常见的坑：`Game.Current` 为 null 就崩。** 它在游戏未启动、读档前、以及 `Destroy` 之后都是 `null`。**任何一行 `Game.Current.Something` 都是裸奔。** 这条已在「风险与边界」首条展开。
+
 ## 跨版本提示
 
 `Game.cs` 在五个源码树里**public 成员集合几乎不变**，字节数 23317（1.3.0）、23321（1.3.15）、23385（1.4.6 / 1.4.7）、23381（1.5.3），行数 657 / 655 / 656 / 656 / 656。

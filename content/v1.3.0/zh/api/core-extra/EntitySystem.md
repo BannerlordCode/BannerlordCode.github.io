@@ -204,6 +204,34 @@ public static void NotifyAllComponents()
 - **组件不是 `MBObjectBase`，不会被存档。** `SaveableCoreTypeDefiner.cs:28` 有 `base.AddClassDefinition(typeof(EntitySystem<>), 15, null);`，登记的是容器本身。组件对象的持久化得由你自己在 `CampaignBehaviorBase.SyncData` 里做。
 - **序列化版本号 15。** 存档系统认得 `EntitySystem<>` 这个封闭泛型。改动本类的字段布局可能影响旧档兼容性——但它的字段是两个私有 readonly 容器，实际风险低。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Core/EntitySystem.cs:9`，声明是 `public class EntitySystem<T> where T : class, IEntityComponent` —— **它不是泛型容器而是泛型基类**，而且约束要求 `T` 是**类**（`where T : class`）且实现 `IEntityComponent`。你只能**继承**它，不能写 `new EntitySystem<MyComponent>()` 当工具用。
+
+实例一般由持有方 `new`，官方两处：`TaleWorlds.CampaignSystem/Campaign.cs:764` 的 `this._campaignEntitySystem = new EntitySystem<CampaignEntityComponent>();`（`Campaign.cs:2127` 也有一次重建），以及 `SandBox.View/SandBoxViewVisualManager.cs:16` 的 `this._components = new EntitySystem<CampaignEntityVisualComponent>();`。
+
+拿组件的两个入口是 `GetComponent<TComponent>()`（`EntitySystem.cs:63`）和 `GetComponent(Type)`（`EntitySystem.cs:77`）；要全部同类则用 `GetComponents<TComponent>()`（`EntitySystem.cs:91`，返回 `List<TComponent>`）或无参 `GetComponents()`（`EntitySystem.cs:105`，返回 `MBList<T>`）。
+
+**你的组件要实现的是 `IEntityComponent` 的两个方法。** 接口在 `bannerlord-1.3.0/TaleWorlds.Core/IEntityComponent.cs` 只有 `void OnInitialize();` 和 `void OnFinalize();`。继承 `CampaignEntityComponent`（`TaleWorlds.CampaignSystem/CampaignEntityComponent.cs:7`，它自己就 `implements IEntityComponent`）时，这两个方法已经有默认实现，你只在需要时覆写。
+
+**一段可直接跑的注册与读取**：
+
+```csharp
+public class MyEntitySystem : EntitySystem<CampaignEntityComponent>
+{
+    public MyExtraComponent Extra { get; private set; }
+    public void Ensure() { if (this.Extra == null) this.Extra = this.AddComponent<MyExtraComponent>(); }
+}
+```
+
+`AddComponent<TComponent>()` 的泛型重载有 `new()` 约束，所以你的组件**必须有公开无参构造**，否则选泛型重载编译不过 —— 这种情况要改用 `AddComponent(Type)`（`EntitySystem.cs:40`），它内部是 `componentType.GetConstructor(Type.EmptyTypes).Invoke(new object[0])`，走的还是同一个无参构造。
+
+**注册是沿基类链逐层登记的。** `AddComponent(Type)` 的方法体里有一个 `while (type != null && type != typeof(object))` 循环，把组件实例加进**它自己以及每一个基类**对应的列表。所以一个组件类型同时实现了三个 marker 接口，就会进三张表 —— `GetComponent` 对任意一个 marker 都能找到它。
+
+**`OnInitialize()` 会在 `AddComponent` 内部就被调用。** 它是方法体倒数第二步（`t.OnInitialize(); return t;`），所以你在 `AddComponent` 返回后才去读组件的字段是可以的，但在 `OnInitialize` 实现体里反过来调外部状态则要小心时序。
+
+**最常见的坑：`GetComponent` 返回「第一个」不是「最新的」。** `_componentsOfTypes[type]` 是 `List`，`Add` 顺序 = 注册顺序，`GetComponent` 取 `list[0]`。同类型注册两次，你只会拿到第一次的实例。这跟 [GameModel](../GameModel) 体系的倒序 `GetGameModel<T>()`（后者赢）方向相反，从 model 体系转过来的人几乎必踩。这条已在「风险与边界」首条展开。
+
 ## 跨版本提示
 
 **这里有一个真实的、1.3.0 之后才有的成员，不能照着本页写跨版本代码。** 从 `bannerlord-1.3.15/` 开始（1.4.6、1.4.7、1.5.3 都继承），本类多了一个方法：

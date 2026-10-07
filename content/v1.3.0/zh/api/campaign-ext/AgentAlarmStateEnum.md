@@ -153,6 +153,89 @@ public static class ModStealthAwareness
 - **它是嵌套类型，不是命名空间级类型。** 完整写法 `MissionDisguiseMarkerItemVM.AgentAlarmStateEnum.X`。`using SandBox.ViewModelCollection.Missions.MainAgentDetection;` 只导入命名空间，导入不了嵌套类型——还得写 `using` 那个宿主类，或者直接写全名。
 - **宿主类在 `SandBox.ViewModelCollection`，不是核心。** 裸战役（无 `SandBox` 模块）里这整个类型图都不存在。
 
+## 怎么用
+
+### 怎么拿到它
+
+声明在 `SandBox.ViewModelCollection/Missions/MainAgentDetection/MissionDisguiseMarkerItemVM.cs:329`，是嵌套在 `MissionDisguiseMarkerItemVM` 里的枚举，完整写法 `MissionDisguiseMarkerItemVM.AgentAlarmStateEnum`。成员：
+
+| 成员 | 行号 | 值 |
+| --- | --- | --- |
+| `None` | `:332` | **-1** |
+| `Alarmed` | `:334` | 0 |
+| `Cautious` | `:336` | 1 |
+| `PatrollingCautious` | `:338` | 2 |
+| `Suspicious` | `:340` | 3 |
+| `Visible` | `:342` | 4 |
+
+**枚举本身是 `private` 字段 `_activeAlarmState`（`:296`）的载体，外部拿不到它。** 赋值只发生在私有的 `UpdateAlarmState()`（`:54`）里，分支写在 `:62`、`:66`、`:70`、`:74`。对外只暴露字符串属性 `AlarmState`（`:156`），它在 `:85` 被赋成 `this._activeAlarmState.ToString()`。
+
+所以获取路径是唯一的一条链：
+
+```
+RefreshVisuals()                                    :25
+  └─ UpdateAlarmState()                              :29 → :54
+       └─ AlarmState = _activeAlarmState.ToString()   :85
+```
+
+**注意：枚举值只有在你先调用 `RefreshVisuals()` 之后才有意义。**
+
+### 典型用法
+
+要强类型的枚举，唯一合法办法是从 `AlarmState` 字符串反解：
+
+```csharp
+using SandBox.ViewModelCollection.Missions.MainAgentDetection;
+
+public static bool IsAlerted(MissionDisguiseMarkerItemVM marker)
+{
+    if (marker == null)
+    {
+        return false;
+    }
+
+    // AlarmState 是由 _activeAlarmState.ToString() 写出来的字符串（:85），
+    // 没有 public 的强类型出口，只能 Parse 回去。
+    if (string.IsNullOrEmpty(marker.AlarmState))
+    {
+        return false;
+    }
+
+    return (MissionDisguiseMarkerItemVM.AgentAlarmStateEnum)
+        System.Enum.Parse(typeof(MissionDisguiseMarkerItemVM.AgentAlarmStateEnum), marker.AlarmState)
+        == MissionDisguiseMarkerItemVM.AgentAlarmStateEnum.Alarmed;
+}
+```
+
+或者只读字符串，避开解析：
+
+```csharp
+using SandBox.ViewModelCollection.Missions.MainAgentDetection;
+
+// 字符串比较能编译、能工作，而且避开了 Parse 的异常路径。
+public static string DescribeAlarm(MissionDisguiseMarkerItemVM marker)
+{
+    if (marker == null || string.IsNullOrEmpty(marker.AlarmState))
+    {
+        return "(unknown)";
+    }
+
+    return marker.AlarmState;
+}
+```
+
+### 最容易踩的坑
+
+**相信「默认状态是 `None`」。** `None` 被定义成 **-1**（`:332`），而 C# 里枚举字段的默认值是 **0**，0 在这个枚举里是 **`Alarmed`**。后果：任何**还没跑过 `RefreshVisuals()`** 的 `MissionDisguiseMarkerItemVM`，它的私有字段 `_activeAlarmState`（`:296`）就是 0，于是 `AlarmState` 要么是 `null`，一旦被 `ToString()` 过就是 `"Alarmed"`。如果你的 UI 把「读不到状态」当成「已警戒」处理，**地图上每个尚未被发现的目标都会显示为警戒状态**，而你没有任何办法从外部区分「真的警戒」和「还没算」。
+
+要判无效必须显式比 -1，不要指望 `None`：
+
+```csharp
+bool isUnset = (int)state == (int)MissionDisguiseMarkerItemVM.AgentAlarmStateEnum.None;
+```
+
+第二个坑是调 `RefreshVisuals()` 的时机。它会连带重算 `OffenseTypeIdentifier`（`:28`）。在 `OffenseInfo` 还是 `null` 的早期时序里调用它，`GetOffenseTypeIdentifier` 会收到 `StealthOffenseTypes.None`，**把标记打成 `None`**；而这一次「错误」的 None 会被写进 `OffenseTypeIdentifier`，后面即使条件正常了，**只有再调一次 `RefreshVisuals()` 才会被覆盖回来**。
+
 ## 跨版本提示
 
 本枚举在 `bannerlord-1.3.0` / `1.4.6` / `1.4.7` / `1.5.3` 四棵树里**六个成员、顺序、值、显式赋值全部一致**——`None = -1` 之后是 `Alarmed` / `Cautious` / `PatrollingCautious` / `Suspicious` / `Visible`，1.3.0 与 1.5.3 的成员声明差集为空（逐行比对 public/protected 声明，含宿主类 `MissionDisguiseMarkerItemVM` 的 4 个 public 属性 `OffenseInfo` / `ScreenPosition` / `AlarmProgress` / `AlarmState`）。

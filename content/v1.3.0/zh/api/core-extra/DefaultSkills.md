@@ -204,6 +204,30 @@ public class MySubModule : MBSubModuleBase
 - **私有字段顺序与属性顺序相反。** 源码里 `_skillEngineering` 在文件最前、`_skillOneHanded` 在最后。**别按声明顺序推断对应关系**——用属性名对字段名。
 - **这个类没有存档。** 它不是 `MBObjectBase`，没有 `StringId` 属性注解意义上的存档，18 个字段也不在任何 `[SaveableField]` 之下。**它是每次游戏启动重建的纯运行期对象。**
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Core/DefaultSkills.cs:7`，普通类，**唯一的实例藏在 `Game` 上**。链条是这样的：
+
+- `DefaultSkills.cs:11` 有个 `private static DefaultSkills Instance`，getter 方法体只有一句 `return Game.Current.DefaultSkills;`。
+- 18 个公开技能属性（`OneHanded` 在 `DefaultSkills.cs:21`、`TwoHanded` 在 31、`Polearm` 在 41、`Bow` 在 51 ……）每一个的 getter 都是同一个形状：`return DefaultSkills.Instance._skillXXX;`。
+- `Game.DefaultSkills` 是 `Game.cs:217` 的 `public DefaultSkills DefaultSkills { get; private set; }` —— **有 setter 但那是 `private`**，外部赋不了值。
+
+**所以你不能 new 它。** 实例由引擎在 `Game.cs:586` 的 `InitializeDefaultGameObjects()` 里创建，那方法的第二句就是 `this.DefaultSkills = new DefaultSkills();`。你的代码只有「读静态属性」这一条路。
+
+**一段可直接跑的三行读法**：
+
+```csharp
+SkillObject oneHanded = DefaultSkills.OneHanded;
+int v = hero.GetSkillValue(oneHanded);
+Debug.Print(oneHanded.StringId + " = " + v, 0);
+```
+
+`DefaultSkills.OneHanded` 每次访问要走两层（`Game.Current` → `.DefaultSkills` → `._skillOneHanded`），**在渲染/物理的紧循环里是额外的开销**。要反复用就把 `SkillObject` 引用缓存进你自己的字段 —— 但**缓存必须发生在 `InitializeDefaultGameObjects()` 之后**。
+
+**这些属性返回的是引用，不是副本。** 18 个属性全都返回同一个 `_skillXXX` 字段，拿到后 `==` 比较恒有意义；反过来也意味着**没有「只读」保护**，`DefaultSkills.OneHanded` 指向的对象你能改它的属性。
+
+**最常见的坑：`Game.Current` 之前读任何静态属性都 NRE。** 所有 getter 都走 `Game.Current.DefaultSkills`。在静态构造器、`MBSubModuleBase` 的早期钩子、或任何早于 `Game.InitializeDefaultGameObjects()` 的时刻读 `DefaultSkills.OneHanded` 都会崩。这条已在「风险与边界」首条展开。
+
 ## 跨版本提示
 
 `DefaultSkills.cs` 在 1.3.0（366 行 / 13267 字节）、1.3.15（312 行 / 13033 字节）、1.4.6、1.4.7、1.5.3（都是 312 行 / 13033 字节）之间——**18 个静态属性、18 个私有字段、4 个方法的签名与数量完全一致**（`grep -E "public |private SkillObject|this.Create\("` 逐版 diff 后 1.3.0 vs 1.3.15、1.3.15 vs 1.5.3 都是空 diff）。行数与字节的差异来自本地化文本字面量与格式，**不影响 API**。

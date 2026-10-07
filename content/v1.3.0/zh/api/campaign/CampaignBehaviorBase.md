@@ -133,6 +133,74 @@ if (alliances != null)
 - **`RegisterEvents` 只跑一次。** 它不是「每次进入战役」都调。读档后想重建内存态，用 `SyncData` 的 `IsLoading` 分支，或者订阅 `CampaignEvents.OnGameLoadedEvent`（`AgingCampaignBehavior` 就是这么做的）。
 - **没有 `Dispose` / 没有反注册方法。** 静态单例式行为在整个进程生命周期里活着，跨战役不重置。想在战役结束时清理，唯一的位置是你自己在 `OnGameLoadedEvent` 之类的钩子里写。
 
+## 怎么用
+
+### 怎么拿到它
+
+你**不 new 它给游戏用，而是把它注册进去**。注册容器是 `CampaignGameStarter` 上的 `CampaignBehaviors`（`TaleWorlds.CampaignSystem/CampaignGameStarter.cs:15`，一个 `ICollection<CampaignBehaviorBase>`）。注意 1.3.0 的 `IGameStarter` 接口（`TaleWorlds.Core/IGameStarter.cs:7`）**只暴露 `AddModel` 两个重载和 `Models`**——注册行为的方法都不在接口上，所以要先转型，再调 `AddBehavior(CampaignBehaviorBase campaignBehavior)`（`CampaignGameStarter.cs:48`）。它内部就是 `this._campaignBehaviors.Add(...)`，且 `:50` 判过 null，传 null 会被静默丢弃。
+
+注册之后由 `TaleWorlds.CampaignSystem/Campaign.cs:1935` 包进 `CampaignBehaviorManager`，`Campaign.cs:1941` 调 `InitializeCampaignBehaviors`。取回用 `CampaignBehaviorBase.GetCampaignBehavior<T>()`（`TaleWorlds.CampaignSystem/CampaignBehaviorBase.cs:24`），它转到 `Campaign.Current.GetCampaignBehavior<T>()`（`Campaign.cs:1257`），底层是 `OfType<T>().FirstOrDefault()`——**扫不到就返回 null**。
+
+### 典型用法
+
+写一个带存档的行为，并注册：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public class MyTollBehavior : CampaignBehaviorBase
+{
+    private int _tollsPaid;
+
+    // 显式传 StringId。它同时是存档键，不要用类名。
+    public MyTollBehavior() : base("my_toll_behavior")
+    {
+    }
+
+    public override void RegisterEvents()
+    {
+        // 这里挂 CampaignEvents 的监听。此刻 Campaign.Current 已可用。
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        // 一个 key 对应一个 T，存取用同一个 key、同一个 T。
+        dataStore.SyncData("tolls_paid", ref this._tollsPaid);
+    }
+}
+
+public class MyModule : MBSubModuleBase
+{
+    protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+    {
+        if (game.GameType is Campaign)
+        {
+            // 1.3.0 必须转型后才能拿到注册方法（IGameStarter 上没有）。
+            var starter = (CampaignGameStarter)gameStarterObject;
+            starter.AddBehavior(new MyTollBehavior());
+        }
+    }
+}
+```
+
+签名核对：`RegisterEvents()` 与 `SyncData(IDataStore dataStore)` 都是无参/单参的 `abstract void`（`CampaignBehaviorBase.cs:21` 与 `:30`）；`StringId` 是 `public readonly string` 字段（`CampaignBehaviorBase.cs:33`），不是属性，**没有 setter**。
+
+### 最容易踩的坑
+
+**用无参构造函数，让 `StringId` 变成类名。这个字段同时是存档主键。**
+
+`TaleWorlds.CampaignSystem/CampaignBehaviorBase.cs:15` 那个无参构造函数只做了一件事：`this.StringId = base.GetType().Name;`。
+
+于是它同时带来两个方向的故障：
+
+**其一，改类名 = 丢存档。** 存档按 `StringId` 索引。`TaleWorlds.CampaignSystem/CampaignBehaviorDataStore.cs:19` 的 `SaveBehaviorData` 先取 `campaignBehavior.StringId`（`:21`），再在 `:30` 写进 `_behaviorDict`。你把 `MyTollBehavior` 改名成 `TollBehavior`，旧存档里那条 `"MyTollBehavior"` 就再也匹配不上——加载时 `LoadBehaviorData` 在 `:44` 的 `TryGetValue` 返回 false，**存档静默被跳过**，你的 `_tollsPaid` 回到 0，没有报错。
+
+**其二，两个同名类会互相覆盖存档。** `:24` 判重命中时走的是 `Debug.FailedAssert(...)`（`:26`）然后 `:27` 直接 `this._behaviorDict[stringId] = behaviorSaveData`。而 `Debug.FailedAssert` 在 1.3.0 里是**空方法**（`TaleWorlds.Engine/MBDebug.cs:108`，方法体是 `{}`，而且带 `[Conditional("_RGL_KEEP_ASSERTS")]`，未定义该符号时整个调用在编译期就被剥掉）。**所以两个同名行为共存时，后保存的那个直接把前一个的存档顶掉，没有任何提示。**
+
+`MyTollBehavior` 这类描述性类名在 mod 之间撞名的概率并不低。要么像上面那样显式传一个带前缀的 id，要么至少确认自己的类名在整棵行为列表里唯一。
+
 ## 跨版本提示
 
 `CampaignBehaviorBase` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树的 public/protected 表面**完全一致**：都是 6 个成员（两个构造器、`RegisterEvents`、`SyncData`、static `GetCampaignBehavior<T>`、`readonly StringId`），0 新增 / 0 移除 / 0 签名变化。跨三个大版本零变化。

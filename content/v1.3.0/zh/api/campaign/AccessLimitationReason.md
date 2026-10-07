@@ -180,6 +180,77 @@ public override void CanMainHeroEnterDungeon(Settlement settlement, out AccessDe
 - **嵌套类型。** 完整名 `SettlementAccessModel.AccessLimitationReason`。[AccessDetails](../AccessDetails) 的第三个字段类型就是它。
 - **两个读方，不是三个也不是一个。** `EncounterGameMenuBehavior` 在 `:2188` / `:2196` / `:2207` / `:2282` / `:2302` / `:2584` 各判一个具体理由；`PlayerTownVisitCampaignBehavior.SetLordsHallAccessLimitationReasonText`（`:639-654`）判 `HostileFaction` 与 `LocationEmpty` 两个。**理由 → 文案的映射由这两个类共同决定**，没有单一权威来源。
 
+## 怎么用
+
+### 怎么拿到它
+
+它没有静态入口，**只能从 `AccessDetails` 的第三个字段读出来**，而 `AccessDetails` 只由模型用 `out` 参数交给你。入口是 `Campaign.Current.Models.SettlementAccessModel`（`Campaign.Models` 声明在 `TaleWorlds.CampaignSystem/Campaign.cs:529`，`SettlementAccessModel` 属性在 `TaleWorlds.CampaignSystem/GameModels.cs:479`，由 `GameModels.cs:721` 的 `base.GetGameModel<SettlementAccessModel>()` 填充）。官方实现在 `TaleWorlds.CampaignSystem/SandBoxManager.cs:275` 注册。mod 要自己产出理由，就在 `InitializeGameStarter` 里覆盖模型；`SandBox/SandBoxSubModule.cs:28` 是那个生命周期回调的声明处。
+
+### 典型用法
+
+因为引擎那道守卫不生效（见下），**兜底分支必须自己写**：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.Localization;
+
+public static class LordsHallTooltip
+{
+    public static TextObject Build(Settlement settlement)
+    {
+        SettlementAccessModel.AccessDetails details;
+        Campaign.Current.Models.SettlementAccessModel.CanMainHeroEnterLordsHall(settlement, out details);
+
+        if (details.AccessLevel == SettlementAccessModel.AccessLevel.FullAccess)
+        {
+            return new TextObject("{=myOpen}The hall is open to you.", null);
+        }
+
+        if (details.AccessLevel == SettlementAccessModel.AccessLevel.LimitedAccess)
+        {
+            return details.AccessLimitationReason == SettlementAccessModel.AccessLimitationReason.Disguised
+                ? new TextObject("{=myNeedDisguise}You will have to enter in disguise.", null)
+                : new TextObject("{=myLimitedGeneric}You will not be received openly.", null);
+        }
+
+        // NoAccess：官方只承认两种理由，其余走 default。
+        switch (details.AccessLimitationReason)
+        {
+            case SettlementAccessModel.AccessLimitationReason.HostileFaction:
+                return new TextObject("{=h9i9VXLd}You cannot enter an enemy lord's hall.", null);
+
+            case SettlementAccessModel.AccessLimitationReason.LocationEmpty:
+                return new TextObject("{=myNobodyHome}There is nobody here to receive you.", null);
+
+            default:
+                // 官方在同样的位置调 Debug.FailedAssert 然后 return，tooltip 留空。
+                // 1.3.0 里那次调用是空实现，所以这里必须自己给一句能看的文案。
+                return new TextObject("{=myNoEntry}You cannot enter the lord's hall.", null);
+        }
+    }
+}
+```
+
+签名核对：`CanMainHeroEnterLordsHall(Settlement settlement, out AccessDetails accessDetails)`，两参数、无返回值（`TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementAccessModel.cs:15`）。`TextObject(string value, Dictionary<string, object> attributes = null)` 在 `TaleWorlds.Localization/TextObject.cs:78`，命名空间 `TaleWorlds.Localization`。
+
+### 最容易踩的坑
+
+**以为那句 `Debug.FailedAssert` 会帮你抓出非法组合。它在 1.3.0 里什么都不做。**
+
+`PlayerTownVisitCampaignBehavior.cs:648` 那句断言看起来是硬约束，实际是双重失效的：
+
+```
+TaleWorlds.Engine/MBDebug.cs:107   [Conditional("_RGL_KEEP_ASSERTS")]
+TaleWorlds.Engine/MBDebug.cs:108   public static void FailedAssert(string message, ...)
+TaleWorlds.Engine/MBDebug.cs:109   {
+TaleWorlds.Engine/MBDebug.cs:110   }
+```
+
+第一，`[Conditional("_RGL_KEEP_ASSERTS")]` 挂在方法上——**没定义这个编译符号时，整个调用在编译期就被剥掉，调用点连参数求值都不会发生**。第二，就算定义了，方法体是空的，`MBDebug` 在 `TaleWorlds.Engine/MBDebug.cs:11`，全树只有这一个 `FailedAssert` 重载，没有别的实现。
+
+后果：合法理由集合并没有被强制。`SetLordsHallAccessLimitationReasonText` 遇到 `HostileFaction` 与 `LocationEmpty` 之外的 `NoAccess` 理由时，只是走到 `:648` 打完一句字，然后 `return`——**tooltip 从头到尾没被赋值**。表现是玩家点了「进入领主大厅」，菜单项要么不出现，要么出现但说明文字是空的，**没有异常、没有日志、没有断点**。你在自己模型里新增一个理由值时踩的就是这个坑；同一个表现也可能来自官方模型本身产出了第三种 `NoAccess` 理由，所以排查时先打印 `AccessLimitationReason` 的实际值，而不是先怀疑自己的 `switch`。
+
 ## 跨版本提示
 
 `AccessLimitationReason` 在 `bannerlord-1.3.0/` 里的成员是这八个。后续版本（`1.3.15` / `1.4.6` / `1.4.7` / `1.5.3`）**在这个枚举上继续追加了成员**，细分理由随之变多——两个读方里的分支数量也随之增长。

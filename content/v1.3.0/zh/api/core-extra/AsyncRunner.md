@@ -132,6 +132,58 @@ public class MyTaskRunner : AwaitableAsyncRunner
 - **`SyncTick` 与 `Run` 可并发改同一字段。** 这是本类型唯一的正确用法也是唯一的大坑：后台线程写、主线程读，中间没有任何 happens-before 保证。
 - **与 [AwaitableAsyncRunner](../AwaitableAsyncRunner) 是二选一，不是继承关系。** 两者没有公共基类，`TestContext` 分别用 `obj as AsyncRunner` 和 `obj as AwaitableAsyncRunner` 转型，一个实例只会命中其中一个。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Library/AsyncRunner.cs:6`，`public abstract class`，只有三个抽象方法、无字段、无 ctor、16 行。**你永远不应该自己 `new` 它** —— 唯一的消费者是内置测试框架 [TestContext](../TestContext)，而它是用反射把你那个实现类找出来的：
+
+`TestContext.RunTestAux(string commandLine)`（`TestContext.cs:13`）从命令行里解析 `/runTest <类型名>`，然后 `GetAsyncRunnerConstructor`（`TestContext.cs:75`）扫过**所有引用了 `TaleWorlds.Library` 的程序集**（`TestContext.cs:96`），对每个类型做两个判定：`type.Name == <命令行里那个字符串>`，且 `typeof(AsyncRunner).IsAssignableFrom(type)` 或 `typeof(AwaitableAsyncRunner).IsAssignableFrom(type)`（`TestContext.cs:82`）。
+
+三个成员各自由谁调，源码里写得很清楚：
+
+| 成员 | 调用者 | 在什么条件下 |
+| --- | --- | --- |
+| `Run()` | `TestContext.cs:63` | 无条件，但**跑在一条新起的 `Thread` 上**，线程名固定为 `ManagedAsyncThread`（`TestContext.cs:65`） |
+| `SyncTick()` | `TestContext.cs:139` | 每帧由 `TickTest(float dt)`（`TestContext.cs:135`）调，**仅当 `this._asyncThread.IsAlive`** |
+| `OnRemove()` | 无 | 我在整棵 1.3.0 树里 grep 过，`TestContext.cs` 全文没有出现过这个方法名 |
+
+**一段「能被找到」的最小实现**（无参构造是硬要求，见下）：
+
+```csharp
+// TestContext.cs:84 用 GetConstructor(..., new Type[0], null) 取构造，
+// 所以必须有无参 ctor，public 或 nonpublic 都行，但不能有别的参数。
+// 类名就是命令行 /runTest 后面那个字符串，按 type.Name 精确匹配。
+public class MyModScenarioRunner : AsyncRunner
+{
+    private volatile bool _done;
+
+    public override void Run()
+    {
+        // 跑在 "ManagedAsyncThread" 上；别在这里碰引擎状态。
+        _done = true;
+    }
+
+    public override void SyncTick()
+    {
+        // 主线程，每帧一次；只在 worker 还活着时才会被调（TestContext.cs:137）。
+        if (_done)
+        {
+            Debug.Print("[MyMod] scenario finished", 0);
+        }
+    }
+
+    public override void OnRemove()
+    {
+        // TestContext 不调它。清理只能你自己显式做。
+    }
+}
+```
+
+**最常见的坑：你在 `Run()` 里抛了异常，然后发现整个测试静默挂住、什么都没有。** 两条路的错误上报是不对等的。`AwaitableAsyncRunner` 那条路被 `OnApplicationTick(float dt)`（`TestContext.cs:116`）盯着：它检查 `this._asyncTask.Status == TaskStatus.Faulted`（`TestContext.cs:118`），然后打印 `ERROR: Mono exception occurred at async Test Run`、调用 `Debug.FailedAssert` 并 `Debug.DoDelayedexit(5)`（`TestContext.cs:120`–`:130`）。而 `_asyncThread` 那条路**没有任何等价检查**——`OnApplicationTick` 里一次都没碰过 `_asyncThread`。
+
+后果：`Run()` 里的异常不会被包装成上面那条信息，也不会触发那次延迟退出。worker 线程死掉后 `IsAlive` 变 false，`SyncTick` 从此再不被调用，`TickTest` 静默空转，而游戏继续跑。你会看到的是一个「场景永远不出结果」的测试，而不是一条报错。**所以务必在自己代码里 `try` / `catch` 住 `Run()` 的全部内容，并把异常 `Debug.Print` 出来**——这个类不会替你兜底。
+
+第二条：`SyncTick()` 的调用是有条件的（`TestContext.cs:137`），worker 一结束它就不再被调。任何依赖 `SyncTick` 做最后清理的写法都永远不会执行——清理放 `Run()` 的末尾，或者干脆放进你自己的、显式调用的方法里。
+
 ## 跨版本提示
 
 `AsyncRunner.cs` 在 `bannerlord-1.3.0/`、`bannerlord-1.3.15/`、`bannerlord-1.4.6/`、`bannerlord-1.4.7/`、`bannerlord-1.5.3/` 五棵树里**逐字节一致**：都是 334 字节、17 行、3 个 `public abstract void` 方法、零成员其它。跨 1.3 → 1.5 三个大版本零变化。

@@ -137,6 +137,56 @@ public int CountAgentsInRelease(AgentReadOnlyList agents)
 - **这是 `Agent` 的嵌套类型，写全名要带 `Agent.` 前缀。**
 - **联机下有预测延迟。** 阶段值来自本地 native，客户端与服务端之间存在预测窗口。写网络相关的判定时把它当成本地观测量，不要当成权威状态。
 
+## 怎么用
+
+### 怎么拿到它
+
+**你永远不会 `new` 它**——它是 `Agent` 的嵌套枚举（`bannerlord-1.3.0/TaleWorlds.MountAndBlade/Agent.cs:6354`），9 个成员依次排在 `:6357`（`None = -1`）到 `:6373`（`NumActionStages = 7`），值类型，跟着 `Agent` 走。
+
+唯一入口是 `Agent.GetCurrentActionStage(int channelNo)`（`Agent.cs:2891`），函数体只有一句 `return (Agent.ActionStage)MBAPI.IMBAgent.GetCurrentActionStage(this.GetPtr(), channelNo);`（`Agent.cs:2893`）。所以它和 [ActionCodeType](../ActionCodeType) 完全对称：**每次调用都向 native 要一个整数，没有缓存、没有注册点、也没有生命周期回调主动推给你。** 你要么手里有一个活着的 `Agent`（`Mission.Current.Agents` 遍历出来的，或 `Mission.Current.MainAgent`），要么就只能用它跟 `ActionCodeType` 一样当编译期常量用。
+
+引擎侧的三个真实消费者可以当读法范本：`CustomBattleAutoBlockModel` 在 `CustomBattleAutoBlockModel.cs:20`、`MissionGamepadEffectsView` 在 `MissionGamepadEffectsView.cs:247`、`MissionMainAgentController` 在 `MissionMainAgentController.cs:706`——**全部是 `GetCurrentActionStage(1)`**。
+
+### 典型用法
+
+按「时间轴上的采样点」这个模型去用，就知道单帧查询不够：阶段值是离散采样，**「刚刚出手」这种一次性事件必须靠记住上一帧才能抓住**：
+
+```csharp
+using TaleWorlds.MountAndBlade;
+
+public static class StrikeWindowWatcher
+{
+    // 初值必须是 None（= -1，Agent.cs:6357），也就是「还没有任何阶段」
+    private static Agent.ActionStage _previous = Agent.ActionStage.None;
+
+    // 只在 AttackQuickReady -> AttackRelease 这一次跃迁上返回 true
+    public static bool ConsumeReleaseFrame(Agent attacker)
+    {
+        Agent.ActionStage now = attacker.GetCurrentActionStage(1);
+        bool crossed = _previous == Agent.ActionStage.AttackQuickReady
+            && now == Agent.ActionStage.AttackRelease;
+        _previous = now;
+        return crossed;
+    }
+
+    // 换人观察时记得把记忆清掉，否则新对象的第一个阶段会和上个对象的尾部配成一对
+    public static void Reset()
+    {
+        _previous = Agent.ActionStage.None;
+    }
+}
+```
+
+这是纯读法，不改任何状态：枚举本身只被 native 侧写，你唯一能操作的是「什么时候去问」和「把上一次答案放在哪」。
+
+### 最容易踩的坑
+
+**给这份记忆挑一个「看起来安全」的初值，就会造出一次假的出手事件。** 因为 `None = -1`（`Agent.cs:6357`）而 `AttackReady = 0` 是第一个正阶段，所以初值写 `Agent.ActionStage.None` 时，跃迁判据 `_previous == AttackQuickReady` 在第一次调用时必然为 false——这正是我们要的；但如果你把字段初始化成 `Agent.ActionStage.AttackReady`（因为它是「最普通」的那个阶段，读起来像默认值），那么这个 watcher 挂上去的第一个观察对象只要恰好处在 `AttackRelease`，就会立刻返回一次 `true`。后果是**一次性效果（受击特效、顿帧、UI 提示）会在战斗刚开始、还没出手时就触发一次**，而且因为它只发生一次，调试时极难复现。判据是唯一的：`_previous` 的初值只能是 `Agent.ActionStage.None`。
+
+同族的另一个错位是**别把它当成位标志**。`AttackReady` / `AttackQuickReady` / `AttackRelease` 的整数值是 0 / 1 / 2，而不是位标志惯用的 1 / 2 / 4，所以 `Enum.HasFlag(Agent.ActionStage.AttackQuickReady)` 在 `stage == Agent.ActionStage.AttackRelease` 时算的是 `2 & 1`，结果是 `false`。后果是：想用 `HasFlag` 表达「处于攻击三阶段之一」的人会**静默漏掉后两个阶段**，而且代码读起来完全像是对的。要表达「三者之一」只能写成具名的 `==` 或链（官方形状见 `CustomBattleAutoBlockModel.cs:21`）。
+
+
+
 ## 跨版本提示
 
 1.3.0 的 9 个成员（`None = -1` 到 `NumActionStages = 7`）在 1.3.15 / 1.4.6 / 1.4.7 / 1.5.3 的 `Agent.cs` 里保持同一顺序与同一赋值。读取入口 `Agent.GetCurrentActionStage(int channelNo)` 的签名在这几个版本间没有变化。

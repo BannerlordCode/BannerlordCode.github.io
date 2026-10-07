@@ -149,6 +149,31 @@ public string BuildCode(Hero hero)
 - **`GetStringAndReleaseBuilder` 是死代码。** 嵌套私有类里的 `private static` 方法，`grep -rw` 在 `bannerlord-1.3.0/` 全树只有 1 处命中（自己的定义）。外部无法访问，可以当作不存在。
 - **`callerMemberName` 完全未被使用。** 它只是把调用方信息传给一个什么都不做的形参。如果你的 profiler 钩子靠这个字段识别热点，官方写法是显式传方法名字符串（`Initialize(16, "GetExplanations")`），因为 `[CallerMemberName]` 在 lambda 里会给出编译器生成的名字。
 
+## 怎么用
+
+**怎么拿到。** 本体在 `bannerlord-1.3.0/TaleWorlds.Library/MBStringBuilder.cs:8`，声明是 `public struct MBStringBuilder` —— **是结构体，而且没有任何构造函数。** 所以唯一合法的诞生方式是引擎的写法：`MBStringBuilder sb = default(MBStringBuilder);` 然后立刻 `sb.Initialize(...)`。
+
+`Initialize(int capacity = 16, [CallerMemberName] string callerMemberName = "")`（`MBStringBuilder.cs:11`）的默认参数带 `[CallerMemberName]`，所以**你不传第二个参数时编译器会自动填入调用者方法名** —— 这是排查缓冲区来源时的线索，写 `Initialize(64)` 就够了。
+
+底层资源是池化的：`this._cachedStringBuilder = MBStringBuilder.CachedStringBuilder.Acquire(capacity);`。**所以「不用了」必须还回去**，唯一出口是 `ToStringAndRelease()`（`MBStringBuilder.cs:17`）或 `Release()`（`MBStringBuilder.cs:25`，它把 `_cachedStringBuilder` 置 null）。
+
+**一段可直接跑的三行标准形状**（形态逐字取自 `TaleWorlds.Core/Banner.cs:567` 的引擎写法）：
+
+```csharp
+MBStringBuilder sb = default(MBStringBuilder);
+sb.Initialize(32);
+sb.Append<int>(someId); sb.Append('.'); sb.Append<string>("name");
+string result = sb.ToStringAndRelease();
+```
+
+`Append` 有十个重载（`char` / `int` / `uint` / `float` / `double` / 泛型 `Append<T>` / 两个 `AppendLine`），全部返回 `MBStringBuilder` 自身以便链式。**注意它不是引用类型，但内部字段是共享的** —— `default(MBStringBuilder)` 拿到的是一个壳，真正的缓冲区在第一次 `Initialize` 时才挂上去。所以**漏掉 `Initialize` 就直接 `Append` 会 NRE**。
+
+**必须走 `ToStringAndRelease()`，不能等隐式转换。** 原因是 `ToString()` 的方法体（`MBStringBuilder.cs:99`）第一句是 `Debug.FailedAssert("Don't use this. Use ToStringAndRelease instead!", ...)`,第二句 `return null;`。它在正式版里不抛异常也不记录，所以 `$"Name: {sb}"` 会把一个 `null` 静默混进你的最终字符串。
+
+**`ToStringAndRelease()` 只能调一次。** 它内部先 `this._cachedStringBuilder.ToString()` 再 `this.Release()`，而 `Release()` 把字段置 null。第二次调就是 NRE，不是返回空串。
+
+**最常见的坑：`ToString()` 静默返回 `null`，不抛异常。** 因为触发它的写法看起来完全无害：`$"Name: {mbStringBuilder}"`、`string.Format("{0}", ...)`、`sb + someMBStringBuilder`。你只会得到一个 `null` 混进最终字符串。这条已在「风险与边界」首条展开。
+
 ## 跨版本提示
 
 `MBStringBuilder.cs` 在 1.3.0 是 4488 字节，1.3.15 起到 1.5.3 都是 **4481 字节**，差的 7 字节同样只是 `: base(...)` 一类的格式化调整（1.3.0 的反编译器输出与新版有换行差异）。**public 成员集合跨 1.3 → 1.5 三个大版本逐条等价**：6 个 `Append` 重载、`AppendLine` 两个、`Initialize`、`ToStringAndRelease`、`Release`、`Length`、`ToString`（含 `FailedAssert` 那句提示），嵌套私有类的 `Acquire`/`Release` 与 4096 阈值也都没动。

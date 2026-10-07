@@ -339,6 +339,105 @@ public static void TeleportAndReset(MobileParty party, CampaignVec2 destination)
 8. **逐 tick 开销。** 在多个行为里对每个小时 tick 扫描 `MobileParty.All`（或 `LordParties`）代价不低。请改订阅 `CampaignEvents.HourlyTickPartyEvent` / `DailyTickPartyEvent`，它们会直接把对象交给你。
 9. **战争迷雾泄露。** 读取玩家尚未侦察到的部队名册并展示在 UI 或通知中，等于绕过视野模型。
 
+## 怎么用
+
+### 怎么拿到它
+
+新建只有一条路：`public static MobileParty CreateParty(string stringId, PartyComponent component)`（`TaleWorlds.CampaignSystem/Party/MobileParty.cs:4566`），**两个参数**。页面风险第 2 条已经说了不要直接 `new MobileParty()`。
+
+现成的部队从 `public static MBReadOnlyList<MobileParty> All`（`:417`）取，玩家部队是 `public static MobileParty MainParty`（`:407`）。
+
+`MobileParty` 是 `public sealed class MobileParty : CampaignObjectBase, ILocatable<MobileParty>, IMapPoint, ITrackableCampaignObject, ITrackableBase, IRandomOwner`（`:26`）。
+
+### 典型用法
+
+配一个自定义 `PartyComponent` 建部队：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Party.PartyComponents;
+using TaleWorlds.CampaignSystem.Settlements;
+using TaleWorlds.Core;
+using TaleWorlds.Localization;
+
+public class PatrolPartyComponent : PartyComponent
+{
+    private Hero _owner;
+
+    // 四个抽象成员，一个都不能少。
+    public override Hero PartyOwner { get { return this._owner; } }
+
+    public override TextObject Name
+    {
+        get { return new TextObject("{=xyz}Patrol", null); }
+    }
+
+    public override Settlement HomeSettlement { get { return null; } }
+
+    public override Banner GetDefaultComponentBanner()
+    {
+        return null;
+    }
+
+    // 这两个才是 mod 真正能覆写的钩子。
+    protected override void OnMobilePartySetOnCreation()
+    {
+        // 注意：这里 MobileParty 还没进 CampaignObjectManager，见下。
+        this._owner = Hero.MainHero;
+    }
+
+    protected override void OnInitialize()
+    {
+    }
+}
+
+public static class PatrolFactory
+{
+    public static MobileParty Spawn()
+    {
+        // 第二个参数是组件；传 null 就是一个没有分类的裸部队。
+        return MobileParty.CreateParty("my_patrol_party", new PatrolPartyComponent());
+    }
+}
+```
+
+钩子的可见性要记牢：`PartyComponent.Create(MobileParty party)`（`TaleWorlds.CampaignSystem/Party/PartyComponents/PartyComponent.cs:116`）与 `Initialize(MobileParty party)`（`:123`）都是 **`internal`**，mod 覆写不了；它们转手调 `protected virtual void OnMobilePartySetOnCreation()`（`:136`）与 `protected virtual void OnInitialize()`（`:141`），这两个才是空的、可覆写的默认实现。
+
+### 最容易踩的坑
+
+**在 `OnMobilePartySetOnCreation` / `OnInitialize` 里回头找自己——那时候这个部队还不存在。**
+
+`CreateParty` 的执行顺序（`MobileParty.cs:4566` 起）是：
+
+```
+:4568   stringId = ...FindNextUniqueStringId<MobileParty>(stringId);   // 见下
+:4569   MobileParty mobileParty = new MobileParty();
+:4570   mobileParty.StringId = stringId;
+:4571   mobileParty._partyComponent = component;
+:4572   mobileParty.UpdatePartyComponentFlags();
+:4576   partyComponent.Create(mobileParty);      -> OnMobilePartySetOnCreation()
+:4581   partyComponent.Initialize(mobileParty);   -> OnInitialize()
+:4583   Campaign.Current.CampaignObjectManager.AddMobileParty(mobileParty);   <-- 入册在这
+:4584   CampaignEventDispatcher.Instance.OnMobilePartyCreated(mobileParty);
+:4585   CampaignEventDispatcher.Instance.OnMapInteractableCreated(mobileParty.Party);
+```
+
+**两个组件钩子都跑在 `:4583` 入册之前。** 所以在 `OnMobilePartySetOnCreation` 里：
+
+```
+MobileParty.All                                   -> 里面没有自己
+按 StringId 查这个部队                            -> 找不到
+this.MobileParty                                  -> 非 null，组件自己的引用是好的
+```
+
+`PartyComponent.MobileParty`（`PartyComponent.cs:21`）在 `:118` 就被赋好了，所以**组件内部拿到的引用永远是对的**；坏掉的是"从世界的集合里反查"。后果是自检逻辑静默失败——你写了 `if (MobileParty.All.Contains(...))` 之类的守卫，它恒为 false，于是那段初始化被跳过，没有任何异常。真正要反查的场合，把代码放到 `OnMobilePartyCreated`（`:4584`，它已经入册）或者之后的 `DailyTick` 里。
+
+顺带两条同源的事实：
+
+- **`MobileParty.MainParty`（`:407`）没有判空**，getter 就是 `return Campaign.Current.MainParty;`（`:411`）。这和 [PartyBase](../PartyBase) 上的同名静态属性不一样——`PartyBase.MainParty`（`PartyBase.cs:409`）在 `:413` 判过 `Campaign.Current == null`。**同一件事的两个入口，防护强度不同**，写代码时别想当然地认为它们行为一致。
+- **`CreateParty` 也会悄悄改 id。** `:4568` 调的 `FindNextUniqueStringId<MobileParty>` 和 [Kingdom](../Kingdom) 造王国时是**同一个机制**：重名时按全局最大后缀编号改名（`CampaignObjectManager.cs:938`）。所以 `CreateParty("my_patrol")` 返回的对象，`StringId` 未必是 `"my_patrol"`——**永远用返回值的 `.StringId`**，别拿字面量去比对。
+
 ## 跨版本提示
 
 - `SetMove*` 指令词汇、`PartyComponent` 分类以及“名册放在 `PartyBase` 上”的分层在 1.3.x 与 1.4.x 中完全一致。

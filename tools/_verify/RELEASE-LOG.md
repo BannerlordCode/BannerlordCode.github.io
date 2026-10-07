@@ -1202,4 +1202,32 @@ FILES=39039  TOTAL_LINKS=149587  BROKEN_LINKS=0  FILES_WITH_BROKEN=0  RESOLVE_ST
 
 **push**：`origin/main = a04704c66e301501050645cee2e86e0d8b786f92 = HEAD`，divergence `0 0`，fast-forward。
 
+### 4.10 后续扫荡批次（写作线持续产出）
+
+写作线在并发写，每轮扫荡都会出现 2–4 个新文件。本线按「新页优先」固定动作继续入库：
+
+| 批 | 主题 | 文件 | SHA |
+|---|---|---|---|
+| 12 | `v1.3.0/zh/api/campaign/DefaultPartyMoraleModel.md` + `v1.4.5/zh/api/campaign-ext/AccompanyingCharacter.md` | 2 | `0399dcb73b` |
+| 13 | `v1.3.15/{en,zh}/architecture/_index.md`（写作线新增页后的 in-scope 刷新） | 2 | `3cb67d6865` |
+| — | 台账 §4.9 补遗 | 1 | `d355401676` |
+
+**固定动作（已生效）**：每次唤醒先扫 `git status --porcelain -- content/ | grep '^??'`，
+新页优先提交；对新增/改动的 `_index.md` 重跑作用域门禁，只提交 IN-SCOPE 的。
+
+**批 13 的作用域门禁（重跑）**：
+```
+$ node tools/_verify/check-section-index-scope.mjs
+checked=10 out_of_scope=8
+  IN-SCOPE  = 2   （v1.3.15/{en,zh}/architecture/_index.md）
+  OUT-OF-SCOPE = 6   （v1.4.5/en/api/{campaign,final,mission} · v1.4.5/zh · v1.4.6/en/architecture · v1.4.7/en/api/engine）
+  NEW          = 2   （v1.5.3/zh/api/{localization,storymode}）
+```
+
+**push**：`origin/main = 3cb67d68654b5448c07ff82cbac3d27434ccadb4 = HEAD`，divergence `0 0`。
+本线累计（第 4 轮）已推送 **13 个 content 批次 + 4 个台账/工具 commit**，content 合计 **123 文件**。
+
+**稳定态**：工作区 content/ 反复回到 **8 项**（6 OUT-OF-SCOPE + 2 NEW），
+即「可提交的全部已提交、不可提交的逐条留底」——这是本线能达到的收敛状态。
+
 

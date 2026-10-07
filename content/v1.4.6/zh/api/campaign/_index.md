@@ -50,7 +50,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 
 **同批待办**：其它桶的 `_index.md` 很可能有同一处遗漏。本次只普查了 campaign 桶，**其它桶未核对**，别拿本页的结论去推断它们。
 
-## 已撰写的类页（9 张）
+## 已撰写的类页（19 张）
 
 桶索引的 route 就是桶目录本身。映射表里那条「桶索引到叶子页」的规则要求写成 `./<Name>`，也就是桶索引到同级叶子页写 `./Campaign` 这种形式。
 
@@ -63,6 +63,16 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 - [Settlement](./Settlement) — 定居点实体。城镇 / 城堡 / 村庄 / 据点的统一容器，承载驻军、围城侧、街区、库存与估值；聚落上的行为靠 `SettlementComponent` 扩展。
 - [Clan](./Clan) — 家族实体，同时扮演两个角色：既是家族容器（`Heroes`、`Companions`、`Fiefs`、`Villages`、`WarPartyComponents`），又是势力（实现 `IFaction`）。判断一个家族现在算哪一方势力读 `MapFaction`，不要读 `Clan` 本身。
 - [CharacterObject](./CharacterObject) — 战役与战斗两层共用的**人物模板**。派生自 `BasicCharacterObject`（那一层放体型、种族、名字、默认技能），战役这一层补上 XML 里的职业与特质、模板化的升级链、战役侧派生数据，以及一个可选的 `HeroObject` 指针。
+- [`ApplyHeirSelectionAction`](./ApplyHeirSelectionAction) — 领主选定继承人之后统一改写家族继承链的入口 ✅ `TaleWorlds.CampaignSystem/Actions/ApplyHeirSelectionAction.cs`
+- [`BreakInOutBesiegedSettlementAction`](./BreakInOutBesiegedSettlementAction) — 强攻被围聚落（突入 / 突围）的入口 ✅ `TaleWorlds.CampaignSystem/Actions/BreakInOutBesiegedSettlementAction.cs`
+- [`BribeGuardsAction`](./BribeGuardsAction) — 行贿守卫以放行或换取入城 ✅ `TaleWorlds.CampaignSystem/Actions/BribeGuardsAction.cs`
+- [`ChangeClanInfluenceAction`](./ChangeClanInfluenceAction) — 改写家族在王国里的影响力 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeClanInfluenceAction.cs`
+- [`ChangeClanLeaderAction`](./ChangeClanLeaderAction) — 更换家族首领 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeClanLeaderAction.cs`
+- [`ChangeCrimeRatingAction`](./ChangeCrimeRatingAction) — 改写城镇的犯罪值 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeCrimeRatingAction.cs`
+- [`ChangeGovernorAction`](./ChangeGovernorAction) — 任免聚落总督 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeGovernorAction.cs`
+- [`ChangeKingdomActionDetail`](./ChangeKingdomActionDetail) — `ChangeKingdomAction` 的**嵌套**枚举（不是顶层类型），9 个换王国途径；只作私有 `ApplyInternal` 的形参，由 9 个公开 `ApplyBy*` 入口分别传入 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeKingdomAction.cs`
+- [`ChangeOwnerOfSettlementAction`](./ChangeOwnerOfSettlementAction) — 更换聚落归属的唯一写入口，8 个 `ApplyBy*`（默认 / 国王裁决 / 攻城 / 退出阵营 / 交易 / 馈赠 / 叛乱 / 家族毁灭） ✅ `TaleWorlds.CampaignSystem/Actions/ChangeOwnerOfSettlementAction.cs`
+- [`ChangeOwnerOfSettlementDetail`](./ChangeOwnerOfSettlementDetail) — `ChangeOwnerOfSettlementAction` 的**嵌套**枚举（不是顶层类型），8 个易主途径；只作私有 `ApplyInternal` 的形参 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeOwnerOfSettlementAction.cs`
 
 ## 桶间分工
 
@@ -82,9 +92,9 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 
 一句话分法：实体与状态留在这儿，接口与官方默认实现去 [campaign-ext](../campaign-ext/)。本桶的实体全部从 campaign-ext 里的 `MBObjectBase` 派生。
 
-## 尚未撰写的清单（567 个）
+## 尚未撰写的清单（557 个）
 
-以下条目在本桶的 576 个 public 顶层简单名里扣掉上面 9 张已有页面的结果。**全部已反查**（✅ = 在 `bannerlord-1.4.6` 里 `grep -w` 命中，句子末尾紧跟的 ✅ 加反引号就是命中的 `.cs` 相对路径），没有 ⚠️ 未反查项。**这些页面都还不存在，所以一律用纯文本列出，不建链接、不建占位页**——要跳过去只能先写出来。
+以下条目在本桶的 576 个 public 顶层简单名里扣掉上面 19 张已有页面的结果。**全部已反查**（✅ = 在 `bannerlord-1.4.6` 里 `grep -w` 命中，句子末尾紧跟的 ✅ 加反引号就是命中的 `.cs` 相对路径），没有 ⚠️ 未反查项。**这些页面都还不存在，所以一律用纯文本列出，不建链接、不建占位页**——要跳过去只能先写出来。
 
 ### `TaleWorlds.CampaignSystem`（根命名空间，102 个）
 
@@ -201,16 +211,16 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 - [`AddCompanionAction`](./AddCompanionAction) — 把同伴挂进家族的入口，成员是 `Apply(Clan, Hero)` ✅ `TaleWorlds.CampaignSystem/Actions/AddCompanionAction.cs`
 - [`AddHeroToPartyAction`](./AddHeroToPartyAction) — 把领主塞进队伍（囚犯转化、征召等场景）的入口 ✅ `TaleWorlds.CampaignSystem/Actions/AddHeroToPartyAction.cs`
 - [`AdoptHeroAction`](./AdoptHeroAction) — 收养一个英雄并改写其家族归属 ✅ `TaleWorlds.CampaignSystem/Actions/AdoptHeroAction.cs`
-- `ApplyHeirSelectionAction` — 领主选定继承人之后统一改写家族继承链 ✅ `TaleWorlds.CampaignSystem/Actions/ApplyHeirSelectionAction.cs`
+- [`ApplyHeirSelectionAction`](./ApplyHeirSelectionAction) — 领主选定继承人之后统一改写家族继承链 ✅ `TaleWorlds.CampaignSystem/Actions/ApplyHeirSelectionAction.cs`
 - [`BeHostileAction`](./BeHostileAction) — 施加敌对行为的后果（态度、关系、贵族指数），源码里按强度分成 `ApplyHostileAction`、`ApplyMinorCoercionHostileAction`、`ApplyMajorCoercionHostileAction`、`ApplyEncounterHostileAction` 四档 ✅ `TaleWorlds.CampaignSystem/Actions/BeHostileAction.cs`
-- `BreakInOutBesiegedSettlementAction` — 强攻被围聚落的入口 ✅ `TaleWorlds.CampaignSystem/Actions/BreakInOutBesiegedSettlementAction.cs`
-- `BribeGuardsAction` — 行贿守卫以放行或换取入城 ✅ `TaleWorlds.CampaignSystem/Actions/BribeGuardsAction.cs`
-- `ChangeClanInfluenceAction` — 改写家族在王国里的影响力 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeClanInfluenceAction.cs`
-- `ChangeClanLeaderAction` — 更换家族首领 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeClanLeaderAction.cs`
-- `ChangeCrimeRatingAction` — 改写城镇的犯罪值 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeCrimeRatingAction.cs`
-- `ChangeGovernorAction` — 任免聚落总督 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeGovernorAction.cs`
+- [`BreakInOutBesiegedSettlementAction`](./BreakInOutBesiegedSettlementAction) — 强攻被围聚落的入口 ✅ `TaleWorlds.CampaignSystem/Actions/BreakInOutBesiegedSettlementAction.cs`
+- [`BribeGuardsAction`](./BribeGuardsAction) — 行贿守卫以放行或换取入城 ✅ `TaleWorlds.CampaignSystem/Actions/BribeGuardsAction.cs`
+- [`ChangeClanInfluenceAction`](./ChangeClanInfluenceAction) — 改写家族在王国里的影响力 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeClanInfluenceAction.cs`
+- [`ChangeClanLeaderAction`](./ChangeClanLeaderAction) — 更换家族首领 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeClanLeaderAction.cs`
+- [`ChangeCrimeRatingAction`](./ChangeCrimeRatingAction) — 改写城镇的犯罪值 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeCrimeRatingAction.cs`
+- [`ChangeGovernorAction`](./ChangeGovernorAction) — 任免聚落总督 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeGovernorAction.cs`
 - [`ChangeKingdomAction`](./ChangeKingdomAction) — 让家族加入或退出某个王国 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeKingdomAction.cs`
-- `ChangeOwnerOfSettlementAction` — 更换聚落归属 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeOwnerOfSettlementAction.cs`
+- [`ChangeOwnerOfSettlementAction`](./ChangeOwnerOfSettlementAction) — 更换聚落归属的唯一写入口，8 个 `ApplyBy*`（默认 / 国王裁决 / 攻城 / 退出阵营 / 交易 / 馈赠 / 叛乱 / 家族毁灭） ✅ `TaleWorlds.CampaignSystem/Actions/ChangeOwnerOfSettlementAction.cs`
 - `ChangeOwnerOfWorkshopAction` — 更换工作坊归属 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeOwnerOfWorkshopAction.cs`
 - `ChangePlayerCharacterAction` — 切换主控角色的入口，`Apply(Hero)`。源码里类本身没标 `static`、方法却是静态的，这是个写法上的不一致，用的时候按静态方法调即可 ✅ `TaleWorlds.CampaignSystem/Actions/ChangePlayerCharacterAction.cs`
 - `ChangeProductionTypeOfWorkshopAction` — 切换工作坊的生产类型 ✅ `TaleWorlds.CampaignSystem/Actions/ChangeProductionTypeOfWorkshopAction.cs`

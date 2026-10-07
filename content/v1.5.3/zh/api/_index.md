@@ -1,6 +1,6 @@
 ---
 title: "API 参考 — 已手写覆盖到哪里"
-description: "v1.5.3 的 API 类参考层：8 个有页面的桶、61 篇手写类型深写页的按任务阅读路径，以及 6 824 个类型下的诚实缺口。"
+description: "v1.5.3 的 API 类参考层：8 个有页面的桶、66 篇手写类型深写页的按任务阅读路径，以及 6 824 个类型下的诚实缺口。"
 ---
 
 # API 参考：已手写覆盖到哪里
@@ -13,7 +13,7 @@ description: "v1.5.3 的 API 类参考层：8 个有页面的桶、61 篇手写�
    该引哪个程序集。分不清这两件事就直接翻类型页，会在「为什么我的 Behavior 没被调用」上卡很久。
    模块地图见 [模块地图](../architecture/module-map)，跨版本差异见 [从 1.4.5 迁移](../architecture/migration-from-1.4.5)。
 2. **同级的 [版本首页](../)。** 19 个桶的完整缺口表在那里，本页只讲「哪 8 个桶已经有页」。
-3. **这一层之下是具体类型页。** 目前 **61 篇**，全部手写，每篇是「这个类负责什么 → 每个成员干什么用 → 心智模型 → 能跑的示例」。
+3. **这一层之下是具体类型页。** 目前 **66 篇**，全部手写，每篇是「这个类负责什么 → 每个成员干什么用 → 心智模型 → 能跑的示例」。
 
 > **桶索引页不存在。** `api/<桶>/` 这种目录索引页（`mission-ext/`、`sandbox/`、`viewmodel/` 等）在 v1.5.3 下
 > **一张都没有**，所以本页所有链接直接落到类型页，桶名不可点。旧版本文档里「点桶名进目录」的走法在这里走不通，
@@ -71,6 +71,11 @@ description: "v1.5.3 的 API 类参考层：8 个有页面的桶、61 篇手写�
 | 估算派系强度、敌国/驻军/宣战/附庸/雇佣兵判定、终结敌对行为 | [FactionHelper](./core-extra/FactionHelper) | `core-extra` |
 | 找最近聚落/城镇/城堡/村庄/藏身处、驻军变化、随机聚落 | [SettlementHelper](./core-extra/SettlementHelper) | `core-extra` |
 | 按 Tier 排序部队名册、部队规模文本、速度限制、物品名册摘要 | [PartyBaseHelper](./core-extra/PartyBaseHelper) | `core-extra` |
+| 生成领主部队、分配经验、随机伤兵、按物品重量匹配速度 | [MobilePartyHelper](./core-extra/MobilePartyHelper) | `core-extra` |
+| 打开部队界面（普通/作弊/赎金/战利品/管理/捐赠/任务模式） | [PartyScreenHelper](./core-extra/PartyScreenHelper) | `core-extra` |
+| 清除技能 perk、给部队/角色/城镇加 perk 加成、取总督 perk | [PerkHelper](./core-extra/PerkHelper) | `core-extra` |
+| 判导航有效性、找可达点、取上/下船数据、区域内找点 | [NavigationHelper](./core-extra/NavigationHelper) | `core-extra` |
+| 设置菜单选项属性、遭遇战攻击/捕获条件与后果、议题任务数据 | [MenuHelper](./core-extra/MenuHelper) | `core-extra` |
 
 **枢纽页只有几张。** 绝大多数 mod 真正需要读透的是 [MBSubModuleBase](./core/MBSubModuleBase)（mod 什么时候拿到游戏对象）、
 [CampaignBehaviorBase](./campaign/CampaignBehaviorBase)（行为什么时候被回调）、[SaveManager](./save-system/SaveManager)（字段怎么进存档），
@@ -86,24 +91,24 @@ description: "v1.5.3 的 API 类参考层：8 个有页面的桶、61 篇手写�
 | --- | ---: | ---: | --- |
 | `campaign` | 12 | 706 | `TaleWorlds.CampaignSystem` 根命名空间（129 个类型）加 38 个子命名空间：`Actions`、`LogEntries`、`CharacterDevelopment`、`MapNotificationTypes`、`GameState`、`MapEvents`、`Siege`、`Settlements`(+.Buildings/.Locations/.Workshops)、`Party`(+.PartyComponents)、`GameMenus`、`Incidents`、`Inventory`、`Election`、`Roster`、`TournamentGames`… —— 也就是**战役世界状态本身**：英雄、聚落、部队、地图事件、围城、日志、菜单的具体规则类型。 |
 | `campaign-ext` | 2 | 771 | 12 个命名空间里全是**可被替换的契约与扩展点**：`CampaignBehaviors`(169)、`Issues`(+`IssueQuestTasks`, 158)、`ComponentInterfaces`(144)、`GameComponents`(128)、`Conversation.Persuasion`、`.Conversation.Tags`(97)，加上 `TaleWorlds.ObjectSystem`。mod 在这里插行为、实现组件接口、替换默认模型、造 Issue 与对话议题，以及管理 `MBObjectManager` 那套对象身份；游戏本体不在这桶里。 |
-| `core-extra` | 37 | 516 | `TaleWorlds.Core`(273)、`TaleWorlds.Library`(171)、`TaleWorlds.DotNet`(29)、`Library.CodeGeneration`、`Library.EventSystem`、`Library.Graph`、`Library.Http`、`Library.Information`、`Library.NewsManager`、`LinQuick`、`Starter.Library` —— **跨系统地基**：`GameModel` 抽象、ViewModel 与绑定路径、事件总线、面向玩家的信息提示、图与代码生成工具。不属于任何一个玩法层，任何一层都要往下依赖它。 |
+| `core-extra` | 42 | 516 | `TaleWorlds.Core`(273)、`TaleWorlds.Library`(171)、`TaleWorlds.DotNet`(29)、`Library.CodeGeneration`、`Library.EventSystem`、`Library.Graph`、`Library.Http`、`Library.Information`、`Library.NewsManager`、`LinQuick`、`Starter.Library` —— **跨系统地基**：`GameModel` 抽象、ViewModel 与绑定路径、事件总线、面向玩家的信息提示、图与代码生成工具。不属于任何一个玩法层，任何一层都要往下依赖它。 |
 | `gui` | 2 | 273 | `TaleWorlds.ScreenSystem`(屏幕栈)、`TaleWorlds.GauntletUI`(59，加 `BaseTypes`/`Data`/`ExtraWidgets`/`GauntletInput`/`Layout`)、`TaleWorlds.TwoDimension`(51，含 `Standalone.Native.Windows`) —— **屏幕栈 + 控件树 + 2D 绘制层**。 |
 | `engine` | 1 | 216 | `TaleWorlds.Engine`(135，含 `Options`/`Screens`/`GauntletUI`)、`TaleWorlds.Diamond`(37，含 `ClientApplication`/`Rest`) —— **平台与渲染底层**：引擎绑定、选项与输入、Diamond 客户端，以及渲染产物 `GauntletLayer`（在 `TaleWorlds.Engine.GauntletUI`）。 |
 | `save-system` | 4 | 56 | `TaleWorlds.SaveSystem`(27)、`.Definition`(15)、`.Save`(5)、`.Load`(6)、`.Resolvers`(3) —— **存档的一条纵切链**：类型定义 → 序列化/反序列化上下文 → 读写驱动。 |
 | `mission` | 2 | 5 | **刻意的入口类 carve-out**：`TaleWorlds.MountAndBlade` 里的 5 个战斗门面类 `Mission` / `MissionState` / `MissionBehavior` / `Agent` / `Formation`。只留「谁调用我」的那一层；战斗控件、`MissionLogic`、`Behavior*`、多人组件全在 `mission-ext` 桶（本树**尚无任何页面**）。 |
 | `core` | 1 | 2 | **刻意的入口类 carve-out**：`TaleWorlds.MountAndBlade` 里的 `MBSubModuleBase` / `Module`，即 mod 的程序集入口。`core-extra` 才是 `TaleWorlds.Core` / `TaleWorlds.Library` 的地盘，两个桶名字像、装的东西完全不同。 |
 
-`mission-ext` 与 `core-extra` 是本任务里最容易被误解的两个名字：前者的完整 API 尚未撰写，后者的桶本身也只有 37 页。
+`mission-ext` 与 `core-extra` 是本任务里最容易被误解的两个名字：前者的完整 API 尚未撰写，后者的桶本身也只有 42 页。
 
-## 缺口：61 页 / 6 824 个类型 ≈ 0.9%
+## 缺口：66 页 / 6 824 个类型 ≈ 1.0%
 
-1.5.3 源码在排除噪声命名空间后扫描到 **6 824 个 public 类型**，本版本只有 **61 篇**类型页。
+1.5.3 源码在排除噪声命名空间后扫描到 **6 824 个 public 类型**，本版本只有 **66 篇**类型页。
 
 **这个 0.8% 的前提要讲清楚**，否则会被当成「覆盖率被低估了」或「被高估了」：
 
 - 它默认**一类型一页**。而 `GameModels`、`CampaignEvents` 这类是**门面聚合页**，一页覆盖多个类型
-  （例如 `GameModels` 一页串起战役侧所有模型类型的注册与取用路径），所以 61 页实际覆盖的类型数 > 61。
-- 因此**真实缺口页数只会比 6 763 更小，不会更大**。0.9% 是页数占比，不是类型覆盖率。
+  （例如 `GameModels` 一页串起战役侧所有模型类型的注册与取用路径），所以 66 页实际覆盖的类型数 > 66。
+- 因此**真实缺口页数只会比 6 758 更小，不会更大**。1.0% 是页数占比，不是类型覆盖率。
 - 逐桶的完整缺口表在 [版本首页](../)，那里 19 个桶全列了；本页只覆盖有页面的 8 个。
 
 ## 四个已裁决的归属问题（省得你按名字找错桶）

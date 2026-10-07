@@ -1,6 +1,6 @@
 ---
 title: "Engine — diagnostics, the 2D render context and Diamond"
-description: "TaleWorlds.Engine plus its input layer and the Diamond platform layer. 0 pages in this tree; the 2 pages are Chinese-tree-only."
+description: "TaleWorlds.Engine plus its input layer and the Diamond platform layer. 1 page in this tree; 2 more are Chinese-tree-only."
 ---
 # Engine — diagnostics, the 2D render context and Diamond
 
@@ -10,12 +10,13 @@ For a mod author this is the "I should not be touching it but I have to know it 
 
 `GauntletLayer` is the exception to "this layer is off limits": it resolves here rather than to [gui](../gui/) because its namespace is `TaleWorlds.Engine.GauntletUI`. Building a screen walks you out of `gui/` and into this bucket.
 
-## Pages in this area (0 in English)
+## Pages in this area (1 in English)
 
-No pages in this bucket have been written in this tree. The two that exist are in the Chinese tree:
+One page in this bucket has been written in this tree; two more exist only in the Chinese tree:
 
 | Page | What it covers |
 | --- | --- |
+| [MBDebug](./MBDebug) | the engine-side debug and cheats surface |
 | [zh/api/engine/MBDebug](../../../zh/api/engine/MBDebug) | the engine-side debug and cheats surface |
 | [zh/api/engine/GauntletLayer](../../../zh/api/engine/GauntletLayer) | loads a Gauntlet XML prefab and binds a ViewModel |
 

@@ -1,5 +1,5 @@
 ---
-title: "Architecture / 架构总览"
+title: "Architecture"
 description: "Entry point for v1.4.6 architecture: what module-map, sdk-overview and version-delta each answer, the reading order, and tree navigation."
 ---
 # Architecture

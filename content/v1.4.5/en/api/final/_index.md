@@ -7,7 +7,7 @@ description: "v1.4.5 final module index — the per-module sub-buckets of the fi
 
 > `final` is the catch-all bucket for the v1.4.5 final module set: it groups the per-module sub-trees that no single gameplay bucket owns. Enter a sub-bucket below to reach its classes.
 
-## 模块心智模型 / Mental model
+## What this module is
 
 This level is **structural, not a class level**: it defines no types of its own, it only hangs the per-module sub-buckets into a tree. For a specific class go straight into a sub-bucket; for "what is this module responsible for", read the sub-bucket index first.
 
@@ -58,8 +58,8 @@ This level is **structural, not a class level**: it defines no types of its own,
 - [Storymode Tutorial](storymode-tutorial/) — `storymode-tutorial`
 - [Twodim](twodim/) — `twodim`
 
-## 上级导航 / Up
+## Parent Navigation
 
-- [v1.4.5 API 参考](../) — 本层的父目录
-- [v1.4.5 首页](../../) — 版本首页
+- [API Reference](../)
+- [Version Home](../../)
 - [站点首页 / Site home](/)

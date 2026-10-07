@@ -41,6 +41,9 @@ description: "战斗层的行为基类：60 多个生命周期与事件回调覆
 
 ## 何时使用 / 何时不要使用
 
+- **怎么拿到它**：`MissionBehavior` 是抽象类且没有公开构造函数（`MissionBehavior.cs:11`），只能派生。实例化之后交给当前任务注册：`Mission.Current.AddMissionBehavior(myBehavior)`（`Mission.cs:4472`）。引擎自己的调用点就是这个形状——`Mission.Current.AddMissionBehavior(statisticsMissionLogic);`（`SandBox/CampaignBehaviors/StatisticsCampaignBehavior.cs:205`）。注册时引擎才回填 `Mission` 属性（`MissionBehavior.cs:16`，setter 是 `internal`），所以构造期间它还是 null。
+- **典型用法**：派生类覆写 `BehaviorType` 与你关心的那几个回调（`OnMissionTick(float dt)` 在 `MissionBehavior.cs:194`，`OnAgentDeleted(Agent affectedAgent)` 在 `:118`），构造好实例后 `Mission.Current.AddMissionBehavior(behavior)`，之后逻辑全靠回调推进，不用外部轮询。
+- **最容易踩的坑**：忘了覆写 `public abstract MissionBehaviorType BehaviorType { get; }`（`MissionBehavior.cs:30`）——它是抽象成员，不覆写直接编译不过；而枚举只有 `Logic` 与 `Other` 两个值（`MissionBehaviorType.cs:9`、`:11`），选错会让引擎按另一类归置你的行为。另一个同形的坑在收尾：引擎调用的是 `public virtual void OnEndMissionInternal()`（`MissionBehavior.cs:163`），它的方法体只有一句 `this.OnEndMission();`——你要覆写的是 `protected virtual void OnEndMission()`（`:169`）。覆写 `OnEndMissionInternal` 而不调 base，会把你的清理代码与基类派发整个切断。
 - **使用**：任何战斗内逻辑（伤害修正、命中反馈、AI 补丁、UI 提示、战斗 UI 覆盖）。
 - **使用**：需要「战斗开始 / 结束」钩子而不改动本体时。
 - **使用**：在 `OnEndMission` 里做清理（镜头、生成物、事件订阅）。

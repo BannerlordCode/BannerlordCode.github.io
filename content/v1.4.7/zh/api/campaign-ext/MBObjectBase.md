@@ -30,6 +30,8 @@ description: "所有 MBObject 派生类型的根基类：承载 StringId、MBGUI
 
 ## 何时使用 / 何时不要使用
 
+- **怎么拿到它**：`MBObjectBase` 本身是具体类而不是抽象基类（`MBObjectBase.cs:11`），带三个公开构造函数（`MBObjectBase.cs:45`、`:50`、`:56`），所以 `new MyItem("my_item")` 在语法上完全合法。但注册表里的实例一律走 `MBObjectManager`：按 StringId 取用是 `MBObjectManager.Instance.GetObject<T>(string objectName)`（`MBObjectManager.cs:288`），按条件筛选是 `GetObject<T>(Func<T, bool> predicate)`（`MBObjectManager.cs:227`），要临时造一个是 `CreateObject<T>()` 或 `CreateObject<T>(string stringId)`（`MBObjectManager.cs:1421`、`:1405`）。单例本身由 `MBObjectManager.Init()` 建立（`MBObjectManager.cs:31`），`Instance` 之前一直是 null。
+- **典型用法**：模块加载时先 `MBObjectManager.Instance.RegisterType<MyItem>("my", "my_items", 4001U);`（`MBObjectManager.cs:70`）把类型登记进册；用的时候先 `HasType<MyItem>()`（`MBObjectManager.cs:80`）确认类型在册，再 `GetObject<MyItem>("my_item")` 取回；对象之间「引用别的对象」的那些字段在 `AfterLoad()`（`MBObjectBase.cs:129`）里接，因为那时整个对象图已经建好。没登记过的类型 `GetObject<T>` 扫不到，会落到方法末尾的 `return default(T);`（`MBObjectManager.cs:314`）返回 null 而不是抛错。
 - **使用**：定义一个可从 XML 加载的自定义数据（装备、道具、配方、单位变体）。
 - **使用**：在 `AfterLoad()` 里把「引用别的对象」的字段接上（因为此时整个对象图已经存在）。
 - **使用**：通过 `GetName()` 统一取显示名，而不是自己写类型分支。
@@ -117,6 +119,8 @@ public class MyItemDef : MBObjectBase
 
 ### 示例 2：注册并取用自定义定义
 
+<!-- xml-id-unverifiable: v1.4.7 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.7 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;

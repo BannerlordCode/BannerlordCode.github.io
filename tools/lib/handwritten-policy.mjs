@@ -1,3 +1,17 @@
+// ============================================================================
+// WHAT `deep_pass` MEANS — READ THIS BEFORE TRUSTING IT
+// ============================================================================
+// Gate coverage of known templates is NOT the full set of templates.
+// deep_pass means: "the gate did not recognise this as a known template".
+// It does NOT mean "this text is real". A hand-written page that reuses a template
+// phrasing nobody has catalogued yet passes this gate.
+//
+// deep_pass is therefore evidence of ABSENCE OF MATCH, not evidence of authenticity.
+// Do not cite a deep_pass page as proof that a section was written by a person.
+//
+// This module is shared by _doc-check.mjs and all four writing lines. Changing a
+// pattern here re-scores the whole repo at once — run the census before and after.
+// ============================================================================
 import { basename } from 'node:path';
 
 const MENTAL_HEADING_RE = /^#{2}\s+(?:心智模型|Mental\s*Model)\s*$/imu;
@@ -40,12 +54,85 @@ const FORMULAIC_FAMILY_PURPOSE = [
 ];
 
 const BOILERPLATE_MENTAL = [
-  /^阅读时先通过属性了解状态/,
-  /^Read properties/,
+  // ---- HOW TO DECIDE WHETHER A PATTERN HERE MAY BE DELETED --------------------
+  // "It matches 0 pages" is NOT a deletion criterion. The rule has two clauses and
+  // BOTH must be satisfied before removing a line:
+  //
+  //   (1) exclusive coverage is 0 — no sibling pattern in this list also matches those
+  //       pages, so removing it loses no coverage; OR
+  //   (2) it matches 0 pages AND the corpus contains no text of a similar shape AND the
+  //       gate specification no longer requires that phrasing to be covered.
+  //
+  // The two clauses exist because "exclusive 0" means two very different things:
+  //   - m1/m2 (removed below): matched 5,037 / 1,640 pages, and EVERY hit was already
+  //     caught by another pattern. Exclusive 0 because somebody else already covers it.
+  //   - the two lines below: match 0 pages, and NOTHING else covers that phrasing.
+  //     Exclusive 0 because nobody in the corpus happens to open that way.
+  // Deleting on "net gain 0" alone would delete the only coverage for a template that
+  // the gate is still specified to catch. "The current corpus does not phrase it that
+  // way" is a fact about the corpus, not evidence that the pattern is wrong.
+  //
+  // Measured 2026-10-04 with: read the patterns out of THIS file, walk all of content/,
+  // strip each Mental section with stripMdNoise(), and count pages where this pattern is
+  // the only one that matches. Re-run that measurement before deleting anything here.
+  /^阅读时先通过属性了解状态/,   // 0 matches corpus-wide — KEEP (clause 2: nothing else covers it)
+  /^Read properties/,           // 0 matches corpus-wide — KEEP (clause 2: nothing else covers it)
   /^先从命名空间/,
   /^Start from namespace/,
   /入口或数据节点/,
   /entry point or data node/i,
+  // "Treat `X` as a <Widget|Data|...>-style extension point: first identify who creates it,
+  // who owns it, and who calls it..." — one template covering ~2,481 en pages, role word
+  // swapped per type. NOTE: no leading hyphen. stripMdNoise() rewrites [*_>#|-] to spaces, so
+  // a pattern written as /-extension point/ can never match the text it is meant to detect.
+  /extension point: first identify who creates it, who owns it, and who calls it/,
+  // The Chinese twin of the line above, from the SAME generator:
+  // "把 `X` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它……"
+  //
+  // KEEP — THIS IS THE ONLY COVERAGE FOR THOSE PAGES. Measured 2026-10-04 over all of
+  // content/ (39,025 pages): it matches 4,391 pages, ALL of them zh, and it is the SOLE
+  // matcher on every one of them (exclusive count 4,391/4,391). Delete this line and all
+  // 4,391 zh template pages silently become "not recognised by the gate".
+  // The absolute count DRIFTS while the writing lines are editing the corpus — a later
+  // re-run showed 4,379. That is corpus churn, not a regression in this pattern; the
+  // number that matters is the EXCLUSIVE column being equal to the match count.
+  // Measured with the exclusive-coverage rule: a pattern whose exclusive count is 0 is
+  // fully subsumed by its siblings and is dead weight; this one is the opposite case.
+  /型扩展点来理解/,
+  // m1 /Start from namespace\s+to place it in the stack/i  and
+  // m2 /first identify who creates it, who owns it, and who calls it/i
+  //     were evaluated 2026-10-04 and REMOVED. Net gain measured 0:
+  //     m1 matched 13,012 pages but exclusive coverage was 0 (every hit was already
+  //     caught by /^Start from namespace/); m2 matched 4,101 but exclusive coverage was
+  //     0 (every hit was already caught by the "extension point: first identify" entry
+  //     above). Kept as a "backup for if someone deletes the older pattern" was rejected:
+  //     that trades today's redundancy for a hypothetical future. Do not re-propose them
+  //     without re-running the exclusive-coverage measurement.
+];
+
+// The 14 known Overview template families. Substring matches, NOT anchored: an Overview
+// that CONTAINS one of these phrasings is template regardless of what surrounds it.
+// The two pre-existing anchored `is/是 ... public type` tests are deliberately NOT
+// folded in here — they are left in classifyPage so that this table is purely additive.
+// That keeps overviewReal monotonically non-increasing, which guarantees no page that the
+// gate previously rejected can start being accepted by this change alone.
+const BOILERPLATE_OVERVIEW = [
+  ['f01', /lives in\s+and exposes the state, behavior/i],
+  ['f02', /is a .{0,25} widget .{0,4} a .{0,25} element used in/i],
+  ['f03', /is a rule model that usually defines how a subsystem should compute/i],
+  ['f04', /behaves like a data carrier/i],
+  ['f05', /represents a view layer object/i], // "view layer", two words — NOT "view-layer";
+                                            // stripMdNoise rewrites '-' to a space anyway,
+                                            // so a hyphenated spelling can never match.
+  ['f06', /is a handler used to run agreed response logic/i],
+  ['f07', /is a manager: it owns a subsystem/i],
+  ['f08', /is a component style object/i],
+  ['f09', /is a controller whose job is less about storing/i],
+  ['f10', /sits closer to the behavior layer/i],
+  ['f11', /is a helper class that usually provides static logic/i],
+  ['f12', /is an exception type used to signal/i],
+  ['f13', /the data binding bridge between/i],
+  ['f14', /attribute used to tag a type or member/i],
 ];
 
 const NOISE_PREFIX =
@@ -325,7 +412,8 @@ export function classifyPage(filePath, text) {
     overviewPlain &&
     overviewPlain.length > 60 &&
     !/^(?:`?[\w.<>]+`?\s+)?是\s+TaleWorlds\.\S+\s+(?:下|中)的公开类型[。.]?$/u.test(overviewPlain) &&
-    !/^`?[\w.<>]+`?\s+is a public type (?:in|under)\s+TaleWorlds\.\S+[.]?$/iu.test(overviewPlain);
+    !/^`?[\w.<>]+`?\s+is a public type (?:in|under)\s+TaleWorlds\.\S+[.]?$/iu.test(overviewPlain) &&
+    !BOILERPLATE_OVERVIEW.some(([, re]) => re.test(overviewPlain));
   const overviewOk = overviewReal || (!overview && mentalReal && text.length > 2000);
   const deep = mentalReal && dependenciesReal && realExample && overviewOk && reasons.length === 0;
 

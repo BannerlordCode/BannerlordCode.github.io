@@ -76,7 +76,7 @@ The type definition center, maintaining the "type → definition" mapping.
 - `DefinitionContext.cs:10` — `public class DefinitionContext`: the definition context body.
 - `DefinitionContext.cs:68` — `internal void AddClassDefinition(TypeDefinition classDefinition)`: registers a type definition into the context.
 - `DefinitionContext.cs:173` — `public void FillWithCurrentTypes()`: scans assemblies at startup and collects all type definitions.
-- `DefinitionContext.cs:278` — `private void CollectTypes(Assembly assembly)`: performs reflection collection on a single assembly.
+- `DefinitionContext.cs:279` — `private void CollectTypes(Assembly assembly)`: performs reflection collection on a single assembly.
 - `DefinitionContext.cs:283` — `if (typeof(SaveableTypeDefiner).IsAssignableFrom(type) && !type.IsAbstract)`: filters out non-abstract `SaveableTypeDefiner` subclasses.
 - `DefinitionContext.cs:285` — `SaveableTypeDefiner saveableTypeDefiner = (SaveableTypeDefiner)Activator.CreateInstance(type);`: reflectively instantiates the Definer — **this is why you "do not need and cannot manually Register"**.
 

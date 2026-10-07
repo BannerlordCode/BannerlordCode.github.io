@@ -73,7 +73,7 @@ Bannerlord 的存档系统基于**对象图序列化**模型。`SaveManager` 是
 - `DefinitionContext.cs:10` — `public class DefinitionContext`：定义上下文本体。
 - `DefinitionContext.cs:68` — `internal void AddClassDefinition(TypeDefinition classDefinition)`：把一个类型定义登记进上下文。
 - `DefinitionContext.cs:173` — `public void FillWithCurrentTypes()`：启动期扫描程序集、收齐全部类型定义。
-- `DefinitionContext.cs:278` — `private void CollectTypes(Assembly assembly)`：对单个程序集做反射收集。
+- `DefinitionContext.cs:279` — `private void CollectTypes(Assembly assembly)`：对单个程序集做反射收集。
 - `DefinitionContext.cs:283` — `if (typeof(SaveableTypeDefiner).IsAssignableFrom(type) && !type.IsAbstract)`：筛出非抽象的 `SaveableTypeDefiner` 子类。
 - `DefinitionContext.cs:285` — `SaveableTypeDefiner saveableTypeDefiner = (SaveableTypeDefiner)Activator.CreateInstance(type);`：反射实例化 Definer —— **这就是「不需要也不能手动 Register」的原因**。
 

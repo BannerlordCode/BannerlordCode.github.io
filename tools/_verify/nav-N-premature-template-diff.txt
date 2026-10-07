@@ -1,0 +1,134 @@
+diff --git a/templates/macros/page-navigation.html b/templates/macros/page-navigation.html
+index 94c5580449..7f247f1752 100644
+--- a/templates/macros/page-navigation.html
++++ b/templates/macros/page-navigation.html
+@@ -1,38 +1,62 @@
+-{# Parent and related links only. Scanning every sibling in Tera is quadratic
+-   on the large API sections and pushes a full build past GitHub's 6 hour limit. #}
++{# Page navigation: prev/next siblings, parent, and related entries.
++   All data comes from the pre-generated data/nav-graph.json (design:
++   tools/_verify/nav-M-navgraph.md) — O(1) lookup per page, no sibling
++   scanning at render time. Restores NAV-REWORK-QUEUE items #11-#15. #}
+ {%- macro render(current_url, lang) -%}
+-  {%- set_global parent_path = "" -%}
+-  {%- for ancestor in page.ancestors -%}
+-    {%- set_global parent_path = ancestor -%}
+-  {%- endfor -%}
+-  {%- if parent_path -%}
+-    {%- set parent_section = get_section(path=parent_path) -%}
+-    {%- set navigation = load_data(path="data/navigation.json") -%}
+-    {%- set_global route_key = parent_section.path -%}
+-    {%- if not (navigation.routes[route_key] is defined) -%}
+-      {%- set_global route_key = "/" ~ parent_section.path -%}
+-    {%- endif -%}
+-    {%- set_global related_parent = false -%}
+-    {%- if navigation.routes[route_key] is defined -%}
+-      {%- set_global related_parent = navigation.routes[route_key] -%}
+-    {%- endif -%}
++  {%- set nav = load_data(path="data/nav-graph.json") -%}
++  {# Normalize the content file path to a nav-graph route key.
++     leaf  content/a/b/Foo.md     -> /a/b/Foo/
++     index content/a/b/_index.md  -> /a/b/ #}
++  {%- set raw = current_url | replace(pat=".md", replacement="") | replace(pat="_index", replacement="") -%}
++  {%- if raw == "" or raw == "/" -%}
++    {%- set route_key = "/" -%}
++  {%- elif raw is starting_with("/") -%}
++    {%- set route_key = raw -%}
++  {%- else -%}
++    {%- set route_key = "/" ~ raw -%}
++  {%- endif -%}
++  {%- if route_key != "/" and not route_key is ending_with("/") -%}
++    {%- set route_key = route_key ~ "/" -%}
++  {%- endif -%}
++  {%- set node = nav.routes[route_key] -%}
++  {%- if node is defined and route_key != "/" -%}
+     <nav class="page-navigation" aria-label="{% if lang == 'zh' %}页面导航{% else %}Page navigation{% endif %}">
++      {%- if node.parentRoute or node.prevRoute or node.nextRoute -%}
+       <div class="page-navigation-row">
++        {%- if node.parentRoute -%}
++        {%- set parent = nav.routes[node.parentRoute] -%}
+         <div class="page-navigation-parent">
+           <span class="page-navigation-label">{% if lang == 'zh' %}父级{% else %}Parent{% endif %}</span>
+-          <a href="{{ parent_section.path | safe }}">{{ parent_section.title }}</a>
++          <a href="{{ parent.route | safe }}">{{ parent.title }}</a>
++        </div>
++        {%- endif -%}
++        <div class="page-navigation-siblings">
++          {%- if node.prevRoute -%}
++            {%- set prev = nav.routes[node.prevRoute] -%}
++            <a rel="prev" href="{{ prev.route | safe }}">&larr; {{ prev.title }}</a>
++          {%- else -%}
++            <span class="page-navigation-disabled" aria-disabled="true">&larr; {% if lang == 'zh' %}已是第一项{% else %}First item{% endif %}</span>
++          {%- endif -%}
++          {%- if node.nextRoute -%}
++            {%- set next = nav.routes[node.nextRoute] -%}
++            <a rel="next" href="{{ next.route | safe }}">{{ next.title }} &rarr;</a>
++          {%- else -%}
++            <span class="page-navigation-disabled" aria-disabled="true">{% if lang == 'zh' %}已是最后一项{% else %}Last item{% endif %} &rarr;</span>
++          {%- endif -%}
+         </div>
+       </div>
+-      {% if related_parent and related_parent.children is defined and related_parent.children | length > 0 %}
++      {%- endif -%}
++      {%- if node.relatedRoutes | length > 0 -%}
+         <div class="page-navigation-related">
+           <span class="page-navigation-label">{% if lang == 'zh' %}相关入口{% else %}Related{% endif %}</span>
+-          {% for related_route in related_parent.children %}
+-            {% if navigation.routes[related_route] is defined %}
+-              <a href="{{ related_route | safe }}">{{ navigation.routes[related_route].label[lang] | default(value=related_route) }}</a>
+-            {% endif %}
+-          {% endfor %}
++          {%- for related_route in node.relatedRoutes -%}
++            {%- set related = nav.routes[related_route] -%}
++            {%- if related is defined -%}
++              <a href="{{ related.route | safe }}">{{ related.title }}</a>
++            {%- endif -%}
++          {%- endfor -%}
+         </div>
+-      {% endif %}
++      {%- endif -%}
+     </nav>
+   {%- endif -%}
+ {%- endmacro render -%}
+diff --git a/templates/macros/sidebar.html b/templates/macros/sidebar.html
+index 2725d7248e..8e8ac40500 100644
+--- a/templates/macros/sidebar.html
++++ b/templates/macros/sidebar.html
+@@ -3,9 +3,23 @@
+    folders that navigation does not already list. Version and language links
+    are resolved with relkey_map.json.
+ #}
+-{%- macro switch_href(nav, version, lang_code) -%}
++{%- macro switch_href(nav, version, lang_code, current_relkey="") -%}
+ {%- set_global switch_target = "/" ~ version ~ "/" ~ lang_code ~ "/" -%}
+-{%- if not (nav.routes[switch_target] is defined) -%}
++{%- set_global relkey_followed = false -%}
++{# Relkey following (#8, #9): when the current page has a relkey_map entry,
++   land on the SAME page in the target version/language instead of the
++   version root. Falls back to root-granularity switching when unmapped. #}
++{%- if current_relkey -%}
++  {%- set alt_map = load_data(path="data/relkey_map.json") -%}
++  {%- if alt_map[current_relkey] is defined -%}
++    {%- set ver_map = alt_map[current_relkey][version] -%}
++    {%- if ver_map is defined and ver_map[lang_code] is defined -%}
++      {%- set_global switch_target = ver_map[lang_code] -%}
++      {%- set_global relkey_followed = true -%}
++    {%- endif -%}
++  {%- endif -%}
++{%- endif -%}
++{%- if not relkey_followed and not (nav.routes[switch_target] is defined) -%}
+   {%- for fallback_lang in nav.meta.languages -%}
+     {%- set candidate = "/" ~ version ~ "/" ~ fallback_lang ~ "/" -%}
+     {%- if nav.routes[candidate] is defined -%}
+diff --git a/templates/section.html b/templates/section.html
+index be154d9991..1a3fdceef1 100644
+--- a/templates/section.html
++++ b/templates/section.html
+@@ -27,6 +27,7 @@
+     </button>
+   </div>
+   {{ section.content | safe }}
++  {{ page_navigation::render(current_url=section.path, lang=crumb_lang) }}
+ </article>
+ <hr>
+ <ul>

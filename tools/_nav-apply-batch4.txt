@@ -1,0 +1,69 @@
+DELETED_OR_REWRITTEN_LINES=0
+BATCH=4/4  ACCEPTANCE_SCOPE=通路正确 + 断链净增0（不含 orphan 下降；orphan 效应在 batch2/3）
+BUCKET=content/v1.4.5/en/api/campaign  children=1360  ALREADY_IN_BLOCK=0  ADD=1360  ALSO_LINKED_IN_PROSE=18  MARKER=existing  BEGIN=1 END=1
+   + ./AcceptCallToWarAgreementDecision  |  route=content/v1.4.5/en/api/campaign/AcceptCallToWarAgreementDecision/  |  SIBLING  |  leaf
+   + ./AcceptCallToWarAgreementDecisionOutcome  |  route=content/v1.4.5/en/api/campaign/AcceptCallToWarAgreementDecisionOutcome/  |  SIBLING  |  leaf
+   + ./AcceptCallToWarOfferMapNotification  |  route=content/v1.4.5/en/api/campaign/AcceptCallToWarOfferMapNotification/  |  SIBLING  |  leaf
+   + ./AccessDetails  |  route=content/v1.4.5/en/api/campaign/AccessDetails/  |  SIBLING  |  leaf
+   + ./AccessLevel  |  route=content/v1.4.5/en/api/campaign/AccessLevel/  |  SIBLING  |  leaf
+   + ./AccessLimitationReason  |  route=content/v1.4.5/en/api/campaign/AccessLimitationReason/  |  SIBLING  |  leaf
+   + ./AccessMethod  |  route=content/v1.4.5/en/api/campaign/AccessMethod/  |  SIBLING  |  leaf
+   + ./AccompanyingCharacter  |  route=content/v1.4.5/en/api/campaign/AccompanyingCharacter/  |  SIBLING  |  leaf
+   + ./ActionNotes  |  route=content/v1.4.5/en/api/campaign/ActionNotes/  |  SIBLING  |  leaf
+   + ./AdditionType  |  route=content/v1.4.5/en/api/campaign/AdditionType/  |  SIBLING  |  leaf
+   ... 共 1360 条
+   NOTE_ALREADY_LINKED_IN_PROSE=18（散文中已链到，不重复进清单）
+BUCKET=content/v1.4.5/en/api/mission  children=75  ALREADY_IN_BLOCK=0  ADD=75  ALSO_LINKED_IN_PROSE=0  MARKER=existing  BEGIN=1 END=1
+   + ./ActionIndexCache  |  route=content/v1.4.5/en/api/mission/ActionIndexCache/  |  SIBLING  |  leaf
+   + ./AdminPanelAction  |  route=content/v1.4.5/en/api/mission/AdminPanelAction/  |  SIBLING  |  leaf
+   + ./AdminPanelMultiSelectionItem  |  route=content/v1.4.5/en/api/mission/AdminPanelMultiSelectionItem/  |  SIBLING  |  leaf
+   + ./AdminPanelMultiSelectionOption  |  route=content/v1.4.5/en/api/mission/AdminPanelMultiSelectionOption/  |  SIBLING  |  leaf
+   + ./AdminPanelNumericOption  |  route=content/v1.4.5/en/api/mission/AdminPanelNumericOption/  |  SIBLING  |  leaf
+   + ./AdminPanelOption  |  route=content/v1.4.5/en/api/mission/AdminPanelOption/  |  SIBLING  |  leaf
+   + ./AdminPanelOptionGroup  |  route=content/v1.4.5/en/api/mission/AdminPanelOptionGroup/  |  SIBLING  |  leaf
+   + ./Agent  |  route=content/v1.4.5/en/api/mission/Agent/  |  SIBLING  |  leaf
+   + ./AgentCreationResult  |  route=content/v1.4.5/en/api/mission/AgentCreationResult/  |  SIBLING  |  leaf
+   + ./AgentHelper  |  route=content/v1.4.5/en/api/mission/AgentHelper/  |  SIBLING  |  leaf
+   ... 共 75 条
+BUCKET=content/v1.4.7/en/api/engine  children=2  ALREADY_IN_BLOCK=0  ADD=2  ALSO_LINKED_IN_PROSE=0  MARKER=existing  BEGIN=1 END=1
+   + ./GauntletLayer  |  route=content/v1.4.7/en/api/engine/GauntletLayer/  |  SIBLING  |  leaf
+   + ./MBDebug  |  route=content/v1.4.7/en/api/engine/MBDebug/  |  SIBLING  |  leaf
+BUCKET=content/v1.5.3/zh/api/storymode  children=92  ALREADY_IN_BLOCK=0  ADD=92  ALSO_LINKED_IN_PROSE=0  MARKER=existing  BEGIN=1 END=1
+   + ./AchievementsCampaignBehavior  |  route=content/v1.5.3/zh/api/storymode/AchievementsCampaignBehavior/  |  SIBLING  |  leaf
+   + ./ArzagosBannerPieceQuest  |  route=content/v1.5.3/zh/api/storymode/ArzagosBannerPieceQuest/  |  SIBLING  |  leaf
+   + ./AssembleEmpireQuest  |  route=content/v1.5.3/zh/api/storymode/AssembleEmpireQuest/  |  SIBLING  |  leaf
+   + ./AssembleEmpireQuestBehavior  |  route=content/v1.5.3/zh/api/storymode/AssembleEmpireQuestBehavior/  |  SIBLING  |  leaf
+   + ./AssembleEmpireQuestBehaviorTypeDefiner  |  route=content/v1.5.3/zh/api/storymode/AssembleEmpireQuestBehaviorTypeDefiner/  |  SIBLING  |  leaf
+   + ./AssembleTheBannerQuest  |  route=content/v1.5.3/zh/api/storymode/AssembleTheBannerQuest/  |  SIBLING  |  leaf
+   + ./BannerInvestigationQuest  |  route=content/v1.5.3/zh/api/storymode/BannerInvestigationQuest/  |  SIBLING  |  leaf
+   + ./CampaignStoryMode  |  route=content/v1.5.3/zh/api/storymode/CampaignStoryMode/  |  SIBLING  |  leaf
+   + ./ConspiracyBaseOfOperationsDiscoveredConspiracyQuest  |  route=content/v1.5.3/zh/api/storymode/ConspiracyBaseOfOperationsDiscoveredConspiracyQuest/  |  SIBLING  |  leaf
+   + ./ConspiracyProgressQuest  |  route=content/v1.5.3/zh/api/storymode/ConspiracyProgressQuest/  |  SIBLING  |  leaf
+   ... 共 92 条
+BUCKET=content/v1.5.3/zh/api/localization  children=19  ALREADY_IN_BLOCK=0  ADD=19  ALSO_LINKED_IN_PROSE=0  MARKER=existing  BEGIN=1 END=1
+   + ./DefaultTextProcessor  |  route=content/v1.5.3/zh/api/localization/DefaultTextProcessor/  |  SIBLING  |  leaf
+   + ./EnglishTextProcessor  |  route=content/v1.5.3/zh/api/localization/EnglishTextProcessor/  |  SIBLING  |  leaf
+   + ./FrenchTextProcessor  |  route=content/v1.5.3/zh/api/localization/FrenchTextProcessor/  |  SIBLING  |  leaf
+   + ./GermanTextProcessor  |  route=content/v1.5.3/zh/api/localization/GermanTextProcessor/  |  SIBLING  |  leaf
+   + ./ItalianTextProcessor  |  route=content/v1.5.3/zh/api/localization/ItalianTextProcessor/  |  SIBLING  |  leaf
+   + ./LanguageSpecificTextProcessor  |  route=content/v1.5.3/zh/api/localization/LanguageSpecificTextProcessor/  |  SIBLING  |  leaf
+   + ./LocalizedTextManager  |  route=content/v1.5.3/zh/api/localization/LocalizedTextManager/  |  SIBLING  |  leaf
+   + ./LocalizedVoiceManager  |  route=content/v1.5.3/zh/api/localization/LocalizedVoiceManager/  |  SIBLING  |  leaf
+   + ./MBTextManager  |  route=content/v1.5.3/zh/api/localization/MBTextManager/  |  SIBLING  |  leaf
+   + ./MBTextModel  |  route=content/v1.5.3/zh/api/localization/MBTextModel/  |  SIBLING  |  leaf
+   ... 共 19 条
+TOTAL_ADD=1548  BUCKETS=5  MODE=apply
+GUARD_STATUS=PRESENT
+R2_OK: 5 个桶全部在本批次清单内，桶数一致。
+APPLIED content/v1.4.5/en/api/campaign  added=1360  lost=0  outsideChanged=false
+APPLIED content/v1.4.5/en/api/mission  added=75  lost=0  outsideChanged=false
+APPLIED content/v1.4.7/en/api/engine  added=2  lost=0  outsideChanged=false
+APPLIED content/v1.5.3/zh/api/storymode  added=92  lost=0  outsideChanged=false
+APPLIED content/v1.5.3/zh/api/localization  added=19  lost=0  outsideChanged=false
+=== BUCKET SUMMARY ===
+OK=5  FAILED=0  SKIPPED=0
+  OK      content/v1.4.5/en/api/campaign	added=1360
+  OK      content/v1.4.5/en/api/mission	added=75
+  OK      content/v1.4.7/en/api/engine	added=2
+  OK      content/v1.5.3/zh/api/storymode	added=92
+  OK      content/v1.5.3/zh/api/localization	added=19

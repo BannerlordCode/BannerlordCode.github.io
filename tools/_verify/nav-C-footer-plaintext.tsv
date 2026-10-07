@@ -1,0 +1,108 @@
+file	line	path_statement	position	correct_levels	compliant
+content\v1.3.0\zh\api\campaign-ext\AddPeerComponent.md	11	../../mission-ext/GameNetworkMessage	叶子	2 层（'../../mission-ext/GameNetworkMessage'）	是
+content\v1.3.0\zh\api\campaign-ext\ArmyCohesionStep2Tutorial.md	11	../TutorialItemBase	叶子	1 层（'../TutorialItemBase'）	是
+content\v1.3.0\zh\api\campaign-ext\CharacterCreationBannerEditorView.md	11	../CharacterCreationStageViewBase	叶子	1 层（'../CharacterCreationStageViewBase'）	是
+content\v1.3.0\zh\api\campaign-ext\PrefabTooltipExtension.md	11	../../gui/PrefabExtension	叶子	2 层（'../../gui/PrefabExtension'）	是
+content\v1.3.15\zh\api\campaign-ext\FactionManager.md	26	../DeclareWarAction	叶子	1 层（'../DeclareWarAction'）	是
+content\v1.3.15\zh\api\campaign-ext\FactionManager.md	26	../MakePeaceAction	叶子	1 层（'../MakePeaceAction'）	是
+content\v1.3.15\zh\api\campaign-ext\FactionManager.md	65	../../campaign/StanceType	叶子	2 层（'../../campaign/StanceType'）	是
+content\v1.3.15\zh\api\campaign-ext\FactionManager.md	90	../DeclareWarAction	叶子	1 层（'../DeclareWarAction'）	是
+content\v1.3.15\zh\api\campaign-ext\FactionManager.md	92	../MakePeaceAction	叶子	1 层（'../MakePeaceAction'）	是
+content\v1.3.15\zh\api\campaign-ext\ItemRoster.md	59	./GiveItemAction/	叶子	1 层（'../GiveItemAction/'）	否
+content\v1.3.15\zh\api\campaign-ext\ItemRoster.md	59	./SellItemsAction/	叶子	1 层（'../SellItemsAction/'）	否
+content\v1.3.15\zh\api\campaign-ext\ItemRoster.md	119	./DefaultItems/	叶子	1 层（'../DefaultItems/'）	否
+content\v1.3.15\zh\api\campaign-ext\ItemRoster.md	131	./PartySizeLimitModel/	叶子	1 层（'../PartySizeLimitModel/'）	否
+content\v1.3.15\zh\api\campaign-ext\ItemRoster.md	131	./PartyWageModel/	叶子	1 层（'../PartyWageModel/'）	否
+content\v1.3.15\zh\api\campaign-ext\ItemRoster.md	134	./CampaignEvents/	叶子	1 层（'../CampaignEvents/'）	否
+content\v1.3.15\zh\api\campaign-ext\KingdomManager.md	30	../ChangeKingdomAction	叶子	1 层（'../ChangeKingdomAction'）	是
+content\v1.3.15\zh\api\campaign-ext\KingdomManager.md	31	../DestroyKingdomAction	叶子	1 层（'../DestroyKingdomAction'）	是
+content\v1.3.15\zh\api\campaign-ext\KingdomManager.md	32	../DeclareWarAction	叶子	1 层（'../DeclareWarAction'）	是
+content\v1.3.15\zh\api\campaign-ext\KingdomManager.md	33	../ChangeRulingClanAction	叶子	1 层（'../ChangeRulingClanAction'）	是
+content\v1.3.15\zh\api\campaign-ext\KingdomManager.md	34	../../campaign/Kingdom	叶子	2 层（'../../campaign/Kingdom'）	是
+content\v1.3.15\zh\api\campaign-ext\KingdomManager.md	39	../../campaign/Campaign	叶子	2 层（'../../campaign/Campaign'）	是
+content\v1.3.15\zh\api\campaign-ext\KingdomManager.md	42	../ChangeKingdomAction	叶子	1 层（'../ChangeKingdomAction'）	是
+content\v1.3.15\zh\api\campaign-ext\KingdomManager.md	43	../DestroyKingdomAction	叶子	1 层（'../DestroyKingdomAction'）	是
+content\v1.3.15\zh\api\campaign-ext\KingdomManager.md	44	../DeclareWarAction	叶子	1 层（'../DeclareWarAction'）	是
+content\v1.3.15\zh\api\campaign-ext\KingdomManager.md	45	../ChangeRulingClanAction	叶子	1 层（'../ChangeRulingClanAction'）	是
+content\v1.3.15\zh\api\campaign-ext\KingdomManager.md	48	../FactionManager	叶子	1 层（'../FactionManager'）	是
+content\v1.3.15\zh\api\campaign-ext\KingdomManager.md	49	../../campaign/Kingdom	叶子	2 层（'../../campaign/Kingdom'）	是
+content\v1.3.15\zh\api\campaign-ext\KingdomManager.md	49	../../campaign/Clan	叶子	2 层（'../../campaign/Clan'）	是
+content\v1.3.15\zh\api\campaign-ext\KingdomManager.md	49	../../campaign/Hero	叶子	2 层（'../../campaign/Hero'）	是
+content\v1.4.5\en\api\campaign\EventHandlerRec.md	82	../../../zh/api/campaign/EventHandlerRec	叶子	3 层（'../../../zh/api/campaign/EventHandlerRec'）	是
+content\v1.4.5\en\api\campaign\MBCampaignEvent.md	120	../../../zh/api/campaign/MBCampaignEvent	叶子	3 层（'../../../zh/api/campaign/MBCampaignEvent'）	是
+content\v1.4.5\en\api\campaign\MbEvent.md	107	../../../zh/api/campaign/MbEvent	叶子	3 层（'../../../zh/api/campaign/MbEvent'）	是
+content\v1.4.5\en\api\campaign\ReferenceIMBEvent.md	84	../../../zh/api/campaign/ReferenceIMBEvent	叶子	3 层（'../../../zh/api/campaign/ReferenceIMBEvent'）	是
+content\v1.4.5\en\api\campaign\ReferenceMBEvent.md	106	../../../zh/api/campaign/ReferenceMBEvent	叶子	3 层（'../../../zh/api/campaign/ReferenceMBEvent'）	是
+content\v1.4.5\en\api\campaign-ext\ItemRoster.md	59	./GiveItemAction/	叶子	1 层（'../GiveItemAction/'）	否
+content\v1.4.5\en\api\campaign-ext\ItemRoster.md	59	./SellItemsAction/	叶子	1 层（'../SellItemsAction/'）	否
+content\v1.4.5\en\api\campaign-ext\ItemRoster.md	119	./DefaultItems/	叶子	1 层（'../DefaultItems/'）	否
+content\v1.4.5\en\api\campaign-ext\ItemRoster.md	198	./PartySizeLimitModel/	叶子	1 层（'../PartySizeLimitModel/'）	否
+content\v1.4.5\en\api\campaign-ext\ItemRoster.md	198	./PartyWageModel/	叶子	1 层（'../PartyWageModel/'）	否
+content\v1.4.5\en\api\campaign-ext\ItemRoster.md	201	./CampaignEvents/	叶子	1 层（'../CampaignEvents/'）	否
+content\v1.4.5\en\api\core-extra\AgentData.md	123	../../campaign/	叶子	2 层（'../../campaign/'）	是
+content\v1.4.5\en\api\core-extra\AgentOriginUtilities.md	136	../../campaign/	叶子	2 层（'../../campaign/'）	是
+content\v1.4.5\en\api\core-extra\AgentOriginUtilities.md	136	../../mission-ext/	叶子	2 层（'../../mission-ext/'）	是
+content\v1.4.5\en\api\core-extra\AgentOriginUtilities.md	138	../../campaign/CharacterObject.cs:152	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\en\api\core-extra\AmbientInformation.md	143	../../campaign/MenuHelper.cs:350/385	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\en\api\core-extra\ApplicationPlatform.md	18	../../	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\en\api\core-extra\ApplicationPlatform.md	61	../../	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\en\api\core-extra\ApplicationPlatform.md	173	../../	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\en\api\core-extra\ApplicationPlatform.md	177	../../campaign/Campaign.cs:1593	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\en\api\core-extra\ApplicationVersion.md	164	../../campaign/Clan.cs:749-820	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\en\api\core-extra\ApplicationVersion.md	164	../../campaign/Campaign.cs:612-629	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\en\api\core-extra\ApplicationVersion.md	164	../../campaign/CampaignPeriodicEventManager.cs:199	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\en\api\core-extra\ApplicationVersion.md	164	../../campaign/CharacterRelationManager.cs:153	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\en\api\core-extra\ApplicationVersionType.md	154	../../campaign/Clan.cs:801/812/816/820	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\en\api\core-extra\ApplicationVersionType.md	154	../../campaign/Campaign.cs:612-629	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\en\api\core-extra\ApplicationVersionType.md	154	../../campaign/CampaignPeriodicEventManager.cs:199	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\en\api\core-extra\ApplicationVersionType.md	154	../../campaign/CharacterRelationManager.cs:153	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\en\api\core-extra\AtmosphereInfo.md	161	../../campaign/MenuHelper.cs:350/385	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\en\api\mission-ext\LobbyClient.md	299	../	叶子	1 层（'../'）	是
+content\v1.4.5\zh\api\campaign\EventHandlerRec.md	82	../../../en/api/campaign/EventHandlerRec	叶子	3 层（'../../../en/api/campaign/EventHandlerRec'）	是
+content\v1.4.5\zh\api\campaign\MBCampaignEvent.md	120	../../../en/api/campaign/MBCampaignEvent	叶子	3 层（'../../../en/api/campaign/MBCampaignEvent'）	是
+content\v1.4.5\zh\api\campaign\MbEvent.md	107	../../../en/api/campaign/MbEvent	叶子	3 层（'../../../en/api/campaign/MbEvent'）	是
+content\v1.4.5\zh\api\campaign\ReferenceIMBEvent.md	84	../../../en/api/campaign/ReferenceIMBEvent	叶子	3 层（'../../../en/api/campaign/ReferenceIMBEvent'）	是
+content\v1.4.5\zh\api\campaign\ReferenceMBEvent.md	106	../../../en/api/campaign/ReferenceMBEvent	叶子	3 层（'../../../en/api/campaign/ReferenceMBEvent'）	是
+content\v1.4.5\zh\api\campaign-ext\FactionManager.md	26	../DeclareWarAction	叶子	1 层（'../DeclareWarAction'）	是
+content\v1.4.5\zh\api\campaign-ext\FactionManager.md	26	../MakePeaceAction	叶子	1 层（'../MakePeaceAction'）	是
+content\v1.4.5\zh\api\campaign-ext\FactionManager.md	65	../../campaign/StanceType	叶子	2 层（'../../campaign/StanceType'）	是
+content\v1.4.5\zh\api\campaign-ext\FactionManager.md	90	../DeclareWarAction	叶子	1 层（'../DeclareWarAction'）	是
+content\v1.4.5\zh\api\campaign-ext\FactionManager.md	92	../MakePeaceAction	叶子	1 层（'../MakePeaceAction'）	是
+content\v1.4.5\zh\api\campaign-ext\ItemRoster.md	59	./GiveItemAction/	叶子	1 层（'../GiveItemAction/'）	否
+content\v1.4.5\zh\api\campaign-ext\ItemRoster.md	59	./SellItemsAction/	叶子	1 层（'../SellItemsAction/'）	否
+content\v1.4.5\zh\api\campaign-ext\ItemRoster.md	119	./DefaultItems/	叶子	1 层（'../DefaultItems/'）	否
+content\v1.4.5\zh\api\campaign-ext\ItemRoster.md	131	./PartySizeLimitModel/	叶子	1 层（'../PartySizeLimitModel/'）	否
+content\v1.4.5\zh\api\campaign-ext\ItemRoster.md	131	./PartyWageModel/	叶子	1 层（'../PartyWageModel/'）	否
+content\v1.4.5\zh\api\campaign-ext\ItemRoster.md	134	./CampaignEvents/	叶子	1 层（'../CampaignEvents/'）	否
+content\v1.4.5\zh\api\campaign-ext\KingdomManager.md	30	../ChangeKingdomAction	叶子	1 层（'../ChangeKingdomAction'）	是
+content\v1.4.5\zh\api\campaign-ext\KingdomManager.md	31	../DestroyKingdomAction	叶子	1 层（'../DestroyKingdomAction'）	是
+content\v1.4.5\zh\api\campaign-ext\KingdomManager.md	32	../DeclareWarAction	叶子	1 层（'../DeclareWarAction'）	是
+content\v1.4.5\zh\api\campaign-ext\KingdomManager.md	33	../ChangeRulingClanAction	叶子	1 层（'../ChangeRulingClanAction'）	是
+content\v1.4.5\zh\api\campaign-ext\KingdomManager.md	34	../../campaign/Kingdom	叶子	2 层（'../../campaign/Kingdom'）	是
+content\v1.4.5\zh\api\campaign-ext\KingdomManager.md	39	../../campaign/Campaign	叶子	2 层（'../../campaign/Campaign'）	是
+content\v1.4.5\zh\api\campaign-ext\KingdomManager.md	42	../ChangeKingdomAction	叶子	1 层（'../ChangeKingdomAction'）	是
+content\v1.4.5\zh\api\campaign-ext\KingdomManager.md	43	../DestroyKingdomAction	叶子	1 层（'../DestroyKingdomAction'）	是
+content\v1.4.5\zh\api\campaign-ext\KingdomManager.md	44	../DeclareWarAction	叶子	1 层（'../DeclareWarAction'）	是
+content\v1.4.5\zh\api\campaign-ext\KingdomManager.md	45	../ChangeRulingClanAction	叶子	1 层（'../ChangeRulingClanAction'）	是
+content\v1.4.5\zh\api\campaign-ext\KingdomManager.md	48	../FactionManager	叶子	1 层（'../FactionManager'）	是
+content\v1.4.5\zh\api\campaign-ext\KingdomManager.md	49	../../campaign/Kingdom	叶子	2 层（'../../campaign/Kingdom'）	是
+content\v1.4.5\zh\api\campaign-ext\KingdomManager.md	49	../../campaign/Clan	叶子	2 层（'../../campaign/Clan'）	是
+content\v1.4.5\zh\api\campaign-ext\KingdomManager.md	49	../../campaign/Hero	叶子	2 层（'../../campaign/Hero'）	是
+content\v1.4.5\zh\api\core-extra\AgentData.md	123	../../campaign/	叶子	2 层（'../../campaign/'）	是
+content\v1.4.5\zh\api\core-extra\AgentOriginUtilities.md	136	../../campaign/	叶子	2 层（'../../campaign/'）	是
+content\v1.4.5\zh\api\core-extra\AgentOriginUtilities.md	136	../../mission-ext/	叶子	2 层（'../../mission-ext/'）	是
+content\v1.4.5\zh\api\core-extra\AgentOriginUtilities.md	138	../../campaign/CharacterObject.cs:152	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\zh\api\core-extra\AmbientInformation.md	175	../../campaign/MenuHelper.cs:350/385	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\zh\api\core-extra\ApplicationPlatform.md	18	../../	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\zh\api\core-extra\ApplicationPlatform.md	61	../../	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\zh\api\core-extra\ApplicationPlatform.md	217	../../	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\zh\api\core-extra\ApplicationPlatform.md	221	../../campaign/Campaign.cs:1593	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\zh\api\core-extra\ApplicationVersion.md	200	../../campaign/Clan.cs:749-820	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\zh\api\core-extra\ApplicationVersion.md	200	../../campaign/Campaign.cs:612-629	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\zh\api\core-extra\ApplicationVersion.md	200	../../campaign/CampaignPeriodicEventManager.cs:199	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\zh\api\core-extra\ApplicationVersion.md	200	../../campaign/CharacterRelationManager.cs:153	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\zh\api\core-extra\ApplicationVersionType.md	190	../../campaign/Clan.cs:801/812/816/820	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\zh\api\core-extra\ApplicationVersionType.md	190	../../campaign/Campaign.cs:612-629	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\zh\api\core-extra\ApplicationVersionType.md	190	../../campaign/CampaignPeriodicEventManager.cs:199	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\zh\api\core-extra\ApplicationVersionType.md	190	../../campaign/CharacterRelationManager.cs:153	叶子	—（非导航陈述，排除）	非导航（排除）
+content\v1.4.5\zh\api\core-extra\AtmosphereInfo.md	194	../../campaign/MenuHelper.cs:350/385	叶子	—（非导航陈述，排除）	非导航（排除）

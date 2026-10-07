@@ -1,0 +1,18 @@
+项号	行为名	处置	理由	代价	对应抱怨	是否优先三项
+1	首页 Home menu link	accept loss	mobile-brand 已链首页；sidebar-head brand 也链首页。恢复需重建 desktop top bar，与 shell 重做冲突。	0（不恢复）	—	否
+2	指南 Guide dropdown	replace	sidebar 树已有 Guide 分组。跨版本一键跳转可用 sidebar 快速链接块替代（预生成数据驱动）。	低：sidebar 加 quick-links 块	「不是树状」→ 树已覆盖，但跨版本直达缺失	否
+3	API dropdown	replace	同 #2，sidebar 已有 API 分组。	低	同上	否
+4	架构 Architecture dropdown	replace	同 #2。	低	同上	否
+5	原生 Native dropdown	replace	同 #2。	低	同上	否
+6	{version} Native Source 子链接	accept loss	已在 sidebar 树中（navigation.json 中 native-1.3.15-src 是 version root 的 child）。	0	—	否
+7	XML Reference dropdown	replace	同 #2。	低	同上	否
+8	版本 Version dropdown（relkey_map 跟随）	restore	sidebar-foot switch_href 仅到版本根，不跟随 relkey_map。relkey_map.json 已有 9647 条映射。扩展 switch_href 接受 current_relkey 参数查表。	低：模板改动 + 已有数据	「跳过去回不来」→ 同页跨版本可达	是
+9	语言 Language dropdown（per-page translations）	restore	同 #8，relkey_map.json 已有 per-relkey per-lang route。switch_href 语言切换时查 relkey_map。	低：模板改动 + 已有数据	「跳过去回不来」→ 同页跨语言可达	是
+10	Brand logo image	accept loss	sidebar-head 已渲染 logo。top bar 不再需要。	0	—	否
+11	← previous sibling (rel=prev)	restore	page-navigation.json 已为 38177 leaf 生成 previous。模板查表替代扫描。	低：模板改动 + 已有数据	「跳过去回不来」→ 线性前后可达	是
+12	next sibling → (rel=next)	restore	同 #11，page-navigation.json 已有 next。	低	同上	是
+13	First/Last item disabled placeholders	restore	随 #11/#12 恢复自动回来。	0（附带）	—	否
+14	父级 Parent（section 页）	restore	section.html 不再调用 page_navigation::render。navigation.json 有 parent 字段。恢复调用 + section 分支查表。	低-中：模板 + 数据	「跳过去回不来」→ section 页有父级出口	是
+15	相关入口 Related（section 页）	restore	同 #14，navigation.json 的 children 字段已提供 related routes。	低（同 #14）	同上	否
+16	Group default-open（collapsed flag）	restore	一行模板修复：{% if group_active or not group.collapsed %}open{% endif %}。	极低：模板 1 行	「不是树状」→ 默认展开恢复	否
+17	Each URL emitted once（emitted_routes）	restore	旧 sidebar 有全局 emitted_routes 去重。加回全局列表。	低：模板 + 少量渲染开销	「跳着跳着 404」→ 重复条目消除	否

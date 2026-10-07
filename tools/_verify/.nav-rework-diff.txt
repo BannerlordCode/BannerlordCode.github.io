@@ -1,0 +1,971 @@
+===== templates/base.html
+diff --git a/templates/base.html b/templates/base.html
+index 5b78d37b3f..99b8a8c12b 100644
+--- a/templates/base.html
++++ b/templates/base.html
+@@ -1,149 +1,79 @@
+-{% import "macros/sidebar.html" as sidebar %}
+-<!DOCTYPE html>
+-<html lang="{{ lang }}">
+-<head>
+-  <meta charset="utf-8">
+-  <meta name="viewport" content="width=device-width, initial-scale=1">
+-  <title>{%- block title %}{{ config.title }}{% endblock %}</title>
+-  <meta name="description" content="{%- block description %}{{ config.description }}{% endblock %}">
+-  {% block head %}{% endblock %}
+-  <style>
+-    :root {
+-      --bg: #ffffff;
+-      --text: #1a1a1a;
+-      --muted: #666666;
+-      --accent: #646cff;
+-      --border: #e5e5e5;
+-      --code-bg: #f4f4f4;
+-      --sidebar-width: 260px;
+-      --nav-height: 56px;
+-    }
+-    * { box-sizing: border-box; }
+-    html, body { margin: 0; padding: 0; }
+-    body {
+-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+-      line-height: 1.6;
+-      color: var(--text);
+-      background: var(--bg);
+-    }
+-    a { color: var(--accent); text-decoration: none; }
+-    a:hover { text-decoration: underline; }
+-    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+-    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+-    pre code { background: transparent; padding: 0; }
+-    table { border-collapse: collapse; width: 100%; }
+-    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+-    th { background: #fafafa; }
+-
+-    .top-nav {
+-      position: fixed;
+-      top: 0; left: 0; right: 0;
+-      height: var(--nav-height);
+-      border-bottom: 1px solid var(--border);
+-      background: rgba(255,255,255,0.95);
+-      backdrop-filter: blur(8px);
+-      display: flex;
+-      align-items: center;
+-      padding: 0 1.25rem;
+-      gap: 1.5rem;
+-      z-index: 100;
+-    }
+-    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+-    .top-nav .brand img { height: 24px; width: 24px; }
+-    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+-    .top-nav .menu a { color: var(--text); font-weight: 500; }
+-    .top-nav .menu a.active { color: var(--accent); }
+-    .top-nav .dropdown { position: relative; }
+-    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+-    .top-nav .dropdown[open] summary { color: var(--accent); }
+-    .top-nav .dropdown-menu {
+-      position: absolute; top: 100%; left: 0; min-width: 180px;
+-      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+-      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+-    }
+-    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+-    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+-
+-    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+-    .sidebar {
+-      width: var(--sidebar-width);
+-      border-right: 1px solid var(--border);
+-      padding: 1.25rem;
+-      position: fixed;
+-      top: var(--nav-height); bottom: 0; left: 0;
+-      overflow-y: auto;
+-      font-size: 0.92rem;
+-    }
+-    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+-    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+-    .sidebar a.active { color: var(--accent); font-weight: 600; }
+-    .sidebar .group { margin-bottom: 0.75rem; }
+-    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+-    .sidebar .group-items { padding-left: 0.9rem; }
+-
+-    .breadcrumb { font-size: 0.85rem; color: var(--muted); margin: 0 0 1rem; line-height: 1.5; }
+-    .breadcrumb a { color: var(--muted); }
+-    .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+-    .breadcrumb span[aria-hidden] { color: #bbb; margin: 0 0.15rem; }
+-    .breadcrumb .current { color: var(--text); font-weight: 600; }
+-
+-    .page-navigation {
+-      border-top: 1px solid var(--border);
+-      margin-top: 2rem;
+-      padding-top: 1rem;
+-      color: var(--muted);
+-      font-size: 0.92rem;
+-    }
+-    .page-navigation-row,
+-    .page-navigation-related {
+-      display: flex;
+-      flex-wrap: wrap;
+-      align-items: center;
+-      gap: 0.65rem 1rem;
+-    }
+-    .page-navigation-row { justify-content: space-between; }
+-    .page-navigation-parent,
+-    .page-navigation-siblings,
+-    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+-    .page-navigation-label { font-weight: 600; color: var(--text); }
+-    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+-    .page-navigation-related { margin-top: 0.65rem; }
+-
+-    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+-    .main h1 { font-size: 2rem; margin-top: 0; }
+-
+-    @media (max-width: 768px) {
+-      .sidebar { display: none; }
+-      .main { margin-left: 0; padding: 1.25rem; }
+-    }
+-  </style>
+-</head>
+-<body>
+-  {% include "partials/topnav.html" %}
+-  <div class="layout">
+-    {%- set current_url = page.path | default(value=section.path) | default(value="/") -%}
+-    <aside class="sidebar">
+-      {{ sidebar::render_nav(current_url=current_url, lang=lang) }}
+-    </aside>
+-    <main class="main">
+-      {% block content %}{% endblock %}
+-    </main>
+-  </div>
+-  <script>
+-    document.addEventListener('DOMContentLoaded', function () {
+-      function normalize(p) {
+-        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+-      }
+-      var here = normalize(location.pathname);
+-      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+-        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+-        if (path && path === here) {
+-          a.classList.add('active');
+-          var details = a.closest && a.closest('details');
+-          if (details) details.open = true;
+-        }
+-      });
+-    });
+-  </script>
+-</body>
+-</html>
++{% import "macros/sidebar.html" as sidebar %}
++{%- set current_url = page.path | default(value=section.path) | default(value="/") -%}
++{%- set path_parts = current_url | split(pat="/") -%}
++{%- set url_lang = path_parts | nth(n=2) | default(value="") -%}
++{%- set_global shell_lang = lang -%}
++{%- if url_lang == "zh" or url_lang == "en" -%}
++  {%- set_global shell_lang = url_lang -%}
++{%- endif -%}
++<!DOCTYPE html>
++<html lang="{{ shell_lang }}">
++<head>
++  <meta charset="utf-8">
++  <meta name="viewport" content="width=device-width, initial-scale=1">
++  <title>{%- block title %}{{ config.title }}{% endblock %}</title>
++  <meta name="description" content="{%- block description %}{{ config.description }}{% endblock %}">
++  {% block head %}{% endblock %}
++  <link rel="stylesheet" href="{{ get_url(path='shell.css', cachebust=true) }}">
++</head>
++<body>
++  <input id="nav-toggle" class="nav-check" type="checkbox">
++  {% include "partials/topnav.html" %}
++  <div class="shell">
++    {% include "partials/sidebar.html" %}
++    <label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
++    <main class="main">
++      {% block content %}{% endblock %}
++    </main>
++  </div>
++  <script>
++    document.addEventListener('DOMContentLoaded', function () {
++      function decodeMarkdown(b64) {
++        try {
++          var raw = atob(b64);
++          var bytes = new Uint8Array(raw.length);
++          for (var i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
++          return new TextDecoder('utf-8').decode(bytes);
++        } catch (e) {
++          return null;
++        }
++      }
++      function stripFrontmatter(md) {
++        return md.replace(/^(---|\+\+\+)\r?\n[\s\S]*?\r?\n\1\r?\n?/, '');
++      }
++      document.querySelectorAll('.copy-md-btn').forEach(function (btn) {
++        btn.addEventListener('click', function () {
++          var md = decodeMarkdown(btn.getAttribute('data-md-source'));
++          if (md !== null) md = stripFrontmatter(md);
++          if (md === null || md === '') {
++            btn.textContent = btn.getAttribute('data-failed-text');
++            setTimeout(function () {
++              btn.textContent = btn.getAttribute('data-default-text');
++            }, 2000);
++            return;
++          }
++          if (navigator.clipboard && navigator.clipboard.writeText) {
++            navigator.clipboard.writeText(md).then(function () {
++              btn.textContent = btn.getAttribute('data-copied-text');
++              setTimeout(function () {
++                btn.textContent = btn.getAttribute('data-default-text');
++              }, 2000);
++            }).catch(function () {
++              btn.textContent = btn.getAttribute('data-failed-text');
++              setTimeout(function () {
++                btn.textContent = btn.getAttribute('data-default-text');
++              }, 2000);
++            });
++          } else {
++            btn.textContent = btn.getAttribute('data-failed-text');
++            setTimeout(function () {
++              btn.textContent = btn.getAttribute('data-default-text');
++            }, 2000);
++          }
++        });
++      });
++    });
++  </script>
++  <script src="{{ get_url(path='shell.js', cachebust=true) }}"></script>
++</body>
++</html>
+===== templates/macros/page-navigation.html
+diff --git a/templates/macros/page-navigation.html b/templates/macros/page-navigation.html
+index 9184b2306b..94c5580449 100644
+--- a/templates/macros/page-navigation.html
++++ b/templates/macros/page-navigation.html
+@@ -1,55 +1,20 @@
+-{# Render leaf/section navigation from Zola's already-loaded section pages. The
+-   generator-backed JSON remains the freshness/audit contract, while this
+-   runtime path avoids parsing a multi-megabyte map for every rendered page.
+-
+-   Parent resolution, verified against the Aug 22 build in public/:
+-   - leaf page  : page.ancestors | last   == the direct parent section
+-                  (e.g. public/v1.3.0/en/api/core/Module/index.html -> ~/v1.3.0/en/api/core/)
+-   - section    : section.ancestors | last == the direct parent section
+-                  (e.g. public/v1.3.0/en/index.html         -> ~/v1.3.0/)
+-   - site root  : ancestors == []         -> no parent nav, by design
+-   For a section the siblings are its parent's subsections, not pages. #}
++{# Parent and related links only. Scanning every sibling in Tera is quadratic
++   on the large API sections and pushes a full build past GitHub's 6 hour limit. #}
+ {%- macro render(current_url, lang) -%}
+-  {%- set_global resolved_parent = "" -%}
+-  {%- if page is defined -%}
+-    {%- for ancestor in page.ancestors -%}
+-      {%- set_global resolved_parent = ancestor -%}
+-    {%- endfor -%}
+-  {%- elif section is defined and section.ancestors | length > 0 -%}
+-    {%- set_global resolved_parent = section.ancestors | last -%}
+-  {%- endif -%}
+-  {%- if resolved_parent -%}
+-    {%- set parent_section = get_section(path=resolved_parent) -%}
+-    {%- set_global previous_sibling = false -%}
+-    {%- set_global next_sibling = false -%}
+-    {%- set_global found_current = false -%}
+-    {%- if page is defined -%}
+-      {%- for sibling in parent_section.pages -%}
+-        {%- if found_current and not next_sibling -%}
+-          {%- set_global next_sibling = sibling -%}
+-        {%- elif sibling.path == current_url -%}
+-          {%- set_global found_current = true -%}
+-        {%- elif not found_current -%}
+-          {%- set_global previous_sibling = sibling -%}
+-        {%- endif -%}
+-      {%- endfor -%}
+-    {%- elif section is defined -%}
+-      {%- for sibling_path in parent_section.subsections -%}
+-        {%- set sibling = get_section(path=sibling_path) -%}
+-        {%- if found_current and not next_sibling -%}
+-          {%- set_global next_sibling = sibling -%}
+-        {%- elif sibling_path == current_url -%}
+-          {%- set_global found_current = true -%}
+-        {%- elif not found_current -%}
+-          {%- set_global previous_sibling = sibling -%}
+-        {%- endif -%}
+-      {%- endfor -%}
+-    {%- endif -%}
++  {%- set_global parent_path = "" -%}
++  {%- for ancestor in page.ancestors -%}
++    {%- set_global parent_path = ancestor -%}
++  {%- endfor -%}
++  {%- if parent_path -%}
++    {%- set parent_section = get_section(path=parent_path) -%}
+     {%- set navigation = load_data(path="data/navigation.json") -%}
+-    {# Guarded like the `is defined` idiom below: version trees with no entry in
+-       navigation.json (v1.4.6 / v1.5.3) have no parent route to index. #}
+-    {%- if navigation.routes[parent_section.path] is defined -%}
+-      {%- set related_parent = navigation.routes[parent_section.path] -%}
++    {%- set_global route_key = parent_section.path -%}
++    {%- if not (navigation.routes[route_key] is defined) -%}
++      {%- set_global route_key = "/" ~ parent_section.path -%}
++    {%- endif -%}
++    {%- set_global related_parent = false -%}
++    {%- if navigation.routes[route_key] is defined -%}
++      {%- set_global related_parent = navigation.routes[route_key] -%}
+     {%- endif -%}
+     <nav class="page-navigation" aria-label="{% if lang == 'zh' %}页面导航{% else %}Page navigation{% endif %}">
+       <div class="page-navigation-row">
+@@ -57,20 +22,8 @@
+           <span class="page-navigation-label">{% if lang == 'zh' %}父级{% else %}Parent{% endif %}</span>
+           <a href="{{ parent_section.path | safe }}">{{ parent_section.title }}</a>
+         </div>
+-        <div class="page-navigation-siblings">
+-          {% if previous_sibling %}
+-            <a rel="prev" href="{{ previous_sibling.path | safe }}">&larr; {{ previous_sibling.title }}</a>
+-          {% else %}
+-            <span class="page-navigation-disabled" aria-disabled="true">&larr; {% if lang == 'zh' %}已是第一项{% else %}First item{% endif %}</span>
+-          {% endif %}
+-          {% if next_sibling %}
+-            <a rel="next" href="{{ next_sibling.path | safe }}">{{ next_sibling.title }} &rarr;</a>
+-          {% else %}
+-            <span class="page-navigation-disabled" aria-disabled="true">{% if lang == 'zh' %}已是最后一项{% else %}Last item{% endif %} &rarr;</span>
+-          {% endif %}
+-        </div>
+       </div>
+-      {% if related_parent is defined and related_parent.children is defined and related_parent.children | length > 0 %}
++      {% if related_parent and related_parent.children is defined and related_parent.children | length > 0 %}
+         <div class="page-navigation-related">
+           <span class="page-navigation-label">{% if lang == 'zh' %}相关入口{% else %}Related{% endif %}</span>
+           {% for related_route in related_parent.children %}
+===== templates/macros/sidebar.html
+diff --git a/templates/macros/sidebar.html b/templates/macros/sidebar.html
+index 1d61118505..2725d7248e 100644
+--- a/templates/macros/sidebar.html
++++ b/templates/macros/sidebar.html
+@@ -1,158 +1,250 @@
+-{# Tree-structured sidebar for the Bannerlord Modding Wiki.
+-   navigation.json supplies curated module routes; section-tree.json supplies
+-   structural sections discovered from content. Each URL is emitted once.
+-
+-   The child expansion is recursive (render_branch) so the sidebar mirrors the
+-   real content depth instead of stopping one level below the bucket. MAX_DEPTH
+-   bounds the fan-out: v1.4.5/zh alone has 464+ sections, and this partial
+-   renders on every one of the ~62k pages.
++{# Sidebar tree + version/language switchers.
++   Directory entries come from navigation.json. section-tree.json only fills
++   folders that navigation does not already list. Version and language links
++   are resolved with relkey_map.json.
+ #}
+-{%- set_global MAX_DEPTH = 4 -%}
+-{%- set_global emitted_routes = [] -%}
+-
+-{%- macro render_branch(route_key, lang, mapped_url, depth) -%}
+-  {# Tera macros have no early return, and `break` is only legal inside a `for`.
+-     Wrap the whole body in a guard so an unknown route_key renders nothing. #}
+-  {%- if nav.routes[route_key] is defined -%}
+-  {%- set node = nav.routes[route_key] -%}
+-  {%- set_global curated_children = [] -%}
+-  {%- set_global section_children = [] -%}
+-  {%- for child_key in node.children -%}
+-    {%- if nav.routes[child_key] is defined -%}
+-      {%- set_global curated_children = curated_children | concat(with=[child_key]) -%}
++{%- macro switch_href(nav, version, lang_code) -%}
++{%- set_global switch_target = "/" ~ version ~ "/" ~ lang_code ~ "/" -%}
++{%- if not (nav.routes[switch_target] is defined) -%}
++  {%- for fallback_lang in nav.meta.languages -%}
++    {%- set candidate = "/" ~ version ~ "/" ~ fallback_lang ~ "/" -%}
++    {%- if nav.routes[candidate] is defined -%}
++      {%- set_global switch_target = candidate -%}
++      {%- break -%}
+     {%- endif -%}
+   {%- endfor -%}
+-  {%- if tree.byRoute[route_key] is defined and tree.byRoute[route_key].subsections is defined -%}
+-    {%- for child_key in tree.byRoute[route_key].subsections -%}
+-      {%- if not (curated_children is containing(child_key)) -%}
+-        {%- set_global section_children = section_children | concat(with=[child_key]) -%}
+-      {%- endif -%}
+-    {%- endfor -%}
+-  {%- endif -%}
+-  {%- set_global has_children = curated_children | length > 0 or section_children | length > 0 -%}
+-  {%- if has_children -%}
+-    <details class="group" {% if not node.collapsed or mapped_url is starting_with(route_key) %}open{% endif %}>
+-      <summary>{{ node.label[lang] }}</summary>
+-      <div class="group-items">
+-        <a href="{{ route_key | safe }}" class="{% if mapped_url == route_key %}active{% endif %}">{% if lang == 'zh' %}目录{% else %}Index{% endif %}</a>
+-        {%- for child_key in curated_children -%}
+-          {%- set child = nav.routes[child_key] -%}
+-          {%- if not (emitted_routes is containing(child_key)) -%}
+-            <a href="{{ child_key | safe }}" class="{% if mapped_url == child_key %}active{% endif %}">{{ child.label[lang] }}</a>
+-            {%- set_global emitted_routes = emitted_routes | concat(with=[child_key]) -%}
+-          {%- endif -%}
+-        {%- endfor -%}
+-        {%- for child_key in section_children -%}
+-          {%- set child_title = child_key -%}
+-          {%- set child_route = nav.routes[child_key] -%}
+-          {%- if child_route is not defined and tree.byRoute[child_key] is defined and tree.byRoute[child_key].title is defined -%}
+-            {%- set child_title = tree.byRoute[child_key].title -%}
+-          {%- elif child_route is defined -%}
+-            {%- set child_title = child_route.label[lang] -%}
+-          {%- endif -%}
+-          {%- if not (emitted_routes is containing(child_key)) -%}
+-            {%- if depth < MAX_DEPTH and (nav.routes[child_key] is defined or tree.byRoute[child_key] is defined) -%}
+-              {{ self::render_branch(route_key=child_key, lang=lang, mapped_url=mapped_url, depth=depth + 1) }}
+-            {%- else -%}
+-              <a href="{{ child_key | safe }}" class="{% if mapped_url == child_key %}active{% endif %}">{{ child_title }}</a>
+-            {%- endif -%}
+-            {%- set_global emitted_routes = emitted_routes | concat(with=[child_key]) -%}
+-          {%- endif -%}
+-        {%- endfor -%}
+-      </div>
+-    </details>
+-  {%- else -%}
+-    <a href="{{ route_key | safe }}" class="{% if mapped_url == route_key %}active{% endif %}">{{ node.label[lang] }}</a>
+-  {%- endif -%}
++{%- endif -%}
++{{- switch_target | safe -}}
++{%- endmacro switch_href -%}
++
++{%- macro item_label(nav, tree, key, shell_lang) -%}
++{%- set_global item_label_text = key -%}
++{%- if nav.routes[key] is defined -%}
++  {%- set_global item_label_text = nav.routes[key].label[shell_lang] -%}
++{%- elif tree.byRoute[key] is defined and tree.byRoute[key].title is defined -%}
++  {%- set_global item_label_text = tree.byRoute[key].title -%}
++  {%- if item_label_text is containing(" / ") -%}
++    {%- set title_parts = item_label_text | split(pat=" / ") -%}
++    {%- if shell_lang == "zh" -%}
++      {%- set_global item_label_text = title_parts | first -%}
++    {%- else -%}
++      {%- set_global item_label_text = title_parts | last -%}
++    {%- endif -%}
+   {%- endif -%}
+-{%- endmacro render_branch -%}
++{%- endif -%}
++{{- item_label_text -}}
++{%- endmacro item_label -%}
+ 
+-{%- macro render_nav(current_url, lang) -%}
+-  {%- set nav = load_data(path="data/navigation.json") -%}
+-  {%- set tree = load_data(path="data/section-tree.json") -%}
++{%- macro link2(nav, tree, key, shell_lang, current_url, mapped_url) -%}
++{%- set_global active_class = "" -%}
++{%- if mapped_url == key or current_url == key -%}{%- set_global active_class = " active" -%}{%- endif -%}
++{%- set_global kids2 = [] -%}
++{%- if nav.routes[key] is defined -%}
++  {%- for child in nav.routes[key].children -%}
++    {%- if nav.routes[child] is defined and not (kids2 is containing(child)) -%}
++      {%- set_global kids2 = kids2 | concat(with=[child]) -%}
++    {%- endif -%}
++  {%- endfor -%}
++{%- endif -%}
++{%- if tree.byRoute[key] is defined and tree.byRoute[key].subsections is defined -%}
++  {%- for sub in tree.byRoute[key].subsections -%}
++    {%- if not (kids2 is containing(sub)) and (nav.routes[sub] is defined or tree.byRoute[sub] is defined) -%}
++      {%- set_global kids2 = kids2 | concat(with=[sub]) -%}
++    {%- endif -%}
++  {%- endfor -%}
++{%- endif -%}
++{%- if kids2 | length > 0 -%}
++<details class="branch"{% if current_url is starting_with(key) and current_url != key %} open{% endif %}>
++  <summary><a href="{{ key | safe }}"{% if active_class %} class="{{ active_class | trim }}"{% endif %}>{{ self::item_label(nav=nav, tree=tree, key=key, shell_lang=shell_lang) }}</a></summary>
++  <div class="group-items">
++    {%- for child in kids2 -%}
++    <a class="leaf{% if mapped_url == child or current_url == child %} active{% endif %}" href="{{ child | safe }}">{{ self::item_label(nav=nav, tree=tree, key=child, shell_lang=shell_lang) }}</a>
++    {%- endfor -%}
++  </div>
++</details>
++{%- else -%}
++<a class="leaf{{ active_class }}" href="{{ key | safe }}">{{ self::item_label(nav=nav, tree=tree, key=key, shell_lang=shell_lang) }}</a>
++{%- endif -%}
++{%- endmacro link2 -%}
+ 
+-  {%- set_global mapped_url = "/" -%}
+-  {%- set_global matched_len = 1 -%}
+-  {%- for key, node in nav.routes -%}
+-    {%- if current_url is starting_with(key) and key | length > matched_len -%}
+-      {%- set_global mapped_url = key -%}
+-      {%- set_global matched_len = key | length -%}
++{%- macro link1(nav, tree, key, shell_lang, current_url, mapped_url) -%}
++{%- set_global active_class = "" -%}
++{%- if mapped_url == key or current_url == key -%}{%- set_global active_class = " active" -%}{%- endif -%}
++{%- set_global kids1 = [] -%}
++{%- if nav.routes[key] is defined -%}
++  {%- for child in nav.routes[key].children -%}
++    {%- if nav.routes[child] is defined and not (kids1 is containing(child)) -%}
++      {%- set_global kids1 = kids1 | concat(with=[child]) -%}
+     {%- endif -%}
+   {%- endfor -%}
+-  {%- set_global emitted_routes = [] -%}
++{%- endif -%}
++{%- if tree.byRoute[key] is defined and tree.byRoute[key].subsections is defined -%}
++  {%- for sub in tree.byRoute[key].subsections -%}
++    {%- if not (kids1 is containing(sub)) and (nav.routes[sub] is defined or tree.byRoute[sub] is defined) -%}
++      {%- set_global kids1 = kids1 | concat(with=[sub]) -%}
++    {%- endif -%}
++  {%- endfor -%}
++{%- endif -%}
++{%- if kids1 | length > 0 -%}
++<details class="branch"{% if current_url is starting_with(key) and current_url != key %} open{% endif %}>
++  <summary><a href="{{ key | safe }}"{% if active_class %} class="{{ active_class | trim }}"{% endif %}>{{ self::item_label(nav=nav, tree=tree, key=key, shell_lang=shell_lang) }}</a></summary>
++  <div class="group-items">
++    {%- for child in kids1 -%}
++      {{ self::link2(nav=nav, tree=tree, key=child, shell_lang=shell_lang, current_url=current_url, mapped_url=mapped_url) }}
++    {%- endfor -%}
++  </div>
++</details>
++{%- else -%}
++<a class="leaf{{ active_class }}" href="{{ key | safe }}">{{ self::item_label(nav=nav, tree=tree, key=key, shell_lang=shell_lang) }}</a>
++{%- endif -%}
++{%- endmacro link1 -%}
+ 
+-  {%- set path_parts = current_url | split(pat="/") -%}
+-  {%- set current_version = path_parts | nth(n=1) | default(value="") -%}
+-  {%- if nav.meta.versions is containing(current_version) -%}
+-    {%- set current_lang = path_parts | nth(n=2) | default(value=lang) -%}
+-    {%- if not (nav.meta.languages is containing(current_lang)) -%}
+-      {%- set current_lang = lang -%}
++{%- macro link0(nav, tree, key, shell_lang, current_url, mapped_url) -%}
++{%- set_global active_class = "" -%}
++{%- if mapped_url == key or current_url == key -%}{%- set_global active_class = " active" -%}{%- endif -%}
++{%- set_global kids0 = [] -%}
++{%- if nav.routes[key] is defined -%}
++  {%- for child in nav.routes[key].children -%}
++    {%- if nav.routes[child] is defined and not (kids0 is containing(child)) -%}
++      {%- set_global kids0 = kids0 | concat(with=[child]) -%}
+     {%- endif -%}
+-    {%- set root_key = "/" ~ current_version ~ "/" ~ current_lang ~ "/" -%}
+-  {%- else -%}
+-    {%- set root_key = "" -%}
++  {%- endfor -%}
++{%- endif -%}
++{%- if tree.byRoute[key] is defined and tree.byRoute[key].subsections is defined -%}
++  {%- for sub in tree.byRoute[key].subsections -%}
++    {%- if not (kids0 is containing(sub)) and (nav.routes[sub] is defined or tree.byRoute[sub] is defined) -%}
++      {%- set_global kids0 = kids0 | concat(with=[sub]) -%}
++    {%- endif -%}
++  {%- endfor -%}
++{%- endif -%}
++{%- if kids0 | length > 0 -%}
++<details class="branch"{% if current_url is starting_with(key) and current_url != key %} open{% endif %}>
++  <summary><a href="{{ key | safe }}"{% if active_class %} class="{{ active_class | trim }}"{% endif %}>{{ self::item_label(nav=nav, tree=tree, key=key, shell_lang=shell_lang) }}</a></summary>
++  <div class="group-items">
++    {%- for child in kids0 -%}
++      {{ self::link1(nav=nav, tree=tree, key=child, shell_lang=shell_lang, current_url=current_url, mapped_url=mapped_url) }}
++    {%- endfor -%}
++  </div>
++</details>
++{%- else -%}
++<a class="leaf{{ active_class }}" href="{{ key | safe }}">{{ self::item_label(nav=nav, tree=tree, key=key, shell_lang=shell_lang) }}</a>
++{%- endif -%}
++{%- endmacro link0 -%}
++
++{%- macro render_nav(current_url, lang) -%}
++{%- set nav = load_data(path="data/navigation.json") -%}
++{%- set tree = load_data(path="data/section-tree.json") -%}
++{%- set_global page_url = current_url -%}
++{%- if not page_url -%}
++  {%- set_global page_url = "/" -%}
++{%- elif not (page_url is ending_with("/")) -%}
++  {%- set_global page_url = page_url ~ "/" -%}
++{%- endif -%}
++{%- set path_parts = page_url | split(pat="/") -%}
++{%- set current_version = path_parts | nth(n=1) | default(value="") -%}
++{%- set url_lang = path_parts | nth(n=2) | default(value="") -%}
++{%- set_global shell_lang = lang -%}
++{%- if nav.meta.languages is containing(url_lang) -%}
++  {%- set_global shell_lang = url_lang -%}
++{%- endif -%}
++{%- set_global current_lang = shell_lang -%}
++{%- if nav.meta.languages is containing(url_lang) -%}
++  {%- set_global current_lang = url_lang -%}
++{%- endif -%}
++{%- set_global in_version = false -%}
++{%- set_global root_key = "" -%}
++{%- if nav.meta.versions is containing(current_version) and nav.meta.languages is containing(current_lang) -%}
++  {%- set_global in_version = true -%}
++  {%- set_global root_key = "/" ~ current_version ~ "/" ~ current_lang ~ "/" -%}
++{%- endif -%}
++{%- set_global mapped_url = "/" -%}
++{%- set_global matched_len = 1 -%}
++{%- for key, node in nav.routes -%}
++  {%- if page_url is starting_with(key) and key | length > matched_len -%}
++    {%- set_global mapped_url = key -%}
++    {%- set_global matched_len = key | length -%}
+   {%- endif -%}
++{%- endfor -%}
+ 
+-  {%- if root_key and nav.routes[root_key] is defined -%}
+-    {%- for group_key, group in nav.groups -%}
+-      {%- set_global group_routes = [] -%}
+-      {%- if group_key == "start" -%}
+-        {%- set_global group_routes = group_routes | concat(with=[root_key]) -%}
+-      {%- endif -%}
+-      {%- if group_key == "cross-version" and nav.routes["/versions/"] is defined -%}
+-        {%- set_global group_routes = group_routes | concat(with=["/versions/"]) -%}
+-      {%- endif -%}
+-      {%- for key, node in nav.routes -%}
+-        {%- if node.parent == root_key and node.group == group_key -%}
+-          {%- set_global group_routes = group_routes | concat(with=[key]) -%}
++<div class="sidebar-scroll">
++  <nav class="sidebar-tree" aria-label="{% if shell_lang == 'zh' %}文档目录{% else %}Documentation{% endif %}">
++    {%- if in_version and nav.routes[root_key] is defined -%}
++      {%- for group_key, group in nav.groups -%}
++        {%- set_global group_routes = [] -%}
++        {%- if group_key == "start" and nav.routes[root_key] is defined -%}
++          {%- set_global group_routes = group_routes | concat(with=[root_key]) -%}
+         {%- endif -%}
+-      {%- endfor -%}
+-      {%- set_global unique_group_routes = [] -%}
+-      {%- for candidate_route in group_routes -%}
+-        {%- if not (emitted_routes is containing(candidate_route)) -%}
+-          {%- set_global unique_group_routes = unique_group_routes | concat(with=[candidate_route]) -%}
+-          {%- set_global emitted_routes = emitted_routes | concat(with=[candidate_route]) -%}
++        {%- if group_key == "cross-version" and nav.routes["/versions/"] is defined -%}
++          {%- set_global group_routes = group_routes | concat(with=["/versions/"]) -%}
+         {%- endif -%}
+-      {%- endfor -%}
+-
+-      {%- if unique_group_routes | length > 0 -%}
+-        {%- set_global group_active = false -%}
+-        {%- for route_key in group_routes -%}
+-          {%- if mapped_url == route_key -%}{%- set_global group_active = true -%}{%- endif -%}
++        {%- for key, node in nav.routes -%}
++          {%- if node.parent == root_key and node.group == group_key -%}
++            {%- set_global group_routes = group_routes | concat(with=[key]) -%}
++          {%- endif -%}
+         {%- endfor -%}
+-        <details class="group" {% if group_active or not group.collapsed %}open{% endif %}>
+-          <summary>{{ group.label[lang] }}</summary>
+-          <div class="group-items">
+-        {%- for route_key in unique_group_routes -%}
+-              {%- if group_key == "start" and route_key == root_key -%}
+-                <a href="{{ route_key | safe }}" class="{% if mapped_url == route_key %}active{% endif %}">{{ nav.routes[route_key].label[lang] }}</a>
+-              {%- else -%}
+-                {{ self::render_branch(route_key=route_key, lang=lang, mapped_url=mapped_url, depth=1) }}
++        {%- if group_routes | length > 0 -%}
++          {%- set_global group_active = false -%}
++          {%- for route_key in group_routes -%}
++            {%- if route_key == root_key -%}
++              {%- if page_url == root_key -%}
++                {%- set_global group_active = true -%}
+               {%- endif -%}
+-            {%- endfor -%}
+-          </div>
+-        </details>
+-      {%- endif -%}
+-    {%- endfor -%}
+-  {%- else -%}
+-    <details class="group" open>
+-      <summary>{% if lang == 'zh' %}站点导航{% else %}Site Navigation{% endif %}</summary>
+-      <div class="group-items">
+-        {%- if nav.routes["/"] is defined -%}
+-          <a href="/" class="{% if mapped_url == '/' %}active{% endif %}">{{ nav.routes["/"].label[lang] }}</a>
+-        {%- endif -%}
+-        {%- for version in nav.meta.versions -%}
+-          {%- for lang_code in nav.meta.languages -%}
+-            {%- set route_key = "/" ~ version ~ "/" ~ lang_code ~ "/" -%}
+-            {%- if nav.routes[route_key] is defined -%}
+-              <a href="{{ route_key | safe }}" class="{% if mapped_url == route_key %}active{% endif %}">{{ nav.routes[route_key].label[lang] }}</a>
++            {%- elif page_url is starting_with(route_key) -%}
++              {%- set_global group_active = true -%}
+             {%- endif -%}
+           {%- endfor -%}
+-        {%- endfor -%}
+-        {%- if nav.routes["/versions/"] is defined -%}
+-          <a href="/versions/" class="{% if mapped_url == '/versions/' %}active{% endif %}">{{ nav.routes["/versions/"].label[lang] }}</a>
++          <details class="group"{% if group_active %} open{% endif %}>
++            <summary>{{ group.label[shell_lang] }}</summary>
++            <div class="group-items">
++              {%- for route_key in group_routes -%}
++                {%- if route_key == root_key -%}
++                  <a class="leaf{% if page_url == root_key or mapped_url == root_key %} active{% endif %}" href="{{ root_key | safe }}">{{ nav.routes[root_key].label[shell_lang] }}</a>
++                {%- else -%}
++                  {{ self::link0(nav=nav, tree=tree, key=route_key, shell_lang=shell_lang, current_url=page_url, mapped_url=mapped_url) }}
++                {%- endif -%}
++              {%- endfor -%}
++            </div>
++          </details>
+         {%- endif -%}
+-      </div>
+-    </details>
++      {%- endfor -%}
++    {%- else -%}
++      <a class="leaf{% if page_url == '/' %} active{% endif %}" href="{{ '/' | safe }}">{{ nav.routes['/'].label[shell_lang] }}</a>
++      {%- for version in nav.meta.versions -%}
++        <a class="leaf" href="{{ self::switch_href(nav=nav, version=version, lang_code=shell_lang) }}" data-switch-version="{{ version }}" data-switch-lang="{{ shell_lang }}">{{ version }}</a>
++      {%- endfor -%}
++      {%- if nav.routes["/versions/"] is defined -%}
++        <a class="leaf{% if page_url is starting_with('/versions/') %} active{% endif %}" href="{{ '/versions/' | safe }}">{{ nav.routes['/versions/'].label[shell_lang] }}</a>
++      {%- endif -%}
++    {%- endif -%}
++  </nav>
++</div>
++<div class="sidebar-foot">
++  {%- set_global lang_version = "v1.3.15" -%}
++  {%- if in_version -%}
++    {%- set_global lang_version = current_version -%}
+   {%- endif -%}
++  <details class="switcher">
++    <summary>
++      <span class="switcher-kicker">{% if shell_lang == 'zh' %}版本{% else %}Version{% endif %}</span>
++      <span>{% if in_version %}{{ current_version }}{% elif shell_lang == 'zh' %}选择{% else %}Select{% endif %}</span>
++    </summary>
++    <div class="switcher-menu">
++      {%- for version in nav.meta.versions -%}
++        <a href="{{ self::switch_href(nav=nav, version=version, lang_code=shell_lang) }}" data-switch-version="{{ version }}" data-switch-lang="{{ shell_lang }}"{% if in_version and version == current_version %} aria-current="true"{% endif %}>{{ version }}</a>
++      {%- endfor -%}
++    </div>
++  </details>
++  <details class="switcher">
++    <summary>
++      <span class="switcher-kicker">{% if shell_lang == 'zh' %}语言{% else %}Language{% endif %}</span>
++      <span>{% if shell_lang == 'zh' %}中文{% else %}English{% endif %}</span>
++    </summary>
++    <div class="switcher-menu">
++      {%- for lang_code in nav.meta.languages -%}
++        <a href="{{ self::switch_href(nav=nav, version=lang_version, lang_code=lang_code) }}" data-switch-version="{{ lang_version }}" data-switch-lang="{{ lang_code }}"{% if in_version and lang_code == current_lang %} aria-current="true"{% endif %}>{% if lang_code == 'zh' %}中文{% else %}English{% endif %}</a>
++      {%- endfor -%}
++    </div>
++  </details>
++  <a class="llm-link" href="{{ '/llm.txt' | safe }}" title="{% if shell_lang == 'zh' %}大模型目录{% else %}LLM directory{% endif %}">LLM</a>
++</div>
+ {%- endmacro render_nav -%}
+===== templates/partials/topnav.html
+diff --git a/templates/partials/topnav.html b/templates/partials/topnav.html
+index 65f9479ee3..dcd34d5eae 100644
+--- a/templates/partials/topnav.html
++++ b/templates/partials/topnav.html
+@@ -1,161 +1,7 @@
+-{%- set nav = load_data(path="data/navigation.json") -%}
+-{%- set alt_map = load_data(path="data/relkey_map.json") -%}
+-{%- set current_url = page.path | default(value=section.path) | default(value="/") -%}
+-{%- set path_parts = current_url | split(pat="/") -%}
+-{%- set current_version = path_parts | nth(n=1) | default(value="") -%}
+-{%- if not (nav.meta.versions is containing(current_version)) -%}
+-  {%- set current_version = "v1.3.15" -%}
+-{%- endif -%}
+-{%- set current_lang = path_parts | nth(n=2) | default(value=lang) -%}
+-{%- if not (nav.meta.languages is containing(current_lang)) -%}
+-  {%- set current_lang = lang -%}
+-{%- endif -%}
+-{%- set version_lang_prefix = '/' ~ current_version ~ '/' ~ current_lang ~ '/' -%}
+-{%- if current_url is starting_with(version_lang_prefix) -%}
+-  {%- set current_relkey = current_url | replace(from=version_lang_prefix, to='') | trim_start_matches(pat='/') -%}
+-{%- else -%}
+-  {%- set current_relkey = '' -%}
+-{%- endif -%}
+-{%- set item = page | default(value=section) -%}
+-
+-<nav class="top-nav">
+-  <a class="brand" href="{{ get_url(path='@/_index.md') }}">
+-    {%- if config.extra.logo %}
+-    <img src="{{ config.extra.logo }}" alt="logo">
+-    {%- endif %}
+-    {{ config.title }}
+-  </a>
+-  <div class="menu" role="menubar">
+-    <a href="{{ get_url(path='@/_index.md') }}" class="{%- if current_url == '/' %}active{% endif %}">
+-      {{ nav.routes['/'].label[lang] | default(value="Home") }}
+-    </a>
+-
+-    <details class="dropdown">
+-      <summary>指南 Guide</summary>
+-      <div class="dropdown-menu">
+-        {%- for version in nav.meta.versions %}
+-          {%- for lang_code in nav.meta.languages %}
+-            {%- set route_key = "/" ~ version ~ "/" ~ lang_code ~ "/guide/" -%}
+-            {%- if nav.routes[route_key] is defined %}
+-              <a href="{{ get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/guide/_index.md') }}"
+-                 class="{%- if current_url is starting_with(route_key) %}active{% endif %}">
+-                {{ version }} {% if lang_code == 'zh' %}中文{% else %}English{% endif %}
+-              </a>
+-            {%- endif %}
+-          {%- endfor %}
+-        {%- endfor %}
+-      </div>
+-    </details>
+-
+-    <details class="dropdown">
+-      <summary>API</summary>
+-      <div class="dropdown-menu">
+-        {%- for version in nav.meta.versions %}
+-          {%- for lang_code in nav.meta.languages %}
+-            {%- set route_key = "/" ~ version ~ "/" ~ lang_code ~ "/api/" -%}
+-            {%- if nav.routes[route_key] is defined %}
+-              <a href="{{ get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/api/_index.md') }}"
+-                 class="{%- if current_url is starting_with(route_key) %}active{% endif %}">
+-                {{ version }} {% if lang_code == 'zh' %}中文{% else %}English{% endif %}
+-              </a>
+-            {%- endif %}
+-          {%- endfor %}
+-        {%- endfor %}
+-      </div>
+-    </details>
+-
+-    <details class="dropdown">
+-      <summary>架构 Architecture</summary>
+-      <div class="dropdown-menu">
+-        {%- for version in nav.meta.versions %}
+-          {%- for lang_code in nav.meta.languages %}
+-            {%- set route_key = "/" ~ version ~ "/" ~ lang_code ~ "/architecture/" -%}
+-            {%- if nav.routes[route_key] is defined %}
+-              <a href="{{ get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/architecture/_index.md') }}"
+-                 class="{%- if current_url is starting_with(route_key) %}active{% endif %}">
+-                {{ version }} {% if lang_code == 'zh' %}中文{% else %}English{% endif %}
+-              </a>
+-            {%- endif %}
+-          {%- endfor %}
+-        {%- endfor %}
+-      </div>
+-    </details>
+-
+-    <details class="dropdown">
+-      <summary>原生 Native</summary>
+-      <div class="dropdown-menu">
+-        {%- for version in nav.meta.versions %}
+-          {%- for lang_code in nav.meta.languages %}
+-            {%- set route_key = "/" ~ version ~ "/" ~ lang_code ~ "/native/" -%}
+-            {%- if nav.routes[route_key] is defined %}
+-              <a href="{{ get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/native/_index.md') }}"
+-                 class="{%- if current_url is starting_with(route_key) %}active{% endif %}">
+-                {{ version }} {% if lang_code == 'zh' %}原生{% else %}Native{% endif %}
+-              </a>
+-            {%- endif %}
+-            {%- set src_key = "/" ~ version ~ "/" ~ lang_code ~ "/native-1.3.15-src/" -%}
+-            {%- if nav.routes[src_key] is defined %}
+-                <a href="{{ get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/native-1.3.15-src/_index.md') }}"
+-                   class="{%- if current_url is starting_with(src_key) %}active{% endif %}">
+-                  {{ version }} {% if lang_code == 'zh' %}Native 源码{% else %}Native Source{% endif %}
+-                </a>
+-              {%- endif %}
+-          {%- endfor %}
+-        {%- endfor %}
+-      </div>
+-    </details>
+-
+-    <details class="dropdown">
+-      <summary>XML Reference</summary>
+-      <div class="dropdown-menu">
+-        {%- for version in nav.meta.versions %}
+-          {%- for lang_code in nav.meta.languages %}
+-            {%- set route_key = "/" ~ version ~ "/" ~ lang_code ~ "/xml-reference/" -%}
+-            {%- if nav.routes[route_key] is defined %}
+-              <a href="{{ get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/xml-reference/_index.md') }}"
+-                 class="{%- if current_url is starting_with(route_key) %}active{% endif %}">
+-                {{ version }} {% if lang_code == 'zh' %}中文{% else %}English{% endif %}
+-              </a>
+-            {%- endif %}
+-          {%- endfor %}
+-        {%- endfor %}
+-      </div>
+-    </details>
+-
+-    <details class="dropdown">
+-      <summary>版本 Version</summary>
+-      <div class="dropdown-menu">
+-        {%- for version in nav.meta.versions %}
+-          {%- for lang_code in nav.meta.languages %}
+-            {%- set route_key = "/" ~ version ~ "/" ~ lang_code ~ "/" -%}
+-            {%- if nav.routes[route_key] is defined -%}
+-              {%- set target_url = get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/_index.md') -%}
+-              {%- if alt_map[current_relkey] is defined -%}
+-                {%- set target_rel = alt_map[current_relkey] -%}
+-                {%- if target_rel and target_rel[version] and target_rel[version][lang_code] -%}
+-                  {%- set target_url = target_rel[version][lang_code] -%}
+-                {%- endif -%}
+-              {%- endif -%}
+-              <a href="{{ target_url | safe }}"
+-                 class="{%- if current_url is starting_with(route_key) %}active{% endif %}">
+-                {{ nav.routes[route_key].label[lang] | default(value=version ~ ' ' ~ lang_code) }}
+-              </a>
+-            {%- endif -%}
+-          {%- endfor %}
+-        {%- endfor %}
+-      </div>
+-    </details>
+-
+-    <details class="dropdown">
+-      <summary>语言 Language</summary>
+-      <div class="dropdown-menu">
+-        {% for tr in item.translations %}
+-          <a href="{{ tr.permalink }}"
+-             class="{% if tr.lang == current_lang %}active{% endif %}">
+-            {% if tr.lang == 'zh' %}中文{% else %}English{% endif %}
+-          </a>
+-        {% endfor %}
+-      </div>
+-    </details>
+-  </div>
+-</nav>
++<header class="mobile-bar">
++  <label for="nav-toggle" class="nav-toggle" aria-controls="sidebar" aria-expanded="false">
++    <span class="nav-toggle-bars" aria-hidden="true"></span>
++    <span class="sr-only">{% if shell_lang == "zh" %}目录{% else %}Menu{% endif %}</span>
++  </label>
++  <a class="mobile-brand" href="{{ get_url(path='@/_index.md') }}">{{ config.title }}</a>
++</header>
+===== templates/section.html
+diff --git a/templates/section.html b/templates/section.html
+index 4f58e20c18..be154d9991 100644
+--- a/templates/section.html
++++ b/templates/section.html
+@@ -1,25 +1,41 @@
+-{% extends "base.html" %}
+-{% import "macros/breadcrumb.html" as breadcrumb %}
+-{% import "macros/page-navigation.html" as page_navigation %}
+-
+-{% block title %}{{ section.title | default(value=config.title) }}{% endblock %}
+-{% block description %}{{ section.description | default(value=config.description) }}{% endblock %}
+-
+-{% block content %}
+-<article>
+-  {{ breadcrumb::render_breadcrumb(current_url=section.path, lang=lang) }}
+-  {% if section.title %}<h1>{{ section.title }}</h1>{% endif %}
+-  {{ section.content | safe }}
+-</article>
+-<hr>
+-<ul>
+-  {% for page in section.pages %}
+-    <li><a href="{{ page.permalink }}">{{ page.title }}</a></li>
+-  {% endfor %}
+-  {% for subsection_path in section.subsections %}
+-    {% set subsection = get_section(path=subsection_path) %}
+-    <li><a href="{{ subsection.permalink }}">{{ subsection.title | default(value=subsection.components | last) }}</a></li>
+-  {% endfor %}
+-</ul>
+-{{ page_navigation::render(current_url=section.path, lang=lang) }}
+-{% endblock %}
++{% extends "base.html" %}
++{% import "macros/breadcrumb.html" as breadcrumb %}
++
++{% block title %}{{ section.title | default(value=config.title) }}{% endblock %}
++{% block description %}{{ section.description | default(value=config.description) }}{% endblock %}
++
++{% block content %}
++<article>
++  {% set path_parts = section.path | split(pat="/") %}
++  {% set url_lang = path_parts | nth(n=2) | default(value="") %}
++  {% set_global crumb_lang = lang %}
++  {% if url_lang == "zh" or url_lang == "en" %}
++    {% set_global crumb_lang = url_lang %}
++  {% endif %}
++  {{ breadcrumb::render_breadcrumb(current_url=section.path, lang=crumb_lang) }}
++  {% set is_zh = url_lang == "zh" %}
++  {% set md_body = load_data(path="@/" ~ section.relative_path) %}
++  <div class="page-header-actions">
++    {% if section.title %}<h1>{{ section.title }}</h1>{% endif %}
++    <button type="button" class="copy-md-btn"
++            data-md-source="{{ md_body | base64_encode }}"
++            data-default-text="{% if is_zh %}复制 Markdown{% else %}Copy Markdown{% endif %}"
++            data-copied-text="{% if is_zh %}已复制！{% else %}Copied!{% endif %}"
++            data-failed-text="{% if is_zh %}复制失败{% else %}Failed{% endif %}"
++            aria-label="{% if is_zh %}复制 Markdown{% else %}Copy Markdown{% endif %}">
++      {%- if is_zh %}复制 Markdown{% else %}Copy Markdown{% endif -%}
++    </button>
++  </div>
++  {{ section.content | safe }}
++</article>
++<hr>
++<ul>
++  {% for page in section.pages %}
++    <li><a href="{{ page.permalink }}">{{ page.title }}</a></li>
++  {% endfor %}
++  {% for subsection_path in section.subsections %}
++    {% set subsection = get_section(path=subsection_path) %}
++    <li><a href="{{ subsection.permalink }}">{{ subsection.title | default(value=subsection.components | last) }}</a></li>
++  {% endfor %}
++</ul>
++{% endblock %}

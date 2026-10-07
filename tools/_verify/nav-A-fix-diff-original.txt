@@ -1,0 +1,92 @@
+diff --git a/content/v1.4.5/zh/api/campaign-ext/SellGoodsForTradeAction.md b/content/v1.4.5/zh/api/campaign-ext/SellGoodsForTradeAction.md
+index 9c67b14541..ce02a86fca 100644
+--- a/content/v1.4.5/zh/api/campaign-ext/SellGoodsForTradeAction.md
++++ b/content/v1.4.5/zh/api/campaign-ext/SellGoodsForTradeAction.md
+@@ -28,6 +28,87 @@ public static void ApplyByVillagerTrade(Settlement settlement, MobileParty villa
+ SellGoodsForTradeAction.ApplyByVillagerTrade(settlement, villagerParty);
+ ```
+ 
++## 概述
++
++`SellGoodsForTradeAction` 是「让一支商队把背囊里的货物卖给据点」的单向出货入口。它与 [SellItemsAction](../SellItemsAction) 不同：那个是「两方交易」，这个是「商队单方面卖给镇子」，而且**它只有一个公开方法**。
++
++## 心智模型
++
++**它的经济逻辑是「找出自带的驮畜、先把它从可卖数量里扣掉、再按镇子余额决定能吃多少」三步。**
++
++1. **扫一遍花名册找最便宜的驮畜。** `:29` 把哨兵设成 `10000`，`:34` 判 `ItemCategory == PackAnimal && Item.Value < num` 才替换，`:36`-`:37` 更新最小值与对应物品。**没找到驮畜时 `itemObject` 停在 `:30` 的 null**，第二遍循环的扣减分支永不命中。
++2. **倒序第二遍逐格卖出。** `:40` 从 `Count - 1` 倒着走，`:43` 逐格定价、`:52` 决定卖几件。
++3. **驱动驮畜的自我占用。** `:45` 判「就是刚才找到的那件」，然后 `:47`-`:48` 从可卖数里扣掉 `(int)(0.5f × TotalManCount)`——**按人头的一半预留驮畜**，这就是「商队带得走的货比花名册总数少」的来源。
++
++## 怎么用
++
++### 怎么拿到它
++
++**源文件：** `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/SellGoodsForTradeAction.cs`（全文 74 行）。
++**唯一调用点：** `VillagerCampaignBehavior.cs:330` 调 `ApplyByVillagerTrade(settlement, mobileParty)`。
++
++`public static class SellGoodsForTradeAction`（`SellGoodsForTradeAction.cs:9`），**唯一公开成员 `public static void ApplyByVillagerTrade(Settlement settlement, MobileParty villagerParty)`（`:70`）。**
++
++**而私有枚举 `SellGoodsForTradeActionDetail`（`:11`）有两个值 `VillagerTrade`（`:13`）与 `LordTrade`（`:14`）——`LordTrade` 没有任何公开包装，全树零调用点。** 更进一步，`ApplyInternal` 的 `:25` 判 `detail != VillagerTrade` 就 `return`（`:27`），**所以即便传进 `LordTrade` 也只会静默返回。**
++
++### 典型用法
++
++**两道早退都是静默的。** `settlement.Town == null` 直接 return（`:20`-`:23`）——**所以村庄根本不能当 `settlement` 传进来**，尽管参数类型是 `Settlement`。第二道在 `:25`-`:28`。
++
++**而 `:52` 的 `town.Gold / itemPrice` 是整数除法**：
++
++```
++int num5 = MathF.Min(num3, town.Gold / itemPrice);
++```
++
++`town.Gold` 与 `itemPrice` 都是 `int`，**所以镇子最多只能买下 `⌊gold / price⌋` 件**，不是精确金额。**更危险的是 `itemPrice == 0` 时这里会抛 `DivideByZeroException`**，而定价来自 `town.GetItemPrice(...)`（`:43`）——它对某些物品确实可能返回 0。
++
++**所以调用前先确认报价非零。**
++
++```csharp
++public static void PreviewCaravanSell(Settlement town, MobileParty caravan)
++{
++    if (town.Town == null)
++    {
++        Debug.Print("no Town -> SellGoodsForTradeAction.cs:22 returns silently", 0);
++        return;
++    }
++    int cheapestPackAnimalIndex = -1;
++    int cheapestValue = 10000;
++    for (int i = 0; i < caravan.ItemRoster.Count; i++)
++    {
++        ItemRosterElement e = caravan.ItemRoster.GetElementCopyAtIndex(i);
++        if (e.EquipmentElement.Item.ItemCategory == DefaultItemCategories.PackAnimal && e.EquipmentElement.Item.Value < cheapestValue)
++        {
++            cheapestValue = e.EquipmentElement.Item.Value;
++            cheapestPackAnimalIndex = i;
++        }
++    }
++    Debug.Print("caravan=" + caravan.Name + " cheapestPackAnimalIndex=" + cheapestPackAnimalIndex
++        + " reserveToDeduct=" + ((int)(0.5f * caravan.MemberRoster.TotalManCount)), 0);
++    Debug.Print("town gold=" + town.Gold + " (integer division at :52 caps how many it can buy)", 0);
++}
++```
++
++**上例第一段是 `:29`-`:39` 那遍扫描的等价复刻**——**它存在的意义是告诉你「有没有驮畜」**，因为没有时 `:45` 的预留逻辑整个跳过、可卖量会多出 `(int)(0.5 × 人头)` 件。**而第二行那个 `reserveToDeduct` 就是 `:47` 的值，你可以提前算出「理论少卖多少」。**
++
++**最后要注意 `:64` 的事件条件是「有成交」且「是商队」。** `:64` 的 `!list.IsEmpty() && mobileParty.IsCaravan` 才派发 `OnCaravanTransactionCompleted`（`:66`）——**普通队伍卖了东西不会有任何事件**，而 `:60` 记进 `list` 的每笔明细就只留给这一个出口。
++
++## 依赖
++
++| 类型/流程 | 关系 |
++| --- | --- |
++| `Town.GetItemPrice(EquipmentElement, MobileParty, bool)` | `:43` 逐格定价，**`itemPrice=0` 会在 `:52` 除零** |
++| `Town.Gold` / `ChangeGold` | `:52` 读余额、`:57` 扣款 |
++| `MobileParty.PartyTradeGold` | `:55` 累加商队收入 |
++| `CampaignEvents.OnCaravanTransactionCompleted` | `:66`，**仅商队且有成交** |
++
++## 风险
++
++- **`LordTrade` 是不可达分支。** 私有枚举有 `LordTrade`（`:14`）但无公开包装、全树零调用；且 `ApplyInternal` 的 `:25`-`:28` 对非 `VillagerTrade` 直接 return。**这个枚举值目前是纯装饰。**
++
++- **`:52` 的 `town.Gold / itemPrice` 是整数除法，且 `itemPrice == 0` 会抛 `DivideByZeroException`。** 定价来自 `:43` 的 `town.GetItemPrice(...)`，而 `:22` 的 `Town == null` 早退保证了 `town` 非空、**却没保证 `itemPrice` 非零**。**调用前必须自己确认报价。**
++
+ ## 参见
+ 
+ - [本区域目录](../)

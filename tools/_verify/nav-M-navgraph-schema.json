@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bannerlordcode.github.io/schemas/nav-graph.json",
+  "title": "nav-graph.json field contract",
+  "description": "Field contract for data/nav-graph.json — the pre-generated navigation graph consumed by Zola templates (worker N). Each route node describes where you can go from that page.",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "content_root", "route_folding", "counts", "routes", "unclassifiable"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0",
+      "description": "Schema version. Bump on breaking change."
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO8601 generation timestamp. Does not affect route content; idempotency is defined over the routes structure only."
+    },
+    "content_root": {
+      "type": "string",
+      "const": "content",
+      "description": "Content root directory (relative to repo root)."
+    },
+    "route_folding": {
+      "type": "object",
+      "description": "How file paths map to Zola routes. The single source of truth for route computation.",
+      "required": ["leaf", "index"],
+      "properties": {
+        "leaf": {
+          "type": "string",
+          "const": "content/a/b/Foo.md → /a/b/Foo/",
+          "description": "Leaf page: route is one level deeper than the file directory."
+        },
+        "index": {
+          "type": "string",
+          "const": "content/a/b/_index.md → /a/b/",
+          "description": "Index page: route folds into the containing directory."
+        }
+      },
+      "additionalProperties": false
+    },
+    "counts": {
+      "type": "object",
+      "description": "Summary counts for evidence and sanity checks.",
+      "required": ["total_md_files", "index_pages", "leaf_pages", "txt_files", "unclassifiable", "routes", "cross_language_edges", "cross_version_edges", "dangling_parent_routes"],
+      "properties": {
+        "total_md_files": { "type": "integer", "minimum": 0 },
+        "index_pages": { "type": "integer", "minimum": 0 },
+        "leaf_pages": { "type": "integer", "minimum": 0 },
+        "txt_files": { "type": "integer", "minimum": 0 },
+        "unclassifiable": { "type": "integer", "minimum": 0 },
+        "routes": { "type": "integer", "minimum": 0 },
+        "cross_language_edges": { "type": "integer", "minimum": 0 },
+        "cross_version_edges": { "type": "integer", "minimum": 0 },
+        "dangling_parent_routes": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "routes": {
+      "type": "object",
+      "description": "Map of route → navigation node. Keys are sorted lexicographically.",
+      "additionalProperties": { "$ref": "#/$defs/routeNode" }
+    },
+    "unclassifiable": {
+      "type": "array",
+      "description": "Files under content/ that could not be assigned a route (e.g. .txt).",
+      "items": {
+        "type": "object",
+        "required": ["path", "reason"],
+        "properties": {
+          "path": { "type": "string" },
+          "reason": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "routeNode": {
+      "type": "object",
+      "description": "Navigation node for a single route.",
+      "required": ["route", "type", "path", "title", "parentRoute", "prevRoute", "nextRoute", "upChain", "crossLanguageRoutes", "crossVersionRoutes", "relatedRoutes"],
+      "properties": {
+        "route": {
+          "type": "string",
+          "description": "This page's Zola route (with trailing slash).",
+          "pattern": "^/(.*/)?$"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["index", "leaf"],
+          "description": "index = _index.md; leaf = any other .md file."
+        },
+        "path": {
+          "type": "string",
+          "description": "File path relative to repo root."
+        },
+        "title": {
+          "type": "string",
+          "description": "Page title (frontmatter title, fallback to filename)."
+        },
+        "parentRoute": {
+          "type": ["string", "null"],
+          "description": "Parent route in the tree. null only for the root page /."
+        },
+        "prevRoute": {
+          "type": ["string", "null"],
+          "description": "Previous sibling route (sorted by weight, title, route). null if first sibling."
+        },
+        "nextRoute": {
+          "type": ["string", "null"],
+          "description": "Next sibling route. Null if last sibling."
+        },
+        "upChain": {
+          "type": "array",
+          "description": "Chain of parent routes from this page's parent up to root (excludes this page).",
+          "items": { "type": "string" }
+        },
+        "crossLanguageRoutes": {
+          "type": "array",
+          "description": "Routes of the same page in other languages (same version, same path suffix). Empty for L0/L1 pages.",
+          "items": { "type": "string" }
+        },
+        "crossVersionRoutes": {
+          "type": "array",
+          "description": "Routes of the same page in other versions (same language, same path suffix). Empty for L0/L1 pages.",
+          "items": { "type": "string" }
+        },
+        "relatedRoutes": {
+          "type": "array",
+          "description": "Related entry routes from navigation.json children. Empty if not in navigation.json.",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

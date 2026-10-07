@@ -1,0 +1,8 @@
+# nav-J 修复轮批次清单（worker J，2026-10-05）
+# 口径：与 --apply 命令行桶路径【逐字一致】，桶数一致（R2 要求）。
+# 只含「父索引有 marker 块」的可修桶；.txt 孤儿与无 marker 桶不在此列（登记交 worker K）。
+content/v1.3.0/en/api/mission
+content/v1.3.0/zh/api/mission
+content/v1.4.5/zh/api/save-system
+content/v1.4.5/zh/api/system
+content/v1.4.5/zh/architecture

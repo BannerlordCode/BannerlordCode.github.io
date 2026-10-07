@@ -1,0 +1,1235 @@
+{
+  "pages": 39023,
+  "files": 39023,
+  "totalLinksAll": 140334,
+  "totalLinksInternal": 139924,
+  "broken": 197,
+  "filesWithBroken": 52,
+  "caseAmbiguousLinks": 5,
+  "linuxTruth": "UNTESTABLE",
+  "orphans": 4313,
+  "orphanParents": {
+    "v1.3.0/en/api/mission/": 1,
+    "v1.3.0/zh/api/mission/": 1,
+    "v1.3.15/en/api/campaign-ext/": 9,
+    "v1.3.15/en/api/core-extra/": 1,
+    "v1.3.15/en/api/mission-ext/": 2,
+    "v1.3.15/en/api/system/": 1,
+    "v1.3.15/en/native-1.3.15-src/": 1,
+    "v1.3.15/zh/api/campaign-ext/": 8,
+    "v1.3.15/zh/api/core-extra/": 1,
+    "v1.3.15/zh/api/mission-ext/": 2,
+    "v1.3.15/zh/api/system/": 1,
+    "v1.3.15/zh/native-1.3.15-src/": 1,
+    "v1.4.5/en/api/campaign/": 1087,
+    "v1.4.5/en/api/mission/": 68,
+    "v1.4.5/zh/api/campaign/": 871,
+    "v1.4.5/zh/api/campaign-ext/": 781,
+    "v1.4.5/zh/api/core-extra/": 8,
+    "v1.4.5/zh/api/gui/": 259,
+    "v1.4.5/zh/api/localization/": 2,
+    "v1.4.5/zh/api/mission/": 19,
+    "v1.4.5/zh/api/mission-ext/": 671,
+    "v1.4.5/zh/api/save-system/": 1,
+    "v1.4.5/zh/api/system/": 2,
+    "v1.4.5/zh/api/viewmodel/": 500,
+    "v1.4.7/en/api/engine/": 1,
+    "v1.5.3/zh/api/localization/": 1,
+    "v1.5.3/zh/api/storymode/": 11,
+    "versions/": 1,
+    "": 1
+  },
+  "orphansByTree": {
+    "v1.3.0": 2,
+    "v1.3.15": 27,
+    "v1.4.5": 4269,
+    "v1.4.7": 1,
+    "v1.5.3": 12,
+    "versions": 1,
+    "": 1
+  },
+  "brokenRows": [
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AgentBehavior.md",
+      "href": "../campaign-ext/AgentBehaviorGroup",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/AgentBehaviorGroup",
+      "text": "AgentBehaviorGroup"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AgentBehavior.md",
+      "href": "../campaign-ext/AlarmedBehaviorGroup",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/AlarmedBehaviorGroup",
+      "text": "AlarmedBehaviorGroup"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AgentBehavior.md",
+      "href": "../campaign-ext/WalkingBehavior",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/WalkingBehavior",
+      "text": "WalkingBehavior"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AgentBehavior.md",
+      "href": "../gameplay/AgentNavigator",
+      "route": "v1.4.5/en/api/campaign-ext/gameplay/AgentNavigator",
+      "text": "AgentNavigator"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AgentBehavior.md",
+      "href": "AgentBehaviorManager",
+      "route": "v1.4.5/en/api/campaign-ext/AgentBehavior/AgentBehaviorManager",
+      "text": "AgentBehaviorManager"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AgentBehavior.md",
+      "href": "BehaviorSets",
+      "route": "v1.4.5/en/api/campaign-ext/AgentBehavior/BehaviorSets",
+      "text": "BehaviorSets"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AgentBehavior.md",
+      "href": "BehaviorSets",
+      "route": "v1.4.5/en/api/campaign-ext/AgentBehavior/BehaviorSets",
+      "text": "BehaviorSets"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AgentBehavior.md",
+      "href": "CautiousBehavior",
+      "route": "v1.4.5/en/api/campaign-ext/AgentBehavior/CautiousBehavior",
+      "text": "CautiousBehavior"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AgentBehavior.md",
+      "href": "CautiousBehavior",
+      "route": "v1.4.5/en/api/campaign-ext/AgentBehavior/CautiousBehavior",
+      "text": "CautiousBehavior"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AgentBehaviorManager.md",
+      "href": "AgentBehavior",
+      "route": "v1.4.5/en/api/campaign-ext/AgentBehaviorManager/AgentBehavior",
+      "text": "AgentBehavior"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AgentBehaviorManager.md",
+      "href": "BehaviorSets",
+      "route": "v1.4.5/en/api/campaign-ext/AgentBehaviorManager/BehaviorSets",
+      "text": "BehaviorSets"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AgentBehaviorManager.md",
+      "href": "BehaviorSets",
+      "route": "v1.4.5/en/api/campaign-ext/AgentBehaviorManager/BehaviorSets",
+      "text": "BehaviorSets"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AgentBehaviorManager.md",
+      "href": "CampaignAgentComponent",
+      "route": "v1.4.5/en/api/campaign-ext/AgentBehaviorManager/CampaignAgentComponent",
+      "text": "CampaignAgentComponent"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AIState.md",
+      "href": "../campaign-ext/MissionBoardGameLogic",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/MissionBoardGameLogic",
+      "text": "MissionBoardGameLogic"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AIState.md",
+      "href": "../campaign-ext/Move",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/Move",
+      "text": "Move"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AIState.md",
+      "href": "../system/AIDifficulty",
+      "route": "v1.4.5/en/api/campaign-ext/system/AIDifficulty",
+      "text": "AIDifficulty"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/AIState.md",
+      "href": "BoardGameAIBase",
+      "route": "v1.4.5/en/api/campaign-ext/AIState/BoardGameAIBase",
+      "text": "BoardGameAIBase"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BarberCampaignBehavior.md",
+      "href": "../campaign/AgeModel",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/AgeModel",
+      "text": "AgeModel"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BarberCampaignBehavior.md",
+      "href": "../campaign/BodyPropertiesModel",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/BodyPropertiesModel",
+      "text": "BodyPropertiesModel"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BarberCampaignBehavior.md",
+      "href": "CampaignBehaviorBase",
+      "route": "v1.4.5/en/api/campaign-ext/BarberCampaignBehavior/CampaignBehaviorBase",
+      "text": "CampaignBehaviorBase"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BarberCampaignBehavior.md",
+      "href": "GiveGoldAction",
+      "route": "v1.4.5/en/api/campaign-ext/BarberCampaignBehavior/GiveGoldAction",
+      "text": "GiveGoldAction"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BehaviorSets.md",
+      "href": "../campaign-ext/AlarmedBehaviorGroup",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/AlarmedBehaviorGroup",
+      "text": "AlarmedBehaviorGroup"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BehaviorSets.md",
+      "href": "../campaign-ext/ChangeLocationBehavior",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/ChangeLocationBehavior",
+      "text": "ChangeLocationBehavior"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BehaviorSets.md",
+      "href": "../campaign-ext/DailyBehaviorGroup",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/DailyBehaviorGroup",
+      "text": "DailyBehaviorGroup"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BehaviorSets.md",
+      "href": "../campaign-ext/FightBehavior",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/FightBehavior",
+      "text": "FightBehavior"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BehaviorSets.md",
+      "href": "../campaign-ext/FleeBehavior",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/FleeBehavior",
+      "text": "FleeBehavior"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BehaviorSets.md",
+      "href": "../campaign-ext/FollowAgentBehavior",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/FollowAgentBehavior",
+      "text": "FollowAgentBehavior"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BehaviorSets.md",
+      "href": "../campaign-ext/InterruptingBehaviorGroup",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/InterruptingBehaviorGroup",
+      "text": "InterruptingBehaviorGroup"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BehaviorSets.md",
+      "href": "../campaign-ext/PatrolAgentBehavior",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/PatrolAgentBehavior",
+      "text": "PatrolAgentBehavior"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BehaviorSets.md",
+      "href": "../campaign-ext/PatrollingGuardBehavior",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/PatrollingGuardBehavior",
+      "text": "PatrollingGuardBehavior"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BehaviorSets.md",
+      "href": "../campaign-ext/StandGuardBehavior",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/StandGuardBehavior",
+      "text": "StandGuardBehavior"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BehaviorSets.md",
+      "href": "../campaign-ext/WalkingBehavior",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/WalkingBehavior",
+      "text": "WalkingBehavior"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BehaviorSets.md",
+      "href": "AgentBehavior",
+      "route": "v1.4.5/en/api/campaign-ext/BehaviorSets/AgentBehavior",
+      "text": "AgentBehavior"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BehaviorSets.md",
+      "href": "AgentBehaviorManager",
+      "route": "v1.4.5/en/api/campaign-ext/BehaviorSets/AgentBehaviorManager",
+      "text": "AgentBehaviorManager"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BehaviorSets.md",
+      "href": "CampaignAgentComponent",
+      "route": "v1.4.5/en/api/campaign-ext/BehaviorSets/CampaignAgentComponent",
+      "text": "CampaignAgentComponent"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BehaviorSets.md",
+      "href": "CautiousBehavior",
+      "route": "v1.4.5/en/api/campaign-ext/BehaviorSets/CautiousBehavior",
+      "text": "CautiousBehavior"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BreakInOutBesiegedSettlementAction.md",
+      "href": "../campaign/Army",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/Army",
+      "text": "Army"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BreakInOutBesiegedSettlementAction.md",
+      "href": "../campaign/Settlement",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/Settlement",
+      "text": "0, num2)`, walks the parties subtracting their non-hero counts until the remainder goes negative (which selects a party with probability proportional to its non-hero strength), and within that party walks the roster entries subtracting `GetElementNumber(k) + GetElementWoundedNumber(k)` until the remainder goes negative — which is why **wounded troops count toward the pool but the removal itself decrements the healthy count**. Losses on the main party go to `casualties`; losses on any other party increment `armyCasualtiesCount`. No relation penalty is applied on this path, because the leader *is* the player.\n\nThe `TroopRoster` out-parameter must be disposed or reused by the caller — it is a dummy roster allocated per call, and it is not owned by the campaign.\n\n## Key Members\n\n| Member | Signature | What it is for |\n| --- | --- | --- |\n| `ApplyBreakIn` | `public static void ApplyBreakIn(out TroopRoster casualties, out int armyCasualtiesCount, bool isFromPort)` | Charges the price of storming into the settlement. Uses `GetLostTroopCountForBreakingInBesiegedSettlement`, which takes no port flag, then removes troops by the same two-path logic. Note that the army-abandonment relation penalty still applies on this path when the main party is attached to someone else's army. |\n| `ApplyBreakOut` | `public static void ApplyBreakOut(out TroopRoster casualties, out int armyCasualtiesCount, bool isFromPort)` | Charges the price of slipping out of the siege. Uses `GetLostTroopCountForBreakingOutOfBesiegedSettlement(..., isFromPort).RoundedResultNumber`, so this is the only place the `isFromPort` argument reaches the model — it distinguishes coming out by the docks from coming out over the walls. |\n\n`ApplyInternal(breakIn, out casualties, out armyCasualtiesCount, isFromPort)` is private and holds the entire cost/removal/penalty cascade described above.\n\n## Real Example\n\nPrice an escape and inspect both out-parameters, remembering that `-1` is a sentinel:\n\n```csharp\nTroopRoster dead;\nint armyDead;\n\nBreakInOutBesiegedSettlementAction.ApplyBreakOut(out dead, out armyDead, false);\n\nDebug.Print(\"main party losses = \" + dead.TotalManCount, 0);\nif (armyDead >= 0)\n{\n    Debug.Print(\"army losses = \" + armyDead, 0);\n}\nelse\n{\n    Debug.Print(\"main party was not leading an army\", 0);\n}\n```\n\nQuote the cost to the player *before* committing, by reading the same model the action will use:\n\n```csharp\nSiegeEvent siege = Settlement.CurrentSettlement.SiegeEvent;\n\nint costOut = Campaign.Current.Models.TroopSacrificeModel\n    .GetLostTroopCountForBreakingOutOfBesiegedSettlement(MobileParty.MainParty, siege, true)\n    .RoundedResultNumber;\n\nDebug.Print(\"escaping by port costs about \" + costOut + \" men\", 0);\nDebug.Print(\"party strength = \" + MobileParty.MainParty.MemberRoster.TotalManCount, 0);\n```\n\nMake the break-in path and read the roster afterwards to see which troop types actually died:\n\n```csharp\nTroopRoster casualties;\nint armyCasualtiesCount;\n\nBreakInOutBesiegedSettlementAction.ApplyBreakIn(out casualties, out armyCasualtiesCount, false);\n\nfor (int i = 0; i < casualties.Count; i++)\n{\n    CharacterObject trooper = casualties.GetCharacterAtIndex(i);\n    Debug.Print(\"lost \" + casualties.GetElementNumber(i) + \"x \" + trooper.Tier, 0);\n}\n```\n\n## Risks and Boundaries\n\n- **`armyCasualtiesCount == -1` means \"not computed\".** It is only assigned a real value on the army-leader path. Reading it as \"zero dead\" produces a wrong casualty dialog.\n- **`casualties` counts the main party only.** On the army-leader path, losses to other parties are folded into the integer count and never appear in the roster.\n- **The casualty count is decided by the model, not by this action.** `TroopSacrificeModel` is the moddable seam; the action just executes whatever number comes back.\n- **Two different model signatures for the two directions.** `GetLostTroopCountForBreakingInBesiegedSettlement` has no `isFromPort`; only the break-out variant takes it. Passing the flag to the wrong one will not compile, which is the only guard you get.\n- **Wounded troops widen the pool but only healthy counts are decremented.** The army path subtracts `GetElementNumber + GetElementWoundedNumber` while selecting but calls `AddToCountsAtIndex(-1)` when removing, so the selection is not a strict conservation law.\n- **Abandoning an army costs relations with everyone.** Leaving someone else's army applies both `BreakOutArmyLeaderRelationPenalty` and `BreakOutArmyMemberRelationPenalty` — and this fires on `ApplyBreakIn` too, not just `ApplyBreakOut`.\n- **The party is detached from the army as a side effect.** `MobileParty.MainParty.Army = null` is set directly inside this action. There is no \"leave the army but stay\" option.\n- **`Settlement.CurrentSettlement` must be the besieged settlement.** Both entries read `Settlement.CurrentSettlement.SiegeEvent` without a null check, so calling them anywhere else is unsafe.\n- **The returned `TroopRoster` is a fresh dummy roster.** It is allocated per call, holds references the caller owns, and is never inserted into the campaign.\n- **Non-deterministic.** Both removal loops use `MBRandom`, so the exact composition of the losses differs between runs with identical inputs.\n\n## Cross-version note\n\nThe v1.4.5 file is 109 lines and exposes exactly the two public static entry points. The `breakIn` / `breakOut` boolean split, the `-1` sentinel, and the two distinct casualty-model signatures are all present in this version; there is no third entry point such as a \"surrender instead\" variant.\n\n## Dependencies\n\n- Trigger context: [Settlement"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BreakInOutBesiegedSettlementAction.md",
+      "href": "../campaign/TroopRoster",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/TroopRoster",
+      "text": "TroopRoster"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BreakInOutBesiegedSettlementAction.md",
+      "href": "../campaign/TroopSacrificeModel",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/TroopSacrificeModel",
+      "text": "TroopSacrificeModel"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BreakInOutBesiegedSettlementAction.md",
+      "href": "ChangeRelationAction",
+      "route": "v1.4.5/en/api/campaign-ext/BreakInOutBesiegedSettlementAction/ChangeRelationAction",
+      "text": "ChangeRelationAction"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BribeGuardsAction.md",
+      "href": "../campaign/Hero",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/Hero",
+      "text": "Hero"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BribeGuardsAction.md",
+      "href": "../campaign/Settlement",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/Settlement",
+      "text": "Settlement"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/BribeGuardsAction.md",
+      "href": "GiveGoldAction",
+      "route": "v1.4.5/en/api/campaign-ext/BribeGuardsAction/GiveGoldAction",
+      "text": "GiveGoldAction"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignAgentComponent.md",
+      "href": "../campaign/MapEvent",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/MapEvent",
+      "text": "MapEvent"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignAgentComponent.md",
+      "href": "../campaign/PartyBase",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/PartyBase",
+      "text": "PartyBase"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignAgentComponent.md",
+      "href": "../gameplay/AgentNavigator",
+      "route": "v1.4.5/en/api/campaign-ext/gameplay/AgentNavigator",
+      "text": "AgentNavigator"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignAgentComponent.md",
+      "href": "../mission-ext/AgentComponent",
+      "route": "v1.4.5/en/api/campaign-ext/mission-ext/AgentComponent",
+      "text": "AgentComponent"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignAgentComponent.md",
+      "href": "../mission/Mission",
+      "route": "v1.4.5/en/api/campaign-ext/mission/Mission",
+      "text": "Mission"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignAgentComponent.md",
+      "href": "BehaviorSets",
+      "route": "v1.4.5/en/api/campaign-ext/CampaignAgentComponent/BehaviorSets",
+      "text": "BehaviorSets"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignMusicHandler.md",
+      "href": "../campaign/MobileParty",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/MobileParty",
+      "text": "MobileParty"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignMusicHandler.md",
+      "href": "../campaign/Settlement",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/Settlement",
+      "text": "Settlement"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignMusicHandler.md",
+      "href": "../mission-ext/IMusicHandler",
+      "route": "v1.4.5/en/api/campaign-ext/mission-ext/IMusicHandler",
+      "text": "IMusicHandler"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignMusicHandler.md",
+      "href": "../mission-ext/MBMusicManager",
+      "route": "v1.4.5/en/api/campaign-ext/mission-ext/MBMusicManager",
+      "text": "MBMusicManager"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignMusicHandler.md",
+      "href": "../mission-ext/MusicParameters",
+      "route": "v1.4.5/en/api/campaign-ext/mission-ext/MusicParameters",
+      "text": "MusicParameters"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignSiegeStateHandler.md",
+      "href": "../campaign/MapEvent",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/MapEvent",
+      "text": "MapEvent"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignSiegeStateHandler.md",
+      "href": "../campaign/PlayerEncounter",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/PlayerEncounter",
+      "text": "PlayerEncounter"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignSiegeStateHandler.md",
+      "href": "../campaign/Settlement",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/Settlement",
+      "text": "Settlement"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignSiegeStateHandler.md",
+      "href": "../mission-ext/MissionLogic",
+      "route": "v1.4.5/en/api/campaign-ext/mission-ext/MissionLogic",
+      "text": "MissionLogic"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignStoryMode.md",
+      "href": "../campaign/Campaign",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/Campaign",
+      "text": "Campaign"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignStoryMode.md",
+      "href": "../campaign/Settlement",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/Settlement",
+      "text": "Settlement"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignStoryMode.md",
+      "href": "../core-extra/GameTypeLoadingStates",
+      "route": "v1.4.5/en/api/campaign-ext/core-extra/GameTypeLoadingStates",
+      "text": "GameTypeLoadingStates"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignStoryMode.md",
+      "href": "MBObjectManager",
+      "route": "v1.4.5/en/api/campaign-ext/CampaignStoryMode/MBObjectManager",
+      "text": "MBObjectManager"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CampaignStoryMode.md",
+      "href": "StoryModeManager",
+      "route": "v1.4.5/en/api/campaign-ext/CampaignStoryMode/StoryModeManager",
+      "text": "StoryModeManager"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CautiousBehavior.md",
+      "href": "../campaign-ext/AgentBehaviorGroup",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/AgentBehaviorGroup",
+      "text": "AgentBehaviorGroup"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CautiousBehavior.md",
+      "href": "../campaign-ext/AlarmedBehaviorGroup",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/AlarmedBehaviorGroup",
+      "text": "AlarmedBehaviorGroup"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CautiousBehavior.md",
+      "href": "AgentBehavior",
+      "route": "v1.4.5/en/api/campaign-ext/CautiousBehavior/AgentBehavior",
+      "text": "AgentBehavior"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CautiousBehavior.md",
+      "href": "AgentBehavior",
+      "route": "v1.4.5/en/api/campaign-ext/CautiousBehavior/AgentBehavior",
+      "text": "AgentBehavior"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CautiousBehavior.md",
+      "href": "BehaviorSets",
+      "route": "v1.4.5/en/api/campaign-ext/CautiousBehavior/BehaviorSets",
+      "text": "BehaviorSets"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CautiousBehavior.md",
+      "href": "CampaignAgentComponent",
+      "route": "v1.4.5/en/api/campaign-ext/CautiousBehavior/CampaignAgentComponent",
+      "text": "CampaignAgentComponent"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeClanInfluenceAction.md",
+      "href": "../campaign/CampaignEventDispatcher",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/CampaignEventDispatcher",
+      "text": "CampaignEventDispatcher"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeClanInfluenceAction.md",
+      "href": "../campaign/CampaignEvents",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/CampaignEvents",
+      "text": "CampaignEvents"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeClanInfluenceAction.md",
+      "href": "../campaign/Clan",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/Clan",
+      "text": "Clan"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeClanInfluenceAction.md",
+      "href": "ChangeClanLeaderAction",
+      "route": "v1.4.5/en/api/campaign-ext/ChangeClanInfluenceAction/ChangeClanLeaderAction",
+      "text": "ChangeClanLeaderAction"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction.md",
+      "href": "../campaign/CampaignEventDispatcher",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/CampaignEventDispatcher",
+      "text": "CampaignEventDispatcher"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction.md",
+      "href": "../campaign/CharacterRelationManager",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/CharacterRelationManager",
+      "text": "CharacterRelationManager"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction.md",
+      "href": "../campaign/Clan",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/Clan",
+      "text": "Clan"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction.md",
+      "href": "../campaign/DiplomacyModel",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/DiplomacyModel",
+      "text": "DiplomacyModel"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction.md",
+      "href": "../campaign/Hero",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/Hero",
+      "text": "Hero"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction.md",
+      "href": "../system/MobilePartyHelper",
+      "route": "v1.4.5/en/api/campaign-ext/system/MobilePartyHelper",
+      "text": "MobilePartyHelper"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction.md",
+      "href": "ChangeGovernorAction",
+      "route": "v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction/ChangeGovernorAction",
+      "text": "ChangeGovernorAction"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction.md",
+      "href": "ChangeOwnerOfSettlementDetail",
+      "route": "v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction/ChangeOwnerOfSettlementDetail",
+      "text": "ChangeOwnerOfSettlementAction"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction.md",
+      "href": "DestroyPartyAction",
+      "route": "v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction/DestroyPartyAction",
+      "text": "DestroyPartyAction"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction.md",
+      "href": "GiveGoldAction",
+      "route": "v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction/GiveGoldAction",
+      "text": "GiveGoldAction"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeOwnerOfSettlementDetail.md",
+      "href": "../campaign/CampaignEventDispatcher",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/CampaignEventDispatcher",
+      "text": "CampaignEventDispatcher"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeOwnerOfSettlementDetail.md",
+      "href": "../campaign/Settlement",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/Settlement",
+      "text": "Settlement"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangePlayerCharacterAction.md",
+      "href": "../campaign/Campaign",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/Campaign",
+      "text": "Campaign"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangePlayerCharacterAction.md",
+      "href": "../campaign/Hero",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/Hero",
+      "text": "Hero"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangePlayerCharacterAction.md",
+      "href": "../campaign/MobileParty",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/MobileParty",
+      "text": "MobileParty"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangePlayerCharacterAction.md",
+      "href": "../campaign/PlayerCaptivity",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/PlayerCaptivity",
+      "text": "PlayerCaptivity"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangePlayerCharacterAction.md",
+      "href": "../campaign/Ship",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/Ship",
+      "text": "Ship"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangePlayerCharacterAction.md",
+      "href": "ChangeShipOwnerAction",
+      "route": "v1.4.5/en/api/campaign-ext/ChangePlayerCharacterAction/ChangeShipOwnerAction",
+      "text": "ChangeShipOwnerAction"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangePlayerCharacterAction.md",
+      "href": "DestroyPartyAction",
+      "route": "v1.4.5/en/api/campaign-ext/ChangePlayerCharacterAction/DestroyPartyAction",
+      "text": "DestroyPartyAction"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeRulingClanAction.md",
+      "href": "../campaign/CampaignEventDispatcher",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/CampaignEventDispatcher",
+      "text": "CampaignEventDispatcher"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeRulingClanAction.md",
+      "href": "../campaign/CampaignEvents",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/CampaignEvents",
+      "text": "CampaignEvents"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeRulingClanAction.md",
+      "href": "../campaign/Kingdom",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/Kingdom",
+      "text": "Kingdom"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeRulingClanAction.md",
+      "href": "ChangeClanInfluenceAction",
+      "route": "v1.4.5/en/api/campaign-ext/ChangeRulingClanAction/ChangeClanInfluenceAction",
+      "text": "ChangeClanInfluenceAction"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/ChangeRulingClanAction.md",
+      "href": "ChangeClanLeaderAction",
+      "route": "v1.4.5/en/api/campaign-ext/ChangeRulingClanAction/ChangeClanLeaderAction",
+      "text": "ChangeClanLeaderAction"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CharacterCreationScreen.md",
+      "href": "../campaign-ext/ScreenBase",
+      "route": "v1.4.5/en/api/campaign-ext/campaign-ext/ScreenBase",
+      "text": "ScreenBase"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CharacterCreationScreen.md",
+      "href": "../campaign/CharacterCreationState",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/CharacterCreationState",
+      "text": "CharacterCreationState"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CharacterCreationScreen.md",
+      "href": "CharacterCreationStageViewAttribute",
+      "route": "v1.4.5/en/api/campaign-ext/CharacterCreationScreen/CharacterCreationStageViewAttribute",
+      "text": "CharacterCreationStageViewAttribute"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CharacterCreationScreen.md",
+      "href": "CharacterCreationStageViewBase",
+      "route": "v1.4.5/en/api/campaign-ext/CharacterCreationScreen/CharacterCreationStageViewBase",
+      "text": "CharacterCreationStageViewBase"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewAttribute.md",
+      "href": "../campaign/CharacterCreationStageBase",
+      "route": "v1.4.5/en/api/campaign-ext/campaign/CharacterCreationStageBase",
+      "text": "CharacterCreationStageBase"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewAttribute.md",
+      "href": "CharacterCreationScreen",
+      "route": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewAttribute/CharacterCreationScreen",
+      "text": "CharacterCreationScreen"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewAttribute.md",
+      "href": "CharacterCreationScreen",
+      "route": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewAttribute/CharacterCreationScreen",
+      "text": "CharacterCreationScreen"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewAttribute.md",
+      "href": "CharacterCreationScreen",
+      "route": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewAttribute/CharacterCreationScreen",
+      "text": "CharacterCreationScreen"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewAttribute.md",
+      "href": "CharacterCreationStageViewBase",
+      "route": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewAttribute/CharacterCreationStageViewBase",
+      "text": "CharacterCreationStageViewBase"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewBase.md",
+      "href": "CharacterCreationScreen",
+      "route": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewBase/CharacterCreationScreen",
+      "text": "CharacterCreationScreen"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewBase.md",
+      "href": "CharacterCreationScreen",
+      "route": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewBase/CharacterCreationScreen",
+      "text": "CharacterCreationScreen"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewBase.md",
+      "href": "CharacterCreationScreen",
+      "route": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewBase/CharacterCreationScreen",
+      "text": "CharacterCreationScreen"
+    },
+    {
+      "from": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewBase.md",
+      "href": "CharacterCreationStageViewAttribute",
+      "route": "v1.4.5/en/api/campaign-ext/CharacterCreationStageViewBase/CharacterCreationStageViewAttribute",
+      "text": "CharacterCreationStageViewAttribute"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentApplyDamageModel.md",
+      "href": "../../core/IGameStarter",
+      "route": "v1.4.5/en/api/core/IGameStarter",
+      "text": "`IGameStarter`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentBuildData.md",
+      "href": "./AgentBuildData",
+      "route": "v1.4.5/en/api/mission-ext/AgentBuildData/AgentBuildData",
+      "text": "`AgentBuildData`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentBuildData.md",
+      "href": "./AgentVisualsData",
+      "route": "v1.4.5/en/api/mission-ext/AgentBuildData/AgentVisualsData",
+      "text": "`AgentVisualsData`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentCapsuleData.md",
+      "href": "./AgentSpawnData",
+      "route": "v1.4.5/en/api/mission-ext/AgentCapsuleData/AgentSpawnData",
+      "text": "`AgentSpawnData`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentCapsuleData.md",
+      "href": "./AgentSpawnData",
+      "route": "v1.4.5/en/api/mission-ext/AgentCapsuleData/AgentSpawnData",
+      "text": "`AgentSpawnData`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentCapsuleData.md",
+      "href": "./MonsterExtensions",
+      "route": "v1.4.5/en/api/mission-ext/AgentCapsuleData/MonsterExtensions",
+      "text": "`MonsterExtensions`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentCapsuleData.md",
+      "href": "./MonsterMissionData",
+      "route": "v1.4.5/en/api/mission-ext/AgentCapsuleData/MonsterMissionData",
+      "text": "`MonsterMissionData`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentCommonAILogic.md",
+      "href": "./AgentHumanAILogic",
+      "route": "v1.4.5/en/api/mission-ext/AgentCommonAILogic/AgentHumanAILogic",
+      "text": "`AgentHumanAILogic`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentCommonAILogic.md",
+      "href": "./MissionLogic",
+      "route": "v1.4.5/en/api/mission-ext/AgentCommonAILogic/MissionLogic",
+      "text": "`MissionLogic`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentComponent.md",
+      "href": "./AgentCommonAILogic",
+      "route": "v1.4.5/en/api/mission-ext/AgentComponent/AgentCommonAILogic",
+      "text": "`AgentCommonAILogic`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentComponent.md",
+      "href": "./AgentHumanAILogic",
+      "route": "v1.4.5/en/api/mission-ext/AgentComponent/AgentHumanAILogic",
+      "text": "`AgentHumanAILogic`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentComponent.md",
+      "href": "./AgentHumanAILogic",
+      "route": "v1.4.5/en/api/mission-ext/AgentComponent/AgentHumanAILogic",
+      "text": "`AgentHumanAILogic`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentComponent.md",
+      "href": "./AgentHumanAILogic",
+      "route": "v1.4.5/en/api/mission-ext/AgentComponent/AgentHumanAILogic",
+      "text": "`AgentHumanAILogic`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentComponent.md",
+      "href": "./MissionLogic",
+      "route": "v1.4.5/en/api/mission-ext/AgentComponent/MissionLogic",
+      "text": "`MissionLogic`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentController.md",
+      "href": "./AgentCommonAILogic",
+      "route": "v1.4.5/en/api/mission-ext/AgentController/AgentCommonAILogic",
+      "text": "`AgentCommonAILogic`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentController.md",
+      "href": "./AgentComponent",
+      "route": "v1.4.5/en/api/mission-ext/AgentController/AgentComponent",
+      "text": "`AgentComponent`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentController.md",
+      "href": "./AgentComponent",
+      "route": "v1.4.5/en/api/mission-ext/AgentController/AgentComponent",
+      "text": "`AgentComponent`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentController.md",
+      "href": "./AgentComponent",
+      "route": "v1.4.5/en/api/mission-ext/AgentController/AgentComponent",
+      "text": "`AgentComponent`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentDrivenProperties.md",
+      "href": "./AgentBuildData",
+      "route": "v1.4.5/en/api/mission-ext/AgentDrivenProperties/AgentBuildData",
+      "text": "`AgentBuildData`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentHumanAILogic.md",
+      "href": "./AgentCommonAILogic",
+      "route": "v1.4.5/en/api/mission-ext/AgentHumanAILogic/AgentCommonAILogic",
+      "text": "`AgentCommonAILogic`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentHumanAILogic.md",
+      "href": "./AgentCommonAILogic",
+      "route": "v1.4.5/en/api/mission-ext/AgentHumanAILogic/AgentCommonAILogic",
+      "text": "`AgentCommonAILogic`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentHumanAILogic.md",
+      "href": "./MissionLogic",
+      "route": "v1.4.5/en/api/mission-ext/AgentHumanAILogic/MissionLogic",
+      "text": "`MissionLogic`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentProximityMap.md",
+      "href": "./AgentVisualsData",
+      "route": "v1.4.5/en/api/mission-ext/AgentProximityMap/AgentVisualsData",
+      "text": "`AgentVisualsData`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentSpawnData.md",
+      "href": "../../mission/MonsterExtensions",
+      "route": "v1.4.5/en/api/mission/MonsterExtensions",
+      "text": "`MonsterExtensions`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentSpawnData.md",
+      "href": "./AgentCapsuleData",
+      "route": "v1.4.5/en/api/mission-ext/AgentSpawnData/AgentCapsuleData",
+      "text": "`AgentCapsuleData`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentStatCalculateModel.md",
+      "href": "../../core/IGameStarter",
+      "route": "v1.4.5/en/api/core/IGameStarter",
+      "text": "`IGameStarter`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentStatCalculateModel.md",
+      "href": "./AgentBuildData",
+      "route": "v1.4.5/en/api/mission-ext/AgentStatCalculateModel/AgentBuildData",
+      "text": "`AgentBuildData`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentVictoryLogic.md",
+      "href": "./BattleSpawnModel",
+      "route": "v1.4.5/en/api/mission-ext/AgentVictoryLogic/BattleSpawnModel",
+      "text": "`BattleSpawnModel`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentVictoryLogic.md",
+      "href": "./MissionLogic",
+      "route": "v1.4.5/en/api/mission-ext/AgentVictoryLogic/MissionLogic",
+      "text": "`MissionLogic`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentVisuals.md",
+      "href": "./AgentSpawnData",
+      "route": "v1.4.5/en/api/mission-ext/AgentVisuals/AgentSpawnData",
+      "text": "`AgentSpawnData`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentVisuals.md",
+      "href": "./AgentVisualsCreator",
+      "route": "v1.4.5/en/api/mission-ext/AgentVisuals/AgentVisualsCreator",
+      "text": "`AgentVisualsCreator`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentVisuals.md",
+      "href": "./AgentVisualsData",
+      "route": "v1.4.5/en/api/mission-ext/AgentVisuals/AgentVisualsData",
+      "text": "`AgentVisualsData`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentVisualsCreator.md",
+      "href": "./AgentVisuals",
+      "route": "v1.4.5/en/api/mission-ext/AgentVisualsCreator/AgentVisuals",
+      "text": "`AgentVisuals`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentVisualsCreator.md",
+      "href": "./AgentVisuals",
+      "route": "v1.4.5/en/api/mission-ext/AgentVisualsCreator/AgentVisuals",
+      "text": "`AgentVisuals`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentVisualsCreator.md",
+      "href": "./AgentVisualsData",
+      "route": "v1.4.5/en/api/mission-ext/AgentVisualsCreator/AgentVisualsData",
+      "text": "`AgentVisualsData`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentVisualsData.md",
+      "href": "./AgentBuildData",
+      "route": "v1.4.5/en/api/mission-ext/AgentVisualsData/AgentBuildData",
+      "text": "`AgentBuildData`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentVisualsData.md",
+      "href": "./AgentBuildData",
+      "route": "v1.4.5/en/api/mission-ext/AgentVisualsData/AgentBuildData",
+      "text": "`AgentBuildData`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentVisualsData.md",
+      "href": "./AgentBuildData",
+      "route": "v1.4.5/en/api/mission-ext/AgentVisualsData/AgentBuildData",
+      "text": "`AgentBuildData`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentVisualsData.md",
+      "href": "./AgentVisuals",
+      "route": "v1.4.5/en/api/mission-ext/AgentVisualsData/AgentVisuals",
+      "text": "`AgentVisuals`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentVisualsData.md",
+      "href": "./AgentVisuals",
+      "route": "v1.4.5/en/api/mission-ext/AgentVisualsData/AgentVisuals",
+      "text": "`AgentVisuals`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentVisualsData.md",
+      "href": "./AgentVisuals",
+      "route": "v1.4.5/en/api/mission-ext/AgentVisualsData/AgentVisuals",
+      "text": "`AgentVisuals`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/AgentVisualsData.md",
+      "href": "./AgentVisualsCreator",
+      "route": "v1.4.5/en/api/mission-ext/AgentVisualsData/AgentVisualsCreator",
+      "text": "`AgentVisualsCreator`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/BattleDeploymentMissionController.md",
+      "href": "./BattleDeploymentHandler",
+      "route": "v1.4.5/en/api/mission-ext/BattleDeploymentMissionController/BattleDeploymentHandler",
+      "text": "`BattleDeploymentHandler`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/BattleDeploymentMissionController.md",
+      "href": "./BattleSpawnLogic",
+      "route": "v1.4.5/en/api/mission-ext/BattleDeploymentMissionController/BattleSpawnLogic",
+      "text": "`BattleSpawnLogic`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/BattleDeploymentMissionController.md",
+      "href": "./DefaultBattleMissionAgentSpawnLogic",
+      "route": "v1.4.5/en/api/mission-ext/BattleDeploymentMissionController/DefaultBattleMissionAgentSpawnLogic",
+      "text": "`DefaultBattleMissionAgentSpawnLogic`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/BattleDeploymentMissionController.md",
+      "href": "./DeploymentMissionController",
+      "route": "v1.4.5/en/api/mission-ext/BattleDeploymentMissionController/DeploymentMissionController",
+      "text": "`DeploymentMissionController`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/BattleSpawnLogic.md",
+      "href": "./BattleDeploymentMissionController",
+      "route": "v1.4.5/en/api/mission-ext/BattleSpawnLogic/BattleDeploymentMissionController",
+      "text": "`BattleDeploymentMissionController`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/BattleSpawnLogic.md",
+      "href": "./MissionLogic",
+      "route": "v1.4.5/en/api/mission-ext/BattleSpawnLogic/MissionLogic",
+      "text": "`MissionLogic`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/BattleSpawnModel.md",
+      "href": "../../core/IGameStarter",
+      "route": "v1.4.5/en/api/core/IGameStarter",
+      "text": "`IGameStarter`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/BattleSpawnModel.md",
+      "href": "./BattleDeploymentMissionController",
+      "route": "v1.4.5/en/api/mission-ext/BattleSpawnModel/BattleDeploymentMissionController",
+      "text": "`BattleDeploymentMissionController`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/BattleSpawnModel.md",
+      "href": "./BattleSpawnLogic",
+      "route": "v1.4.5/en/api/mission-ext/BattleSpawnModel/BattleSpawnLogic",
+      "text": "`BattleSpawnLogic`"
+    },
+    {
+      "from": "v1.4.5/en/api/mission-ext/BattleSpawnModel.md",
+      "href": "./MissionBattleSideSpawnContext",
+      "route": "v1.4.5/en/api/mission-ext/BattleSpawnModel/MissionBattleSideSpawnContext",
+      "text": "`MissionBattleSideSpawnContext`"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/AchievementManager.md",
+      "href": "IAchievementService",
+      "route": "v1.4.5/zh/api/campaign-ext/AchievementManager/IAchievementService",
+      "text": "IAchievementService"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/AchievementManager.md",
+      "href": "TestAchievementService",
+      "route": "v1.4.5/zh/api/campaign-ext/AchievementManager/TestAchievementService",
+      "text": "TestAchievementService"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/AgentBehavior.md",
+      "href": "AgentBehaviorGroup",
+      "route": "v1.4.5/zh/api/campaign-ext/AgentBehavior/AgentBehaviorGroup",
+      "text": "AgentBehaviorGroup"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/AgentBehavior.md",
+      "href": "AgentBehaviorGroup",
+      "route": "v1.4.5/zh/api/campaign-ext/AgentBehavior/AgentBehaviorGroup",
+      "text": "AgentBehaviorGroup"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/AgentBehavior.md",
+      "href": "AgentBehaviorManager",
+      "route": "v1.4.5/zh/api/campaign-ext/AgentBehavior/AgentBehaviorManager",
+      "text": "AgentBehaviorManager"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/AgentBehavior.md",
+      "href": "BehaviorSets",
+      "route": "v1.4.5/zh/api/campaign-ext/AgentBehavior/BehaviorSets",
+      "text": "BehaviorSets"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/AgentBehaviorManager.md",
+      "href": "AgentBehavior",
+      "route": "v1.4.5/zh/api/campaign-ext/AgentBehaviorManager/AgentBehavior",
+      "text": "AgentBehavior"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/AgentBehaviorManager.md",
+      "href": "BehaviorSets",
+      "route": "v1.4.5/zh/api/campaign-ext/AgentBehaviorManager/BehaviorSets",
+      "text": "BehaviorSets"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/AIState.md",
+      "href": "AIDifficulty",
+      "route": "v1.4.5/zh/api/campaign-ext/AIState/AIDifficulty",
+      "text": "AIDifficulty"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/AIState.md",
+      "href": "Move",
+      "route": "v1.4.5/zh/api/campaign-ext/AIState/Move",
+      "text": "Move"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/BanditDensityModel.md",
+      "href": "AgeModel",
+      "route": "v1.4.5/zh/api/campaign-ext/BanditDensityModel/AgeModel",
+      "text": "AgeModel"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/BreakInOutBesiegedSettlementAction.md",
+      "href": "CampaignSiegeStateHandler",
+      "route": "v1.4.5/zh/api/campaign-ext/BreakInOutBesiegedSettlementAction/CampaignSiegeStateHandler",
+      "text": "CampaignSiegeStateHandler"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/BreakInOutBesiegedSettlementAction.md",
+      "href": "ChangePlayerCharacterAction",
+      "route": "v1.4.5/zh/api/campaign-ext/BreakInOutBesiegedSettlementAction/ChangePlayerCharacterAction",
+      "text": "ChangePlayerCharacterAction"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CampaignSiegeStateHandler.md",
+      "href": "BreakInOutBesiegedSettlementAction",
+      "route": "v1.4.5/zh/api/campaign-ext/CampaignSiegeStateHandler/BreakInOutBesiegedSettlementAction",
+      "text": "BreakInOutBesiegedSettlementAction"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CampaignSiegeStateHandler.md",
+      "href": "MapEvent",
+      "route": "v1.4.5/zh/api/campaign-ext/CampaignSiegeStateHandler/MapEvent",
+      "text": "MapEvent"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CampaignSiegeStateHandler.md",
+      "href": "MapEventSide",
+      "route": "v1.4.5/zh/api/campaign-ext/CampaignSiegeStateHandler/MapEventSide",
+      "text": "MapEventSide"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CampaignStoryMode.md",
+      "href": "IMapScene",
+      "route": "v1.4.5/zh/api/campaign-ext/CampaignStoryMode/IMapScene",
+      "text": "IMapScene"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CampaignStoryMode.md",
+      "href": "TrainingField",
+      "route": "v1.4.5/zh/api/campaign-ext/CampaignStoryMode/TrainingField",
+      "text": "TrainingField"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CautiousBehavior.md",
+      "href": "AgentBehavior",
+      "route": "v1.4.5/zh/api/campaign-ext/CautiousBehavior/AgentBehavior",
+      "text": "AgentBehavior"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CautiousBehavior.md",
+      "href": "AgentBehavior",
+      "route": "v1.4.5/zh/api/campaign-ext/CautiousBehavior/AgentBehavior",
+      "text": "AgentBehavior"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CautiousBehavior.md",
+      "href": "AgentBehaviorGroup",
+      "route": "v1.4.5/zh/api/campaign-ext/CautiousBehavior/AgentBehaviorGroup",
+      "text": "AgentBehaviorGroup"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CautiousBehavior.md",
+      "href": "AgentBehaviorManager",
+      "route": "v1.4.5/zh/api/campaign-ext/CautiousBehavior/AgentBehaviorManager",
+      "text": "AgentBehaviorManager"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CautiousBehavior.md",
+      "href": "BehaviorSets",
+      "route": "v1.4.5/zh/api/campaign-ext/CautiousBehavior/BehaviorSets",
+      "text": "BehaviorSets"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/ChangePlayerCharacterAction.md",
+      "href": "BreakInOutBesiegedSettlementAction",
+      "route": "v1.4.5/zh/api/campaign-ext/ChangePlayerCharacterAction/BreakInOutBesiegedSettlementAction",
+      "text": "BreakInOutBesiegedSettlementAction"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CharacterCreationScreen.md",
+      "href": "CharacterCreationStageViewAttribute",
+      "route": "v1.4.5/zh/api/campaign-ext/CharacterCreationScreen/CharacterCreationStageViewAttribute",
+      "text": "CharacterCreationStageViewAttribute"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CharacterCreationScreen.md",
+      "href": "CharacterCreationStageViewBase",
+      "route": "v1.4.5/zh/api/campaign-ext/CharacterCreationScreen/CharacterCreationStageViewBase",
+      "text": "CharacterCreationStageViewBase"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewAttribute.md",
+      "href": "CharacterCreationScreen",
+      "route": "v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewAttribute/CharacterCreationScreen",
+      "text": "CharacterCreationScreen"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewAttribute.md",
+      "href": "CharacterCreationScreen",
+      "route": "v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewAttribute/CharacterCreationScreen",
+      "text": "CharacterCreationScreen"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewAttribute.md",
+      "href": "CharacterCreationStageViewBase",
+      "route": "v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewAttribute/CharacterCreationStageViewBase",
+      "text": "CharacterCreationStageViewBase"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewAttribute.md",
+      "href": "CharacterCreationStageViewBase",
+      "route": "v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewAttribute/CharacterCreationStageViewBase",
+      "text": "CharacterCreationStageViewBase"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewBase.md",
+      "href": "CharacterCreationScreen",
+      "route": "v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewBase/CharacterCreationScreen",
+      "text": "CharacterCreationScreen"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewBase.md",
+      "href": "CharacterCreationScreen",
+      "route": "v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewBase/CharacterCreationScreen",
+      "text": "CharacterCreationScreen"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewBase.md",
+      "href": "CharacterCreationStageViewAttribute",
+      "route": "v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewBase/CharacterCreationStageViewAttribute",
+      "text": "CharacterCreationStageViewAttribute"
+    },
+    {
+      "from": "v1.4.5/zh/api/campaign-ext/MapEventSide.md",
+      "href": "CampaignSiegeStateHandler",
+      "route": "v1.4.5/zh/api/campaign-ext/MapEventSide/CampaignSiegeStateHandler",
+      "text": "CampaignSiegeStateHandler"
+    }
+  ]
+}

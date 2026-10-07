@@ -1,15 +1,15 @@
-FILES=39024
-TOTAL_LINKS=140126
+FILES=39025
+TOTAL_LINKS=140297
 AUDIT_MODE=url
-BROKEN_LINKS=197
-RESOLVE_OK_URL=139743
-RESOLVE_OK_FILE=104790
-RESOLVE_OK_EITHER=139936
-RESOLVE_OK_BOTH=104597
-RESOLVE_URL_ONLY=35146
-RESOLVE_FILE_ONLY=193
+BROKEN_LINKS=186
+RESOLVE_OK_URL=139925
+RESOLVE_OK_FILE=104951
+RESOLVE_OK_EITHER=140107
+RESOLVE_OK_BOTH=104769
+RESOLVE_URL_ONLY=35156
+RESOLVE_FILE_ONLY=182
 RESOLVE_NEITHER=4
-FILES_WITH_BROKEN=52
+FILES_WITH_BROKEN=48
 
 ## v1.4.5/en/api/campaign-ext/AIState.md  (4)
    -> BoardGameAIBase
@@ -53,13 +53,6 @@ FILES_WITH_BROKEN=52
    -> ../campaign-ext/FightBehavior
    -> ../campaign-ext/FleeBehavior
    -> ../campaign-ext/ChangeLocationBehavior
-
-## v1.4.5/en/api/campaign-ext/BreakInOutBesiegedSettlementAction.md  (5)
-   -> ../campaign/Settlement
-   -> ../campaign/TroopSacrificeModel
-   -> ../campaign/TroopRoster
-   -> ../campaign/Army
-   -> ChangeRelationAction
 
 ## v1.4.5/en/api/campaign-ext/BribeGuardsAction.md  (3)
    -> ../campaign/Settlement
@@ -251,15 +244,6 @@ FILES_WITH_BROKEN=52
 ## v1.4.5/zh/api/campaign-ext/BanditDensityModel.md  (1)
    -> AgeModel
 
-## v1.4.5/zh/api/campaign-ext/BreakInOutBesiegedSettlementAction.md  (2)
-   -> CampaignSiegeStateHandler
-   -> ChangePlayerCharacterAction
-
-## v1.4.5/zh/api/campaign-ext/CampaignSiegeStateHandler.md  (3)
-   -> MapEvent
-   -> MapEventSide
-   -> BreakInOutBesiegedSettlementAction
-
 ## v1.4.5/zh/api/campaign-ext/CampaignStoryMode.md  (2)
    -> IMapScene
    -> TrainingField
@@ -284,6 +268,3 @@ FILES_WITH_BROKEN=52
 ## v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewBase.md  (2)
    -> CharacterCreationScreen
    -> CharacterCreationStageViewAttribute
-
-## v1.4.5/zh/api/campaign-ext/MapEventSide.md  (1)
-   -> CampaignSiegeStateHandler

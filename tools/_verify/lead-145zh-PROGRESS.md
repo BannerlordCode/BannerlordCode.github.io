@@ -646,6 +646,130 @@ b03：0 处（正在写）                    ← brief 里也内联了
 **⇒「规则内联进 brief 就被遵守，不内联就不被遵守」**——b02 一轮零退回之外的第二个同类证据。
 **⇒ 推论：写进判据但没写进 brief 的规则 = 不存在的规则。**
 
+---
+
+## 18. ★★ 链接形态规则依赖【页面深度】（含一次跨线更正）
+
+```
+zh/api/<桶>/X.md           同桶 ../X        跨桶 ../../<别的桶>/X
+zh/guide|architecture/X.md               跨桶 ../../api/<桶>/X
+```
+
+### 18.1 全树实测（boss-3 #13575 的 92 vs 2357 与本节一致，但**推断需更正**）
+
+```
+](../../api/   出现于 92 个文件   —— 全部在 zh/guide/ 与 zh/architecture/【那里是对的】
+](../../<桶>/  出现于 667 个文件（v1.4.5/zh/api 作用域内）—— 那里是对的
+```
+
+**三条独立证据证明那 92 个文件是【正确的】：**
+1. 位置：全部在 `zh/guide/`、`zh/architecture/` ⇒ `../../` 升到 `zh/`，再加 `api/` 正好是 `zh/api/`。
+2. 抽样解析：`module-system.md` / `sdk-overview.md` / `campaign-basics.md` 均 **`J5R unresolved=0`**。
+3. **全站门禁 `BROKEN_LINKS=0 / FILES_WITH_BROKEN=0`** ⇒ 若那 92 个里有断链，门禁不可能是 0。
+
+**⇒ 那批断链是【另一种缺陷】**：峰值时 4 个文件在 `v1.3.0/zh/api/campaign/`，形态是 **`./X`（缺 `../`）**，
+**不是 `../../api/`**。我自己的 7 条回归确实是 `../../api/`，但是**1 个文件**且已修。
+**⇒ 已向 boss-3 发出更正请求：不要动那 92 个文件**（去「修」它们会把 92 个从正确改成错误：
+从 guide 页写 `../../campaign/X` 会解析到不存在的 `zh/campaign/X`）。
+
+### 18.2 ★★ 本判分器的【适用域】（重要，避免我的数字被误用）
+
+本尺的 `J10`（链接只许在 `参见`/`导航`）与 `J11`（叶子无尾斜杠）是**本线 leaf 页的本地政策**，
+**不是全站规则**。拿它跑 `zh/architecture` / `zh/guide` 的页会产出**大量「不适用」而不是「不合格」**：
+```
+content/v1.3.0/en/architecture/module-system.md   J10 stray=29  J11 trailSlash=25
+content/v1.3.0/en/architecture/sdk-overview.md    J10 stray=73  J11 trailSlash=48
+```
+**那些不是缺陷**（architecture/guide 页的既定风格就是正文里大量跨页链接）。
+**⇒ 本尺只应用于本线的 `zh/api/<桶>/` leaf 页；引用它的数字必须标注口径（哪把尺、哪类页）。**
+
+---
+
+## 19. ★★ b03 冻结宣告 + 三条口径更正
+### 19.1 b03 冻结
+
+**判分器**：`tools/_verify/lead-145zh-judge.mjs`
+sha256 **`d844164e7bd02c58205964dffb9159b593b7d768fe7aa11ab1164f02e5c523ba`**
+**宣告冻结时刻：2026-10-07T08:13Z**
+**读数**：`pass=5/5` · `deep_pass=5/5` · `tier=handwritten_deep=5/5` · 每页 `J5R=0 · J10=0 · J11=0`
+
+| # | 页 | file B | body B | sha256（前 16） |
+| --- | --- | ---: | ---: | --- |
+| 1 | AcceptCallToWarAgreementDecision | 15,517 | 15,250 | `40e7a90231a2f5e4` |
+| 2 | AcceptCallToWarAgreementDecisionOutcome | 8,949 | 8,659 | `b5506e32f1a8a861` |
+| 3 | AcceptCallToWarOfferMapNotification | 9,132 | 8,877 | `ce73f34adc596a12` |
+| 4 | AcceptCallToWarOfferNotificationItemVM | 6,610 | 6,385 | `2f2e9218bd3c0da1` |
+| 5 | AcceptingCallToWarAgreementDecisionItemVM | 7,134 | 6,912 | `7a4225902a3190d2` |
+
+**批前门禁** 0/0/orphans=0 → **批后门禁** `BROKEN_LINKS=0 / FILES_WITH_BROKEN=0`
+（中间曾因本批第 3 页转红 `1/1`，见 §19.3）
+
+### 19.2 ★ 口径更正一：字节数必须带单位（lead-20 #13675 查出）
+
+**我此前报的「字节」是【body 字节 = 文件字节 − frontmatter 字节】，不是文件字节。**
+lead-20 对 9 个文件复算：**9/9 精确吻合，误差 0** ⇒ **数字没错，是单位标签错了。**
+**⇒ 台账此后一律双列：`file B` + `body B`**（上表已改）。
+**⇒ 这正是「报 N 必须带单位」的代价**：lead-20 第一眼拿 `stat -c %s` 一量，差点当成不实读数上报。
+
+### 19.3 ★ 口径更正二：门禁读数是【采样】还是【状态】，判据是「多次读数是否一致」
+
+本批第 3 页（`AcceptCallToWarOfferMapNotification.md`）写完后转红：
+```
+BROKEN_LINKS=1  FILES_WITH_BROKEN=1
+## v1.4.5/zh/api/campaign-ext/AcceptCallToWarOfferMapNotification.md  (1)
+   -> ../InformationData
+```
+它**同时有** `../../core-extra/InformationData`（对）与 `../InformationData`（错）——
+worker 加对了新的、漏删旧的（lead-20 独立定位到第 166 行）。
+
+**处置顺序（每一步都有理由）：**
+```
+1. 连测两次都是 1/1  ⇒ 定性为【状态】而非【采样】（若两次不一致才是采样）
+2. 先给 worker 发精确修法（#13740）—— 避免我与它同改一文件（静默冲突）
+3. 它没动（session mtime 陈旧 4 分钟、末次调用是 edit+grep）
+4. 【先 team_cancel，再自己修】—— 顺序不能反
+5. 修完：门禁 0/0 · 页 PASS · 增量工具 BROKEN_LINKS=0 EXIT=0
+```
+**⇒ 补强 boss-3 的「采样 vs 状态」纪律：区分两者的判据是【多次读数是否一致】，不是【读数是否好看】。**
+**一次读数可以是【真但短暂】的** —— 我这次那条 `1/1` 就是真的（worker 自己独立确认了同一处缺陷）。
+**若把单次读数一律记为「采样」并丢掉，真缺陷会被当成噪声。**
+
+**⇒ 根因归属（boss-3 #13701 的口径，已采纳）：**
+```
+缺陷：b03 第 3 页 1 条死链（../InformationData，应为 ../../core-extra/InformationData）
+根因：worker 加对链接但漏删旧的（非指令错；与 InitializeWorkshopAction 那 7 条的根因不同）
+责任：worker（W-I，已 cancel）+ Lead（未能及时验收）
+已修：是（Lead 直接修，页已冻结）
+```
+
+### 19.4 ★ 口径更正三：J2 是【批次尺】，不是【站点尺】（lead-20 查出）
+
+`## 导航` 采用率：`v1.3.0/zh 4/5300 · v1.3.15/zh 231/5690 · v1.4.5/zh 344/9477 · v1.4.7/zh 0/48`
+⇒ 七节模板只落在**新写的深页**上。拿 `J2` 全站跑必然产出成千上万条假 FAIL。
+⇒ 且那 4 张被判 FAIL 的旧页**并非「回不去」**：它们有 `- [本区域目录](../)`，用的是
+`主要属性`/`主要方法`/`使用示例` 这套旧命名（`主要方法`≈`关键成员`、`使用示例`≈`真实示例`）——**实质内容在，只是节名不同。**
+
+**⇒ 同一形态我自己也犯过（§18.2）：拿 `J10`/`J11` 跑 `zh/architecture` 页，报出 `J10 stray=73`、`J11 trailSlash=48`——
+那些是「不适用」，不是「不合格」。**
+
+### 19.5 孤儿归属（非本线）
+
+`nav-orphans` 现报 `orphans=2 / total_pages=39039`（此前 0 / 39037）：
+```
+by_tree={"v1.3.15":2}    1 v1.3.15/en/architecture/    1 v1.3.15/zh/architecture/
+```
+**在 `v1.3.15/*/architecture/`，不是本线**（本线 `v1.4.5/zh/api/campaign-ext/` **0 孤儿**）。
+与 architecture 线（`lead-22`）正在被更正/写入在时间上吻合。**已报 lead-20，不替它下结论。**
+
+### 19.6 本会话累计（b01+b02+b03）
+
+| 批 | 冻结时刻 | 页数 | pass | deep_pass | tier | 引用（全在界内） |
+| --- | --- | ---: | --- | --- | --- | ---: |
+| b01 | 07:46Z | 5 | 5/5 | 5/5 | 5/5 | 127 |
+| b02 | 07:38Z | 5 | 5/5 | 5/5 | 5/5 | 161 |
+| b03 | 08:13Z | 5 | 5/5 | 5/5 | 5/5 | 待计 |
+| **合计** | | **15** | **15/15** | **15/15** | **15/15** | |
+
 **已派 `worker-175`（#13161）**做 b01 的 4 页收尾（6 处字符串替换），brief 里明确列出**不许动**的
 `](../../campaign/)` 与 `](../)`。
 

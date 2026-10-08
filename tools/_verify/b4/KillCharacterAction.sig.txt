@@ -1,0 +1,25 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.CampaignSystem/Actions/KillCharacterAction.cs
+# 总行数: 425   ← 页内所有 `KillCharacterAction.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+# ★ 每条引用必须写 `File.cs:N`（带文件名），禁止裸 `:N` —— 裸引用会让 J13 检查不到它。
+
+## 类型声明行
+19: public static class KillCharacterAction
+402: public enum KillCharacterActionDetail
+
+## public / protected 面（按行号升序）
+19: public static class KillCharacterAction
+180: public static void ApplyByOldAge(Hero victim, bool showNotification = true)
+186: public static void ApplyByWounds(Hero victim, bool showNotification = true)
+192: public static void ApplyByBattle(Hero victim, Hero killer, bool showNotification = true)
+198: public static void ApplyByMurder(Hero victim, Hero killer = null, bool showNotification = true)
+204: public static void ApplyInLabor(Hero lostMother, bool showNotification = true)
+210: public static void ApplyByExecution(Hero victim, Hero executer, bool showNotification = true, bool isForced = false)
+216: public static void ApplyByExecutionAfterMapEvent(Hero victim, Hero executer, bool showNotification = true, bool isForced = false)
+222: public static void ApplyByRemove(Hero victim, bool showNotification = false, bool isForced = true)
+228: public static void ApplyByDeathMark(Hero victim, bool showNotification = false)
+234: public static void ApplyByDeathMarkForced(Hero victim, bool showNotification = false)
+240: public static void ApplyByPlayerIllness()
+402: public enum KillCharacterActionDetail
+

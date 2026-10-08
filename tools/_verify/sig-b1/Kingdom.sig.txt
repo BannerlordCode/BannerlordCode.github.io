@@ -1,0 +1,97 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.CampaignSystem/Kingdom.cs
+# 总行数: 1390   ← 页内所有 `Kingdom.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+
+## 类型声明行
+26: public sealed class Kingdom : MBObjectBase, IFaction
+
+## public 面（按行号升序）
+26: public sealed class Kingdom : MBObjectBase, IFaction
+221: public TextObject Name { get; private set; }
+227: public TextObject InformalName { get; private set; }
+233: public TextObject EncyclopediaText { get; private set; }
+239: public TextObject EncyclopediaTitle { get; private set; }
+245: public TextObject EncyclopediaRulerTitle { get; private set; }
+249: public string EncyclopediaLink
+259: public TextObject EncyclopediaLinkWithName
+269: public MBReadOnlyList<KingdomDecision> UnresolvedDecisions
+281: public CultureObject Culture { get; private set; }
+287: public Settlement InitialHomeSettlement { get; private set; }
+291: public bool IsMapFaction
+301: public bool HasNavalNavigationCapability
+313: public uint Color { get; private set; }
+319: public uint Color2 { get; private set; }
+325: public uint PrimaryBannerColor { get; private set; }
+331: public uint SecondaryBannerColor { get; private set; }
+337: public float MainHeroCrimeRating { get; set; }
+341: public MBReadOnlyList<IFaction> FactionsAtWarWith
+351: public MBReadOnlyList<Kingdom> AlliedKingdoms
+361: public MBReadOnlyList<Town> Fiefs
+371: public MBReadOnlyList<Town> Towns
+381: public MBReadOnlyList<Village> Villages
+391: public MBReadOnlyList<Settlement> Settlements
+401: public MBReadOnlyList<Hero> Heroes
+411: public MBReadOnlyList<Hero> AliveLords
+421: public MBReadOnlyList<Hero> DeadLords
+431: public MBReadOnlyList<WarPartyComponent> WarPartyComponents
+441: public float DailyCrimeRatingChange
+451: public ExplainedNumber DailyCrimeRatingChangeExplained
+461: public CharacterObject BasicTroop
+471: public Hero Leader
+488: public Banner Banner { get; set; }
+492: public bool IsBanditFaction
+502: public bool IsMinorFaction
+522: public bool IsRebelClan
+532: public bool IsClan
+542: public bool IsOutlaw
+552: public MBReadOnlyList<Clan> Clans
+563: public Clan RulingClan
+577: public MBReadOnlyList<Army> Armies
+586: public override TextObject GetName()
+592: public override string ToString()
+599: public float CurrentTotalStrength
+615: public Settlement FactionMidSettlement
+625: public float DistanceToClosestNonAllyFortification
+640: public IList<PolicyObject> ActivePolicies
+650: public static MBReadOnlyList<Kingdom> All
+662: public CampaignTime LastKingdomDecisionConclusionDate { get; private set; }
+666: public bool IsEliminated
+678: public CampaignTime LastMercenaryOfferTime { get; set; }
+682: public IFaction MapFaction
+694: public CampaignTime NotAttackableByPlayerUntilTime { get; set; }
+699: public float Aggressiveness
+713: public IEnumerable<MobileParty> AllParties
+734: public int MercenaryWallet { get; internal set; }
+737: public void UpdateFactionsAtWarWith()
+757: public void UpdateAlliedKingdoms()
+773: public int TributeWallet
+788: public int KingdomBudgetWallet
+803: public int CallToWarWallet
+816: public Kingdom()
+833: public static Kingdom CreateKingdom(string stringID)
+843: public void InitializeKingdom(TextObject name, TextObject informalName, CultureObject culture, Banner banner, uint kingdomColor1, uint kingdomColor2, Settlement initialHomeSettlement, TextObject encyclopediaText, TextObject encyclopediaTitle, TextObject encyclopediaRulerTitle)
+880: public void ChangeKingdomName(TextObject name, TextObject informalName)
+887: public void OnHeroChangedState(Hero hero, Hero.CharacterStates oldState)
+936: public bool IsAllyWith(Kingdom other)
+942: public bool IsAtWarWith(IFaction other)
+948: public bool IsAtConstantWarWith(IFaction other)
+954: public StanceLink GetStanceWith(IFaction other)
+972: public void CreateArmy(Hero armyLeader, Settlement targetSettlement, Army.ArmyTypes selectedArmyType, MBReadOnlyList<MobileParty> partiesToCallToArmy = null)
+997: public void AddDecision(KingdomDecision kingdomDecision, bool ignoreInfluenceCost = false)
+1025: public void RemoveDecision(KingdomDecision kingdomDecision)
+1031: public void OnKingdomDecisionConcluded()
+1037: public void AddPolicy(PolicyObject policy)
+1046: public void RemovePolicy(PolicyObject policy)
+1055: public bool HasPolicy(PolicyObject policy)
+1068: public override void Deserialize(MBObjectManager objectManager, XmlNode node)
+1161: public void OnFortificationAdded(Town fortification)
+1178: public void OnFortificationRemoved(Town fortification)
+1209: public void OnHeroAdded(Hero hero)
+1219: public void OnHeroRemoved(Hero hero)
+1251: public void OnWarPartyAdded(WarPartyComponent warPartyComponent)
+1257: public void OnWarPartyRemoved(WarPartyComponent warPartyComponent)
+1263: public void CalculateMidSettlement()
+1272: public void ReactivateKingdom()
+1363: public int PoliticalStagnation;
+

@@ -1,0 +1,20 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.CampaignSystem/GameComponents/DefaultPartyHealingModel.cs
+# 总行数: 390   ← 页内所有 `DefaultPartyHealingModel.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+# ★ 每条引用必须写 `File.cs:N`（带文件名），禁止裸 `:N` —— 裸引用会让 J13 检查不到它。
+
+## 类型声明行
+14: public class DefaultPartyHealingModel : PartyHealingModel
+
+## public / protected 面（按行号升序）
+14: public class DefaultPartyHealingModel : PartyHealingModel
+17: public override float GetSurgeryChance(PartyBase party)
+35: public override float GetSiegeBombardmentHitSurgeryChance(PartyBase party)
+46: public override float GetSurvivalChance(PartyBase party, CharacterObject character, DamageTypes damageType, bool canDamageKillEvenIfBlunt, PartyBase enemyParty = null)
+108: public override int GetSkillXpFromHealingTroop(PartyBase party)
+114: public override ExplainedNumber GetDailyHealingForRegulars(PartyBase party, bool isPrisoners, bool includeDescriptions = false)
+225: public override ExplainedNumber GetDailyHealingHpForHeroes(PartyBase party, bool isPrisoners, bool includeDescriptions = false)
+283: public override int GetHeroesEffectedHealingAmount(Hero hero, float healingRate)
+297: public override ExplainedNumber GetBattleEndHealingAmount(PartyBase party, Hero hero)
+

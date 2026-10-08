@@ -1,0 +1,87 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.CampaignSystem/MapEvents/MapEvent.cs
+# 总行数: 2772   ← 页内所有 `MapEvent.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+
+## 类型声明行
+24: public sealed class MapEvent : MBObjectBase
+2712: public enum BattleTypes
+2739: public enum PowerCalculationContext
+
+## public 面（按行号升序）
+24: public sealed class MapEvent : MBObjectBase
+157: public TroopUpgradeTracker TroopUpgradeTracker { get; private set; } = new TroopUpgradeTracker();
+161: public static MapEvent PlayerMapEvent
+176: public BattleSideEnum PlayerSide
+193: public MapEventComponent Component { get; private set; }
+198: public MapEventState State
+219: public MapEventSide AttackerSide
+229: public MapEventSide DefenderSide
+238: public MapEventSide GetMapEventSide(BattleSideEnum side)
+244: public MBReadOnlyList<MapEventParty> PartiesOnSide(BattleSideEnum side)
+251: public IEnumerable<PartyBase> InvolvedParties
+273: public Settlement MapEventSettlement { get; private set; }
+279: public BattleSideEnum RetreatingSide { get; private set; } = BattleSideEnum.None;
+283: public bool EndedByRetreat
+295: public int PursuitRoundNumber { get; private set; }
+299: public int UpdateCount
+309: public MapEvent.PowerCalculationContext SimulationContext
+329: public CampaignVec2 Position { get; private set; }
+333: public MapEvent.BattleTypes EventType
+343: public TerrainType EventTerrainType
+355: public bool IsInvulnerable { get; set; }
+359: public bool IsFieldBattle
+369: public bool IsRaid
+379: public bool IsForcingVolunteers
+389: public bool IsForcingSupplies
+399: public bool IsSiegeAssault
+409: public bool IsHideoutBattle
+419: public bool IsSallyOut
+429: public bool IsSiegeOutside
+439: public bool IsBlockade
+449: public bool IsBlockadeSallyOut
+459: public bool IsSiegeAmbush
+475: public bool IsFinalized
+485: public CampaignTime BattleStartTime
+495: public bool HasWinner
+507: public bool IsPlayerSimulation { get; set; }
+513: public MBList<BattleSideEnum> WonRounds { get; private set; } = new MBList<BattleSideEnum>();
+517: public bool IsNavalMapEvent
+528: public bool WasEverInLootingPhase
+655: public bool IsVisible
+726: public bool IsPlayerMapEvent
+737: public BattleState BattleState
+762: public BattleSideEnum WinningSide
+780: public MapEventSide Winner
+870: public BattleSideEnum DefeatedSide
+901: public override string ToString()
+1135: public void BeginWait()
+1210: public void FinishBattleAndKeepSiegeEvent()
+1296: public void SetOverrideWinner(BattleSideEnum winner)
+1302: public void SetDefenderPulledBack()
+1308: public void SimulateBattleSetup(FlattenedTroopRoster[] priorTroops)
+1345: public void SimulateBattleRound(int simulationTicksDefender, int simulationTicksAttacker)
+1528: public void ResetBattleState()
+1574: public bool IsPlayerSergeant()
+1590: public void EndByRunAway()
+1602: public void RecalculateStrengthOfSides()
+1637: public int GetNumberOfInvolvedMen()
+1643: public int GetNumberOfInvolvedMen(BattleSideEnum side)
+1649: public BattleSideEnum GetOtherSide(BattleSideEnum side)
+1659: public bool HasTroopsOnBothSides()
+1667: public PartyBase GetLeaderParty(BattleSideEnum side)
+1711: public bool CanPartyJoinBattle(PartyBase party, BattleSideEnum side)
+1717: public void GetStrengthsRelativeToParty(BattleSideEnum partySide, out float partySideStrength, out float opposingSideStrength)
+1746: public float GetPlayerBattleContributionRate()
+2367: public void FinalizeEvent()
+2536: public void RecalculateRenownAndInfluenceValuesOnPartyInvolved(PartyBase party)
+2547: public void DoSurrender(BattleSideEnum side)
+2568: public void SetPositionAfterMapChange(CampaignVec2 newPosition)
+2611: public void CheckPositionsForMapChangeAndUpdateIfNeeded()
+2640: public void OverrideMapEventSettlementForRaidToFieldBattleSwitch(Settlement settlement)
+2654: public bool DiplomaticallyFinished;
+2674: public IMapEventVisual MapEventVisual;
+2687: public float[] StrengthOfSide = new float[2];
+2712: public enum BattleTypes
+2739: public enum PowerCalculationContext
+

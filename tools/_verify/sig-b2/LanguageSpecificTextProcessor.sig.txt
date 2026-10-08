@@ -1,0 +1,17 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.Localization/TextProcessor/LanguageSpecificTextProcessor.cs
+# 总行数: 221   ← 页内所有 `LanguageSpecificTextProcessor.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+# ★ 每条引用必须写 `File.cs:N`（带文件名），禁止裸 `:N` —— 裸引用会让 J13 检查不到它。
+
+## 类型声明行
+9: public abstract class LanguageSpecificTextProcessor
+
+## public 面（按行号升序）
+9: public abstract class LanguageSpecificTextProcessor
+12: public abstract void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString);
+16: public abstract CultureInfo CultureInfoForLanguage { get; }
+19: public abstract void ClearTemporaryData();
+36: public LanguageSpecificTextProcessor()
+41: public string Process(string text)
+

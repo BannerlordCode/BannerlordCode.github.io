@@ -1,0 +1,28 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.CampaignSystem/Actions/ChangeKingdomAction.cs
+# 总行数: 273   ← 页内所有 `ChangeKingdomAction.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+# ★ 每条引用必须写 `File.cs:N`（带文件名），禁止裸 `:N` —— 裸引用会让 J13 检查不到它。
+
+## 类型声明行
+12: public static class ChangeKingdomAction
+250: public enum ChangeKingdomActionDetail
+
+## public / protected 面（按行号升序）
+12: public static class ChangeKingdomAction
+152: public static void ApplyByJoinToKingdom(Clan clan, Kingdom newKingdom, CampaignTime shouldStayInKingdomUntil = default(CampaignTime), bool showNotification = true)
+158: public static void ApplyByJoinToKingdomByDefection(Clan clan, Kingdom oldKingdom, Kingdom newKingdom, CampaignTime shouldStayInKingdomUntil = default(CampaignTime), bool showNotification = true)
+165: public static void ApplyByCreateKingdom(Clan clan, Kingdom newKingdom, bool showNotification = true)
+171: public static void ApplyByLeaveByKingdomDestruction(Clan clan, bool showNotification = true)
+177: public static void ApplyByLeaveKingdom(Clan clan, bool showNotification = true)
+183: public static void ApplyByLeaveWithRebellionAgainstKingdom(Clan clan, bool showNotification = true)
+189: public static void ApplyByJoinFactionAsMercenary(Clan clan, Kingdom newKingdom, CampaignTime shouldStayInKingdomUntil = default(CampaignTime), int awardMultiplier = 50, bool showNotification = true)
+195: public static void ApplyByLeaveKingdomAsMercenary(Clan mercenaryClan, bool showNotification = true)
+201: public static void ApplyByLeaveKingdomByClanDestruction(Clan clan, bool showNotification = true)
+235: public const float PotentialSettlementsPerNobleEffect = 0.2f;
+238: public const float NewGainedFiefsValueForKingdomConstant = 0.1f;
+241: public const float LordsUnitStrengthValue = 20f;
+244: public const float MercenaryUnitStrengthValue = 5f;
+247: public const float MinimumNeededGoldForRecruitingMercenaries = 20000f;
+250: public enum ChangeKingdomActionDetail
+

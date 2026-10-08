@@ -1,0 +1,45 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.Localization/TextObject.cs
+# 总行数: 454   ← 页内所有 `TextObject.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+# ★ 每条引用必须写 `File.cs:N`（带文件名），禁止裸 `:N` —— 裸引用会让 J13 检查不到它。
+
+## 类型声明行
+12: public class TextObject
+
+## public 面（按行号升序）
+12: public class TextObject
+42: public Dictionary<string, object> Attributes { get; private set; }
+46: public int Length
+61: public bool IsLink
+78: public TextObject(string value, Dictionary<string, object> attributes = null)
+86: public TextObject(int value, Dictionary<string, object> attributes = null)
+92: public TextObject(float value, Dictionary<string, object> attributes = null)
+98: public int GetDepth(int maxDepth)
+147: public void CacheTokens()
+187: public static TextObject GetEmpty()
+193: public bool IsEmpty()
+199: public static bool IsNullOrEmpty(TextObject obj)
+205: public override string ToString()
+221: public string ToStringWithoutClear()
+237: public string Format(float p1)
+244: public bool Contains(TextObject to)
+250: public bool Contains(string text)
+256: public override bool Equals(object other)
+263: public override int GetHashCode()
+269: public bool Equals(TextObject other)
+275: public bool HasSameValue(TextObject to)
+281: public static bool operator ==(TextObject lhs, TextObject rhs)
+287: public static bool operator !=(TextObject lhs, TextObject rhs)
+293: public static List<string> ConvertToStringList(List<TextObject> to)
+315: public TextObject SetTextVariable(string tag, TextObject variable)
+321: public TextObject SetTextVariable(string tag, string variable)
+328: public TextObject SetTextVariable(string tag, float variable, int decimalDigits = 2)
+335: public TextObject SetTextVariable(string tag, int variable)
+342: public void AddIDToValue(string id)
+352: public bool GetVariableValue(string tag, out TextObject variable)
+379: public int GetValueHashCode()
+385: public TextObject CopyTextObject()
+405: public string GetID()
+436: public string Value;
+

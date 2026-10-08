@@ -1,0 +1,33 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.Localization/MBTextManager.cs
+# 总行数: 532   ← 页内所有 `MBTextManager.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+# ★ 每条引用必须写 `File.cs:N`（带文件名），禁止裸 `:N` —— 裸引用会让 J13 检查不到它。
+
+## 类型声明行
+13: public static class MBTextManager
+
+## public 面（按行号升序）
+13: public static class MBTextManager
+17: public static string ActiveTextLanguage
+28: public static bool LocalizationDebugMode { get; set; }
+31: public static bool LanguageExistsInCurrentConfiguration(string language, bool developmentMode)
+37: public static bool ChangeLanguage(string language)
+52: public static int GetActiveTextLanguageIndex()
+58: public static bool TryChangeVoiceLanguage(string language)
+153: public static void ClearAll()
+159: public static void SetTextVariable(string variableName, string text, bool sendClients = false)
+169: public static void SetTextVariable(string variableName, TextObject text, bool sendClients = false)
+179: public static void SetTextVariable(string variableName, int content)
+186: public static void SetTextVariable(string variableName, float content, int decimalDigits = 2)
+193: public static void SetTextVariable(string variableName, object content)
+204: public static void SetTextVariable(string variableName, int arrayIndex, object content)
+215: public static void SetFunction(string funcName, string functionBody)
+222: public static void ResetFunctions()
+228: public static void ThrowLocalizationError(string message)
+306: public static string DiscardAnimationTagsAndCheckAnimationTagPositions(string text)
+312: public static string DiscardAnimationTags(string text)
+347: public static string[] GetConversationAnimations(TextObject to)
+406: public static bool TryGetVoiceObject(TextObject to, out VoiceObject vo, out string vocalizationId)
+476: public const string LinkAttribute = "LINK";
+

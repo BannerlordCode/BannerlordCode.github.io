@@ -1,0 +1,92 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.CampaignSystem/CharacterObject.cs
+# 总行数: 1106   ← 页内所有 `CharacterObject.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+
+## 类型声明行
+17: public sealed class CharacterObject : BasicCharacterObject, ICharacterData
+
+## public 面（按行号升序）
+17: public sealed class CharacterObject : BasicCharacterObject, ICharacterData
+47: public override TextObject Name
+61: public string EncyclopediaLink
+75: public TextObject EncyclopediaLinkWithName
+94: public bool HiddenInEncyclopedia { get; set; }
+97: public override string ToString()
+104: public bool IsNotTransferableInPartyScreen
+114: public bool IsNotTransferableInHideouts
+124: public CharacterObject OriginalCharacter
+134: public bool IsOriginalCharacter
+145: public Hero HeroObject
+159: public override Equipment Equipment
+173: public override IEnumerable<Equipment> BattleEquipments
+187: public override IEnumerable<Equipment> CivilianEquipments
+201: public IEnumerable<Equipment> StealthEquipments
+219: public override Equipment FirstBattleEquipment
+233: public override Equipment FirstCivilianEquipment
+247: public Equipment FirstStealthEquipment
+261: public override Equipment RandomBattleEquipment
+275: public override Equipment RandomCivilianEquipment
+289: public override int HitPoints
+303: public Equipment RandomStealthEquipment
+316: public override int MaxHitPoints()
+323: public ExplainedNumber MaxHitPointsExplanation
+333: public override int Level
+346: public CharacterObject()
+368: public static CharacterObject CreateFrom(CharacterObject character, StaticBodyProperties? staticBodyProperties = null)
+396: public static CharacterObject PlayerCharacter
+406: public static CharacterObject OneToOneConversationCharacter
+416: public static IEnumerable<CharacterObject> ConversationCharacters
+425: public override void AfterRegister()
+440: public bool IsMariner
+451: public new CultureObject Culture
+468: public override BodyProperties GetBodyPropertiesMin(bool returnBaseValue = false)
+478: public override BodyProperties GetBodyPropertiesMax(bool returnBaseValue = false)
+489: public override bool IsFemale
+502: public override void UpdatePlayerCharacterBodyProperties(BodyProperties properties, int race, bool isFemale)
+518: public bool IsBasicTroop { get; set; }
+523: public bool IsTemplate { get; private set; }
+528: public bool IsChildTemplate { get; private set; }
+532: public override bool IsPlayerCharacter
+542: public override bool IsHero
+552: public bool IsRegular
+562: public Occupation Occupation
+575: public Occupation GetDefaultOccupation()
+582: public override float Age
+597: public int ConformityNeededToRecruitPrisoner
+608: public CharacterObject[] UpgradeTargets { get; private set; } = new CharacterObject[0];
+613: public ItemCategory UpgradeRequiresItemFromCategory { get; private set; }
+616: public bool HasThrowingWeapon()
+630: public int GetUpgradeXpCost(PartyBase party, int index)
+641: public int GetUpgradeGoldCost(PartyBase party, int index)
+647: public void InitializeHeroCharacterOnAfterLoad()
+665: public override void Deserialize(MBObjectManager objectManager, XmlNode node)
+731: public override float GetPower()
+737: public override float GetBattlePower()
+743: public override float GetMoraleResistance()
+750: public void GetSimulationAttackPower(out float attackPoints, out float defencePoints, Equipment equipment = null)
+809: public override bool IsMounted
+823: public override bool IsRanged
+843: public float GetHeadArmorSum(Equipment.EquipmentType equipmentType = Equipment.EquipmentType.Battle)
+849: public float GetBodyArmorSum(Equipment.EquipmentType equipmentType = Equipment.EquipmentType.Battle)
+855: public float GetLegArmorSum(Equipment.EquipmentType equipmentType = Equipment.EquipmentType.Battle)
+861: public float GetArmArmorSum(Equipment.EquipmentType equipmentType = Equipment.EquipmentType.Battle)
+867: public float GetHorseArmorSum(Equipment.EquipmentType equipmentType = Equipment.EquipmentType.Battle)
+873: public float GetTotalArmorSum(Equipment.EquipmentType equipmentType = Equipment.EquipmentType.Battle)
+896: public override BodyProperties GetBodyProperties(Equipment equipment, int seed = -1)
+915: public int TroopWage
+928: public void SetTransferableInPartyScreen(bool isTransferable)
+939: public void SetTransferableInHideouts(bool isTransferable)
+951: public int Tier
+960: public void ClearAttributes()
+969: public int GetTraitLevel(TraitObject trait)
+979: public bool GetPerkValue(PerkObject perk)
+985: public override int GetSkillValue(SkillObject skill)
+995: public TraitObject GetPersona()
+1005: public override int GetMountKeySeed()
+1015: public override FormationClass GetFormationClass()
+1043: public static CharacterObject Find(string idString)
+1049: public static CharacterObject FindFirst(Predicate<CharacterObject> predicate)
+1055: public static IEnumerable<CharacterObject> FindAll(Predicate<CharacterObject> predicate)
+1062: public static MBReadOnlyList<CharacterObject> All
+

@@ -1,0 +1,125 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.CampaignSystem/Settlements/Settlement.cs
+# 总行数: 1842   ← 页内所有 `Settlement.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+
+## 类型声明行
+27: public sealed class Settlement : MBObjectBase, ILocatable<Settlement>, IMapPoint, ITrackableCampaignObject, ITrackableBase, ISiegeEventSide, IRandomOwner, ISettlementDataHolder
+1831: public enum SiegeState
+
+## public 面（按行号升序）
+27: public sealed class Settlement : MBObjectBase, ILocatable<Settlement>, IMapPoint, ITrackableCampaignObject, ITrackableBase, ISiegeEventSide, IRandomOwner, ISettlementDataHolder
+227: public PartyBase Party { get; private set; }
+233: public int BribePaid { get; set; }
+239: public SiegeEvent SiegeEvent { get; set; }
+245: public bool IsActive { get; set; }
+249: public Hero Owner
+259: public Banner Banner
+282: public bool IsVisible
+302: public bool IsInspected { get; set; }
+306: public int WallSectionCount
+337: public float NearbyLandThreatIntensity { get; set; }
+343: public float NearbyNavalThreatIntensity { get; set; }
+349: public float NearbyLandAllyIntensity { get; set; }
+355: public float NearbyNavalAllyIntensity { get; set; }
+374: public int RandomValue
+384: public Vec2 GetPosition2D
+395: public float Militia
+423: public MBReadOnlyList<float> SettlementWallSectionHitPointsRatioList
+433: public float SettlementTotalWallHitPoints
+448: public float MaxHitPointsOfOneWallSection
+461: public void SetWallSectionHitPointsRatioAtIndex(int index, float hitPointsRatio)
+475: public float SettlementHitPoints { get; internal set; }
+479: public float MaxWallHitPoints
+489: public MBReadOnlyList<MobileParty> Parties
+500: public PatrolPartyComponent PatrolParty { get; private set; }
+504: public MBReadOnlyList<Hero> HeroesWithoutParty
+514: public MBReadOnlyList<Hero> Notables
+526: public SettlementComponent SettlementComponent { get; private set; }
+531: public CampaignVec2 GatePosition { get; private set; }
+536: public CampaignVec2 PortPosition { get; private set; }
+539: public void SetPortPosition(CampaignVec2 position)
+547: public PathFaceRecord CurrentNavigationFace
+558: public CampaignVec2 Position
+572: public Vec3 GetPositionAsVec3()
+580: public bool HasPort { get; private set; }
+584: public IFaction MapFaction
+599: public TextObject Name
+614: public TextObject EncyclopediaText { get; private set; }
+618: public string EncyclopediaLink
+628: public TextObject EncyclopediaLinkWithName
+640: public int GarrisonWagePaymentLimit { get; private set; }
+643: public void SetGarrisonWagePaymentLimit(int limit)
+650: public ItemRoster ItemRoster
+660: public MBReadOnlyList<Village> BoundVillages
+671: public MobileParty LastAttackerParty
+705: public CampaignTime LastThreatTime { get; private set; }
+711: public SiegeEvent.SiegeEnginesContainer SiegeEngines { get; private set; }
+715: public MBReadOnlyList<SiegeEvent.SiegeEngineMissile> SiegeEngineMissiles
+725: public BattleSideEnum BattleSide
+737: public int NumberOfTroopsKilledOnSide { get; private set; }
+743: public SiegeStrategy SiegeStrategy { get; private set; }
+746: public IEnumerable<PartyBase> GetInvolvedPartiesForEventType(MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)
+752: public PartyBase GetNextInvolvedPartyForEventType(ref int partyIndex, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)
+758: public bool HasInvolvedPartyForEventType(PartyBase party, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)
+787: public List<Alley> Alleys { get; private set; }
+804: public bool IsTown
+814: public bool IsCastle
+824: public bool IsFortification
+834: public bool IsVillage
+844: public bool IsHideout
+854: public bool IsStarving
+864: public bool IsRaided
+874: public bool InRebelliousState
+884: public bool IsUnderRaid
+894: public bool IsUnderSiege
+903: public bool IsUnderRebellionAttack()
+917: public Settlement()
+923: public Settlement(TextObject name, LocationComplex locationComplex, PartyTemplateObject pt)
+939: public float GetSettlementValueForEnemyHero(Hero hero)
+948: public LocationComplex LocationComplex { get; private set; }
+952: public static Settlement CurrentSettlement
+973: public bool IsSettlementBusy(object asker)
+979: public bool IsSettlementBusy(object asker, int limitingPriority)
+985: public int GetSettlementBusynessPriority(object asker)
+993: public float GetValue(Hero hero = null, bool countAlsoBoundedSettlements = true)
+1028: public override TextObject GetName()
+1034: public float GetSettlementValueForFaction(IFaction faction)
+1040: public override string ToString()
+1086: public void OnPartyInteraction(MobileParty engagingParty)
+1146: public override void Deserialize(MBObjectManager objectManager, XmlNode node)
+1254: public void OnFinishLoadState()
+1270: public void OnGameCreated()
+1285: public void OnSessionStart()
+1306: public void CheckPositionsForMapChangeAndUpdateIfNeeded()
+1370: public static Settlement Find(string idString)
+1376: public static Settlement FindFirst(Func<Settlement, bool> predicate)
+1382: public static IEnumerable<Settlement> FindAll(Func<Settlement, bool> predicate)
+1389: public static MBReadOnlyList<Settlement> All
+1399: public static Settlement GetFirst
+1408: public static LocatableSearchData<Settlement> StartFindingLocatablesAroundPosition(Vec2 position, float radius)
+1414: public static Settlement FindNextLocatable(ref LocatableSearchData<Settlement> data)
+1420: public void OnPlayerEncounterFinish()
+1431: public Vec3 GetPosition()
+1458: public Settlement.SiegeState CurrentSiegeState { get; private set; }
+1462: public Clan OwnerClan
+1483: public void SetNextSiegeState()
+1493: public void ResetSiegeState()
+1499: public void AddGarrisonParty()
+1637: public void SetSiegeStrategy(SiegeStrategy strategy)
+1643: public void InitializeSiegeEventSide()
+1654: public void OnTroopsKilledOnSide(int killCount)
+1660: public void AddSiegeEngineMissile(SiegeEvent.SiegeEngineMissile missile)
+1666: public void RemoveDeprecatedMissiles()
+1684: public void GetAttackTarget(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngine, int siegeEngineSlot, out SiegeBombardTargets targetType, out int targetIndex)
+1704: public void FinalizeSiegeEvent()
+1750: public bool HasVisited;
+1754: public float LastVisitTimeOfOwner;
+1796: public CultureObject Culture;
+1814: public Town Town;
+1817: public Village Village;
+1820: public Hideout Hideout;
+1824: public MilitiaPartyComponent MilitiaPartyComponent;
+1828: public readonly ItemRoster Stash;
+1831: public enum SiegeState
+

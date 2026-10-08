@@ -1,0 +1,23 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.CampaignSystem/Actions/GainKingdomInfluenceAction.cs
+# 总行数: 180   ← 页内所有 `GainKingdomInfluenceAction.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+# ★ 每条引用必须写 `File.cs:N`（带文件名），禁止裸 `:N` —— 裸引用会让 J13 检查不到它。
+
+## 类型声明行
+12: public static class GainKingdomInfluenceAction
+
+## public / protected 面（按行号升序）
+12: public static class GainKingdomInfluenceAction
+82: public static void ApplyForBattle(Hero hero, float value)
+88: public static void ApplyForGivingFood(Hero hero1, Hero hero2, float value)
+95: public static void ApplyForDefault(Hero hero, float value)
+101: public static void ApplyForJoiningFaction(Hero hero, float value)
+107: public static void ApplyForDonatePrisoners(MobileParty donatingParty, float value)
+113: public static void ApplyForRaidingEnemyVillage(MobileParty side1Party, float value)
+119: public static void ApplyForBesiegingEnemySettlement(MobileParty side1Party, float value)
+125: public static void ApplyForSiegeSafePassageBarter(MobileParty side1Party, float value)
+131: public static void ApplyForCapturingEnemySettlement(MobileParty side1Party, float value)
+137: public static void ApplyForLeavingTroopToGarrison(Hero hero, float value)
+143: public static void ApplyForBoardGameWon(Hero hero, float value)
+

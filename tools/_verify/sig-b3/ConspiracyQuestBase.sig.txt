@@ -1,0 +1,19 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/StoryMode/Quests/SecondPhase/ConspiracyQuestBase.cs
+# 总行数: 148   ← 页内所有 `ConspiracyQuestBase.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+# ★ 每条引用必须写 `File.cs:N`（带文件名），禁止裸 `:N` —— 裸引用会让 J13 检查不到它。
+
+## 类型声明行
+13: public abstract class ConspiracyQuestBase : QuestBase
+
+## public 面（按行号升序）
+13: public abstract class ConspiracyQuestBase : QuestBase
+17: public abstract TextObject SideNotificationText { get; }
+21: public abstract TextObject StartMessageLogFromMentor { get; }
+25: public abstract TextObject StartLog { get; }
+29: public abstract float ConspiracyStrengthDecreaseAmount { get; }
+33: public Hero Mentor
+47: public override bool IsRemainingTimeHidden
+57: public override string SpecialQuestType
+

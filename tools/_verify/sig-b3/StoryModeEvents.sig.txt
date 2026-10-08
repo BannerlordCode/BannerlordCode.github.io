@@ -1,0 +1,26 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/StoryMode/StoryModeEvents.cs
+# 总行数: 150   ← 页内所有 `StoryModeEvents.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+# ★ 每条引用必须写 `File.cs:N`（带文件名），禁止裸 `:N` —— 裸引用会让 J13 检查不到它。
+
+## 类型声明行
+7: public class StoryModeEvents : CampaignEventReceiver
+
+## public 面（按行号升序）
+7: public class StoryModeEvents : CampaignEventReceiver
+11: public static StoryModeEvents Instance
+25: public override void RemoveListeners(object obj)
+37: public static IMbEvent<MainStoryLineSide> OnMainStoryLineSideChosenEvent
+46: public void OnMainStoryLineSideChosen(MainStoryLineSide side)
+53: public static IMbEvent OnStoryModeTutorialEndedEvent
+62: public void OnStoryModeTutorialEnded()
+69: public static IMbEvent OnStealthTutorialActivatedEvent
+78: public void OnStealthTutorialActivated()
+85: public static IMbEvent OnBannerPieceCollectedEvent
+94: public void OnBannerPieceCollected()
+101: public static IMbEvent OnConspiracyActivatedEvent
+110: public void OnConspiracyActivated()
+117: public static IMbEvent OnTravelToVillageTutorialQuestStartedEvent
+126: public void OnTravelToVillageTutorialQuestStarted()
+

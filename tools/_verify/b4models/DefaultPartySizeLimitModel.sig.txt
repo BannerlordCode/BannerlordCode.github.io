@@ -1,0 +1,22 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.CampaignSystem/GameComponents/DefaultPartySizeLimitModel.cs
+# 总行数: 593   ← 页内所有 `DefaultPartySizeLimitModel.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+# ★ 每条引用必须写 `File.cs:N`（带文件名），禁止裸 `:N` —— 裸引用会让 J13 检查不到它。
+
+## 类型声明行
+19: public class DefaultPartySizeLimitModel : PartySizeLimitModel
+
+## public / protected 面（按行号升序）
+19: public class DefaultPartySizeLimitModel : PartySizeLimitModel
+23: public override int MinimumNumberOfVillagersAtVillagerParty
+32: public override ExplainedNumber GetPartyMemberSizeLimit(PartyBase party, bool includeDescriptions = false)
+71: public override ExplainedNumber GetPartyPrisonerSizeLimit(PartyBase party, bool includeDescriptions = false)
+128: public override ExplainedNumber CalculateGarrisonPartySizeLimit(Settlement settlement, bool includeDescriptions = false)
+203: public override int GetNextClanTierPartySizeEffectChangeForHero(Hero hero)
+224: public override int GetAssumedPartySizeForLordParty(Hero leaderHero, IFaction partyMapFaction, Clan actualClan)
+236: public override int GetClanTierPartySizeEffectForHero(Hero hero)
+407: public override int GetIdealVillagerPartySize(Village village)
+420: public override TroopRoster FindAppropriateInitialRosterForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)
+471: public override List<Ship> FindAppropriateInitialShipsForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)
+

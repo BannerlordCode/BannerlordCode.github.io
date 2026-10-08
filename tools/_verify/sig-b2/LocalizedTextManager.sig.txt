@@ -1,0 +1,30 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.Localization/LocalizedTextManager.cs
+# 总行数: 459   ← 页内所有 `LocalizedTextManager.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+# ★ 每条引用必须写 `File.cs:N`（带文件名），禁止裸 `:N` —— 裸引用会让 J13 检查不到它。
+
+## 类型声明行
+14: public static class LocalizedTextManager
+
+## public 面（按行号升序）
+14: public static class LocalizedTextManager
+17: public static string GetTranslatedText(string languageId, string id)
+28: public static List<string> GetLanguageIds(bool developmentMode)
+43: public static string GetLanguageTitle(string id)
+54: public static LanguageSpecificTextProcessor CreateTextProcessorForLanguage(string id)
+71: public static void AddLanguageTest(string id, string processor)
+79: public static int GetLanguageIndex(string id)
+90: public static void LoadLocalizationXmls(string[] loadedModules)
+122: public static void AddLocalizationXml(string newModule)
+150: public static string GetDateFormattedByLanguage(string languageCode, DateTime dateTime)
+157: public static string GetTimeFormattedByLanguage(string languageCode, DateTime dateTime)
+164: public static string GetSubtitleExtensionOfLanguage(string languageId)
+170: public static string GetLocalizationCodeOfISOLanguageCode(string isoLanguageCode)
+300: public static string ChangeLanguage(List<string> strings)
+331: public static string ReloadTexts(List<string> strings)
+339: public static string CheckValidity(List<string> strings)
+372: public static bool CheckValidity(string id, string text, out string errorLine)
+450: public const string LanguageDataFileName = "language_data";
+453: public const string DefaultEnglishLanguageId = "English";
+

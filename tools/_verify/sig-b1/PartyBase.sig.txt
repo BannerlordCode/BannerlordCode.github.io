@@ -1,0 +1,98 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.CampaignSystem/Party/PartyBase.cs
+# 总行数: 1644   ← 页内所有 `PartyBase.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+
+## 类型声明行
+22: public sealed class PartyBase : IBattleCombatant, IRandomOwner, IInteractablePoint
+
+## public 面（按行号升序）
+22: public sealed class PartyBase : IBattleCombatant, IRandomOwner, IInteractablePoint
+138: public CampaignVec2 Position
+152: public bool IsVisible
+166: public bool IsActive
+180: public SiegeEvent SiegeEvent
+193: public void OnVisibilityChanged(bool value)
+208: public Settlement Settlement { get; private set; }
+214: public MobileParty MobileParty { get; private set; }
+218: public bool IsSettlement
+228: public bool IsMobile
+240: public TroopRoster MemberRoster { get; private set; }
+246: public TroopRoster PrisonRoster { get; private set; }
+252: public ItemRoster ItemRoster { get; private set; }
+256: public TextObject Name
+274: public float DaysStarving
+287: public void OnConsumedFood()
+295: public int RemainingFoodPercentage
+309: public bool IsStarving
+319: public string Id
+330: public float HealingRateForMemberRegulars
+340: public ExplainedNumber HealingRateForMemberRegularsExplained
+350: public float HealingRateForMemberHeroes
+360: public ExplainedNumber HealingRateForMemberHeroesExplained
+370: public Hero Owner
+388: public void SetCustomOwner(Hero customOwner)
+395: public Hero LeaderHero
+410: public static PartyBase MainParty
+423: public static bool IsPartyUnderPlayerCommand(PartyBase party)
+431: public bool LevelMaskIsDirty { get; private set; }
+434: public void SetLevelMaskIsDirty()
+440: public void OnLevelMaskUpdated()
+448: public int Index
+462: public bool IsValid
+472: public IFaction MapFaction
+492: public int RandomValue { get; private set; } = MBRandom.RandomInt(1, int.MaxValue);
+496: public CultureObject Culture
+506: public Tuple<uint, uint> PrimaryColorPair
+522: public TextObject CustomName { get; private set; }
+525: public void SetCustomName(TextObject name)
+539: public Banner CustomBanner { get; private set; }
+543: public Banner Banner
+557: public MapEvent MapEvent
+573: public MapEventSide MapEventSide
+613: public BattleSideEnum Side
+628: public BattleSideEnum OpponentSide
+741: public void SetCustomBanner(Banner banner)
+758: public int GetNumberOfMissionReadyTroops()
+764: public bool IsUnderPlayersCommand(BattleSideEnum playerSide)
+866: public int PartySizeLimit
+882: public int PrisonerSizeLimit
+898: public ExplainedNumber PartySizeLimitExplainer
+908: public ExplainedNumber PrisonerSizeLimitExplainer
+918: public int NumberOfHealthyMembers
+928: public int NumberOfRegularMembers
+938: public int NumberOfWoundedTotalMembers
+948: public int NumberOfAllMembers
+958: public int NumberOfPrisoners
+968: public int NumberOfMounts
+978: public int NumberOfPackAnimals
+988: public IEnumerable<CharacterObject> PrisonerHeroes
+1011: public int NumberOfMenWithHorse
+1026: public int NumberOfMenWithoutHorse
+1035: public int GetNumberOfHealthyMenOfTier(int tier)
+1079: public float EstimatedStrength
+1116: public float CalculateCurrentStrength()
+1154: public float GetCustomStrength(BattleSideEnum side, MapEvent.PowerCalculationContext context)
+1160: public PartyBase(MobileParty mobileParty)
+1166: public PartyBase(Settlement settlement)
+1184: public MBReadOnlyList<Ship> Ships
+1194: public Ship FlagShip
+1215: public int GetShipsVersion()
+1242: public int GetNumberOfMenWith(TraitObject trait)
+1256: public int AddPrisoner(CharacterObject element, int numberToAdd)
+1262: public int AddMember(CharacterObject element, int numberToAdd, int numberToAddWounded = 0)
+1268: public void AddPrisoners(TroopRoster roster)
+1277: public void AddMembers(TroopRoster roster)
+1283: public override string ToString()
+1293: public int AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)
+1299: public void AddToMemberRosterElementAtIndex(int index, int numberToAdd, int woundedCount = 0)
+1305: public void WoundMemberRosterElements(CharacterObject elementObj, int numberToWound)
+1311: public void WoundMemberRosterElementsWithIndex(int elementIndex, int numberToWound)
+1317: public void UpdateVisibilityAndInspected(CampaignVec2 fromPosition, float mainPartySeeingRange = 0f)
+1420: public BasicCultureObject BasicCulture
+1430: public BasicCharacterObject General
+1462: public void SetAsCameraFollowParty()
+1483: public bool IsVisualDirty { get; private set; }
+1486: public void SetVisualAsDirty()
+1505: public void OnVisualsUpdated()
+

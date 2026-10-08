@@ -1,0 +1,249 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.CampaignSystem/Party/MobileParty.cs
+# 总行数: 5456   ← 页内所有 `MobileParty.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+
+## 类型声明行
+26: public sealed class MobileParty : CampaignObjectBase, ILocatable<MobileParty>, IMapPoint, ITrackableCampaignObject, ITrackableBase, IRandomOwner
+5365: public enum PartyObjective
+5379: public enum NavigationType
+5392: internal struct CachedPartyVariables
+
+## public 面（按行号升序）
+26: public sealed class MobileParty : CampaignObjectBase, ILocatable<MobileParty>, IMapPoint, ITrackableCampaignObject, ITrackableBase, IRandomOwner
+427: public static MobileParty MainParty
+437: public static MBReadOnlyList<MobileParty> All
+447: public static MBReadOnlyList<MobileParty> AllCaravanParties
+457: public static MBReadOnlyList<MobileParty> AllPatrolParties
+467: public static MBReadOnlyList<MobileParty> AllBanditParties
+477: public static MBReadOnlyList<MobileParty> AllLordParties
+487: public static MBReadOnlyList<MobileParty> AllGarrisonParties
+497: public static MBReadOnlyList<MobileParty> AllMilitiaParties
+507: public static MBReadOnlyList<MobileParty> AllVillagerParties
+517: public static MBReadOnlyList<MobileParty> AllCustomParties
+527: public static MBReadOnlyList<MobileParty> AllPartiesWithoutPartyComponent
+537: public static int Count
+547: public static MobileParty ConversationParty
+557: public TextObject Name
+578: public Settlement LastVisitedSettlement { get; private set; }
+584: public Vec2 Bearing { get; internal set; }
+588: public MBReadOnlyList<MobileParty> AttachedParties
+600: public bool HasLandNavigationCapability { get; private set; } = true;
+603: public void SetLandNavigationAccess(bool access)
+610: public MBReadOnlyList<Ship> Ships
+620: public bool HasNavalNavigationCapability
+632: public float Aggressiveness { get; set; }
+636: public int PaymentLimit
+651: public Banner Banner
+672: public override TextObject GetName()
+678: public bool HasLimitedWage()
+684: public int GetAvailableWageBudget()
+690: public bool IsWageLimitExceeded()
+696: public void SetWagePaymentLimit(int newLimit)
+710: public Vec2 ArmyPositionAdder { get; private set; }
+714: public CampaignVec2 AiBehaviorTarget
+726: public MobileParty.PartyObjective Objective { get; private set; }
+738: public MobilePartyAi Ai { get; private set; }
+744: public PartyBase Party { get; private set; }
+750: public bool IsActive { get; set; }
+755: public bool IsInRaftState
+777: public CampaignTime DisorganizedUntilTime
+788: public float LastCalculatedBaseSpeed
+800: public PartyThinkParams ThinkParamsCache { get; private set; }
+804: public float Speed
+819: public ExplainedNumber SpeedExplained
+832: public MobileParty ShortTermTargetParty
+847: public Settlement ShortTermTargetSettlement
+862: public bool IsDisorganized
+872: public bool IsCurrentlyUsedByAQuest
+884: public AiBehavior ShortTermBehavior { get; internal set; }
+890: public bool IsPartyTradeActive { get; private set; }
+895: public int PartyTradeGold
+920: public int PartyTradeTaxGold { get; private set; }
+926: public CampaignTime StationaryStartTime { get; private set; }
+932: public int VersionNo { get; private set; }
+938: public bool ShouldJoinPlayerBattles { get; set; }
+944: public bool IsDisbanding { get; set; }
+948: public int RandomValue
+958: public MobileParty.NavigationType NavigationCapability
+978: public bool IsCurrentlyAtSea
+1008: public bool IsNavalVisualDirty { get; private set; }
+1011: public void SetNavalVisualAsDirty()
+1017: public void OnNavalVisualsUpdated()
+1025: public bool IsTargetingPort
+1045: public AnchorPoint Anchor { get; private set; }
+1049: public bool IsTransitionInProgress
+1061: public CampaignVec2 EndPositionForNavigationTransition { get; private set; }
+1066: public CampaignTime NavigationTransitionStartTime
+1093: public CampaignTime NavigationTransitionDuration { get; private set; } = CampaignTime.Zero;
+1112: public void SetSailAtPosition(CampaignVec2 position)
+1126: public void DisembarkToPosition(CampaignVec2 position)
+1138: public void CancelNavigationTransition()
+1213: public void ChangeIsCurrentlyAtSeaCheat()
+1226: public MobileParty.NavigationType DesiredAiNavigationType
+1241: public Settlement CurrentSettlement
+1291: public Settlement HomeSettlement
+1310: public void SetCustomHomeSettlement(Settlement customHomeSettlement)
+1318: public MobileParty AttachedTo
+1407: public Army Army
+1441: public BesiegerCamp BesiegerCamp
+1474: public AiBehavior DefaultBehavior
+1493: public Settlement TargetSettlement
+1502: public void SetTargetSettlement(Settlement settlement, bool isTargetingPort)
+1519: public CampaignVec2 TargetPosition
+1538: public MobileParty TargetParty
+1555: public MobileParty()
+1569: public Hero LeaderHero
+1620: public Hero Owner
+1635: public Hero EffectiveScout
+1649: public Hero EffectiveQuartermaster
+1663: public Hero EffectiveEngineer
+1677: public Hero EffectiveSurgeon
+1691: public Hero EffectiveFirstMate
+1705: public Hero EffectiveNavigator
+1718: public void SetPartyScout(Hero hero)
+1728: public void SetPartyQuartermaster(Hero hero)
+1738: public void SetPartyEngineer(Hero hero)
+1748: public void SetPartySurgeon(Hero hero)
+1758: public void SetPartyFirstMate(Hero hero)
+1768: public void SetPartyNavigator(Hero hero)
+1920: public float RecentEventsMorale
+1942: public override string ToString()
+1956: public ExplainedNumber SeeingRangeExplanation
+1966: public int InventoryCapacity
+1976: public ExplainedNumber InventoryCapacityExplainedNumber
+1986: public float TotalWeightCarried
+2002: public MapEventSide MapEventSide
+2016: public ExplainedNumber TotalWeightCarriedExplainedNumber
+2026: public float Morale
+2037: public float FoodChange
+2048: public float BaseFoodChange
+2059: public Clan ActualClan
+2081: public ExplainedNumber FoodChangeExplained
+2092: public ExplainedNumber MoraleExplained
+2107: public void ChangePartyLeader(Hero newLeader)
+2113: public void OnPartyInteraction(MobileParty engagingParty)
+2152: public void SetPositionAfterMapChange(CampaignVec2 newPosition)
+2158: public void RemovePartyLeader()
+2164: public void CheckPositionsForMapChangeAndUpdateIfNeeded()
+2174: public void CheckAiForMapChangeAndUpdateIfNeeded()
+2548: public void MovePartyToTheClosestLand()
+2567: public TextObject GetBehaviorText()
+2773: public override void Initialize()
+2797: public void InitializeMobilePartyAtPosition(CampaignVec2 position)
+2805: public void InitializeMobilePartyAtPosition(TroopRoster memberRoster, TroopRoster prisonerRoster, CampaignVec2 position, bool isNaval = false)
+2811: public void InitializeMobilePartyAroundPosition(TroopRoster memberRoster, TroopRoster prisonerRoster, CampaignVec2 position, float spawnRadius, float minSpawnRadius = 0f, bool isNaval = false)
+2822: public void InitializeMobilePartyAtPosition(PartyTemplateObject pt, CampaignVec2 position)
+2850: public void InitializeMobilePartyAroundPosition(PartyTemplateObject pt, CampaignVec2 position, float spawnRadius, float minSpawnRadius = 0f)
+2875: public PathFaceRecord CurrentNavigationFace
+2887: public int PathBegin { get; private set; }
+2893: public bool ForceAiNoPathMode { get; set; }
+3044: public void SetDisorganized(bool isDisorganized)
+3065: public void RecalculateShortTermBehavior()
+3128: public static bool IsFleeBehavior(AiBehavior aiBehavior)
+3134: public bool IsFleeing()
+3207: public Vec2 EventPositionAdder
+3232: public bool IsVisible
+3260: public CampaignVec2 Position
+3294: public void SetPartyUsedByQuest(bool isActivelyUsed)
+3306: public bool IsInspected
+3319: public void IgnoreForHours(float hours)
+3325: public void IgnoreByOtherPartiesTill(CampaignTime time)
+3332: public Vec2 GetPosition2D
+3342: public int TotalWage
+3352: public ExplainedNumber TotalWageExplained
+3362: public MapEvent MapEvent
+3401: public void SetAnchor(AnchorPoint anchor)
+3408: public void SetPartyObjective(MobileParty.PartyObjective objective)
+3414: public void UpdateVersionNo()
+3422: public TroopRoster MemberRoster
+3432: public TroopRoster PrisonRoster
+3557: public ItemRoster ItemRoster
+3566: public bool IsSpotted()
+3573: public bool IsMainParty
+3582: public int AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)
+3588: public int AddPrisoner(CharacterObject element, int numberToAdd)
+3595: public IFaction MapFaction
+3652: public TextObject ArmyName
+3666: public SiegeEvent SiegeEvent
+3681: public float Food
+3690: public Vec3 GetPositionAsVec3()
+3697: public int TotalFoodAtInventory
+3707: public float SeeingRange
+3717: public Settlement BesiegedSettlement
+3731: public float GetTotalLandStrengthWithFollowers(bool includeNonAttachedArmyMembers = true)
+3782: public bool HasPerk(PerkObject perk, bool checkSecondaryRole = false)
+3882: public bool IsEngaging
+3891: public void SetHeroPartyRole(Hero hero, PartyRole partyRole)
+3931: public void RemoveAllPartyRolesOfHero(Hero hero)
+3961: public List<PartyRole> GetHeroPartyRoles(Hero hero)
+3995: public void RemovePartyRoleOfHero(Hero hero, PartyRole partyRole)
+4030: public void RemoveOnePartyRoleOfHero(Hero hero)
+4066: public Hero GetRoleHolder(PartyRole partyRole)
+4089: public Hero GetEffectiveRoleHolder(PartyRole partyRole)
+4132: public int GetNumDaysForFoodToLast()
+4163: public float PartySizeRatio
+4181: public Vec2 VisualPosition2DWithoutError
+4257: public bool IsMoving
+4287: public bool ShouldBeIgnored
+4416: public bool RecalculateLongTermPath()
+4488: public int GetRegionSwitchCostFromLandToSea()
+4498: public int GetRegionSwitchCostFromSeaToLand()
+4660: public void SetMoveModeHold()
+4673: public void SetMoveEngageParty(MobileParty party, MobileParty.NavigationType navigationType)
+4683: public void SetMoveGoAroundParty(MobileParty party, MobileParty.NavigationType navigationType)
+4693: public void SetMoveGoToSettlement(Settlement settlement, MobileParty.NavigationType navigationType, bool isTargetingThePort)
+4705: public void SetMoveGoToPoint(CampaignVec2 point, MobileParty.NavigationType navigationType)
+4716: public void SetMoveToNearestLand(Settlement settlement)
+4728: public void SetMoveGoToInteractablePoint(IInteractablePoint point, MobileParty.NavigationType navigationType)
+4739: public void SetMoveEscortParty(MobileParty mobileParty, MobileParty.NavigationType navigationType, bool isTargetingPort)
+4753: public void SetMovePatrolAroundPoint(CampaignVec2 point, MobileParty.NavigationType navigationType)
+4763: public void SetMovePatrolAroundSettlement(Settlement settlement, MobileParty.NavigationType navigationType, bool isTargetingPort)
+4770: public void SetMoveRaidSettlement(Settlement settlement, MobileParty.NavigationType navigationType, bool isTargetingPort)
+4782: public void SetMoveBesiegeSettlement(Settlement settlement, MobileParty.NavigationType navigationType)
+4795: public void SetMoveDefendSettlement(Settlement settlement, bool isTargetingPort, MobileParty.NavigationType navigationType)
+4832: public static LocatableSearchData<MobileParty> StartFindingLocatablesAroundPosition(Vec2 position, float radius)
+4838: public static MobileParty FindNextLocatable(ref LocatableSearchData<MobileParty> data)
+4844: public static void UpdateLocator(MobileParty party)
+4884: public bool ComputeIsWaiting()
+4892: public void InitializePartyTrade(int initialGold)
+4899: public void AddTaxGold(int amount)
+4905: public static MobileParty CreateParty(string stringId, PartyComponent component)
+4930: public VillagerPartyComponent VillagerPartyComponent
+4940: public CaravanPartyComponent CaravanPartyComponent
+4950: public WarPartyComponent WarPartyComponent
+4960: public BanditPartyComponent BanditPartyComponent
+4970: public PatrolPartyComponent PatrolPartyComponent
+4980: public LordPartyComponent LordPartyComponent
+4990: public GarrisonPartyComponent GarrisonPartyComponent
+5000: public PartyComponent PartyComponent
+5009: public void SetPartyComponent(PartyComponent partyComponent, bool firstTimePartyComponentCreation = true)
+5037: public bool IsMilitia { get; private set; }
+5043: public bool IsLordParty { get; private set; }
+5046: public void UpdatePartyComponentFlags()
+5062: public bool IsVillager { get; private set; }
+5068: public bool IsCaravan { get; private set; }
+5074: public bool IsPatrolParty { get; private set; }
+5080: public bool IsGarrison { get; private set; }
+5086: public bool IsCustomParty { get; private set; }
+5092: public bool IsBandit { get; private set; }
+5096: public bool IsBanditBossParty
+5106: public bool AvoidHostileActions
+5121: public const int DefaultPartyTradeInitialGold = 5000;
+5124: public const int ClanRoleAssignmentMinimumSkillValue = 0;
+5127: public const int MinimumSpareGoldForWageBudget = 5;
+5146: public float HasUnpaidWages;
+5158: public bool IsInfoHidden;
+5170: public CampaignVec2 NextLongTermPathPoint = CampaignVec2.Invalid;
+5257: public Vec2 AverageFleeTargetDirection;
+5272: public CampaignVec2 NextTargetPosition;
+5276: public CampaignVec2 MoveTargetPoint;
+5280: public MoveModeType PartyMoveMode;
+5288: public MobileParty MoveTargetParty;
+5303: public bool StartTransitionNextFrameToExitFromPort;
+5343: public NavigationPath Path;
+5347: public PathFaceRecord PathLastFace;
+5365: public enum PartyObjective
+5379: public enum NavigationType
+5395: public override string ToString()
+

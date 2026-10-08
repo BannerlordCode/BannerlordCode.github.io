@@ -1,0 +1,62 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.CampaignSystem/Roster/TroopRoster.cs
+# 总行数: 926   ← 页内所有 `TroopRoster.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+
+## 类型声明行
+13: public class TroopRoster : ISerializableObject
+
+## public 面（按行号升序）
+13: public class TroopRoster : ISerializableObject
+54: public int Count
+66: public int VersionNo { get; private set; }
+70: public int TotalRegulars
+80: public int TotalWoundedRegulars
+90: public int TotalWoundedHeroes
+100: public int TotalHeroes
+110: public int TotalWounded
+120: public int TotalManCount
+130: public int TotalHealthyCount
+139: public TroopRoster(PartyBase ownerParty)
+155: public static TroopRoster CreateDummyTroopRoster()
+161: public override int GetHashCode()
+195: public static void CalculateCachedStatsOnLoad()
+242: public FlattenedTroopRoster ToFlattenedRoster()
+248: public void Add(TroopRoster troopRoster)
+257: public void Add(TroopRosterElement troopRosterElement)
+263: public ICollection<TroopRosterElement> RemoveIf(Predicate<TroopRosterElement> match)
+279: public int FindIndexOfTroop(CharacterObject character)
+309: public TroopRoster RemoveNumberOfNonHeroTroopsRandomly(int numberOfMen)
+331: public void WoundNumberOfNonHeroTroopsRandomly(int numberOfMen)
+345: public void SwapTroopsAtIndices(int firstIndex, int secondIndex)
+362: public void ShiftTroopToIndex(int troopIndex, int targetIndex)
+383: public int AddToCountsAtIndex(int index, int countChange, int woundedCountChange = 0, int xpChange = 0, bool removeDepleted = true)
+491: public void CheckValidity()
+511: public int AddToCounts(CharacterObject character, int count, bool insertAtFront = false, int woundedCount = 0, int xpChange = 0, bool removeDepleted = true, int index = -1)
+541: public int GetTroopCount(CharacterObject troop)
+552: public void RemoveZeroCounts()
+575: public TroopRosterElement GetElementCopyAtIndex(int index)
+581: public void SetElementNumber(int index, int number)
+593: public int GetElementNumber(int index)
+603: public int GetElementNumber(CharacterObject character)
+609: public void SetElementWoundedNumber(int index, int number)
+621: public int GetElementWoundedNumber(int index)
+631: public void SetElementXp(int index, int number)
+646: public int GetElementXp(int index)
+656: public int GetElementXp(CharacterObject character)
+662: public CharacterObject GetCharacterAtIndex(int index)
+672: public override bool Equals(object obj)
+678: public static bool RostersAreIdentical(TroopRoster a, TroopRoster b)
+718: public bool Contains(CharacterObject character)
+732: public void ValidateTroopListCache()
+753: public MBList<TroopRosterElement> GetTroopRoster()
+760: public void Clear()
+769: public void RemoveTroop(CharacterObject troop, int numberToRemove = 1, UniqueTroopDescriptor troopSeed = default(UniqueTroopDescriptor), int xp = 0)
+781: public void WoundTroop(CharacterObject troop, int numberToWound = 1, UniqueTroopDescriptor troopSeed = default(UniqueTroopDescriptor))
+818: public int Sum(Func<TroopRosterElement, int> selector)
+829: public void OnHeroHealthStatusChanged(Hero hero)
+836: public void UpdateVersion()
+852: public TroopRoster CloneRosterData()
+870: public void AddXpToTroop(CharacterObject troop, int xpAmount)
+877: public void AddXpToTroopAtIndex(int index, int xpAmount)
+

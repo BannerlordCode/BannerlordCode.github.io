@@ -1,0 +1,111 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.CampaignSystem/Clan.cs
+# 总行数: 1987   ← 页内所有 `Clan.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+
+## 类型声明行
+23: public sealed class Clan : MBObjectBase, IFaction
+
+## public 面（按行号升序）
+23: public sealed class Clan : MBObjectBase, IFaction
+296: public TextObject Name { get; private set; }
+302: public TextObject InformalName { get; private set; }
+308: public CultureObject Culture { get; set; }
+314: public CampaignTime LastFactionChangeTime { get; set; }
+318: public PartyTemplateObject DefaultPartyTemplate
+332: public bool HasNavalNavigationCapability
+344: public int AutoRecruitmentExpenses { get; set; }
+350: public TextObject EncyclopediaText { get; private set; }
+356: public bool IsNoble { get; set; }
+360: public bool IsEliminated
+370: public IList<CharacterObject> MinorFactionCharacterTemplates
+380: public string EncyclopediaLink
+390: public TextObject EncyclopediaLinkWithName
+401: public Kingdom Kingdom
+418: public IEnumerable<CharacterObject> DungeonPrisonersOfClan
+438: public MBReadOnlyList<Town> Fiefs
+448: public MBReadOnlyList<Village> Villages
+458: public MBReadOnlyList<Settlement> Settlements
+468: public MBReadOnlyList<Hero> SupporterNotables
+478: public MBReadOnlyList<Hero> AliveLords
+488: public MBReadOnlyList<Hero> DeadLords
+498: public MBReadOnlyList<Hero> Heroes
+508: public MBReadOnlyList<Hero> Companions
+518: public MBReadOnlyList<WarPartyComponent> WarPartyComponents
+529: public float Influence
+547: public ExplainedNumber InfluenceChangeExplained
+559: public float CurrentTotalStrength { get; private set; }
+565: public int MercenaryAwardMultiplier { get; set; }
+569: public bool IsMapFaction
+581: public Settlement InitialHomeSettlement { get; private set; }
+587: public bool IsRebelClan { get; set; }
+593: public bool IsMinorFaction { get; private set; }
+599: public bool IsOutlaw { get; private set; }
+605: public bool IsNomad { get; private set; }
+611: public bool IsMafia { get; private set; }
+617: public bool IsClanTypeMercenary { get; private set; }
+623: public bool IsSect { get; private set; }
+629: public bool IsUnderMercenaryService { get; private set; }
+635: public CampaignTime ShouldStayInKingdomUntil { get; set; }
+641: public uint Color { get; set; }
+647: public uint Color2 { get; set; }
+669: public Settlement FactionMidSettlement
+680: public CharacterObject BasicTroop
+694: public static Clan PlayerClan
+704: public Hero Leader
+714: public int Gold
+730: public Banner Banner
+748: public Banner ClanOriginalBanner
+760: public bool IsBanditFaction { get; private set; }
+774: public bool IsClan
+786: public float Renown { get; set; }
+792: public float MainHeroCrimeRating { get; set; }
+796: public float DailyCrimeRatingChange
+806: public ExplainedNumber DailyCrimeRatingChangeExplained
+817: public int Tier
+841: public IFaction MapFaction
+857: public CampaignTime NotAttackableByPlayerUntilTime { get; set; }
+862: public float Aggressiveness
+875: public void UpdateFactionsAtWarWith()
+897: public int TributeWallet
+912: public Settlement HomeSettlement
+927: public int DebtToKingdom
+940: public void UpdateCurrentStrength()
+958: public MBReadOnlyList<IFaction> FactionsAtWarWith
+968: public int RenownRequirementForNextTier
+978: public int CompanionLimit
+988: public float DistanceToClosestNonAllyFortification
+1003: public int WarPartyLimit
+1012: public bool IsAtWarWith(IFaction other)
+1033: public Clan()
+1041: public static Clan CreateClan(string stringID)
+1171: public override void Deserialize(MBObjectManager objectManager, XmlNode node)
+1269: public int GetRelationWithClan(Clan other)
+1279: public void SetLeader(Hero leader)
+1289: public void SetInitialHomeSettlement(Settlement initialHomeSettlement)
+1296: public void ConsiderAndUpdateHomeSettlement()
+1310: public override TextObject GetName()
+1316: public void ChangeClanName(TextObject name, TextObject informalName)
+1323: public override string ToString()
+1329: public StanceLink GetStanceWith(IFaction other)
+1393: public void ClanLeaveKingdom(bool giveBackFiefs = false)
+1411: public float CalculateTotalSettlementBaseValue()
+1422: public void StartMercenaryService()
+1428: public void ResetPlayerHomeAndFactionMidSettlement()
+1447: public static Clan FindFirst(Predicate<Clan> predicate)
+1453: public void EndMercenaryService(bool isByLeavingKingdom)
+1459: public static IEnumerable<Clan> FindAll(Predicate<Clan> predicate)
+1466: public static MBReadOnlyList<Clan> All
+1476: public static IEnumerable<Clan> NonBanditFactions
+1494: public float CalculateTotalSettlementValueForFaction(Kingdom kingdom)
+1506: public static IEnumerable<Clan> BanditFactions
+1590: public void OnHeroChangedState(Hero hero, Hero.CharacterStates oldState)
+1684: public void AddRenown(float value, bool shouldNotify = true)
+1699: public void ResetClanRenown()
+1707: public void OnSupportedByClan(Clan supporterClan)
+1722: public static Clan CreateSettlementRebelClan(Settlement settlement, Hero owner, int iconMeshId = -1)
+1747: public void CalculateMidSettlement()
+1756: public static Clan CreateCompanionToLordClan(Hero hero, Settlement settlement, TextObject clanName, int newClanIconId)
+1774: public Dictionary<Hero, int> GetHeirApparents()
+1858: public void UpdateBannerColor(uint backgroundColor, uint iconColor)
+

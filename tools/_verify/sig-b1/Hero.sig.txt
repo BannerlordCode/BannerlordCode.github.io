@@ -1,0 +1,189 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.CampaignSystem/Hero.cs
+# 总行数: 3215   ← 页内所有 `Hero.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+
+## 类型声明行
+27: public sealed class Hero : MBObjectBase, ITrackableCampaignObject, ITrackableBase, IRandomOwner
+3194: public enum CharacterStates
+
+## public 面（按行号升序）
+27: public sealed class Hero : MBObjectBase, ITrackableCampaignObject, ITrackableBase, IRandomOwner
+430: public StaticBodyProperties StaticBodyProperties { get; set; }
+436: public float Weight { get; set; }
+442: public float Build { get; set; }
+446: public BodyProperties BodyProperties
+457: public float PassedTimeAtHomeSettlement
+471: public bool CanHaveRecruits
+481: public CharacterObject CharacterObject
+499: public TextObject FirstName
+509: public TextObject Name
+518: public override TextObject GetName()
+524: public void SetName(TextObject fullName, TextObject firstName)
+538: public TextObject EncyclopediaText { get; set; }
+542: public string EncyclopediaLink
+552: public TextObject EncyclopediaLinkWithName
+564: public bool IsFemale { get; set; }
+586: public Equipment BattleEquipment
+596: public Equipment CivilianEquipment
+606: public Equipment StealthEquipment
+618: public CampaignTime CaptivityStartTime { get; set; }
+624: public FormationClass PreferredUpgradeFormation { get; set; }
+629: public Hero.CharacterStates HeroState
+643: public IReadOnlyPropertyOwner<CharacterAttribute> CharacterAttributes
+655: public bool IsMinorFactionHero { get; set; }
+660: public IssueBase Issue { get; private set; }
+663: public void OnIssueCreatedForHero(IssueBase issue)
+669: public void OnIssueDeactivatedForHero()
+675: public override string ToString()
+682: public int WoundedHealthLimit
+692: public bool IsNoncombatant
+703: public Clan CompanionOf
+730: public IEnumerable<Hero> CompanionsInParty
+754: public Occupation Occupation { get; private set; }
+758: public CharacterObject Template
+768: public bool IsDead
+778: public bool IsFugitive
+788: public bool IsPrisoner
+798: public bool IsReleased
+808: public bool IsActive
+818: public bool IsNotSpawned
+828: public bool IsDisabled
+838: public bool IsTraveling
+848: public bool IsAlive
+860: public KillCharacterAction.KillCharacterActionDetail DeathMark { get; private set; }
+866: public Hero DeathMarkKillerHero { get; private set; }
+872: public Settlement LastKnownClosestSettlement { get; private set; }
+875: public void UpdateLastKnownClosestSettlement(Settlement settlement)
+881: public void SetNewOccupation(Occupation occupation)
+890: public bool IsWanderer
+900: public bool IsTemplate
+910: public bool IsWounded
+920: public bool IsPlayerCompanion
+930: public bool IsMerchant
+940: public bool IsPreacher
+950: public bool IsHeadman
+960: public bool IsGangLeader
+970: public bool IsArtisan
+980: public bool IsRuralNotable
+990: public bool IsUrbanNotable
+1000: public bool IsSpecial
+1010: public bool IsRebel
+1020: public bool IsCommander
+1030: public bool IsPartyLeader
+1040: public bool IsNotable
+1050: public bool IsLord
+1060: public int MaxHitPoints
+1071: public int HitPoints
+1113: public CampaignTime BirthDay
+1128: public CampaignTime DeathDay
+1146: public float Age
+1163: public void SetBirthDay(CampaignTime birthday)
+1170: public void SetDeathDay(CampaignTime deathDay)
+1177: public bool IsChild
+1187: public float Power
+1196: public void AddPower(float value)
+1203: public Banner ClanBanner
+1220: public long LastExaminedLogEntryID { get; set; }
+1224: public Clan OriginClan
+1235: public Clan Clan
+1268: public Clan SupporterOf
+1294: public Town GovernorOf
+1311: public IFaction MapFaction
+1339: public List<Alley> OwnedAlleys { get; private set; }
+1343: public bool IsFactionLeader
+1353: public bool IsKingdomLeader
+1363: public bool IsClanLeader
+1374: public List<CaravanPartyComponent> OwnedCaravans { get; private set; }
+1379: public MobileParty PartyBelongedTo
+1395: public PartyBase PartyBelongedToAsPrisoner { get; private set; }
+1400: public Settlement StayingInSettlement
+1426: public bool IsHumanPlayerCharacter
+1437: public bool IsKnownToPlayer
+1456: public bool HasMet
+1473: public void SetHasMet()
+1483: public CampaignTime LastMeetingTimeWithPlayer { get; set; }
+1488: public Settlement BornSettlement
+1503: public Settlement HomeSettlement
+1517: public float PowerModifier
+1530: public void UpdatePowerModifier()
+1536: public void UpdateHomeSettlement()
+1594: public Settlement CurrentSettlement
+1618: public int Gold
+1634: public int RandomValue { get; private set; } = MBRandom.RandomInt(1, int.MaxValue);
+1639: public EquipmentElement BannerItem
+1653: public float ProbabilityOfDeath
+1664: public Hero Father
+1683: public Hero Mother
+1701: public MBReadOnlyList<Hero> ExSpouses
+1712: public Hero Spouse
+1739: public MBList<Hero> Children
+1749: public IEnumerable<Hero> Siblings
+1782: public HeroDeveloper HeroDeveloper
+1791: public int GetSkillValue(SkillObject skill)
+1801: public void SetSkillValue(SkillObject skill, int value)
+1807: public void ClearSkills()
+1813: public void AddSkillXp(SkillObject skill, float xpAmount)
+1824: public int GetAttributeValue(CharacterAttribute charAttribute)
+1841: public void ClearAttributes()
+1852: public void SetTraitLevel(TraitObject trait, int value)
+1859: public int GetTraitLevel(TraitObject trait)
+1869: public void ClearTraits()
+1890: public bool GetPerkValue(PerkObject perk)
+1896: public void ClearPerks()
+1905: public Hero(string stringId, CharacterObject characterObject, CampaignTime birthDay)
+1915: public Hero(string stringId, CharacterObject characterObject, CampaignTime birthDay, CampaignTime deathDay)
+1927: public Hero()
+2220: public void ChangeState(Hero.CharacterStates newState)
+2242: public bool IsHealthFull()
+2262: public void Heal(int healAmount, bool addXp = false)
+2269: public override void Deserialize(MBObjectManager objectManager, XmlNode node)
+2323: public bool CanLeadParty()
+2331: public static TextObject SetHeroEncyclopediaTextAndLinks(Hero o)
+2410: public bool CanHeroEquipmentBeChanged()
+2418: public bool CanMarry()
+2462: public bool CanBeGovernorOrHavePartyRole()
+2474: public bool CanDie(KillCharacterAction.KillCharacterActionDetail causeOfDeath)
+2486: public bool CanBecomePrisoner()
+2503: public bool CanMoveToSettlement()
+2511: public bool CanHaveCampaignIssues()
+2523: public void AddInfluenceWithKingdom(float additionalInfluence)
+2530: public float GetRelationWithPlayer()
+2536: public float GetUnmodifiedClanLeaderRelationshipWithPlayer()
+2542: public void SetTextVariables()
+2557: public void SetPersonalRelation(Hero otherHero, int value)
+2564: public int GetRelation(Hero otherHero)
+2574: public int GetBaseHeroRelation(Hero otherHero)
+2580: public bool IsEnemy(Hero otherHero)
+2586: public bool IsFriend(Hero otherHero)
+2592: public bool IsNeutral(Hero otherHero)
+2598: public void ModifyHair(int hair, int beard, int tattoo)
+2607: public MBReadOnlyList<Workshop> OwnedWorkshops
+2616: public void AddOwnedWorkshop(Workshop workshop)
+2625: public void RemoveOwnedWorkshop(Workshop workshop)
+2634: public static Hero FindFirst(Func<Hero, bool> predicate)
+2645: public static Hero Find(string stringId)
+2651: public static IEnumerable<Hero> FindAll(Func<Hero, bool> predicate)
+2660: public static MBReadOnlyList<Hero> AllAliveHeroes
+2670: public static MBReadOnlyList<Hero> DeadOrDisabledHeroes
+2680: public static Hero MainHero
+2690: public static Hero OneToOneConversationHero
+2700: public static bool IsMainHeroIll
+2709: public void MakeWounded(Hero killerHero = null, KillCharacterAction.KillCharacterActionDetail deathMarkDetail = KillCharacterAction.KillCharacterActionDetail.None)
+2717: public void AddDeathMark(Hero killerHero = null, KillCharacterAction.KillCharacterActionDetail deathMarkDetail = KillCharacterAction.KillCharacterActionDetail.None)
+2750: public Vec3 GetPositionAsVec3()
+2756: public CampaignVec2 GetCampaignPosition()
+2793: public IMapPoint GetMapPoint()
+2861: public void ResetEquipments()
+2869: public void ChangeHeroGold(int changeAmount)
+2884: public void CheckInvalidEquipmentsAndReplaceIfNeeded()
+3024: public int LastTimeStampForActivity;
+3027: public const int MaximumNumberOfVolunteers = 6;
+3031: public CharacterObject[] VolunteerTypes;
+3074: public int Level;
+3078: public bool HiddenInEncyclopedia;
+3126: public CultureObject Culture;
+3139: public MBList<ItemObject> SpecialItems;
+3187: public bool IsPregnant;
+3194: public enum CharacterStates
+

@@ -1,0 +1,33 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementSecurityModel.cs
+# 总行数: 497   ← 页内所有 `DefaultSettlementSecurityModel.cs:N` 的 N 必须 <= 这个数
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+# ★ 每条引用必须写 `File.cs:N`（带文件名），禁止裸 `:N` —— 裸引用会让 J13 检查不到它。
+
+## 类型声明行
+20: public class DefaultSettlementSecurityModel : SettlementSecurityModel
+
+## public / protected 面（按行号升序）
+20: public class DefaultSettlementSecurityModel : SettlementSecurityModel
+24: public override int MaximumSecurityInSettlement
+34: public override int SecurityDriftMedium
+44: public override float MapEventSecurityEffectRadius
+54: public override float HideoutClearedSecurityEffectRadius
+64: public override int HideoutClearedSecurityGain
+74: public override int ThresholdForTaxCorruption
+84: public override int ThresholdForHigherTaxCorruption
+94: public override int ThresholdForTaxBoost
+104: public override int SettlementTaxBoostPercentage
+114: public override int SettlementTaxPenaltyPercentage
+124: public override int ThresholdForNotableRelationBonus
+134: public override int ThresholdForNotableRelationPenalty
+144: public override int DailyNotableRelationBonus
+154: public override int DailyNotableRelationPenalty
+164: public override int DailyNotablePowerBonus
+174: public override int DailyNotablePowerPenalty
+183: public override ExplainedNumber CalculateSecurityChange(Town town, bool includeDescriptions = false)
+423: public override float GetLootedNearbyPartySecurityEffect(Town town, float sumOfAttackedPartyStrengths)
+429: public override float GetNearbyBanditPartyDefeatedSecurityEffect(Town town, float sumOfAttackedPartyStrengths)
+435: public override void CalculateGoldGainDueToHighSecurity(Town town, ref ExplainedNumber explainedNumber)
+442: public override void CalculateGoldCutDueToLowSecurity(Town town, ref ExplainedNumber explainedNumber)
+

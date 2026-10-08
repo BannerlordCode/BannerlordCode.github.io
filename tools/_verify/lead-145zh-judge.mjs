@@ -9,6 +9,11 @@
 //   node tools/_verify/lead-145zh-judge.mjs --manifest <f> [--json <out>] [--links require|off]
 //   node tools/_verify/lead-145zh-judge.mjs --manifest <f> --cross-check
 //
+// ★★ 2026-10-08 修复「ambiguous 静默跳过」洞（vacuous-pass 家族第 7 面）：
+//   REF_RE 现在捕获路径段；resolveSource 的后缀消歧分支生效；
+//   仍无法判定的引用（裸 basename 重名）⇒ fail closed（计入 fail ⇒ 该页 FAIL）。
+//   详见各改动点的 ★★ 2026-10-08 注释。
+//
 // 判据（每条独立输出 PASS/FAIL，缺一即该页判未通过）:
 //   J1 U+FFFD == 0
 //   J2 七节齐全: 概述 / 心智模型 / 怎么用 / 关键成员 / 真实示例 / 【参见族】 / 导航（H2）
@@ -307,8 +312,13 @@ function subjectFile(text) {
   //   （本会话真的因为 `$` 锚定导致多页 subject=- ，进而把 33 条可归属的裸引用误报成 unattributable。）
   const m = text.match(/^\*\*(?:源树路径|源文件|源码|Source file|Source|File|文件)[：:]\*\*\s*`?([^`\n]+?)`?\s*(?:[（(]|$)/im);
   if (!m) return null;
-  const b = m[1].trim().split('/').pop().split('\\').pop();
-  return b.endsWith('.cs') ? b : null;
+  // ★★ 2026-10-08 修复：携带【完整路径】而非只取 basename。
+  //   旧实现只取 basename ⇒ 重名文件时，裸 `:N` 归属（bareSubject）吃不到页面自己声明的路径，
+  //   会被判 ambiguous 并（修后）fail closed —— 而页面其实已经写清楚了它是哪个文件。
+  //   ⇒ 保留路径（posix 归一），让 resolveSource 的后缀消歧对 bareSubject 同样生效。
+  //   安全性：resolveSource 先按 basename 查；basename 唯一 ⇒ 路径分支不可达 ⇒ 与修前逐字节一致。
+  const p = m[1].trim().replace(/\\/g, '/');
+  return p.endsWith('.cs') ? p : null;
 }
 
 const LINK_RE = /\[([^\]]*)\]\(([^)\s]+)\)/g;
@@ -451,7 +461,10 @@ function judge(pageRel, mode) {
   //     假阳性：把长文件的引用拿短文件核 ⇒ 报越界（实例 Campaign.md 12 条）
   //     假阴性：把短文件的引用拿长文件核 ⇒ 真越界被静默放过
   //   核心命题：「行号在界内」只有在【归属正确】时才有意义 ⇒ 不确实则报 UNCHECKABLE，【不猜】。
-  const REF_RE = /([A-Za-z_][\w.]*\.cs):(\d+)|(?<![A-Za-z0-9_.]):(\d+)(?![0-9])/g;
+  // ★★ 2026-10-08：捕获组现在允许路径段 `(?:[\w.-]+\/)*`，让 `Dir/File.cs:N` 的路径信息进入 `c.file`。
+  //   旧正则只捕获 basename ⇒ 重名文件无法消歧（路径消歧分支成死代码）。
+  //   安全性：basename 唯一的引用，其解析路径不经过新逻辑 ⇒ 与修前逐字节一致。
+  const REF_RE = /((?:[\w.-]+\/)*[A-Za-z_][\w.]*\.cs):(\d+)|(?<![A-Za-z0-9_.]):(\d+)(?![0-9])/g;
   const fullRefs = [];
   const bareResolved = [];
   const bareUnresolved = [];
@@ -514,6 +527,7 @@ function judge(pageRel, mode) {
     : 'no-tree';
   out.checks.J3_tree_tag = treeTag;
   const bad = [];
+  const ambiguousList = [];
   let uncheckable = 0;
   let ambiguous = 0;
   const resolveSource = (c) => {
@@ -521,21 +535,32 @@ function judge(pageRel, mode) {
     const hits = srcIndex.byBase.get(base);
     if (!hits || !hits.length) return { kind: 'not-found' };
     if (hits.length === 1) return { kind: 'ok', abs: hits[0] };
-    // 重名 ⇒ 尝试用引用里的【路径片段】消歧（页面常写 `Dir/File.cs`）
+    // 重名 ⇒ 用引用里的【路径片段】消歧（页面常写 `Dir/File.cs`）。
+    // ★★ 2026-10-08 修复：本分支此前是死代码（REF_RE 不捕获 '/'），现已生效。
     const rel = toPosix(c.file);
     if (rel.includes('/')) {
       const tail = rel.replace(/^.*?([A-Za-z_][\w.]*(?:\/[\w.]+)*\.cs)$/, '$1');
       const cand = srcIndex.bySuffix.filter((s) => s.rel.endsWith(tail));
       if (cand.length === 1) return { kind: 'ok', abs: cand[0].abs };
       if (cand.length > 1) return { kind: 'ambiguous', n: cand.length };
+      // ★ 路径给了但无任何文件匹配 ⇒ 引用指向不存在的路径 ⇒ not-found（不再落回 ambiguous）
+      return { kind: 'not-found' };
     }
+    // ★ 裸 basename 且重名 ⇒ 无法判定（调用方 fail closed）
     return { kind: 'ambiguous', n: hits.length };
   };
   const check = (c, kind) => {
     if (!src.root) { uncheckable++; return; }   // ★ 绝不静默回退到别的树
     const r = resolveSource(c);
     if (r.kind === 'not-found') { bad.push(`[${treeTag}] ${c.file}:${c.line} (${kind}: source-not-found)`); return; }
-    if (r.kind === 'ambiguous') { ambiguous++; return; }   // ★ 重名不猜
+    // ★★ 2026-10-08 修复 ambiguous 洞：重名且无路径消歧 ⇒ 【fail closed】。
+    //   旧行为是静默 return（既不查 J3 边界也不查 J13 行内容，且不计 fail）⇒ 页面仍判 PASS，
+    //   那是 vacuous-pass 家族的第 7 面。现改为：计数 + 计入 fail ⇒ 该页 FAIL。
+    if (r.kind === 'ambiguous') {
+      ambiguous++;
+      ambiguousList.push(`${c.file}:${c.line} (${kind}, n=${r.n})`);
+      return;
+    }
     if (c.line > lineCount(r.abs)) {
       bad.push(`[${treeTag}] ${c.file}:${c.line} (${kind}: out-of-range, max=${lineCount(r.abs)})`);
     }
@@ -574,11 +599,14 @@ function judge(pageRel, mode) {
   out.checks.J3_uncheckable_no_tree = uncheckable;
   out.checks.J3_unattributable_bare = bareUnresolved.length;
   out.checks.J3_ambiguous_basename = ambiguous;
+  out.checks.J3_ambiguous_list = ambiguousList;
   out.checks.J3_bad = bad;
   if (src.reason) {
     out.fail.push(`J3 cannot bounds-check: ${src.reason} ⇒ ${uncheckable} refs UNCHECKABLE（本尺绝不静默用别的版本树顶替）`);
-  } else if (bad.length) {
-    out.fail.push(`J3 bad-citations=${bad.length} [${bad.slice(0, 4).join('; ')}]`);
+  } else {
+    if (bad.length) out.fail.push(`J3 bad-citations=${bad.length} [${bad.slice(0, 4).join('; ')}]`);
+    // ★★ 2026-10-08：无法判定的引用单独成条 fail（报不确定 ⇒ 该页 FAIL）
+    if (ambiguous) out.fail.push(`J3 ambiguous-citations=${ambiguous}（重名 basename 无法判定 ⇒ fail closed；引用须带路径后缀消歧）[${ambiguousList.slice(0, 4).join('; ')}]`);
   }
 
   // J4 裸行号 —— ★ 已按 boss-3 #15013 ① 从 FAIL 撤回为【覆盖率指标】。

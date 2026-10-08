@@ -1,6 +1,6 @@
 ---
 title: "Campaign ext — 战役的扩展面：行为、组件与组件接口"
-description: "TaleWorlds.CampaignSystem 的子命名空间所在目录：行为、组件、组件接口、对话、议题与 ObjectSystem。目前 30 页。"
+description: "TaleWorlds.CampaignSystem 的子命名空间所在目录：行为、组件、组件接口、对话、议题与 ObjectSystem。目前 32 页。"
 ---
 # Campaign ext — 战役的扩展面：行为、组件与组件接口
 
@@ -21,7 +21,7 @@ description: "TaleWorlds.CampaignSystem 的子命名空间所在目录：行为�
 
 `ComponentInterfaces` 与 `GameComponents` 是一对：`GameComponents` 里的每个 `Default*` 都是 `ComponentInterfaces` 里对应接口的官方实现。替换组件 = 写一个自己的实现并在加载时替换，这是组件化战役规则的主要手段。
 
-## 本区页面（30）
+## 本区页面（32）
 
 | 页面 | 讲的是什么 |
 | --- | --- |
@@ -57,7 +57,10 @@ description: "TaleWorlds.CampaignSystem 的子命名空间所在目录：行为�
 | [VolunteerModel](./VolunteerModel) | 决定据点与英雄每天能产出多少志愿兵、以及最高可招档位 |
 | [DefaultVolunteerModel](./DefaultVolunteerModel) | 志愿兵招募的默认规则引擎：可招档位、每日产出概率 |
 
-（上表 30 行 = 本桶 30 个页面；计数命令：`find content/v1.4.7/zh/api/campaign-ext -name '*.md' ! -name '_index.md' | wc -l`）
+| [AgeModel](./AgeModel) | 年龄阶段的抽象契约：婴儿/儿童/少年/成年/中年/老年的阈值与地点年龄限制 |
+| [DefaultAgeModel](./DefaultAgeModel) | 年龄阶段的默认实现：各阶段阈值数值与地点年龄限制的计算 |
+
+（上表 32 行 = 本桶 32 个页面；计数命令：`find content/v1.4.7/zh/api/campaign-ext -name '*.md' ! -name '_index.md' | wc -l`）
 
 **这 18 页的读法**：前两页（`MBObjectBase` / `MBObjectManager`）是「往战役里塞自定义持久化对象」的入口；
 后面 16 页里，**每两页成一对** —— 一个 `XxxModel` 是**契约**（声明要算哪些量），

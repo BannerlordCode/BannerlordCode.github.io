@@ -107,7 +107,7 @@ description: "脸型与体型的静态外观门面：把种族、发色、纹身
 ```
 IFaceGen instance = FaceGen._instance;
 if (instance == null) { return null; }
-return instance.GetMonster(monsterID);       // FaceGen.cs:61-69
+return instance.GetMonster(monsterID);       // TaleWorlds.Core/FaceGen.cs:61-69
 ```
 
 注意 `GetRandomBodyProperties(...)`（`:15`）的形状不同：它检查 `_instance != null` 后转发，但**没有 else 分支**——instance 为 null 时方法体直接走完，返回 `default(BodyProperties)`。
@@ -122,9 +122,9 @@ return instance.GetMonster(monsterID);       // FaceGen.cs:61-69
 using TaleWorlds.Core;
 
 // 所有调用都要先确认 faceGen 已注入；否则返回 null / default
-int races = FaceGen.GetRaceCount();                      // FaceGen.cs:25
-string[] names = FaceGen.GetRaceNames();                 // :54
-Monster baseRace = FaceGen.GetBaseMonsterFromRace(0);    // :83，instance 为 null 时返回 null
+int races = FaceGen.GetRaceCount();                      // TaleWorlds.Core/FaceGen.cs:25
+string[] names = FaceGen.GetRaceNames();                 // TaleWorlds.Core/FaceGen.cs:54
+Monster baseRace = FaceGen.GetBaseMonsterFromRace(0);    // TaleWorlds.Core/FaceGen.cs:83，instance 为 null 时返回 null
 if (baseRace != null) { /* 用 baseRace.ActionSetCode 等 */ }
 
 // 生成一个随机外观
@@ -132,12 +132,12 @@ BodyProperties bp = FaceGen.GetRandomBodyProperties(
     race: 0, isFemale: false,
     bodyPropertiesMin, bodyPropertiesMax,
     hairCoverType, seed: 12345,
-    hairTags: null, beardTags: null, tatooTags: null, variationAmount: 1f);   // :15
+    hairTags: null, beardTags: null, tatooTags: null, variationAmount: 1f);   // TaleWorlds.Core/FaceGen.cs:15
 
 // 改写器都是 ref：调用后原变量被就地改掉
-FaceGen.SetHair(ref bp, hair: 3, beard: 0, tattoo: 1);    // :105
-FaceGen.SetBody(ref bp, build: 0.7f, weight: 0.5f);        // :116
-FaceGen.SetPigmentation(ref bp, skinColor: 2, hairColor: 1, eyeColor: 4);   // :127
+FaceGen.SetHair(ref bp, hair: 3, beard: 0, tattoo: 1);    // TaleWorlds.Core/FaceGen.cs:105
+FaceGen.SetBody(ref bp, build: 0.7f, weight: 0.5f);        // TaleWorlds.Core/FaceGen.cs:116
+FaceGen.SetPigmentation(ref bp, skinColor: 2, hairColor: 1, eyeColor: 4);   // TaleWorlds.Core/FaceGen.cs:127
 ```
 
 ### 最容易踩的坑

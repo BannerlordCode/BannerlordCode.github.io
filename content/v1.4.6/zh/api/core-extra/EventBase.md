@@ -49,7 +49,7 @@ public class EventBase          // TaleWorlds.Library/EventSystem/EventBase.cs:6
 
 没有成员、没有方法、没有属性。它唯一的作用是**当类型标记用**——判定某个事件的类型是否受认可。
 
-配套的总线是同目录的 `TaleWorlds.Library/EventSystem/EventManager.cs` 里的 `public class EventManager`（`EventManager.cs:7`），它有公开构造器 `public EventManager()`（`:10`，内部 `new DictionaryByType()`），四个方法：`RegisterEvent<T>(Action<T>)`（`:16`）、`UnregisterEvent<T>(Action<T>)`（`:27`）、`TriggerEvent<T>(T)`（`:38`）、`Clear()`（`:44`）。
+配套的总线是同目录的 `TaleWorlds.Library/EventSystem/EventManager.cs` 里的 `public class EventManager`（`TaleWorlds.Library/EventSystem/EventManager.cs:7`），它有公开构造器 `public EventManager()`（`TaleWorlds.Library/EventSystem/EventManager.cs:10`，内部 `new DictionaryByType()`），四个方法：`RegisterEvent<T>(Action<T>)`（`TaleWorlds.Library/EventSystem/EventManager.cs:16`）、`UnregisterEvent<T>(Action<T>)`（`TaleWorlds.Library/EventSystem/EventManager.cs:27`）、`TriggerEvent<T>(T)`（`TaleWorlds.Library/EventSystem/EventManager.cs:38`）、`Clear()`（`TaleWorlds.Library/EventSystem/EventManager.cs:44`）。
 
 注意别和 `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/EventManager.cs` 搞混——那是 1506 行的 UI 事件管理器（处理鼠标、焦点、拖拽），里面**没有** `RegisterEvent` / `TriggerEvent`。这一页讲的是 `TaleWorlds.Library` 那一个。
 
@@ -67,21 +67,21 @@ public class MyPanelOpenedEvent : EventBase     // 必须继承 EventBase
 }
 
 // 总线是普通对象，自己持有
-var bus = new EventManager();                  // EventManager.cs:10
+var bus = new EventManager();                  // TaleWorlds.Library/EventSystem/EventManager.cs:10
 
 void OnPanelOpened(MyPanelOpenedEvent e) { Debug.Print(e.PanelId, 0); }
 
-bus.RegisterEvent<MyPanelOpenedEvent>(OnPanelOpened);   // :16
-bus.TriggerEvent(new MyPanelOpenedEvent("trade"));       // :38
+bus.RegisterEvent<MyPanelOpenedEvent>(OnPanelOpened);   // TaleWorlds.Library/EventSystem/EventManager.cs:16
+bus.TriggerEvent(new MyPanelOpenedEvent("trade"));       // TaleWorlds.Library/EventSystem/EventManager.cs:38
 
 // 退订要传同一个委托实例
-bus.UnregisterEvent<MyPanelOpenedEvent>(OnPanelOpened); // :27
-bus.Clear();                                           // :44 清空全部
+bus.UnregisterEvent<MyPanelOpenedEvent>(OnPanelOpened); // TaleWorlds.Library/EventSystem/EventManager.cs:27
+bus.Clear();                                           // TaleWorlds.Library/EventSystem/EventManager.cs:44 清空全部
 ```
 
 ### 最容易踩的坑
 
-**事件类型忘了继承 `EventBase`。** `RegisterEvent<T>` 的实现是 `if (typeof(T).IsSubclassOf(typeof(EventBase))) { _eventsByType.Add<T>(eventObjType); return; } Debug.FailedAssert("Events have to derived from EventSystemBase", ...)`（`EventManager.cs:16-25`）——断言之后**没有 else、没有 return、也没有抛异常**，方法就那么结束了。所以注册静默失败：不报错、不进字典，之后 `TriggerEvent` 什么都不会触发。`UnregisterEvent<T>`（`:27-36`）是同一形状的守卫，同样只断言。`TriggerEvent<T>`（`:38-41`）则**根本没有类型检查**，直接 `_eventsByType.InvokeActions<T>(eventObj)`——也就是说触发端不校验，校验只发生在注册端，错误会显得莫名其妙（「广播了但没人收」）。
+**事件类型忘了继承 `EventBase`。** `RegisterEvent<T>` 的实现是 `if (typeof(T).IsSubclassOf(typeof(EventBase))) { _eventsByType.Add<T>(eventObjType); return; } Debug.FailedAssert("Events have to derived from EventSystemBase", ...)`（`TaleWorlds.Library/EventSystem/EventManager.cs:16-25`）——断言之后**没有 else、没有 return、也没有抛异常**，方法就那么结束了。所以注册静默失败：不报错、不进字典，之后 `TriggerEvent` 什么都不会触发。`UnregisterEvent<T>`（`TaleWorlds.Library/EventSystem/EventManager.cs:27-36`）是同一形状的守卫，同样只断言。`TriggerEvent<T>`（`TaleWorlds.Library/EventSystem/EventManager.cs:38-41`）则**根本没有类型检查**，直接 `_eventsByType.InvokeActions<T>(eventObj)`——也就是说触发端不校验，校验只发生在注册端，错误会显得莫名其妙（「广播了但没人收」）。
 
 第二个坑是注册端检查的是 `IsSubclassOf` 而不是 `IsAssignableFrom`，所以 `EventBase` 自己本身不算合法事件类型——如果你打算拿 `EventBase` 当通用事件参数（`RegisterEvent<EventBase>(...)`），它同样会被断言拦下，而且同样静默。
 

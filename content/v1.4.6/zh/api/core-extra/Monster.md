@@ -109,7 +109,7 @@ description: "怪物/骨架定义：XML 里 Monsters 目录的条目，承载碰
 
 - 按 id：`MBObjectManager.Instance.GetObject<Monster>("monster id")`
 - 取默认：`Game.Current.DefaultMonster`（`Game.cs:39`）——懒加载第一个 `Monster` 并缓存
-- 按人种 / 后缀：`FaceGen.GetMonster(string monsterID)`（`FaceGen.cs:61`）、`FaceGen.GetBaseMonsterFromRace(int race)`（`FaceGen.cs:83`）、`FaceGen.GetMonsterWithSuffix(int race, string suffix)`（`FaceGen.cs:72`）——这三个在 `FaceGen._instance` 为 null 时返回 null。
+- 按人种 / 后缀：`FaceGen.GetMonster(string monsterID)`（`TaleWorlds.Core/FaceGen.cs:61`）、`FaceGen.GetBaseMonsterFromRace(int race)`（`TaleWorlds.Core/FaceGen.cs:83`）、`FaceGen.GetMonsterWithSuffix(int race, string suffix)`（`TaleWorlds.Core/FaceGen.cs:72`）——这三个在 `FaceGen._instance` 为 null 时返回 null。
 
 **它没有任何公开构造器**，只有 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`（`:450`）。所以自定义怪物**只能靠加 XML 行**，不能代码 new。
 

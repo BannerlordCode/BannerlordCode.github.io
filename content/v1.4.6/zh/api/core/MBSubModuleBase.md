@@ -74,7 +74,7 @@ description: "每个 mod 继承的基类：30 个空实现的生命周期回调�
 
 `MBSubModuleBase` 是 `TaleWorlds.MountAndBlade/MBSubModuleBase.cs:8` 的 `public abstract class MBSubModuleBase`，162 行、31 个公开成员。**这是整个模组 API 的入口类型**——每个模组的 `SubModule.cs` 都继承它。
 
-**构造器是隐式无参的，实例由 `Module` 反射创建。** 宿主侧是 `public MBReadOnlyList<MBSubModuleBase> CollectSubModules()`（`Module.cs:97`，内部遍历 `moduleInfo.SubModules`），然后 `Module.cs:548`、`:565` 那两处 `foreach (MBSubModuleBase mbsubModuleBase in this.CollectSubModules())` 反射回调每一个。**所以你永远不 new 它，也拿不到一个稳定的引用。**
+**构造器是隐式无参的，实例由 `Module` 反射创建。** 宿主侧是 `public MBReadOnlyList<MBSubModuleBase> CollectSubModules()`（`TaleWorlds.MountAndBlade/Module.cs:97`，内部遍历 `moduleInfo.SubModules`），然后 `TaleWorlds.MountAndBlade/Module.cs:548`、`TaleWorlds.MountAndBlade/Module.cs:565` 那两处 `foreach (MBSubModuleBase mbsubModuleBase in this.CollectSubModules())` 反射回调每一个。**所以你永远不 new 它，也拿不到一个稳定的引用。**
 
 **可见性分成两派，这是这一页最容易漏掉的事**：
 

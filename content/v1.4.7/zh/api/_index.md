@@ -1,6 +1,6 @@
 ---
 title: "API 参考 — 按任务找入口"
-description: "v1.4.7 的 API 按命名空间分成 17 个桶：一个类型只属于一个桶，同桶重名用 Namespace__Type 区分。中文树当前 97 篇类页。"
+description: "v1.4.7 的 API 按命名空间分成 18 个桶：一个类型只属于一个桶，同桶重名用 Namespace__Type 区分。中文树当前 97 篇类页。"
 ---
 # API 参考 — 按任务找入口
 

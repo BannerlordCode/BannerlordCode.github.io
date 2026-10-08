@@ -1309,6 +1309,46 @@ grep -c '士气' content/v1.4.6/zh/api/mission-ext/AgentStatCalculateModel.md   
 
 > 本线已把这条写入 brief 写法（并会用于后续所有批次）。该元规则已存 wiki：`state-the-property-not-the-mechanism`。
 
+## ✅ 批 10 已入库 5 页
+
+| SHA | 页 | checked / members |
+| --- | --- | --- |
+| `8bef51a1b0` | `campaign/Town` | 59 / 59 |
+| `4d969dd84d` | `mission-ext/AgentStatCalculateModel` | 28 / 27 |
+| `541fe30d0c` | `campaign/Building` | 45 / 18 |
+| `78f3aaad3b` | `campaign/CultureObject` | 111 / 105 |
+| `e510537328` | `campaign/PartyComponent` | 45 / 35 |
+
+均：九条判据全绿 + judge PASS + `ambiguous=0` + `J5R=0` + `SELFCHECK_FAIL=0` + 计数不变量实测。
+
+### 两条新规则在真实对象上的对照验证
+
+**（a）磁盘可判定的后果**：同 worker、同页面，**唯一变量**是约束是否带磁盘后果 —— 加之前当轮未落盘；加之后当轮交付 `Town.md`（59/59）。
+
+**（b）指令式 vs 断言式内容提示**：
+| brief 写法 | 页 | 结果 |
+| --- | --- | --- |
+| **指令式**（「请写清等级与进度怎么表达…」） | `Building` | worker 报「**源码与 brief 无实质冲突**」，一次通过 |
+| **断言式**（我写了「士气」） | `AgentStatCalculateModel` | worker 报**冲突并纠正了我**（实测 `grep -ic morale` → 0） |
+⇒ **指令式不会错，断言式可能错** —— 两次实测同向。
+
+**（c）worker 侧自发实践**：`CultureObject` 与 `Building` 的写手都**主动放弃了自己的初稿猜测**（前者：「实际源码结构与我初稿的猜测差异很大」；后者逐条列了 5 处源码事实修正）。
+
+### 🔍 新门禁语义发现：`## 关键成员` 段里的**任何表格**都计入 `members`
+
+worker-362 报，我已独立复核：`PartyComponent.md` 有 25 行关键成员表 + 10 行辅助「派生类一览」表 ⇒ 门禁报 `members=35`（不是 25）。
+
+```bash
+node tools/_verify/j13-hard-gate.mjs <page>      # → members=35 (tbl=35,bul=0)
+node tools/_verify/_tmp/member-rows.mjs <page>   # → members=35 (table=35)   ← 两把尺一致
+```
+
+⇒ **含义**：在该段里加辅助表会**同时抬高 `checked` 门槛**。不是缺陷，但是**未写下来的语义**（写手容易困惑）；已加进派单口径。
+
+### 关键断言抽查（习惯动作）
+- `Building.md`：「唯一事件是 `OnBuildingLevelChangedEvent`，只由升降级派发」⇒ `CampaignEvents.cs:2279` `public static IMbEvent<Town, Building, int> OnBuildingLevelChangedEvent` ✅
+- `CultureObject.md` 三条跨文件示例引用：`Kingdom.cs:1037` `AddPolicy` ✅ · `Hero.cs:3126` `public CultureObject Culture;` ✅ · `Clan.cs:308` `public CultureObject Culture { get; set; }` ✅；且「`Traits` 在 `Deserialize` 中不填充」成立（`:33` 声明、`:38` 唯一读取、全源码无赋值）✅
+
 ## 操作教训（本线实测，写给后续 Lead）
 
 ### 量具失败会报出「确信的错数」——不要直接拿它下结论

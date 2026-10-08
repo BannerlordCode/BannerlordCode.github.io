@@ -208,5 +208,5 @@ public static class KingdomHelper
 
 ## 导航
 
-- 同桶：[`../MobileParty`](../MobileParty) · `MapEvent`（尚未落盘，本批不链） · `CampaignEventDispatcher`（尚未落盘，本批不链）
+- 同桶：[`../MapEvent`](../MapEvent) · [`../CampaignEventDispatcher`](../CampaignEventDispatcher) · [`../MobileParty`](../MobileParty)
 - 父索引：[`../_index`](../_index)

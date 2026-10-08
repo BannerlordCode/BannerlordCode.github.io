@@ -50,7 +50,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 
 **同批待办**：其它桶的 `_index.md` 很可能有同一处遗漏。本次只普查了 campaign 桶，**其它桶未核对**，别拿本页的结论去推断它们。
 
-## 已撰写的类页（30 张）
+## 已撰写的类页（32 张）
 
 桶索引的 route 就是桶目录本身。映射表里那条「桶索引到叶子页」的规则要求写成 `./<Name>`，也就是桶索引到同级叶子页写 `./Campaign` 这种形式。
 
@@ -67,6 +67,8 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 - [PartyBase](./PartyBase) — 队伍的**战斗与交互侧表示**（`public sealed class PartyBase : IBattleCombatant, IRandomOwner, IInteractablePoint`，1,637 行）。`MobileParty.Party` 与聚落驻军共用同一个 `PartyBase` 类型，所以「谁在打这一仗」与「谁的名册被读」都落在它身上：`MemberRoster` / `PrisonRoster` / `ItemRoster` 三本名册、`AddMember` / `AddPrisoner` 一类的增减入口，以及 `CalculateCurrentStrength` 这类战力口径。要算战斗力或读名册，入口在这里而不在 `MobileParty`。✅ `TaleWorlds.CampaignSystem/Party/PartyBase.cs`
 - [TroopRoster](./TroopRoster) — **兵种名册**（`public class TroopRoster : ISerializableObject`，925 行）：同一份名册里可以同时装活兵、伤兵与战死兵，所以「有 100 人」与「有 100 个能打的人」是两个不同的读法。查改入口是 `FindIndexOfTroop` / `AddToCounts` / `AddToCountsAtIndex` / `RemoveTroop` / `WoundTroop` / `GetTroopCount`，元素级读写走 `GetElementCopyAtIndex` / `SetElementNumber` / `SetElementWoundedNumber`。它与 `ItemRoster`（物品）、`FlattenedTroopRoster`（摊平后的单层序列）三者分工不同：要按兵种聚合读改就用本类，要逐兵遍历就用摊平那一个。✅ `TaleWorlds.CampaignSystem/Roster/TroopRoster.cs`
 - [Kingdom](./Kingdom) — **势力实体**（`public sealed class Kingdom : MBObjectBase, IFaction`，1,389 行）。它同时扮演两个角色：既是容器（`Clans` / `Armies` / `Fiefs` / `Settlements` / `Heroes`），又是势力本身（实现 `IFaction`）。mod 最容易踩的两个坑：一是 **`Clan` 也实现 `IFaction`**，所以 `Clan.MapFaction` 可能指回家族自身（独立家族）而不一定是 `Kingdom`；二是**外交状态不要自己缓存**——战争/同盟/态度存在 `StanceLink` 里，读 `FactionsAtWarWith` / `AlliedKingdoms`，判定走 `IsAtWarWith` / `IsAllyWith` / `GetStanceWith`。政策是改 `ActivePolicies` 这个 list 配 `AddPolicy` / `RemovePolicy` / `HasPolicy`；待决事项在 `UnresolvedDecisions`。静态全集入口是 `Kingdom.All`。✅ `TaleWorlds.CampaignSystem/Kingdom.cs`
+- [MapEvent](./MapEvent) — 地图遭遇战的**本体**（`public sealed class MapEvent : MBObjectBase`，2,771 行）。它把「地图上两支队伍相遇」变成一场可结算的仗：双方各有一个 `MapEventSide`，具体玩法差异（野战 / 劫掠 / 突袭藏身处 / 围城伏击 / 封锁）挂在 `MapEventComponent` 的派生类上，生命周期由 `MapEventManager` 调度。玩家当前参与的那场读 `MapEvent.PlayerMapEvent`。**坑**：它承载结果与名册，不是改伤亡的地方——改伤亡走 `MapEventSide` 的接口，直接改会绕过事件派发。✅ `TaleWorlds.CampaignSystem/MapEvents/MapEvent.cs`
+- [CampaignEventDispatcher](./CampaignEventDispatcher) — 战役事件的**扇出器**（`public class CampaignEventDispatcher : CampaignEventReceiver`，2,867 行，276 个 `OnXxx`）。必须说清它与 `CampaignEvents` 的分工：`CampaignEvents` 上的静态事件是**发布口**，本类则是 `Campaign` 内部持有、把每个事件转发给所有已注册监听者的**执行者**（模式是「遍历监听者列表逐个转发」）。**所以 mod 作者通常只读不调** —— 正确姿势是用 `CampaignEvents` 订阅，或在 `CampaignBehaviorBase` 上覆写对应虚方法。想看「某个事件到底会通知到谁」，答案在本类的方法体里。✅ `TaleWorlds.CampaignSystem/CampaignEventDispatcher.cs`
 - [`ApplyHeirSelectionAction`](./ApplyHeirSelectionAction) — 领主选定继承人之后统一改写家族继承链的入口 ✅ `TaleWorlds.CampaignSystem/Actions/ApplyHeirSelectionAction.cs`
 - [`BreakInOutBesiegedSettlementAction`](./BreakInOutBesiegedSettlementAction) — 强攻被围聚落（突入 / 突围）的入口 ✅ `TaleWorlds.CampaignSystem/Actions/BreakInOutBesiegedSettlementAction.cs`
 - [`BribeGuardsAction`](./BribeGuardsAction) — 行贿守卫以放行或换取入城 ✅ `TaleWorlds.CampaignSystem/Actions/BribeGuardsAction.cs`

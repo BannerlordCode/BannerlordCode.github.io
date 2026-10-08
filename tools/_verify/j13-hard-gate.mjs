@@ -42,6 +42,13 @@
 //     ⑤ J6=deep_pass  ⑥ J10 stray=0  ⑦ J11 trailSlash=0  ⑧ J12 inconsistent-text=0  ⑨ J7 markers=0
 //   ★ 这不是放宽也不是加强判据本身：它只是让本 wrapper **完整反映权威判分器已有的读数**。
 //
+//   ★ 运行夹具时必须设测试钩子（判分器自身的设计，见其 `LEAD145ZH_CONTENT_ROOT`）：
+//       LEAD145ZH_CONTENT_ROOT=tools/_verify/j13-fixture node tools/_verify/j13-hard-gate.mjs <夹具页>
+//     为什么：判分器默认按【真实】content 根解析页内链接，而夹具在 tools/ 下 ⇒ 夹具内部链接全解析不到，
+//     **`J11` 这类依赖「目标是否真实存在」的判据就不会红**（我实测踩过：J11Trail 不带钩子时 J11=0）。
+//     带钩子后：J6Stub→J6=stub · J10Stray→J10=1 · J11Trail→J11=1 · J12Inconsistent→J12=1 · J7Marker→J7=1。
+//     正向对照 = 真实已提交页（如 content/v1.4.7/zh/api/campaign-ext/SettlementFoodModel.md）⇒ ⑨ 条全绿。
+//
 // 用法:
 //   node tools/_verify/j13-hard-gate.mjs <page.md> [<page.md> ...]
 //   node tools/_verify/j13-hard-gate.mjs --manifest <list.txt>

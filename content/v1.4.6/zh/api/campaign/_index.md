@@ -50,7 +50,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 
 **同批待办**：其它桶的 `_index.md` 很可能有同一处遗漏。本次只普查了 campaign 桶，**其它桶未核对**，别拿本页的结论去推断它们。
 
-## 已撰写的类页（41 张）
+## 已撰写的类页（43 张）
 
 桶索引的 route 就是桶目录本身。映射表里那条「桶索引到叶子页」的规则要求写成 `./<Name>`，也就是桶索引到同级叶子页写 `./Campaign` 这种形式。
 
@@ -78,6 +78,8 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 - [MobilePartyAi](./MobilePartyAi) — 队伍的 **AI 决策实现**（`public class MobilePartyAi`，1,894 行），挂在 `MobileParty.Ai` 上。它是「**决策生成器**」而不是「行为执行器」：谁喂输入（思考参数）→ 评分与权重如何产生长期意图 → 结果写回队伍 → 何时重新决策。**mod 选层指南**（本页最有价值的部分）：想改**评分规则**就覆写 `MobilePartyAIModel`；想改**单队的长期意图**用 `MobileParty.SetMove*`；想**微调单队**用 `SetInitiative` / `SetDoNotMakeNewDecisions` / `DisableForHours`；想**完全接管**用 `DisableAi` 后自己驱动。三个已记录的坑：`Initiative` 读取带过期语义、`SetInitiative` 对**主队是空操作**、读档不走 setter 所以需 `CacheAiBehaviorPartyBase()`。✅ `TaleWorlds.CampaignSystem/Party/MobilePartyAi.cs`
 - [CampaignTime](./CampaignTime) — **战役时间**的值类型（`public struct CampaignTime : IComparable<CampaignTime>`，753 行）。三族读法要分清：`To*` 是**纪元绝对量**、`Elapsed*UntilNow` 是**已过去多久**、`Remaining*FromNow` 是**还剩多久**。**两个最易踩的坑**：① 单位混用 —— `Milliseconds/Seconds/Minutes` 收 `long`，而 `Hours/Days/Weeks/Years` 收 `float`，把 `Hours(24f)` 当 `Days(1f)` 写不会报错但语义错；② 源码里 `operator -` 把两个 `long` 相减后**包回同一个结构体**，**没有独立的时长类型** ⇒ 相减结果应靠 `.ToDays` 读，对它用 `IsPast` / `Remaining*` 无意义。**存档**：内部 tick 带 `[SaveableField]`，所以能直接当 Behavior 字段走 `SyncData`；注意**存的是 tick 而不是日历**。✅ `TaleWorlds.CampaignSystem/CampaignTime.cs`
 - [Village](./Village) — **村庄实体**（`public class Village : SettlementComponent`，501 行）。**第一个要记的事实：它派生自 `SettlementComponent` 而不是 `Settlement`** —— 聚落本体是 `Settlement`，`Village` 是挂在它上面的**组件**，所以拿村庄本体要读 `village.Settlement`。核心状态：`Hearth`（炉灶值，决定村庄等级与人口）、`VillageType.Productions`（产出物品）、`VillageState` 五态状态机（正常 / 被劫掠 / 被围困等，setter 会派发事件）、以及 `Bound` / `TradeBound` 两个城镇绑定（所属城镇与交易城镇，**不是同一个**）。**坑**：改 `Hearth` 要理解它对每日生产与税收的连锁影响，不是单纯改个数字。✅ `TaleWorlds.CampaignSystem/Settlements/Village.cs`
+- [ItemRoster](./ItemRoster) — **物品名册**（`public class ItemRoster : IReadOnlyList<ItemRosterElement>, ..., ISerializableObject`，691 行），与 `TroopRoster` 对称。它同时是**列表**与**容器**：实现了 `IReadOnlyList<ItemRosterElement>`，所以能按索引遍历，但**写操作要走 `AddToCounts` / `RemoveXxx` 一族**而不是改元素——后者会绕过内部版本号与事件。元素 `ItemRosterElement` 装的是「物品 + 数量 + 修饰符」，所以**同一物品的不同修饰符是不同条目**。**坑**：空槽位（数量为 0）与 `IsEmpty` 语义不同；`FindIndexOfItem` 与 `GetElementCopyAtIndex` 的分工（前者找位置、后者取副本）。✅ `TaleWorlds.CampaignSystem/Roster/ItemRoster.cs`
+- [BarterManager](./BarterManager) — **交易流程总管**（`public class BarterManager`，383 行）。一次交易的完整链路分四段：**开价**（`BeginPlayerBarter` / `StartBarterOffer`）→ **估值**（`GetOfferValue` / `GetOfferValueForFaction`）→ **可接受性判定**（`IsOfferAcceptable`）→ **落地执行**（`ApplyAndFinalizePlayerBarter` / `ExecuteAIBarter`）。**关键事实**：玩家交易与 AI 交易是**两条独立入口**。**坑**：`Barterable.Apply` **不参与** AI 的接受判定（改 `Apply` 不会改变 AI 愿不愿意接受）；跳过估值会丢掉 `_overpayAmount` 加成；`Close()` **不清理**数据。✅ `TaleWorlds.CampaignSystem/BarterSystem/BarterManager.cs`
 - [`ApplyHeirSelectionAction`](./ApplyHeirSelectionAction) — 领主选定继承人之后统一改写家族继承链的入口 ✅ `TaleWorlds.CampaignSystem/Actions/ApplyHeirSelectionAction.cs`
 - [`BreakInOutBesiegedSettlementAction`](./BreakInOutBesiegedSettlementAction) — 强攻被围聚落（突入 / 突围）的入口 ✅ `TaleWorlds.CampaignSystem/Actions/BreakInOutBesiegedSettlementAction.cs`
 - [`BribeGuardsAction`](./BribeGuardsAction) — 行贿守卫以放行或换取入城 ✅ `TaleWorlds.CampaignSystem/Actions/BribeGuardsAction.cs`

@@ -187,7 +187,7 @@ int sellPrice = village.GetItemPrice(item, tradingParty: null, isSelling: true);
 - [`../MapEvent`](../MapEvent) —— 劫掠 / 强征战斗，`GetDefenderParties` 为村庄提供防守方。
 - [`../Campaign`](../Campaign) —— `Campaign.Current` 提供 `AllVillages` 与各种计算模型。
 - [`../CampaignTime`](../CampaignTime) —— `LastDemandSatisfiedTime` 的时间单位。
-- `ItemRoster`（尚未入库，本批不链） —— 村庄库存与产出物品的容器。
+- [`../ItemRoster`](../ItemRoster) —— 村庄库存与产出物品的容器。
 - [`../TroopRoster`](../TroopRoster) —— 村庄守卫与民兵的兵力表。
 - [`../../campaign-ext/MBObjectBase`](../../campaign-ext/MBObjectBase) —— `Deserialize` 的反序列化基类。
 - [`../../campaign-ext/MBObjectManager`](../../campaign-ext/MBObjectManager) —— `Deserialize` 的 objectManager 参数，负责读对象引用。

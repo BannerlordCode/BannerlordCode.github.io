@@ -47,20 +47,38 @@ const TYPE_RE = /\b(class|struct|interface|enum|delegate)\s+[A-Za-z_]\w*/;
 //   ⇒ 本抽取器必须把 **private / internal 的辅助方法与属性**也抽进来，
 //     否则写手只能去源码本体找行号，J13 风险上升。
 //   仍【不】抽 private/internal 的**字段**（纯状态存储，解释价值低且数量大）。
+// ★★ 2026-10-08 补漏 #3（由 `anchor-completeness.mjs` 的独立探针抓到）：
+//   原类型模式 `[\w\.<>\[\],\?]+` **不允许空格** ⇒ 任何「泛型实参里带逗号+空格」的成员
+//   都被静默跳过。实例（TypeDefinition.cs）：
+//       285:  public Dictionary<MemberTypeId, PropertyDefinition>.ValueCollection PropertyDefinitions
+//       295:  public Dictionary<MemberTypeId, FieldDefinition>.ValueCollection FieldDefinitions
+//   修法：类型部分改为**非贪心任意串** `.+?`，让「名字」由「它后面的终止符」定位：
+//   非贪心 ⇒ 取**第一个**满足「名字 + 终止符」的位置 ⇒ 恰好是声明名。
+//   （`public int Foo(int a, int b)` → `.+?`=`int`、名=`Foo`、终止符=`(`，不会被 `a` 抢走。）
 const MEMBER_RE =
-  /^\s*(?:\[[^\]]*\]\s*)*(public|protected internal|protected|internal|private)\s+(?:static\s+|virtual\s+|override\s+|abstract\s+|sealed\s+|readonly\s+|const\s+|new\s+|partial\s+|extern\s+|unsafe\s+|async\s+)*[\w\.<>\[\],\?]+\s+(\w+)\s*(?:[(<{;=]|\s*$)/;
+  /^\s*(?:\[[^\]]*\]\s*)*(public|protected internal|protected|internal|private)\s+(?:static\s+|virtual\s+|override\s+|abstract\s+|sealed\s+|readonly\s+|const\s+|new\s+|partial\s+|extern\s+|unsafe\s+|async\s+)*(.+?)\s+(\w+)\s*(?:[(<{;=]|\s*$)/;
 
 // 一行是否可作为引用锚点
+// ★★ 2026-10-08 补漏（worker-370 报，我已复核）：**构造函数**。
+//   构造函数**没有返回类型**，而 MEMBER_RE 要求「类型 名字」两段 ⇒ 它永远匹配不上。
+//   实测：`public PerkObject(string stringId)`（PerkObject.cs:111）不在锚表里。
+//   ⇒ 这意味着**全线的构造函数一直不可引用**（写手只能写成不给行号的散文）。
+//   形态区分：方法 `public void Foo(` → 名字后面不是紧跟 `(`，所以 CONSTRUCTOR_RE 不会误判。
+const CONSTRUCTOR_RE =
+  /^\s*(?:\[[^\]]*\]\s*)*(public|protected internal|protected|internal|private)\s+(?:unsafe\s+|extern\s+)*([A-Z]\w*)\s*\(/;
+
 function anchorKind(raw) {
   const t = raw.trim();
   if (t === '') return null;                                  // 空行
   if (t.startsWith('//')) return null;                        // 注释（含 ILSpy Token 行）
   if (/^[{}();,]+$/.test(t)) return null;                     // 纯括号标点
   if (TYPE_RE.test(raw) && DECL_RE.test(raw)) return 'type';
+  // 构造函数：access + 单个大写开头标识符 + `(`（方法不会命中，因为名字后跟空格）
+  if (CONSTRUCTOR_RE.test(raw) && !MEMBER_RE.test(raw)) return 'member';
   const m = raw.match(MEMBER_RE);
   if (m) {
     const access = m[1];
-    const term = raw.slice(raw.indexOf(m[2]) + m[2].length).trim();
+    const term = raw.slice(raw.indexOf(m[3]) + m[3].length).trim();
     // 不抽 private/internal 的【字段】（终符为 `;`/`=` 且无 `(`）：解释价值低、数量大
     const isFieldLike = /^[;=]/.test(term) && !raw.includes('(');
     if ((access === 'private' || access === 'internal') && isFieldLike) return null;

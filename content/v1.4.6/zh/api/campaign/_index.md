@@ -50,7 +50,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 
 **同批待办**：其它桶的 `_index.md` 很可能有同一处遗漏。本次只普查了 campaign 桶，**其它桶未核对**，别拿本页的结论去推断它们。
 
-## 已撰写的类页（47 张）
+## 已撰写的类页（48 张）
 
 桶索引的 route 就是桶目录本身。映射表里那条「桶索引到叶子页」的规则要求写成 `./<Name>`，也就是桶索引到同级叶子页写 `./Campaign` 这种形式。
 
@@ -84,6 +84,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 - [Town](./Town) — **城镇**（`public class Town : Fief`，1,099 行），聚落里的**经济与治理单元**。它继承链上的中间基类（题头已给出）带来了一层「可拥有聚落」的公共能力，本类在这之上加的是**城镇特有的那套**：市场与物价、繁荣度与人口、驻军与民兵、建筑与工程、税收与影响力。**与 `Settlement` 的分工**：外层聚落对象是「所有聚落类型的公共容器」，本类是「城镇这一种聚落怎么运转」；mod 改城镇机制时应优先在本类（或其对应 Model）上找入口，而不是去改外层容器。✅ `TaleWorlds.CampaignSystem/Settlements/Town.cs`
 - [Building](./Building) — 聚落里的一座**建筑**（`public class Building`，325 行），是「城镇 × 建筑类型」的**状态卡** —— 处于**实例侧**，而建筑类型定义处于共享定义侧（同一类型的多座建筑共享一份定义）。**三个最容易错的地方**：① `BuildingProgress` 是**建造点数余额而非百分比**（要做除法换算才是进度）；② **唯一事件**是 `CampaignEvents.OnBuildingLevelChangedEvent(Town, Building, int)`，**只由升级/降级派发** —— 所以 mod 想响应建筑变化就该挂这一类事件；③ `CurrentLevel` 的 setter **不派发事件、也不同步进度与耐久**，直接写它会让状态与实际不一致。改建筑状态请走 `BuildingHelper` 一侧的完整路径。✅ `TaleWorlds.CampaignSystem/Settlements/Buildings/Building.cs`
 - [CultureObject](./CultureObject) — **文化这一层的定义对象**（`public sealed class CultureObject : BasicCultureObject`，975 行），由 XML 定义、启动时加载。它决定了哪些默认值：**装备走 `MBEquipmentRoster`（多套名册）、队伍走 `PartyTemplateObject`（模板）、角色走 `CharacterObject` 引用、文化特性走 `CultureTrait[]`** —— 所以 mod 加文化时要改的是 XML 契约而不是在代码里 new。**两个必须知道的坑**：① 它**唯二运行时可写**的属性是 `MilitiaBonus` / `ProsperityBonus`，其余全是 `private set`；② **`Traits` 在 `Deserialize` 中不填充**（全源码无赋值点，唯一读取方是 `HasTrait`）⇒ 直接用它要判空。✅ `TaleWorlds.CampaignSystem/CultureObject.cs`
+- [PartyComponent](./PartyComponent) — 队伍的**行为组件基类**（`public abstract class PartyComponent`，197 行）。每支队伍持有一个组件，由队伍统一驱动 `OnTick` —— **派生类决定这支队伍属于哪一类**。本页写清了三件事：① **持有关系双向、但生命周期单向**（队伍持有组件，组件经创建/初始化/结束三个回调回填反向引用）；② 派生族是**逐个 grep 核实**出来的（含一个抽象中间层与多个具体类型），识别机制是**标志位更新时的类型判断 + 便捷属性**，其中一类额外经家族侧注册；③ **自建一类队伍须实现四个抽象成员**，其余有默认实现。✅ `TaleWorlds.CampaignSystem/Party/PartyComponents/PartyComponent.cs`
 - [`ApplyHeirSelectionAction`](./ApplyHeirSelectionAction) — 领主选定继承人之后统一改写家族继承链的入口 ✅ `TaleWorlds.CampaignSystem/Actions/ApplyHeirSelectionAction.cs`
 - [`BreakInOutBesiegedSettlementAction`](./BreakInOutBesiegedSettlementAction) — 强攻被围聚落（突入 / 突围）的入口 ✅ `TaleWorlds.CampaignSystem/Actions/BreakInOutBesiegedSettlementAction.cs`
 - [`BribeGuardsAction`](./BribeGuardsAction) — 行贿守卫以放行或换取入城 ✅ `TaleWorlds.CampaignSystem/Actions/BribeGuardsAction.cs`

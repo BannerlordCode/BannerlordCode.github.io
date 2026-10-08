@@ -38,8 +38,17 @@ const TYPE_RE = /\b(class|struct|interface|enum|delegate)\s+[A-Za-z_]\w*/;
 // （反编译产物里属性常写成 `public override MissionBehaviorType BehaviorType` 而把 `{` 放到下一行）
 // ★ 2026-10-07 实测修正：原先要求终止符必须在同一行 ⇒ 漏掉 MissionLogic.cs:13，
 //   属于「判据比语料窄」。故补 `\s*$` 分支（本文件按行 split，`$` = 行尾）。
+//
+// ★★ 2026-10-08 扩展（boss #21535 更正一条过窄标准）：
+//   旧标准写「关键成员表只列 public/protected」——**过窄**。
+//   正确标准：一个成员行是否进表，取决于「**有没有解释价值 + 能不能给出行号引用**」，
+//   不取决于 public/private。private 累加器（如 DefaultSettlementSecurityModel 的三个
+//   `Calculate*EffectOnSecurity`）与 protected 钩子都承载真实解释价值。
+//   ⇒ 本抽取器必须把 **private / internal 的辅助方法与属性**也抽进来，
+//     否则写手只能去源码本体找行号，J13 风险上升。
+//   仍【不】抽 private/internal 的**字段**（纯状态存储，解释价值低且数量大）。
 const MEMBER_RE =
-  /^\s*(?:\[[^\]]*\]\s*)*(?:public|protected internal|protected)\s+(?:static\s+|virtual\s+|override\s+|abstract\s+|sealed\s+|readonly\s+|const\s+|new\s+|partial\s+|extern\s+|unsafe\s+|async\s+)*[\w\.<>\[\],\?]+\s+(\w+)\s*(?:[(<{;=]|\s*$)/;
+  /^\s*(?:\[[^\]]*\]\s*)*(public|protected internal|protected|internal|private)\s+(?:static\s+|virtual\s+|override\s+|abstract\s+|sealed\s+|readonly\s+|const\s+|new\s+|partial\s+|extern\s+|unsafe\s+|async\s+)*[\w\.<>\[\],\?]+\s+(\w+)\s*(?:[(<{;=]|\s*$)/;
 
 // 一行是否可作为引用锚点
 function anchorKind(raw) {
@@ -48,7 +57,15 @@ function anchorKind(raw) {
   if (t.startsWith('//')) return null;                        // 注释（含 ILSpy Token 行）
   if (/^[{}();,]+$/.test(t)) return null;                     // 纯括号标点
   if (TYPE_RE.test(raw) && DECL_RE.test(raw)) return 'type';
-  if (MEMBER_RE.test(raw)) return 'member';
+  const m = raw.match(MEMBER_RE);
+  if (m) {
+    const access = m[1];
+    const term = raw.slice(raw.indexOf(m[2]) + m[2].length).trim();
+    // 不抽 private/internal 的【字段】（终符为 `;`/`=` 且无 `(`）：解释价值低、数量大
+    const isFieldLike = /^[;=]/.test(term) && !raw.includes('(');
+    if ((access === 'private' || access === 'internal') && isFieldLike) return null;
+    return 'member';
+  }
   return null;
 }
 

@@ -50,7 +50,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 
 **同批待办**：其它桶的 `_index.md` 很可能有同一处遗漏。本次只普查了 campaign 桶，**其它桶未核对**，别拿本页的结论去推断它们。
 
-## 已撰写的类页（49 张）
+## 已撰写的类页（50 张）
 
 桶索引的 route 就是桶目录本身。映射表里那条「桶索引到叶子页」的规则要求写成 `./<Name>`，也就是桶索引到同级叶子页写 `./Campaign` 这种形式。
 
@@ -86,6 +86,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 - [CultureObject](./CultureObject) — **文化这一层的定义对象**（`public sealed class CultureObject : BasicCultureObject`，975 行），由 XML 定义、启动时加载。它决定了哪些默认值：**装备走 `MBEquipmentRoster`（多套名册）、队伍走 `PartyTemplateObject`（模板）、角色走 `CharacterObject` 引用、文化特性走 `CultureTrait[]`** —— 所以 mod 加文化时要改的是 XML 契约而不是在代码里 new。**两个必须知道的坑**：① 它**唯二运行时可写**的属性是 `MilitiaBonus` / `ProsperityBonus`，其余全是 `private set`；② **`Traits` 在 `Deserialize` 中不填充**（全源码无赋值点，唯一读取方是 `HasTrait`）⇒ 直接用它要判空。✅ `TaleWorlds.CampaignSystem/CultureObject.cs`
 - [PartyComponent](./PartyComponent) — 队伍的**行为组件基类**（`public abstract class PartyComponent`，197 行）。每支队伍持有一个组件，由队伍统一驱动 `OnTick` —— **派生类决定这支队伍属于哪一类**。本页写清了三件事：① **持有关系双向、但生命周期单向**（队伍持有组件，组件经创建/初始化/结束三个回调回填反向引用）；② 派生族是**逐个 grep 核实**出来的（含一个抽象中间层与多个具体类型），识别机制是**标志位更新时的类型判断 + 便捷属性**，其中一类额外经家族侧注册；③ **自建一类队伍须实现四个抽象成员**，其余有默认实现。✅ `TaleWorlds.CampaignSystem/Party/PartyComponents/PartyComponent.cs`
 - [HeroDeveloper](./HeroDeveloper) — 挂在角色上的**养成状态机**（`public class HeroDeveloper`，574 行），代表角色的技能与特性成长。**三个要点**：① 它由**角色**持有（不是反过来），所以拿到它的入口在角色一侧；② 技能与特性的成长路径不同，且存在「**未分配点数**」类可写状态 —— 改它们要看是**直接写**还是**必须走方法**；③ **坑**：直接写状态而不走入口会漏掉事件派发与缓存失效。**注意**：它的构造函数是 `internal`，mod 不能自己 new，只能从已有角色上取。✅ `TaleWorlds.CampaignSystem/CharacterDevelopment/HeroDeveloper.cs`
+- [PerkObject](./PerkObject) — **一个 perk 的定义对象**（`public sealed class PerkObject : PropertyObject`，161 行），由 XML 定义、启动时加载；处于**定义侧**。**三个要点**：① 它是**只读定义**（`All` 转发战役层的全集，`Initialize` 是唯一公开写入口）；② 效果分**主/次两条平行线**，各自带增量方式，次效果的增量方式存在一个「无效」哨兵值需回退处理；③ **`AlternativePerk` 是对称的**（互指）。**坑**：直接 `new` 而不调 `Initialize` 只会得到空壳（构造函数只负责身份）。✅ `TaleWorlds.CampaignSystem/CharacterDevelopment/PerkObject.cs`
 - [`ApplyHeirSelectionAction`](./ApplyHeirSelectionAction) — 领主选定继承人之后统一改写家族继承链的入口 ✅ `TaleWorlds.CampaignSystem/Actions/ApplyHeirSelectionAction.cs`
 - [`BreakInOutBesiegedSettlementAction`](./BreakInOutBesiegedSettlementAction) — 强攻被围聚落（突入 / 突围）的入口 ✅ `TaleWorlds.CampaignSystem/Actions/BreakInOutBesiegedSettlementAction.cs`
 - [`BribeGuardsAction`](./BribeGuardsAction) — 行贿守卫以放行或换取入城 ✅ `TaleWorlds.CampaignSystem/Actions/BribeGuardsAction.cs`

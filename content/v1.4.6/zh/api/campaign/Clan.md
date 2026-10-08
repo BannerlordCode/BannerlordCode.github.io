@@ -337,3 +337,8 @@ if (clan != null && clan.Renown < clan.RenownRequirementForNextTier)
 - 查找与时序：[Campaign](../Campaign) —— `All` 与 `PlayerClan` 都转发给它。
 - 挂载方式：[CampaignBehaviorBase](../CampaignBehaviorBase) · [IDataStore](../IDataStore) · [CampaignGameStarter](../CampaignGameStarter) · [CampaignEvents](../CampaignEvents)。
 - 桶导览：[campaign API 目录导览](../) · 架构：[模块地图](../../../architecture/module-map)
+
+## 导航
+
+- 同桶：[`../Hero`](../Hero) · [`../Settlement`](../Settlement) · [`../CharacterObject`](../CharacterObject)
+- 父索引：[`../_index`](../_index)

@@ -202,3 +202,8 @@ Debug.Print("plate skill=" + (plateSkill == null ? "null" : plateSkill.StringId)
 - 战斗判定：`WeaponComponentData.RelevantSkill` 转发到同一个静态方法，所以「武器决定技能」这条链只有一个真源
 - 模块地图：[module-map](../../../architecture/module-map)
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../SkillObject`](../SkillObject) · [`../PropertyObject`](../PropertyObject) · [`../WeaponComponentData`](../WeaponComponentData)
+- 父索引：[`../_index`](../_index)

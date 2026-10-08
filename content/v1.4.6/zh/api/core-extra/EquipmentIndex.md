@@ -197,3 +197,8 @@ Debug.Print("sentinel equals Horse? " + (EquipmentIndex.ArmorItemEndSlot == Equi
 - 词缀：[ItemModifierGroup](../ItemModifierGroup) 决定槽内 `EquipmentElement.ItemModifier` 的可能取值
 - 贸易品：[TradeItemComponent](../TradeItemComponent) 的物品通常落在 `Cape` / `Body` 之类的槽位上
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../Equipment`](../Equipment) · [`../EquipmentElement`](../EquipmentElement) · [`../ArmorComponent`](../ArmorComponent)
+- 父索引：[`../_index`](../_index)

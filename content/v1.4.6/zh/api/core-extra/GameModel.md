@@ -159,3 +159,8 @@ foreach (GameModel model in allModels)
 - 宿主：[Game](../Game) 的 `BasicModels` / `AddGameModelsManager<T>()` 持有管理器实例
 - 注册入口：`IGameStarter.AddModel(...)`（`CampaignGameStarter` 的实现），由 `MBSubModuleBase.OnGameStart` 传进来的 `IGameStarter` 承载
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../GameModelsManager`](../GameModelsManager) · [`../Game`](../Game) · [`../IGameStarter`](../IGameStarter)
+- 父索引：[`../_index`](../_index)

@@ -147,3 +147,8 @@ foreach (Type t in SaveManager.CheckSaveableTypes())
 - 消费方：[SaveManager](../SaveManager) 的 `CheckSaveableTypes()` 扫描属性上的特性
 
 - 上一级：[v1.4.6 内容根](../../../)
+
+## 导航
+
+- 同桶：[`../SaveableFieldAttribute`](../SaveableFieldAttribute) · [`../SaveableTypeDefiner`](../SaveableTypeDefiner) · [`../SaveManager`](../SaveManager)
+- 父索引：[`../_index`](../_index)

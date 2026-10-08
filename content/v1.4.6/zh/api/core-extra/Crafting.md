@@ -232,3 +232,8 @@ if (item != null)
 - 品质：[ItemModifierGroup](../ItemModifierGroup) 决定成品品质
 - 文本：`CraftedWeaponName` 与 `WeaponDesign.WeaponName` 都是 `TextObject`，导出时按原文写入 XML
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../CraftingTemplate`](../CraftingTemplate) · [`../CraftingPiece`](../CraftingPiece) · [`../WeaponDesign`](../WeaponDesign)
+- 父索引：[`../_index`](../_index)

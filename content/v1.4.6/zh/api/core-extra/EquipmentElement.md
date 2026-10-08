@@ -269,3 +269,8 @@ if (Equipment.IsItemFitsToSlot(EquipmentIndex.Weapon0, slot.Item))
 - 存档：`ISerializableObject` / `ISavedStruct` 与 [SaveManager](../../save-system/SaveManager)；`SaveablePropertyAttribute` 定义见 [save-system 分区](../../save-system/SaveablePropertyAttribute)
 - 包装类型：`ItemRosterElement`（本机无对应页）是它的数量化外壳，`EquipmentElement` 属性挂在上面
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../Equipment`](../Equipment) · [`../EquipmentIndex`](../EquipmentIndex) · [`../ItemObject`](../ItemObject)
+- 父索引：[`../_index`](../_index)

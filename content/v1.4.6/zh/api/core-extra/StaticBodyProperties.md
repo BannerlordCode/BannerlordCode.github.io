@@ -220,3 +220,8 @@ if (BodyProperties.FromString(keyValue, out body))
 - 语义侧：[FaceGen](../FaceGen) 是解读这 128 位的地方，但它的具体解码实现跨到 native，本类不涉及
 - JSON：[BodyPropertiesJsonConverter](../BodyPropertiesJsonConverter) 把组合后的 [BodyProperties](../BodyProperties) 写成 `{"_data": "<BodyProperties … key=\"128位十六进制\" />"}`，`ToString()` 产出的正是那个串
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../BodyProperties`](../BodyProperties) · [`../DynamicBodyProperties`](../DynamicBodyProperties) · [`../FaceGen`](../FaceGen)
+- 父索引：[`../_index`](../_index)

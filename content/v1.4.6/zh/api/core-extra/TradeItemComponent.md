@@ -244,3 +244,8 @@ public class MyTradeComponent : ItemComponent
 - 本地化：`TextObject`（`new TextObject("{=key}Text", null)` 是所有物品名的标准构造）
 - 数值分类：`ItemCategory` 与 `Campaign.Current.Models.ItemCategorySelector`（[Campaign](../../campaign/Campaign) 侧）
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../ItemObject`](../ItemObject) · [`../ItemComponent`](../ItemComponent) · [`../SaddleComponent`](../SaddleComponent)
+- 父索引：[`../_index`](../_index)

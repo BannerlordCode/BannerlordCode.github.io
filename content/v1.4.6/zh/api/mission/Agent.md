@@ -702,3 +702,8 @@ public sealed class Warden : MissionBehavior
 - 战役侧对应物：[Hero](../../campaign/Hero) — `IsHero` 为真时对应的那个人。
 - 事件桥：[CampaignEvents](../../campaign/CampaignEvents) — `OnMissionStartedEvent` / `OnMissionEndedEvent` 把任务与战役接起来。
 - 父级：[mission API 目录导览](../)
+
+## 导航
+
+- 同桶：[`../Mission`](../Mission) · [`../Formation`](../Formation) · [`../MissionBehavior`](../MissionBehavior)
+- 父索引：[`../_index`](../_index)

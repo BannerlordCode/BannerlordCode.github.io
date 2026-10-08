@@ -285,3 +285,8 @@ Debug.Print("top=" + (top == null ? "null" : top.GetType().Name), 0);
 - 消费方：`SandBox.GauntletUI` 下的界面类（如 `GauntletCraftingScreen`）实现 `IGameStateListener`，随状态激活与停用推屏与弹屏
 - 模块地图：[module-map](../../../architecture/module-map)
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../GameStateManager`](../GameStateManager) · [`../Game`](../Game) · [`../Crafting`](../Crafting)
+- 父索引：[`../_index`](../_index)

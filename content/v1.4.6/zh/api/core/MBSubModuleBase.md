@@ -216,3 +216,8 @@ protected override void RegisterSubModuleTypes()
 
 - 上一级：[v1.4.6 内容根](../../../)
 - 桶首页：[core API 分区](../)
+
+## 导航
+
+- 同桶：[`../Module`](../Module)
+- 父索引：[`../_index`](../_index)

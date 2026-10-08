@@ -233,3 +233,8 @@ public override void OnFinalize()
 - 嵌套契约：`IViewModelGetterInterface` / `IViewModelSetterInterface` 是绑定引擎实际依赖的两个嵌套接口
 
 - 上一级：[v1.4.6 内容根](../../../)
+
+## 导航
+
+- 同桶：[`../BindingPath`](../BindingPath) · [`../InformationManager`](../InformationManager) · [`../GameStateManager`](../GameStateManager)
+- 父索引：[`../_index`](../_index)

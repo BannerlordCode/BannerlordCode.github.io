@@ -221,3 +221,8 @@ Debug.Print("steal: " + stolen.Item.StringId, 0);
 - 角色容器：[BasicCharacterObject](../BasicCharacterObject) 的 `BattleEquipments` / `CivilianEquipments`（都是 `IEnumerable<Equipment>`）是 `GetRandomEquipmentElements` 的数据源
 - 存档：`_equipmentType` 与 `_itemSlots` 分别标了 `[SaveableField(1)]` / `[SaveableField(2)]`，由 [SaveManager](../../save-system/SaveManager) 落盘
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../EquipmentElement`](../EquipmentElement) · [`../EquipmentIndex`](../EquipmentIndex) · [`../ItemObject`](../ItemObject)
+- 父索引：[`../_index`](../_index)

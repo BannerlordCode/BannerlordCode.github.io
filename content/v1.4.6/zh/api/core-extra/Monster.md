@@ -265,3 +265,8 @@ Debug.Print("fallback=" + fallback.StringId, 0);
 - 物品挂点：`ItemFlags.AttachmentMask` / `ForceAttachOffHandPrimaryItemBone` / `ForceAttachOffHandSecondaryItemBone`（`TaleWorlds.Core`）
 - 模块地图：[module-map](../../../architecture/module-map)
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../FaceGen`](../FaceGen) · [`../HorseComponent`](../HorseComponent) · [`../WeaponComponentData`](../WeaponComponentData)
+- 父索引：[`../_index`](../_index)

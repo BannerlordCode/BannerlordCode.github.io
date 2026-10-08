@@ -254,3 +254,8 @@ public class GuidKeyedCache
 - 存档管线：[SaveManager](../../save-system/SaveManager) — 经 `SaveableObjectSystemTypeDefiner` 注册的 saveId 1005 进入对象图。
 - 桶索引：[campaign-ext API 目录导览](../)
 - 分层说明：[模块地图](../../../architecture/module-map)
+
+## 导航
+
+- 同桶：[`../MBObjectBase`](../MBObjectBase) · [`../MBObjectManager`](../MBObjectManager)
+- 父索引：[`../_index`](../_index)

@@ -232,3 +232,8 @@ Debug.Print("radiusAdder=" + mounted.MountRadiusAdder, 0);
 - 数学类型：`TaleWorlds.Library.Vec3`（`MountSitBoneScale` / `Scales` 的元素类型）
 - 模块地图：[module-map](../../../architecture/module-map)
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../HorseComponent`](../HorseComponent) · [`../Monster`](../Monster) · [`../ItemObject`](../ItemObject)
+- 父索引：[`../_index`](../_index)

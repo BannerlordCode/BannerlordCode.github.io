@@ -207,3 +207,8 @@ if (bow != null)
 - 同桶宿主：`ItemData`、`ItemList`、`InventoryItemType` 三个类型都在 `TaleWorlds.MountAndBlade.Diamond` 命名空间，页面尚未撰写，现为纯文本。其中 `ItemData` 是唯一带 public 成员的入口。
 - 物品读取：[MBObjectManager](../../campaign-ext/MBObjectManager) 的 `GetObjectTypeList` —— 示例里枚举全部物品的来源。
 - 桶导览：[mission-ext 桶导览](../) · 架构：[模块地图](../../../architecture/module-map)
+
+## 导航
+
+- 同桶：[`../MissionObject`](../MissionObject) · [`../UsableMachine`](../UsableMachine) · [`../AgentStatCalculateModel`](../AgentStatCalculateModel)
+- 父索引：[`../_index`](../_index)

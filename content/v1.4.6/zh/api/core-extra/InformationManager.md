@@ -241,3 +241,8 @@ public class MyInquiryHook
 - 宿主：[Game](../Game) 决定当前是哪个屏幕在监听这些静态事件
 
 - 上一级：[v1.4.6 内容根](../../../)
+
+## 导航
+
+- 同桶：[`../ViewModel`](../ViewModel) · [`../GameStateManager`](../GameStateManager) · [`../Game`](../Game)
+- 父索引：[`../_index`](../_index)

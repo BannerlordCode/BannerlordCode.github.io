@@ -224,3 +224,8 @@ Debug.Print("pool untouched=" + (usableList[(int)CraftingPiece.PieceTypes.Blade]
 - 消费者：[WeaponDesign](../WeaponDesign) 按 `PieceTypes` 索引把本类排进数组并累加几何；[Crafting](../Crafting) 的 `SwitchToPiece` / `ScaleThePiece` / `GetRandomPieceOfType` / `SwitchToCraftedItem` 全程操作本类
 - 槽位定义来源：`CraftingPiece.PieceTypes`（`Invalid = -1 / Blade / Guard / Handle / Pommel`）同时是 `CraftingTemplate.BuildOrders` 里的 `PieceData.PieceType`
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../CraftingPiece`](../CraftingPiece) · [`../WeaponDesign`](../WeaponDesign) · [`../Crafting`](../Crafting)
+- 父索引：[`../_index`](../_index)

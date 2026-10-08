@@ -190,3 +190,8 @@ Debug.Print("round-trip ok: " + parsed, 0);
 - 序列化：[BodyPropertiesJsonConverter](../BodyPropertiesJsonConverter) 让它能进 JSON，存档与网络同步都靠这条
 - 使用者：角色/单位的体型数据由 [ItemObject](../ItemObject) 的 `BodyName` / `RecalculateBody` 之类字段间接引用，装备走 [Equipment](../Equipment) 的 12 槽容器
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../DynamicBodyProperties`](../DynamicBodyProperties) · [`../StaticBodyProperties`](../StaticBodyProperties) · [`../BodyPropertiesJsonConverter`](../BodyPropertiesJsonConverter)
+- 父索引：[`../_index`](../_index)

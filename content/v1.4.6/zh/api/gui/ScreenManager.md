@@ -263,3 +263,8 @@ ScreenManager.ReplaceTopScreen(new MyLedgerScreen());
 - 输入：`InputRestrictions`、`CursorType` 与本类同命名空间；底层按键来自 `TaleWorlds.InputSystem`。
 - 界面里用到战役数据时参见 [Campaign](../../campaign/Campaign)。
 - 父级：[gui API 目录导览](../)
+
+## 导航
+
+- 同桶：[`../ScreenBase`](../ScreenBase) · [`../ScreenLayer`](../ScreenLayer) · [`../ScreenComponent`](../ScreenComponent)
+- 父索引：[`../_index`](../_index)

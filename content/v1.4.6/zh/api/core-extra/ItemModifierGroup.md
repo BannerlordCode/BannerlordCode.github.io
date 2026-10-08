@@ -197,3 +197,8 @@ if (blade != null && blade.ItemComponent != null)
 - 消费者：[Equipment](../Equipment) 的 `GetRandomEquipmentElements` 是全树唯一的 `GetRandomItemModifier*` 调用方
 - 生效值：[EquipmentElement](../EquipmentElement) 的 `GetModified*` 系列在加工裸值时读取所属词缀
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../ItemModifier`](../ItemModifier) · [`../ItemComponent`](../ItemComponent) · [`../Equipment`](../Equipment)
+- 父索引：[`../_index`](../_index)

@@ -155,3 +155,8 @@ starter.AddWaitGameMenu("wait_at_my_hideout",
 - 存档接口：[IDataStore](../IDataStore) — Behavior 的 `SyncData` 参数类型。
 - 实现接口：`IGameStarter` 在核心桶，注册点由 `MBSubModuleBase.OnGameStart` 提供。
 - 父级：[campaign API 目录导览](../)
+
+## 导航
+
+- 同桶：[`../CampaignBehaviorBase`](../CampaignBehaviorBase) · [`../CampaignEvents`](../CampaignEvents) · [`../IDataStore`](../IDataStore)
+- 父索引：[`../_index`](../_index)

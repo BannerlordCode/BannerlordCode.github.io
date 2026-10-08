@@ -242,3 +242,8 @@ Game.Current.Save(campaignMetaData, "slot_1", saveDriver, (SaveResult result) =>
 - 架构地图：[模块地图](../../../architecture/module-map)
 
 - 上一级：[v1.4.6 内容根](../../../)
+
+## 导航
+
+- 同桶：[`../GameManagerBase`](../GameManagerBase) · [`../GameStateManager`](../GameStateManager) · [`../DefaultSkills`](../DefaultSkills)
+- 父索引：[`../_index`](../_index)

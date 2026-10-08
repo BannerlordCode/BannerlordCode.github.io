@@ -151,3 +151,8 @@ Game.Current.EventManager.RegisterEvent<NotAnEvent>(o => Debug.Print("never", 0)
 - 典型宿主：[Game](../Game) 的 `EventManager` 属性（`Destroy()` 时被 `Clear()` 并置 null）
 - 兄弟机制：`TaleWorlds.CampaignSystem` 的 `IMbEvent` / `MbEvent<T>` 是不相干的另一套
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../EventManager`](../EventManager) · [`../Game`](../Game)
+- 父索引：[`../_index`](../_index)

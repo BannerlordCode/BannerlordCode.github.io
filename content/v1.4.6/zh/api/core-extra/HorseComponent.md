@@ -213,3 +213,8 @@ foreach (HorseComponent.MaterialProperty material in horse.HorseMaterialNames)
 - 词缀：[ItemModifierGroup](../ItemModifierGroup) 与 `ItemModifier.ModifyMount*`
 - 注册与查找：[MBObjectManager](../../campaign-ext/MBObjectManager) 解析 `skeleton_scale`
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../Monster`](../Monster) · [`../SkeletonScale`](../SkeletonScale) · [`../ItemObject`](../ItemObject)
+- 父索引：[`../_index`](../_index)

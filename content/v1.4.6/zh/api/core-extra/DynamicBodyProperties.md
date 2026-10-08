@@ -205,3 +205,8 @@ Debug.Print("=> Invalid 无法与真实 0 值区分，需要自己另带标记",
 - 随机化来源：[FaceGen](../FaceGen) 的 `GetRandomBodyProperties(...)` 产出的正是组合后的 [BodyProperties](../BodyProperties)，其动态部分在 min/max 之间插值
 - 序列化：[BodyPropertiesJsonConverter](../BodyPropertiesJsonConverter) 把组合后的 [BodyProperties](../BodyProperties) 写成 `{"_data": "<BodyProperties>…"}`，动态部分就出现在那个 XML 串的 `age` / `weight` / `build` 属性上
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../BodyProperties`](../BodyProperties) · [`../StaticBodyProperties`](../StaticBodyProperties) · [`../FaceGen`](../FaceGen)
+- 父索引：[`../_index`](../_index)

@@ -310,3 +310,8 @@ if (cavalry != null && cavalry.CountOfUnits > 0)
 - 原生绑定：`MBTeam`（`TaleWorlds.MountAndBlade/MBTeam.cs`）、`BattleSideEnum`、`TeamSideEnum`、`FormationClass`（均属 `TaleWorlds.Core`，尚未撰写页，现为纯文本）。
 - 队友与命令：`TeamQuerySystem` · `DetachmentManager` · `OrderController` · `TeamAIComponent` · `TacticComponent` · `TroopTraitsMask`（同桶内类型，尚未撰写页）。
 - 桶导览：[mission-ext 桶导览](../) · 架构：[模块地图](../../../architecture/module-map)
+
+## 导航
+
+- 同桶：[`../OrderController`](../OrderController) · [`../MissionObject`](../MissionObject) · [`../ArrangementOrder`](../ArrangementOrder)
+- 父索引：[`../_index`](../_index)

@@ -234,3 +234,8 @@ public GauntletView Resolve(Widget clicked)
 - 组件类型：[ScreenComponent](../ScreenComponent) — 界面里的共享非可视状态，与本类的绑定数据是两回事。
 - 模块归属：[gui API 目录导览](../)
 - 分层说明：[模块地图](../../../architecture/module-map)
+
+## 导航
+
+- 同桶：[`../ScreenLayer`](../ScreenLayer) · [`../ScreenComponent`](../ScreenComponent) · [`../ScreenManager`](../ScreenManager)
+- 父索引：[`../_index`](../_index)

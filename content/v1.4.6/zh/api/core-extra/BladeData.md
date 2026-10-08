@@ -214,3 +214,8 @@ Debug.Print("pieces=" + pieces.Count + " withBlade=" + withBlade
 - 本地化：[TextObject](../../localization/TextObject) 承载 [CraftingPiece](../CraftingPiece) 的 `Name`，刀身数据本身不含文本
 - 模块地图：[module-map](../../../architecture/module-map)
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../CraftingPiece`](../CraftingPiece) · [`../Crafting`](../Crafting) · [`../WeaponComponentData`](../WeaponComponentData)
+- 父索引：[`../_index`](../_index)

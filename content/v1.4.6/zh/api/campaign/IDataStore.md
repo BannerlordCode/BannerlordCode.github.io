@@ -173,3 +173,8 @@ public class MercenaryRoster : CampaignBehaviorBase
 - 存档执行方：[SaveManager](../../save-system/SaveManager) — 实际创建并驱动 `IDataStore` 实现的流程总管。
 - 对象层：[MBObjectBase](../../campaign-ext/MBObjectBase) — 与 `IDataStore` 并列的另一套保存机制。
 - 父级：[campaign API 目录导览](../)
+
+## 导航
+
+- 同桶：[`../CampaignBehaviorBase`](../CampaignBehaviorBase) · [`../CampaignGameStarter`](../CampaignGameStarter) · [`../Campaign`](../Campaign)
+- 父索引：[`../_index`](../_index)

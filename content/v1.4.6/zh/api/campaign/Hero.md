@@ -404,3 +404,8 @@ if (lord != null && lord.IsActive && lord.HomeSettlement != null)
 - 定居点：[Settlement](../Settlement) — `HomeSettlement` / `CurrentSettlement` 的元素类型。
 - 战斗内对应物：[Agent](../../mission/Agent) — 战场上的「那个人」。
 - 父级：[campaign API 目录导览](../)
+
+## 导航
+
+- 同桶：[`../Clan`](../Clan) · [`../Settlement`](../Settlement) · [`../CampaignEvents`](../CampaignEvents)
+- 父索引：[`../_index`](../_index)

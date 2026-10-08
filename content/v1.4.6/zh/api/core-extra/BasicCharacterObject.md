@@ -307,3 +307,8 @@ Debug.Print("race now " + character.Race + " female=" + character.IsFemale, 0);
 - 锻造：[Crafting](../Crafting) 的合成武器最终会作为 `ItemObject` 装进本类的装备套
 - 玩法层：[Hero](../../campaign/Hero) 属于 `TaleWorlds.CampaignSystem` 那一层，其角色数据最终由本类的战役派生类承载
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../Equipment`](../Equipment) · [`../BodyProperties`](../BodyProperties) · [`../FaceGen`](../FaceGen)
+- 父索引：[`../_index`](../_index)

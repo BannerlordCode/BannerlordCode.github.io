@@ -207,3 +207,8 @@ public class MyLegendaryComponent : ItemComponent
 - 落位：[EquipmentElement](../EquipmentElement) / [EquipmentIndex](../EquipmentIndex) 决定组件算出来的数值最终装备到哪个槽
 - 同族对象：[PropertyObject](../PropertyObject) 是另一条完全独立的「带名字与描述的 MBObjectBase」基线，常被拿来做对照
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../ItemObject`](../ItemObject) · [`../WeaponComponent`](../WeaponComponent) · [`../ArmorComponent`](../ArmorComponent)
+- 父索引：[`../_index`](../_index)

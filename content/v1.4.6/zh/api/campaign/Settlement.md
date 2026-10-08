@@ -331,3 +331,8 @@ if (nearest != null)
 - Behavior 层：[CampaignBehaviorBase](../CampaignBehaviorBase) · [IDataStore](../IDataStore)。
 - 对象注册表：[MBObjectManager](../../campaign-ext/MBObjectManager) — `Find` 最终落到它的 `GetObject<Settlement>`。
 - 父级：[campaign API 目录导览](../)
+
+## 导航
+
+- 同桶：[`../Hero`](../Hero) · [`../Clan`](../Clan) · [`../Campaign`](../Campaign)
+- 父索引：[`../_index`](../_index)

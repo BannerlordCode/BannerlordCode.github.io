@@ -200,3 +200,8 @@ if (!SaveManager.CheckSaveableTypes().Contains(typeof(MyTradeContract)))
 - 真实根类型示例：[Game](../../core-extra/Game) 标了 `[SaveableRootClass(5000)]`
 
 - 上一级：[v1.4.6 内容根](../../../)
+
+## 导航
+
+- 同桶：[`../DefinitionContext`](../DefinitionContext) · [`../SaveManager`](../SaveManager) · [`../SaveableFieldAttribute`](../SaveableFieldAttribute)
+- 父索引：[`../_index`](../_index)

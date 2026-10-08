@@ -317,3 +317,8 @@ Debug.Print("arrow air friction = " + friction, 0);
 - 品质：[ItemModifierGroup](../ItemModifierGroup) 经武器形态挂到物品上
 - 技能：[SkillObject](../SkillObject) 出现在 `RelevantSkill` 的返回值里（武器走 `PrimaryWeapon.RelevantSkill`，马匹走 `DefaultSkills.Riding`）
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../ItemComponent`](../ItemComponent) · [`../WeaponComponent`](../WeaponComponent) · [`../ItemModifierGroup`](../ItemModifierGroup)
+- 父索引：[`../_index`](../_index)

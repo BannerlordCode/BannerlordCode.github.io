@@ -311,3 +311,8 @@ Debug.Print("oneHanded=" + made.IsOneHanded + " tier=" + made.WeaponTier, 0);
 - 加载来源：`TaleWorlds.Core.Game.LoadBasicFiles()` 里的 `LoadXML("WeaponDescriptions", false)`，由 `WeaponComponent.Deserialize` 逐形态构造
 - 模块地图：[module-map](../../../architecture/module-map)
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../WeaponComponent`](../WeaponComponent) · [`../ItemObject`](../ItemObject) · [`../SkillObject`](../SkillObject)
+- 父索引：[`../_index`](../_index)

@@ -263,3 +263,8 @@ public class MyInventoryComponent
 - 反射回调链：[MBSubModuleBase](../../core/MBSubModuleBase) 的 `OnGameStart` / `RegisterSubModuleTypes` 等回调最终落到本类的抽象成员上
 
 - 上一级：[v1.4.6 内容根](../../../)
+
+## 导航
+
+- 同桶：[`../Game`](../Game) · [`../GameStateManager`](../GameStateManager) · [`../GameState`](../GameState)
+- 父索引：[`../_index`](../_index)

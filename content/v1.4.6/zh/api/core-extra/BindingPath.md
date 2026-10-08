@@ -179,3 +179,8 @@ moved.DecrementIfRelatedWith(new BindingPath("List"), 0);
 - 唯一消费者：[ViewModel](../ViewModel) 的 `GetViewModelAtPath(BindingPath)` / `GetViewModelAtPath(BindingPath, bool)` 逐段解析本对象
 - 组合目标：路径终点通常是另一个 `ViewModel`（递归）或 `IMBBindingList`（按下标取）
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../ViewModel`](../ViewModel) · [`../PropertyObject`](../PropertyObject) · [`../MBList`](../MBList)
+- 父索引：[`../_index`](../_index)

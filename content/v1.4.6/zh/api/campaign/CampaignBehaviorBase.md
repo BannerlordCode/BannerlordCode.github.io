@@ -164,3 +164,8 @@ public override void OnGameStart(Game game, IGameStarter gameStarter)
 - 事件源：[CampaignEvents](../CampaignEvents) — `RegisterEvents` 里订阅的主要来源。
 - 对象基类：[MBObjectBase](../../campaign-ext/MBObjectBase) — Behavior 不继承它，但 `Hero`、`Settlement` 等被 Behavior 操作的实体都继承它。
 - 父级：[campaign API 目录导览](../)
+
+## 导航
+
+- 同桶：[`../CampaignGameStarter`](../CampaignGameStarter) · [`../IDataStore`](../IDataStore) · [`../CampaignEvents`](../CampaignEvents)
+- 父索引：[`../_index`](../_index)

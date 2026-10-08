@@ -264,3 +264,8 @@ if (settlement != null)
 - 调用方：[BasicCharacterObject](../BasicCharacterObject) 的 `GetBodyProperties` / `MaxHitPoints` / `GetDefaultFaceSeed` 与 `Deserialize` 里的种族解析都经过本类
 - 载荷类型：`GetRandomBodyProperties` 的 `hairCoverType` 参数来自护甲组件的 `HairCoverTypes` 枚举，[Equipment](../Equipment) 的槽位数据最终会走到这里
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../BodyProperties`](../BodyProperties) · [`../BasicCharacterObject`](../BasicCharacterObject) · [`../StaticBodyProperties`](../StaticBodyProperties)
+- 父索引：[`../_index`](../_index)

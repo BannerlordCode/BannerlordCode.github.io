@@ -222,3 +222,8 @@ Debug.Print("production pick = " + produced.StringId, 0);
 - 本地化：[TextObject](../../localization/TextObject) 承载 `Name`，`Deserialize` 用 `XmlHelper.ReadString` 填
 - 模块地图：[module-map](../../../architecture/module-map)
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../ItemModifierGroup`](../ItemModifierGroup) · [`../ItemObject`](../ItemObject) · [`../WeaponComponent`](../WeaponComponent)
+- 父索引：[`../_index`](../_index)

@@ -181,3 +181,8 @@ if (doctrine != null && Campaign.PlayerTraitDeveloper.HasProperty(doctrine))
 - 存档：[SaveManager](../../save-system/SaveManager) 与 `SaveableCampaignTypeDefiner.ConstructGenericClassDefinition(typeof(PropertyOwner<PropertyObject>))`
 - 同桶对照：[TradeItemComponent](../TradeItemComponent) / [SaddleComponent](../SaddleComponent) 是另一条「`ItemComponent` 派生 + 无自有数据」的反面基线，可拿来对比本类型的「有自有数据」风格
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../SkillObject`](../SkillObject) · [`../BannerEffect`](../BannerEffect) · [`../DefaultSkills`](../DefaultSkills)
+- 父索引：[`../_index`](../_index)

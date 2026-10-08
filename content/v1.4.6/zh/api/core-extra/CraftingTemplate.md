@@ -230,3 +230,8 @@ foreach (CraftingPiece piece in template.Pieces)
 - 装载基类：[MBObjectBase](../../campaign-ext/MBObjectBase) 提供 `StringId` 与 `Deserialize` 契约；[MBObjectManager](../../campaign-ext/MBObjectManager) 负责 `GetObjectTypeList` 与 `GetObject`
 - 依赖注入时机：解析 `modifier_group` 时用到 [Game](../Game) 的 `Game.Current.ObjectManager`
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../Crafting`](../Crafting) · [`../CraftingPiece`](../CraftingPiece) · [`../WeaponDesign`](../WeaponDesign)
+- 父索引：[`../_index`](../_index)

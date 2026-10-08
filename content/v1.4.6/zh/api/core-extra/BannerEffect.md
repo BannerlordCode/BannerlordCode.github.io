@@ -209,3 +209,8 @@ Debug.Print("total=" + effects.Count + " unconfigured=" + zeroed, 0);
 - 本地化：[TextObject](../../localization/TextObject) 承载名称与描述，`SetTextVariable` 在这里做占位符替换
 - 模块地图：[module-map](../../../architecture/module-map)
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../PropertyObject`](../PropertyObject) · [`../BannerComponent`](../BannerComponent) · [`../ItemObject`](../ItemObject)
+- 父索引：[`../_index`](../_index)

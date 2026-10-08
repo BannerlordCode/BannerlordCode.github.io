@@ -205,3 +205,8 @@ public class MySaddleComponent : SaddleComponent
 - 槽位：[EquipmentIndex](../EquipmentIndex) 的 `HorseHarness`（11）是鞍具的实际落位处
 - 兄弟分支：[TradeItemComponent](../TradeItemComponent) 是直连 `ItemComponent` 且有数据的最小实现，[BannerComponent](../BannerComponent) 是跨一层继承的实现——三者合起来覆盖了「单槽组件」的两种极端
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../ItemComponent`](../ItemComponent) · [`../ItemObject`](../ItemObject) · [`../TradeItemComponent`](../TradeItemComponent)
+- 父索引：[`../_index`](../_index)

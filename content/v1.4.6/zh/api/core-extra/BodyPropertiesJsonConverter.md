@@ -167,3 +167,8 @@ public class CharacterLookPayload
 - 载荷组成：那段 XML 串里的 `age` / `weight` / `build` 来自 [DynamicBodyProperties](../DynamicBodyProperties)，`key` 属性是 128 位十六进制的 [StaticBodyProperties](../StaticBodyProperties)
 - 基类：`Newtonsoft.Json.JsonConverter`（`Newtonsoft.Json.dll`），源码树里随游戏一起分发 `Newtonsoft.Json/` 目录
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../BodyProperties`](../BodyProperties) · [`../DynamicBodyProperties`](../DynamicBodyProperties) · [`../StaticBodyProperties`](../StaticBodyProperties)
+- 父索引：[`../_index`](../_index)

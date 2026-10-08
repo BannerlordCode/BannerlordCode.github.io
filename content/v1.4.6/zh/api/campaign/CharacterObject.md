@@ -289,3 +289,8 @@ if (baseTemplate != null)
 - 挂载方式：[CampaignBehaviorBase](../CampaignBehaviorBase) · [IDataStore](../IDataStore) · [CampaignEvents](../CampaignEvents)。
 - 同桶：`Settlement`（尚未撰写，现为纯文本）· `PartyBase`（尚未撰写）。
 - 桶导览：[campaign API 目录导览](../) · 架构：[模块地图](../../../architecture/module-map)
+
+## 导航
+
+- 同桶：[`../Hero`](../Hero) · [`../Clan`](../Clan) · [`../Campaign`](../Campaign)
+- 父索引：[`../_index`](../_index)

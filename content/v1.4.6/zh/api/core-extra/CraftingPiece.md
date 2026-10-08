@@ -236,3 +236,8 @@ foreach (CraftingPiece piece in template.Pieces)
 - 装载基类：[MBObjectBase](../../campaign-ext/MBObjectBase) 提供 `StringId` 与 `Deserialize` 契约；[MBObjectManager](../../campaign-ext/MBObjectManager) 负责 id 寻址
 - 依赖注入时机：`All` 走 [Game](../Game) 的 `Game.Current.ObjectManager`（与 [CraftingTemplate](../CraftingTemplate) 的 `MBObjectManager.Instance` 不同）
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../WeaponDesignElement`](../WeaponDesignElement) · [`../WeaponDesign`](../WeaponDesign) · [`../CraftingTemplate`](../CraftingTemplate)
+- 父索引：[`../_index`](../_index)

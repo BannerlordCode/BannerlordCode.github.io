@@ -177,3 +177,8 @@ Debug.Print("fine modifiers=" + converted.Count + " beneficial=" + beneficial, 0
 - 转换链：[IGameStarter](../IGameStarter) 的 `Models` 返回 `IEnumerable<GameModel>`，正是 `ToMBList` 的输入
 - 模块地图：[module-map](../../../architecture/module-map)
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../GameModelsManager`](../GameModelsManager) · [`../WeaponComponentData`](../WeaponComponentData) · [`../ItemObject`](../ItemObject)
+- 父索引：[`../_index`](../_index)

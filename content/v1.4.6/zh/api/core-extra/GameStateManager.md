@@ -203,3 +203,8 @@ public void OnPushState(GameState activeState, bool isTopGameState)
 - 管理器基类：[GameManagerBase](../GameManagerBase) 持有 `Game`，间接驱动本类的 `OnTick`
 
 - 上一级：[v1.4.6 内容根](../../../)
+
+## 导航
+
+- 同桶：[`../GameState`](../GameState) · [`../Game`](../Game) · [`../GameManagerBase`](../GameManagerBase)
+- 父索引：[`../_index`](../_index)

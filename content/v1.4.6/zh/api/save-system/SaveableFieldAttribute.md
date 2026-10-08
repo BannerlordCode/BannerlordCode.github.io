@@ -144,3 +144,8 @@ if (missing.Contains(typeof(MyLedgerEntry)))
 - 消费方：[SaveManager](../SaveManager) 的 `CheckSaveableTypes()` / `Save(...)` 会按这些槽位号序列化
 
 - 上一级：[v1.4.6 内容根](../../../)
+
+## 导航
+
+- 同桶：[`../SaveablePropertyAttribute`](../SaveablePropertyAttribute) · [`../SaveableTypeDefiner`](../SaveableTypeDefiner) · [`../SaveManager`](../SaveManager)
+- 父索引：[`../_index`](../_index)

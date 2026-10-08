@@ -226,3 +226,8 @@ if (Banner.TryGetBannerDataFromCode(Banner.CreateRandomBanner().BannerCode, out 
 - 视觉生成：[Game](../Game) 的 `BannerVisualCreator` / `CreateBannerVisual(Banner)` 产出 `IBannerVisual`
 - 存档：`_bannerDataList` 标了 `[SaveableField(1)]`，随 [SaveManager](../../save-system/SaveManager) 落盘
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../BannerComponent`](../BannerComponent) · [`../BannerEffect`](../BannerEffect) · [`../ItemObject`](../ItemObject)
+- 父索引：[`../_index`](../_index)

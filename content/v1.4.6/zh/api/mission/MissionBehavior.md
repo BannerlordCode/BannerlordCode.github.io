@@ -295,3 +295,8 @@ ArrowCounter counter = Mission.Current.GetMissionBehavior<ArrowCounter>();
 - 战役侧持久化：[CampaignBehaviorBase](../../campaign/CampaignBehaviorBase) — 跨任务需要保留的状态应放这里。
 - 界面：[ScreenManager](../../gui/ScreenManager) — 战斗中弹出的结算与提示界面从这里推入。
 - 父级：[mission API 目录导览](../)
+
+## 导航
+
+- 同桶：[`../Mission`](../Mission) · [`../Agent`](../Agent) · [`../Formation`](../Formation)
+- 父索引：[`../_index`](../_index)

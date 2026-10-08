@@ -158,3 +158,8 @@ if (loadResult.Successful)
 - 状态栈：[GameStateManager](../../core-extra/GameStateManager) 决定存档 UI 处于哪个状态
 
 - 上一级：[v1.4.6 内容根](../../../)
+
+## 导航
+
+- 同桶：[`../ISaveDriver`](../ISaveDriver) · [`../SaveableTypeDefiner`](../SaveableTypeDefiner) · [`../DefinitionContext`](../DefinitionContext)
+- 父索引：[`../_index`](../_index)

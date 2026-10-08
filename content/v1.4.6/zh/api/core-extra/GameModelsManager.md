@@ -183,3 +183,8 @@ Debug.Print("registered model count: " + count, 0);
 - 宿主：[Game](../Game) 的 `BasicModels` / `AddGameModelsManager<T>()` 反射构造本类并持有实例
 - 实际实现：`BasicGameModels`（官方）与各 mod 自建的 `GameModelsManager` 派生类
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../GameModel`](../GameModel) · [`../Game`](../Game) · [`../MBList`](../MBList)
+- 父索引：[`../_index`](../_index)

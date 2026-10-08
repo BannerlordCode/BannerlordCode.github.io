@@ -220,3 +220,8 @@ Debug.Print("len unchanged: " + (lengthBefore == design.TotalLength), 0);
 - 消费方：[Crafting](../Crafting) 的 `GenerateItem` / `InitializePreCraftedWeaponOnLoad` 消费本类，[ItemObject](../ItemObject) 的 `WeaponDesign` 属性持有它
 - 存档：[Game](../Game) 所在的存档系统按 `[SaveableField]` / `[SaveableProperty]` 编号读写
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../WeaponDesignElement`](../WeaponDesignElement) · [`../CraftingPiece`](../CraftingPiece) · [`../CraftingTemplate`](../CraftingTemplate)
+- 父索引：[`../_index`](../_index)

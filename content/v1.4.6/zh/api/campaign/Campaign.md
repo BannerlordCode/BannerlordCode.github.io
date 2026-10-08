@@ -391,3 +391,8 @@ public override void OnCampaignStart()
 - 典型实体：[Hero](../Hero) 与 [Settlement](../Settlement)。
 - 战斗内扩展：[MissionBehavior](../../mission/MissionBehavior) 与 [Mission](../../mission/Mission)。
 - 父级：[campaign API 目录导览](../)
+
+## 导航
+
+- 同桶：[`../CampaignBehaviorBase`](../CampaignBehaviorBase) · [`../CampaignEvents`](../CampaignEvents) · [`../CampaignGameStarter`](../CampaignGameStarter)
+- 父索引：[`../_index`](../_index)

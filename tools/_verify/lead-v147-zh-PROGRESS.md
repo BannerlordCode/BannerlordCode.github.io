@@ -1599,6 +1599,34 @@ $ grep -n 'public GameModels Models' bannerlord-1.4.7/TaleWorlds.CampaignSystem/
 
 **★ 待办**：`BarterModel.md` 仍是 714 B 骨架（未完成）⇒ 需补写或撤回；`AgeModel.md` 的 `CampaignModels` 必须修正。
 
+### 0.55 本线收尾登记（预算耗尽，**干净停止 + 完整登记**，不草草补写）
+
+**已完成并提交**：**55 页**（b1 9 + b2 9 + b3 9 + b4 16 + b5 12）· 2 个新桶 · 索引与磁盘逐数相等（134 篇 / 14 有页桶 / 5 空桶 / 19 桶目录）·
+两套门禁绿（`audit-links` EXIT=0 · v1.4.7 orphans=0）· 三个共享工具 + 夹具 + 全部锚表 + 台账均已入 git。
+
+**未完成项（均未提交，**登记而不补写**）**
+
+**① `content/v1.4.7/zh/api/campaign-ext/AgeModel.md`** —— 九条判据全绿，但**两个内容类缺陷**（均为 minimal brief 删掉内容类规则所致）：
+| # | 缺陷 | 状态 |
+|---|---|---|
+| 1 | `:38` 把 **`CampaignModels`** 当作另一种获取方式（**全树 0 命中**）| ✅ **已修**：改为「`Campaign.Current.Models`（该属性在 `Campaign.cs:529` 声明，类型是 `GameModels`）」；实测 `grep -c CampaignModels` = 0，且 `Campaign.cs:529 public GameModels Models` 已核实 |
+| 2 | 参见里的 `](../Campaign)` —— **跨桶链接深度写错**，解析到 `campaign-ext/Campaign.md`（**不存在**）| ❌ **未修**；正确写法是 `](../../campaign/Campaign)`（目标 `api/campaign/Campaign.md` 存在，已实测）|
+⇒ 不动点：`HOLD AgeModel`，两条 unsatisfied：`../DefaultAgeModel`（伙伴页未写）与 `../Campaign`（**就是这个缺陷**）。
+⇒ **第二个缺陷是同一根因的第二个产物**：minimal brief 删掉了链接白名单 ⇒ worker 自己猜深度 ⇒ 猜错。
+
+**② `content/v1.4.7/zh/api/campaign-ext/BarterModel.md`** —— 仅 **714 B 骨架**（7 个 H2 标题但无内容），未完成。
+
+**③ `content/v1.4.7/zh/api/campaign-ext/DefaultAgeModel.md`** —— 未落盘（Age 对的另一半）。
+
+**★ 为何停在这里而不收尾**（boss-4 #22962 裁定，我执行）：
+> 若预算不足以支撑任何派单 ⇒ 两件都登记为未完成项并干净停止 —— **这优于草草收尾**。
+> （本会话已多次证明「一个被截断的 brief 比一个干净的停止更糟」。）
+
+**★ 下一轮的直接输入**（已定形态，不需重新探索）
+1. brief 形态：**格式类最小 + 内容类保留**（格式类交 R2；内容类：名字来源、未测量断言、**链接白名单**）。
+2. 上面 ① 的缺陷 2 是一行修正；② 需重写；③ 需新写（与 ① 成对）。
+3. 新 brief 需补两条已确认的门禁语义：**黑盒（不读判分器实现）**、**`## 关键成员` 节内的辅助表格也计入 `members`**。
+
 ### 0.4 判分器口径确认（避免重蹈 lead-26 的 D-v147-1 结论）
 
 lead-26 记「J2 七节对 v1.4.7 不适用」——**该结论与本次派单冲突，以派单为准**。

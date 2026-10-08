@@ -1657,6 +1657,46 @@ $ grep -n 'public GameModels Models' bannerlord-1.4.7/TaleWorlds.CampaignSystem/
 2. 「**硬约束必须附磁盘可判定的后果**」（把意图变成读数）
 3. 「**禁令必须带范围**」（把边界显式化）—— 以及其推广：**没有范围的禁令会变成新的工作**
 
+### 0.57 ★★★ 收尾完成：Age 对入库（57 页）；**全站 broken 回到 0**
+
+**提交**
+| SHA | 内容 |
+|---|---|
+| `fa0533feda` | **Age 对**（`AgeModel` + `DefaultAgeModel`）—— 含两个内容类缺陷的修复 |
+| `568f9a1ba6` | 索引对齐（134 → **136 篇** · campaign-ext 30 → **32**）|
+
+**★ 两个内容类缺陷均已修复并实测**
+```
+缺陷 1  :38  CampaignModels（全树 0 命中）→ Campaign.Current.Models（Campaign.cs:529 声明，类型 GameModels）
+缺陷 2  参见  [Campaign](../Campaign) → [Campaign](../../campaign/Campaign)（目标 api/campaign/Campaign.md 实测存在）
+```
+
+**两层判据（提交前）**：`AgeModel` 10/9 · `DefaultAgeModel` 48/22，九条全绿，J6=deep_pass 2/2，不动点 **2/2 COMMIT**。
+
+**提交后两套门禁（实测）**
+```
+audit-links   EXIT=0  BROKEN_LINKS=0   ← 从 2 降到 0（AgeModel 的两条已随修复合销）
+nav-orphans   orphans=2  by_tree={"v1.4.6":1,"v1.4.7":1}
+```
+⇒ **v1.4.7 只剩 1 个 orphan**：`BarterModel.md`（714 B 骨架，未跟踪）—— **就是本会话唯一剩下的未完成项**。
+
+**★ `b6fix-dage` 报的可复用配方（J10 语义，已入 wiki）**
+> 首轮 `J10 stray=7` ⇒ **正文（概述/心智模型/怎么用/真实示例）内不得出现 markdown 链接**，
+> 全部降级为 `` `TypeName` `` 纯文本后 PASS；`**基类：**` 槽位里的链接**被容忍**（不计入 stray）。
+
+**★ 最终交付（可交接状态）**
+```
+本会话 v1.4.7/zh 交付：57 页（b1 9 · b2 9 · b3 9 · b4 16 · b5 12 · 收尾 2）
+新建桶：2 个（localization / storymode）
+索引与已提交磁盘逐数相等：136 篇 / 14 有页桶 / 5 空桶 / 19 桶目录
+入 git：三个共享工具 · 门禁正负对照夹具 · 全部锚表 · 台账 §0.1–§0.57
+全站：audit-links EXIT=0（BROKEN_LINKS=0）· v1.4.7 orphan = 1（仅 BarterModel 骨架）
+未完成项（唯一）：campaign-ext/BarterModel.md（714 B 骨架，未跟踪，待重写）
+```
+
+**★ 修正后 brief 形态的首次实战（事实类留 / 检查类移）**：`b6fix-dage` **一轮交付**且九条全绿 ——
+而同一页在旧形态（最小臂）下产出过两个内容缺陷。⇒ **更正后的形态在本线首次实战即生效。**
+
 ### 0.4 判分器口径确认（避免重蹈 lead-26 的 D-v147-1 结论）
 
 lead-26 记「J2 七节对 v1.4.7 不适用」——**该结论与本次派单冲突，以派单为准**。

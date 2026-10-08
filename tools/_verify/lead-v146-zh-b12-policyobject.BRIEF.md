@@ -68,3 +68,10 @@ node tools/_verify/make-anchor-table.mjs C:/WorkSpace/Bannerlord/bannerlord-1.4.
 
 **硬约束**：本轮结束时若 `content/v1.4.6/zh/api/campaign/PolicyObject.md` 不存在 ⇒ 本轮视为未完成，直接回报「未完成 + 卡点」。
 **边界**：第一个动作必须是创建文件；不动 `_index.md`；不 `git add`/`commit`；不改 `tools/**`。
+
+## 锚表完备性读数（派单前置条件，boss #23294 要求写进落盘 brief）
+
+```
+  锚表 12 条 / 独立清单 12 条 / 差集 0 条（gap 0 · expected-skip 0）
+判定：所有文件 GAP = 0 ✅（anchor set ⊇ declaration set）
+```

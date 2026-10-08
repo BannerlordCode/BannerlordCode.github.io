@@ -50,7 +50,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 
 **同批待办**：其它桶的 `_index.md` 很可能有同一处遗漏。本次只普查了 campaign 桶，**其它桶未核对**，别拿本页的结论去推断它们。
 
-## 已撰写的类页（40 张）
+## 已撰写的类页（41 张）
 
 桶索引的 route 就是桶目录本身。映射表里那条「桶索引到叶子页」的规则要求写成 `./<Name>`，也就是桶索引到同级叶子页写 `./Campaign` 这种形式。
 
@@ -77,6 +77,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 - [ExplainedNumber](./ExplainedNumber) — **带解释的数值**（`public struct ExplainedNumber`，376 行）。它是「基础值 + 一串带解释的增减项」的记账本：最终值由 `BaseNumber + BaseNumber * SumOfFactors` 算出，而每一项变更都记下「谁加的、加了多少」，所以 UI 能把数值来源逐条列给玩家。**mod 为什么应该用它而不是裸 `float`**：裸 float 只能给结果，`ExplainedNumber` 同时给**可解释性**（玩家能看到每一项的来源）—— 这也是官方所有 `*Model` 返回它的原因。两个易错点：`Add` 加的是**会被乘法因子放大**的绝对值，`AddFactor` 只累积百分比；且它是 **struct 且必须 `ref` 传递**，否则改的是副本。✅ `TaleWorlds.CampaignSystem/ExplainedNumber.cs`
 - [MobilePartyAi](./MobilePartyAi) — 队伍的 **AI 决策实现**（`public class MobilePartyAi`，1,894 行），挂在 `MobileParty.Ai` 上。它是「**决策生成器**」而不是「行为执行器」：谁喂输入（思考参数）→ 评分与权重如何产生长期意图 → 结果写回队伍 → 何时重新决策。**mod 选层指南**（本页最有价值的部分）：想改**评分规则**就覆写 `MobilePartyAIModel`；想改**单队的长期意图**用 `MobileParty.SetMove*`；想**微调单队**用 `SetInitiative` / `SetDoNotMakeNewDecisions` / `DisableForHours`；想**完全接管**用 `DisableAi` 后自己驱动。三个已记录的坑：`Initiative` 读取带过期语义、`SetInitiative` 对**主队是空操作**、读档不走 setter 所以需 `CacheAiBehaviorPartyBase()`。✅ `TaleWorlds.CampaignSystem/Party/MobilePartyAi.cs`
 - [CampaignTime](./CampaignTime) — **战役时间**的值类型（`public struct CampaignTime : IComparable<CampaignTime>`，753 行）。三族读法要分清：`To*` 是**纪元绝对量**、`Elapsed*UntilNow` 是**已过去多久**、`Remaining*FromNow` 是**还剩多久**。**两个最易踩的坑**：① 单位混用 —— `Milliseconds/Seconds/Minutes` 收 `long`，而 `Hours/Days/Weeks/Years` 收 `float`，把 `Hours(24f)` 当 `Days(1f)` 写不会报错但语义错；② 源码里 `operator -` 把两个 `long` 相减后**包回同一个结构体**，**没有独立的时长类型** ⇒ 相减结果应靠 `.ToDays` 读，对它用 `IsPast` / `Remaining*` 无意义。**存档**：内部 tick 带 `[SaveableField]`，所以能直接当 Behavior 字段走 `SyncData`；注意**存的是 tick 而不是日历**。✅ `TaleWorlds.CampaignSystem/CampaignTime.cs`
+- [Village](./Village) — **村庄实体**（`public class Village : SettlementComponent`，501 行）。**第一个要记的事实：它派生自 `SettlementComponent` 而不是 `Settlement`** —— 聚落本体是 `Settlement`，`Village` 是挂在它上面的**组件**，所以拿村庄本体要读 `village.Settlement`。核心状态：`Hearth`（炉灶值，决定村庄等级与人口）、`VillageType.Productions`（产出物品）、`VillageState` 五态状态机（正常 / 被劫掠 / 被围困等，setter 会派发事件）、以及 `Bound` / `TradeBound` 两个城镇绑定（所属城镇与交易城镇，**不是同一个**）。**坑**：改 `Hearth` 要理解它对每日生产与税收的连锁影响，不是单纯改个数字。✅ `TaleWorlds.CampaignSystem/Settlements/Village.cs`
 - [`ApplyHeirSelectionAction`](./ApplyHeirSelectionAction) — 领主选定继承人之后统一改写家族继承链的入口 ✅ `TaleWorlds.CampaignSystem/Actions/ApplyHeirSelectionAction.cs`
 - [`BreakInOutBesiegedSettlementAction`](./BreakInOutBesiegedSettlementAction) — 强攻被围聚落（突入 / 突围）的入口 ✅ `TaleWorlds.CampaignSystem/Actions/BreakInOutBesiegedSettlementAction.cs`
 - [`BribeGuardsAction`](./BribeGuardsAction) — 行贿守卫以放行或换取入城 ✅ `TaleWorlds.CampaignSystem/Actions/BribeGuardsAction.cs`

@@ -688,7 +688,98 @@ bfb103c813  tools    台账：批 6 读数 + 降级登记 + 规则A状态
 
 批 7 两个 worker（`b07-campaign` worker-293 · `b07-mission` worker-292）在跑，共 2 个活跃 worker。
 
+## 批次 7（v1.4.6/zh，8 页）—— 5/8 已入库
+
+### 提交记录
+
+| SHA | 内容 | 计数不变量 |
+| --- | --- | --- |
+| `faa1f43a83` | 4 页 mission-ext + `mission-ext/_index.md` | 4 页 ⇒ 索引 **+4** 行（实测）；`linked 9 = on-disk 9` |
+| `5e36bdfc8b` | `campaign/CampaignObjectManager.md` + `campaign/_index.md` | 1 页 ⇒ 索引 **+1** 行；`linked 33` |
+
+两笔均 `SELFCHECK_FAIL=0`、暂存区提交前 0 / 提交后 = 预期。
+
+### 四判据读数（全部 OK）
+
+| 页 | bad | checked | members | J13 | bare |
+| --- | --- | --- | --- | --- | --- |
+| `mission-ext/OrderController.md` | 0 | 48 | 34 | 0 | 0 |
+| `mission-ext/AgentDrivenProperties.md` | 0 | 33 | 30 | 0 | 0 |
+| `mission-ext/ArrangementOrder.md` | 0 | 38 | 27 | 0 | 0 |
+| `mission-ext/UsableMachine.md` | 0 | 94 | 65 | 0 | 0 |
+| `campaign/CampaignObjectManager.md` | 0 | 35 | 32 | 0 | 0 |
+
+### 未入库 3 页（worker-293 在写）
+
+`campaign/EncounterManager.md` · `campaign/GameMenuManager.md` · `campaign/QuestManager.md`
+
+### 本批管线改造的效果（正面对照）
+
+批 6 的初稿到达时：`checked=0`（MobileParty/PartyBase）、`J13=12/8/14`（MissionLogic/MissionObject/SaveContext）—— 都需返工。
+批 7 的初稿到达时：**5/5 页一次过四条判据**（`checked ≥ members`、`J13=0`、`bare=0`、`bad=0`）。
+
+差异来自四项派单改造（均已在 brief 里生效）：① 锚表**派单前**生成并交给写手；② 规则 B —— **不点名任何成员名**；③ 规则 C —— 明写读取上界 + 「先落盘再打磨」；④ 「关键成员表必须四列带行号列、只列 public/protected」写进 brief。
+
+### 一处抽查（不信任「听起来对」的断言）
+
+worker-292 的 `AgentDrivenProperties.md` 把「引擎会覆写 `SetStat`」作为核心心智模型。我 grep 核实：
+
+```bash
+grep -rn --include=*.cs -w 'UpdateDrivenProperties' bannerlord-1.4.6/TaleWorlds.MountAndBlade/
+# → Agent.cs:3943  float[] array = this.AgentDrivenProperties.UpdateDrivenProperties(this);
+```
+
+✅ 真实存在且在正确的位置 —— 该页的论断有源码支撑。（这正是本线三次伪造事故的反面：**抽查一个关键断言，而不是相信它听起来合理**。）
+
+### 批后门禁（实测）
+
+```bash
+node tools/audit-links.mjs  # → BROKEN_LINKS=8 · FILES_WITH_BROKEN=7
+node tools/nav-orphans.mjs  # → orphans=2 · by_tree={"v1.4.7":2} · **v1.4.6_orphans=0**
+```
+
+**7 个 broken 病灶全部是 `v1.4.7/zh/api/storymode/*`（别线在制品）**，本线文件一个也没出现。
+`CampaignObjectManager` 曾短暂成为本线唯一的 orphan（已落盘未接索引）—— 因为它**自身链接自洽**，我当即单独提交并接索引 ⇒ `v1.4.6_orphans` 回到 **0**。
+
+> 处置理由：boss 要求「本批不得让 orphans 上升」。该页当时已在盘上但未入 HEAD ⇒ HEAD 是干净的（READING-RULES ②），但我选择**直接消除它**而不是上报「属预期 WIP」，因为单页自洽就能提交，成本极低。
+
+### 团队卫生
+
+| worker | 交付 | 处置 |
+| --- | --- | --- |
+| `b07-mission`（worker-292） | 4 页全部入库且已独立验证 | **`team_cancel` ✅** |
+| `b07-campaign`（worker-293） | 1 页入库（CampaignObjectManager），剩 3 页在写 | 保留 |
+
+当前活跃 worker = 1。
+
 ## 操作教训（本线实测，写给后续 Lead）
+
+### 量具失败会报出「确信的错数」——不要直接拿它下结论
+
+**实例（本线，2026-10-08）**：我用
+
+```bash
+grep -oP '[\x{4e00}-\x{9fff}]' <page.md> | wc -l
+```
+
+检查新落盘页是否真是中文，四页全部返回 **`0`**。看上去像「四页全是英文」（严重问题）。改用 `node` 重测：
+
+```js
+const t = require('fs').readFileSync(p, 'utf8');
+(t.match(/[\u4e00-\u9fff]/g) || []).length
+// → 1442 / 1739 / 1627 / 1294
+```
+
+真因：**本机 GNU grep 的 `-P` 不支持 `\x{...}` 转义**，模式匹配不到任何东西 ⇒ 返回 0 而不是报错。
+
+**归入同一个家族**（与上文 6 个门禁洞同源）：**量具无法测量时返回了一个数，而那个数被读成了结论。** 区别只是这里量具是 shell 而不是判据。
+
+**处置**：
+- 报数前先拿一个**已知非零的样本**做阳性对照（本例：拿一篇已入库的中文页先跑一次）。
+- 跨语言/unicode 计数改用 `node`（或先 `node -e` 验证模式本身）。
+- 看到「全部为 0」这种齐整的读数，先怀疑量具，再怀疑语料。
+
+### 其余教训
 
 **artifact 声明必须用绝对路径。** Lead 的 cwd 是工作区根 `C:/WorkSpace/Bannerlord`，而该根下**另有一个 `tools/` 目录**（`C:/WorkSpace/Bannerlord/tools/_verify` 实测存在）。用相对路径 `tools/_verify/<台账>.md` 声明 artifact 时，存在性检查落到工作区根那份 ⇒ 假报「missing artifact」（本线已实测触发一次 supervisor error，文件其实一直在仓库里）。正确写法：
 

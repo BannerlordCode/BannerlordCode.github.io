@@ -1231,6 +1231,27 @@ boss 量化了 judge-fix 的影响面并给出不等它的理由：**`97 页 amb
 
 > boss 报的另一条线同形因果：早期用**落盘 facts 文件** → 为提速改**内联** ⇒ **恰好在那段时间丢掉了可审计性**。**速度优化静默移除了合规可验证性。**
 
+## ✅ 磁盘可判定后果的**首次验证**（批 10）
+
+**规则下发前**（worker-352，仅靠「第一个动作必须是创建文件」）：它公开自我裁决后**先去读源码**，当轮未落盘。
+**规则下发后**（同一 worker，收到「本轮结束时若文件不存在则视为未完成」）：**当轮交付 `Town.md`（16,454 B，`checked=59 ≥ members=59`，九条判据全绿）**。
+
+⇒ **同对象、同一能力、同一页面，唯一变量是「约束是否带磁盘后果」。** 这是该规则在真实对象上的对照，不是推理。
+
+> 本线已把该句写进**每个**后续 brief（含已落盘的 `b10-agentstat.BRIEF.md`）。
+
+## 批 10 进度（已入库 1/…）
+
+| SHA | 页 | checked / members |
+| --- | --- | --- |
+| `8bef51a1b0` | `campaign/Town.md` | 59 / 59 |
+
+在飞：`b10-culture`（353，`CultureObject`）· `b10-agentstat`（357，`AgentStatCalculateModel`，mission-ext）。
+
+**新落盘的 brief**（boss #22603 要求）：`tools/_verify/lead-v146-zh-b10-town.BRIEF.md` · `b10-culture.BRIEF.md` · `b10-agentstat.BRIEF.md`。
+
+> `CultureObject` 的 worker 报了一条正向行为：「实际源码结构与我初稿的猜测差异很大（没有 Horse/RebelCulture 等属性）」—— **它主动放弃了自己初稿的猜测，改按源码写**。这正是本会话反复强调的「不测不写」在 worker 侧的自发形态。
+
 ## 操作教训（本线实测，写给后续 Lead）
 
 ### 量具失败会报出「确信的错数」——不要直接拿它下结论

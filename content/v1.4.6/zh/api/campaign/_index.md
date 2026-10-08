@@ -50,7 +50,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 
 **同批待办**：其它桶的 `_index.md` 很可能有同一处遗漏。本次只普查了 campaign 桶，**其它桶未核对**，别拿本页的结论去推断它们。
 
-## 已撰写的类页（33 张）
+## 已撰写的类页（34 张）
 
 桶索引的 route 就是桶目录本身。映射表里那条「桶索引到叶子页」的规则要求写成 `./<Name>`，也就是桶索引到同级叶子页写 `./Campaign` 这种形式。
 
@@ -70,6 +70,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 - [MapEvent](./MapEvent) — 地图遭遇战的**本体**（`public sealed class MapEvent : MBObjectBase`，2,771 行）。它把「地图上两支队伍相遇」变成一场可结算的仗：双方各有一个 `MapEventSide`，具体玩法差异（野战 / 劫掠 / 突袭藏身处 / 围城伏击 / 封锁）挂在 `MapEventComponent` 的派生类上，生命周期由 `MapEventManager` 调度。玩家当前参与的那场读 `MapEvent.PlayerMapEvent`。**坑**：它承载结果与名册，不是改伤亡的地方——改伤亡走 `MapEventSide` 的接口，直接改会绕过事件派发。✅ `TaleWorlds.CampaignSystem/MapEvents/MapEvent.cs`
 - [CampaignEventDispatcher](./CampaignEventDispatcher) — 战役事件的**扇出器**（`public class CampaignEventDispatcher : CampaignEventReceiver`，2,867 行，276 个 `OnXxx`）。必须说清它与 `CampaignEvents` 的分工：`CampaignEvents` 上的静态事件是**发布口**，本类则是 `Campaign` 内部持有、把每个事件转发给所有已注册监听者的**执行者**（模式是「遍历监听者列表逐个转发」）。**所以 mod 作者通常只读不调** —— 正确姿势是用 `CampaignEvents` 订阅，或在 `CampaignBehaviorBase` 上覆写对应虚方法。想看「某个事件到底会通知到谁」，答案在本类的方法体里。✅ `TaleWorlds.CampaignSystem/CampaignEventDispatcher.cs`
 - [CampaignObjectManager](./CampaignObjectManager) — 战役实体的**注册表与查询中心**（`public class CampaignObjectManager`，998 行）。它把本桶各类实体（英雄、家族、王国、队伍、聚落、船只等）收成可枚举、可按 id 反查的集合，是 `Campaign.Current` 上那些 `AllXxx` 属性背后的实际持有者。**心智模型**：它是**索引**而不是**规则** —— 它告诉你有谁、怎么找，但不决定谁能被创建、谁该被销毁（那是各 `Action` 类与 `*Manager` 的事）。直接向它增删实体等于绕过所有业务规则与事件派发，读可以、写要小心。✅ `TaleWorlds.CampaignSystem/CampaignObjectManager.cs`
+- [EncounterManager](./EncounterManager) — 玩家遭遇流程的**调度处**（`TaleWorlds.CampaignSystem/EncounterManager.cs`，361 行）。它把「玩家与某方遇上」这件事在合适的时机启起来，是 `PlayerEncounter` 状态机与地图地图交互之间的那层开关。**心智模型**：它决定**什么时候开一场遭遇**，不决定遭遇里发生什么（那是 `PlayerEncounter` 与各 `LocationEncounter` 派生类的事）。想在某类遭遇发生前插一手，先读懂它的触发条件与调用时机。✅ `TaleWorlds.CampaignSystem/EncounterManager.cs`
 - [`ApplyHeirSelectionAction`](./ApplyHeirSelectionAction) — 领主选定继承人之后统一改写家族继承链的入口 ✅ `TaleWorlds.CampaignSystem/Actions/ApplyHeirSelectionAction.cs`
 - [`BreakInOutBesiegedSettlementAction`](./BreakInOutBesiegedSettlementAction) — 强攻被围聚落（突入 / 突围）的入口 ✅ `TaleWorlds.CampaignSystem/Actions/BreakInOutBesiegedSettlementAction.cs`
 - [`BribeGuardsAction`](./BribeGuardsAction) — 行贿守卫以放行或换取入城 ✅ `TaleWorlds.CampaignSystem/Actions/BribeGuardsAction.cs`

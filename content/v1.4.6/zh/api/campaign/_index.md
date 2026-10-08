@@ -50,7 +50,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 
 **同批待办**：其它桶的 `_index.md` 很可能有同一处遗漏。本次只普查了 campaign 桶，**其它桶未核对**，别拿本页的结论去推断它们。
 
-## 已撰写的类页（36 张）
+## 已撰写的类页（37 张）
 
 桶索引的 route 就是桶目录本身。映射表里那条「桶索引到叶子页」的规则要求写成 `./<Name>`，也就是桶索引到同级叶子页写 `./Campaign` 这种形式。
 
@@ -73,6 +73,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 - [EncounterManager](./EncounterManager) — 玩家遭遇流程的**调度处**（`TaleWorlds.CampaignSystem/EncounterManager.cs`，361 行）。它把「玩家与某方遇上」这件事在合适的时机启起来，是 `PlayerEncounter` 状态机与地图地图交互之间的那层开关。**心智模型**：它决定**什么时候开一场遭遇**，不决定遭遇里发生什么（那是 `PlayerEncounter` 与各 `LocationEncounter` 派生类的事）。想在某类遭遇发生前插一手，先读懂它的触发条件与调用时机。✅ `TaleWorlds.CampaignSystem/EncounterManager.cs`
 - [GameMenuManager](./GameMenuManager) — 游戏菜单流程的**驱动器**（`TaleWorlds.CampaignSystem/GameMenus/GameMenuManager.cs`，623 行）。它持有当前菜单、负责切换（`SetNextMenu` / `ExitToLast`）、刷新菜单项、以及执行选中项的后果。**心智模型**：菜单是**声明**，它是**执行** —— `GameMenu` 与 `GameMenuOption` 只是数据，真正决定「哪些项可见/可用」「点了之后跑什么」的是它配上 `GameMenuCallbackManager` 按菜单 id 反查出来的回调。想加一个自定义菜单或改某个现有菜单的行为，入口在这一层而不在 `GameMenu` 本身。✅ `TaleWorlds.CampaignSystem/GameMenus/GameMenuManager.cs`
 - [QuestManager](./QuestManager) — 任务系统的**注册表与推进器**（`TaleWorlds.CampaignSystem/QuestManager.cs`，567 行）。它持有全部活动任务、按时间推进它们（小时级与日级节拍）、管理追踪对象，并负责在存档里恢复任务列表。**心智模型**：任务是**状态机 + 事件订阅体** —— 真正决定「任务何时完成」的是 `QuestBase` 里的条件判定与 `Can*` 事件拦截（本类里有一整组 `Can*` 方法就是干这个的）；本类只负责「谁在跑、跑到哪一步、怎么存档」。写自定义任务时：继承 `QuestBase`，然后用本类注册与追踪。✅ `TaleWorlds.CampaignSystem/QuestManager.cs`
+- [MapEventManager](./MapEventManager) — 地图遭遇战的**调度处**（`TaleWorlds.CampaignSystem/MapEvents/MapEventManager.cs`，194 行）。它回答「**何时开战、谁先被处理、`MapEvent` 何时被创建与移除**」：本类只是那个创建/移除的执行者与持有者，**不是战斗逻辑** —— 战斗结果与名册在 `MapEvent` 上，具体玩法（野战/劫掠/突袭/围城伏击）挂在 `MapEventComponent` 的派生类上。**心智模型**：它是**生命周期管理器**而不是**战场**；mod 作者很少需要直接碰它，需要「插入自己的战斗类型」时应该走 `MapEventComponent` 派生而不是改本类。✅ `TaleWorlds.CampaignSystem/MapEvents/MapEventManager.cs`
 - [`ApplyHeirSelectionAction`](./ApplyHeirSelectionAction) — 领主选定继承人之后统一改写家族继承链的入口 ✅ `TaleWorlds.CampaignSystem/Actions/ApplyHeirSelectionAction.cs`
 - [`BreakInOutBesiegedSettlementAction`](./BreakInOutBesiegedSettlementAction) — 强攻被围聚落（突入 / 突围）的入口 ✅ `TaleWorlds.CampaignSystem/Actions/BreakInOutBesiegedSettlementAction.cs`
 - [`BribeGuardsAction`](./BribeGuardsAction) — 行贿守卫以放行或换取入城 ✅ `TaleWorlds.CampaignSystem/Actions/BribeGuardsAction.cs`

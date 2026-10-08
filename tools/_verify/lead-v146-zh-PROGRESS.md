@@ -569,6 +569,125 @@ FAIL  bad=0  checked= 104  members= 65  J13= 0  bare= 1   campaign/MapEvent.md
 
 只差 **`bare=1`**（1 条裸 `:N`）。`checked=104 ≥ members=65` 与 `J13=0` 均过。裸引用会绕过 J13（判分器只对带文件名的引用跑 J13）⇒ 必须补文件名后才能入库。
 
+## ✅ 规则 A 两项均已完成
+
+| 项 | 处置 | 提交 |
+| --- | --- | --- |
+| campaign 桶声称 19 → 实测 30；页面表补全 | 随批 6 第二笔完成 | `320795a69b` |
+| modulemanager 桶补 `ModuleHelper`/`ModuleInfo` 两条链接 + 删陈旧声称 | **独立提交** | `c75591239c` |
+
+modulemanager 那一项的实测依据：
+
+```bash
+grep -rhoE '^\s*(public|internal)\s+(sealed\s+|abstract\s+|static\s+|partial\s+)*(class|struct|interface|enum)\s+\w+' bannerlord-1.4.6/TaleWorlds.ModuleManager/*.cs
+# → 9 个顶层类型: DependedModule Extensions IPlatformModuleExtension ModuleCategory
+#                 ModuleHelper ModuleInfo ModuleType SubModuleInfo SubModuleTags
+ls content/v1.4.6/zh/api/modulemanager/*.md   # → 8 叶子 + _index
+```
+
+⇒ 陈旧声称是双重错误：头部写「本桶的 **8** 个类型」而实际 **9** 个；正文写「**它们全部没有类页**」而实际 **8/9 已有页**。修后：`linked 8 = on-disk 8`，`SELFCHECK_FAIL=0`，标题改为「本桶的 9 个类型（全部核实；8 张已手写，1 张未写）」，`Extensions` 标注为「本桶唯一还没有类页的类型」。
+
+> 这个缺陷比 lead-29 在 v1.4.7 遇到的「44 篇 / 4 桶被静默漏掉」小得多（本线只有 2 页 / 1 桶），但**同类确实存在**——并且它还带着一条**与实测相反的断言**（「全部没有类页」），比单纯漏链更危险。
+
+## 团队卫生：已交付 worker 立即关闭（boss #21050 / 用户明令）
+
+| worker | 状态 | 处置 |
+| --- | --- | --- |
+| `b06-party`（worker-273） | 4 页均已入库（MobileParty/PartyBase/TroopRoster/Kingdom）且已独立验证 | **`team_cancel` ✅** |
+| `b06-entry`（worker-275） | 3 页均已入库（MissionLogic/MissionObject/SaveContext）且已独立验证 | **`team_cancel` ✅** |
+| `b06-war`（worker-274） | 仍在写 `MapEvent` 修 + `CampaignEventDispatcher` | 保留 |
+
+## 批次 7（v1.4.6/zh，8 页）—— 已派单
+
+- 派单时刻：2026-10-08T00:00Z；清单一并行写进本台账
+- 选取理由：继续按 public API 价值排序，取**管理器 / 扩展点**类（campaign 管理器 + mission-ext 命令与战场物件），不取零散 Action
+- 两个 worker（+ `b06-war` = 3，达并发上限）：
+
+| worker | 桶 | 页（源文件行数） |
+| --- | --- | --- |
+| `b07-campaign`（worker-293） | campaign | `CampaignObjectManager`(998) · `EncounterManager`(361) · `GameMenuManager`(623) · `QuestManager`(567) |
+| `b07-mission`（worker-292） | mission-ext | `OrderController`(2,180) · `AgentDrivenProperties`(1,511) · `ArrangementOrder`(610) · `UsableMachine`(1,461) |
+
+- **锚点表已在派单前生成**（不是事后）：`b07-campaign.txt` 112 个锚点、`b07-mission.txt` 280 个锚点
+- **派单 brief 已按三条常设规则写**：
+  - 规则 B：**不点名任何成员名**（只给源文件路径 + 行数 + 锚表路径 + 「该写什么」的提示），把成员发现完全留给读源码的人
+  - 规则 C：明写**读取上界**（只读 public/protected 成员区，可跳过大段方法体；按需 `grep`/`awk` 取行号）与顺序「**先落盘，再打磨**」
+  - #20943 新规：`参见` 目标**只准来自「已入库」清单 ∪ 本批 8 页集合**，并在 brief 里逐桶列了已入库清单（避免递归阻塞）
+  - 四判据 + `J10/J11/J12/J7` + 「关键成员表必须四列带行号列、只列 public/protected」写进 brief
+- R2（lead 单写者）：补 `campaign/_index.md`（+4）· `mission-ext/_index.md`（+4）→ 四判据 → 提交集合自洽 → 一次文件级提交
+
+## ✅ 批 6 完成：9/9 页入库（`37eac54171` 收尾）
+
+```
+[main 37eac54171] content(v1.4.6-zh): finish batch 6 — MapEvent + CampaignEventDispatcher pages, restore Kingdom see-also links, wire index
+ 4 files changed, 681 insertions(+), 2 deletions(-)
+```
+
+| 项 | 值 |
+| --- | --- |
+| SHA | `37eac54171` |
+| 文件（4） | `campaign/MapEvent.md`（新）· `campaign/CampaignEventDispatcher.md`（新）· `campaign/Kingdom.md`（M，链接恢复）· `campaign/_index.md`（M，+2） |
+| 计数不变量 | 2 新页 ⇒ campaign 索引 **+2** 行（实测）；`linked 32 = on-disk 32` |
+| 自洽 | `SELFCHECK_FAIL=0` |
+
+### 🔖 降级 → 恢复：已执行（不凭计划，实测后恢复）
+
+| 页 | 降级的出边 | 恢复实测 |
+| --- | --- | --- |
+| `Kingdom.md` | `../MapEvent` | 两页均已落盘且过四判据 ⇒ 恢复为真实链接 |
+| `Kingdom.md` | `../CampaignEventDispatcher` | 同上 |
+
+恢复后 `Kingdom.md` 四判据仍 OK（`checked=66 members=44 J13=0 bare=0`），`J5R unresolved=0`。
+
+### 批 6 全部 9 页的四判据终读
+
+| 页 | bad | checked | members | J13 | bare |
+| --- | --- | --- | --- | --- | --- |
+| `mission-ext/MissionLogic.md` | 0 | 13 | 10 | 0 | 0 |
+| `mission-ext/MissionObject.md` | 0 | 29 | 27 | 0 | 0 |
+| `save-system/SaveContext.md` | 0 | 25 | 19 | 0 | 0 |
+| `campaign/MobileParty.md` | 0 | 113 | 113 | 0 | 0 |
+| `campaign/PartyBase.md` | 0 | 59 | 59 | 0 | 0 |
+| `campaign/TroopRoster.md` | 0 | 46 | 46 | 0 | 0 |
+| `campaign/Kingdom.md` | 0 | 66 | 44 | 0 | 0 |
+| `campaign/MapEvent.md` | 0 | 104 | 65 | 0 | 0 |
+| `campaign/CampaignEventDispatcher.md` | 0 | **276** | 270 | 0 | 0 |
+
+### 批后门禁（全站，实测）
+
+```bash
+node tools/audit-links.mjs   # → BROKEN_LINKS=1 · FILES_WITH_BROKEN=1 · EXIT=1
+node tools/nav-orphans.mjs   # → total_pages=39216 · orphans=1 · by_tree={"v1.5.3":1} · **v1.4.6_orphans=0**
+```
+
+| 读数 | 批前 | 批后 |
+| --- | --- | --- |
+| BROKEN_LINKS | 0 | **1**（病灶 `v1.5.3/zh/api/campaign-ext/DefaultSettlementSecurityModel.md` —— **别线在制品**） |
+| v1.4.6 orphans | 0 | **0** ✅ |
+
+**全站 broken 从本线开工后的峰值 4 → 2 → 1**，而本线自己的两个桶（campaign / mission-ext / save-system）**零断链、零孤儿**。
+
+### 本线累计 6 笔提交
+
+```
+37eac54171  content  批 6 收尾：MapEvent + CampaignEventDispatcher + Kingdom 链接恢复
+c75591239c  content  规则 A：modulemanager 索引补全 8 页 + 删陈旧声称
+bfb103c813  tools    台账：批 6 读数 + 降级登记 + 规则A状态
+320795a69b  content  批 6：4 页 campaign
+5ca645f74c  tools    只读锚点抽取器 + 台账
+98241b25f8  content  批 6：3 页 mission-ext/save-system
+```
+
+### 团队卫生
+
+| worker | 交付 | 处置 |
+| --- | --- | --- |
+| `b06-party`（worker-273） | 4 页入库 | `team_cancel` ✅ |
+| `b06-entry`（worker-275） | 3 页入库 | `team_cancel` ✅ |
+| `b06-war`（worker-274） | 2 页入库 + Kingdom 链接恢复 | `team_cancel` ✅（批 6 收尾后） |
+
+批 7 两个 worker（`b07-campaign` worker-293 · `b07-mission` worker-292）在跑，共 2 个活跃 worker。
+
 ## 操作教训（本线实测，写给后续 Lead）
 
 **artifact 声明必须用绝对路径。** Lead 的 cwd 是工作区根 `C:/WorkSpace/Bannerlord`，而该根下**另有一个 `tools/` 目录**（`C:/WorkSpace/Bannerlord/tools/_verify` 实测存在）。用相对路径 `tools/_verify/<台账>.md` 声明 artifact 时，存在性检查落到工作区根那份 ⇒ 假报「missing artifact」（本线已实测触发一次 supervisor error，文件其实一直在仓库里）。正确写法：

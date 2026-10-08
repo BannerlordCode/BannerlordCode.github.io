@@ -752,6 +752,35 @@ node tools/nav-orphans.mjs  # → orphans=2 · by_tree={"v1.4.7":2} · **v1.4.6_
 
 当前活跃 worker = 1。
 
+## 批次 8（v1.4.6/zh，6 页 save-system）—— 已派单
+
+- 派单时刻：2026-10-08T00:22Z；boss #21453 批准提吞吐（约束：并发 ≤3 且**留 1 个余量给自己收 R2**）
+- **与批 7 在飞文件零重叠**（不同源文件、不同页面路径）：批 7 在飞 = `campaign/{EncounterManager,GameMenuManager,QuestManager}`；批 8 全部在 `save-system`
+- 选批理由：save-system 是**「让 mod 数据活过存档」的必经桶**，且桶内仅 60 个类型（已写 6）—— 本批能实质性推进这个高价值小桶
+
+| 页面 | 源文件 | 行数 | 锚点数 |
+| --- | --- | --- | --- |
+| `SaveableRootClassAttribute` | `SaveableRootClassAttribute.cs` | 20 | 2 |
+| `SaveableInterfaceAttribute` | `SaveableInterfaceAttribute.cs` | 20 | 2 |
+| `ISavedStruct` | `ISavedStruct.cs` | 11 | 1 |
+| `SaveableBasicTypeDefiner` | `SaveableBasicTypeDefiner.cs` | 182 | 7 |
+| `DefinitionContext` | `Definition/DefinitionContext.cs` | 668 | 7 |
+| `LoadContext` | `Load/LoadContext.cs` | 379 | 10 |
+
+- 锚表：`tools/_verify/_tmp/anchors/b08-savesys.txt`（29 个锚点，派单前生成）
+- 活跃 worker：2（`b07-campaign`/293 + `b08-savesys`/304），留 1 个余量
+
+### 本批与前几批的【形状差异】（已写进 brief）
+
+这 6 个类型的 public/protected 成员**极少**（`ISavedStruct` 仅 1 个锚点；`DefinitionContext` 668 行仅 7 个，因为实现多为 `internal`）。⇒ 深度**不能**来自「逐成员列用途」。brief 明确指定三条替代路径：
+1. **契约语义**（它约束什么、不约束什么）
+2. **真实使用点** —— 让写手用 `grep -rn --include=*.cs -w '<Type>'` 找真实实现者 / 标注点 / 调用方，并把行号写进页面（这才是这些类型的真正内容）
+3. **一个可编译示例**（「我要让自己的类型进存档该怎么写」）
+
+并**明写禁止灌水**：「若某类型确实只有 1 个成员，就诚实地写『它是标记接口，契约是空的，意义在别处』—— 那是**正确**的深度，不是缺陷；`ISavedStruct` 的关键成员表**可以只有 1~2 行**。」
+
+> 这一条是防「为凑 `J8>2500B` 而写套话」——那正是 H0 想禁的模板句的另一条入口。
+
 ## 操作教训（本线实测，写给后续 Lead）
 
 ### 量具失败会报出「确信的错数」——不要直接拿它下结论

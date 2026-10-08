@@ -1351,7 +1351,26 @@ node tools/_verify/_tmp/member-rows.mjs <page>   # → members=35 (table=35)   �
 
 ## 📋 Known backlog：v1.4.6/zh 树里 **80 页**在 judge-fix 后暴露的存量缺陷
 
-**⚠ 因果必须先读**：这 80 页**不是回归**。它们**在修复前就已存在**，只是当时 `ambiguous` 路径**静默跳过校验** ⇒ 引用**从未被核**而判据全绿。**judge-fix 只是把它们暴露出来**。下一轮不得把它误读为「修复造成的回归」。
+**⚠ 因果（已更正 —— boss #23180 实测推翻我先前的错误陈述）**：
+
+> **这 80 页在 judge-fix 之前就已经 FAIL**，主因是**缺 `## 导航` 节**（`J2 missing=[导航]`）。
+> **`J2` 的判定逻辑与 judge-fix 无关**：修复提交 `cf94b606b7` 只改了 `REF_RE` 与 `ambiguous` 分支，**未触及 J2 / navSlots / 导航 任何一字节**（diff grep 为空）。
+> ⇒ **judge-fix 不是「暴露」它们，而是在【已经红】的页面上【新增了失败明细】**：13 页多了 `bad>0`、6 页多了 `ambiguous>0`。
+> ⇒ **真正「绿 → 红」的只有 1 页：`save-system/LoadContext.md`**（本线产出，已由 `ceacf20eae` 修复）。
+
+**我的错误根因（值得记）**：我**照抄了修复提交自己的 commit message**（`cf94b606b7` 的标题写着「…(reveals 80 pages of previously-skipped citation checks)」），**而没有实测这些页是否已因另一个独立原因（J2）在红**。
+⇒ **与本事会话其他教训同族：把未验证的断言（哪怕它写在 commit message 里）当成了测量结果。**
+⇒ **归因决定处置**：若读成「门禁假阴性（先怀疑尺）」会处置错；真实原因是「这些页缺 `## 导航` 节」（先修内容）。
+
+**我的独立复核（实测，非转述）**：
+```bash
+for p in core/Module.md campaign-ext/MBObjectBase.md core-extra/EventManager.md; do grep -c '^## 导航' $p; done   # → 0 0 0
+# judge-fix 提交是否碰过 J2？
+git log -p -1 --format='' -- tools/_verify/lead-145zh-judge.mjs | grep -nE '^[+-].*J2|^[-+].*导航|^[+-].*navSlots'   # → 空
+# boss 预言的 3 页（曾「绿且 ambiguous」）现在如何：
+node tools/_verify/lead-145zh-judge.mjs save-system/{DefinitionContext,SaveableBasicTypeDefiner,LoadContext}.md
+# → 3/3 PASS，三页均 J2 missing=[] ambiguous=0   ⇒ 与 boss 预期一致（仅 LoadContext 曾转红）
+```
 
 ### 读数 ↔ 判据 sha 绑定（本会话既定纪律）
 

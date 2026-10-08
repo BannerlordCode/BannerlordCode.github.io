@@ -1,3 +1,18 @@
+# known backlog · v1.4.6/zh · 80 pages
+#
+# ★ 因果（已更正，2026-10-08，由 boss 实测推翻我先前的错误陈述）：
+#   这 80 页【在 judge-fix 之前就已经 FAIL】—— 主因是缺 `## 导航` 节（J2 missing=[导航]）。
+#   【J2 的判定逻辑与 judge-fix 无关】：修复提交 cf94b606b7 只改了 REF_RE 与 ambiguous 分支，
+#   未触及 J2 / navSlots / 导航 任何一字节（diff grep 为空）。
+#   ⇒ judge-fix 不是「暴露」它们，而是在【已经红】的页面上【新增了失败明细】：
+#        13 页多了 bad>0（引用超出文件行数）· 6 页多了 ambiguous>0
+#   ⇒ 【真正的「绿 → 红」只有 1 页：save-system/LoadContext.md】（本线产出，已由 ceacf20eae 修复）。
+#       它修复前 PASS、修复后 ambiguous=41 FAIL —— 那一页才是「修复暴露的真缺陷」。
+#
+# ⚠ 归因决定处置：若把 80 页读成「门禁假阴性（先怀疑尺）」会处置错；
+#   真实原因是「这些页缺 ## 导航 节」（先修内容）。
+#
+# 列：path / ambiguous / bad / j2_missing / first_commit
 path	ambiguous	bad	j2_missing	first_commit
 content/v1.4.6/zh/api/campaign-ext/MBGUID.md	0	0	导航	d273cd7539
 content/v1.4.6/zh/api/campaign-ext/MBObjectBase.md	0	7	导航	a011355477

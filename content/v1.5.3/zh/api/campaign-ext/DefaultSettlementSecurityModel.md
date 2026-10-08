@@ -97,7 +97,7 @@ Debug.Print($"清理藏身处预计治安 +{hideoutGain}");
 
 ## 参见
 
-- ↔ `SettlementSecurityModel`（`../SettlementSecurityModel`）— 它实现的契约；该页尚未落盘，落盘后本条恢复为链接（见 `tools/_verify/lead-v153-zh-PROGRESS.md` 的「降级 → 恢复」登记）
+- ↔ [SettlementSecurityModel](../SettlementSecurityModel) — 它实现的契约
 - ↔ [DefaultSettlementLoyaltyModel](../DefaultSettlementLoyaltyModel) — 忠诚度模型：治安与忠诚互相影响，是相邻曲线
 - ↔ [DefaultSettlementProsperityModel](../DefaultSettlementProsperityModel) — 繁荣度模型：繁荣会压低治安（见 PerProsperityEffect）
 - ↔ [PerkHelper](../../core-extra/PerkHelper) — `CalculatePerkEffectsOnSecurity` 读的就是总督 perk

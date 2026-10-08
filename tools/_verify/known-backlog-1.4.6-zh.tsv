@@ -1,96 +1,81 @@
-# known backlog · v1.4.6/zh · 80 pages
+# known backlog · v1.4.6/zh · 67 pages remaining (after the 13-page repair of 4a83cff6e6)
 #
-# ★ 因果（已更正，2026-10-08，由 boss 实测推翻我先前的错误陈述）：
-#   这 80 页【在 judge-fix 之前就已经 FAIL】—— 主因是缺 `## 导航` 节（J2 missing=[导航]）。
-#   【J2 的判定逻辑与 judge-fix 无关】：修复提交 cf94b606b7 只改了 REF_RE 与 ambiguous 分支，
-#   未触及 J2 / navSlots / 导航 任何一字节（diff grep 为空）。
-#   ⇒ judge-fix 不是「暴露」它们，而是在【已经红】的页面上【新增了失败明细】：
-#        13 页多了 bad>0（引用超出文件行数）· 6 页多了 ambiguous>0
-#   ⇒ 【真正的「绿 → 红」只有 1 页：save-system/LoadContext.md】（本线产出，已由 ceacf20eae 修复）。
-#       它修复前 PASS、修复后 ambiguous=41 FAIL —— 那一页才是「修复暴露的真缺陷」。
+# ★ 因果（已更正，boss 实测推翻我先前的错误陈述）：
+#   这 67 页【在 judge-fix 之前就已经 FAIL】—— 主因是缺 `## 导航` 节（J2 missing=[导航]）。
+#   【J2 的判定逻辑与 judge-fix 无关】：修复提交 cf94b606b7 只改了 REF_RE 与 ambiguous 分支。
+#   ⇒ 真正「绿 → 红」的只有 save-system/LoadContext.md 一页（本线产出，已由 ceacf20eae 修复）。
 #
-# ⚠ 归因决定处置：若把 80 页读成「门禁假阴性（先怀疑尺）」会处置错；
-#   真实原因是「这些页缺 ## 导航 节」（先修内容）。
+# ★ 2026-10-08 更新（13 页修复后）：全树 JUDGE total=170 pass=103 fail=67
+#     bad>0 = 0  ✅（45 条越界引用已全部改正为真实行）
+#     ambiguous>0 = 4
+#     J2 missing 导航 = 67  ← 剩余失败【单一成因】，且属格式类（便宜可修）
 #
 # 列：path / ambiguous / bad / j2_missing / first_commit
 path	ambiguous	bad	j2_missing	first_commit
-content/v1.4.6/zh/api/campaign-ext/MBGUID.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/campaign-ext/MBObjectBase.md	0	7	导航	a011355477
-content/v1.4.6/zh/api/campaign-ext/MBObjectManager.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/campaign/Campaign.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/campaign/CampaignBehaviorBase.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/campaign/CampaignEvents.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/campaign/CampaignGameStarter.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/campaign/CharacterObject.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/campaign/Clan.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/campaign/Hero.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/campaign/IDataStore.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/campaign/Settlement.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/core-extra/ArmorComponent.md	0	3	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/Banner.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/core-extra/BannerComponent.md	0	1	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/BannerEffect.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/BasicCharacterObject.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/BindingPath.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/core-extra/BladeData.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/BodyProperties.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/core-extra/BodyPropertiesJsonConverter.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/Crafting.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/core-extra/CraftingPiece.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/CraftingTemplate.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/DefaultSkills.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/DynamicBodyProperties.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/Equipment.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/core-extra/EquipmentElement.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/EquipmentIndex.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/EventBase.md	14	0	导航	a011355477
-content/v1.4.6/zh/api/core-extra/EventManager.md	2	16	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/FaceGen.md	8	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/Game.md	0	0	导航	2ef575495c
-content/v1.4.6/zh/api/core-extra/GameManagerBase.md	0	0	导航	2ef575495c
-content/v1.4.6/zh/api/core-extra/GameModel.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/core-extra/GameModelsManager.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/core-extra/GameState.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/GameStateManager.md	0	0	导航	2ef575495c
-content/v1.4.6/zh/api/core-extra/HorseComponent.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/IGameStarter.md	0	2	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/InformationManager.md	0	0	导航	2ef575495c
-content/v1.4.6/zh/api/core-extra/ItemComponent.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/ItemModifier.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/ItemModifierGroup.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/ItemObject.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/core-extra/MBList.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/Monster.md	3	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/ParameterContainer.md	0	2	导航	a011355477
-content/v1.4.6/zh/api/core-extra/PropertyObject.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/SaddleComponent.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/SkeletonScale.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/SkillObject.md	0	2	导航	a011355477
-content/v1.4.6/zh/api/core-extra/StaticBodyProperties.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/TradeItemComponent.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/ViewModel.md	0	0	导航	2ef575495c
-content/v1.4.6/zh/api/core-extra/WeaponComponent.md	0	4	导航	a011355477
-content/v1.4.6/zh/api/core-extra/WeaponComponentData.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/WeaponDesign.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core-extra/WeaponDesignElement.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/core/MBSubModuleBase.md	3	0	导航	2ef575495c
-content/v1.4.6/zh/api/core/Module.md	1	1	导航	2ef575495c
-content/v1.4.6/zh/api/engine/GauntletLayer.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/gui/GauntletMovie.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/gui/ScreenBase.md	0	1	导航	a011355477
-content/v1.4.6/zh/api/gui/ScreenComponent.md	0	2	导航	d273cd7539
-content/v1.4.6/zh/api/gui/ScreenLayer.md	0	1	导航	d273cd7539
-content/v1.4.6/zh/api/gui/ScreenManager.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/localization/TextObject.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/mission-ext/ItemType.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/mission-ext/MBGameManager.md	0	3	导航	d273cd7539
-content/v1.4.6/zh/api/mission-ext/Team.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/mission/Agent.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/mission/Formation.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/mission/Mission.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/mission/MissionBehavior.md	0	0	导航	a011355477
-content/v1.4.6/zh/api/save-system/ISaveDriver.md	0	0	导航	d273cd7539
-content/v1.4.6/zh/api/save-system/SaveManager.md	0	0	导航	2ef575495c
-content/v1.4.6/zh/api/save-system/SaveableFieldAttribute.md	0	0	导航	2ef575495c
-content/v1.4.6/zh/api/save-system/SaveablePropertyAttribute.md	0	0	导航	2ef575495c
-content/v1.4.6/zh/api/save-system/SaveableTypeDefiner.md	0	0	导航	2ef575495c
+content/v1.4.6/zh/api/campaign-ext/MBGUID.md	0	0	导航	
+content/v1.4.6/zh/api/campaign-ext/MBObjectManager.md	0	0	导航	
+content/v1.4.6/zh/api/campaign/Campaign.md	0	0	导航	
+content/v1.4.6/zh/api/campaign/CampaignBehaviorBase.md	0	0	导航	
+content/v1.4.6/zh/api/campaign/CampaignEvents.md	0	0	导航	
+content/v1.4.6/zh/api/campaign/CampaignGameStarter.md	0	0	导航	
+content/v1.4.6/zh/api/campaign/CharacterObject.md	0	0	导航	
+content/v1.4.6/zh/api/campaign/Clan.md	0	0	导航	
+content/v1.4.6/zh/api/campaign/Hero.md	0	0	导航	
+content/v1.4.6/zh/api/campaign/IDataStore.md	0	0	导航	
+content/v1.4.6/zh/api/campaign/Settlement.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/Banner.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/BannerEffect.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/BasicCharacterObject.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/BindingPath.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/BladeData.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/BodyProperties.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/BodyPropertiesJsonConverter.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/Crafting.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/CraftingPiece.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/CraftingTemplate.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/DefaultSkills.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/DynamicBodyProperties.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/Equipment.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/EquipmentElement.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/EquipmentIndex.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/EventBase.md	14	0	导航	
+content/v1.4.6/zh/api/core-extra/FaceGen.md	8	0	导航	
+content/v1.4.6/zh/api/core-extra/Game.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/GameManagerBase.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/GameModel.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/GameModelsManager.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/GameState.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/GameStateManager.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/HorseComponent.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/InformationManager.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/ItemComponent.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/ItemModifier.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/ItemModifierGroup.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/ItemObject.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/MBList.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/Monster.md	3	0	导航	
+content/v1.4.6/zh/api/core-extra/PropertyObject.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/SaddleComponent.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/SkeletonScale.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/StaticBodyProperties.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/TradeItemComponent.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/ViewModel.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/WeaponComponentData.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/WeaponDesign.md	0	0	导航	
+content/v1.4.6/zh/api/core-extra/WeaponDesignElement.md	0	0	导航	
+content/v1.4.6/zh/api/core/MBSubModuleBase.md	3	0	导航	
+content/v1.4.6/zh/api/engine/GauntletLayer.md	0	0	导航	
+content/v1.4.6/zh/api/gui/GauntletMovie.md	0	0	导航	
+content/v1.4.6/zh/api/gui/ScreenManager.md	0	0	导航	
+content/v1.4.6/zh/api/localization/TextObject.md	0	0	导航	
+content/v1.4.6/zh/api/mission-ext/ItemType.md	0	0	导航	
+content/v1.4.6/zh/api/mission-ext/Team.md	0	0	导航	
+content/v1.4.6/zh/api/mission/Agent.md	0	0	导航	
+content/v1.4.6/zh/api/mission/Formation.md	0	0	导航	
+content/v1.4.6/zh/api/mission/Mission.md	0	0	导航	
+content/v1.4.6/zh/api/mission/MissionBehavior.md	0	0	导航	
+content/v1.4.6/zh/api/save-system/ISaveDriver.md	0	0	导航	
+content/v1.4.6/zh/api/save-system/SaveManager.md	0	0	导航	
+content/v1.4.6/zh/api/save-system/SaveableFieldAttribute.md	0	0	导航	
+content/v1.4.6/zh/api/save-system/SaveablePropertyAttribute.md	0	0	导航	
+content/v1.4.6/zh/api/save-system/SaveableTypeDefiner.md	0	0	导航	

@@ -1449,6 +1449,48 @@ t.replace(/([^\/])LoadContext\.cs:/g, "$1TaleWorlds.SaveSystem/Load/LoadContext.
 
 > 该元规则已存 wiki：`self-report-is-not-independent-evidence`。
 
+## ✅ 13 页越界引用修复完成（`4a83cff6e6`）—— 全树 `bad>0` 已归零
+
+**结果**：`JUDGE total=13 pass=13 fail=0`。**45 条越界引用全部改正为真实行，删掉的断言 = 0 条**（逐条 `awk` 实证）。
+
+### ★ 根因：**裸 `:N` + 多文件代码块 ⇒ 回落主语文件 ⇒ 越界**
+
+worker-369 逆推出的机制（比「行号写错」精确得多）：
+> 当一个代码块里同时出现 **≥两个完整引用**（例：`MBObjectBase.cs:11` 与 `MBObjectManager.cs`），判分器把该块的**裸 `:N` 归给「主语文件」**。
+> 若那段文字实际讲的是**另一个文件**，裸行号就会被挂到主语上 ⇒ 主语只有 181 行而引用写 `:1218` ⇒ **越界**。
+
+⇒ **这是「裸引用」危害的第二个面**：先前只知道它**绕过 J13**（不检查）；现在知道它还会**被误归属**（归错文件）⇒ 产生越界。
+⇒ **两个面都指向同一条修法：写全 `File.cs:N`**。
+
+**形态 B（超得离谱）的逐条归因（均为「引错文件」）**：
+| 页 | 原引用 | 实际目标文件 | 依据 |
+| --- | --- | --- | --- |
+| `MBObjectBase` | `:1218/:1257/:288/:319/:473` | `MBObjectManager.cs` | `awk` 逐行命中 `LoadXml`/`CreateObjectFromXmlNode`/`GetObject<T>`/… |
+| `IGameStarter` | `:1915/:1916` | `Campaign.cs` | 命中 `SetBasicModels`/`AddGameModelsManager` |
+| `SkillObject` | `:191/:200` | `DefaultSkills.cs` | 命中 `Engineering`/`Create` |
+| `ScreenLayer` | `:521` | `InputContext.cs` | 命中 `IsKeyPressed` |
+| **`EventManager`** | **16 条** | **`GauntletUI/EventManager.cs`** | **同名异类**（见下） |
+| `Module` | `:521` | `TaleWorlds.MountAndBlade/Module.cs` | 命中 tick 逻辑 |
+| `WeaponComponent` | `:90/:160` | `WeaponComponentData.cs` | 命中 `ThrustDamageType`/`Handling` |
+| `ScreenComponent` | `:14/:19` | `ScreenBase.cs` | 命中两个 event |
+| `ScreenBase` | `:541` | `ScreenManager.cs` | 命中 `CleanAndPushScreen` |
+| `MBGameManager` | `:126/:128/:132` | `MBGameManager.cs` | 命中 `OnGameInitializationFinished` 及其 base 内逻辑 |
+
+### 🔴 一处**内容缺陷**待裁定（worker 未自行重写，报对了）
+
+**`core-extra/EventManager.md` 的 `## 怎么用` 整节描述的是 `TaleWorlds.GauntletUI.EventManager`，而页面主语是 `TaleWorlds.Library.EventSystem.EventManager` —— 两个不同的同名类型。**
+worker 只做了**引用归位 + 一句必要措辞修正**（把「这一页的 `EventManager`」改为「另一个同名类 `EventManager`」），**未重写该节**，并给出修法建议（应换成 Library 版的 `RegisterEvent`/`TriggerEvent`/`UnregisterEvent` 用法，而「真实示例」节已有素材）。
+⇒ **这是「同名异类」造成的真内容缺陷**，不是引用问题。已上报 boss 裁定。
+
+### 附带完成的项（为达到「13 页全 PASS」所必需，brief 未列但同属判分器 FAIL 项）
+1. **`## 导航` × 13**（brief 附加项）；
+2. **J10 stray 55 条**（正文内联 markdown 链接 → 反引号代码片段；未动 `参见族/导航` 内的链接）；
+3. **2 条 ambiguous** 改为带路径形式；
+4. **语义性 off-by-N 纠正**（均为 **in-range、判分器不报**，但属同一类「指向空行/注释/孤立括号」的伪引用）：`IGameStarter` 三处、`Campaign.cs` 三处、`WeaponComponent` 两处、`ScreenLayer` 三处、`ScreenBase` 一处、`MBGameManager` 四处。
+
+### 桶级发现（影响后续批量修复）
+**`core-extra` / `core` / `gui` 三桶此前【零个页面带 `## 导航`】**（0/47、0/2、0/5）⇒ 无法「参照同桶既有格式」，worker 改从 `mission-ext` 取两行式格式。⇒ **批量补导航时，应以 `mission-ext`（或其它已有该节的桶）为模板，而不是假定同桶有。**
+
 ## 操作教训（本线实测，写给后续 Lead）
 
 ### 量具失败会报出「确信的错数」——不要直接拿它下结论

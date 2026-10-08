@@ -1,6 +1,6 @@
 ---
 title: "Campaign ext — 战役的扩展面：行为、组件与组件接口"
-description: "TaleWorlds.CampaignSystem 的子命名空间所在目录：行为、组件、组件接口、对话、议题与 ObjectSystem。目前 2 页。"
+description: "TaleWorlds.CampaignSystem 的子命名空间所在目录：行为、组件、组件接口、对话、议题与 ObjectSystem。目前 18 页。"
 ---
 # Campaign ext — 战役的扩展面：行为、组件与组件接口
 
@@ -21,18 +21,51 @@ description: "TaleWorlds.CampaignSystem 的子命名空间所在目录：行为�
 
 `ComponentInterfaces` 与 `GameComponents` 是一对：`GameComponents` 里的每个 `Default*` 都是 `ComponentInterfaces` 里对应接口的官方实现。替换组件 = 写一个自己的实现并在加载时替换，这是组件化战役规则的主要手段。
 
-## 本区页面（2）
+## 本区页面（18）
 
 | 页面 | 讲的是什么 |
 | --- | --- |
 | [MBObjectBase](./MBObjectBase) | MBO 的基类：定义一个可序列化的战役对象 |
 | [MBObjectManager](./MBObjectManager) | MBO 的注册与按类型取用 |
+| [PartySizeLimitModel](./PartySizeLimitModel) | 队伍人数上限的组件契约：成员、俘虏、驻军、村民队伍各自的上限 |
+| [DefaultPartySizeLimitModel](./DefaultPartySizeLimitModel) | 官方实现：上限 = 基础值 + 技能/perk/政策修正 |
+| [PartySpeedModel](./PartySpeedModel) | 行军速度的组件契约：基础速度、最低速度与两段式求值 |
+| [DefaultPartySpeedCalculatingModel](./DefaultPartySpeedCalculatingModel) | 官方实现：人数衰减算基础速度，再叠加骑兵比例等项 |
+| [PartyHealingModel](./PartyHealingModel) | 队伍治疗契约：伤员存活概率、手术成功率、每日治疗量 |
+| [DefaultPartyHealingModel](./DefaultPartyHealingModel) | 官方实现：以医疗技能与 Medicine/Athletics perk 为核心 |
+| [PartyWageModel](./PartyWageModel) | 队伍工资契约：兵种日薪、总工资、支付上限与招募花费 |
+| [DefaultPartyWageModel](./DefaultPartyWageModel) | 官方实现：按兵种 Tier 给基础日薪，再叠加 perk 与总督修正 |
+| [PartyMoraleModel](./PartyMoraleModel) | 队伍士气契约：基础值、断粮/欠饷惩罚与每日士气变化 |
+| [DefaultPartyMoraleModel](./DefaultPartyMoraleModel) | 官方实现：以 50 为基值，按「近期事件 → 领导技能 → …」顺序累加 |
+| [SettlementFoodModel](./SettlementFoodModel) | 聚落食物契约：库存上限、消耗速率与每日食物变化 |
+| [DefaultSettlementFoodModel](./DefaultSettlementFoodModel) | 官方实现：库存上限 300、每 40 繁荣度消耗 1 单位等原版数值 |
+| [SettlementMilitiaModel](./SettlementMilitiaModel) | 聚落民兵契约：围城后民兵生成量与每日增减 |
+| [DefaultSettlementMilitiaModel](./DefaultSettlementMilitiaModel) | 官方实现：围城后 90–108 民兵、城堡 +2/天等原版数值 |
+| [SettlementSecurityModel](./SettlementSecurityModel) | 聚落治安契约：治安每日变化量的全部修正项 |
+| [DefaultSettlementSecurityModel](./DefaultSettlementSecurityModel) | 官方实现：上限 100、漂移目标 50、税收三阈值等原版数值 |
 
-只有 2 页，但它们正好是这个桶里"自定义数据"那一半的全部入口 —— 你要往战役里塞自己的持久化对象，绕不开 `MBObjectBase`。
+（上表 18 行 = 本桶 18 个页面；计数命令：`find content/v1.4.7/zh/api/campaign-ext -name '*.md' ! -name '_index.md' | wc -l`）
+
+**这 18 页的读法**：前两页（`MBObjectBase` / `MBObjectManager`）是「往战役里塞自定义持久化对象」的入口；
+后面 16 页里，**每两页成一对** —— 一个 `XxxModel` 是**契约**（声明要算哪些量），
+一个 `DefaultXxxModel` 是**官方实现**（原版数值与公式）。想改游戏规则，先读契约确认自己能覆写什么，
+再读默认实现确认原版怎么算；两者在 `## 参见` 里互相链接。
 
 ## 尚未收录
 
-行为基类这一侧没有页面：`CampaignBehaviorBase` 在 [campaign](../campaign/)，而 135 个官方行为、126 个组件接口、124 个默认组件实现、43 个议题类、12 个对话类型，以及 `MBObjectManager` 之外的 MBO 基础设施，都没有各自的页面。目前这个桶能被读到的只有自定义数据的两个入口类。
+这个桶的扩展面主体**仍未落笔**：126 个 `ComponentInterfaces` 契约里已写 8 个（上表的 8 个 `XxxModel`），
+124 个 `GameComponents` 官方实现里已写 8 个，而 **135 个官方战役行为、43 个议题类、12 个对话类型**
+以及 `MBObjectManager` 之外的 MBO 基础设施，都还没有各自的页面。
+
+量它的命令（在仓库根跑）：
+
+```bash
+node -e "const t=require('./tools/_verify/types-1.4.7.json').types,fs=require('fs');
+const sub=['ComponentInterfaces','CampaignBehaviors','GameComponents','Conversation','Issues'];
+const ce=t.filter(x=>sub.some(s=>x.namespace==='TaleWorlds.CampaignSystem.'+s)||x.namespace.startsWith('TaleWorlds.ObjectSystem'));
+const pages=new Set(fs.readdirSync('content/v1.4.7/zh/api/campaign-ext').filter(f=>f.endsWith('.md')&&f!=='_index.md').map(f=>f.replace('.md','')));
+console.log(ce.length, pages.size, ce.filter(x=>!pages.has(x.name)).length);"
+```
 
 ## 相邻目录
 

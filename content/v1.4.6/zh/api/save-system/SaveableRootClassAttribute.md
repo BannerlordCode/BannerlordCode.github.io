@@ -15,7 +15,7 @@ description: "标在类上的「这是存档根对象」声明特性；它只携
 
 `SaveableRootClassAttribute` 是一个**声明性标记**：写在类上，表示「这个类是存档对象图里可以被独立寻址的根对象」。它继承 `System.Attribute`，`AttributeUsage` 限定为 `AttributeTargets.Class`（标到结构体或接口上会直接编译报错），构造时接收一个整数并把它存进 `SaveId` 属性。
 
-这里有一个必须说清的事实：**光写这个特性不会让任何东西进存档。** 在 `bannerlord-1.4.6` 全树里 `SaveableRootClass` 只出现在两个地方——`TaleWorlds.Core/Game.cs:14` 的 `[SaveableRootClass(5000)]` 标注，和 `DefinitionContext.GetSaveableAssemblies()`（`TaleWorlds.SaveSystem/Definition/DefinitionContext.cs:254`）方法体里那句 `Assembly assembly = typeof(SaveableRootClassAttribute).Assembly;`。后者说明它在运行时的**第一个真实用途是当「TaleWorlds.SaveSystem 程序集的锚点类型」**：这个方法靠它定位 SaveSystem 自己，再筛出所有引用了 SaveSystem 的程序集去扫描 definer。
+这里有一个必须说清的事实：**光写这个特性不会让任何东西进存档。** 在 `bannerlord-1.4.6` 全树里 `SaveableRootClass` 只出现在两个地方——`TaleWorlds.Core/Game.cs:14` 的 `[SaveableRootClass(5000)]` 标注，和 `DefinitionContext.GetSaveableAssemblies()`（`TaleWorlds.SaveSystem/Definition/DefinitionContext.cs:254`）方法体里那句 `Assembly assembly = typeof(SaveableRootClassAttribute).Assembly;`（`TaleWorlds.SaveSystem/Definition/DefinitionContext.cs:257`）。后者说明它在运行时的**第一个真实用途是当「TaleWorlds.SaveSystem 程序集的锚点类型」**：这个方法靠它定位 SaveSystem 自己，再筛出所有引用了 SaveSystem 的程序集去扫描 definer。
 
 真正把类型写进存档类型表的是 definer 里的 `AddRootClassDefinition`，见 `TaleWorlds.Core/SaveableCoreTypeDefiner.cs:89` 的 `base.AddRootClassDefinition(typeof(Game), 4001, null);`。注意这里的 `4001` 与特性上写的 `5000` **并不相同**——运行时的编号以 definer 注册的为准，特性上的数字不参与建表。
 
@@ -24,7 +24,7 @@ description: "标在类上的「这是存档根对象」声明特性；它只携
 把存档类型系统想成两层，本类型只活在上面那一层：
 
 1. **标注层（本类型）**：`[SaveableRootClass(n)]` 是给人看、给工具扫的元数据。它可 grep、可在反编译产物里一眼认出「这个类是个存档根」，也是 `TaleWorlds.MountAndBlade.SaveSystem.CodeGenerator` 那类外部代码生成器读取的素材。
-2. **登记层（权威）**：`SaveableTypeDefiner.AddRootClassDefinition(type, saveId, resolver)`（`TaleWorlds.SaveSystem/SaveableTypeDefiner.cs:130`）才会真的往 `DefinitionContext` 的根类定义表里加一条，编号是 `definer.saveBaseId + saveId`。`DefinitionContext.FillWithCurrentTypes()`（`TaleWorlds.SaveSystem/Definition/DefinitionContext.cs:173`）在阶段循环里调 `DefineRootClassTypes()`，这一步跑完类型表才成型。
+2. **登记层（权威）**：`SaveableTypeDefiner.AddRootClassDefinition(type, saveId, resolver)`（`TaleWorlds.SaveSystem/SaveableTypeDefiner.cs:130`）才会真的往 `DefinitionContext` 的根类定义表里加一条，编号是 `definer.saveBaseId + saveId`。`DefinitionContext.FillWithCurrentTypes()`（`TaleWorlds.SaveSystem/Definition/DefinitionContext.cs:173`）在阶段循环里调 `DefineRootClassTypes()`（`TaleWorlds.SaveSystem/Definition/DefinitionContext.cs:206`），这一步跑完类型表才成型。
 
 「根」和「普通类定义」的语义差别在于寻址起点：普通类定义（`AddClassDefinition`）回答「这个类型能不能被字段引用」，根类定义回答「这个类型能不能被对象表直接当作起点」。`Game` 是典型——它下面挂着整个 campaign 的对象图。
 
@@ -37,7 +37,7 @@ description: "标在类上的「这是存档根对象」声明特性；它只携
 它不是靠 `new` 用的运行时对象，而是靠反射读取的元数据。官方唯一读取点就是用它的 `Assembly` 属性来定位程序集：
 
 ```csharp
-// TaleWorlds.SaveSystem/Definition/DefinitionContext.cs:254 —— 官方用法：拿 SaveSystem 程序集本身
+// TaleWorlds.SaveSystem/Definition/DefinitionContext.cs:257 —— 官方用法：拿 SaveSystem 程序集本身
 Assembly saveSystemAssembly = typeof(SaveableRootClassAttribute).Assembly;
 
 // 如果你想读某个类上的标注（自查 / 外部工具）
@@ -104,7 +104,7 @@ protected override void DefineRootClassTypes()
 `DefinitionContext` 侧看到这个类型时，只把它当程序集锚点用：
 
 ```csharp
-// TaleWorlds.SaveSystem/Definition/DefinitionContext.cs:254
+// TaleWorlds.SaveSystem/Definition/DefinitionContext.cs:257
 Assembly assembly = typeof(SaveableRootClassAttribute).Assembly;
 ```
 

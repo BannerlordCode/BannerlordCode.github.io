@@ -50,7 +50,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 
 **同批待办**：其它桶的 `_index.md` 很可能有同一处遗漏。本次只普查了 campaign 桶，**其它桶未核对**，别拿本页的结论去推断它们。
 
-## 已撰写的类页（51 张）
+## 已撰写的类页（52 张）
 
 桶索引的 route 就是桶目录本身。映射表里那条「桶索引到叶子页」的规则要求写成 `./<Name>`，也就是桶索引到同级叶子页写 `./Campaign` 这种形式。
 
@@ -88,6 +88,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 - [HeroDeveloper](./HeroDeveloper) — 挂在角色上的**养成状态机**（`public class HeroDeveloper`，574 行），代表角色的技能与特性成长。**三个要点**：① 它由**角色**持有（不是反过来），所以拿到它的入口在角色一侧；② 技能与特性的成长路径不同，且存在「**未分配点数**」类可写状态 —— 改它们要看是**直接写**还是**必须走方法**；③ **坑**：直接写状态而不走入口会漏掉事件派发与缓存失效。**注意**：它的构造函数是 `internal`，mod 不能自己 new，只能从已有角色上取。✅ `TaleWorlds.CampaignSystem/CharacterDevelopment/HeroDeveloper.cs`
 - [PerkObject](./PerkObject) — **一个 perk 的定义对象**（`public sealed class PerkObject : PropertyObject`，161 行），由 XML 定义、启动时加载；处于**定义侧**。**三个要点**：① 它是**只读定义**（`All` 转发战役层的全集，`Initialize` 是唯一公开写入口）；② 效果分**主/次两条平行线**，各自带增量方式，次效果的增量方式存在一个「无效」哨兵值需回退处理；③ **`AlternativePerk` 是对称的**（互指）。**坑**：直接 `new` 而不调 `Initialize` 只会得到空壳（构造函数只负责身份）。✅ `TaleWorlds.CampaignSystem/CharacterDevelopment/PerkObject.cs`
 - [PolicyObject](./PolicyObject) — **一条政策的定义对象**（`public sealed class PolicyObject : PropertyObject`，83 行），由 XML 定义、启动时加载 —— 处于**定义侧**；政策在某个王国上被采纳与否是**状态**，存在王国一侧（`Kingdom.ActivePolicies` 与 `AddPolicy` / `RemovePolicy` / `HasPolicy`）。**两个坑**：① 本类**所有字段 setter 都是 private**，唯一写通道是 `Initialize`；② `new` 出来一个政策是可行的，但**把它登记进全局名册的路不公开** ⇒ mod 想加自己的政策应走 XML 定义而不是运行时代码构造。✅ `TaleWorlds.CampaignSystem/PolicyObject.cs`
+- [JournalLog](./JournalLog) — 战役日志里**最小的一条记录**（`public class JournalLog`，136 行）：某个战役时刻关于某件事的**一句话快照**，由条目容器聚合后显示在任务日志 UI 里。**两个只有读源码才能知道的事实**：① 它的**类型标记不是可自由挑选的样式开关**，而是「**用哪个入口写进去**」的副产物 —— 三个入口分别对应三种记录类型；② **枚举值里有一个已被存档固化的错拼**（`Discreate`），而**同族方法名拼写是正确的**（`AddDiscreteLog`）—— 两者不一致，**按直觉写任一个都会编译失败**。✅ `TaleWorlds.CampaignSystem/JournalLog.cs`
 - [`ApplyHeirSelectionAction`](./ApplyHeirSelectionAction) — 领主选定继承人之后统一改写家族继承链的入口 ✅ `TaleWorlds.CampaignSystem/Actions/ApplyHeirSelectionAction.cs`
 - [`BreakInOutBesiegedSettlementAction`](./BreakInOutBesiegedSettlementAction) — 强攻被围聚落（突入 / 突围）的入口 ✅ `TaleWorlds.CampaignSystem/Actions/BreakInOutBesiegedSettlementAction.cs`
 - [`BribeGuardsAction`](./BribeGuardsAction) — 行贿守卫以放行或换取入城 ✅ `TaleWorlds.CampaignSystem/Actions/BribeGuardsAction.cs`

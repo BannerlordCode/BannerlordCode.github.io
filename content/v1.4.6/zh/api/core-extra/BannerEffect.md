@@ -13,13 +13,13 @@ description: "旗帜效果条目：三个等级各一条百分比加成，按旗
 
 ## 概述
 
-71 行，一个 `sealed` 类，一条私有 `float[3]`——三级旗帜各一个百分比加成。它继承 [PropertyObject](../PropertyObject)（后者再继承 `MBObjectBase`），所以它**是有 `StringId` 的可寻址数据对象**；但它没有自己的 `Deserialize`，**数值只能通过 `Initialize` 从代码注入**。
+71 行，一个 `sealed` 类，一条私有 `float[3]`——三级旗帜各一个百分比加成。它继承 `PropertyObject`（后者再继承 `MBObjectBase`），所以它**是有 `StringId` 的可寻址数据对象**；但它没有自己的 `Deserialize`，**数值只能通过 `Initialize` 从代码注入**。
 
 三条公开能力：按等级取值（`GetBonusAtLevel`）、取值并格式化成百分比字符串（`GetBonusStringAtLevel`）、取值并生成带占位符的描述文本（`GetDescription`）。加上一个只读属性 `IncrementType`，说明这条效果是「加法」还是「乘系数」。
 
 ## 心智模型
 
-把它想成**一张三级台阶的百分比表**。一条 `BannerEffect` 描述「把近战伤害提高 X%」，X 分三级由旗帜等级选。真正的查询方是 [BannerComponent](../BannerComponent)：它持有 `BannerLevel` 与 `BannerEffect` 两个属性，`GetBannerEffectBonus()` 一行就是 `this.BannerEffect.GetBonusAtLevel(this.BannerLevel)`。
+把它想成**一张三级台阶的百分比表**。一条 `BannerEffect` 描述「把近战伤害提高 X%」，X 分三级由旗帜等级选。真正的查询方是 `BannerComponent`：它持有 `BannerLevel` 与 `BannerEffect` 两个属性，`GetBannerEffectBonus()` 一行就是 `this.BannerEffect.GetBonusAtLevel(this.BannerLevel)`。
 
 真正施加效果的是 `TaleWorlds.CampaignSystem.BannerHelper.AddBannerBonusForBanner(DefaultBannerEffects.IncreasedMeleeDamage, activeBanner, ref explainedNumber)`——它被战斗与属性计算模型调用（`SandboxAgentApplyDamageModel` 里近战、远程、冲锋、盾伤各有几处，`SandboxAgentStatCalculateModel` 与 `SandboxBattleMoraleModel` 各有若干处）。
 
@@ -54,7 +54,7 @@ description: "旗帜效果条目：三个等级各一条百分比加成，按旗
 
 入口两条：
 
-- 按 id 查：`MBObjectManager.Instance.GetObject<BannerEffect>(stringId)`——这也是 [BannerComponent](../BannerComponent) 反序列化时用的方式（`BannerComponent.cs:48`）。
+- 按 id 查：`MBObjectManager.Instance.GetObject<BannerEffect>(stringId)`——这也是 `BannerComponent` 反序列化时用的方式（`BannerComponent.cs:48`）。
 - 按类型扫：`MBObjectManager.Instance.GetObjectTypeList<BannerEffect>()`。
 
 构造器 `public BannerEffect(string stringId)`（`:16`）只赋 `StringId`；真正的三个等级加成由 `public void Initialize(string name, string description, float level1Bonus, float level2Bonus, float level3Bonus, EffectIncrementType incrementType)`（`:22`）填入。读取一律走 `GetBonusAtLevel(int bannerLevel)`（`:34`）、`GetBonusStringAtLevel(int)`（`:42`）、`GetDescription(int)`（`:49`）、`ToString()`（`:63`）。

@@ -12,7 +12,7 @@ description: "锻造会话对象：持有一个 WeaponDesign、可用部件表�
 
 ## 概述
 
-它是「一次锻造会话」的状态机，不是静态工具类。内部状态有三块：**当前设计**（`CurrentWeaponDesign`，一个 [WeaponDesign](../WeaponDesign)，内含 4 个 `WeaponDesignElement` 分别对应柄/刃/护手/饰件）、**可用部件表**（`UsablePiecesList`，长度 4 的数组，每个元素是某类部件的候选 [WeaponDesignElement](../WeaponDesignElement) 列表）、**历史栈**（`_history` + `_currentHistoryIndex`，支撑 `Undo` / `Redo`）。
+它是「一次锻造会话」的状态机，不是静态工具类。内部状态有三块：**当前设计**（`CurrentWeaponDesign`，一个 `WeaponDesign`，内含 4 个 `WeaponDesignElement` 分别对应柄/刃/护手/饰件）、**可用部件表**（`UsablePiecesList`，长度 4 的数组，每个元素是某类部件的候选 `WeaponDesignElement` 列表）、**历史栈**（`_history` + `_currentHistoryIndex`，支撑 `Undo` / `Redo`）。
 
 **关键约定：任何改动部件的操作最后都必须调 `ReIndex()`。** 它做两件事：把 `CurrentWeaponDesign.WeaponName` 同步到 `CraftedWeaponName`（`CopyTextObject()`），然后 `SetItemObject(null, null)` 把缓存的 `_craftedItemObject` 清掉。`SwitchToPiece` / `SwitchToCraftedItem` / `Randomize` / `Undo` / `Redo` 全都遵循这个收尾约定。漏调它 → 界面上还是旧武器。
 
@@ -119,7 +119,7 @@ crafting.Randomize();                                                           
 
 **`new Crafting(...)` 之后忘了调 `Init()`，直接访问 `UsablePiecesList` 或 `CurrentWeaponDesign`。** 构造器（`:14-19`）只赋三个字段，`UsablePiecesList`（`:94`）和 `CurrentWeaponDesign`（`:32`）**仍然是 null**。后果是首次 `crafting.UsablePiecesList[0]` 就空引用，而报错信息完全没提「忘了 Init」；更糟的情况是你在 `Init()` 之前往 `SwitchToPiece`（`:147`）里塞值，它依赖 `CurrentWeaponDesign`，同样直接崩。**`Init()` 是强制的一步，不是可选的优化。**
 
-第二个坑是无效占位件：`Init()` 在某个 `PieceTypes` 没有可用部件时会填 `WeaponDesignElement.GetInvalidPieceForType((PieceTypes)i)`（`:81`），所以 `UsablePiecesList[i]` 里的元素**不保证每个都是 `IsValid`**——选件逻辑里 `UsablePiecesList[i].First(p => !p.CraftingPiece.IsHiddenOnDesigner)`（`:77`）就会踩到无效件。遍历时按 [CraftingPiece](../CraftingPiece) 那一页说的那样先判 `IsValid`。
+第二个坑是无效占位件：`Init()` 在某个 `PieceTypes` 没有可用部件时会填 `WeaponDesignElement.GetInvalidPieceForType((PieceTypes)i)`（`:81`），所以 `UsablePiecesList[i]` 里的元素**不保证每个都是 `IsValid`**——选件逻辑里 `UsablePiecesList[i].First(p => !p.CraftingPiece.IsHiddenOnDesigner)`（`:77`）就会踩到无效件。遍历时按 `CraftingPiece` 那一页说的那样先判 `IsValid`。
 
 第三个坑：`CurrentItemModifierGroup`（`:37`）是 `{ get; private set; }`，**公开面没有任何 setter**——整个类里唯一的赋值点在一个静态工厂的 `crafting.CurrentItemModifierGroup = itemModifierGroup;`（`:559`）。所以你没法在 `new Crafting(...)` 之后换词缀组，只能要么在那个工厂里走，要么自己在调用 `GenerateItem`（`:255`）时把 `itemModifierGroup` 作为参数传进去。
 

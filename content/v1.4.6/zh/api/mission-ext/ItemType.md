@@ -27,7 +27,7 @@ description: "internal 的物品大类枚举：Diamond 大厅/库存子系统在
 
 **两套枚举不是一一对应的。** `ItemType` 有 26 个成员而 `ItemObject.ItemTypeEnum` 的成员更多也更细（比如后者有 `Banner`、`Sling`、`SlingStones`、`ArmArmor` 这些 `ItemType` 里没有的）。名字相同的那些值在语义上也基本对齐（`Horse` / `OneHandedWeapon` / `Arrows` / `HeadArmor` / `BodyArmor` / `LegArmor` / `HandArmor` / `Goods` / `Book` / `Animal` / `Cape` / `HorseHarness`），但**不要试图写一个双向转换函数**，两边有缺口。
 
-**mod 该走哪条路。** 需要判断「这个物品是不是某一大类」时，用 `item.ItemType`（即 `ItemObject.ItemTypeEnum`）；需要判断「这个物品能不能进这个装备槽」时，用 `Equipment.IsItemFitsToSlot(EquipmentIndex, ItemObject)`。后者是引擎公开的同一类判定的正规入口，也是 [EquipmentIndex](../../core-extra/EquipmentIndex) 页里说的那套规则。注意 `Equipment` 的 `set` 索引器虽然**调用**了它却没有**使用**返回值，所以想校验必须自己显式调。
+**mod 该走哪条路。** 需要判断「这个物品是不是某一大类」时，用 `item.ItemType`（即 `ItemObject.ItemTypeEnum`）；需要判断「这个物品能不能进这个装备槽」时，用 `Equipment.IsItemFitsToSlot(EquipmentIndex, ItemObject)`。后者是引擎公开的同一类判定的正规入口，也是 `EquipmentIndex` 页里说的那套规则。注意 `Equipment` 的 `set` 索引器虽然**调用**了它却没有**使用**返回值，所以想校验必须自己显式调。
 
 ## 关键成员
 

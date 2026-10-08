@@ -158,7 +158,7 @@ description: "非 sealed 但实际无法被 mod 派生的战斗队伍：一侧�
 
 `Team` 是 `TaleWorlds.MountAndBlade/Team.cs:14` 的 `public class Team : IMissionTeam`，1121 行、79 个公开成员——**但它实际上派生不出来**：文件里 `virtual`、`abstract`、`protected` 的出现次数是 **0**，没有任何可覆盖的成员。
 
-它的实例**不是你自己 new 的**。唯一的公开构造器被 [Mission](../../mission/Mission) 调用（`Mission` 持有每个参战方的 `Team`），以及 `public static Team Invalid`（`:818`）这个哨兵。
+它的实例**不是你自己 new 的**。唯一的公开构造器被 `Mission` 调用（`Mission` 持有每个参战方的 `Team`），以及 `public static Team Invalid`（`:818`）这个哨兵。
 
 **`Invalid` 值得单独说**：它的 getter（`:819-829`）懒构造 `new Team(MBTeam.InvalidTeam, BattleSideEnum.None, null, uint.MaxValue, uint.MaxValue, null)` 并缓存到 `_invalid`，**而构造器因为 `this != Team._invalid` 的判断跳过了 `Initialize()`**。所以这个哨兵实例**大部分成员是 null**——`FormationsIncludingEmpty`（`:47`）、`FormationsIncludingSpecialAndEmpty`（`:52`）、`TeamAI`（`:57`）都没建。
 
@@ -199,7 +199,7 @@ t.OnFormationsChanged -= handler;                      // :19，同一实例才�
 
 第二个坑是**回放模式下同样的问题发生在正常队伍上**。`Initialize()`（`:293`）、`Reset()`（`:328`）、`Clear()`（`:352`）里都有 `if (!GameNetwork.IsReplay)` 的整段跳过（`:298`、`:330`、`:354`）。所以 `GameNetwork.IsReplay` 为真时构造出来的队伍，`QuerySystem`、`DetachmentManager`、两个 `OrderController` 都不存在——**`IsValid` 返回 true 但成员仍然是 null**。排查回放崩溃时不能只看 `IsValid`。
 
-第三，`Team` 的 `virtual` / `abstract` / `protected` 出现次数是 **0**。**不要试图派生它来做行为定制**——编译期能过（因为成员不是 sealed 的），但你覆写不了任何东西；想在战斗里改变队伍行为，正确位置是 [MissionBehavior](../../mission/MissionBehavior) 或 `Formation`。
+第三，`Team` 的 `virtual` / `abstract` / `protected` 出现次数是 **0**。**不要试图派生它来做行为定制**——编译期能过（因为成员不是 sealed 的），但你覆写不了任何东西；想在战斗里改变队伍行为，正确位置是 `MissionBehavior` 或 `Formation`。
 
 ## 真实示例
 

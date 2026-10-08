@@ -14,14 +14,14 @@ description: "标注一个私有字段参与序列化，告诉保存系统这个
 
 这是一个纯元数据特性，只有一个构造函数和一个可写属性，整份源码不到二十行。它唯一的作用是告诉 `TaleWorlds.SaveSystem` 的类型定义层：「这个字段要进存档，它在本类型内的局部编号是 N」。保存系统本身不读字段值，只读这个编号；真正决定「这个类型值怎么写进字节流」的是同一程序集里对应的 `SaveableTypeDefiner` 子类。也就是说，`[SaveableField]` 和 definer 是**成对**的：只有特性没有 definer 定义，`SaveManager.CheckSaveableTypes()` 就会把这个字段的类型列进缺失清单。
 
-它只能贴在字段上（`AttributeTargets.Field`），属性要用 [SaveablePropertyAttribute](../SaveablePropertyAttribute)。字段可以是 `private`——游戏自己的 `Game._nextUniqueTroopSeed` 就是 `[SaveableField(11)] private int`，可见性不是限制条件。
+它只能贴在字段上（`AttributeTargets.Field`），属性要用 `SaveablePropertyAttribute`。字段可以是 `private`——游戏自己的 `Game._nextUniqueTroopSeed` 就是 `[SaveableField(11)] private int`，可见性不是限制条件。
 
 ## 心智模型
 
 把它当成「存档格式的第 N 号插槽声明」就对了。整个模型是三层：
 
 1. **局部编号（LocalSaveId）**——本类型内部字段的槽位号，`short` 范围。它的作用域是**声明它的那个类**，不是全局；不同类型都用 `[SaveableField(1)]` 完全没问题。
-2. **类型定义（TypeDefinition）**——由 [SaveableTypeDefiner](../SaveableTypeDefiner) 的 `AddClassDefinition(typeof(YourType), 100)` 建立，把「槽位号 → 字段名」固定下来。
+2. **类型定义（TypeDefinition）**——由 `SaveableTypeDefiner` 的 `AddClassDefinition(typeof(YourType), 100)` 建立，把「槽位号 → 字段名」固定下来。
 3. **序列化格式**——1.4.6 里写死 `CurrentVersion = 1`，字段的读写最终走 `SaveManager.Save(object, MetaData, string, ISaveDriver)` / `SaveManager.Load(...)` 这条路径（`ISaveDriver` 只管存档文件与存档名），按 `LocalSaveId` 取字段的逻辑在存档系统内部，并没有对外的「按类型序列化器」接口。
 
 典型顺序：给字段加特性 → 在 definer 里登记这个类型 → 确认该字段的类型本身也有 definer（否则存的是引用 id 也会失败）。
@@ -48,7 +48,7 @@ public short LocalSaveId { get; set; }            // :12
 
 它是**纯元数据**——挂上去什么都不做，只提供一个 `short` 编号给存档系统读。用来标记的是**私有字段**。
 
-它的孪生兄弟是 [SaveablePropertyAttribute](../SaveablePropertyAttribute)，两者结构完全一样，区别是前者标记字段、后者标记属性。
+它的孪生兄弟是 `SaveablePropertyAttribute`，两者结构完全一样，区别是前者标记字段、后者标记属性。
 
 两者的编号都由 `SaveableTypeDefiner` 的 `AddClassDefinitionWithCustomFields(Type type, int saveId, IEnumerable<Tuple<string, short>> fields, IObjectResolver resolver = null)`（`SaveableTypeDefiner.cs:108`）消费——那个 `fields` 参数就是「成员名 + `short` 编号」的元组序列。
 

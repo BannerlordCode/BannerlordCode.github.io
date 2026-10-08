@@ -16,13 +16,13 @@ description: "模型集合的持有者：构造时快照一批 GameModel，按�
 
 三个成员里最关键的是 `protected T GetGameModel<T>()`：循环是 `for (int i = this._gameModels.Count - 1; i >= 0; i--)`，也就是**从尾往头扫，命中即返回**。这个「最后一个匹配」语义是 Bannerlord 模型覆盖机制的全部秘密——mod 注册一个 `ItemValueModel` 就能盖掉官方的，官方自己也是这么叠的。
 
-因为是 `protected`，mod 通常不直接调它，而是继承它并把 `GetGameModel<T>()` 包成公开属性。`BasicGameModels` 就是官方这么做的实例（[Game](../Game) 的 `BasicModels` 属性返回它）。
+因为是 `protected`，mod 通常不直接调它，而是继承它并把 `GetGameModel<T>()` 包成公开属性。`BasicGameModels` 就是官方这么做的实例（`Game` 的 `BasicModels` 属性返回它）。
 
 ## 心智模型
 
 生命周期是「构造一次、查询无数次」：
 
-1. `IGameStarter` 阶段，游戏侧把一批 `GameModel` 收集起来，通过 [Game](../Game) 的 `AddGameModelsManager<T>(IEnumerable<GameModel>)` 反射构造一个 `T : GameModelsManager` 的实例并存进 `_gameModelManagers` 字典（键是 `typeof(T)`）。`Game.SetBasicModels` 是 `AddGameModelsManager<BasicGameModels>` 的包装。
+1. `IGameStarter` 阶段，游戏侧把一批 `GameModel` 收集起来，通过 `Game` 的 `AddGameModelsManager<T>(IEnumerable<GameModel>)` 反射构造一个 `T : GameModelsManager` 的实例并存进 `_gameModelManagers` 字典（键是 `typeof(T)`）。`Game.SetBasicModels` 是 `AddGameModelsManager<BasicGameModels>` 的包装。
 2. 构造器立刻把传入集合快照成 `MBList`。**这一步之后，原始 `IEnumerable` 再变也不会反映进来。**
 3. 运行时游戏侧用派生的公开属性来查：`Game.Current.BasicModels.ItemValueModel` 内部就是 `GetGameModel<ItemValueModel>()`。
 
@@ -49,7 +49,7 @@ description: "模型集合的持有者：构造时快照一批 GameModel，按�
 
 **构造器是 `protected GameModelsManager(IEnumerable<GameModel> inputComponents)`（`:11`）**，而且它**当场做一次拷贝**：`this._gameModels = inputComponents.ToMBList<GameModel>();`（`:12`）——存进私有只读字段 `private readonly MBList<GameModel> _gameModels;`（`:39`）。所以构造完成之后，外部再往源集合里加东西**不会**影响它。
 
-实例由 [Game](../Game) 反射创建：`Game.AddGameModelsManager<T>(IEnumerable<GameModel> inputComponents) where T : GameModelsManager` 和它的便捷包装 `SetBasicModels(IEnumerable<GameModel> models)`。战役侧则是 `Game.AddGameModelsManager<GameModels>(campaignGameStarter.Models)`（`Campaign.cs:1916`）。
+实例由 `Game` 反射创建：`Game.AddGameModelsManager<T>(IEnumerable<GameModel> inputComponents) where T : GameModelsManager` 和它的便捷包装 `SetBasicModels(IEnumerable<GameModel> models)`。战役侧则是 `Game.AddGameModelsManager<GameModels>(campaignGameStarter.Models)`（`Campaign.cs:1916`）。
 
 两个取用方法：`protected T GetGameModel<T>() where T : GameModel`（`:17`）——**protected，外部拿不到，只能在自己的派生类里包一层**；`public MBReadOnlyList<GameModel> GetGameModels()`（`:31`）——返回只读列表。
 
@@ -89,7 +89,7 @@ GameModel any = all.Count > 0 ? all[0] : null;
 
 ### 最容易踩的坑
 
-**指望 `SetField` 式的「晚绑定」——在构造之后往源集合加模型，然后指望 `GetGameModel<T>()` 能找到。** 构造器（`:11-13`）在第一句就 `ToMBList<GameModel>()` 把输入拷进自己的 `_gameModels`（`:12`），而且这个字段是 `readonly`（`:39`），**没有任何 Add 方法**。所以汇总时机之后注册的模型永远不会进到这个 manager 里，`GetGameModel<T>()`（`:17`）返回 null——不报错，只是「静默没生效」。注册必须发生在 [IGameStarter](../IGameStarter) 阶段，也就是 `Campaign.cs:1915-1916` 汇总之前。
+**指望 `SetField` 式的「晚绑定」——在构造之后往源集合加模型，然后指望 `GetGameModel<T>()` 能找到。** 构造器（`:11-13`）在第一句就 `ToMBList<GameModel>()` 把输入拷进自己的 `_gameModels`（`:12`），而且这个字段是 `readonly`（`:39`），**没有任何 Add 方法**。所以汇总时机之后注册的模型永远不会进到这个 manager 里，`GetGameModel<T>()`（`:17`）返回 null——不报错，只是「静默没生效」。注册必须发生在 `IGameStarter` 阶段，也就是 `Campaign.cs:1915-1916` 汇总之前。
 
 第二个坑是 `GetGameModel<T>()`（`:17-29`）的**倒序查找**：`for (int i = this._gameModels.Count - 1; i >= 0; i--)`，先注册同类型模型会被后注册的遮蔽。两个 mod 都注册同一类型时，最终生效的那个取决于它们在 `IGameStarter.Models` 里的顺序，而 `CampaignGameStarter.AddModel` 的调用顺序又取决于 `MBGameManager` 回调的执行顺序。**同名覆盖是静默的**，所以自定义模型请用一个别的 mod 不会碰的类型名。
 
@@ -166,7 +166,7 @@ Debug.Print("registered model count: " + count, 0);
 - **构造器 null 即崩。** `protected GameModelsManager(IEnumerable<GameModel> inputComponents)` 对 null 没有任何防护，直接 NRE。
 - **`AddGameModelsManager` 键冲突是硬失败。** `Game._gameModelManagers` 是 `Dictionary<Type, GameModelsManager>`，同一个 `T` 注册两次会抛 `ArgumentException`；而**模型层内部**的重复是静默遮蔽。两种「重复」后果不同，别混。
 - **无线程安全。** `MBList` 无锁。跨线程注册 / 查询有风险，正常都在主线程。
-- **生命周期绑在 `Game`。** 管理器由 [Game](../Game) 持有，`Game.Destroy()` 后 `BasicModels` 失效。静态缓存管理器实例会在换局后指向已废弃对象。
+- **生命周期绑在 `Game`。** 管理器由 `Game` 持有，`Game.Destroy()` 后 `BasicModels` 失效。静态缓存管理器实例会在换局后指向已废弃对象。
 - **`GetGameModels()` 返回内部引用。** 虽然是只读包装，但每层包装对象都是新建的；别在每帧 tick 里调用它做遍历。
 
 ## 跨版本提示

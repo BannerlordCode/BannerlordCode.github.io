@@ -11,7 +11,7 @@ description: "任务内扩展的抽象基类：60+ 个 OnXxx 钩子覆盖 Agent 
 
 ## 概述
 
-`MissionBehavior` 是任务（战斗、攻城、对话遭遇）阶段的 mod 扩展基类，对应战役层的 `CampaignBehaviorBase`。它与 [CampaignBehaviorBase](../../campaign/CampaignBehaviorBase) 的关键区别有两条：一是它**不负责存读档**——任务状态不跨存档保存；二是它通过 `Mission` 属性持有唯一的作用域对象，钩子参数里到处是这个 `Mission` 或具体的 `Agent` / `Team`。
+`MissionBehavior` 是任务（战斗、攻城、对话遭遇）阶段的 mod 扩展基类，对应战役层的 `CampaignBehaviorBase`。它与 `CampaignBehaviorBase` 的关键区别有两条：一是它**不负责存读档**——任务状态不跨存档保存；二是它通过 `Mission` 属性持有唯一的作用域对象，钩子参数里到处是这个 `Mission` 或具体的 `Agent` / `Team`。
 
 它是纯回调容器：所有 `public virtual void OnXxx(...)` 在基类里都是空实现，`IMissionBehavior` 接口只要求 `Mission` 属性、`BehaviorType` 与 `BehaviorPriority`（后者是 1.4.6 新增的抽象成员，见下文）。派生类只重写关心的钩子即可。
 

@@ -12,7 +12,7 @@ description: "事件系统的事件类型标记基类：EventManager 只接受�
 
 ## 概述
 
-整个文件只有 9 行、一个空类、零字段零属性零方法。它存在的唯一意义是给 [EventManager](../EventManager) 提供一个**类型约束标记**：`EventManager.RegisterEvent<T>` 与 `UnregisterEvent<T>` 的方法体第一件事就是 `typeof(T).IsSubclassOf(typeof(EventBase))`，不成立就 `Debug.FailedAssert("Events have to derived from EventSystemBase")`。
+整个文件只有 9 行、一个空类、零字段零属性零方法。它存在的唯一意义是给 `EventManager` 提供一个**类型约束标记**：`EventManager.RegisterEvent<T>` 与 `UnregisterEvent<T>` 的方法体第一件事就是 `typeof(T).IsSubclassOf(typeof(EventBase))`，不成立就 `Debug.FailedAssert("Events have to derived from EventSystemBase")`。
 
 也就是说，事件总线的"钥匙孔"就是 `EventBase`。你写一个 `class MyEvent : EventBase`，它就自动获得被 `RegisterEvent` / `TriggerEvent` 接受的资格；你写一个不继承它的类，调用会被拒绝并打断言。注意断言**不 return**——`RegisterEvent` 在断言之后没有 else 分支，直接结束方法体，事件不会被注册。
 
@@ -23,7 +23,7 @@ description: "事件系统的事件类型标记基类：EventManager 只接受�
 典型使用顺序只有两步，因为没有第三步：
 
 1. **声明事件类型**：`public class InventoryTransferItemEvent : EventBase { public ItemObject Item { get; private set; } public bool IsBuyForPlayer { get; private set; } }`（源码 `TaleWorlds.CampaignSystem/Inventory/InventoryTransferItemEvent.cs`，构造函数 `(ItemObject item, bool isBuyForPlayer)`）。它就是纯数据载体，不需要任何方法。
-2. **注册 / 触发**：持有 [EventManager](../EventManager) 的那一侧（通常是 [Game](../Game) 的 `EventManager` 属性）在初始化时 `RegisterEvent<MyEvent>(handler)`；生产侧 `TriggerEvent(new MyEvent { ... })`。
+2. **注册 / 触发**：持有 `EventManager` 的那一侧（通常是 `Game` 的 `EventManager` 属性）在初始化时 `RegisterEvent<MyEvent>(handler)`；生产侧 `TriggerEvent(new MyEvent { ... })`。
 
 `EventManager` 内部是 `DictionaryByType`，键是事件类型，值是 `Action<T>` 的集合。`TriggerEvent<T>(T eventObj)` 走 `_eventsByType.InvokeActions<T>(eventObj)`——**按事件的运行时类型分发**，所以传基类实例不会触发子类的处理器（这里没有多态回退逻辑）。
 
@@ -135,7 +135,7 @@ Game.Current.EventManager.RegisterEvent<NotAnEvent>(o => Debug.Print("never", 0)
 - **`TriggerEvent` 按运行时类型精确匹配。** `DictionaryByType.InvokeActions<T>` 不做基类回退——触发子类实例时，订阅基类的处理器不会被调用。
 - **与 `IMbEvent` 是两套系统。** `TaleWorlds.CampaignSystem` 的 `MbEvent<T>` 走 `IMbEventBase` 接口，**不继承 `EventBase`**。混用会得到「注册被拒」或「Campaign 事件收不到」。
 - **无线程同步。** `DictionaryByType` 没有锁。跨线程 `TriggerEvent` 与 `RegisterEvent` 并发有风险。
-- **生命周期绑在 `Game` 上。** [Game](../Game) 的 `Destroy()` 会 `EventManager.Clear()` 并把 `EventManager` 置 null。换局后静态缓存的 `EventManager` 引用全部失效。
+- **生命周期绑在 `Game` 上。** `Game` 的 `Destroy()` 会 `EventManager.Clear()` 并把 `EventManager` 置 null。换局后静态缓存的 `EventManager` 引用全部失效。
 
 ## 跨版本提示
 

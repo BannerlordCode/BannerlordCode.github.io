@@ -16,7 +16,7 @@ description: "一局游戏的驱动骨架：组件容器 + 七步加载状态机
 
 组件容器是 `EntitySystem<GameManagerComponent>`。用 `AddComponent<T>()` / `AddComponent(Type)` 注册，`GetComponent<T>()` 取单个，`GetComponents<T>()` 取全部，`RemoveComponent` 移除。加载状态机则是一个七步的 `switch`，从 `PreInitializeZerothStep` 一路走到 `LoadingIsOver`：每次外部调无参 `DoLoadingForGameManager()`，它就按当前 `_stepNo` 调一次 protected 的 `DoLoadingForGameManager(step, out nextStep)` 虚方法，只有当 `nextStep` 恰好等于期望的下一个枚举值才推进 `_stepNo`；走到 `FinishLoadingFifthStep` 返回 `nextStep == None` 时返回 `true`，表示加载完毕。
 
-`Game` 属性是它和 [Game](../Game) 的双向绑定：`Game` 的私有构造器写 `gameManager.Game = this`，而这个 setter 在赋非 null 值时会调 `Initialize()`。
+`Game` 属性是它和 `Game` 的双向绑定：`Game` 的私有构造器写 `gameManager.Game = this`，而这个 setter 在赋非 null 值时会调 `Initialize()`。
 
 ## 心智模型
 
@@ -47,7 +47,7 @@ description: "一局游戏的驱动骨架：组件容器 + 七步加载状态机
 | 成员 | 签名 | 作用 |
 | --- | --- | --- |
 | `Current` | `public static GameManagerBase Current { get; private set; }` | 最近构造出来的实例。**在构造器里赋值**，所以「谁最后 new 谁就是 Current」。`OnGameEnd` 结束时置 null。没有公开 setter。 |
-| `Game` | `public Game Game { get; internal set; }` | 本管理器驱动的 [Game](../Game)。setter 是 `internal`：赋 null 时同时把 `_initialized` 置 false；赋非 null 时保存引用**并立刻调 `Initialize()`**。外部程序集只能读不能写。 |
+| `Game` | `public Game Game { get; internal set; }` | 本管理器驱动的 `Game`。setter 是 `internal`：赋 null 时同时把 `_initialized` 置 false；赋非 null 时保存引用**并立刻调 `Initialize()`**。外部程序集只能读不能写。 |
 | `Initialize` | `public void Initialize()` | 幂等标志位设置：`_initialized` 为 false 时置 true。**它本身什么都不做**，真正的初始化在派生类里。 |
 | `Components` | `public IEnumerable<GameManagerComponent> Components { get; }` | 组件的只读枚举，顺序不保证。遍历期间增删组件不安全。 |
 | `AddComponent` | `public GameManagerComponent AddComponent(Type componentType)` | 按 `Type` 反射创建组件、塞进实体系统，并写 `component.GameManager = this`。返回新建实例。 |
@@ -79,7 +79,7 @@ description: "一局游戏的驱动骨架：组件容器 + 七步加载状态机
 | `OnAfterGameLoaded` | `public abstract void OnAfterGameLoaded(Game game)` | 抽象。 |
 | `OnAfterGameInitializationFinished` | `public abstract void OnAfterGameInitializationFinished(Game game, object initializerObject)` | 抽象。 |
 | `RegisterSubModuleTypes` | `public abstract void RegisterSubModuleTypes()` | 抽象。向 `MBObjectManager` 注册自己的 `MBObjectBase` 派生类型。由 `Game.RegisterTypes` 在核心类型之后调用。 |
-| `InitializeSubModuleGameObjects` | `public virtual void InitializeSubModuleGameObjects(Game game)` | 虚方法，空实现。[Game](../Game) 的 `InitializeDefaultGameObjects()` 末尾会调它。 |
+| `InitializeSubModuleGameObjects` | `public virtual void InitializeSubModuleGameObjects(Game game)` | 虚方法，空实现。`Game` 的 `InitializeDefaultGameObjects()` 末尾会调它。 |
 | `ApplicationTime` | `public abstract float ApplicationTime { get; }` | 抽象。累计运行时间（秒），`Game.ApplicationTime` 转发到它。 |
 | `CheatMode` | `public abstract bool CheatMode { get; }` | 抽象。作弊模式开关，**不要拿它当发布版的调试门控**。 |
 | `IsDevelopmentMode` | `public abstract bool IsDevelopmentMode { get; }` | 抽象。开发模式标志。 |
@@ -242,7 +242,7 @@ public class MyInventoryComponent
 - **重写里抛异常 = 整局起不来。** 这七步在加载线程上串行执行，没有 per-step 的错误隔离。
 - **`Current` 是「最后构造者」。** 构造器里就写 `GameManagerBase.Current = this`，编辑器/战役/自定义战斗多套管理器共存时会互相覆盖。
 - **`OnGameEnd` 重写必须调 base。** 默认实现负责 `Current = null` 与 `Game = null`；漏掉 base 会让静态 `Current` 指向已销毁实例。
-- **`Game` 属性 setter 是 internal。** 外部程序集改不了它，只能读。为 null 时读 `CheatMode` 之类会 NRE（[Game](../Game) 的转发属性不做判空）。
+- **`Game` 属性 setter 是 internal。** 外部程序集改不了它，只能读。为 null 时读 `CheatMode` 之类会 NRE（`Game` 的转发属性不做判空）。
 - **`OnTick` 会广播给已销毁的组件。** `RemoveComponent` 不会通知组件做任何清理，组件里的状态要自己管。
 - **网络回调是 public，别在单机逻辑里假设它不会被调。** `OnPlayerConnect` 分两轮广播（Early / 普通），顺序错了会导致早期同步缺失。
 - **抽象成员一个都不能漏。** `RegisterSubModuleTypes` 漏实现会编译报错（好），但如果误写成空实现，mod 的 `MBObjectBase` 类型就没进 `MBObjectManager`，运行期表现为「对象找不到」。

@@ -12,9 +12,9 @@ description: "角色体型的可变部分：年龄、体重、体型三个 float
 
 ## 概述
 
-它是 [BodyProperties](../BodyProperties) 的一半：另一半 [StaticBodyProperties](../StaticBodyProperties) 是 128 位（8 个 `ulong`）不可变的静态特征位包。切分理由很直接——**年龄/体重/体型是玩家与 AI 每局都在变、需要在 UI 里拖动滑条、并且要单独存档同步的少量标量**，塞进 8 个 `ulong` 的位包里既浪费也难改。
+它是 `BodyProperties` 的一半：另一半 `StaticBodyProperties` 是 128 位（8 个 `ulong`）不可变的静态特征位包。切分理由很直接——**年龄/体重/体型是玩家与 AI 每局都在变、需要在 UI 里拖动滑条、并且要单独存档同步的少量标量**，塞进 8 个 `ulong` 的位包里既浪费也难改。
 
-结构体只有三个公开字段 `Age` / `Weight` / `Build`，都是 `public` 可写。`[Serializable]`，没有 `[SaveableField]` 标记——它靠宿主 [BodyProperties](../BodyProperties) 被存档系统整体处理。
+结构体只有三个公开字段 `Age` / `Weight` / `Build`，都是 `public` 可写。`[Serializable]`，没有 `[SaveableField]` 标记——它靠宿主 `BodyProperties` 被存档系统整体处理。
 
 两个静态常量锚点：`Default`（20 岁、0.5 体重、0.5 体型）与 `Invalid`（全 0，即 `default`）。两个上限常量：`MaxAge = 128f`、`MaxAgeTeenager = 21f`——**这两个常量只被读，类本身不 clamp 任何输入**。
 
@@ -24,9 +24,9 @@ description: "角色体型的可变部分：年龄、体重、体型三个 float
 
 1. **构造新角色体型**：`new DynamicBodyProperties(age, weight, build)` 或 `DynamicBodyProperties.Default`；
 2. **改一个字段**：`props.Build = 0.7f;`（字段公开可写，不需要任何 API）；
-3. **塞回 [BodyProperties](../BodyProperties)**：作为构造器第一个参数，或直接改 `bodyProperties.Age` / `.Weight` / `.Build`（[BodyProperties](../BodyProperties) 把这三个字段转发到 `DynamicProperties`）。
+3. **塞回 `BodyProperties`**：作为构造器第一个参数，或直接改 `bodyProperties.Age` / `.Weight` / `.Build`（`BodyProperties` 把这三个字段转发到 `DynamicProperties`）。
 
-**最需要小心的一条是这个结构体的 `operator ==` 与 `Equals` 不是同一条代码路径。** `Equals(DynamicBodyProperties other)` 用 `float.Equals` 逐字段比；`Equals(object obj)` 先 `obj is DynamicBodyProperties` 再转调前者；而 `operator ==` 的方法体第一项就是 `a == b`——**从反编译产物看这是自身调用，正常执行会栈溢出**。同一段代码在 [StaticBodyProperties](../StaticBodyProperties) 里也有同样的形状。最合理的解释是原始 C# 写的是装箱后的引用比较作为「两边都是默认值」的快路径，而反编译器把它渲染成了自身调用；**这一点无法从反编译产物确证，行为未核实**。
+**最需要小心的一条是这个结构体的 `operator ==` 与 `Equals` 不是同一条代码路径。** `Equals(DynamicBodyProperties other)` 用 `float.Equals` 逐字段比；`Equals(object obj)` 先 `obj is DynamicBodyProperties` 再转调前者；而 `operator ==` 的方法体第一项就是 `a == b`——**从反编译产物看这是自身调用，正常执行会栈溢出**。同一段代码在 `StaticBodyProperties` 里也有同样的形状。最合理的解释是原始 C# 写的是装箱后的引用比较作为「两边都是默认值」的快路径，而反编译器把它渲染成了自身调用；**这一点无法从反编译产物确证，行为未核实**。
 
 所以实务上的结论很简单：**比较体型用 `Equals`，不要用 `==` / `!=`。** `a.Equals(b)` 是可读、可推断、无歧义的那条路径。
 
@@ -64,7 +64,7 @@ description: "角色体型的可变部分：年龄、体重、体型三个 float
 | `Equals(object)` | `public override bool Equals(object obj)` | `obj != null && obj is DynamicBodyProperties && this.Equals((DynamicBodyProperties)obj)`。装箱路径。 |
 | `GetHashCode` | `public override int GetHashCode()` | `((Age.GetHashCode() * 397) ^ Weight.GetHashCode()) * 397 ^ Build.GetHashCode()`。**与逐字段 `Equals` 一致**，所以当 `Dictionary` / `HashSet` 的键是安全的（前提是别用 `==`）。 |
 | `operator ==` / `operator !=` | `public static bool operator ==(DynamicBodyProperties a, DynamicBodyProperties b)` / `operator !=` | **反编译产物里 `==` 的方法体首项就是 `a == b`（自身调用）**；`!=` 是 `!(a == b)`。原始 C# 极可能是「装箱引用比较 + 逐字段比较」的两段式，反编译渲染成了自身调用。**未核实，用 `Equals`。** |
-| `ToString` | `public override string ToString()` | 通过 `MBStringBuilder`（`Initialize(150, "ToString")`）输出 `age="20" weight="0.5" build="0.5" `。`age` 用 `"0.##"` 格式（两位小数），`weight` / `build` 用 `"0.####"`（四位）。**末尾带一个空格。** 这个格式正是 [BodyProperties](../BodyProperties).ToString 的动态部分。 |
+| `ToString` | `public override string ToString()` | 通过 `MBStringBuilder`（`Initialize(150, "ToString")`）输出 `age="20" weight="0.5" build="0.5" `。`age` 用 `"0.##"` 格式（两位小数），`weight` / `build` 用 `"0.####"`（四位）。**末尾带一个空格。** 这个格式正是 `BodyProperties`.ToString 的动态部分。 |
 
 ## 怎么用
 
@@ -77,7 +77,7 @@ description: "角色体型的可变部分：年龄、体重、体型三个 float
 - 两个静态只读：`public static readonly DynamicBodyProperties Invalid`（`:79`）和 `public static readonly DynamicBodyProperties Default = new DynamicBodyProperties(20f, 0.5f, 0.5f)`（`:82`）
 - 两个上限常量：`MaxAge = 128f`（`:64`）、`MaxAgeTeenager = 21f`（`:67`）
 
-它是 [BodyProperties](../BodyProperties) 的组成部分，只能通过 `BodyProperties.DynamicProperties`（`BodyProperties.cs:26`）拿到，也可以直接从 `BodyProperties.FromXmlNode`（`BodyProperties.cs:152`）里经过。
+它是 `BodyProperties` 的组成部分，只能通过 `BodyProperties.DynamicProperties`（`BodyProperties.cs:26`）拿到，也可以直接从 `BodyProperties.FromXmlNode`（`BodyProperties.cs:152`）里经过。
 
 ### 典型用法
 
@@ -130,7 +130,7 @@ if (props.Age < DynamicBodyProperties.MaxAgeTeenager)
 }
 ```
 
-塞进 [BodyProperties](../BodyProperties)（两边都要改时以 [BodyProperties](../BodyProperties) 为准）：
+塞进 `BodyProperties`（两边都要改时以 `BodyProperties` 为准）：
 
 ```csharp
 BodyProperties body = new BodyProperties(DynamicBodyProperties.Default, staticProps);
@@ -186,7 +186,7 @@ Debug.Print("=> Invalid 无法与真实 0 值区分，需要自己另带标记",
 - **三个字段零校验。** 负年龄、权重 5.0 都照收。`MaxAge` / `MaxAgeTeenager` 是给调用方的参考常量，不是本类执行的 gate。
 - **`Invalid` 等于「全是 0 的合法体型」。** 判「有没有设过」不能靠它。
 - **`Default` / `Invalid` 是 `static readonly` 字段不是属性。** `Debug.Print(DynamicBodyProperties.Default, 0)` 拿到的是一份结构体拷贝，改它没用。
-- **没有自己的存档标记。** 它靠宿主 [BodyProperties](../BodyProperties) 被整体处理。想单独存这半边，得自己在存档里塞。
+- **没有自己的存档标记。** 它靠宿主 `BodyProperties` 被整体处理。想单独存这半边，得自己在存档里塞。
 - **`ToString()` 末尾带一个空格**（源码里 `Append("\" ")`）。做字符串精确比对时别忘了它。
 - **`ToString()` 的位数是固定的。** `age` 两位小数、`weight` / `build` 四位小数，且不随数值大小切换科学计数法。
 

@@ -320,7 +320,7 @@ infantry.OnUnitCountChanged += onCount;                            // :36
 
 ### 最容易踩的坑
 
-**自己 `new Formation(team, index)`，然后把结果当作第十个阵型用。** 构造器是 public 且合法，但它**完全绕过了 `Team.Initialize()`（`Team.cs:293`）的登记流程**——Team 内部的 `FormationsIncludingEmpty` / `FormationsIncludingSpecialAndEmpty` 两个列表里没有它，AI、订单系统、`Team.GetFormation` 全部看不见它。更糟的是它和真阵型共享同一个 `(FormationClass)index`（`:842`），于是 `Team.GetFormation(FormationClass.Infantry)` 返回的仍是引擎那个，你写在假阵型上的改动**永远不生效**。需要额外阵型时，正确位置是 [MissionBehavior](../MissionBehavior) 里通过 `Team` / `Mission` 提供的正规通道处理，而不是造一个平行对象。
+**自己 `new Formation(team, index)`，然后把结果当作第十个阵型用。** 构造器是 public 且合法，但它**完全绕过了 `Team.Initialize()`（`Team.cs:293`）的登记流程**——Team 内部的 `FormationsIncludingEmpty` / `FormationsIncludingSpecialAndEmpty` 两个列表里没有它，AI、订单系统、`Team.GetFormation` 全部看不见它。更糟的是它和真阵型共享同一个 `(FormationClass)index`（`:842`），于是 `Team.GetFormation(FormationClass.Infantry)` 返回的仍是引擎那个，你写在假阵型上的改动**永远不生效**。需要额外阵型时，正确位置是 `MissionBehavior` 里通过 `Team` / `Mission` 提供的正规通道处理，而不是造一个平行对象。
 
 第二个坑是**在十个槽位上循环时用了 `FormationsIncludingEmpty`（八个）却按十来做算术**。这两个集合的差别正是 General 与 Bodyguard（`Team.cs:52` 与 `:47` 的说明）。用错集合会在 `i == 8` 时越界，或者——更常见——漏掉 General 让守卫单位的命令不生效。
 

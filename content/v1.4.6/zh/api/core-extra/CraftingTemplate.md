@@ -22,7 +22,7 @@ description: "锻造模板的 XML 数据对象：声明哪些部件类型可装�
 
 1. `CraftingTemplate.GetTemplateFromId("template_two_handed_sword")` 或遍历 `CraftingTemplate.All`；
 2. `IsPieceTypeUsable(pieceType)` 判某类部件这个模板支不支持；
-3. `new Crafting(template, culture, name)` 之后由 [Crafting](../Crafting) 按 `Pieces` 建候选池。
+3. `new Crafting(template, culture, name)` 之后由 `Crafting` 按 `Pieces` 建候选池。
 
 **最坑的一条：`GetStatDatas` 用 `GetIndexOfUsageDataWithId` 的返回值当数组下标，而后者在找不到时返回 `-1`。** `_statDataValues[usageIndex]` 于是变成 `_statDataValues[-1]`，抛 `IndexOutOfRangeException`。所以**传一个不在 `WeaponDescriptions` 里的 usage id 不是「返回空集」，是崩**。
 
@@ -40,12 +40,12 @@ description: "锻造模板的 XML 数据对象：声明哪些部件类型可装�
 
 | 成员 | 签名 | 作用 |
 | --- | --- | --- |
-| `BuildOrders` | `public PieceData[] BuildOrders { get; private set; }` | **装配顺序表**，来自 XML 的 `<PieceDatas>`。每项是 `PieceData { PieceType, Order }`：`Order` 的符号（`< 0` 柄侧 / `== 0` 握把 / `> 0` 刃侧）决定 [WeaponDesign](../WeaponDesign) 里往哪个累加器上加。**`WeaponDesign` 的几何计算完全按这张表走。** |
+| `BuildOrders` | `public PieceData[] BuildOrders { get; private set; }` | **装配顺序表**，来自 XML 的 `<PieceDatas>`。每项是 `PieceData { PieceType, Order }`：`Order` 的符号（`< 0` 柄侧 / `== 0` 握把 / `> 0` 刃侧）决定 `WeaponDesign` 里往哪个累加器上加。**`WeaponDesign` 的几何计算完全按这张表走。** |
 | `WeaponDescriptions` | `public WeaponDescription[] WeaponDescriptions { get; private set; }` | 这个模板支持的**用法**列表（一把剑可以是「刺」「砍」两种 `WeaponDescription`）。`_statDataValues` 的第一维就是它的长度。 |
-| `Pieces` | `public List<CraftingPiece> Pieces { get; private set; }` | 可用零件库，来自 `<UsablePieces>`。**[Crafting](../Crafting) 的 `Init()` 按 `PieceType` 给它分桶成 `UsablePiecesList`。** |
+| `Pieces` | `public List<CraftingPiece> Pieces { get; private set; }` | 可用零件库，来自 `<UsablePieces>`。**`Crafting` 的 `Init()` 按 `PieceType` 给它分桶成 `UsablePiecesList`。** |
 | `ItemType` | `public ItemObject.ItemTypeEnum ItemType { get; private set; }` | 从 XML 的 `item_type` 属性 `Enum.Parse` 出来的物品大类。 |
 | `ItemHolsters` | `public string[] ItemHolsters { get; private set; }` | 槽位到 body 的映射，按 `:` 切分。 |
-| `ItemHolsterPositionShift` | `public Vec3 ItemHolsterPositionShift { get; private set; }` | 默认佩戴位置偏移，`Vec3.Parse` 读入。参与 [WeaponDesign](../WeaponDesign) 的 `HolsterShiftAmount` 计算。 |
+| `ItemHolsterPositionShift` | `public Vec3 ItemHolsterPositionShift { get; private set; }` | 默认佩戴位置偏移，`Vec3.Parse` 读入。参与 `WeaponDesign` 的 `HolsterShiftAmount` 计算。 |
 | `UseWeaponAsHolsterMesh` | `public bool UseWeaponAsHolsterMesh { get; private set; }` | 是否拿武器自己的 mesh 当佩挂 mesh。 |
 | `AlwaysShowHolsterWithWeapon` | `public bool AlwaysShowHolsterWithWeapon { get; private set; }` | 带武器时是否仍显示鞘/背带。 |
 | `RotateWeaponInHolster` | `public bool RotateWeaponInHolster { get; private set; }` | 插在鞘里是否旋转。 |
@@ -68,7 +68,7 @@ description: "锻造模板的 XML 数据对象：声明哪些部件类型可装�
 
 | 成员 | 签名 | 作用 |
 | --- | --- | --- |
-| `.ctor` | `public CraftingTemplate()` | 无参，只 `Pieces = new List<CraftingPiece>()`。**其余数据属性全 null，`IsPieceTypeUsable` / `IsPieceTypeHiddenOnHolster` / `GetStatDatas` 都不能用。** [CraftingPiece](../CraftingPiece) 的 `Deserialize` 在 `<CraftingTemplates>` 分支里靠它 `objectManager.RegisterPresumedObject<CraftingTemplate>(...)` 建交叉引用。 |
+| `.ctor` | `public CraftingTemplate()` | 无参，只 `Pieces = new List<CraftingPiece>()`。**其余数据属性全 null，`IsPieceTypeUsable` / `IsPieceTypeHiddenOnHolster` / `GetStatDatas` 都不能用。** `CraftingPiece` 的 `Deserialize` 在 `<CraftingTemplates>` 分支里靠它 `objectManager.RegisterPresumedObject<CraftingTemplate>(...)` 建交叉引用。 |
 | `.ctor` | `public CraftingTemplate(string stringId)` | 同上再加 `base(stringId)`。 |
 | `Deserialize` | `public override void Deserialize(MBObjectManager objectManager, XmlNode node)` | 解析 `modifier_group` / `item_type` / `item_holsters` / `default_item_holster_position_offset` / `use_weapon_as_holster_mesh` / `always_show_holster_with_weapon` / `rotate_weapon_in_holster` / `piece_type_to_scale_holster_with` / `hidden_piece_types_on_holster`，以及四个子节点 `<PieceDatas>` / `<WeaponDescriptions>` / `<UsablePieces>` / `<StatsData>`。**`<WeaponDescriptions>` 必须在 `<StatsData>` 之前，否则 `_statDataValues` 为 null。** |
 | `OnLoad` | `[LoadInitializationCallback] private void OnLoad(MetaData metaData)` | 读档时保证 `Pieces` 非 null（为 null 就补一个空 `List`）。**只保 `Pieces`，不保 `BuildOrders`。** |
@@ -117,7 +117,7 @@ bool hidden = tpl.IsPieceTypeHiddenOnHolster(CraftingPiece.PieceTypes.Pommel);  
 
 ### 最容易踩的坑
 
-**拿 `GetTemplateFromId` 的返回值直接用，或者更隐蔽地——给一个不存在的模板 id，然后让 [Crafting](../Crafting) 的 `Init()` 去处理它。** `GetTemplateFromId`（`:307-310`）是 `GetObject<CraftingTemplate>` 的透传，找不到时返回 `default(T)` 即 null，**不抛异常也不打日志**。然后 `new Crafting(null, culture, name)` 不会立刻崩（构造器只是赋值），直到 `Init()` 里第一次解引用 `CurrentCraftingTemplate.Pieces`（`:62`）才空引用——报错点离真正的原因（模板 id 拼错了）隔了三层，排查成本很高。**先判 `tpl != null` 再进锻造流程。**
+**拿 `GetTemplateFromId` 的返回值直接用，或者更隐蔽地——给一个不存在的模板 id，然后让 `Crafting` 的 `Init()` 去处理它。** `GetTemplateFromId`（`:307-310`）是 `GetObject<CraftingTemplate>` 的透传，找不到时返回 `default(T)` 即 null，**不抛异常也不打日志**。然后 `new Crafting(null, culture, name)` 不会立刻崩（构造器只是赋值），直到 `Init()` 里第一次解引用 `CurrentCraftingTemplate.Pieces`（`:62`）才空引用——报错点离真正的原因（模板 id 拼错了）隔了三层，排查成本很高。**先判 `tpl != null` 再进锻造流程。**
 
 第二个坑是 `IsPieceTypeUsable`（`:153`）和 `IsPieceTypeHiddenOnHolster`（`:112`）问的是两件不同的事：前者是「这个模板的 `BuildOrders` 里有没有这一类部件」，后者是「这一类部件要不要在握持模型里隐藏」。把后者当成前者，会让你认为某个部件类型不可用、结果在锻造界面上根本不显示它——反过来则会让不该出现的部件出现在刀镡位上。
 
@@ -182,7 +182,7 @@ foreach (CraftingTemplate template in CraftingTemplate.All)
 }
 ```
 
-按 `BuildOrders` 自己拼一遍装配顺序（对照 [WeaponDesign](../WeaponDesign) 的几何规则）：
+按 `BuildOrders` 自己拼一遍装配顺序（对照 `WeaponDesign` 的几何规则）：
 
 ```csharp
 CraftingTemplate template = CraftingTemplate.GetTemplateFromId("template_two_handed_sword");
@@ -213,7 +213,7 @@ foreach (CraftingPiece piece in template.Pieces)
 - **`ToString()` 返回 `TemplateName` 不是 `StringId`。** 日志/字典键场景要用 `StringId`。
 - **`ItemModifierGroup` 属性存在但本文不链它。** 它从 XML 的 `modifier_group` 属性经 `Game.Current.ObjectManager.GetObject<ItemModifierGroup>(text)` 解析——**`Game.Current` 为 null 时 NRE**。
 - **不是存档对象。** 它是 `MBObjectBase`，存档存的是 `StringId` 引用，读档时按 id 重新从 XML 加载。
-- **`PieceData.Order` 的符号语义是隐约定。** `< 0` 柄侧、`0` 握把、`> 0` 刃侧，规则只存在于 [WeaponDesign](../WeaponDesign) 的 `CalculatePivotDistances` 里，写自定义模板时照抄游戏自带的 `<PieceDatas>` 即可，别自己发明。
+- **`PieceData.Order` 的符号语义是隐约定。** `< 0` 柄侧、`0` 握把、`> 0` 刃侧，规则只存在于 `WeaponDesign` 的 `CalculatePivotDistances` 里，写自定义模板时照抄游戏自带的 `<PieceDatas>` 即可，别自己发明。
 
 ## 跨版本提示
 

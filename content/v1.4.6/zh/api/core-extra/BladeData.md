@@ -13,9 +13,9 @@ description: "锻造刀身数据：CraftingPiece 的 BladeData 子节点，描�
 
 ## 概述
 
-126 行、14 个公开属性，是 [CraftingPiece](../CraftingPiece) 上挂的一块纯数据。锻造系统里一件武器由若干「部件」组成，其中刀身部件会额外带一个 `BladeData` 子节点描述这片刀身本身。`CraftingPiece.Deserialize` 遇到名为 `BladeData` 的子节点时，会 `new BladeData(this.PieceType, this.Length)` 然后立刻对它调 `Deserialize(objectManager, xmlNode)`——所以它的存在完全依附于 `CraftingPiece`，没有独立的加载入口。
+126 行、14 个公开属性，是 `CraftingPiece` 上挂的一块纯数据。锻造系统里一件武器由若干「部件」组成，其中刀身部件会额外带一个 `BladeData` 子节点描述这片刀身本身。`CraftingPiece.Deserialize` 遇到名为 `BladeData` 的子节点时，会 `new BladeData(this.PieceType, this.Length)` 然后立刻对它调 `Deserialize(objectManager, xmlNode)`——所以它的存在完全依附于 `CraftingPiece`，没有独立的加载入口。
 
-它和 [WeaponComponentData](../WeaponComponentData) 长得像但职责不同：`BladeData` 只描述**一片刀身**（长度、宽度、斩击/突刺的伤害系数与伤害类型），不描述一把武器的整体手感。`WeaponComponentData` 才是成品武器的完整参数表，锻造时由 [Crafting](../Crafting) 把两者拼起来。
+它和 `WeaponComponentData` 长得像但职责不同：`BladeData` 只描述**一片刀身**（长度、宽度、斩击/突刺的伤害系数与伤害类型），不描述一把武器的整体手感。`WeaponComponentData` 才是成品武器的完整参数表，锻造时由 `Crafting` 把两者拼起来。
 
 ## 心智模型
 
@@ -76,7 +76,7 @@ description: "锻造刀身数据：CraftingPiece 的 BladeData 子节点，描�
 
 构造器除赋这两个参数外，还把 `ThrustDamageType` / `SwingDamageType` 设成 `DamageTypes.Invalid`（`:74-75`），其余数值全部留在默认值上。
 
-它是锻造链的一环：XML 对象通过 `public override void Deserialize(MBObjectManager objectManager, XmlNode childNode)`（`:80`）反序列化，然后 [Crafting](../Crafting) 用它算双手武器的攻击距离、握持位（`HolsterMeshName` / `HolsterBodyName` / `HolsterMeshLength`，`:58`-`:68`）和伤害（`ThrustDamageFactor` / `SwingDamageFactor`，`:18`/`:28`）。
+它是锻造链的一环：XML 对象通过 `public override void Deserialize(MBObjectManager objectManager, XmlNode childNode)`（`:80`）反序列化，然后 `Crafting` 用它算双手武器的攻击距离、握持位（`HolsterMeshName` / `HolsterBodyName` / `HolsterMeshLength`，`:58`-`:68`）和伤害（`ThrustDamageFactor` / `SwingDamageFactor`，`:18`/`:28`）。
 
 mod 拿实例的方式是 `MBObjectManager.Instance.GetObject<BladeData>("blade_xxx")`，或从一把武器的 `ItemObject` 反查它的 crafting 数据。
 
@@ -198,7 +198,7 @@ Debug.Print("pieces=" + pieces.Count + " withBlade=" + withBlade
 - **四个字符串属性在缺项时是 null。** `PhysicsMaterial` / `BodyName` / `HolsterMeshName` / `HolsterBodyName` 全都可能为 null，直接 `.Length` 或字符串拼接会炸。
 - **XML 里的长度单位是厘米。** `BladeLength` / `BladeWidth` / `HolsterMeshLength` 都乘 `0.01f`。想直接填米值会被缩放成百分之一。
 - **继承 `MBObjectBase` 但没有 `StringId`。** 实例是 `new` 出来的，没进 `MBObjectManager`。**`GetObject<BladeData>` 取不到任何东西。**
-- **它不是武器成品参数。** 别拿它替代 [WeaponComponentData](../WeaponComponentData)：后者才有 `Handling` / `WeaponBalance` / `TotalInertia` / `StickingFrame` 这些手感与物理量。
+- **它不是武器成品参数。** 别拿它替代 `WeaponComponentData`：后者才有 `Handling` / `WeaponBalance` / `TotalInertia` / `StickingFrame` 这些手感与物理量。
 - **只在 `CraftingPiece.Deserialize` 里被构造。** 别指望从 `MBObjectManager` 或任何注册表拿到它。
 - **`StackAmount` 缺省 1。** 与其它数值字段缺省 0 的规则相反。
 

@@ -49,7 +49,7 @@ description: "十八个内置技能的门面：Game 构造时 new 出一个实�
 
 | 成员 | 签名 | 作用 |
 | --- | --- | --- |
-| `Riding` | `public static SkillObject Riding { get; }` | 骑术。id `"Riding"`，关联 `DefaultCharacterAttributes.Endurance`。**[ItemObject](../ItemObject) 的 `RelevantSkill` 在马匹物品上就返回它。** |
+| `Riding` | `public static SkillObject Riding { get; }` | 骑术。id `"Riding"`，关联 `DefaultCharacterAttributes.Endurance`。**`ItemObject` 的 `RelevantSkill` 在马匹物品上就返回它。** |
 | `Athletics` | `public static SkillObject Athletics { get; }` | 体能。id `"Athletics"`，关联 `Endurance`。 |
 | `Crafting` | `public static SkillObject Crafting { get; }` | 锻造。id `"Crafting"`，**显示名却是 `Smithing`**（`{=smithingskill}Smithing`）。关联 `Endurance`。 |
 

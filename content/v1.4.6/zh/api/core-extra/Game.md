@@ -12,7 +12,7 @@ description: "一次游戏会话的根对象：持有 MBObjectManager、GameStat
 
 ## 概述
 
-`Game` 是「当前这场游戏」的根聚合对象，`sealed` 表示不能继承。它自己实现了 `IGameStateManagerOwner`，是 [GameStateManager](../GameStateManager) 的 owner。构造过程（私有构造器）已经把四件事绑定了：写 `Game.Current` 静态单例、写 `GameType.CurrentGame`、把自己的引用塞给 `GameManager.Game`（这一步会触发 `GameManager.Initialize()`）、并 `InitializeParameters()` 读 `managed_core_parameters.xml`。它是 `[SaveableRootClass(5000)]`，也就是整份存档的根节点——`SaveManager.Save(target, ...)` 传的 `target` 通常就是它。
+`Game` 是「当前这场游戏」的根聚合对象，`sealed` 表示不能继承。它自己实现了 `IGameStateManagerOwner`，是 `GameStateManager` 的 owner。构造过程（私有构造器）已经把四件事绑定了：写 `Game.Current` 静态单例、写 `GameType.CurrentGame`、把自己的引用塞给 `GameManager.Game`（这一步会触发 `GameManager.Initialize()`）、并 `InitializeParameters()` 读 `managed_core_parameters.xml`。它是 `[SaveableRootClass(5000)]`，也就是整份存档的根节点——`SaveManager.Save(target, ...)` 传的 `target` 通常就是它。
 
 它同时是三个服务容器的宿主：`ObjectManager`（`MBObjectManager`）、`GameTextManager`（游戏文本）、`GameStateManager`（UI/逻辑状态栈），以及一个 `EntitySystem<GameHandler>` 组件集合，用来挂 Campaign 侧、地图侧的那些 `GameHandler` 子类。
 
@@ -41,7 +41,7 @@ description: "一次游戏会话的根对象：持有 MBObjectManager、GameStat
 | `CurrentState` | `public Game.State CurrentState { get; private set; }` | 三态 `Running` / `Destroying` / `Destroyed`。`Destroy()` 期间是 `Destroying`，用来拒绝在拆除过程中再进新局。 |
 | `ObjectManager` | `public MBObjectManager ObjectManager { get; private set; }` | 本局的 `MBObjectManager` 单例，所有 `MBObjectBase` 派生对象的注册/查找都在这上面。注意 `MBObjectManager.Instance` 也指向它。 |
 | `GameStateManager` | `public GameStateManager GameStateManager { get; private set; }` | 本局的**私有**状态栈，类型是 `GameStateManager.GameStateManagerType.Game`。必须 `CreateGameManager()` 之后才非 null，`Destroy()` 之后被置 null。全局菜单那种跨局状态在 `Module.GlobalGameStateManager` 上。 |
-| `GameManager` | `public GameManagerBase GameManager { get; private set; }` | 本局的 [GameManagerBase](../GameManagerBase)。`CheatMode` / `IsDevelopmentMode` / `ApplicationTime` 等属性都转发给它。 |
+| `GameManager` | `public GameManagerBase GameManager { get; private set; }` | 本局的 `GameManagerBase`。`CheatMode` / `IsDevelopmentMode` / `ApplicationTime` 等属性都转发给它。 |
 | `GameTextManager` | `public GameTextManager GameTextManager { get; private set; }` | 本局的文本管理器。`Initialize()` 时 `new` 并 `LoadGameTexts()`，然后 `GameTexts.Initialize(...)` 建立全局入口。 |
 | `GameType` | `[SaveableProperty(3)] public GameType GameType { get; private set; }` | 游戏类型（战役/编辑器等），存档字段 3。同时 `GameType.CurrentGame` 是反向指针。 |
 | `PlayerTroop` | `[SaveableProperty(8)] public BasicCharacterObject PlayerTroop { get; set; }` | 玩家部队对应的 `BasicCharacterObject`，存档字段 8。这是 mod 里「玩家自己的兵」最常挂载自定义数据的地方。 |
@@ -74,7 +74,7 @@ description: "一次游戏会话的根对象：持有 MBObjectManager、GameStat
 | `RemoveGameHandler` | `public void RemoveGameHandler<T>() where T : GameHandler` | 按类型移除 GameHandler。 |
 | `AddGameModelsManager` | `public T AddGameModelsManager<T>(IEnumerable<GameModel> inputComponents) where T : GameModelsManager` | 反射构造一个 `GameModelsManager` 派生类并存进 `_gameModelManagers` 字典。 |
 | `SetBasicModels` | `public void SetBasicModels(IEnumerable<GameModel> models)` | `AddGameModelsManager<BasicGameModels>(models)` 的便捷包装，写进 `BasicModels`。 |
-| `Save` | `public void Save(MetaData metaData, string saveName, ISaveDriver driver, Action<SaveResult> onSaveCompleted)` | 保存入口，包在 `PerformanceTestBlock("Save Process")` 里。先广播 `GameHandler.OnBeforeSave()`，再转 [SaveManager](../../save-system/SaveManager) 的 `Save`；若返回 continuing 就把回调挂到 `_currentActiveSaveData`，由后续 `OnTick` 兑现。 |
+| `Save` | `public void Save(MetaData metaData, string saveName, ISaveDriver driver, Action<SaveResult> onSaveCompleted)` | 保存入口，包在 `PerformanceTestBlock("Save Process")` 里。先广播 `GameHandler.OnBeforeSave()`，再转 `SaveManager` 的 `Save`；若返回 continuing 就把回调挂到 `_currentActiveSaveData`，由后续 `OnTick` 兑现。 |
 | `GetDefaultEquipmentWithName` | `public Equipment GetDefaultEquipmentWithName(string equipmentName)` | 查 `_defaultEquipments`，**返回 `.Clone(false)` 的浅拷贝**。名字不存在时 `Debug.FailedAssert` 并返回 null。 |
 | `SetDefaultEquipments` | `public void SetDefaultEquipments(IReadOnlyDictionary<string, Equipment> defaultEquipments)` | 只在 `_defaultEquipments` 仍为 null 时赋值——**只生效一次**，重复调用是静默 no-op。 |
 | `CreateBannerVisual` | `public IBannerVisual CreateBannerVisual(Banner banner)` | 转发 `BannerVisualCreator.CreateBannerVisual(banner)`；creator 为 null 时返回 null，不会抛。 |
@@ -104,7 +104,7 @@ description: "一次游戏会话的根对象：持有 MBObjectManager、GameStat
 
 ### 典型用法
 
-写一个最小的 [GameManagerBase](../GameManagerBase) 派生类，开一局，取用局内对象：
+写一个最小的 `GameManagerBase` 派生类，开一局，取用局内对象：
 
 ```csharp
 using TaleWorlds.Core;

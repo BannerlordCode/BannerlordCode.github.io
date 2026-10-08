@@ -12,7 +12,7 @@ description: "装备槽容器：固定 12 个 EquipmentElement 槽位（0-4 武�
 
 ## 概述
 
-装备不是可变字典，而是**固定长度 12 的数组**（`EquipmentSlotLength = 12`），每个元素是一个 [EquipmentElement](../EquipmentElement)（物品 + 品质修饰符 + 定制颜色）。槽位含义由 [EquipmentIndex](../EquipmentIndex) 枚举定义：0–4 是五个武器位，5–9 是护甲位，10 是马具（`Horse` 属性就是 `_itemSlots[10]`），11 是披风。
+装备不是可变字典，而是**固定长度 12 的数组**（`EquipmentSlotLength = 12`），每个元素是一个 `EquipmentElement`（物品 + 品质修饰符 + 定制颜色）。槽位含义由 `EquipmentIndex` 枚举定义：0–4 是五个武器位，5–9 是护甲位，10 是马具（`Horse` 属性就是 `_itemSlots[10]`），11 是披风。
 
 **它自身也被存档**：`[SaveableField(1)] _equipmentType` 和 `[SaveableField(2)] readonly EquipmentElement[] _itemSlots`。
 
@@ -55,12 +55,12 @@ description: "装备槽容器：固定 12 个 EquipmentElement 槽位（0-4 武�
 | `FillFrom` | `public void FillFrom(Equipment sourceEquipment, bool useSourceEquipmentType = true)` | 逐槽覆盖（走 `this[i] = ...`，同样忽略合法性校验）。`useSourceEquipmentType` 为 false 时保留本对象的 `_equipmentType`。 |
 | `Deserialize` | `public void Deserialize(MBObjectManager objectManager, XmlNode node)` | 遍历 `node.ChildNodes` 逐个 `DeserializeNode`。**没有先清空已有槽位**——对已装配的 Equipment 调它会叠加。 |
 | `DeserializeNode` | `public void DeserializeNode(MBObjectManager objectManager, XmlNode node)` | 解析单个 `<EquipmentElement id="item" slot="..."/>`。注释节点直接 return。id 含 `.` 时取最后一段。`IsItemFitsToSlot` 失败时把局部变量 `text` 改成 `"Weapon0"`。**注意：它给 `EquipmentIndex` 赋的是解析出的槽位，而非强制 Weapon0。** |
-| `GetEquipmentIndexFromOldEquipmentIndexName` | `public static EquipmentIndex GetEquipmentIndexFromOldEquipmentIndexName(string oldEquipmentIndexName)` | 旧版槽位名到 [EquipmentIndex](../EquipmentIndex) 的映射，未知名字 `Enum.Parse` 会抛 `ArgumentException`。 |
+| `GetEquipmentIndexFromOldEquipmentIndexName` | `public static EquipmentIndex GetEquipmentIndexFromOldEquipmentIndexName(string oldEquipmentIndexName)` | 旧版槽位名到 `EquipmentIndex` 的映射，未知名字 `Enum.Parse` 会抛 `ArgumentException`。 |
 | `IsEmpty` | `public bool IsEmpty()` | 12 个槽的 `Item` 全部为 null。**不检查 `ItemModifier`。** |
 | `GetTotalWeightOfArmor` | `public float GetTotalWeightOfArmor(bool forHuman)` | 区间汇总。`forHuman` 为 true 时从 `NumAllWeaponSlots` 累加到 `ArmorItemEndSlot`；为 false 时只算 `HorseHarness` 一段。空槽跳过。 |
 | `GetTotalWeightOfWeapons` | `public float GetTotalWeightOfWeapons()` | 武器位区间逐槽 `GetEquipmentElementWeight()` 求和。 |
 | `GetHeadArmorSum` / `GetHumanBodyArmorSum` / `GetLegArmorSum` / `GetArmArmorSum` | `public float GetHeadArmorSum()` 等 | 按护甲位区间累加 modified 值。`GetHorseArmorSum()` 只算 `HorseHarness` 的 `GetModifiedMountBodyArmor()`。 |
-| `HairCoverType` / `BeardCoverType` / `ManeCoverType` | `public ArmorComponent.HairCoverTypes HairCoverType { get; }` 等 | 从头部/身体护甲的 `ArmorComponent` 里读遮蔽类型，枚举类型来自 [ArmorComponent](../ArmorComponent)。**没有头盔时通常返回枚举零值。** |
+| `HairCoverType` / `BeardCoverType` / `ManeCoverType` | `public ArmorComponent.HairCoverTypes HairCoverType { get; }` 等 | 从头部/身体护甲的 `ArmorComponent` 里读遮蔽类型，枚举类型来自 `ArmorComponent`。**没有头盔时通常返回枚举零值。** |
 | `ReinsMeshName` | `public string ReinsMeshName { get; }` | 从马具读取的缰绳 mesh 名。 |
 | `EarsAreHidden` / `MouthIsHidden` | `public bool EarsAreHidden { get; }` / `MouthIsHidden { get; }` | 马具/头部护甲对马耳与嘴部的遮蔽判定。 |
 | `BodyMeshType` / `BodyDeformType` | `public ArmorComponent.BodyMeshTypes BodyMeshType { get; }` 等 | 从身体护甲读 mesh 类型与形变类型。 |
@@ -126,7 +126,7 @@ Equipment restored = Equipment.CreateFromEquipmentCode(code);
 
 ### 最容易踩的坑
 
-**以为 `Equipment` 是引用共享的，改一个单位的装备会改到另一个。** 它是纯值对象：`Clone(bool cloneWithoutWeapons = false)`（`:149-158`）的循环写死了 **12 个槽位**（`for (int i = 0; i < 12; i++)`），并且在 `cloneWithoutWeapons == true` 时把 `0 <= i < 5` 的槽替换成 `EquipmentElement.Invalid`——也就是会清掉 `Weapon0..Weapon3` 与 `ExtraWeaponSlot` 这五个武器位。后果有两层：一是把 `CharacterObject.Equipment`（[BasicCharacterObject](../BasicCharacterObject) 的 `:150`，默认返回 `GetRandomEquipment()`）直接赋给两个单位时，两边共用一份装备，改一个另一个跟着变；二是想「只要护甲不要武器」却调用了 `Clone()` 默认参数，得到的是全套装备复制，武器槽里还留着原物品。**正确的拷贝姿势是显式写 `Clone(true)`，并且不要把 `Equipment` 实例赋给多个宿主。**
+**以为 `Equipment` 是引用共享的，改一个单位的装备会改到另一个。** 它是纯值对象：`Clone(bool cloneWithoutWeapons = false)`（`:149-158`）的循环写死了 **12 个槽位**（`for (int i = 0; i < 12; i++)`），并且在 `cloneWithoutWeapons == true` 时把 `0 <= i < 5` 的槽替换成 `EquipmentElement.Invalid`——也就是会清掉 `Weapon0..Weapon3` 与 `ExtraWeaponSlot` 这五个武器位。后果有两层：一是把 `CharacterObject.Equipment`（`BasicCharacterObject` 的 `:150`，默认返回 `GetRandomEquipment()`）直接赋给两个单位时，两边共用一份装备，改一个另一个跟着变；二是想「只要护甲不要武器」却调用了 `Clone()` 默认参数，得到的是全套装备复制，武器槽里还留着原物品。**正确的拷贝姿势是显式写 `Clone(true)`，并且不要把 `Equipment` 实例赋给多个宿主。**
 
 第二个坑是槽位下标容易混。`EquipmentIndex` 里 `Head = 5`、`Body = 6`、`Horse = 10`（`EquipmentIndex.cs:32`、`:34`、`:41`），武器位却是 `Weapon0 = 0` 到 `ExtraWeaponSlot = 4`——**武器槽在护甲槽前面**。用 `(int)EquipmentIndex.Head` 当循环下标去遍历会误落到武器区，写出「把头盔穿到手上」这类错位。遍历请用 `ArmorItemBeginSlot(5)` 到 `ArmorItemEndSlot`（`:32`、`:36`）这一段。
 
@@ -200,7 +200,7 @@ Debug.Print("steal: " + stolen.Item.StringId, 0);
 - **`GetEquipmentIndexFromOldEquipmentIndexName` 用 `Enum.Parse`。** 未知名字抛 `ArgumentException`，不返回 `None`。
 - **`SwapWeapons` 不校验槽位。** 能把任何两个槽对调。
 - **`SyncEquipments` 是公开可写字段。** 没有封装，同步行为受外部随意改写影响。
-- **`GetRandomEquipmentElements` 依赖 `character.BattleEquipments` / `CivilianEquipments`。** 这两个集合来自 [BasicCharacterObject](../BasicCharacterObject) 的 XML 加载，未加载完时是空的。
+- **`GetRandomEquipmentElements` 依赖 `character.BattleEquipments` / `CivilianEquipments`。** 这两个集合来自 `BasicCharacterObject` 的 XML 加载，未加载完时是空的。
 - **存档兼容。** `_itemSlots` 是 `[SaveableField(2)]`，槽位下标是存档 ABI。官方改 `EquipmentIndex` 顺序会让旧存档的装备错位。
 - **无并发保护。** 12 槽数组无锁，跨线程换装与读取有竞态。
 

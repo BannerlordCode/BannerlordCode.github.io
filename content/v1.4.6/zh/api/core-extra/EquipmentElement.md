@@ -12,7 +12,7 @@ description: "装备槽载荷结构体：ItemObject 加 ItemModifier 加 Cosmeti
 
 ## 概述
 
-`EquipmentElement` 是「一个装备槽里装了什么」的完整答案。它是**结构体**（值语义），内部装四样东西：`Item`（本体，[ItemObject](../ItemObject)）、`ItemModifier`（品质词缀，可空）、`IsQuestItem`（任务物品标记）、`CosmeticItem`（纯外观叠加层，可空）。前三个带 `[SaveableProperty]`，`CosmeticItem` **没有**——这是它最重要的一条边界，后面详述。它同时实现 `ISerializableObject` 与 `ISavedStruct`，所以既进 [SaveManager](../../save-system/SaveManager) 的结构体序列化，又参与 MBGUID 引用追踪。整个类型在装备体系里承担的是**「加工层」**：真正的护甲值在 [ArmorComponent](../ArmorComponent) 里，真正的机动值在 [HorseComponent](../HorseComponent) 里，而战斗实际用的数全部由本类型的 `GetModified*` 系列算出来。
+`EquipmentElement` 是「一个装备槽里装了什么」的完整答案。它是**结构体**（值语义），内部装四样东西：`Item`（本体，`ItemObject`）、`ItemModifier`（品质词缀，可空）、`IsQuestItem`（任务物品标记）、`CosmeticItem`（纯外观叠加层，可空）。前三个带 `[SaveableProperty]`，`CosmeticItem` **没有**——这是它最重要的一条边界，后面详述。它同时实现 `ISerializableObject` 与 `ISavedStruct`，所以既进 `SaveManager` 的结构体序列化，又参与 MBGUID 引用追踪。整个类型在装备体系里承担的是**「加工层」**：真正的护甲值在 `ArmorComponent` 里，真正的机动值在 `HorseComponent` 里，而战斗实际用的数全部由本类型的 `GetModified*` 系列算出来。
 
 ## 心智模型
 
@@ -87,7 +87,7 @@ description: "装备槽载荷结构体：ItemObject 加 ItemModifier 加 Cosmeti
 | `GetModifiedMountSpeed` | `public int GetModifiedMountSpeed(in EquipmentElement harness)` | 坐骑速度，双重词缀叠加规则同上，底值 `HorseComponent.Speed` + `SpeedBonus`。 |
 | `GetModifiedMountCharge` | `public int GetModifiedMountCharge(in EquipmentElement harness)` | 坐骑冲撞伤害，底值 `HorseComponent.ChargeDamage` + `ChargeBonus`。 |
 | `GetModifiedMountHitPoints` | `public int GetModifiedMountHitPoints()` | 坐骑血量 = `HorseComponent.HitPoints + HorseComponent.HitPointBonus`，过 `ItemModifier.ModifyMountHitPoints`，负数钳 0。**不接收 `harness`。** |
-| `GetModifiedItemName` | `public TextObject GetModifiedItemName()` | 显示名。有词缀且物品非玩家锻造时返回 `ItemModifier.Name` 并 `SetTextVariable("ITEMNAME", Item.Name)`；否则返回 `Item.Name`。**两个坑：（1）源码里内层的 `&& this.ItemModifier == null` 恒为 false（外层已经在它为 null 时 return 了），那个 `HorseComponent.ModifiedName` 分支是死代码；（2）`textObject = this.ItemModifier.Name; textObject.SetTextVariable(...)` 改的是 [ItemModifierGroup](../ItemModifierGroup) 词缀对象持有的**共享** `TextObject` 实例——多次调用会把上一次装备的物品名写进全局词缀名里。** |
+| `GetModifiedItemName` | `public TextObject GetModifiedItemName()` | 显示名。有词缀且物品非玩家锻造时返回 `ItemModifier.Name` 并 `SetTextVariable("ITEMNAME", Item.Name)`；否则返回 `Item.Name`。**两个坑：（1）源码里内层的 `&& this.ItemModifier == null` 恒为 false（外层已经在它为 null 时 return 了），那个 `HorseComponent.ModifiedName` 分支是死代码；（2）`textObject = this.ItemModifier.Name; textObject.SetTextVariable(...)` 改的是 `ItemModifierGroup` 词缀对象持有的**共享** `TextObject` 实例——多次调用会把上一次装备的物品名写进全局词缀名里。** |
 
 ### 武器用法索引转发（八个方法，全部委托给 `Item.GetWeaponWithUsageIndex`）
 
@@ -115,7 +115,7 @@ description: "装备槽载荷结构体：ItemObject 加 ItemModifier 加 Cosmeti
 
 ### 怎么拿到它
 
-`EquipmentElement` 是 `public struct EquipmentElement : ISerializableObject, ISavedStruct`（`TaleWorlds.Core/EquipmentElement.cs:11`）——**结构体 + 两个序列化接口**，这是它能进 [Equipment](../Equipment) 和存档的原因。
+`EquipmentElement` 是 `public struct EquipmentElement : ISerializableObject, ISavedStruct`（`TaleWorlds.Core/EquipmentElement.cs:11`）——**结构体 + 两个序列化接口**，这是它能进 `Equipment` 和存档的原因。
 
 两个构造器：`public EquipmentElement(ItemObject item, ItemModifier itemModifier = null, ItemObject cosmeticItem = null, bool isQuestItem = false)`（`:117`）和拷贝构造器 `public EquipmentElement(EquipmentElement other)`（`:126`）。
 
@@ -238,7 +238,7 @@ if (Equipment.IsItemFitsToSlot(EquipmentIndex.Weapon0, slot.Item))
 - **`GetModifiedBodyArmor` 与 `GetModifiedMountBodyArmor` 必须配对使用。** 判据是 `ItemType == HorseHarness`，用错静默返回 0，不报错。
 - **`GetModifiedMount*` 会把马和马具的词缀串联两遍。** 不是相加。
 - **`GetModifiedMount*` 不判 `HorseComponent` 为 null。** 非马匹物品塞进 `Horse` 槽后调用会 NRE。
-- **`GetModified*ForUsage` 会 NRE。** 它们转发 `Item.GetWeaponWithUsageIndex`，而 [ItemObject](../ItemObject) 的 `Weapons` 在无 `WeaponComponent` 时返回 null（不是空列表）。
+- **`GetModified*ForUsage` 会 NRE。** 它们转发 `Item.GetWeaponWithUsageIndex`，而 `ItemObject` 的 `Weapons` 在无 `WeaponComponent` 时返回 null（不是空列表）。
 - **相等性只看两个字段。** `IsEqualTo` / `Equals` / `GetHashCode` 都不比较 `CosmeticItem` 与 `IsQuestItem`，所以「外观不同但本体相同」的两个元素互相相等。
 - **`GetHashCode` 会撞。** `Item` 为 null 时基数是 0，多个空元素哈希相同。作为字典键安全，但作为 `HashSet` 去重依据时会误合并不同槽位状态。
 - **值语义。** `Equipment` 内部是数组，`Equipment[slot]` 取到的是**副本**。`gear[EquipmentIndex.Head].SetModifier(x)` 改的是临时副本，不写回数组。**要改写回必须整个赋回。**

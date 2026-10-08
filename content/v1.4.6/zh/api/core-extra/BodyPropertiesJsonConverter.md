@@ -12,11 +12,11 @@ description: "让 BodyProperties 结构体能进 Newtonsoft JSON 的转换器：
 
 ## 概述
 
-整个文件只有 40 行左右，一个 `JsonConverter` 派生类。`BodyProperties` 是**结构体**且内部有一个 128 位的 [StaticBodyProperties](../StaticBodyProperties)，Newtonsoft 对它既没有内建支持也没有可用的无参构造路径，所以需要这个转换器绕过默认契约。
+整个文件只有 40 行左右，一个 `JsonConverter` 派生类。`BodyProperties` 是**结构体**且内部有一个 128 位的 `StaticBodyProperties`，Newtonsoft 对它既没有内建支持也没有可用的无参构造路径，所以需要这个转换器绕过默认契约。
 
-它的做法非常直接：**不把结构体拆成 JSON 字段，而是整体压成一条字符串**。写的时候 `[BodyProperties](../BodyProperties).ToString()` 产出的那段 `<BodyProperties … />` XML 塞进 `{"_data": "…"}`；读的时候取回 `_data` 交给 [BodyProperties](../BodyProperties).FromString 解析。
+它的做法非常直接：**不把结构体拆成 JSON 字段，而是整体压成一条字符串**。写的时候 ``BodyProperties`.ToString()` 产出的那段 `<BodyProperties … />` XML 塞进 `{"_data": "…"}`；读的时候取回 `_data` 交给 `BodyProperties`.FromString 解析。
 
-**它不需要手工注册。** [BodyProperties](../BodyProperties) 的类型声明上就带着 `[JsonConverter(typeof(BodyPropertiesJsonConverter))]`，所以任何 `JsonConvert.SerializeObject` / `DeserializeObject` 碰到 `BodyProperties` 或其派生都会自动走这里。
+**它不需要手工注册。** `BodyProperties` 的类型声明上就带着 `[JsonConverter(typeof(BodyPropertiesJsonConverter))]`，所以任何 `JsonConvert.SerializeObject` / `DeserializeObject` 碰到 `BodyProperties` 或其派生都会自动走这里。
 
 ## 心智模型
 
@@ -80,7 +80,7 @@ BodyProperties back = JsonConvert.DeserializeObject<BodyProperties>(json, settin
 
 ## 真实示例
 
-直接序列化一个 [BodyProperties](../BodyProperties)（自动生效，无需注册）：
+直接序列化一个 `BodyProperties`（自动生效，无需注册）：
 
 ```csharp
 BodyProperties body = new BodyProperties(
@@ -115,7 +115,7 @@ string json = JsonConvert.SerializeObject(new CharacterLookPayload { Look = body
 Debug.Print(json, 0);
 ```
 
-手写 JSON 时必须带 `_data` 键，且内容是 [BodyProperties](../BodyProperties) 的 XML 串：
+手写 JSON 时必须带 `_data` 键，且内容是 `BodyProperties` 的 XML 串：
 
 ```csharp
 string xmlFragment =

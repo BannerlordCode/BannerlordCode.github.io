@@ -13,7 +13,7 @@ description: "sealed 的战场单位：Main 单例代表一个人或一匹马，
 
 `Agent` 是战场上的「一个人」——或者一匹马、一个野兽。它继承 `DotNetObject`，因此持有原生实体指针。它同时实现五个接口：`IAgent`（战斗）、`IFocusable`（可被相机聚焦）、`IUsable`（可被使用）、`IFormationUnit`（是阵型的组成单位）、`ITrackableBase`（可被追踪）。
 
-**`Agent` 与战役层的 [Hero](../../campaign/Hero) 不是一回事。** `Hero` 跨越整局战役，是人物；`Agent` 只存在于一场任务的生命周期内，任务结束就销毁。战场上的「玩家角色」由 `Agent.Main`（静态）指向那个 `Agent`，它的 `IsHero` 为真时对应某个 `Hero`，但两者没有自动同步——战斗结果要等任务结束时由战役层结算。
+**`Agent` 与战役层的 `Hero` 不是一回事。** `Hero` 跨越整局战役，是人物；`Agent` 只存在于一场任务的生命周期内，任务结束就销毁。战场上的「玩家角色」由 `Agent.Main`（静态）指向那个 `Agent`，它的 `IsHero` 为真时对应某个 `Hero`，但两者没有自动同步——战斗结果要等任务结束时由战役层结算。
 
 它是 `sealed` 的，公开成员超过 500 个。本类的实用读法是按四条主线：**它是谁**（`Index`、`Character`、`Team`、`Formation`）、**它在哪**（`Position`、`Frame`、`VisualPosition`）、**它能做什么**（`SetActionChannel`、`SetAIBehaviorParams`、`UseGameObject`）、**它怎么样**（`Health`、`AIStateFlags`、`MortalityState`）。
 
@@ -115,7 +115,7 @@ AI 侧走 `AIStateFlags`（同样是位域，`AlarmStateMask = 3` 用来取警�
 | `CanMoveDirectlyToPosition` | `public bool CanMoveDirectlyToPosition(in Vec2 position)` | 能否直线走到某点 |
 | `GetDistanceTo` | `public float GetDistanceTo(Agent other)` | 与另一单位的距离 |
 | `IsOnLand` / `IsInWater` | `public bool IsOnLand()` / `public bool IsInWater()` | 位于陆地 / 水域 |
-| `GetWaterLevelAtPosition`（任务侧） | 见 [Mission](../Mission) | 水位查询走任务 |
+| `GetWaterLevelAtPosition`（任务侧） | 见 `Mission` | 水位查询走任务 |
 | `SetIsPhysicsForceClosed` | `public void SetIsPhysicsForceClosed(bool isPhysicsForceClosed)` | 关闭物理推挤 |
 | `SetShouldCatchUpWithFormation` | `public void SetShouldCatchUpWithFormation(bool value)` | 是否追赶阵型 |
 | `CanBeAssignedForScriptedMovement` | `public bool CanBeAssignedForScriptedMovement()` | 是否可被脚本移动 |
@@ -429,9 +429,9 @@ AI 侧走 `AIStateFlags`（同样是位域，`AlarmStateMask = 3` 用来取警�
 | `SetInteractionAgent` / `GetTargetAgent` / `SetTargetAgent` / `InvalidateTargetAgent` | `public void SetInteractionAgent(Agent agent)` / `public Agent GetTargetAgent()` / `public void SetTargetAgent(Agent agent)` / `public void InvalidateTargetAgent()` | 目标维护 |
 | `SetLookToPointOfInterest` / `DisableLookToPointOfInterest` | `public void SetLookToPointOfInterest(Vec3 point)` / `public void DisableLookToPointOfInterest()` | 注视兴趣点 |
 | `OnFocusGain` / `OnFocusLose` | `public void OnFocusGain(Agent userAgent)` / `public void OnFocusLose(Agent userAgent)` | 相机焦点得失 |
-| `IsMainAgentObjectInteractionEnabled`（任务侧） | 见 [Mission](../Mission) | 判定在任务成员上 |
+| `IsMainAgentObjectInteractionEnabled`（任务侧） | 见 `Mission` | 判定在任务成员上 |
 | `CanReachAgent` / `CanInteractWithAgent` | `public bool CanReachAgent(Agent otherAgent)` / `public bool CanInteractWithAgent(Agent otherAgent, float userAgentCameraElevation)` | 与另一 Agent 的触及/交互判定 |
-| `AgentLookingAtAgent`（任务侧） | 见 [Mission](../Mission) | 视线判定走任务 |
+| `AgentLookingAtAgent`（任务侧） | 见 `Mission` | 视线判定走任务 |
 | `KickClear` | `public bool KickClear()` | 踢击是否命中 |
 | `HandleTaunt` / `HandleBark` | `public void HandleTaunt(int tauntIndex, bool isDefaultTaunt)` / `public void HandleBark(int indexOfBark)` | 嘲讽与呼喝 |
 | `DefaultTauntActions` | `public static readonly ActionIndexCache[] DefaultTauntActions` | 默认嘲讽动作表 |
@@ -456,7 +456,7 @@ AI 侧走 `AIStateFlags`（同样是位域，`AlarmStateMask = 3` 用来取警�
 | `GetController` | `public T GetController<T>() where T : AgentController` | 按类型取控制器 |
 | `AddController` | `public AgentController AddController(Type type)` | 挂一个控制器（可换成自定义实现） |
 | `RemoveController` | `public AgentController RemoveController(Type type)` | 摘掉控制器 |
-| `SetLastMovementKeyPressed`（任务侧） | 见 [Mission](../Mission) | 移动键记录在任务上 |
+| `SetLastMovementKeyPressed`（任务侧） | 见 `Mission` | 移动键记录在任务上 |
 
 ### 附着武器生成
 
@@ -473,7 +473,7 @@ AI 侧走 `AIStateFlags`（同样是位域，`AlarmStateMask = 3` 用来取警�
 | --- | --- | --- |
 | `CollisionCapsule` | `public CapsuleData CollisionCapsule` | 碰撞胶囊 |
 | `CollisionCapsuleCenter` | `public Vec3 CollisionCapsuleCenter` | 碰撞胶囊中心 |
-| `GetBiggestAgentCollisionPadding`（任务侧） | 见 [Mission](../Mission) | 最大碰撞半径在任务上 |
+| `GetBiggestAgentCollisionPadding`（任务侧） | 见 `Mission` | 最大碰撞半径在任务上 |
 | `EventControlFlags` | `public Agent.EventControlFlag EventControlFlags` | 事件控制位标志 |
 | `Agent.EventControlFlag` | `public enum EventControlFlag : uint` | 事件控制位域 |
 | `IsSitting` / `IsSliding` | `public bool IsSitting()` / `public bool IsSliding()` | 坐姿 / 滑行状态 |
@@ -521,8 +521,8 @@ AI 侧走 `AIStateFlags`（同样是位域，`AlarmStateMask = 3` 用来取警�
 **它由 native 侧创建，模组永远不 new。** 取用的四条路：
 
 - `public static Agent Main`（`:19`）——getter 先 `Mission mission = Mission.Current; if (mission == null) return null;` 再 `return mission.MainAgent;`（`:21-28`）。**所以战斗之外它返回 null。**
-- 从 [Team](../../mission-ext/Team) / [Formation](../Formation) 反查：`Team` 有按 Agent 找的查询，`Formation` 的 `OnUnitAdded` 事件会给你实例。
-- 从 [MissionBehavior](../MissionBehavior) 的回调参数拿：`OnAgentCreated(Agent agent)`（`MissionBehavior.cs:78`）、`OnAgentHit(Agent affectedAgent, Agent affectorAgent, ...)`（`:98`）等，这些参数就是现成的。
+- 从 `Team` / `Formation` 反查：`Team` 有按 Agent 找的查询，`Formation` 的 `OnUnitAdded` 事件会给你实例。
+- 从 `MissionBehavior` 的回调参数拿：`OnAgentCreated(Agent agent)`（`MissionBehavior.cs:78`）、`OnAgentHit(Agent affectedAgent, Agent affectorAgent, ...)`（`:98`）等，这些参数就是现成的。
 - 从物品/装备交互：`Formation` 那一层的 pickup 事件。
 
 常用成员：`public Team Team { get; private set; }`（`:665`）、`public int KillCount { get; set; }`（`:669`）、`public float Health`（`:1558`）、`public float HealthLimit { get; set; }`（`:690`）、`public IAgentOriginBase Origin { get; set; }`（`:660`）。

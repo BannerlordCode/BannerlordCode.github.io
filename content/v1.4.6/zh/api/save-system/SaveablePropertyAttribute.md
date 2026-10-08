@@ -12,7 +12,7 @@ description: "标注一个属性参与序列化，告诉保存系统这个属性
 
 ## 概述
 
-和 [SaveableFieldAttribute](../SaveableFieldAttribute) 是一对孪生特性：结构完全对称，唯一区别是 `AttributeUsage` 从 `AttributeTargets.Field` 换成 `AttributeTargets.Property`。它同样只有一个构造函数（`short localSaveId`）和一个可写属性 `LocalSaveId`，源码二十行。
+和 `SaveableFieldAttribute` 是一对孪生特性：结构完全对称，唯一区别是 `AttributeUsage` 从 `AttributeTargets.Field` 换成 `AttributeTargets.Property`。它同样只有一个构造函数（`short localSaveId`）和一个可写属性 `LocalSaveId`，源码二十行。
 
 游戏自己大量依赖它，因为 C# 属性是最容易做「读写分离 + 计算缓存」的地方。1.4.6 的 `Game` 里 `GameType` 是 `[SaveableProperty(3)]`、`PlayerTroop` 是 `[SaveableProperty(8)]`，`TextObject.Attributes` 是 `[SaveableProperty(2)]`——都是 `private set` 的公开属性。
 
@@ -47,7 +47,7 @@ public SaveablePropertyAttribute(short localSaveId)   // SaveablePropertyAttribu
 public short LocalSaveId { get; set; }               // :12
 ```
 
-和孪生的 [SaveableFieldAttribute](../SaveableFieldAttribute) **逐字相同**——同文件结构、同两个成员、同样只有构造器加一个 `short` 属性。区别只在约定：**这个加在属性上，那个加在字段上**。
+和孪生的 `SaveableFieldAttribute` **逐字相同**——同文件结构、同两个成员、同样只有构造器加一个 `short` 属性。区别只在约定：**这个加在属性上，那个加在字段上**。
 
 存档系统实际消费编号的地方是 `SaveableTypeDefiner.AddClassDefinitionWithCustomFields(Type type, int saveId, IEnumerable<Tuple<string, short>> fields, IObjectResolver resolver = null)`（`SaveableTypeDefiner.cs:108`）——`fields` 就是「成员名 + `short` 编号」的元组序列。
 
@@ -127,7 +127,7 @@ foreach (Type t in SaveManager.CheckSaveableTypes())
 
 - **编号即 ABI，改名安全改号不安全。** 与字段特性完全同一条规则：只追加、只从尾部取号，退役的号不要再用。
 - **getter 副作用会被触发。** 反序列化时保存系统会调用 setter，重建时可能调用 getter。把 `Debug.Print`、懒加载、事件触发写进属性访问器里会产生难查的加载期 bug。
-- **必须有配套 definer。** 特性声明槽位，definer 定义类型。缺一不可，否则 [SaveManager](../SaveManager) 的 `Save` 会因定义错误直接失败。
+- **必须有配套 definer。** 特性声明槽位，definer 定义类型。缺一不可，否则 `SaveManager` 的 `Save` 会因定义错误直接失败。
 - **派生属性不要存档。** 能由其它存档字段算出来的值，存进档里等于制造两个真相来源。
 - **类型受限。** 标在 `object` 或接口类型的属性上，保存系统会走引用寻址，必须保证那个类型有 `AddRootClassDefinition` 或可复用的对象定义。
 - **不适用于集合。** `List<T>` / `Dictionary<K,V>` 属性同样需要额外的容器定义，贴特性本身不解决问题。

@@ -20,14 +20,14 @@ GauntletUI 绑定系统里描述「从根 ViewModel 走到某个属性」的一�
 
 ## 心智模型
 
-在 [ViewModel](../ViewModel) 的 `GetViewModelAtPath(BindingPath path)` 里，路径是这样被消费的：
+在 `ViewModel` 的 `GetViewModelAtPath(BindingPath path)` 里，路径是这样被消费的：
 
 1. 读 `path.SubPath`。为 null 说明只有一段，直接返回 `this`。
 2. 拿 `SubPath.FirstNode` 当属性名，反射取该属性值。
 3. 值是 `ViewModel` → 递归 `GetViewModelAtPath(subPath)`；值是 `IMBBindingList` → 走列表分支，用 `Convert.ToInt32(SubPath.FirstNode)` 当下标。
 4. 走不通返回 null，不抛（除了下标那段会因非数字抛 `FormatException`）。
 
-所以路径的**段数决定解析深度**，每一段要么是属性名要么是列表下标。[ViewModel](../ViewModel) 的属性缓存表里 `GetProperty(subPath.FirstNode)` 找不到就返回 null —— 属性名大小写必须完全匹配，因为反射字典是 `Dictionary<string, PropertyInfo>` 默认区分大小写。
+所以路径的**段数决定解析深度**，每一段要么是属性名要么是列表下标。`ViewModel` 的属性缓存表里 `GetProperty(subPath.FirstNode)` 找不到就返回 null —— 属性名大小写必须完全匹配，因为反射字典是 `Dictionary<string, PropertyInfo>` 默认区分大小写。
 
 常见误用：
 
@@ -49,7 +49,7 @@ GauntletUI 绑定系统里描述「从根 ViewModel 走到某个属性」的一�
 | `Nodes` | `public string[] Nodes { get; private set; }` | 分段后的节点数组。setter 是 private，但**数组内容可被外部改**（见 `DecrementIfRelatedWith`）。 |
 | `FirstNode` | `public string FirstNode { get; }` | `Nodes[0]`。**`Nodes` 为空时抛 `IndexOutOfRangeException`**——不像 `LastNode` 有判空。 |
 | `LastNode` | `public string LastNode { get; }` | `Nodes[Length - 1]`；**`Length == 0` 时返回空串 `""`**，不抛。 |
-| `SubPath` | `public BindingPath SubPath { get; }` | 去掉首段后的路径。**`Nodes.Length <= 1` 时返回 null**（不是空路径）。[ViewModel](../ViewModel) 的 `GetViewModelAtPath` 靠这个 null 判断「到底了」。 |
+| `SubPath` | `public BindingPath SubPath { get; }` | 去掉首段后的路径。**`Nodes.Length <= 1` 时返回 null**（不是空路径）。`ViewModel` 的 `GetViewModelAtPath` 靠这个 null 判断「到底了」。 |
 | `ParentPath` | `public BindingPath ParentPath { get; }` | 去掉末段后的路径。**`Nodes.Length <= 1` 时返回 null。** 内部用字符串 `+=` 拼接（无 `MBStringBuilder`），段数多时有额外分配。 |
 | `Append` | `public BindingPath Append(BindingPath bindingPath)` | 返回**新对象**：`new BindingPath(this.Nodes, bindingPath.Nodes)`。`this` 不变，参数为 null 会 NRE。 |
 | `Simplify` | `public BindingPath Simplify()` | 归约 `..`：遇到 `..` 且栈非空且栈顶不是 `..` 就弹出栈顶，否则原样压入。**不处理 `.`**，也不合并 `..\..`。返回新对象。 |
@@ -127,7 +127,7 @@ while (cursor.SubPath != null)
 BindingPath extended = full.Append(new BindingPath("Value"));
 ```
 
-按名解析 ViewModel 属性（[ViewModel](../ViewModel) 的反射读取，属性名大小写必须精确）：
+按名解析 ViewModel 属性（`ViewModel` 的反射读取，属性名大小写必须精确）：
 
 ```csharp
 ViewModel root = new MyTradeScreenViewModel();

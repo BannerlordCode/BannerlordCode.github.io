@@ -14,7 +14,7 @@ description: "角色的内核数据对象：装备组、体型范围、阵型分
 
 它是「一个角色」的底层数据载体，与战役状态无关。作为 `MBObjectBase` 的派生类，它由 `MBObjectManager` 从 `basic_characters` 的 XML 加载，**存档里存的是 `StringId` 引用，读档时按 id 重新加载**。
 
-数据分五块：**装备**（`Equipment` 是默认套，`BattleEquipments` / `CivilianEquipments` 是全部套，`AllEquipments` 汇总）、**体型**（`BodyPropertyRange` 是 min/max 两份 [BodyProperties](../BodyProperties)，`GetBodyProperties` 随机取中间值）、**分类**（`Race` / `IsFemale` / `Culture` / `IsInfantry` / `IsMounted` / `IsRanged` / `FormationClass`）、**技能**（`DefaultCharacterSkills` 是 `MBCharacterSkills` 模板）、**战力数值**（`GetPower` / `GetBattlePower` / `GetMoraleResistance` / `GetBattleTier` / `MaxHitPoints` / `SkillFactor` / `GetStepSize`）。
+数据分五块：**装备**（`Equipment` 是默认套，`BattleEquipments` / `CivilianEquipments` 是全部套，`AllEquipments` 汇总）、**体型**（`BodyPropertyRange` 是 min/max 两份 `BodyProperties`，`GetBodyProperties` 随机取中间值）、**分类**（`Race` / `IsFemale` / `Culture` / `IsInfantry` / `IsMounted` / `IsRanged` / `FormationClass`）、**技能**（`DefaultCharacterSkills` 是 `MBCharacterSkills` 模板）、**战力数值**（`GetPower` / `GetBattlePower` / `GetMoraleResistance` / `GetBattleTier` / `MaxHitPoints` / `SkillFactor` / `GetStepSize`）。
 
 **战役层的 `TaleWorlds.CampaignSystem.CharacterObject` 继承自本类**，在它之上加了 `HeroParty` / `Level` 的成长、`ICharacterData` 接口实现等等。所以本类是那套体系的地基。
 
@@ -24,11 +24,11 @@ description: "角色的内核数据对象：装备组、体型范围、阵型分
 
 1. **按 id 取角色读数据**：`MBObjectManager.Instance.GetObject<BasicCharacterObject>("villager_male_1")`，然后读 `Level` / `Race` / `Equipment` / `GetBattleTier()`。
 2. **挑一套装备**：`BattleEquipments` / `FirstBattleEquipment` / `RandomBattleEquipment`，或用 `GetFirstEquipment(Func<Equipment,bool>)` 自定义筛选。
-3. **给角色生成体型**：`GetBodyProperties(equipment, seed)` 内部调 [FaceGen](../FaceGen)，把 `BodyPropertyRange` 的 min/max 与 `HairCoverType` 一起喂进去。
+3. **给角色生成体型**：`GetBodyProperties(equipment, seed)` 内部调 `FaceGen`，把 `BodyPropertyRange` 的 min/max 与 `HairCoverType` 一起喂进去。
 
 **最坑的一条：`Equipment` 永远不返回 null，但它可能是一份「空装备」。** getter 是 `_equipmentRoster == null ? MBEquipmentRoster.EmptyEquipment : _equipmentRoster.DefaultEquipment`。所以判「角色有没有武器」不能判 `Equipment == null`，要判槽位上的 `Item`。`HasMount()` 就是正确示范——`this.Equipment[10].Item != null`（硬编码槽位 10）。
 
-第二条：**大量便捷方法在裸构造的对象上会 NRE。** `new BasicCharacterObject()` 只设了 `DefaultFormationClass`。于是：`GetSkillValue(...)` → `DefaultCharacterSkills` 为 null → NRE；`GetStepSize()` 内部调 `GetSkillValue(DefaultSkills.Athletics)` → 同样 NRE；`GetBodyProperties(...)` → `BodyPropertyRange` 为 null → NRE；`MaxHitPoints()` → [FaceGen](../FaceGen).GetBaseMonsterFromRace 无实例时返回 null → 解引用 NRE；`IsPlayerCharacter` → `Game.Current.PlayerTroop` → `Game.Current` 为 null 时 NRE。
+第二条：**大量便捷方法在裸构造的对象上会 NRE。** `new BasicCharacterObject()` 只设了 `DefaultFormationClass`。于是：`GetSkillValue(...)` → `DefaultCharacterSkills` 为 null → NRE；`GetStepSize()` 内部调 `GetSkillValue(DefaultSkills.Athletics)` → 同样 NRE；`GetBodyProperties(...)` → `BodyPropertyRange` 为 null → NRE；`MaxHitPoints()` → `FaceGen`.GetBaseMonsterFromRace 无实例时返回 null → 解引用 NRE；`IsPlayerCharacter` → `Game.Current.PlayerTroop` → `Game.Current` 为 null 时 NRE。
 
 第三条：**它是 `MBObjectBase` 而不是存档对象。** 想持久化一个角色的体型，改的是存档里那份 `ItemObject` / 角色数据，不是给本类加字段。`Age` / `Race` / `IsFemale` / `FaceDirtAmount` 虽然是 `{ get; set; }`，**运行时改了不会进存档**。
 
@@ -91,7 +91,7 @@ description: "角色的内核数据对象：装备组、体型范围、阵型分
 | --- | --- | --- |
 | `BodyPropertyRange` | `public virtual MBBodyProperty BodyPropertyRange { get; protected set; }` | 该角色的体型上下限容器（`MBBodyProperty`），带 `HairTags` / `BeardTags` / `TattooTags` 与 `BodyPropertyMin` / `BodyPropertyMax`。**`protected set`，裸构造对象为 null。** |
 | `GetBodyPropertiesMin` / `GetBodyPropertiesMax` | `public virtual BodyProperties GetBodyPropertiesMin(bool returnBaseValue = false)` / `GetBodyPropertiesMax` | 直接返回 `BodyPropertyRange.BodyPropertyMin` / `BodyPropertyMax`。**`returnBaseValue` 参数在方法体里完全没用。`BodyPropertyRange` 为 null 时 NRE。** |
-| `GetBodyProperties` | `public virtual BodyProperties GetBodyProperties(Equipment equipment, int seed = -1)` | 取 min/max 后交给 `FaceGen.GetRandomBodyProperties(Race, IsFemale, min, max, equipment?.HairCoverType ?? ArmorComponent.HairCoverTypes.None, seed, …Tags, 0f)`。**`equipment` 为 null 时 HairCoverType 用 `None`；`BodyPropertyRange` 为 null 时 NRE；[FaceGen](../FaceGen) 未初始化时返回下限值。** |
+| `GetBodyProperties` | `public virtual BodyProperties GetBodyProperties(Equipment equipment, int seed = -1)` | 取 min/max 后交给 `FaceGen.GetRandomBodyProperties(Race, IsFemale, min, max, equipment?.HairCoverType ?? ArmorComponent.HairCoverTypes.None, seed, …Tags, 0f)`。**`equipment` 为 null 时 HairCoverType 用 `None`；`BodyPropertyRange` 为 null 时 NRE；`FaceGen` 未初始化时返回下限值。** |
 | `UpdatePlayerCharacterBodyProperties` | `public virtual void UpdatePlayerCharacterBodyProperties(BodyProperties properties, int race, bool isFemale)` | 用同一份 properties 同时作为 min 与 max 调 `BodyPropertyRange.Init(properties, properties)`，再写 `Race` 与 `IsFemale`。**只对玩家角色有意义。** |
 
 ### 技能与战力数值
@@ -131,7 +131,7 @@ description: "角色的内核数据对象：装备组、体型范围、阵型分
 
 ### 怎么拿到它
 
-`BasicCharacterObject` 是 `public class BasicCharacterObject : MBObjectBase`（`TaleWorlds.Core/BasicCharacterObject.cs:14`）——**不是 sealed，可以继承**，[CharacterObject](../../campaign/CharacterObject) 就继承它。XML 对象，构造器 `public BasicCharacterObject()`（`:378`）。
+`BasicCharacterObject` 是 `public class BasicCharacterObject : MBObjectBase`（`TaleWorlds.Core/BasicCharacterObject.cs:14`）——**不是 sealed，可以继承**，`CharacterObject` 就继承它。XML 对象，构造器 `public BasicCharacterObject()`（`:378`）。
 
 mod 拿到的实例来自三处：物品/角色表反序列化、`Game.PlayerTroop`（字段类型就是 `BasicCharacterObject`）、以及直接 `MBObjectManager.Instance.GetObject<BasicCharacterObject>("字符串id")`。
 
@@ -272,7 +272,7 @@ Debug.Print("race now " + character.Race + " female=" + character.IsFemale, 0);
 ## 风险与边界
 
 - **不是存档对象。** 它是 `MBObjectBase`，存档存 `StringId` 引用。**运行时改 `Age` / `FaceDirtAmount` / `Level` 不会进存档。**
-- **裸构造对象上大量方法 NRE。** `GetSkillValue` / `GetStepSize`（依赖前者）/ `GetBodyProperties*`（依赖 `BodyPropertyRange`）/ `MaxHitPoints`（依赖 [FaceGen](../FaceGen) 实例）。
+- **裸构造对象上大量方法 NRE。** `GetSkillValue` / `GetStepSize`（依赖前者）/ `GetBodyProperties*`（依赖 `BodyPropertyRange`）/ `MaxHitPoints`（依赖 `FaceGen` 实例）。
 - **`Equipment` 永不返回 null，但可能是空装备。** 判「有没有武器」要看槽位 `Item`，不要判 `Equipment == null`。`HasMount()` 是正确示范（硬编码槽位 10）。
 - **`FirstBattleEquipment` / `RandomBattleEquipment` 等可能是 null。** 集合为空时给 null。
 - **`GetFirstEquipment` 永不返回 null**（会回落到 `Equipment`），所以「拿不到就是 null」在它身上不成立。
@@ -280,7 +280,7 @@ Debug.Print("race now " + character.Race + " female=" + character.IsFemale, 0);
 - **`AllEquipments` 是 `protected`。** 外部拿不到全集，只能用 `BattleEquipments` / `CivilianEquipments` 这两个派生视图或 `GetFirstEquipment`。
 - **`BodyPropertyRange` 是 `protected set`。** 运行期换不了整个范围，只能调 `UpdatePlayerCharacterBodyProperties`。
 - **`GetBodyPropertiesMin/Max` 的 `returnBaseValue` 参数没用。** 传什么都一样，别以为它在区分「基础值」和「随机值」。
-- **`GetBodyProperties` 在 [FaceGen](../FaceGen) 未初始化时返回下限值。** 全部角色长得一样，且没有错误信号。
+- **`GetBodyProperties` 在 `FaceGen` 未初始化时返回下限值。** 全部角色长得一样，且没有错误信号。
 - **`IsPlayerCharacter` 摸 `Game.Current`。** 早期阶段 NRE。
 - **`ToString()` 解引用 `Name`。** `Name` 为 null 时 NRE。
 - **`GetBattleTier` 有 hero 特判。** `IsHero` 为真直接返回 7，不看等级。

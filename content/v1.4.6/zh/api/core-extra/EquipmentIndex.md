@@ -12,7 +12,7 @@ description: "装备槽位枚举：12 个装备槽的整数编号表，Equipment
 
 ## 概述
 
-`EquipmentIndex` 是 12 个装备槽的整数编号表，底层 `int`。它是 [Equipment](../Equipment) 的寻址语言：`Equipment` 内部持有一个 `EquipmentElement[] _itemSlots`（长度 `Equipment.EquipmentSlotLength == 12`），而这个枚举的值就是那个数组的下标。所以它不是「装饰性常量」，**枚举值和数组长度必须严格对上，改一个就全盘错位**。三段布局：索引 0–4 是武器段（`Weapon0`..`Weapon3` 加一个 `ExtraWeaponSlot`），索引 5–9 是护甲段（`Head` / `Body` / `Leg` / `Gloves` / `Cape`），索引 10–11 是马匹段（`Horse` / `HorseHarness`）。
+`EquipmentIndex` 是 12 个装备槽的整数编号表，底层 `int`。它是 `Equipment` 的寻址语言：`Equipment` 内部持有一个 `EquipmentElement[] _itemSlots`（长度 `Equipment.EquipmentSlotLength == 12`），而这个枚举的值就是那个数组的下标。所以它不是「装饰性常量」，**枚举值和数组长度必须严格对上，改一个就全盘错位**。三段布局：索引 0–4 是武器段（`Weapon0`..`Weapon3` 加一个 `ExtraWeaponSlot`），索引 5–9 是护甲段（`Head` / `Body` / `Leg` / `Gloves` / `Cape`），索引 10–11 是马匹段（`Horse` / `HorseHarness`）。
 
 ## 心智模型
 
@@ -38,7 +38,7 @@ description: "装备槽位枚举：12 个装备槽的整数编号表，Equipment
 | `Weapon3` | `Weapon3`（3） | 备用武器位。数组下标 3。 |
 | `ExtraWeaponSlot` | `ExtraWeaponSlot`（4） | 额外武器位。**注意它不等于 `NumPrimaryWeaponSlots = 4` 的含义**，那个是「常规武器槽数」的计数。 |
 | `NumAllWeaponSlots` | `NumAllWeaponSlots = 5` | 武器段长度/下界。同时也是护甲段起点（`ArmorItemBeginSlot` 同为 5）。**作为「下一个区段起点」用，不要当最后一个武器槽。** |
-| `NumPrimaryWeaponSlots` | `NumPrimaryWeaponSlots = 4` | **常规武器槽数量**（`Weapon0`–`Weapon3` 共 4 个），不含 `ExtraWeaponSlot`。`[ItemObject](../ItemObject)` 的 `MaxHolsterSlotCount = 4` 是同一数量级的另一个常量。 |
+| `NumPrimaryWeaponSlots` | `NumPrimaryWeaponSlots = 4` | **常规武器槽数量**（`Weapon0`–`Weapon3` 共 4 个），不含 `ExtraWeaponSlot`。``ItemObject`` 的 `MaxHolsterSlotCount = 4` 是同一数量级的另一个常量。 |
 | `NonWeaponItemBeginSlot` | `NonWeaponItemBeginSlot`（隐式 **5**） | 非武器槽区段起点标记。**与 `ArmorItemBeginSlot` 同值 5**。 |
 | `ArmorItemBeginSlot` | `ArmorItemBeginSlot = 5` | 护甲段起点，即数组下标 5（=`Head`）。 |
 | `Head` | `Head = 5` | 头部槽。数组下标 5。 |
@@ -177,7 +177,7 @@ Debug.Print("sentinel equals Horse? " + (EquipmentIndex.ArmorItemEndSlot == Equi
 - **`ExtraWeaponSlot` 与 `NumPrimaryWeaponSlots` 同为 4，但含义不同。** 前者是「第五个武器槽这个位置」，后者是「常规武器槽的数量」。
 - **`None = -1` 不能当数组下标。** 传进 `Equipment` 索引器会抛 `IndexOutOfRangeException`。
 - **底层是 `int` 不是 `sbyte`。** 跨语言或反射传值时注意与 `ArmorComponent.ArmorMaterialTypes : sbyte` 的区别。
-- **只是寻址层，不含合法性。** 哪些物品能进哪些槽由 [ItemObject](../ItemObject) 的 `ItemType` 与 `Equipment.IsItemFitsToSlot` 决定，不由本枚举决定。
+- **只是寻址层，不含合法性。** 哪些物品能进哪些槽由 `ItemObject` 的 `ItemType` 与 `Equipment.IsItemFitsToSlot` 决定，不由本枚举决定。
 - **旧存档编号另有一套名字。** 跨版本读档要走 `Equipment.GetEquipmentIndexFromOldEquipmentIndexName(string)`。
 
 ## 跨版本提示

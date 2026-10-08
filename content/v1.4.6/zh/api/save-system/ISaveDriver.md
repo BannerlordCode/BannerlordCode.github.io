@@ -11,7 +11,7 @@ description: "存档后端的抽象接口：八个方法覆盖落盘、列档、
 
 ## 概述
 
-`ISaveDriver` 是「存档数据最终怎么落到介质上」的抽象边界。它完全不碰对象图——遍历、序列化、还原都由 `SaveContext` / `LoadContext` 负责，那些在 [SaveManager](../SaveManager) 那一层。它只管八件事：写一份存档、列出存档条目、列出存档名、只读元数据、读一份存档、删一份存档、判断某份存档是否存在、判断自己是否异步。
+`ISaveDriver` 是「存档数据最终怎么落到介质上」的抽象边界。它完全不碰对象图——遍历、序列化、还原都由 `SaveContext` / `LoadContext` 负责，那些在 `SaveManager` 那一层。它只管八件事：写一份存档、列出存档条目、列出存档名、只读元数据、读一份存档、删一份存档、判断某份存档是否存在、判断自己是否异步。
 
 1.4.6 的 `TaleWorlds.SaveSystem` 目录里有三个实现，行为差别很大，选用哪个直接决定你的保存流程能不能拿到最终结果：
 
@@ -25,13 +25,13 @@ description: "存档后端的抽象接口：八个方法覆盖落盘、列档、
 
 ## 心智模型
 
-把存档想成三段管道：**类型定义**（哪些类型有哪些 saveId）→ **对象图**（哪些对象被哪些对象引用）→ **字节**（怎么编码、存哪）。接口落在第三段的末端，[SaveManager](../SaveManager) 的 `Save` / `Load` 落在第二、三段的接缝上。
+把存档想成三段管道：**类型定义**（哪些类型有哪些 saveId）→ **对象图**（哪些对象被哪些对象引用）→ **字节**（怎么编码、存哪）。接口落在第三段的末端，`SaveManager` 的 `Save` / `Load` 落在第二、三段的接缝上。
 
 `saveName` 是这份接口所有方法的通用主键，语义由实现决定：`FileDriver` 把它拼成 `saveName + ".sav"` 放到存档目录根下，**它自己不加扩展名**，所以调用方传一个不带后缀的名字即可，传了 `.sav` 就会得到 `.sav.sav`。
 
 「只读元数据」这条路径值得单独说：`LoadMetaData` 只解析文件头部的元数据段，不构造 `LoadData`、不解压也不读对象图。列存档槽（`GetSaveGameFileInfos`）正是靠它——`FileDriver` 的实现对每个 `*.sav` 逐个调 `SaveManager.LoadMetaData(名, this)`，并把 `metaData == null` 或版本为空的情况标成 `IsCorrupted`。想读「这个档是什么时候存的、我装了哪些 mod」而不付出读全档的代价，就用这条路。
 
-同步与异步的差别会一路传染到 [SaveManager](../SaveManager) 的返回值：驱动同步时 `SaveManager.Save` 返回终态 `SaveOutput`；驱动异步时返回 continuing 形态，真正的结果要等 `Save` 返回的那个 `Task` 兑现后自行取。**在 `AsyncFileSaveDriver` 上把 `SaveManager.Save` 当同步用，坏档会留到玩家实际读档时才炸。**
+同步与异步的差别会一路传染到 `SaveManager` 的返回值：驱动同步时 `SaveManager.Save` 返回终态 `SaveOutput`；驱动异步时返回 continuing 形态，真正的结果要等 `Save` 返回的那个 `Task` 兑现后自行取。**在 `AsyncFileSaveDriver` 上把 `SaveManager.Save` 当同步用，坏档会留到玩家实际读档时才炸。**
 
 ## 关键成员
 
@@ -83,7 +83,7 @@ description: "存档后端的抽象接口：八个方法覆盖落盘、列档、
 - `bool Delete(string saveName)`（`:27`）、`bool IsSaveGameFileExists(string saveName)`（`:30`）
 - `bool IsWorkingAsync()`（`:33`）
 
-**你拿它的场景是「存档 UI」而不是「写存档」。** [SaveManager](../SaveManager) 的 `Save(object target, MetaData metaData, string saveName, ISaveDriver driver)`（`SaveManager.cs:69`）和 `Load(string saveName, ISaveDriver driver)`（`:149`）都只接受 `ISaveDriver`，而 `Game.Save(...)`（`Game.cs`）也会把它往下传。所以写存档时你**不需要自己实现它**——引擎已经把 driver 传下去了。
+**你拿它的场景是「存档 UI」而不是「写存档」。** `SaveManager` 的 `Save(object target, MetaData metaData, string saveName, ISaveDriver driver)`（`SaveManager.cs:69`）和 `Load(string saveName, ISaveDriver driver)`（`:149`）都只接受 `ISaveDriver`，而 `Game.Save(...)`（`Game.cs`）也会把它往下传。所以写存档时你**不需要自己实现它**——引擎已经把 driver 传下去了。
 
 自定义存档界面（列档、删档）才是实现它的场景。
 
@@ -109,7 +109,7 @@ if (driver.IsSaveGameFileExists("slot_1"))                              // :30
 }
 ```
 
-写存档用 [SaveManager](../SaveManager) 而不是直接调 driver：
+写存档用 `SaveManager` 而不是直接调 driver：
 
 ```csharp
 SaveOutput output = SaveManager.Save(Game.Current, metaData, "slot_1", driver);   // SaveManager.cs:69
@@ -118,7 +118,7 @@ SaveOutput output = SaveManager.Save(Game.Current, metaData, "slot_1", driver); 
 
 ### 最容易踩的坑
 
-**把 `Save` 当同步方法用，或者自己 `await` 它。** `Task<SaveResultWithMessage> Save(...)`（`ISaveDriver.cs:11`）返回的是 `Task`，但整个存档流程已经被上层包好了：`SaveManager.Save(...)`（`SaveManager.cs:69`）内部建 `SaveContext` 并驱动它，返回给调用方的是 `SaveOutput` 而不是 `Task`。你在模组里如果绕过 `SaveManager` 直接调 `driver.Save(...)`，拿到的是一个**没人 await 的 Task**——文件可能根本没落盘，或者你在后台线程上收到了完成回调。正确路径是 `Game.Current.Save(...)`（[Game](../../core-extra/Game) 里那个带 `Action<SaveResult>` 回调的重载）或 `SaveManager.Save(...)`。
+**把 `Save` 当同步方法用，或者自己 `await` 它。** `Task<SaveResultWithMessage> Save(...)`（`ISaveDriver.cs:11`）返回的是 `Task`，但整个存档流程已经被上层包好了：`SaveManager.Save(...)`（`SaveManager.cs:69`）内部建 `SaveContext` 并驱动它，返回给调用方的是 `SaveOutput` 而不是 `Task`。你在模组里如果绕过 `SaveManager` 直接调 `driver.Save(...)`，拿到的是一个**没人 await 的 Task**——文件可能根本没落盘，或者你在后台线程上收到了完成回调。正确路径是 `Game.Current.Save(...)`（`Game` 里那个带 `Action<SaveResult>` 回调的重载）或 `SaveManager.Save(...)`。
 
 第二个坑是 `IsWorkingAsync()`（`:33`）——它反映的是 driver **当前是否正忙**。它在存档进行中返回 true，而 `Delete`（`:27`）、`Save`（`:11`）都不会因为忙而拒绝你（接口层没有断言）。后果是你在自动存档进行中删档，得到一个静默失败的 `false`，没有任何错误信息。存档 UI 里必须自己先查 `IsWorkingAsync()` 再决定按钮是否可点。
 

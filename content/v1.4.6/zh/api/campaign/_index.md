@@ -50,7 +50,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 
 **同批待办**：其它桶的 `_index.md` 很可能有同一处遗漏。本次只普查了 campaign 桶，**其它桶未核对**，别拿本页的结论去推断它们。
 
-## 已撰写的类页（44 张）
+## 已撰写的类页（45 张）
 
 桶索引的 route 就是桶目录本身。映射表里那条「桶索引到叶子页」的规则要求写成 `./<Name>`，也就是桶索引到同级叶子页写 `./Campaign` 这种形式。
 
@@ -81,6 +81,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 - [ItemRoster](./ItemRoster) — **物品名册**（`public class ItemRoster : IReadOnlyList<ItemRosterElement>, ..., ISerializableObject`，691 行），与 `TroopRoster` 对称。它同时是**列表**与**容器**：实现了 `IReadOnlyList<ItemRosterElement>`，所以能按索引遍历，但**写操作要走 `AddToCounts` / `RemoveXxx` 一族**而不是改元素——后者会绕过内部版本号与事件。元素 `ItemRosterElement` 装的是「物品 + 数量 + 修饰符」，所以**同一物品的不同修饰符是不同条目**。**坑**：空槽位（数量为 0）与 `IsEmpty` 语义不同；`FindIndexOfItem` 与 `GetElementCopyAtIndex` 的分工（前者找位置、后者取副本）。✅ `TaleWorlds.CampaignSystem/Roster/ItemRoster.cs`
 - [BarterManager](./BarterManager) — **交易流程总管**（`public class BarterManager`，383 行）。一次交易的完整链路分四段：**开价**（`BeginPlayerBarter` / `StartBarterOffer`）→ **估值**（`GetOfferValue` / `GetOfferValueForFaction`）→ **可接受性判定**（`IsOfferAcceptable`）→ **落地执行**（`ApplyAndFinalizePlayerBarter` / `ExecuteAIBarter`）。**关键事实**：玩家交易与 AI 交易是**两条独立入口**。**坑**：`Barterable.Apply` **不参与** AI 的接受判定（改 `Apply` 不会改变 AI 愿不愿意接受）；跳过估值会丢掉 `_overpayAmount` 加成；`Close()` **不清理**数据。✅ `TaleWorlds.CampaignSystem/BarterSystem/BarterManager.cs`
 - [HeroCreator](./HeroCreator) — **程序化造英雄**的静态入口（`public static class HeroCreator`，440 行）。**第一个要纠正的常见误解：1.4.6 里没有公开的 `CreateHero`** —— 它是 **private**（`HeroCreator.cs:132`）。公开入口只有六个：`CreateNotable` · `CreateSpecialHero` · `CreateChild` · `CreateRelativeNotableHero` · `CreateBasicHero` · `DeliverOffSpring`。**与 XML 模板英雄的区别**：模板英雄由 `CharacterObject` 定义，这里造的是**运行时 `Hero` 实体**并会进入 `CampaignObjectManager` 的登记表。**坑**：`CreateSpecialHero` 第 3 参（`faction` → `SetClan`）与第 4 参（`supporterOfClan` → `SetSupporterOf`）语义不同 —— **只填后者英雄会归别的家族**；另：本类只造活人，死亡善后不在这个类里。✅ `TaleWorlds.CampaignSystem/HeroCreator.cs`
+- [Town](./Town) — **城镇**（`public class Town : Fief`，1,099 行），聚落里的**经济与治理单元**。它继承链上的中间基类（题头已给出）带来了一层「可拥有聚落」的公共能力，本类在这之上加的是**城镇特有的那套**：市场与物价、繁荣度与人口、驻军与民兵、建筑与工程、税收与影响力。**与 `Settlement` 的分工**：外层聚落对象是「所有聚落类型的公共容器」，本类是「城镇这一种聚落怎么运转」；mod 改城镇机制时应优先在本类（或其对应 Model）上找入口，而不是去改外层容器。✅ `TaleWorlds.CampaignSystem/Settlements/Town.cs`
 - [`ApplyHeirSelectionAction`](./ApplyHeirSelectionAction) — 领主选定继承人之后统一改写家族继承链的入口 ✅ `TaleWorlds.CampaignSystem/Actions/ApplyHeirSelectionAction.cs`
 - [`BreakInOutBesiegedSettlementAction`](./BreakInOutBesiegedSettlementAction) — 强攻被围聚落（突入 / 突围）的入口 ✅ `TaleWorlds.CampaignSystem/Actions/BreakInOutBesiegedSettlementAction.cs`
 - [`BribeGuardsAction`](./BribeGuardsAction) — 行贿守卫以放行或换取入城 ✅ `TaleWorlds.CampaignSystem/Actions/BribeGuardsAction.cs`

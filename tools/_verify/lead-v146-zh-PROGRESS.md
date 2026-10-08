@@ -1349,6 +1349,61 @@ node tools/_verify/_tmp/member-rows.mjs <page>   # → members=35 (table=35)   �
 - `Building.md`：「唯一事件是 `OnBuildingLevelChangedEvent`，只由升降级派发」⇒ `CampaignEvents.cs:2279` `public static IMbEvent<Town, Building, int> OnBuildingLevelChangedEvent` ✅
 - `CultureObject.md` 三条跨文件示例引用：`Kingdom.cs:1037` `AddPolicy` ✅ · `Hero.cs:3126` `public CultureObject Culture;` ✅ · `Clan.cs:308` `public CultureObject Culture { get; set; }` ✅；且「`Traits` 在 `Deserialize` 中不填充」成立（`:33` 声明、`:38` 唯一读取、全源码无赋值）✅
 
+## 📋 Known backlog：v1.4.6/zh 树里 **80 页**在 judge-fix 后暴露的存量缺陷
+
+**⚠ 因果必须先读**：这 80 页**不是回归**。它们**在修复前就已存在**，只是当时 `ambiguous` 路径**静默跳过校验** ⇒ 引用**从未被核**而判据全绿。**judge-fix 只是把它们暴露出来**。下一轮不得把它误读为「修复造成的回归」。
+
+### 读数 ↔ 判据 sha 绑定（本会话既定纪律）
+
+```
+tools/_verify/lead-145zh-judge.mjs
+  sha256 = e6153400fa881fd614b449cb0ad5dc13cf27aeb173d4f6776f299ec27dc50f09
+  （原 16e9b98f… → 修后 e6153400…；现已入 git，git status 干净）
+```
+
+**复现命令**：
+```bash
+cd C:/WorkSpace/Bannerlord/BannerlordCode.github.io
+node tools/_verify/lead-145zh-judge.mjs $(git ls-tree -r --name-only HEAD content/v1.4.6/zh/api/ | grep '\.md$' | grep -v '_index\.md$')
+# → JUDGE total=168 pass=88 fail=80
+```
+
+### boss #23129 要求的三段切分
+
+**① 本线本会话产出（批 6–11）中 `ambiguous>0` 的：0 页 / 共 38 页** ✅
+（38 页单独复跑：`JUDGE total=38 pass=38 fail=0`）
+
+**② 既有批次（更早 lead）的：80 页** —— 按**首次提交**（不是最后修改者）归因：
+
+| 页数 | first commit | subject |
+| --- | --- | --- |
+| 40 | `d273cd7539` | checkpoint: batch-1 hand-written pages, dead rules removed, site-wide 0 broken links |
+| 29 | `a011355477` | checkpoint: withdrawal executed for v1.4.6 + v1.4.7 tree state |
+| 11 | `2ef575495c` | checkpoint: R2 deep-write, nav repair, three new version trees |
+
+**③ 逐页清单**：`tools/_verify/known-backlog-1.4.6-zh.tsv`（80 行，列：`path / ambiguous / bad / j2_missing / first_commit`）
+
+### 缺陷分类（同一批 80 页）
+
+| 类别 | 页数 | 性质 |
+| --- | --- | --- |
+| `J2 missing=[导航]` | **80** | 格式类（缺 `## 导航` 节）—— 便宜可修 |
+| `bad>0`（引用超出文件行数） | **13** | **真内容缺陷**（引用指向不存在的行） |
+| `ambiguous>0` | **6** | 修复后才 fail-closed |
+
+**6 页 `ambiguous>0`**：`core-extra/EventBase`(14) · `EventManager`(2) · `FaceGen`(8) · `Monster`(3) · `core/MBSubModuleBase`(3) · `core/Module`(1)
+
+**13 页 `bad>0`**（**优先级最高** —— 这是「引用指向不存在位置」家族）：`core-extra/EventManager`(16) · `campaign-ext/MBObjectBase`(7) · `core-extra/WeaponComponent`(4) · `ArmorComponent`(3) · `mission-ext/MBGameManager`(3) · `IGameStarter`(2) · `ParameterContainer`(2) · `SkillObject`(2) · `gui/ScreenComponent`(2) · `BannerComponent`(1) · `core/Module`(1) · `gui/ScreenBase`(1) · `gui/ScreenLayer`(1)
+
+### 本线已自行修复的那一页（记录方法，供后续批量修复参考）
+
+`save-system/LoadContext.md`（**本线产出**）是唯一属于本会话的 ambiguous 页：41 条裸 `LoadContext.cs:N`（无路径）⇒ 与 BCL 同名文件撞车 ⇒ 已改为带路径形式（提交 `ceacf20eae`）：
+```js
+// 只替换「前面不是 /」的裸文件名引用，避免把已限定的再包一层
+t.replace(/([^\/])LoadContext\.cs:/g, "$1TaleWorlds.SaveSystem/Load/LoadContext.cs:")
+```
+修后：`ambiguous=0`，judge PASS，`checked=51`。
+
 ## 操作教训（本线实测，写给后续 Lead）
 
 ### 量具失败会报出「确信的错数」——不要直接拿它下结论

@@ -77,19 +77,19 @@ grep -rnE '(class|struct|interface|enum|record)[[:space:]]+ModuleManager\b' bann
 
 （`system` 桶有一个同形的坑：1.4.6 里也没有名为 `InputManager` 的类型，见 [system](../system)。）
 
-## 本桶的 8 个类型（全部核实，未撰写类页）
+## 本桶的 9 个类型（全部核实；8 张已手写，1 张未写）
 
-下面每个名字都用 `grep -rw` 在 `bannerlord-1.4.6/TaleWorlds.ModuleManager/` 核实过。**它们全部没有类页**：
+下面每个名字都用 `grep -rw` 在 `bannerlord-1.4.6/TaleWorlds.ModuleManager/` 核实过。**9 个顶层类型里 8 个已有类页，只有 `Extensions` 还没有**：
 
-- `ModuleInfo` — 单个已装载模块的运行时描述，也是本桶最值得写一页的类型。想知道「模块为什么按这个顺序加载」「谁是官方必需模块」，答案都在它的属性上。
+- [`ModuleInfo`](./ModuleInfo) — 单个已装载模块的运行时描述，也是本桶最值得写一页的类型。想知道「模块为什么按这个顺序加载」「谁是官方必需模块」，答案都在它的属性上。
 - [`SubModuleInfo`](./SubModuleInfo) — 模块声明文件的内存表示：程序集名、DLL 路径、入口类型名、TW 认证标记与运行时标签，由 `LoadFrom` 从 XML 解析填充。
 - [`SubModuleTags`](./SubModuleTags) — `SubModuleInfo` 的**嵌套**枚举（不是顶层类型），7 个取值：`RejectedPlatform` / `ExclusivePlatform` / `DedicatedServerType` / `IsNoRenderModeElement` / `DependantRuntimeLibrary` / `PlayerHostedDedicatedServer` / `EngineType`——用来声明运行环境约束，不是用来标注「沙盒 / 故事模式」这类玩法类别的。写模块声明时这两个名字会反复出现。
 - [`DependedModule`](./DependedModule) — 单条依赖记录（依赖哪个模块、要求哪个版本），是个 struct。
-- `ModuleHelper` — 本命名空间的静态工具类，模块系统唯一的正常入口。已核实的公开方法包括 `GetModuleFullPath`、`GetModuleInfo`、`GetModuleInfos`、`GetModules`、`GetAllModules`、`GetActiveModules`、`IsModuleActive`、`GetPath`、`GetXmlPath` / `GetXmlPathForNative` / `GetXmlPathForNativeWBase`、`GetXsltPath` / `GetXsltPathForNative`、`GetMbprojPath`，以及属于启动器流程、不该由 mod 调用的 `InitializeModules` / `InitializeSingleModule` / `OnModuleActivated` / `OnModuleDeactivated` / `InitializePlatformModuleExtension` / `ClearPlatformModuleExtension`。
+- [`ModuleHelper`](./ModuleHelper) — 本命名空间的静态工具类，模块系统唯一的正常入口。已核实的公开方法包括 `GetModuleFullPath`、`GetModuleInfo`、`GetModuleInfos`、`GetModules`、`GetAllModules`、`GetActiveModules`、`IsModuleActive`、`GetPath`、`GetXmlPath` / `GetXmlPathForNative` / `GetXmlPathForNativeWBase`、`GetXsltPath` / `GetXsltPathForNative`、`GetMbprojPath`，以及属于启动器流程、不该由 mod 调用的 `InitializeModules` / `InitializeSingleModule` / `OnModuleActivated` / `OnModuleDeactivated` / `InitializePlatformModuleExtension` / `ClearPlatformModuleExtension`。
 - [`ModuleCategory`](./ModuleCategory) — 模块类别枚举，取值只有四个：`Singleplayer` / `Multiplayer` / `MultiplayerOptional` / `Server`。它是**联机形态**分类，不是玩法分类——想知道「沙盒还是故事模式」得去看模块 Id，不是看这个枚举。
 - [`ModuleType`](./ModuleType) — 模块来源与认证分类枚举（社区 / 官方 / 官方可选），`ModuleInfo.IsOfficial` 与 `IsRequiredOfficial` 都由它算出。
 - [`IPlatformModuleExtension`](./IPlatformModuleExtension) — 平台扩展模块的接口，由启动器 / 平台层实现，不是 mod 的扩展点。
-- `Extensions` — 只有一个方法的静态辅助类：`GetActiveReferencingGameAssembliesSafe(this Assembly)`，即「只从当前活跃的游戏程序集里找引用者」。它内部走 `ModuleHelper.GetActiveGameAssemblies`，属于装载器的反射工具链。
+- `Extensions` — 只有一个方法的静态辅助类：`GetActiveReferencingGameAssembliesSafe(this Assembly)`，即「只从当前活跃的游戏程序集里找引用者」。它内部走 `ModuleHelper.GetActiveGameAssemblies`，属于装载器的反射工具链。**本桶唯一还没有类页的类型。**
 
 ## 桶间分工
 

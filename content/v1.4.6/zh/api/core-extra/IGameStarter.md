@@ -12,13 +12,13 @@ description: "模块启动契约：SubModule 在 InitializeGameStarter / OnGameS
 
 ## 概述
 
-整个接口只有 19 行、三个成员，但它决定了 Bannerlord 全部可替换逻辑的装配方式。游戏启动时由 [GameManagerBase](../GameManagerBase) 的具体实现造出一个启动器实例，依次把所有 [MBSubModuleBase](../../core/MBSubModuleBase) 的 `InitializeGameStarter` 回调喂给它；模块往里塞 [GameModel](../GameModel)，游戏侧再把启动器里的清单灌进 `GameModelsManager`（构造参数是 `IEnumerable<GameModel>`）。
+整个接口只有 19 行、三个成员，但它决定了 Bannerlord 全部可替换逻辑的装配方式。游戏启动时由 `GameManagerBase` 的具体实现造出一个启动器实例，依次把所有 `MBSubModuleBase` 的 `InitializeGameStarter` 回调喂给它；模块往里塞 `GameModel`，游戏侧再把启动器里的清单灌进 `GameModelsManager`（构造参数是 `IEnumerable<GameModel>`）。
 
-三个成员分别是两个重载的 `AddModel` 和一个只读的 `Models`。**接口本身不认识 `CampaignBehaviorBase`、不认识游戏菜单、不认识对话**——那些注册方法都在具体实现上。战局用的是 `BasicGameStarter`，战役用的是 [CampaignGameStarter](../../campaign/CampaignGameStarter)。所以「我拿到一个启动器」和「我拿到战役启动器」是两件事，mod 里通常先 `as` 转型再补动作。
+三个成员分别是两个重载的 `AddModel` 和一个只读的 `Models`。**接口本身不认识 `CampaignBehaviorBase`、不认识游戏菜单、不认识对话**——那些注册方法都在具体实现上。战局用的是 `BasicGameStarter`，战役用的是 `CampaignGameStarter`。所以「我拿到一个启动器」和「我拿到战役启动器」是两件事，mod 里通常先 `as` 转型再补动作。
 
 ## 心智模型
 
-把它想成一个**只有加法、没有减法的模型注册袋**，而且这个袋子在游戏开局后的某一刻被一次性倒空成 [GameModelsManager](../GameModelsManager)，倒完之后你再往里塞东西不会生效。
+把它想成一个**只有加法、没有减法的模型注册袋**，而且这个袋子在游戏开局后的某一刻被一次性倒空成 `GameModelsManager`，倒完之后你再往里塞东西不会生效。
 
 三条决定性事实：
 
@@ -45,18 +45,18 @@ description: "模块启动契约：SubModule 在 InitializeGameStarter / OnGameS
 `IGameStarter` 是 `TaleWorlds.Core/IGameStarter.cs:7` 的接口，**全文 20 行、三个成员**：
 
 ```
-void AddModel(GameModel gameModel);                          // IGameStarter.cs:12
-void AddModel<T>(MBGameModel<T> gameModel) where T : GameModel;   // :14
-IEnumerable<GameModel> Models { get; }                        // :18
+void AddModel(GameModel gameModel);                          // IGameStarter.cs:10
+void AddModel<T>(MBGameModel<T> gameModel) where T : GameModel;   // :13
+IEnumerable<GameModel> Models { get; }                        // :17
 ```
 
-**你不会自己实现它，也不会自己 new 它。** 它是 `MBGameManager` 那几个回调的参数类型，由引擎创建后传进来。唯一的生产者是 [CampaignGameStarter](../../campaign/CampaignGameStarter)（`public class CampaignGameStarter : IGameStarter`，`CampaignGameStarter.cs:11`），它在 `Campaign.OnInitialize()` 里被 new 出来（`Campaign.cs:1905`），然后交给三个回调：
+**你不会自己实现它，也不会自己 new 它。** 它是 `MBGameManager` 那几个回调的参数类型，由引擎创建后传进来。唯一的生产者是 `CampaignGameStarter`（`public class CampaignGameStarter : IGameStarter`，`CampaignGameStarter.cs:11`），它在 `Campaign.OnInitialize()` 里被 new 出来（`Campaign.cs:1905`），然后交给三个回调：
 
 - `GameManager.InitializeGameStarter(base.CurrentGame, campaignGameStarter)`（`Campaign.cs:1907`）→ 你的 `OnGameInitializationFinished(Game game, IGameStarter gameStarter)`
-- `GameManager.OnGameStart(...)`（`:1914`）→ `OnGameStart(Game game, IGameStarter gameStarter)`
-- `GameManager.OnNewCampaignStart(...)`（`:1934`，读档时是 `OnGameLoaded` `:1948`）——这两个签名把参数声明成 `object`，**要自己 cast**
+- `GameManager.OnGameStart(...)`（`:1913`）→ `OnGameStart(Game game, IGameStarter gameStarter)`
+- `GameManager.OnNewCampaignStart(...)`（`:1935`，读档时是 `OnGameLoaded` `:1949`）——这两个签名把参数声明成 `object`，**要自己 cast**
 
-消费端：`Game.SetBasicModels(campaignGameStarter.Models)`（`:1915`）和 `AddGameModelsManager<GameModels>(campaignGameStarter.Models)`（`:1916`）。
+消费端：`Game.SetBasicModels(campaignGameStarter.Models)`（`Campaign.cs:1914`）和 `AddGameModelsManager<GameModels>(campaignGameStarter.Models)`（`Campaign.cs:1915`）。
 
 ### 典型用法
 
@@ -66,24 +66,24 @@ using TaleWorlds.Core;
 // 回调里的第二个参数就是 IGameStarter
 public override void OnGameInitializationFinished(Game game, IGameStarter gameStarter)
 {
-    gameStarter.AddModel(new MyCampaignTimeModel());          // IGameStarter.cs:12
+    gameStarter.AddModel(new MyCampaignTimeModel());          // IGameStarter.cs:10
 }
 
-// 泛型重载要求 T 自身是 MBGameModel<T>，不是裸 GameModel（:14）
+// 泛型重载要求 T 自身是 MBGameModel<T>，不是裸 GameModel（:13）
 public override void OnGameInitializationFinished(Game game, IGameStarter gameStarter)
 {
-    gameStarter.AddModel<MyCampaignTimeModel>(new MyCampaignTimeModel());   // :14
+    gameStarter.AddModel<MyCampaignTimeModel>(new MyCampaignTimeModel());   // :13
 }
 
-// Models 是只读枚举（:18）；注意它是在 OnGameInitializationFinished 返回之后才被消费的
+// Models 是只读枚举（:17）；注意它是在 OnGameInitializationFinished 返回之后才被消费的
 foreach (GameModel m in gameStarter.Models) { /* ... */ }
 ```
 
 ### 最容易踩的坑
 
-**把参数声明成 `object` 的那两个回调（`OnNewCampaignStart(Game, object)`、`OnGameLoaded(Game, object)`）当成有 `IGameStarter`，不 cast 就调 `AddModel`。** 引擎确实传的是同一个 `CampaignGameStarter` 实例（`Campaign.cs:1934`），但**接口上没有任何静态保证**——编译期你只有一个 `object`，必须 `(IGameStarter)starterObject` 或 `(CampaignGameStarter)starterObject`。更实际的风险是时机：`Models`（`:18`）要到 `Campaign.cs:1915` 的 `SetBasicModels` 和 `:1916` 的 `AddGameModelsManager<GameModels>` 才会被消费，所以**在 `OnNewCampaignStart` 里加的模型能不能生效，取决于它相对于 `CampaignBehaviorManager.RegisterEvents()`（`Campaign.cs:2161`）的顺序**。
+**把参数声明成 `object` 的那两个回调（`OnNewCampaignStart(Game, object)`、`OnGameLoaded(Game, object)`）当成有 `IGameStarter`，不 cast 就调 `AddModel`。** 引擎确实传的是同一个 `CampaignGameStarter` 实例（`Campaign.cs:1935`），但**接口上没有任何静态保证**——编译期你只有一个 `object`，必须 `(IGameStarter)starterObject` 或 `(CampaignGameStarter)starterObject`。更实际的风险是时机：`Models`（`IGameStarter.cs:17`）要到 `Campaign.cs:1914` 的 `SetBasicModels` 和 `Campaign.cs:1915` 的 `AddGameModelsManager<GameModels>` 才会被消费，所以**在 `OnNewCampaignStart` 里加的模型能不能生效，取决于它相对于 `CampaignBehaviorManager.RegisterEvents()`（`Campaign.cs:2161`）的顺序**。
 
-第二个坑是两个 `AddModel` 重载的约束不对称：非泛型版（`:11`）接受任何 `GameModel`，泛型版（`:14`）的约束是 `where T : GameModel`——**但真正被调用的是 `AddModel<T>(MBGameModel<T>)`，要求实参静态类型是 `MBGameModel<T>`**。你写一个直接继承 `GameModel` 的类（非 `MBGameModel<T>`）时，泛型重载编译不过，必须用非泛型那个（`:11`）。
+第二个坑是两个 `AddModel` 重载的约束不对称：非泛型版（`:10`）接受任何 `GameModel`，泛型版（`:13`）的约束是 `where T : GameModel`——**但真正被调用的是 `AddModel<T>(MBGameModel<T>)`，要求实参静态类型是 `MBGameModel<T>`**。你写一个直接继承 `GameModel` 的类（非 `MBGameModel<T>`）时，泛型重载编译不过，必须用非泛型那个（`:10`）。
 
 第三，`GameModel` 本身（`GameModel.cs:6`）是**空抽象类，全文 10 行只有一个声明**——它没有任何基类设施、没有生命周期钩子。模型之间要通信只能靠注入其它 `GameModel`，而注入点在你自己的构造器里，不在这里。
 
@@ -209,3 +209,8 @@ protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
 - 模块注册表：[Module](../../core/Module) 提供 `CollectSubModules()`，`GameManagerBase` 的实现靠它遍历
 - 桶首页：[core-extra API 分区](../)
 - 模块地图：[module-map](../../../architecture/module-map)
+
+## 导航
+
+- 同桶：[`../GameModel`](../GameModel) · [`../GameModelsManager`](../GameModelsManager) · [`../GameManagerBase`](../GameManagerBase)
+- 父索引：[`../_index`](../_index)

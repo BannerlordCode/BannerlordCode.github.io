@@ -13,7 +13,7 @@ description: "旗帜组件：继承 WeaponComponent 而非直接继承 ItemCompo
 
 ## 概述
 
-`BannerComponent` 是六个 [ItemComponent](../ItemComponent) 派生实现里**唯一继承链不是直连基类**的一个：它继承 [WeaponComponent](../WeaponComponent)，而后者继承 `ItemComponent`。所以一件旗帜同时具备武器组件的全部能力（`_weaponList` 武器形态列表、`Weapons`、`PrimaryWeapon`、`AddWeapon`）和旗帜专有的两项数据：`BannerLevel`（1–3 级）与 `BannerEffect`（效果定义引用）。加成的算法不在本类型里，而在 `BannerEffect.GetBonusAtLevel(int)`——本类型只提供一个转发。它由 XML 的 `<ItemComponent><Banner banner_level="..." effect="..."/></ItemComponent>` 装配。
+`BannerComponent` 是六个 `ItemComponent` 派生实现里**唯一继承链不是直连基类**的一个：它继承 `WeaponComponent`，而后者继承 `ItemComponent`。所以一件旗帜同时具备武器组件的全部能力（`_weaponList` 武器形态列表、`Weapons`、`PrimaryWeapon`、`AddWeapon`）和旗帜专有的两项数据：`BannerLevel`（1–3 级）与 `BannerEffect`（效果定义引用）。加成的算法不在本类型里，而在 `BannerEffect.GetBonusAtLevel(int)`——本类型只提供一个转发。它由 XML 的 `<ItemComponent><Banner banner_level="..." effect="..."/></ItemComponent>` 装配。
 
 ## 心智模型
 
@@ -46,10 +46,10 @@ if (xmlAttribute != null)
 | `BannerLevel` | `public int BannerLevel { get; private set; }` | 旗帜等级。XML 属性 `banner_level`，**缺失时默认 1**。合法区间 1–3，超出部分由 `BannerEffect.GetBonusAtLevel` 钳位。`private set`，只能由 `Deserialize` 与 `GetCopy` 的对象初始化器写。 |
 | `BannerEffect` | `public BannerEffect BannerEffect { get; private set; }` | 效果定义引用（`TaleWorlds.Core` 的 `sealed class BannerEffect : PropertyObject`，本机尚无对应深写页）。由 XML 属性 `effect` 经 `MBObjectManager.Instance.GetObject<BannerEffect>(stringId)` 解析。**属性缺失时 `node.Attributes["effect"]` 先抛 NRE；id 不存在时该字段为 null。** |
 | `.ctor` | `public BannerComponent(ItemObject item) : base(item)` | 只做 `base(item)`，最终落到 `WeaponComponent(ItemObject)` 的 `base.Item = item`。**会正确填充 `Item`，这与 `HorseComponent` / `TradeItemComponent` 的无参构造不同。** |
-| `GetCopy` | `public override ItemComponent GetCopy()` | `new BannerComponent(this.Item) { BannerLevel, BannerEffect }`。**带上了 `Item`（父类 `GetCopy` 也带），但不拷 `_weaponList`，也不拷 `ItemModifierGroup`。** 全树只被 [Crafting](../Crafting) 与 `CraftingCampaignBehavior` 调用。 |
+| `GetCopy` | `public override ItemComponent GetCopy()` | `new BannerComponent(this.Item) { BannerLevel, BannerEffect }`。**带上了 `Item`（父类 `GetCopy` 也带），但不拷 `_weaponList`，也不拷 `ItemModifierGroup`。** 全树只被 `Crafting` 与 `CraftingCampaignBehavior` 调用。 |
 | `GetBannerEffectBonus` | `public float GetBannerEffectBonus()` | 转发 `this.BannerEffect.GetBonusAtLevel(this.BannerLevel)`。**`BannerEffect` 为 null 时 NRE。** 这是本类型唯一的方法，也是全部功能。 |
 | `Deserialize` | `public override void Deserialize(MBObjectManager objectManager, XmlNode node)` | `base.Deserialize(...)`（→ `WeaponComponent.Deserialize` → `ItemComponent.Deserialize`，链上会正常建出一条 `WeaponComponentData` 并解析 `modifier_group`），然后读 `banner_level`（默认 1）与 `effect`（无兜底）。 |
-| `Weapons` | `public MBReadOnlyList<WeaponComponentData> Weapons { get; }`（继承） | 继承自 [WeaponComponent](../WeaponComponent)，返回 `_weaponList`。**旗帜也有这个列表**，由 `WeaponComponent.Deserialize` 填入一条。 |
+| `Weapons` | `public MBReadOnlyList<WeaponComponentData> Weapons { get; }`（继承） | 继承自 `WeaponComponent`，返回 `_weaponList`。**旗帜也有这个列表**，由 `WeaponComponent.Deserialize` 填入一条。 |
 | `PrimaryWeapon` | `public WeaponComponentData PrimaryWeapon { get; }`（继承） | 继承自父类，硬索引 `_weaponList[0]`。**副本（`GetCopy()` 结果）没有列表，取它会越界抛。** |
 | `AddWeapon` | `public void AddWeapon(WeaponComponentData weaponComponentData, ItemModifierGroup itemModifierGroup)`（继承） | 继承自父类，往 `_weaponList` 追加并 `base.ItemModifierGroup = itemModifierGroup`。**对 `BannerComponent` 调它会给旗帜加武器形态。** |
 | `GetItemType` | `public ItemObject.ItemTypeEnum GetItemType()`（继承） | 继承自父类，`WeaponComponentData.GetItemTypeFromWeaponClass(_weaponList[0].WeaponClass)`。**不返回 `ItemTypeEnum.Banner`**——`ItemObject.IsBannerItem` 读的是 `ItemType` 字段，不是这个方法。 |
@@ -73,7 +73,7 @@ using TaleWorlds.Core;
 ItemObject bannerItem = ...;
 if (bannerItem.HasBannerComponent)                           // ItemObject.cs:389
 {
-    BannerComponent bc = bannerItem.BannerComponent;         // :379
+    BannerComponent bc = bannerItem.BannerComponent;         // ItemObject.cs:379
 
     int level = bc.BannerLevel;                              // BannerComponent.cs:14，XML 缺失时是 1
     BannerEffect effect = bc.BannerEffect;                   // :19
@@ -81,7 +81,7 @@ if (bannerItem.HasBannerComponent)                           // ItemObject.cs:38
     // 拿当前等级的加成——这是唯一该用的入口
     float bonus = bc.GetBannerEffectBonus();                 // :38
     TextObject desc = effect.GetDescription(level);          // BannerEffect.cs:49
-    string pct = effect.GetBonusStringAtLevel(level);        // :42，形如 "12.34%"
+    string pct = effect.GetBonusStringAtLevel(level);        // BannerEffect.cs:42，形如 "12.34%"
 }
 ```
 
@@ -162,7 +162,7 @@ if (effect != null)
 - **继承链是 `WeaponComponent` 而不是 `ItemComponent`。** 写 `if (component is ItemComponent c)` 能命中，写 `if (component is WeaponComponent w)` 也能命中；但**不能**假设「`WeaponComponent` 的实例就一定是 `WeaponComponent` 类」——`BannerComponent` 是它的子类，反过来不成立。做类型分派时 `BannerComponent` 必须排在 `WeaponComponent` 之前，否则被吃掉。
 - **和 `<Weapon>` 抢单槽，顺序敏感。** `<Banner>` 在后 → 替换掉武器形态列表；`<Weapon>` 在后 → 形态被 Add 进 `BannerComponent`。**两种顺序都不报错，结果不同。**
 - **父类 `Deserialize` 有一段死代码。** `WeaponComponent.Deserialize` 读 `modifier_group` 到一个未使用的局部变量 `value`；真正生效的是 `ItemComponent.Deserialize` 里的解析。别把这段当成功能。
-- **`BannerComponent` 占用 [ItemObject](../ItemObject) 的单槽。** 写 `<Banner>` 就不能同时写 `<Armor>` / `<Horse>` / `<Trade>`。
+- **`BannerComponent` 占用 `ItemObject` 的单槽。** 写 `<Banner>` 就不能同时写 `<Armor>` / `<Horse>` / `<Trade>`。
 - **`GetItemType()` 不返回 `Banner`。** 它返回的是 `WeaponClass` 反推出的武器类型。`ItemObject.IsBannerItem` 读的是 XML 里的 `type` 属性（`ItemTypeEnum.Banner`），两者是不同的判定路径。
 - **不进存档。** 组件随物品 XML 重建。
 
@@ -185,3 +185,8 @@ if (effect != null)
 - 词缀：[ItemModifierGroup](../ItemModifierGroup) 由 `ItemComponent.Deserialize` 从 `modifier_group` 属性解析
 - 组件同族：[SaddleComponent](../SaddleComponent) 与 [TradeItemComponent](../TradeItemComponent) 是直连 `ItemComponent` 的两条分支，可拿来对比本类型「跨一层继承」的差异
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../WeaponComponent`](../WeaponComponent) · [`../ItemComponent`](../ItemComponent) · [`../BannerEffect`](../BannerEffect)
+- 父索引：[`../_index`](../_index)

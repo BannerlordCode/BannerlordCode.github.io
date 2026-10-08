@@ -16,7 +16,7 @@ description: "按类型分发的简单事件总线：DictionaryByType 存 Action
 
 「以事件类型为键」里的**类型**是**静态泛型参数 `T`，不是事件的运行时类型**。`TriggerEvent<T>(T eventObj)` 直接把 `T` 透传给 `_eventsByType.InvokeActions<T>(item)`，而后者用 `typeof(T)` 查字典。**这里没有按基类或接口向上查找的逻辑**——查不到就是静默什么都不做。
 
-约束是 `T` 必须是 [EventBase](../EventBase) 的**子类**。`RegisterEvent` / `UnregisterEvent` 的方法体第一件事就是 `typeof(T).IsSubclassOf(typeof(EventBase))`，不成立就 `Debug.FailedAssert("Events have to derived from EventSystemBase")` 并**跳过注册**（断言不抛异常，发行构建里基本只打日志）。
+约束是 `T` 必须是 `EventBase` 的**子类**。`RegisterEvent` / `UnregisterEvent` 的方法体第一件事就是 `typeof(T).IsSubclassOf(typeof(EventBase))`，不成立就 `Debug.FailedAssert("Events have to derived from EventSystemBase")` 并**跳过注册**（断言不抛异常，发行构建里基本只打日志）。
 
 ## 心智模型
 
@@ -26,7 +26,7 @@ description: "按类型分发的简单事件总线：DictionaryByType 存 Action
 2. **发布**：`eventManager.TriggerEvent(new MyEvent { … })`——随时；
 3. **退订**：`eventManager.UnregisterEvent<MyEvent>(OnMyEvent)`——不写就泄漏到 `Clear()` 为止。
 
-游戏本体里 [Game](../Game) 持有一个 `EventManager` 属性，`Destroy()` 时 `Clear()` 并置 null。所以**任何缓存下来的 `EventManager` 引用在换局后失效**——静态字段里存它是最常见的生命周期事故。
+游戏本体里 `Game` 持有一个 `EventManager` 属性，`Destroy()` 时 `Clear()` 并置 null。所以**任何缓存下来的 `EventManager` 引用在换局后失效**——静态字段里存它是最常见的生命周期事故。
 
 **最坑的一条：`TriggerEvent` 按静态类型分发。** 这样写不会有任何处理器被调用：
 
@@ -53,18 +53,18 @@ EventBase evt = new MyEvent();
 | `RegisterEvent` | `public void RegisterEvent<T>(Action<T> eventObjType)` | `typeof(T).IsSubclassOf(typeof(EventBase))` 为真时 `_eventsByType.Add<T>(handler)`，否则 `Debug.FailedAssert` 后**什么都不做**。**没有去重**——同一 handler 注册 N 次会被调用 N 次。 |
 | `UnregisterEvent` | `public void UnregisterEvent<T>(Action<T> eventObjType)` | 同样先判 `IsSubclassOf`，通过则 `_eventsByType.Remove<T>(handler)`。**`DictionaryByType.Remove` 从键里移除一个匹配项就停**——同一个 handler 注册了三次就得起三次。 |
 | `TriggerEvent` | `public void TriggerEvent<T>(T eventObj)` | `_eventsByType.InvokeActions<T>(eventObj)`。**键是 `typeof(T)`（静态类型），不做继承链查找**；查不到静默无动作。分发途中修改该类型的列表会 `InvalidOperationException`。 |
-| `Clear` | `public void Clear()` | 清空全部订阅。**一次性退订所有类型**——[Game](../Game) 的 `Destroy()` 就是这么做的。 |
+| `Clear` | `public void Clear()` | 清空全部订阅。**一次性退订所有类型**——`Game` 的 `Destroy()` 就是这么做的。 |
 | `GetCloneOfEventDictionary` | `public IDictionary<Type, object> GetCloneOfEventDictionary()` | 拿一份订阅字典的浅拷贝（`new Dictionary<Type, object>`）。**值里的 `List<Action<T>>` 是共享引用**，改副本里的列表会改到原字典。用来做「订阅有没有变」的比较是安全的。 |
 
 ## 怎么用
 
 ### 怎么拿到它
 
-这一页的 `EventManager` 是 **UI 事件**那一支：`TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/EventManager.cs`，`public class EventManager`（`:14`），1506 行。唯一入口是 `public static EventManager UIEventManager { get; private set; }`（`:44`）——全局单例，setter 是 private，由引擎在 UI 初始化时写入。
+另一个同名类 `EventManager` 是 **UI 事件**那一支：`TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/EventManager.cs`，`public class EventManager`（`GauntletUI/EventManager.cs:14`），1506 行。唯一入口是 `public static EventManager UIEventManager { get; private set; }`（`:44`）——全局单例，setter 是 private，由引擎在 UI 初始化时写入。
 
 注意它和 `TaleWorlds.Library/EventSystem/EventManager.cs` 的同名类型**完全无关**：后者是给 `EventBase` 派生的自定义事件用的 `RegisterEvent` / `TriggerEvent` 总线，两者没有继承关系也没有互相引用。引用时要用完整命名空间消歧。
 
-它持有的是「当前这一帧的 UI 输入状态」：可点击区域（`UsableArea` `:24`、`LeftUsableAreaStart` `:29`、`TopUsableAreaStart` `:34`、`PageSize` `:39`）、指针（`MousePositionInReferenceResolution` `:48`、`IsControllerActive` `:59`）、控件栈（`Root` `:79`、`FocusedWidget` `:84`、`HoveredWidget` `:133`、`MouseOveredWidgets` `:167`、`DraggedWidget` `:221` 等），以及两个公开事件 `OnDragStarted`（`:69`）/ `OnDragEnded`（`:74`）。
+它持有的是「当前这一帧的 UI 输入状态」：可点击区域（`UsableArea` `GauntletUI/EventManager.cs:24`、`LeftUsableAreaStart` `:29`、`TopUsableAreaStart` `:34`、`PageSize` `:39`）、指针（`MousePositionInReferenceResolution` `:48`、`IsControllerActive` `:59`）、控件栈（`Root` `:79`、`FocusedWidget` `:84`、`HoveredWidget` `:133`、`MouseOveredWidgets` `:167`、`DraggedWidget` `:221` 等），以及两个公开事件 `OnDragStarted`（`:69`）/ `OnDragEnded`（`:74`）。
 
 ### 典型用法
 
@@ -73,18 +73,18 @@ EventBase evt = new MyEvent();
 ```csharp
 using TaleWorlds.GauntletUI;
 
-EventManager ui = EventManager.UIEventManager;       // EventManager.cs:44，单例
+EventManager ui = EventManager.UIEventManager;       // GauntletUI/EventManager.cs:44，单例
 
 // 焦点在哪个控件上
-Widget focused = ui.FocusedWidget;                    // EventManager.cs:84
+Widget focused = ui.FocusedWidget;                    // GauntletUI/EventManager.cs:84
 bool modal = (focused != null) && focused.IsEnabled;  // Widget.cs:1178
 
 // 指针在可点击区域内吗（不是绝对坐标，是参考分辨率下的）
-Vector2 pointer = ui.MousePositionInReferenceResolution;          // :48
-if (ui.UsableArea.Contains(pointer))                             // :24
+Vector2 pointer = ui.MousePositionInReferenceResolution;          // GauntletUI/EventManager.cs:48
+if (ui.UsableArea.Contains(pointer))                             // GauntletUI/EventManager.cs:24
 {
     // 当前悬停 / 正在拖拽的控件才是真正能拿到输入的那个
-    Widget target = ui.DraggedWidget ?? ui.HoveredWidget ?? ui.FocusedWidget;   // :221 / :133 / :84
+    Widget target = ui.DraggedWidget ?? ui.HoveredWidget ?? ui.FocusedWidget;   // GauntletUI/EventManager.cs:221 / GauntletUI/EventManager.cs:133 / GauntletUI/EventManager.cs:84
     if (target != null && target.IsVisible)                      // Widget.cs:1319
     {
         Debug.Print("hit " + target.Id, 0);
@@ -92,18 +92,18 @@ if (ui.UsableArea.Contains(pointer))                             // :24
 }
 
 // 手柄 / 鼠标模式切换时重新绑定 UI
-ui.OnDragStarted += OnDragStarted;                     // :69
-ui.OnDragEnded += OnDragEnded;                         // :74
+ui.OnDragStarted += OnDragStarted;                     // GauntletUI/EventManager.cs:69
+ui.OnDragEnded += OnDragEnded;                         // GauntletUI/EventManager.cs:74
 
 // 上下文要自己从别处拿，不在它身上
-UIContext ctx = ui.Context;                            // :64
+UIContext ctx = ui.Context;                            // GauntletUI/EventManager.cs:64
 ```
 
 ### 最容易踩的坑
 
-**把 `UIEventManager` 当成可以自己 new 的对象，或者在 UI 尚未初始化时读它。** 它只有 `public static EventManager UIEventManager { get; private set; }`（`:44`）这一个出口，没有公开构造器可用、setter 是 private。也就是说：**UI 起来之前它是 null，UI 拆掉之后也变回 null**。而它承载的字段（`FocusedWidget`、`HoveredWidget`、`DraggedWidget`、`MouseOveredWidgets`）全是「当前帧」的瞬时值——把任何一个缓存下来跨帧使用，拿到的就是过期状态，表现是 UI 反应慢半拍或者在高亮的控件上做操作。
+**把 `UIEventManager` 当成可以自己 new 的对象，或者在 UI 尚未初始化时读它。** 它只有 `public static EventManager UIEventManager { get; private set; }`（`GauntletUI/EventManager.cs:44`）这一个出口，没有公开构造器可用、setter 是 private。也就是说：**UI 起来之前它是 null，UI 拆掉之后也变回 null**。而它承载的字段（`FocusedWidget`、`HoveredWidget`、`DraggedWidget`、`MouseOveredWidgets`）全是「当前帧」的瞬时值——把任何一个缓存下来跨帧使用，拿到的就是过期状态，表现是 UI 反应慢半拍或者在高亮的控件上做操作。
 
-更实际的坑：`OnDragStarted` / `OnDragEnded`（`:69`、`:74`）是**公开事件而不是委托字段**，这意味着退订只能用 `-=` 并且**必须传出与订阅时同一个委托实例**——如果你在订阅时写了一个 lambda（`ui.OnDragStarted += () => {...}`），退订时再写一个等价的 lambda 是**另一个对象**，`-=` 不会生效，处理器就永久留在了总线上，每开一次界面多挂一层。而且这两个事件是挂在全局单例上的，跨界面不自动清理。
+更实际的坑：`OnDragStarted` / `OnDragEnded`（`GauntletUI/EventManager.cs:69`、`:74`）是**公开事件而不是委托字段**，这意味着退订只能用 `-=` 并且**必须传出与订阅时同一个委托实例**——如果你在订阅时写了一个 lambda（`ui.OnDragStarted += () => {...}`），退订时再写一个等价的 lambda 是**另一个对象**，`-=` 不会生效，处理器就永久留在了总线上，每开一次界面多挂一层。而且这两个事件是挂在全局单例上的，跨界面不自动清理。
 
 ## 真实示例
 
@@ -187,7 +187,7 @@ events.UnregisterEvent<LedgerChangedEvent>(OnLedgerChanged);
 events.UnregisterEvent<LedgerChangedEvent>(OnLedgerChanged);   // 必须起够次数
 ```
 
-换局时一次性清空（[Game](../Game) 的 `Destroy()` 就是这么做的）：
+换局时一次性清空（`Game` 的 `Destroy()` 就是这么做的）：
 
 ```csharp
 Game.Current.Destroy();
@@ -202,7 +202,7 @@ Debug.Print("destroy called; next access to Game.Current.EventManager will be a 
 - **`RegisterEvent` / `UnregisterEvent` 对非 `EventBase` 子类只断言不注册。** `Debug.FailedAssert` 在发行构建里不抛异常，**注册静默失败**。注意 `IsSubclassOf` 对 `EventBase` 自身返回 false（`T` 就是 `EventBase` 时注册不上）。
 - **分发途中改列表会 `InvalidOperationException`。** 处理器里不要 `UnregisterEvent` 同一类型，挪到分发之外。
 - **`GetCloneOfEventDictionary` 是浅拷贝。** 字典结构独立，值里的 `List<Action<T>>` 共享。**用它来改订阅是错的。**
-- **生命周期绑在 [Game](../Game) 上。** `Destroy()` 会 `Clear()` 并置空引用。**静态缓存 `EventManager` 一定会在换局后拿到失效引用。**
+- **生命周期绑在 `Game` 上。** `Destroy()` 会 `Clear()` 并置空引用。**静态缓存 `EventManager` 一定会在换局后拿到失效引用。**
 - **没有优先级、没有异常隔离。** 一个处理器抛异常，后面的处理器不会被调用——分发是朴素 `foreach`，没有 try/catch。
 - **没有弱引用。** 处理器是字典里的强引用；订阅者被事件总线持有，**退订前不会回收**。
 - **没有线程安全。** `Dictionary` 不是并发容器，**不要从非主线程 `TriggerEvent`**。
@@ -224,3 +224,8 @@ Debug.Print("destroy called; next access to Game.Current.EventManager will be a 
 - 底层容器：`TaleWorlds.Library.EventSystem.DictionaryByType`（同目录 `DictionaryByType.cs`，无独立页面）——`Add` 不去重、`Remove` 只去一个、`InvokeActions` 是朴素 `foreach`、`GetClone` 是浅拷贝，本类的全部语义都由它决定
 - 同名干扰项：`TaleWorlds.GauntletUI.EventManager` 属于 `gui` 桶，与本类无关
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../EventBase`](../EventBase) · [`../Game`](../Game) · [`../InformationManager`](../InformationManager)
+- 父索引：[`../_index`](../_index)

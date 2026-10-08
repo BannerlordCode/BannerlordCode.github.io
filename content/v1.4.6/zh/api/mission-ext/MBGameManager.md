@@ -11,7 +11,7 @@ description: "abstract 的游戏生命周期总控：把一整套 GameManagerBas
 
 ## 概述
 
-`MBGameManager` 是「Mount & Blade 游戏」这一层的生命周期总控，继承 [GameManagerBase](../../core-extra/GameManagerBase)。它自己几乎不持有游戏状态——`IsEnding` 和 `IsLoaded` 两个布尔是仅有的字段级成员——**它做的事情是把基类的十来个抽象生命周期方法，转成对 `Module.CurrentModule.CollectSubModules()` 收集到的全部子模块的扇出调用**。真正的游戏逻辑住在各个模块里。
+`MBGameManager` 是「Mount & Blade 游戏」这一层的生命周期总控，继承 `GameManagerBase`。它自己几乎不持有游戏状态——`IsEnding` 和 `IsLoaded` 两个布尔是仅有的字段级成员——**它做的事情是把基类的十来个抽象生命周期方法，转成对 `Module.CurrentModule.CollectSubModules()` 收集到的全部子模块的扇出调用**。真正的游戏逻辑住在各个模块里。
 
 `public abstract`，而且这是本批次五个类型里**唯一一个真正可继承的类型**。它的构造函数是 `protected`，派生类实例化后由 `MBGameManager.StartNewGame(gameLoader)` 接管加载流程。游戏本体里真实存在的派生类有四个：`SandBoxGameManager`（`SandBox`）、`CustomGameManager`（`TaleWorlds.MountAndBlade.CustomBattle`）、`EditorGameManager`（`TaleWorlds.MountAndBlade`）、`MultiplayerGameManager`（`TaleWorlds.MountAndBlade.Multiplayer`）。
 
@@ -97,13 +97,13 @@ description: "abstract 的游戏生命周期总控：把一整套 GameManagerBas
 
 ### 怎么拿到它
 
-`MBGameManager` 是 `TaleWorlds.MountAndBlade/MBGameManager.cs:12` 的 `public abstract class MBGameManager : GameManagerBase`——**它把 [GameManagerBase](../../core-extra/GameManagerBase) 那 16 个抽象成员全部实现了**，所以模组派生它只需覆写想改的那几个。
+`MBGameManager` 是 `TaleWorlds.MountAndBlade/MBGameManager.cs:12` 的 `public abstract class MBGameManager : GameManagerBase`——**它把 `GameManagerBase` 那 16 个抽象成员全部实现了**，所以模组派生它只需覆写想改的那几个。
 
-所以 [GameManagerBase](../../core-extra/GameManagerBase) 那一页里「必须实现 11 个方法 + 5 个属性」的清单，**对派生自 `MBGameManager` 的类不适用**——`OnGameStart`（`GameManagerBase.cs:262`）之类在这里已有 override（`:90`、`:99`、`:126`、`:153`…）。
+所以 `GameManagerBase` 那一页里「必须实现 11 个方法 + 5 个属性」的清单，**对派生自 `MBGameManager` 的类不适用**——`OnGameStart`（`GameManagerBase.cs:262`）之类在这里已有 override（`MBGameManager.cs:90`、`:99`、`:126`、`:153`…）。
 
-**构造器是 `protected MBGameManager()`（`:35`）**，只做两件事：`this.IsEnding = false;` 和 `NativeConfig.OnConfigChanged();`（`:36-37`）。而基类构造器（`GameManagerBase.cs:46`）已经把 `GameManagerBase.Current = this` 写好了。
+**构造器是 `protected MBGameManager()`（`MBGameManager.cs:35`）**，只做两件事：`this.IsEnding = false;` 和 `NativeConfig.OnConfigChanged();`（`:36-37`）。而基类构造器（`GameManagerBase.cs:46`）已经把 `GameManagerBase.Current = this` 写好了。
 
-读取用 `public new static MBGameManager Current`（`:21`）——注意关键字是 **`new`**：它遮蔽（hide）了基类的 `Current`（`GameManagerBase.cs:12`），getter 是强转型 `(MBGameManager)GameManagerBase.Current`（`:24`）。**这个转型在别人派生 `GameManagerBase` 而不是 `MBGameManager` 时会抛 `InvalidCastException`。**
+读取用 `public new static MBGameManager Current`（`MBGameManager.cs:21`）——注意关键字是 **`new`**：它遮蔽（hide）了基类的 `Current`（`GameManagerBase.cs:12`），getter 是强转型 `(MBGameManager)GameManagerBase.Current`（`:24`）。**这个转型在别人派生 `GameManagerBase` 而不是 `MBGameManager` 时会抛 `InvalidCastException`。**
 
 三个受保护静态工具：`StartNewGame()`（`:42`，转 `MBAPI.IMBGame.StartNew()`）、`LoadModuleData(bool isLoadGame)`（`:48`）、`public static void StartNewGame(MBGameManager gameLoader)`（`:54`）。
 
@@ -135,7 +135,7 @@ GameManagerBase.Current;                            // GameManagerBase.cs:12，�
 
 ### 最容易踩的坑
 
-**覆写 `OnGameInitializationFinished(Game game)`（`:126`）时不调 `base`。** 基类实现做两件不可省的事：遍历 `Module.CurrentModule.CollectSubModules()` 给每个子模块转发 `OnGameInitializationFinished(game)`（`:128-131`）；**然后为每个 `SkeletonScale` 遍历 `BoneNames`，用 `Skeleton.GetBoneIndexFromName(...)` 逐个算出 `sbyte[]` 并调 `skeletonScale.SetBoneIndices(array)`**（`:132-139`）。跳掉 base 的后果非常具体：**所有角色的骨骼索引不再被填充**——而 [SkeletonScale](../../core-extra/SkeletonScale) 的 `SetBoneIndices`（`SkeletonScale.cs:110`）本身还会把 `BoneNames` 置 null，于是此后任何依赖骨骼名的代码都拿到 null。表现是「自定义模型的人物不显示手臂/腿」，而不是任何报错。
+**覆写 `OnGameInitializationFinished(Game game)`（`MBGameManager.cs:126`）时不调 `base`。** 基类实现做两件不可省的事：遍历 `Module.CurrentModule.CollectSubModules()` 给每个子模块转发 `OnGameInitializationFinished(game)`（`:128-131`）；**然后为每个 `SkeletonScale` 遍历 `BoneNames`，用 `Skeleton.GetBoneIndexFromName(...)` 逐个算出 `sbyte[]` 并调 `skeletonScale.SetBoneIndices(array)`**（`:132-139`）。跳掉 base 的后果非常具体：**所有角色的骨骼索引不再被填充**——而 `SkeletonScale` 的 `SetBoneIndices`（`SkeletonScale.cs:110`）本身还会把 `BoneNames` 置 null，于是此后任何依赖骨骼名的代码都拿到 null。表现是「自定义模型的人物不显示手臂/腿」，而不是任何报错。
 
 第二个坑是 `MBGameManager.Current`（`:21`）的强转型。它用 `new` 遮蔽了基类属性，getter 是裸转型 `(MBGameManager)GameManagerBase.Current`。如果某个 mod 派生了 `GameManagerBase` 而非 `MBGameManager`，那么 `GameManagerBase.Current` 指向它的实例时，`MBGameManager.Current` **抛 `InvalidCastException`**。你的代码里不能假设 `MBGameManager.Current` 永远可用。
 
@@ -231,3 +231,8 @@ if (manager != null && !manager.IsEnding && manager.IsLoaded)
 - 战斗：[Mission](../../mission/Mission) 与 `MissionState` —— `EndGame` 的收尾路径会一路操作到它们（`MissionState` 尚未撰写页，现为纯文本）。
 - 底层转发：`NativeConfig` · `BannerlordConfig` · `MBEditor` · `MBCommon` · `MBAPI.IMBGame` · `XmlResource`（均为引擎或原生绑定层，尚未撰写页）。
 - 桶导览：[mission-ext 桶导览](../) · 架构：[模块地图](../../../architecture/module-map)
+
+## 导航
+
+- 同桶：[`../MissionLogic`](../MissionLogic) · [`../Team`](../Team) · [`../MissionObject`](../MissionObject)
+- 父索引：[`../_index`](../_index)

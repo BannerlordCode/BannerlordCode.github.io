@@ -14,7 +14,7 @@ description: "模块宿主单例：反射装载所有子模块，维护全局状
 
 它是整个游戏进程的**模块宿主**，而且是 `sealed` 的、只能有一个（静态 `CurrentModule`）。私有构造器里已经建好了：空 `GameStartupInfo`、`TestContext`、`_subModuleBases` 字典、一个 `GameStateManager`（`GameStateManagerType.Global`）并立刻赋给 `GameStateManager.Current`、`GameTextManager` 和 `JobManager`。也就是说**在游戏第一个 Game 出现之前，`GameStateManager.Current` 指向的就是这个全局栈**。
 
-它做三件事：**装载**（`internal static CreateModule()` 新建实例 → 扫描 `ModuleHelper.GetAllModules()` → 对每个活动的 `SubModuleInfo` 用 `AddSubModule` 反射实例化 [MBSubModuleBase](../MBSubModuleBase) 并 `Managed.AddTypes`）、**托管全局 UI 状态栈**（`GlobalGameStateManager` + `SetInitialModuleScreenAsRootScreen`）、**对外服务**（查子模块类型、模块启停、初始状态选项、多人游戏模式）。
+它做三件事：**装载**（`internal static CreateModule()` 新建实例 → 扫描 `ModuleHelper.GetAllModules()` → 对每个活动的 `SubModuleInfo` 用 `AddSubModule` 反射实例化 `MBSubModuleBase` 并 `Managed.AddTypes`）、**托管全局 UI 状态栈**（`GlobalGameStateManager` + `SetInitialModuleScreenAsRootScreen`）、**对外服务**（查子模块类型、模块启停、初始状态选项、多人游戏模式）。
 
 1939 行里绝大部分是 private 的装载与回调分发逻辑，public 面是刻意收窄的。
 
@@ -27,7 +27,7 @@ description: "模块宿主单例：反射装载所有子模块，维护全局状
 3. 各子模块的 `OnSubModuleLoad` 被调用。
 4. 之后全程通过 `CurrentModule` 访问；`GlobalGameStateManager` 承载主菜单这类跨局状态。
 
-`IGameStateManagerOwner` 的两个成员在 1.4.6 里是**显式接口实现**（`void IGameStateManagerOwner.OnStateStackEmpty()` / `OnStateChanged(GameState)`），不是 public，mod 侧调不到，只能通过 [GameStateManager](../../core-extra/GameStateManager) 间接触发。
+`IGameStateManagerOwner` 的两个成员在 1.4.6 里是**显式接口实现**（`void IGameStateManagerOwner.OnStateStackEmpty()` / `OnStateChanged(GameState)`），不是 public，mod 侧调不到，只能通过 `GameStateManager` 间接触发。
 
 **「初始状态选项」（`InitialStateOption`）是编辑器/主菜单的钩子机制**：构造器是 `InitialStateOption(string id, TextObject name, int orderIndex, Action action, Func<ValueTuple<bool, TextObject>> isDisabledAndReason, TextObject enabledHint = null, Func<bool> isHidden = null)`——六个可选显示状态全部在构造时定死，之后只有 `private set`。`AddInitialStateOption` 往列表里加一条，`GetInitialStateOptions()` 按 `OrderIndex` 排序返回，`ExecuteInitialStateOptionWithId(id)` 找到后调 `DoAction()`（内部就是 invoke 那个 `action` 委托）。这是 mod 往主菜单塞自定义入口的标准方式。
 
@@ -42,7 +42,7 @@ description: "模块宿主单例：反射装载所有子模块，维护全局状
 | `CurrentModule` | `public static Module CurrentModule { get; private set; }` | 进程内唯一的模块宿主。**只在 `internal static CreateModule()` 里赋值**，mod 侧只能读。启动早期为 null。 |
 | `GlobalGameStateManager` | `public GameStateManager GlobalGameStateManager { get; private set; }` | 全局状态栈（`GameStateManagerType.Global`），构造器里创建并立刻设为 `GameStateManager.Current`。承载主菜单、加载屏这类跨局 UI 状态。 |
 | `StartupInfo` | `public GameStartupInfo StartupInfo { get; private set; }` | 启动参数，构造器里 `new GameStartupInfo()`。`MultiplayerRequested` 就是读它的 `StartupType`。 |
-| `GlobalTextManager` | `public GameTextManager GlobalTextManager { get; private set; }` | 全局文本管理器，与局内 [Game](../../core-extra/Game) 的 `GameTextManager` 并存。 |
+| `GlobalTextManager` | `public GameTextManager GlobalTextManager { get; private set; }` | 全局文本管理器，与局内 `Game` 的 `GameTextManager` 并存。 |
 | `JobManager` | `public JobManager JobManager { get; private set; }` | 全局 Job 管理器，构造器里创建。 |
 | `LoadingFinished` | `public bool LoadingFinished { get; private set; }` | 加载是否已完成的标志。 |
 | `ReturnToEditorState` | `public bool ReturnToEditorState { get; private set; }` | 是否要返回编辑器状态。 |
@@ -99,7 +99,7 @@ using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 
 // 全局单例
-Module mod = Module.CurrentModule;                             // Module.cs:36
+Module mod = Module.CurrentModule;                             // TaleWorlds.MountAndBlade/Module.cs:36
 
 // 全局状态栈：做跨局 UI（模组自己的启动画面等）
 GameStateManager global = mod.GlobalGameStateManager;         // :41，构造器里建好（:90）
@@ -114,7 +114,7 @@ foreach (MBSubModuleBase sub in mod.CollectSubModules())      // :97
 
 ### 最容易踩的坑
 
-**把 `GlobalGameStateManager`（`:41`）当成局内状态栈来用，然后在战役里压状态——界面永远不出现。** 它和 `Game.GameStateManager` 是两个独立对象，各有自己的 `ActiveState`。`:521-534` 那段 tick 逻辑写得很清楚：`if (GameStateManager.Current == this.GlobalGameStateManager)` 才 tick 全局栈，否则直接跳过。所以你在战役进行中往全局栈压状态，`GameStateManager.Current`（`GameStateManager.cs:14`）指的是局内那个——你的状态进了栈但**从来不被 tick、不被渲染**。反过来的坑同样成立：在主菜单里用 `Game.Current.GameStateManager`，那里根本没有局内 Game。
+**把 `GlobalGameStateManager`（`:41`）当成局内状态栈来用，然后在战役里压状态——界面永远不出现。** 它和 `Game.GameStateManager` 是两个独立对象，各有自己的 `ActiveState`。`TaleWorlds.MountAndBlade/Module.cs:521-534` 那段 tick 逻辑写得很清楚：`if (GameStateManager.Current == this.GlobalGameStateManager)` 才 tick 全局栈，否则直接跳过。所以你在战役进行中往全局栈压状态，`GameStateManager.Current`（`GameStateManager.cs:14`）指的是局内那个——你的状态进了栈但**从来不被 tick、不被渲染**。反过来的坑同样成立：在主菜单里用 `Game.Current.GameStateManager`，那里根本没有局内 Game。
 
 第二个坑是 `GameStateManager.Current` 的**自动回退**。`:517-520` 那一段：
 
@@ -199,7 +199,7 @@ Debug.Print("can load on this platform: " + canLoad, 0);
 
 - **单例且启动早期为 null。** `CurrentModule` 由 `internal static CreateModule()` 赋值。任何静态字段初始化器、静态构造函数里读它都可能拿到 null。
 - **`sealed` + 私有构造。** 不能继承也不能自己 new，唯一入口是 `internal static CreateModule()`。
-- **全局栈与局内栈是两回事。** `GlobalGameStateManager` 跨局存活；[Game](../../core-extra/Game) 的 `GameStateManager` 在 `Destroy()` 时置 null。搞混会导致「菜单还在但游戏已销毁」或反之。
+- **全局栈与局内栈是两回事。** `GlobalGameStateManager` 跨局存活；`Game` 的 `GameStateManager` 在 `Destroy()` 时置 null。搞混会导致「菜单还在但游戏已销毁」或反之。
 - **`ShutDownWithDelay` 是 async void。** 没有 Task 可 await、没有异常出口；异常会被吞。倒计时期间用 `_isShuttingDown` 闸门挡重复调用。
 - **`DeactiveModule` 对官方模块无效。** `!moduleInfo.IsNative` 判断让它静默 no-op，只有 mod 模块能这样开关。
 - **选项 API 大量静默失败。** `OverrideInitialStateOption` 找不到 id 不动、`ExecuteInitialStateOptionWithId` 找不到不执行、`StartMultiplayerGame` 名字不对返回 false。**全部无异常**，只能自己查。
@@ -226,3 +226,8 @@ Debug.Print("can load on this platform: " + canLoad, 0);
 
 - 上一级：[v1.4.6 内容根](../../../)
 - 桶首页：[core API 分区](../)
+
+## 导航
+
+- 同桶：[`../MBSubModuleBase`](../MBSubModuleBase)
+- 父索引：[`../_index`](../_index)

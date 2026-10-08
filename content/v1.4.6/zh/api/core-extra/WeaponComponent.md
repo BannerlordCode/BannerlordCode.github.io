@@ -12,9 +12,9 @@ description: "物品的武器组件：持有一组 WeaponComponentData（每件�
 
 ## 概述
 
-`ItemObject` 的所有可替换行为都挂在「组件」上（[ItemObject](../ItemObject) 的 `ItemComponent` 属性就是一个 `ItemComponent`），武器行为对应本类。内部只有一个 `private readonly MBList<WeaponComponentData> _weaponList`——**一件物品可以有多份武器数据**，对应「双形态武器」：比如斧头既能劈砍（Weapon0）又能投掷/砸（Weapon1），`ItemObject.PrimaryWeapon` 取的就是第 0 份。
+`ItemObject` 的所有可替换行为都挂在「组件」上（`ItemObject` 的 `ItemComponent` 属性就是一个 `ItemComponent`），武器行为对应本类。内部只有一个 `private readonly MBList<WeaponComponentData> _weaponList`——**一件物品可以有多份武器数据**，对应「双形态武器」：比如斧头既能劈砍（Weapon0）又能投掷/砸（Weapon1），`ItemObject.PrimaryWeapon` 取的就是第 0 份。
 
-它是 [ItemComponent](../ItemComponent) 的具体实现，而 `ItemComponent` 是抽象类、继承 `MBObjectBase`，公开面只有 `Item`（可写）、`ItemModifierGroup`（`protected set`）和抽象的 `GetCopy()`。所以本类的 `AddWeapon` 里那句 `base.ItemModifierGroup = itemModifierGroup;` 是在**每个武器形态上**挂自己的品质组，而不是设在物品上。
+它是 `ItemComponent` 的具体实现，而 `ItemComponent` 是抽象类、继承 `MBObjectBase`，公开面只有 `Item`（可写）、`ItemModifierGroup`（`protected set`）和抽象的 `GetCopy()`。所以本类的 `AddWeapon` 里那句 `base.ItemModifierGroup = itemModifierGroup;` 是在**每个武器形态上**挂自己的品质组，而不是设在物品上。
 
 `ItemObject.Deserialize` 会为每个 `<Weapon>` 节点建一份 `WeaponComponentData` 并塞进这个列表——`Deserialize` 覆写里那句 `new WeaponComponentData(base.Item, WeaponClass.Undefined, (WeaponFlags)0UL)` 之后立刻 `.Deserialize(base.Item, node)`，说明**反序列化分两步：先建壳，再填**。
 
@@ -46,7 +46,7 @@ description: "物品的武器组件：持有一组 WeaponComponentData（每件�
 | `Deserialize` | `public override void Deserialize(MBObjectManager objectManager, XmlNode node)` | 先 `base.Deserialize`（`ItemComponent` 的实现），然后建一份 `new WeaponComponentData(base.Item, WeaponClass.Undefined, (WeaponFlags)0UL)` 调它自己的 `Deserialize(base.Item, node)`，最后 `_weaponList.Add(...)`。**每次调用追加一份**，同一个物品多次反序列化会累积。node 上 `modifier_group` 属性被读出来但**赋给了一个未使用的局部变量**——这段是死代码，不要指望它生效。 |
 | `GetCopy` | `public override ItemComponent GetCopy()` | `return new WeaponComponent(base.Item);`——**返回的是空组件**，武器数据一个都没复制。名字容易误导；它满足的是 `ItemComponent` 的抽象契约，不是"深拷贝"。 |
 
-继承自 [ItemComponent](../ItemComponent)（未重复列出）：`public ItemObject Item { get; set; }`、`public ItemModifierGroup ItemModifierGroup { get; protected set; }`、`public override void Deserialize(MBObjectManager, XmlNode)`。
+继承自 `ItemComponent`（未重复列出）：`public ItemObject Item { get; set; }`、`public ItemModifierGroup ItemModifierGroup { get; protected set; }`、`public override void Deserialize(MBObjectManager, XmlNode)`。
 
 ## 怎么用
 
@@ -54,11 +54,11 @@ description: "物品的武器组件：持有一组 WeaponComponentData（每件�
 
 `WeaponComponent` 是 `public class WeaponComponent : ItemComponent`（`TaleWorlds.Core/WeaponComponent.cs:10`）。构造器 `public WeaponComponent(ItemObject item)`（`:58`）。
 
-内部只有一个字段 `private readonly MBList<WeaponComponentData> _weaponList = new MBList<WeaponComponentData>();`（`:85`）——**初始化在字段声明处，所以构造器不用管**。它对外暴露两个只读口：`public MBReadOnlyList<WeaponComponentData> Weapons`（`:26`，getter 返回 `_weaponList`）和 `public WeaponComponentData PrimaryWeapon`（`:36`，getter 是 `this._weaponList[0];`——`:40`）。
+内部只有一个字段 `private readonly MBList<WeaponComponentData> _weaponList = new MBList<WeaponComponentData>();`（`:84`）——**初始化在字段声明处，所以构造器不用管**。它对外暴露两个只读口：`public MBReadOnlyList<WeaponComponentData> Weapons`（`:26`，getter 返回 `_weaponList`）和 `public WeaponComponentData PrimaryWeapon`（`:36`，getter 是 `this._weaponList[0];`——`:40`）。
 
-写入只有 `public void AddWeapon(WeaponComponentData weaponComponentData, ItemModifierGroup itemModifierGroup)`（`:45`），实现两行：`base.ItemModifierGroup = itemModifierGroup;` 然后 `this._weaponList.Add(weaponComponentData);`（`:46-47`）。**注意它顺带改了基类的 `ItemModifierGroup`**——因为那个属性的 setter 是 `protected`（`ItemComponent.cs:25`），所以只有子类做得到。
+写入只有 `public void AddWeapon(WeaponComponentData weaponComponentData, ItemModifierGroup itemModifierGroup)`（`WeaponComponent.cs:45`），实现两行：`base.ItemModifierGroup = itemModifierGroup;` 然后 `this._weaponList.Add(weaponComponentData);`（`WeaponComponent.cs:47-48`）。**注意它顺带改了基类的 `ItemModifierGroup`**——因为那个属性的 setter 是 `protected`（`ItemComponent.cs:25`），所以只有子类做得到。
 
-XML 路径：`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`（`:70`）先 `base.Deserialize` 读 `modifier_group` 属性（`:71-76`），然后 `new WeaponComponentData(base.Item, WeaponClass.Undefined, (WeaponFlags)0UL)` 并 `Deserialize`，**只加一条**（`:77-79`）。
+XML 路径：`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`（`:70`）先 `base.Deserialize` 读 `modifier_group` 属性（`:72-77`），然后 `new WeaponComponentData(base.Item, WeaponClass.Undefined, (WeaponFlags)0UL)` 并 `Deserialize`，**只加一条**（`:78-80`）。
 
 ### 典型用法
 
@@ -72,8 +72,8 @@ if (wc != null)
 {
     WeaponComponentData primary = wc.PrimaryWeapon;   // WeaponComponent.cs:36，内部 _weaponList[0]
     int thrust = primary.ThrustDamage;                // WeaponComponentData.cs:85
-    DamageTypes type = primary.ThrustDamageType;      // :90
-    int handling = primary.Handling;                  // :160
+    DamageTypes type = primary.ThrustDamageType;      // WeaponComponentData.cs:90
+    int handling = primary.Handling;                  // WeaponComponentData.cs:160
 
     // 多形态武器（刀 / 剑 / 矛）
     MBReadOnlyList<WeaponComponentData> all = wc.Weapons;   // :26
@@ -178,3 +178,8 @@ if (item.HasWeaponComponent)
 - 数据元素：`WeaponComponentData` 是每份武器形态的实际数据，承载 `WeaponClass` / `WeaponFlags` / 伤害与长度
 - 品质挂载：`ItemModifierGroup` 通过 `base.ItemModifierGroup` 设在**单个形态**上
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../ItemComponent`](../ItemComponent) · [`../ItemObject`](../ItemObject) · [`../WeaponComponentData`](../WeaponComponentData)
+- 父索引：[`../_index`](../_index)

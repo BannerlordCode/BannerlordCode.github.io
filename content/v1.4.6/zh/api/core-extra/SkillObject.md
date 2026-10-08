@@ -43,7 +43,7 @@ description: "技能定义对象：继承 PropertyObject 拿到 Name/Description
 | `HowToLearnSkillText` | `public TextObject HowToLearnSkillText { get; }` | 计算属性，读 `GameTexts.FindText("str_how_to_learn_skill", base.StringId)`。找不到时返回硬编码兜底 `new TextObject("{=Aj3zqQq4}Not available", null)`。**每次访问都做两次 FindText，无缓存**。 |
 | `ToString` | `public override string ToString()` | `Name` 非 null 时返回 `Name.ToString()`，否则回退 `base.StringId`。**`Name` 存在但为空串时返回空串而不是 StringId**——判空请用 `TextObject.IsNullOrEmpty(Name)`。 |
 
-继承自 [PropertyObject](../PropertyObject)（未在本类重复列出）：`public TextObject Name`、`public TextObject Description`、`public override TextObject GetName()`、`public void Initialize(TextObject name, TextObject description)`。
+继承自 `PropertyObject`（未在本类重复列出）：`public TextObject Name`、`public TextObject Description`、`public override TextObject GetName()`、`public void Initialize(TextObject name, TextObject description)`。
 
 ## 怎么用
 
@@ -51,9 +51,9 @@ description: "技能定义对象：继承 PropertyObject 拿到 Name/Description
 
 `SkillObject` 是 `public sealed class SkillObject : PropertyObject`（`TaleWorlds.Core/SkillObject.cs:8`），**sealed**。全文只有 64 行。
 
-构造器 `public SkillObject(string stringId)`（`:28`）。19 个内置技能不要自己建——用 `DefaultSkills.OneHanded`（`DefaultSkills.cs:21`）到 `DefaultSkills.Engineering`（`:191`）这些静态属性，它们背后是 `Game.Current.DefaultSkills`（`DefaultSkills.cs:11-16`）。
+构造器 `public SkillObject(string stringId)`（`:28`）。19 个内置技能不要自己建——用 `DefaultSkills.OneHanded`（`DefaultSkills.cs:21`）到 `DefaultSkills.Engineering`（`DefaultSkills.cs:191`）这些静态属性，它们背后是 `Game.Current.DefaultSkills`（`DefaultSkills.cs:11-16`）。
 
-初始化靠 `public SkillObject Initialize(TextObject name, TextObject description, CharacterAttribute[] attributes)`（`:41`），填的是父类 [PropertyObject](../PropertyObject) 的 `Name` / `Description`（`PropertyObject.cs:25`/`:41`）以及自己的 `Attributes`（`SkillObject.cs:25`）。
+初始化靠 `public SkillObject Initialize(TextObject name, TextObject description, CharacterAttribute[] attributes)`（`:41`），填的是父类 `PropertyObject` 的 `Name` / `Description`（`PropertyObject.cs:25`/`:41`）以及自己的 `Attributes`（`SkillObject.cs:25`）。
 
 读取端在别处：`DefaultSkills.Create(string stringId)` 的实现是 `Game.Current.ObjectManager.RegisterPresumedObject<SkillObject>(new SkillObject(stringId))`（`DefaultSkills.cs:200-203`）——**内置技能是用「先 new 再按 presumed 注册」造出来的**，没有单独的 XML 表。
 
@@ -65,7 +65,7 @@ using TaleWorlds.CampaignSystem;
 
 // 拿内置技能（现取，不要缓存到静态字段）
 SkillObject tactics = DefaultSkills.Tactics;              // DefaultSkills.cs:111
-SkillObject smithing = DefaultSkills.Engineering;          // :191
+SkillObject smithing = DefaultSkills.Engineering;          // DefaultSkills.cs:191
 SkillObject skill = tactics;
 
 // 属性与说明
@@ -90,7 +90,7 @@ alchemy.Initialize(new TextObject("{=myalchemy}炼金"),
 
 **用 `Initialize` 去「调整」一个内置技能，结果全局改了。** `Initialize`（`:41`）只是给三个字段赋值，没有「只在未初始化时才写」的保护。而 `DefaultSkills.Tactics`（`DefaultSkills.cs:111`）返回的是**全进程共享的那一个实例**——你在自己的 `RegisterSubModuleObjects` 里对它调一次 `Initialize`，所有用这个技能的领主、技能树 UI、`HowToLearnSkillText`（`SkillObject.cs:51`）文案全都变了，而且这个改动**会进存档**（`PropertyObject` 继承 `MBObjectBase`）。要改文案请自己 new 一个 `SkillObject` 并注册，不要碰内置对象。
 
-第二个坑是「以为内置技能是 XML 加载的」。`DefaultSkills.Create`（`:200-203`）走的是 `RegisterPresumedObject<SkillObject>`——**presumed 注册**。回到 `MBObjectManager` 的实现，presumed 意味着重复 `StringId` 时直接返回已存在的那一个而不改名也不报错。所以你如果用相同的 stringId `new SkillObject("Tactics")` 再注册一次，拿回来的是**引擎原来那个**，你的 `Initialize` 白做了。想自定义就必须用一个全局唯一的 stringId。
+第二个坑是「以为内置技能是 XML 加载的」。`DefaultSkills.Create`（`DefaultSkills.cs:200-203`）走的是 `RegisterPresumedObject<SkillObject>`——**presumed 注册**。回到 `MBObjectManager` 的实现，presumed 意味着重复 `StringId` 时直接返回已存在的那一个而不改名也不报错。所以你如果用相同的 stringId `new SkillObject("Tactics")` 再注册一次，拿回来的是**引擎原来那个**，你的 `Initialize` 白做了。想自定义就必须用一个全局唯一的 stringId。
 
 第三，`SkillObject` 是 `sealed`（`:8`），想「继承技能再改」在编译期就不行。
 
@@ -147,7 +147,7 @@ Debug.Print(howToLearn, 0);
 - **`HowToLearnSkillText` 无缓存。** 每次 get 做两次 `GameTexts.FindText`。在列表绑定里对每行调它会产生明显开销，建议取出后 `CopyTextObject()` 缓存。
 - **`ToString()` 不处理空串。** `Name` 是空 `TextObject` 时返回 `""`。判空用 `TextObject.IsNullOrEmpty`。
 - **`sealed` 不可继承。** 技能的多态性靠"每个技能一个实例"而不是继承层级。
-- **依赖 `Game.Current`。** `DefaultSkills` 与 `DefaultCharacterAttributes` 由 [Game](../Game) 的 `InitializeDefaultGameObjects()` 创建；早期访问为 null。
+- **依赖 `Game.Current`。** `DefaultSkills` 与 `DefaultCharacterAttributes` 由 `Game` 的 `InitializeDefaultGameObjects()` 创建；早期访问为 null。
 - **本地化 ID 是硬编码的。** `HowToLearnSkillText` 找的 key 是 `"str_how_to_learn_skill"` + `StringId`。技能 `StringId` 改了就找不到翻译，静默退到 "Not available"。
 
 ## 跨版本提示
@@ -165,3 +165,8 @@ Debug.Print(howToLearn, 0);
 - 引用者：[ItemObject](../ItemObject) 的 `RelevantSkill` 在物品是马匹时返回 `DefaultSkills.Riding`
 - 显示路径：`Name` 与 `HowToLearnSkillText` 都是 `TextObject`，解析依赖 `GameTexts` 与本地化管线
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../PropertyObject`](../PropertyObject) · [`../DefaultSkills`](../DefaultSkills) · [`../ItemObject`](../ItemObject)
+- 父索引：[`../_index`](../_index)

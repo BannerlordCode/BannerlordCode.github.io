@@ -59,9 +59,9 @@ description: "字符串键值参数袋：启动参数、XML 覆写值、平衡�
 
 ### 怎么拿到它
 
-`ParameterContainer` 是 `TaleWorlds.Library/ParameterContainer.cs` 里的 `public class ParameterContainer`（`:8`），**全文只有一个字典**：私有字段 `private Dictionary<string, string> _parameters;`（`:226`）。没有公开构造器以外的东西要初始化——`public ParameterContainer()`（`:11`）把字典建好。
+`ParameterContainer` 是 `TaleWorlds.Library/ParameterContainer.cs` 里的 `public class ParameterContainer`（`:8`），**全文只有一个字典**：私有字段 `private Dictionary<string, string> _parameters;`（`:223`）。没有公开构造器以外的东西要初始化——`public ParameterContainer()`（`:11`）把字典建好。
 
-它就是一个 `string → string` 的袋子，键值都是字符串（`:226`），所以**写入时不做类型检查**。取值有两个完全不同的家族：
+它就是一个 `string → string` 的袋子，键值都是字符串（`:223`），所以**写入时不做类型检查**。取值有两个完全不同的家族：
 
 - **会抛**：`public string GetParameter(string key)`（`:196`），实现就是 `return this._parameters[key];`（`:198`）——key 不存在就是 `KeyNotFoundException`。
 - **不抛**：九个 `TryGetParameterAs*`（`:79` bool、`:85` bool、`:98` int、`:111` ushort、`:124` float、`:137` byte、`:150` sbyte、`:163` Vec3、`:180` Vec2）加 `TryGetParameter`（`:79`），全部返回 `bool`。
@@ -170,3 +170,8 @@ parameters.AddParametersConcurrent(new[]
 - 真实使用者：[Game](../Game) 的 `InitializeParameters()` 通过 `ManagedParameters` 读 `managed_core_parameters.xml` 走的就是同一套 key-value 模式
 - 数值载体：`Vec2` / `Vec3` 是 `TryGetParameterAsVec2` / `AsVec3` 的输出类型（`TaleWorlds.Library` 内的向量结构）
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../Game`](../Game) · [`../MBList`](../MBList) · [`../GameManagerBase`](../GameManagerBase)
+- 父索引：[`../_index`](../_index)

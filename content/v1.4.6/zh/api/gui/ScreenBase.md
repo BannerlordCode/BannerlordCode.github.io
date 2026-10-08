@@ -94,7 +94,7 @@ description: "所有界面的抽象基类：持有一组 ScreenLayer 与 ScreenC
 
 `ScreenBase` 是 `TaleWorlds.ScreenSystem/ScreenBase.cs:9` 的 `public abstract class ScreenBase`，541 行、39 个公开成员——**模组做界面的主基类**。
 
-它**不继承 `ScreenComponent`**（那一页已经说过，那是个空标记类）。它的实例由 [ScreenManager](../ScreenManager) 压栈持有：`public static ScreenBase TopScreen { get; private set; }`（`ScreenManager.cs:124`）。`ScreenManager` 自己也发两个事件告诉你栈变了：`OnPushScreen`（`ScreenManager.cs:68`）、`OnPopScreen`（`:73`）。
+它**不继承 `ScreenComponent`**（那一页已经说过，那是个空标记类）。它的实例由 `ScreenManager` 压栈持有：`public static ScreenBase TopScreen { get; private set; }`（`ScreenManager.cs:124`）。`ScreenManager` 自己也发两个事件告诉你栈变了：`OnPushScreen`（`ScreenManager.cs:68`）、`OnPopScreen`（`:73`）。
 
 公开状态是四个 `{ get; private set; }`：`IsActive`（`:44`）、`IsPaused`（`:49`）、`IsInitialized`（`:54`）、`IsFinalized`（`:59`）——**setter 全部 private，只能由内部的 `Handle*` 方法改**。两个公开的层操作方法 `ActivateAllLayers()`（`:208`）与 `DeactivateAllLayers()`（`:220`），以及 `Activate()`（`:242`）/`Deactivate()`（`:232`）。
 
@@ -137,7 +137,7 @@ public class MyScreen : ScreenBase                      // ScreenBase.cs:9
 
 // 压栈
 ScreenManager.PushScreen(myScreen);                                   // ScreenManager.cs:606
-ScreenManager.CleanAndPushScreen(myScreen);                           // :541，清栈后压
+ScreenManager.CleanAndPushScreen(myScreen);                           // ScreenManager.cs:541，清栈后压
 ```
 
 ### 最容易踩的坑
@@ -146,7 +146,7 @@ ScreenManager.CleanAndPushScreen(myScreen);                           // :541，
 
 第二个坑是覆写钩子时不调 `base`。`UpdateLayout()`（`:252`）的基类实现会 `for (int i = 0; i < this._layers.Count; i++) if (!this._layers[i].IsFinalized) this._layers[i].UpdateLayout();`（`:254-259`）——你覆盖它却不调 base，**所有子层的布局计算就一次都不会跑**，表现是控件全部叠在 (0,0) 或尺寸为零。（`UpdateLayout` 本身定义在 `ScreenLayer.cs:306`，`public virtual void UpdateLayout()`。）`OnInitialize`（`:270`）、`OnFinalize`（`:275`）、`OnFrameTick`（`:300`）同理。
 
-第三，`Activate()`（`:242-249`）和 `Deactivate()`（`:232-240`）都是**幂等**的：`if (!this.IsActive) { this.HandleActivate(); this.IsActive = true; }`——已经在 active 状态时直接什么都不做。所以「手动调 Activate 强制刷新界面」是无效的，得先 `Deactivate()` 再 `Activate()`。
+第三，`Activate()`（`:242-249`）和 `Deactivate()`（`:232-239`）都是**幂等**的：`if (!this.IsActive) { this.HandleActivate(); this.IsActive = true; }`——已经在 active 状态时直接什么都不做。所以「手动调 Activate 强制刷新界面」是无效的，得先 `Deactivate()` 再 `Activate()`。
 
 ## 真实示例
 
@@ -247,3 +247,8 @@ ScreenManager.PopScreen();
 - 组件类型：`ScreenComponent` 与本类同命名空间，是 `AddComponent` / `FindComponent<T>` 的约束类型。
 - 战役侧：被 `SandBox` 与 `StoryMode` 的大量界面继承，用到 `Campaign.Current` 的钩子里需要参考 [Campaign](../../campaign/Campaign)。
 - 父级：[gui API 目录导览](../)
+
+## 导航
+
+- 同桶：[`../ScreenManager`](../ScreenManager) · [`../ScreenLayer`](../ScreenLayer) · [`../ScreenComponent`](../ScreenComponent)
+- 父索引：[`../_index`](../_index)

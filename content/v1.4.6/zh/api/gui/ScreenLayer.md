@@ -11,7 +11,7 @@ description: "可视层的抽象基类：承载一个有序绘制位置、一份
 
 ## 概述
 
-`ScreenLayer` 是「一段有独立绘制顺序与输入权限的界面内容」的抽象形状。地图界面、任务结算、加载画面都是它的派生类；[ScreenBase](../ScreenBase) 的 `Layers` 集合装的元素类型就是它。这个基类本身**不画任何一个像素**——它提供的全部内容是三样东西：一个构造期就定死的 `Name`（全局重排与 `SetLayerCategoriesState` 系列都靠名字匹配）、一个 `InputRestrictions`（构造时用 `localOrder` 生成，层叠顺序由它决定）、以及一组 `protected internal virtual` 的帧回调钩子。真正往屏幕上填内容的实现是跨模块的 [GauntletLayer](../../engine/GauntletLayer)（命名空间 `TaleWorlds.Engine.GauntletUI`），它才是加载 XML prefab 的那一层。
+`ScreenLayer` 是「一段有独立绘制顺序与输入权限的界面内容」的抽象形状。地图界面、任务结算、加载画面都是它的派生类；`ScreenBase` 的 `Layers` 集合装的元素类型就是它。这个基类本身**不画任何一个像素**——它提供的全部内容是三样东西：一个构造期就定死的 `Name`（全局重排与 `SetLayerCategoriesState` 系列都靠名字匹配）、一个 `InputRestrictions`（构造时用 `localOrder` 生成，层叠顺序由它决定）、以及一组 `protected internal virtual` 的帧回调钩子。真正往屏幕上填内容的实现是跨模块的 `GauntletLayer`（命名空间 `TaleWorlds.Engine.GauntletUI`），它才是加载 XML prefab 的那一层。
 
 派生类与 `ScreenManager` 之间没有直接调用关系：`HandleActivate` / `HandleDeactivate` / `HandleFinalize` / `HandleGainFocus` / `HandleLoseFocus` 全是 `internal`，只能由引擎侧的栈逻辑驱动。mod 能直接调用的公开方法只有 `DrawDebugInfo` / `EarlyProcessEvents` / `ProcessEvents` / `HitTest` / `FocusTest` / `IsFocusedOnInput` / `UpdateLayout` / `CompareTo`，其余一切都要通过推屏来触发。
 
@@ -32,7 +32,7 @@ description: "可视层的抽象基类：承载一个有序绘制位置、一份
 | 成员 | 签名 | 作用 |
 | --- | --- | --- |
 | 构造函数 | `protected ScreenLayer(string name, int localOrder)` | 唯一入口。`name` 赋给 `Name` 且此后不可改；`localOrder` 交给 `new InputRestrictions(localOrder)` 决定层叠顺序。同时建好 `Input = new InputContext()`，把 `LastActiveState` 置 true、`IsActive` 置 false、`IsFocusLayer` 置 false、`ActiveCursor` 置 `CursorType.Default`、`_usedInputs` 置 `InputType.None` |
-| `Name` | `public string Name { get; private set; }` | 构造期定死的层名。[ScreenBase](../ScreenBase) 的 `SetLayerCategoriesState*` 系列就是拿它做字符串匹配，所以别指望运行时改名 |
+| `Name` | `public string Name { get; private set; }` | 构造期定死的层名。`ScreenBase` 的 `SetLayerCategoriesState*` 系列就是拿它做字符串匹配，所以别指望运行时改名 |
 | `OnLayerActiveStateChanged` | `public static event Action<ScreenLayer>` | **静态**事件，任何 layer 激活或失活都会带参数触发一次。做「全屏遮罩随任意层开合而淡入淡出」这类联动时订阅它，而不是去遍历 `ScreenManager.SortedLayers` |
 
 ### 状态
@@ -109,7 +109,7 @@ description: "可视层的抽象基类：承载一个有序绘制位置、一份
 
 层实例的归属是 **Screen**：`ScreenBase.Layers`。取当前栈顶用 `ScreenManager.TopScreen`（`ScreenManager.cs:124`），排序结果在 `ScreenManager.SortedLayers`（`ScreenManager.cs:82`）。全局层是另一条路：`ScreenManager.AddGlobalLayer(GlobalLayer layer, bool isFocusable)`（`ScreenManager.cs:208`）与 `RemoveGlobalLayer`（`:199`）。
 
-你要覆写的钩子分两类：`protected internal virtual` 的 `Tick(float dt)`（`:107`）、`LateUpdate(float dt)`（`:112`）、`RenderTick(float dt)`（`:117`）、`Update(IReadOnlyList<int> lastKeysPressed)`（`:122`）、`OnGainFocus()`（`:169`）、`OnLoseFocus()`（`:173`）；以及 `protected virtual` 的 `OnActivate()`（`:153`）、`OnDeactivate()`（`:159`）。
+你要覆写的钩子分两类：`protected internal virtual` 的 `Tick(float dt)`（`:107`）、`LateUpdate(float dt)`（`:112`）、`RenderTick(float dt)`（`:117`）、`Update(IReadOnlyList<int> lastKeysPressed)`（`:122`）、`OnGainFocus()`（`:164`）、`OnLoseFocus()`（`:169`）；以及 `protected virtual` 的 `OnActivate()`（`:153`）、`OnDeactivate()`（`:159`）。
 
 ### 典型用法
 
@@ -125,7 +125,7 @@ public class MyHudLayer : ScreenLayer              // ScreenLayer.cs:10
     {
         // 每帧输入；Input 是构造器建好的（:95），类型是 TaleWorlds.InputSystem.InputContext
         if (Input.IsKeyDown(InputKey.T)) { /* ... */ }                // InputSystem/InputContext.cs:504
-        bool tapped = Input.IsKeyPressed(InputKey.Enter);              // :521
+        bool tapped = Input.IsKeyPressed(InputKey.Enter);              // InputSystem/InputContext.cs:521
     }
 
     protected internal override void Update(IReadOnlyList<int> lastKeysPressed)   // :122
@@ -156,7 +156,7 @@ bool hit = layer.IsHitThisFrame;                         // ScreenLayer.cs:70，
 
 ### 最容易踩的坑
 
-**覆写 `OnActivate()` / `OnDeactivate()` 时不调 `base`。** `OnActivate()`（`:153-156`）的基类实现不是空的——它做 `this.IsFinalized = false;`。你的子类里如果直接写 `protected override void OnActivate() { /* 自己的逻辑 */ }`，那 `IsFinalized` 就永远停在 `HandleFinalize()`（`:165`）设的 true 上。后果是这个层的所有输入被当作「已关闭」处理，`Input`/`InputRestrictions` 完全不响应——现象是「这个 HUD 层显示了但点不动」。
+**覆写 `OnActivate()` / `OnDeactivate()` 时不调 `base`。** `OnActivate()`（`:153-156`）的基类实现不是空的——它做 `this.IsFinalized = false;`。你的子类里如果直接写 `protected override void OnActivate() { /* 自己的逻辑 */ }`，那 `IsFinalized` 就永远停在 `HandleFinalize()`（`:127`）设的 true 上。后果是这个层的所有输入被当作「已关闭」处理，`Input`/`InputRestrictions` 完全不响应——现象是「这个 HUD 层显示了但点不动」。
 
 第二个坑是那几个 tick 钩子的可见性是 **`protected internal`**，不是纯 `protected` 也不是 `public`。你的子类能覆写，但**外部代码无法从你这里直接调用它们**（`Tick` 由 `ScreenManager.Tick(float dt)`（`ScreenManager.cs:312`）驱动、`LateTick` 由 `ScreenManager.LateTick`（`:369`）驱动）。不要在别处写 `myLayer.Tick(dt)`，编译不过是对的。
 
@@ -282,14 +282,14 @@ public class OverlayFadeWatcher
 - **基类的三个命中测试都返回 false。** `HitTest(Vector2)` / `HitTest()` / `FocusTest()` / `IsFocusedOnInput` 全是空壳。不重写 `HitTest`，鼠标永远穿过去；不重写 `FocusTest`，键盘输入到不了。
 - **`IsFinalized` 不是单调的。** `HandleFinalize` 把它置 true，但 `OnActivate` 的默认实现又置回 false。别拿它当「这个对象还活着吗」的判据。
 - **重复 finalize 会断言。** `HandleFinalize` 在已 finalize 时 `Debug.FailedAssert` 后**静默 return**，不会抛异常也不会重跑 `OnFinalize`。表现为清理代码「莫名其妙没执行」。
-- **`Name` 构造后不可变。** [ScreenBase](../ScreenBase) 的 `SetLayerCategoriesState` / `SetLayerCategoriesStateAndToggleOthers` / `SetLayerCategoriesStateAndDeactivateOthers` 靠 `IndexOf(layer.Name) >= 0` 匹配，改名会让这些调用静默失配——而 `Name` 的 setter 本身就是 private。
+- **`Name` 构造后不可变。** `ScreenBase` 的 `SetLayerCategoriesState` / `SetLayerCategoriesStateAndToggleOthers` / `SetLayerCategoriesStateAndDeactivateOthers` 靠 `IndexOf(layer.Name) >= 0` 匹配，改名会让这些调用静默失配——而 `Name` 的 setter 本身就是 private。
 - **输入开关不是你设的。** `Input.IsKeysAllowed` 等三个布尔由 `ProcessEvents` 从 `_usedInputs` 覆写，`IsControllerAllowed` 则完全不在这条链上。想控制输入，声明 `InputRestrictions` / `InputUsageMask`，别直接写 `Input` 的属性。
 - **`CompareTo` 不做类型校验。** 参数不是 `ScreenLayer` 时返回 1 而不是抛异常，`IComparable` 的契约被打破；只在引擎内部的排序里用它是安全的，拿它给别的类型排序会得到错序。
 - **`ScreenOrderInLastFrame` 与 `IsHitThisFrame` 只读。** setter 是 `internal`，mod 侧无法写入，任何依赖它们的逻辑都要能容忍它们不更新。
-- **`Scale` 与 `UsableArea` 是全局单值。** 它们转发到 [ScreenManager](../ScreenManager) 的静态属性，不是本层私有的缩放；两个分辨率不同的 layer 拿到的是同一个数。
+- **`Scale` 与 `UsableArea` 是全局单值。** 它们转发到 `ScreenManager` 的静态属性，不是本层私有的缩放；两个分辨率不同的 layer 拿到的是同一个数。
 - **所有帧钩子都在渲染主线程。** `Tick` / `LateUpdate` / `RenderTick` / `Update` 里不要启动会回调进游戏状态的后台任务。
 - **静态事件不随界面销毁而清。** `OnLayerActiveStateChanged` 是静态的，界面 pop 掉不会替你退订。持有 mod 单例的监听器必须自己在 `OnFinalize` 里 `-=`。
-- **实现类在别的模块。** [GauntletLayer](../../engine/GauntletLayer) 的命名空间是 `TaleWorlds.Engine.GauntletUI`，不是 `TaleWorlds.ScreenSystem`。`using` 缺一个就编译不过。
+- **实现类在别的模块。** `GauntletLayer` 的命名空间是 `TaleWorlds.Engine.GauntletUI`，不是 `TaleWorlds.ScreenSystem`。`using` 缺一个就编译不过。
 
 ## 跨版本提示
 
@@ -302,3 +302,8 @@ public class OverlayFadeWatcher
 - 常见实现：[GauntletLayer](../../engine/GauntletLayer) — 跨模块（`TaleWorlds.Engine.GauntletUI`），加载 XML prefab 的那一层实现。
 - 模块归属：[gui API 目录导览](../)
 - 分层说明：[模块地图](../../../architecture/module-map)
+
+## 导航
+
+- 同桶：[`../ScreenBase`](../ScreenBase) · [`../ScreenManager`](../ScreenManager) · [`../ScreenComponent`](../ScreenComponent)
+- 父索引：[`../_index`](../_index)

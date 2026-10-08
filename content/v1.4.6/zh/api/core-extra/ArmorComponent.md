@@ -13,21 +13,21 @@ description: "护甲组件：装在 ItemObject 单槽上的护甲值、身体遮
 
 ## 概述
 
-`ArmorComponent` 回答「这件东西穿上身之后，能挡多少伤害、盖住哪块身体、网格怎么变形」。它挂在 [ItemObject](../ItemObject) 的单槽上，由物品 XML 里 `<ItemComponent><Armor .../></ItemComponent>` 装配，是 [ItemComponent](../ItemComponent) 的六个具体派生实现之一。数据上分四组：**护甲数值**（`HeadArmor` / `BodyArmor` / `LegArmor` / `ArmArmor` / `StealthFactor`）、**坐骑加成**（`ManeuverBonus` / `SpeedBonus` / `ChargeBonus`，只在马匹身上生效）、**遮挡遮罩**（`MeshesMask` 由四个 `covers_*` 属性反推出 `SkinMask` 位组合，外加头发/胡子/鬃毛/马尾的 `*CoverType`）、**网格形态**（`MaterialType` / `BodyMeshType` / `BodyDeformType` / `MultiMeshHasGenderVariations` / `IsNoSlim` / `FamilyType`）。七组嵌套枚举是它最容易被忽略的部分——`HairCoverTypes.BeardCoverTypes` 等枚举里都带一个 `...Num...` 哨兵值，那是给数组长度用的，不是语义值。
+`ArmorComponent` 回答「这件东西穿上身之后，能挡多少伤害、盖住哪块身体、网格怎么变形」。它挂在 `ItemObject` 的单槽上，由物品 XML 里 `<ItemComponent><Armor .../></ItemComponent>` 装配，是 `ItemComponent` 的六个具体派生实现之一。数据上分四组：**护甲数值**（`HeadArmor` / `BodyArmor` / `LegArmor` / `ArmArmor` / `StealthFactor`）、**坐骑加成**（`ManeuverBonus` / `SpeedBonus` / `ChargeBonus`，只在马匹身上生效）、**遮挡遮罩**（`MeshesMask` 由四个 `covers_*` 属性反推出 `SkinMask` 位组合，外加头发/胡子/鬃毛/马尾的 `*CoverType`）、**网格形态**（`MaterialType` / `BodyMeshType` / `BodyDeformType` / `MultiMeshHasGenderVariations` / `IsNoSlim` / `FamilyType`）。七组嵌套枚举是它最容易被忽略的部分——`HairCoverTypes.BeardCoverTypes` 等枚举里都带一个 `...Num...` 哨兵值，那是给数组长度用的，不是语义值。
 
 ## 心智模型
 
 把它当成**「穿戴后渲染与减伤的那一半规则」**来用，而不是「物品的护甲值字段的容器」。它的数值属性全是 `private set`，只有 `Deserialize` 能写，也就是**只有 XML 能写**。程序化生成物品时拿不到填数值的官方 API（`ItemObject.ItemComponent` 也是 `private set`），这是整个护甲体系的设计取舍：护甲定义属于内容（XML），不属于代码。
 
-装配时机在 `ItemObject.Deserialize` 的 `<Armor>` 分支：先 `new ArmorComponent(this)`（构造器只做 `base.Item = item`），再 `component.Deserialize(objectManager, xmlNode12)`，最后挂到 `ItemObject.ItemComponent`。所以**同一件物品上写两个 `<Armor>` 节点，第二个会覆盖第一个**——护甲组件不累加。想让一件物品既有护甲值又有武器形态，唯一可行的官方姿势是把护甲值写进 `<Armor>`、把武器形态写进 `<Weapon>`，但因为两者抢同一个单槽，**这个组合在 1.4.6 里做不出来**（[WeaponComponent](../WeaponComponent) 是 `ItemComponent` 的兄弟，不是儿子）。要同时有护甲和武器，mod 必须自己派生一个 `ArmorComponent` 的子类同时继承两边——而 C# 不支持多继承，所以现实答案是在自己的派生类里复制 `WeaponComponent` 的字段。
+装配时机在 `ItemObject.Deserialize` 的 `<Armor>` 分支：先 `new ArmorComponent(this)`（构造器只做 `base.Item = item`），再 `component.Deserialize(objectManager, xmlNode12)`，最后挂到 `ItemObject.ItemComponent`。所以**同一件物品上写两个 `<Armor>` 节点，第二个会覆盖第一个**——护甲组件不累加。想让一件物品既有护甲值又有武器形态，唯一可行的官方姿势是把护甲值写进 `<Armor>`、把武器形态写进 `<Weapon>`，但因为两者抢同一个单槽，**这个组合在 1.4.6 里做不出来**（`WeaponComponent` 是 `ItemComponent` 的兄弟，不是儿子）。要同时有护甲和武器，mod 必须自己派生一个 `ArmorComponent` 的子类同时继承两边——而 C# 不支持多继承，所以现实答案是在自己的派生类里复制 `WeaponComponent` 的字段。
 
-`MeshesMask` 的推导方向和直觉相反：它**不是**「遮住哪里」，而是「哪里看得见」。`Deserialize` 读四个 `covers_head` / `covers_body` / `covers_hands` / `covers_legs` 属性，凡是**没有**写的部位就 `|= SkinMask.XxxVisible`。换句话说 `covers_head="true"` 什么都不加（头被盖住，不可见），不写 `covers_head` 就 `SkinMask.HeadVisible`。[ItemObject](../ItemObject) 的 `UsingFacegenScaling` 正是靠 `MeshesMask.HasAnyFlag(SkinMask.HeadVisible)` 判断要不要走脸型缩放。
+`MeshesMask` 的推导方向和直觉相反：它**不是**「遮住哪里」，而是「哪里看得见」。`Deserialize` 读四个 `covers_head` / `covers_body` / `covers_hands` / `covers_legs` 属性，凡是**没有**写的部位就 `|= SkinMask.XxxVisible`。换句话说 `covers_head="true"` 什么都不加（头被盖住，不可见），不写 `covers_head` 就 `SkinMask.HeadVisible`。`ItemObject` 的 `UsingFacegenScaling` 正是靠 `MeshesMask.HasAnyFlag(SkinMask.HeadVisible)` 判断要不要走脸型缩放。
 
-第二个心智锚点是**马匹专用的三个加成**。`ManeuverBonus` / `SpeedBonus` / `ChargeBonus` 写在护甲组件里，但它们只在马鞍/马甲这类马匹护具上被读——[EquipmentElement](../EquipmentElement) 的 `GetModifiedMountManeuver(in harness)` / `GetModifiedMountSpeed(in harness)` / `GetModifiedMountCharge(in harness)` 先取 `this.Item.HorseComponent.Maneuver`，再 `+` 掉 `harness.Item.ArmorComponent.ManeuverBonus`。也就是说**马匹护具自己也必须挂 `ArmorComponent`**，否则加成那半边取不到。
+第二个心智锚点是**马匹专用的三个加成**。`ManeuverBonus` / `SpeedBonus` / `ChargeBonus` 写在护甲组件里，但它们只在马鞍/马甲这类马匹护具上被读——`EquipmentElement` 的 `GetModifiedMountManeuver(in harness)` / `GetModifiedMountSpeed(in harness)` / `GetModifiedMountCharge(in harness)` 先取 `this.Item.HorseComponent.Maneuver`，再 `+` 掉 `harness.Item.ArmorComponent.ManeuverBonus`。也就是说**马匹护具自己也必须挂 `ArmorComponent`**，否则加成那半边取不到。
 
-第三个是**战斗数值不是直接读这里**。所有实际生效的护甲值都要经过 [EquipmentElement](../EquipmentElement) 的 `GetModified*Armor()` 系列，它们在读完组件原值后调用 `ItemModifier.ModifyArmor(num)` 再把负数钳到 0。直接读 `ArmorComponent.BodyArmor` 拿到的是**未加工、未钳零**的裸值。
+第三个是**战斗数值不是直接读这里**。所有实际生效的护甲值都要经过 `EquipmentElement` 的 `GetModified*Armor()` 系列，它们在读完组件原值后调用 `ItemModifier.ModifyArmor(num)` 再把负数钳到 0。直接读 `ArmorComponent.BodyArmor` 拿到的是**未加工、未钳零**的裸值。
 
-第四个是 `GetCopy()` 的不完整：它的对象初始化器列表覆盖 20 个属性，**唯独漏了 `IsNoSlim`**。而全树只有 [Crafting](../Crafting) 与 `CraftingCampaignBehavior` 会调 `GetCopy()`，所以走合成武器重建路径时 `IsNoSlim` 会静默回落到 false。
+第四个是 `GetCopy()` 的不完整：它的对象初始化器列表覆盖 20 个属性，**唯独漏了 `IsNoSlim`**。而全树只有 `Crafting` 与 `CraftingCampaignBehavior` 会调 `GetCopy()`，所以走合成武器重建路径时 `IsNoSlim` 会静默回落到 false。
 
 ## 关键成员
 
@@ -36,11 +36,11 @@ description: "护甲组件：装在 ItemObject 单槽上的护甲值、身体遮
 | 成员 | 签名 | 这个成员是做什么用的 |
 | --- | --- | --- |
 | `HeadArmor` | `public int HeadArmor { get; private set; }` | 头部护甲值。对应 XML 属性 `head_armor`，缺失时为 0。 |
-| `BodyArmor` | `public int BodyArmor { get; private set; }` | 躯干护甲值。对应 `body_armor`。**马具（`ItemTypeEnum.HorseHarness`）身上这个值会被 [EquipmentElement](../EquipmentElement) 的 `GetModifiedBodyArmor` 判为 0，改走 `GetModifiedMountBodyArmor`。** |
+| `BodyArmor` | `public int BodyArmor { get; private set; }` | 躯干护甲值。对应 `body_armor`。**马具（`ItemTypeEnum.HorseHarness`）身上这个值会被 `EquipmentElement` 的 `GetModifiedBodyArmor` 判为 0，改走 `GetModifiedMountBodyArmor`。** |
 | `LegArmor` | `public int LegArmor { get; private set; }` | 腿部护甲值。对应 `leg_armor`。 |
 | `ArmArmor` | `public int ArmArmor { get; private set; }` | 手臂护甲值。对应 `arm_armor`。 |
-| `StealthFactor` | `public int StealthFactor { get; private set; }` | 潜行因子。对应 `stealth_factor`，用 `CultureInfo.InvariantCulture.NumberFormat` 解析成 float 再取整。**值为 0 时 [EquipmentElement](../EquipmentElement) 的 `GetModifiedStealthFactor` 直接返回 0，不走词缀加成。** |
-| `FamilyType` | `public int FamilyType { get; private set; }` | 材质家族编号，对应 `family_type`。与 [Monster](../HorseComponent) 的 `FamilyType` 是同一个概念的物品侧版本。 |
+| `StealthFactor` | `public int StealthFactor { get; private set; }` | 潜行因子。对应 `stealth_factor`，用 `CultureInfo.InvariantCulture.NumberFormat` 解析成 float 再取整。**值为 0 时 `EquipmentElement` 的 `GetModifiedStealthFactor` 直接返回 0，不走词缀加成。** |
+| `FamilyType` | `public int FamilyType { get; private set; }` | 材质家族编号，对应 `family_type`。与 `Monster` 的 `FamilyType` 是同一个概念的物品侧版本。 |
 
 ### 坐骑加成（只在马匹护具上生效）
 
@@ -73,7 +73,7 @@ description: "护甲组件：装在 ItemObject 单槽上的护甲值、身体遮
 | --- | --- | --- |
 | `.ctor` | `public ArmorComponent(ItemObject item)` | 只做 `base.Item = item`。**所有数值都要等 `Deserialize` 才填**，所以构造完立刻读 `BodyArmor` 拿到的一定是 0。 |
 | `Deserialize` | `public override void Deserialize(MBObjectManager objectManager, XmlNode node)` | 先 `base.Deserialize` 解析 `modifier_group`，再逐个读 `head_armor` / `body_armor` / `leg_armor` / `arm_armor` / `family_type` / `maneuver_bonus` / `speed_bonus` / `charge_bonus` / `material_type` / `has_gender_variations` / `body_mesh_type` / `body_deform_type` / `hair_cover_type` / `beard_cover_type` / `mane_cover_type` / `tail_cover_type` / `stealth_factor` / `reins_mesh` / `covers_*` / `no_slim`。整段有 20 多个 `node.Attributes[...]` 直读，**`node` 为 null 时立刻 NRE，且解析用当前线程的区域设置**（`int.Parse` 无 invariantCulture）。 |
-| `GetCopy` | `public override ItemComponent GetCopy()` | 返回 `new ArmorComponent(base.Item)` 加 20 个属性的对象初始化器。**漏拷 `IsNoSlim`，也没拷 `ItemModifierGroup`。** 全树只有 [Crafting](../Crafting) 与 `CraftingCampaignBehavior` 会调。 |
+| `GetCopy` | `public override ItemComponent GetCopy()` | 返回 `new ArmorComponent(base.Item)` 加 20 个属性的对象初始化器。**漏拷 `IsNoSlim`，也没拷 `ItemModifierGroup`。** 全树只有 `Crafting` 与 `CraftingCampaignBehavior` 会调。 |
 
 ### 嵌套枚举
 
@@ -93,7 +93,7 @@ description: "护甲组件：装在 ItemObject 单槽上的护甲值、身体遮
 
 `ArmorComponent` 是 `public class ArmorComponent : ItemComponent`（`TaleWorlds.Core/ArmorComponent.cs:10`），而 `ItemComponent` 本身继承 `MBObjectBase`（`ItemComponent.cs:9`）。它**不是一个你能自己 new 出来挂上去的东西**——`ItemObject` 只持有一个 `ItemComponent` 字段，装什么完全由物品 XML 决定。
 
-拿到的唯一入口是 `ItemObject` 上的便利属性：`public ArmorComponent ArmorComponent { get; }`（`TaleWorlds.Core/ItemObject.cs:359`），getter 就是 `this.ItemComponent as ArmorComponent`（`:363`）；配对还有 `public bool HasArmorComponent`（`:369`，判 `!= null`）。引擎自己在反序列化时按物品类型 new：`itemComponent = new ArmorComponent(this)`（`ItemObject.cs:809`）。
+拿到的唯一入口是 `ItemObject` 上的便利属性：`public ArmorComponent ArmorComponent { get; }`（`TaleWorlds.Core/ItemObject.cs:359`），getter 就是 `this.ItemComponent as ArmorComponent`（`ItemObject.cs:363`）；配对还有 `public bool HasArmorComponent`（`ItemObject.cs:369`，判 `!= null`）。引擎自己在反序列化时按物品类型 new：`itemComponent = new ArmorComponent(this)`（`ItemObject.cs:809`）。
 
 构造器 `public ArmorComponent(ItemObject item)`（`ArmorComponent.cs:123`）只做 `base.Item = item`，全部数值属性都是 `{ get; private set; }`，由 `Deserialize`（`:156`）从 XML 读、或由 `GetCopy()`（`:129`）逐字段复制。
 
@@ -106,7 +106,7 @@ using TaleWorlds.Core;
 ItemObject helmet = ...;
 if (helmet.HasArmorComponent)                                  // ItemObject.cs:369
 {
-    ArmorComponent armor = helmet.ArmorComponent;              // :359
+    ArmorComponent armor = helmet.ArmorComponent;              // ItemObject.cs:359
     int head = armor.HeadArmor;                                // ArmorComponent.cs:15
     int body = armor.BodyArmor;                                // :20
     int stealth = armor.StealthFactor;                         // :100
@@ -120,7 +120,7 @@ ArmorComponent preview = helmet.ArmorComponent.GetCopy();      // :129
 
 ### 最容易踩的坑
 
-**直接对 `helmet.ArmorComponent` 取值而不判空。** `ItemObject.ArmorComponent` 是 `this.ItemComponent as ArmorComponent`（`ItemObject.cs:363`），`as` 在类型不匹配时**返回 null 而不是抛 InvalidCastException**。而 `ItemObject` 的 `ItemComponent` 字段是单槽的：披风装的是 `WeaponComponent`、马匹装的是 `HorseComponent`、旗帜装的是 [BannerComponent](../BannerComponent)——所以对**任何非护甲物品**读 `ArmorComponent` 都是 null，紧接着 `armor.HeadArmor` 空引用，而报错行离真正的原因（物品类型不对）很远。用 `HasArmorComponent`（`:369`）或者直接判 `helmet.ArmorComponent != null`。
+**直接对 `helmet.ArmorComponent` 取值而不判空。** `ItemObject.ArmorComponent` 是 `this.ItemComponent as ArmorComponent`（`ItemObject.cs:363`），`as` 在类型不匹配时**返回 null 而不是抛 InvalidCastException**。而 `ItemObject` 的 `ItemComponent` 字段是单槽的：披风装的是 `WeaponComponent`、马匹装的是 `HorseComponent`、旗帜装的是 `BannerComponent`——所以对**任何非护甲物品**读 `ArmorComponent` 都是 null，紧接着 `armor.HeadArmor` 空引用，而报错行离真正的原因（物品类型不对）很远。用 `HasArmorComponent`（`:369`）或者直接判 `helmet.ArmorComponent != null`。
 
 第二个坑在 XML 读取顺序：`MultiMeshHasGenderVariations` 的缺省值是 `true`（`ArmorComponent.cs:55`）——源码里是**先无条件赋 `true` 再看属性存不存在**，而不是「缺失即 false」。所以一个没写 `has_gender_variations` 的自定义护甲会默认带性别分版网格；如果你的 mesh 只有一个版本，运行时要么多出一个看不见的 mesh（占内存），要么在某些体型下直接不显示。其余 `HeadArmor` 这类 int 属性则相反，缺失就是 0。
 
@@ -212,7 +212,7 @@ public class MyCloakComponent : ItemComponent
 - **`BodyMeshType` / `BodyDeformType` 走手写字符串比较，不走 `Enum.Parse`。** 写 `"UpperBody"`（大写 B）会静默回落成 `Normal`，不报错。
 - **`ReinsMesh` 缺失时是 `""`。** `ReinsRopeMesh` 因此会得到 `"_rope"` 这个看起来像路径的字符串。
 - **`Deserialize` 直读 `node.Attributes`，不判 null。** 手写调用（不经过 `ItemObject.Deserialize`）传 null 节点会 NRE。
-- **裸值 ≠ 生效值。** 战斗走 [EquipmentElement](../EquipmentElement) 的 `GetModified*Armor()`，它会过 `ItemModifier.ModifyArmor` 并把负数钳到 0。
+- **裸值 ≠ 生效值。** 战斗走 `EquipmentElement` 的 `GetModified*Armor()`，它会过 `ItemModifier.ModifyArmor` 并把负数钳到 0。
 - **`MaterialType` 底层是 `sbyte`。** 跨语言边界或反射时容易踩。
 - **枚举哨兵值重名。** `BodyMeshTypes.BodyMeshTypesNum` 与 `BodyDeformTypes.BodyMeshTypesNum` 是两个不同枚举里的不同成员，`BeardCoverTypes.NumBeardBoverTypes` 拼写错误，`HorseHarnessCoverTypes` 的最后一个成员与类型同名。
 - **不 `sealed`，可继承。** 继承时小心上面那两条 `private set`。
@@ -236,3 +236,8 @@ public class MyCloakComponent : ItemComponent
 - 马匹：[HorseComponent](../HorseComponent) 与 [EquipmentIndex](../EquipmentIndex) 的 `Horse` / `HorseHarness` 槽位决定三个坐骑加成在哪读
 - 枚举同族：[BannerComponent](../BannerComponent) 是另一条走 `WeaponComponent` 血统的组件分支
 - 桶首页：[core-extra API 分区](../)
+
+## 导航
+
+- 同桶：[`../ItemComponent`](../ItemComponent) · [`../ItemObject`](../ItemObject) · [`../EquipmentElement`](../EquipmentElement)
+- 父索引：[`../_index`](../_index)

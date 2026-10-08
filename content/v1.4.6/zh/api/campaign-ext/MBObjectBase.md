@@ -54,11 +54,11 @@ description: "战役与对象系统里所有可保存实体的基类：持有 St
 
 ### 怎么拿到它
 
-`MBObjectBase`（`TaleWorlds.ObjectSystem/MBObjectBase.cs:11`）是所有 `MBObjectBase` 派生对象的根，`MBObjectManager` 的所有泛型方法都以 `where T : MBObjectBase` 约束（`MBObjectManager.cs:70`、`227`、`288`、`319`）。mod 拿到的实例基本只有三种来源：
+`MBObjectBase`（`TaleWorlds.ObjectSystem/MBObjectBase.cs:11`）是所有 `MBObjectBase` 派生对象的根，`MBObjectManager` 的所有泛型方法都以 `where T : MBObjectBase` 约束（`MBObjectManager.cs:70`、`MBObjectManager.cs:227`、`MBObjectManager.cs:288`、`MBObjectManager.cs:319`）。mod 拿到的实例基本只有三种来源：
 
-- **XML 反序列化**（最常见）：`MBObjectManager.LoadXML(string id, bool isDevelopment, string gameType, ...)`（`MBObjectManager.cs:530`）→ `LoadXml(XmlDocument doc, bool isDevelopment)`（`:1218`）→ `CreateObjectFromXmlNode(XmlNode node)`（`:1257`）→ 你的 `Deserialize(MBObjectManager objectManager, XmlNode node)`（`MBObjectBase.cs:82`）。游戏本体就是这么加载 `Monsters` / `Items` / `Skills` 这些表的。
+- **XML 反序列化**（最常见）：`MBObjectManager.LoadXML(string id, bool isDevelopment, string gameType, ...)`（`MBObjectManager.cs:530`）→ `LoadXml(XmlDocument doc, bool isDevelopment)`（`MBObjectManager.cs:1218`）→ `CreateObjectFromXmlNode(XmlNode node)`（`MBObjectManager.cs:1257`）→ 你的 `Deserialize(MBObjectManager objectManager, XmlNode node)`（`MBObjectBase.cs:82`）。游戏本体就是这么加载 `Monsters` / `Items` / `Skills` 这些表的。
 - **代码里造**：`MBObjectManager.CreateObject<T>(string stringId)`（`MBObjectManager.cs:1405`），它 `new T()` → 赋 `StringId` → `RegisterObject<T>` → 广播 `IObjectManagerHandler.AfterCreateObject`。
-- **全局查**：`MBObjectManager.Instance.GetObject<T>(string objectName)`（`:288`）、`GetFirstObject<T>()`（`:319`）、`GetObjectTypeList<T>()`（`:473`）。注意这三个找不到时都返回 `default(T)`，也就是 null（`:315-317`、`:346-348`）。
+- **全局查**：`MBObjectManager.Instance.GetObject<T>(string objectName)`（`MBObjectManager.cs:288`）、`GetFirstObject<T>()`（`MBObjectManager.cs:319`）、`GetObjectTypeList<T>()`（`MBObjectManager.cs:473`）。注意这三个找不到时都返回 `default(T)`，也就是 null（`MBObjectManager.cs:315-317`、`MBObjectManager.cs:346-348`）。
 
 子类要覆写的是这四个虚函数：`Deserialize`（`:82`，读自己的 XML 字段）、`Initialize`（`:76`，`base` 只是把 `IsInitialized` 置 true）、`AfterRegister`（`:71`，注册完成回调）、`GetName`（`:112`，显示名）。
 
@@ -195,3 +195,8 @@ public override void Deserialize(MBObjectManager objectManager, XmlNode node)
 - 典型实体：[Hero](../../campaign/Hero) 与 [Settlement](../../campaign/Settlement) — 战役里最常被 mod 触碰的两个派生类。
 - 标识类型：`MBGUID` 定义在 objectsystem 命名空间，与本类同属一个模块。
 - 父级：[campaign-ext API 目录导览](../)
+
+## 导航
+
+- 同桶：[`../MBObjectManager`](../MBObjectManager) · [`../MBGUID`](../MBGUID) · [`../BannerCampaignBehavior`](../BannerCampaignBehavior)
+- 父索引：[`../_index`](../_index)

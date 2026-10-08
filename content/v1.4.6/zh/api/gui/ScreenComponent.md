@@ -11,7 +11,7 @@ description: "非可视界面组件的标记基类：本身零成员，靠 AddCo
 
 ## 概述
 
-`ScreenComponent` 的整个源码文件只有十行：命名空间声明、类声明、一对空的大括号。**它没有任何成员**——没有构造函数、没有字段、没有方法、没有接口。它存在的唯一理由是给「挂在界面上、但不负责画任何东西的那部分模型」提供一个共同的基类，好让 [ScreenBase](../ScreenBase) 的 `AddComponent` / `FindComponent<T>` 能按类型而不是按名字把它找回来。
+`ScreenComponent` 的整个源码文件只有十行：命名空间声明、类声明、一对空的大括号。**它没有任何成员**——没有构造函数、没有字段、没有方法、没有接口。它存在的唯一理由是给「挂在界面上、但不负责画任何东西的那部分模型」提供一个共同的基类，好让 `ScreenBase` 的 `AddComponent` / `FindComponent<T>` 能按类型而不是按名字把它找回来。
 
 把它和 `ScreenLayer` 并排看，区别就是可视与不可视：`ScreenLayer` 有名字、有层叠顺序、有输入上下文和十几个帧回调钩子；`ScreenComponent` 一条都没有。它不进绘制顺序表，不吃输入，也收不到 tick。你要挂上去的是一份共享状态——当前选中的行、过滤条件、滚动位置这类东西——由界面里的各个 layer 共同读写。
 
@@ -33,7 +33,7 @@ description: "非可视界面组件的标记基类：本身零成员，靠 AddCo
 
 这是本页唯一一条成员记录。写它不是因为这里有 API 可用，而是因为「它没有 API」正是使用时最需要知道的事实：想让它干活，要么继承它再加自己的成员，要么把它当纯标记类型用。
 
-宿主侧的两个入口方法定义在 [ScreenBase](../ScreenBase) 上，不在本类里：
+宿主侧的两个入口方法定义在 `ScreenBase` 上，不在本类里：
 
 | 宿主方法 | 签名 | 作用 |
 | --- | --- | --- |
@@ -48,9 +48,9 @@ description: "非可视界面组件的标记基类：本身零成员，靠 AddCo
 
 **它是命名空间级的占位标记，不是一个能拿来继承或实例化的基类。** 在 1.4.6 的 `TaleWorlds.ScreenSystem` 工程里，你能看到它只有这一个文件，`ScreenBase`（`ScreenBase.cs:9`）和 `ScreenLayer`（`ScreenLayer.cs:10`）**都不继承它**。
 
-它的实际用途是给 UI 代码做**分类标记**：接口型成员（`ScreenBase.OnLayerAddedEvent`、`ScreenBase.OnLayerRemovedEvent` 分别是 `:14`、`:19` 的事件委托类型）以及 `ScreenBase.OnAddLayer` / `ScreenBase.OnRemoveLayer` 两个事件的参数类型，都以它为命名锚点。模组侧如果要给某个自定义屏幕做「这是什么组件」的判定，惯例是写 `class MyThing : ScreenComponent`。
+它的实际用途是给 UI 代码做**分类标记**：接口型成员（`ScreenBase.OnLayerAddedEvent`、`ScreenBase.OnLayerRemovedEvent` 分别是 `ScreenBase.cs:14`、`ScreenBase.cs:19` 的事件委托类型）以及 `ScreenBase.OnAddLayer` / `ScreenBase.OnRemoveLayer` 两个事件的参数类型，都以它为命名锚点。模组侧如果要给某个自定义屏幕做「这是什么组件」的判定，惯例是写 `class MyThing : ScreenComponent`。
 
-**它没有任何成员、没有生命周期钩子、没有构造器逻辑。** 想在屏幕上挂行为，你要么派生 [ScreenBase](../ScreenBase)，要么往 `ScreenBase.Layers`（`ScreenBase.cs:33`）里加一个 [ScreenLayer](../ScreenLayer)。
+**它没有任何成员、没有生命周期钩子、没有构造器逻辑。** 想在屏幕上挂行为，你要么派生 `ScreenBase`，要么往 `ScreenBase.Layers`（`ScreenBase.cs:33`）里加一个 `ScreenLayer`。
 
 ### 典型用法
 
@@ -194,7 +194,7 @@ public class LedgerRowsLayer : GauntletLayer
 
 - **零成员，不要指望它提供任何东西。** 没有生命周期钩子、没有输入上下文、没有 tick。你派生它之后加的每个成员都是自己的责任，游戏不会替你调。
 - **不接收帧回调。** 组件收不到 tick，也不会被绘制。数据变化必须靠界面或 layer 显式驱动刷新，否则界面上的显示不会跟着变。
-- **不进绘制顺序表。** 它不在 [ScreenManager](../ScreenManager) 的 `SortedLayers` 里，也不参与命中测试。想显示什么，得由某个 layer 去做。
+- **不进绘制顺序表。** 它不在 `ScreenManager` 的 `SortedLayers` 里，也不参与命中测试。想显示什么，得由某个 layer 去做。
 - **`AddComponent` 不校验也不去重。** 传 null 或重复登记都不会当场抛错，症状会推迟到 `FindComponent<T>` 返回 null 或拿到错误的那一份时才暴露。
 - **`FindComponent<T>` 按类型取第一个匹配。** 同一界面登记两个同类型组件，后加的那个可能永远取不到。要两份就派生两个不同的类。
 - **找不到时返回 null，不是抛异常。** 引用类型派生类的返回值必须判空；值类型派生类会得到 `default(T)`，那是一个「看起来合法但全为零」的实例。
@@ -212,3 +212,8 @@ public class LedgerRowsLayer : GauntletLayer
 - 同层对照：[ScreenLayer](../ScreenLayer) — 同一命名空间里的可视层基类，`ScreenComponent` 的对照物。
 - 模块归属：[gui API 目录导览](../)
 - 分层说明：[模块地图](../../../architecture/module-map)
+
+## 导航
+
+- 同桶：[`../ScreenBase`](../ScreenBase) · [`../ScreenLayer`](../ScreenLayer) · [`../ScreenManager`](../ScreenManager)
+- 父索引：[`../_index`](../_index)

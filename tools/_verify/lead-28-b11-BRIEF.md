@@ -54,9 +54,17 @@ LeaveSettlementAction    src  59 行 · 3 条锚点 · J13bad 0
 SellItemsAction          src 120 行 · 3 条锚点 · J13bad 0
 ```
 
----
+### 0.3 参见目标存在性（防断链；批前实测）
 
-## §1 硬约束
+命令：对每页白名单里的**每一条**页面路径跑 `ls`。
+
+结论：**本批 4 页白名单共 16 条路径，全部存在**（含 `../Campaign`、`../CampaignEventDispatcher`、
+`../../core-extra/{HeroHelper,CharacterHelper,MobilePartyHelper,PartyBaseHelper,SettlementHelper,ItemHelper,BarterHelper}`）。
+★ **一个已避开的坑**：与「离开聚落」名字成对的那一页（同桶、语义上是它的反向操作）**本批尚未落盘**
+⇒ **已从白名单里移除，且本文件不把它作为选项列出**
+（brief 里出现一个不存在的路径，即使标了「不要链」，worker 也可能照拄 —— 所以**不列**比「列了但禁用」安全）。
+
+---
 
 ### 1.0 ★★ 磁盘可判定的后果（规范 17）
 
@@ -226,9 +234,9 @@ description: "<30–80 字手写摘要>"
 - 本页有 **2 个公开入口**（第 13 / 40 行）且**没有 private 内部实现**（锚表里没有）
   —— **诚实写它就是这个形态**。
 - 两个入口的差别**只能从它们的参数描述**（参数差异直接照锚表写；**不要从名字推断用途**）。
-- **参见**（只能从这 4 条页面路径里选 ≥3 条）：
-  `../Campaign` · `../EnterSettlementAction`（★ 注意：该页**尚未落盘**，**不要链它**）
-  ⇒ 改用：`../CampaignEventDispatcher` · `../../core-extra/SettlementHelper` · `../../core-extra/MobilePartyHelper`
+- **参见**（只能从下面这 4 条页面路径里选 ≥3 条；这 4 条已由 `ls` 逐条验过存在）：
+  `../Campaign` · `../CampaignEventDispatcher` · `../../core-extra/SettlementHelper` · `../../core-extra/MobilePartyHelper`
+  ★ **不要**链任何本文件未列出的页面路径（包括同名的「进入聚落」那一页 —— 它**尚未落盘**，链它会 404）。
 
 ---
 

@@ -11,13 +11,17 @@ description: "mission-ext 收纳按命名空间前缀路由到 TaleWorlds.MountA
 
 **与 [mission](../mission/) 桶的分工（有意为之的布局，不是重复路由）。** 权威映射的 `entryPointDirs` 用**类型名覆写**把 `Mission`、`MissionBehavior`、`Agent`、`Formation`、`MissionState` 这 5 个名字单独摘到 `mission/`，其余 `TaleWorlds.MountAndBlade` 类型仍按前缀留在本桶。所以：**`mission/` 是入口，`mission-ext/` 是全集**，两边互链——在 `mission/` 页顶部的「本桶是入口，不是全集」那段话指向本页，这里再指回去。
 
-## 已手写的类页（5 张）
+## 已手写的类页（9 张）
 
 - [Team](./Team) — 战斗里的一方（或一方之下的盟友）：十个 `Formation` 槽位、成员 Agent 列表（`TeamAgents` 全量 / `ActiveAgents` 在场）、两个 `OrderController` 组成的命令通道，以及 `TeamAI` / `QuerySystem` / `DetachmentManager` 这一整套队伍 AI；实现 `IMissionTeam`，但源码里没有任何可覆盖成员，mod 实际派生不出来。
 - [MBGameManager](./MBGameManager) — 「Mount & Blade 游戏」这一层的生命周期总控，继承 `GameManagerBase`：自身只有 `IsEnding` / `IsLoaded` 两个布尔，做的事是把基类十来个抽象生命周期方法扇出成对 `Module.CurrentModule.CollectSubModules()` 收集到的全部子模块的调用。`public abstract`，但 mod 侧通常只需读 `MBGameManager.Current`。
 - [ItemType](./ItemType) — ⚠️ **`internal enum ItemType`（`TaleWorlds.MountAndBlade.Diamond`，26 个成员，0..25），mod 代码引用不了它**。Diamond 大厅/库存数据协议里的物品大类标记，由 `ItemList` 按 `typeId` 反查得出。对物品分类请用 `TaleWorlds.Core` 里公开的嵌套枚举 `ItemObject.ItemTypeEnum`（`TaleWorlds.Core/ItemObject.cs` 第 1301 行）。这一页保留在文档里的理由是读懂引擎内部那条转换链，并避开一个高频名字混淆：现有文档里出现的 `ItemType` 十几次**全部**是 `item.ItemType`（即 `ItemTypeEnum` 的成员用法），跟这个类型无关。
 - [MissionLogic](./MissionLogic) — 任务内逻辑的挂载基类（`public abstract class MissionLogic : MissionBehavior`）。它不是一个空壳：`BehaviorType` 覆写把自身标记为 `MissionBehaviorType.Logic`，另声明 7 个战斗结束钩子（`OnEndMissionRequest` / `MissionEnded` / `OnBattleEnded` / `ShowBattleResults` / `OnRetreatMission` / `OnSurrenderMission` / `OnMissionResultReady`）。想写「战斗结束后做点什么」的 mod，覆写入口在这里，而逐帧逻辑挂在 `MissionBehavior` 上。
 - [MissionObject](./MissionObject) — 挂在场景 `GameEntity` 上的**战场物件**基类（`public abstract class MissionObject : ScriptComponentBehavior`）。`Id` 是它在任务内的身份（`MissionObjectId`），`IsDisabled` 与 `SetEnabled` / `SetDisabled` 系列控制可用性；生命周期走 `OnPreInit` / `OnInit` / `OnRemoved` 一整套 `ScriptComponentBehavior` 钩子。派生族是攻城器械与可交互物；纯逻辑不要派生它，派生 `MissionBehavior`。
+- [OrderController](./OrderController) — **下达命令的通道**（`public class OrderController`，2,180 行）。它把「谁对谁下什么命令」组织成可执行的对象：当前选中阵型读 `SelectedFormations`（`MBReadOnlyList<Formation>`），攻城器械有单独的 `SiegeWeaponController` 子通道。`Team` 持有两个 `OrderController`（全队一个、玩家队一个），所以「改命令」与「读命令」都从 `Team` 进。**坑**：它是命令的**载体**，不是命令的**执行者**——下完单要等队伍 AI 在下一帧消费。
+- [AgentDrivenProperties](./AgentDrivenProperties) — 单位可调数值的**容器**（`public class AgentDrivenProperties`，1,511 行，约百个 `float` 属性）。重点不在逐个列数值，而在**读写路径与生效时机**：统一走 `GetStat(DrivenProperty)` / `SetStat(DrivenProperty, float)`（按枚举读写，不用碰具体属性名），而**引擎会在更新周期里覆写这些值** —— 所以「设一次就永久生效」是错的，要改得挂在更新链路里。想把某个单位调快/调强，先读懂这一页的「谁改、何时改」再动手。
+- [ArrangementOrder](./ArrangementOrder) — **阵型排列定义**（`public struct ArrangementOrder`，610 行）。它是一个轻量的值类型包装，真正的取值是它**嵌套**的 `ArrangementOrderEnum`；查询间距与松紧走静态方法 `GetUnitSpacingOf(ArrangementOrderEnum)` / `GetUnitLooseness(ArrangementOrderEnum)`。**坑**：因为它是 struct + 嵌套枚举的组合，比较与传递时要注意它包的是枚举而不是对象身份。
+- [UsableMachine](./UsableMachine) — **可被使用的战场器械基类**（`public abstract class UsableMachine : SynchedMissionObject, IFocusable, IOrderable, IDetachment`，1,461 行）。它把「一堆可站位置 + 谁在用」抽象出来：`StandingPoints`（`MBList<StandingPoint>`）是可用位置集合，`PilotStandingPoint` 是驾驶位（攻城器械、船只这类有「操驶者」的物件用它）。实现 `IDetachment` 与 `IOrderable` 意味着它同时能被编队分遣与接受命令。想自建战场器械就派生它。
 
 ## 按命名空间分组的检索入口
 

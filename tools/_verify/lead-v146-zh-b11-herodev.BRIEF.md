@@ -69,6 +69,19 @@ description: "<1–2 句中文：这个类型在游戏里扮演什么角色>"
 > 2. **技能与特性的成长路径**分别怎么走、有哪些「未分配点数」类的可写状态，以及**修改它们的正确入口**（哪些是直接写、哪些必须走方法）。
 > 3. **坑**：直接写状态而不走入口会漏掉什么（事件派发 / 缓存失效 / 与其他系统的同步）。
 
+## 链接解析基准（**事实类，Lead 已测量 —— 不可推导，必须告知**）
+
+叶子页的 route **就是它自己的目录**（`…/api/<桶>/<页面名>/`）⇒ 相对链接从这个目录出发：
+
+| 目标 | 写法 | 例 |
+| --- | --- | --- |
+| **同桶**兄弟页 | `../X` | `../Hero` |
+| **父索引** | `../_index` | `../_index` |
+| **跨桶**（另一个 `api/<桶>/`） | `../../<桶>/<X>` | `../../core-extra/Game` |
+
+**最容易错的是跨桶**：写成一个 `../` 会解析到 `api/<当前桶>/<别的桶>/X` —— **那里不存在**（已发生实例：`](../Campaign)` 解析到不存在的 `campaign-ext/Campaign.md`）。
+叶子目标**不带尾斜杠**。
+
 ## 链接白名单（已逐条实测存在）
 
 `../Hero` `../Clan` `../Kingdom` `../MobileParty` `../PartyBase` `../Settlement` `../Campaign` `../CharacterObject` `../CampaignEvents` `../CampaignBehaviorBase` `../CampaignObjectManager` `../ExplainedNumber` `../CampaignTime` `../_index` `../../campaign-ext/MBObjectBase` `../../campaign-ext/MBObjectManager` `../../core-extra/Game` `../../core-extra/SkillObject`

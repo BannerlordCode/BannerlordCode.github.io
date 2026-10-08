@@ -69,6 +69,19 @@ description: "<1–2 句中文：这个类型在游戏里扮演什么角色>"
 > 2. **一个类型要能被存档系统认识，需要在这张表里具备哪些信息**（成员列表、编号、容器/结构体/枚举的分支差异等）——请按源码实际字段写。
 > 3. **坑**：哪些信息是「写错了不会立刻报错、但读档时才炸」的（例如编号冲突、成员缺失）；以及 mod 作者通常**不需要**直接碰它，而应该走哪条**上层路径**（链接白名单里有对应的上层类型页，可互链）。
 
+## 链接解析基准（**事实类，Lead 已测量 —— 不可推导，必须告知**）
+
+叶子页的 route **就是它自己的目录**（`…/api/<桶>/<页面名>/`）⇒ 相对链接从这个目录出发：
+
+| 目标 | 写法 | 例 |
+| --- | --- | --- |
+| **同桶**兄弟页 | `../X` | `../SaveManager` |
+| **父索引** | `../_index` | `../_index` |
+| **跨桶**（另一个 `api/<桶>/`） | `../../<桶>/<X>` | `../../campaign/IDataStore` |
+
+**最容易错的是跨桶**：写成一个 `../` 会解析到 `api/<当前桶>/<别的桶>/X` —— **那里不存在**（已发生实例：`](../Campaign)` 解析到不存在的 `campaign-ext/Campaign.md`）。
+叶子目标**不带尾斜杠**。
+
 ## 链接白名单（已逐条实测存在）
 
 `../SaveManager` `../ISaveDriver` `../SaveContext` `../SaveableTypeDefiner` `../SaveableFieldAttribute` `../SaveablePropertyAttribute` `../ISavedStruct` `../SaveableBasicTypeDefiner` `../DefinitionContext` `../LoadContext` `../SaveableRootClassAttribute` `../SaveableInterfaceAttribute` `../_index` `../../campaign/CampaignBehaviorBase` `../../campaign/IDataStore` `../../campaign/Campaign` `../../core-extra/Game` `../../campaign-ext/MBObjectBase`

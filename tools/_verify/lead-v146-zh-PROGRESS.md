@@ -939,6 +939,94 @@ git ls-tree -r --name-only HEAD content/v1.4.6/zh/api/ | grep -c '_index\.md$'  
 ⇒ **172 = 152 叶子页 + 20 索引页**；开工时 150 ⇒ 本线净增 **22 页**（批 6 的 9 + 批 7 已入库 7 + 批 8 的 6 = 22 ✅ 与账目自洽）。
 **今后报页数一律带口径**（总数 / 叶子 / 索引）—— 避免门禁 §6「计数必须带单位」那一类歧义。
 
+## ✅ 批 7 完成（8/8）+ 批 8 完成（6/6）—— 两个批次均已入库
+
+### 批 7 收尾提交
+
+```
+[main 82e1328627] content(v1.4.6-zh): complete batch 7 — QuestManager deep page + wire index
+ 2 files changed, 213 insertions(+), 1 deletion(-)
+```
+
+计数不变量：1 页 ⇒ 索引 **+1** 行；`linked 36 = on-disk leaves 36`；`SELFCHECK_FAIL=0`。
+
+### 批 7 全部 8 页四判据终读
+
+| 页 | bad | checked | members | J13 | bare |
+| --- | --- | --- | --- | --- | --- |
+| `campaign/CampaignObjectManager.md` | 0 | 35 | 32 | 0 | 0 |
+| `campaign/EncounterManager.md` | 0 | 10 | 6 | 0 | 0 |
+| `campaign/GameMenuManager.md` | 0 | 39 | 36 | 0 | 0 |
+| `campaign/QuestManager.md` | 0 | 51 | 46 | 0 | 0 |
+| `mission-ext/OrderController.md` | 0 | 48 | 34 | 0 | 0 |
+| `mission-ext/AgentDrivenProperties.md` | 0 | 33 | 30 | 0 | 0 |
+| `mission-ext/ArrangementOrder.md` | 0 | 38 | 27 | 0 | 0 |
+| `mission-ext/UsableMachine.md` | 0 | 94 | 65 | 0 | 0 |
+
+### 批 8 全部 6 页四判据终读
+
+| 页 | bad | checked | members | J13 | bare |
+| --- | --- | --- | --- | --- | --- |
+| `save-system/SaveableRootClassAttribute.md` | 0 | **14** | 1 | 0 | 0 |
+| `save-system/SaveableInterfaceAttribute.md` | 0 | 11 | 1 | 0 | 0 |
+| `save-system/ISavedStruct.md` | 0 | 16 | 1 | 0 | 0 |
+| `save-system/SaveableBasicTypeDefiner.md` | 0 | 7 | 6 | 0 | 0 |
+| `save-system/DefinitionContext.md` | 0 | 72 | 27 | 0 | 0 |
+| `save-system/LoadContext.md` | 0 | 51 | 15 | 0 | 0 |
+
+> 前三个「1 行成员表 + 11~16 条引用」正是**小 public 面标准**的形态（boss 已批准为跨线标准）：深度来自**真实使用点**而不是凑成员行。`SaveableRootClassAttribute` 的 14 条是规则 (B) 恢复精确引用后的读数（修前 12）。
+
+### 批后门禁（实测）
+
+```bash
+node tools/audit-links.mjs  # → BROKEN_LINKS=1 · FILES_WITH_BROKEN=1 · EXIT=1
+node tools/nav-orphans.mjs  # → total_pages=39275 · orphans=0 · orphan_parents=0 · by_tree={} · v1.4.6_orphans=0
+```
+
+| 读数 | 值 |
+| --- | --- |
+| 唯一 broken 病灶 | `v1.4.7/zh/api/campaign-ext/SettlementSecurityModel.md`（**别线在制品**） |
+| 本线提交文件是否在 broken 列表 | **NONE** ✅ |
+| orphans | **0（全站，`by_tree={}`）** |
+
+### 📏 页数账目（带口径，与 boss 升为跨线要求的一致）
+
+```
+total .md: 173   leaf: 153   index: 20
+```
+
+**150（开工）+ 9（批 6）+ 8（批 7）+ 6（批 8）= 173** ✅ 账目完全自洽。
+
+### 团队卫生
+
+| worker | 交付 | 处置 |
+| --- | --- | --- |
+| `b06-party`(273) / `b06-entry`(275) / `b06-war`(274) | 批 6 全部 9 页 | 均已 `team_cancel` |
+| `b07-mission`(292) | 4 页 | `team_cancel` |
+| `b08-savesys`(304) | 6 页 | `team_cancel` |
+| `b07-campaign`(293) | 4 页（含 QuestManager 收尾） | `team_cancel` |
+
+**当前活跃 worker = 0** ⇒ 按纪律需开批 9（队列尚余约 5,500 条）。
+
+## 批次 9（v1.4.6/zh，8 页 campaign）—— 已派单
+
+- 派单时刻：2026-10-08T00:41Z；**所有先前 worker 已关闭 ⇒ 活跃 = 0**，按纪律必须开新批（队列尚余约 5,500）
+- 选批理由：继续按 public API 价值排序，取**核心值类型 + 系统/管理器**（campaign 桶价值密度最高）
+- **与批 6/7/8 零重叠**（不同源文件、不同页面路径）
+- **重名检查**：本批 8 个源文件名全部 `dup=1`（全树唯一）⇒ **不踩 `ambiguous` 门禁洞**（若重名，J13 会静默跳过 —— 见上文第 7 个洞）
+
+| worker | 页（源行数） | 锚点数 |
+| --- | --- | --- |
+| `b09-values`（worker-318） | `CampaignTime`(753) · `ExplainedNumber`(376) · `ItemRoster`(691) · `Village`(501) | 199 |
+| `b09-systems`（worker-319） | `BarterManager`(383) · `MobilePartyAi`(1,894) · `MapEventManager`(194) · `HeroCreator`(440) | 172 |
+
+- 锚表：`tools/_verify/_tmp/anchors/b09-values.txt`（199）· `b09-systems.txt`（172）—— **均在派单前生成**
+- 派单形态：四项固化要求全部沿用（锚表先于派单 · 不点名成员 · 读取上界+先落盘 · 四列带行号列 + `参见` 只链已入库∪本批）
+- **本批新增写入 brief 的两条现行标准**：
+  1. **规则 (B)**：方法体内语句允许引用，但需 ① `awk` 核实并贴回原始输出 ② 写全 `File.cs:N` ③ `J13=0` 真覆盖到它（⇒ 重名文件在门禁洞修复前**不适用**，本批已避开重名）
+  2. **成员行准入标准**（取代「只列 public/protected」）：取决于「解释价值 + 可核行号」，**不取决于可见性**；仍禁止为凑 `J8`/`checked` 灌水塞行
+- R2（lead 单写者）：`campaign/_index.md` **+8** → 四判据 → 提交集合自洽 → 一次文件级提交
+
 ## 操作教训（本线实测，写给后续 Lead）
 
 ### 量具失败会报出「确信的错数」——不要直接拿它下结论

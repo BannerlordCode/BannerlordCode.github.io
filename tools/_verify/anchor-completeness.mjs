@@ -57,10 +57,18 @@ function independentDeclarations(abs) {
 }
 
 // 把差集分类：
-//   expected —— mk-sig 的**书面策略**就是跳过（private/internal 的纯字段：无 `(` 且终符为 `;`/`=`）
-//   gap      —— 不属于上述策略 ⇒ 抽取器**静默漏项**（危险方向）
+//   expected —— 不是独立声明，或 mk-sig 的**书面策略**就是跳过
+//   gap      —— 不属于上述 ⇒ 抽取器**静默漏项**（危险方向）
+//
+// ★ 2026-10-08 实测补类（HeroDeveloper.cs:101 `private set`）：
+//   **访问器碎片**（`private set` / `get` / `set` / `init`）不是独立声明 ——
+//   它们所属的属性声明行已被锚表收录（实测：`TotalXp` 在 :95 且在锚表里）。
+//   探针故意写宽 ⇒ 必须在此分类，否则会把「探针宽」误报成「抽取器漏」。
+const ACCESSOR_FRAGMENT = /^\s*(?:public|private|protected internal|protected|internal)\s+(get|set|init)\s*;?\s*$/;
+
 function classifyGap(raw) {
   const t = raw.trim();
+  if (ACCESSOR_FRAGMENT.test(raw)) return 'expected';        // 访问器碎片
   const isPrivateOrInternal = /^\s*(?:\[[^\]]*\]\s*)*(private|internal)\s/.test(raw);
   const hasParen = t.includes('(');
   const fieldLike = /[;=]\s*$/.test(t.replace(/\s*\/\/.*$/, '').trim()) || /\{\s*get;\s*(private\s+)?set;\s*\}/.test(t);

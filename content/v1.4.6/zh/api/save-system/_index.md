@@ -1,6 +1,6 @@
 ---
 title: "save-system 桶 — 存档系统"
-description: "v1.4.6 的 save-system 桶对应 TaleWorlds.SaveSystem 程序集：6 张手写页覆盖存档特性的标注方式、流程总管、序列化上下文与落盘边界，其余 50 个公开类型（定义表、结果对象）尚未撰页。"
+description: "v1.4.6 的 save-system 桶对应 TaleWorlds.SaveSystem 程序集：9 张手写页覆盖存档特性的标注方式、根类型与接口声明、流程总管、序列化上下文与落盘边界，其余 47 个公开类型（定义表、结果对象、解析器）尚未撰页。"
 ---
 # save-system 桶：存档系统
 
@@ -15,7 +15,7 @@ description: "v1.4.6 的 save-system 桶对应 TaleWorlds.SaveSystem 程序集�
 
 ## 已手写的页面
 
-本桶已手写 6 张页，覆盖「怎么标字段」「怎么发起流程」「遍历与编号谁来做」与「谁来读写字节」这一条主线：
+本桶已手写 9 张页，覆盖「怎么标字段」「怎么声明根类型与接口」「怎么发起流程」「遍历与编号谁来做」与「谁来读写字节」这一条主线：
 
 - [SaveableFieldAttribute](./SaveableFieldAttribute) — 标注一个私有字段参与序列化，告诉保存系统这个字段在所属类型内的局部存档 id。
 - [SaveablePropertyAttribute](./SaveablePropertyAttribute) — 标注一个属性参与序列化，作用同上，但走属性而非字段。
@@ -23,10 +23,13 @@ description: "v1.4.6 的 save-system 桶对应 TaleWorlds.SaveSystem 程序集�
 - [SaveManager](./SaveManager) — 存档流程总管，建立 `DefinitionContext`、收集对象图交给 `ISaveDriver` 落盘，并把结果包成 `SaveOutput` / `LoadResult`。
 - [ISaveDriver](./ISaveDriver) — 「存档数据最终怎么落到介质上」的抽象边界。它完全不碰对象图——遍历、序列化、还原都由上下文那一层负责，它只管写一份、列出条目与存档名、读元数据、读一份、删一份、判断是否存在、判断自己是否异步。官方有三个实现，介质与是否异步的差别直接决定你的保存流程能不能拿到最终结果。
 - [SaveContext](./SaveContext) — 单次保存的**遍历与编号上下文**：从根对象出发递归遍历整个对象图，为对象 / 容器 / 字符串分配唯一 id，最终产出 `GameData` 四段字节流。它是 `SaveManager` 与 `ISaveDriver` 之间的桥梁，也是排查「我的字段到底进没进存档」时真正该断点的地方。
+- [SaveableRootClassAttribute](./SaveableRootClassAttribute) — 把**自定义类型树的根**声明给存档系统（`[SaveableRootClass(编号)]`）。只有被它（或一个 `SaveableTypeDefiner`）声明过的类型才会被存档系统认识；根类型定了，其下的字段才能被递归收集。游戏自己的根对象也用它标注。
+- [SaveableInterfaceAttribute](./SaveableInterfaceAttribute) — 声明**接口**参与存档。存档系统要能给「以接口为静态类型、实际是某实现类」的引用正确写/读，就得先把那个接口登记进来，否则跨存档引用会在读档时找不到实现。
+- [ISavedStruct](./ISavedStruct) — 标记**结构体**走「值序列化」而不是「对象引用」。它是一个**标记接口**（契约本身是空的，关键成员表只有 1 行是对的），意义在于：结构体没有对象身份，如果不声明它就进不了存档的引用图。campaign 桶里多个结构体（如 `TroopRosterElement`）就是它的实现者。
 
 ## 尚未撰写的部分
 
-上面 6 个类型出自 56 个公开类型，**还有 50 个没有页面**。缺口集中在流程的另外两半——「表与结果长什么样」：
+上面 9 个类型出自 56 个公开类型，**还有 47 个没有页面**。缺口集中在流程的另外两半——「表与结果长什么样」：
 
 - **驱动（自己实现存档格式时必看）**：`FileDriver`、`AsyncFileSaveDriver`、`InMemDriver`
 - **上下文（理解收集流程）**：`DefinitionContext`、`LoadContext`、`LegacySaveContext`、`SaveCodeGenerationContext`、`LateLoadInitializationCallback`、`LoadInitializationCallback`

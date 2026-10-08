@@ -1,6 +1,6 @@
 ---
 title: "save-system 桶 — 存档系统"
-description: "v1.4.6 的 save-system 桶对应 TaleWorlds.SaveSystem 程序集：9 张手写页覆盖存档特性的标注方式、根类型与接口声明、流程总管、序列化上下文与落盘边界，其余 47 个公开类型（定义表、结果对象、解析器）尚未撰页。"
+description: "v1.4.6 的 save-system 桶对应 TaleWorlds.SaveSystem 程序集：12 张手写页覆盖存档特性的标注方式、根类型与接口声明、类型定义表、流程总管、保存/读档两个上下文与落盘边界，其余 44 个公开类型（结果对象、解析器、驱动）尚未撰页。"
 ---
 # save-system 桶：存档系统
 
@@ -15,7 +15,7 @@ description: "v1.4.6 的 save-system 桶对应 TaleWorlds.SaveSystem 程序集�
 
 ## 已手写的页面
 
-本桶已手写 9 张页，覆盖「怎么标字段」「怎么声明根类型与接口」「怎么发起流程」「遍历与编号谁来做」与「谁来读写字节」这一条主线：
+本桶已手写 12 张页，覆盖「怎么标字段」「怎么声明根类型与接口」「类型定义表怎么建」「怎么发起流程」「保存与读档两个上下文」与「谁来读写字节」这一条主线：
 
 - [SaveableFieldAttribute](./SaveableFieldAttribute) — 标注一个私有字段参与序列化，告诉保存系统这个字段在所属类型内的局部存档 id。
 - [SaveablePropertyAttribute](./SaveablePropertyAttribute) — 标注一个属性参与序列化，作用同上，但走属性而非字段。
@@ -26,10 +26,13 @@ description: "v1.4.6 的 save-system 桶对应 TaleWorlds.SaveSystem 程序集�
 - [SaveableRootClassAttribute](./SaveableRootClassAttribute) — 把**自定义类型树的根**声明给存档系统（`[SaveableRootClass(编号)]`）。只有被它（或一个 `SaveableTypeDefiner`）声明过的类型才会被存档系统认识；根类型定了，其下的字段才能被递归收集。游戏自己的根对象也用它标注。
 - [SaveableInterfaceAttribute](./SaveableInterfaceAttribute) — 声明**接口**参与存档。存档系统要能给「以接口为静态类型、实际是某实现类」的引用正确写/读，就得先把那个接口登记进来，否则跨存档引用会在读档时找不到实现。
 - [ISavedStruct](./ISavedStruct) — 标记**结构体**走「值序列化」而不是「对象引用」。它是一个**标记接口**（契约本身是空的，关键成员表只有 1 行是对的），意义在于：结构体没有对象身份，如果不声明它就进不了存档的引用图。campaign 桶里多个结构体（如 `TroopRosterElement`）就是它的实现者。
+- [SaveableBasicTypeDefiner](./SaveableBasicTypeDefiner) — 官方把**基础类型**（内建数值、字符串、常用集合等）登记进定义表的那个 definer。写自定义 `SaveableTypeDefiner` 时不要重复登记这些，也不要和它抢编号区间。
+- [DefinitionContext](./DefinitionContext) — **类型定义表本身**：存档系统认识哪些类/结构体/枚举/容器、各自的存档编号与成员列表，全在这里。`SaveableTypeDefiner` 子类就是向它登记；保存与读档两边都从它查表。**心智模型**：它是**表**而不是**流程** —— 它回答「这个类型能不能存、它的成员叫什么」，不负责遍历与落盘。
+- [LoadContext](./LoadContext) — **读档侧的遍历与解析上下文**，与 [SaveContext](./SaveContext) 对称：从字节流重建对象图，处理前向/后向引用、容器与字符串表的还原。想在读档后修数据，正确的时机是它走完之后的回调，而不是在它内部插手。
 
 ## 尚未撰写的部分
 
-上面 9 个类型出自 56 个公开类型，**还有 47 个没有页面**。缺口集中在流程的另外两半——「表与结果长什么样」：
+上面 12 个类型出自 56 个公开类型，**还有 44 个没有页面**。缺口集中在流程的另外两半——「结果长什么样」与「旧档怎么翻译」：
 
 - **驱动（自己实现存档格式时必看）**：`FileDriver`、`AsyncFileSaveDriver`、`InMemDriver`
 - **上下文（理解收集流程）**：`DefinitionContext`、`LoadContext`、`LegacySaveContext`、`SaveCodeGenerationContext`、`LateLoadInitializationCallback`、`LoadInitializationCallback`

@@ -1122,6 +1122,63 @@ PASS · J5R unresolved=0 · J8 8047B/10 · J9 csharp=19 · deep_pass · tier=han
 ```
 ⇒ 这正是 boss #20810 那条常设规则（**输入缺失/不可解析时必须 fail closed，不得 vacuous PASS**）在工具里的**落地证据**。本线此前实测到的第 6 个门禁洞（`members=0` 静默跳过）**已闭合**。
 
+## ✅ 批 9 完成：8/8 页入库（`5282bc3b22` 收尾）
+
+| SHA | 页 | checked / members |
+| --- | --- | --- |
+| `5bd337769c` | `campaign/MapEventManager.md` | 12 / 11 |
+| `057a43db27` | `campaign/ExplainedNumber.md` | 20 / 20 |
+| `1ae60cadb7` | `campaign/MobilePartyAi.md` | 50 / 50 |
+| `d377da8b55` | `campaign/CampaignTime.md` | 79 / 79 |
+| `b4494370e4` | `campaign/Village.md` | 32 / 32 |
+| `3f5f7e66b8` | `campaign/ItemRoster.md` | 33 / 29 |
+| `3f5f7e66b8` | `campaign/BarterManager.md` | 31 / 30 |
+| `5282bc3b22` | `campaign/HeroCreator.md` | 18 / 15 |
+
+八页均：九条判据全绿 + `lead-145zh-judge` PASS + `ambiguous=0` + `J5R unresolved=0` + `SELFCHECK_FAIL=0` + 计数不变量按**实际提交页数**实测。
+
+**批后门禁（实测）**：
+```bash
+node tools/audit-links.mjs  # → BROKEN_LINKS=1 · FILES_WITH_BROKEN=1
+node tools/nav-orphans.mjs  # → total_pages=39310 · orphans=0 · by_tree={} · v1.4.6_orphans=0
+```
+唯一 broken 病灶 = `v1.4.7/zh/api/campaign-ext/PartyImpairmentModel.md`（**别线**）；本线提交文件 **NONE**。
+
+**页数账目（带口径）**：`total: 181 · leaf: 161 · index: 20` = 150 + 9（批6）+ 8（批7）+ 6（批8）+ 8（批9）✅
+
+## 🔴 第 4 次同族事故：我在 brief 里写了**不存在的类型名** `DeadHeroCreator`
+
+**经过**：我在 `HeroCreator` 的派单 brief 「内容提示」里写了「`DeadHeroCreator` 之类的同族入口用途不同」。**worker-343 读源码后拒绝引用它**，并报告「`DeadHeroCreator` 在 1.4.6 源码树里不存在」。
+
+**我的独立复核（实测，非转述）**：
+```bash
+cd C:/WorkSpace/Bannerlord
+find bannerlord-1.4.6 -iname '*DeadHero*' | wc -l        # → 0
+grep -rn --include=*.cs -w 'DeadHeroCreator' bannerlord-1.4.6   # → 0 命中
+```
+⇒ **确实不存在，是我编的。**
+
+**worker 同时纠正了我 brief 的第二处错误**（也是它读源码发现的）：我暗示存在公开的 `CreateHero`；实测：
+```
+HeroCreator.cs:132  private static Hero CreateHero(CharacterObject character, bool useCharacterAsTemplate, CampaignTime birthDay, CampaignTime deathDay)
+```
+⇒ `CreateHero` 是 **private**，且**没有** `PartyBase` 参数；其余 6 处 `CreateHero` 命中全是**同一类内部的调用点**。公开入口只有 `CreateNotable` / `CreateSpecialHero` / `CreateChild` / `CreateRelativeNotableHero` / `CreateBasicHero` / `DeliverOffSpring` 六个。页面按真实签名写，且全文对 `DeadHeroCreator` 的引用数为 **0**（实测 `grep -c`）。
+
+### 四次事故的完整清单（同一机制）
+
+| # | 我写的 | 真相 | 谁拦下的 |
+| --- | --- | --- | --- |
+| 1 | 13 个成员名 | 全树 0 命中 | worker-274 |
+| 2 | 「更正」里的 2 句（`IsAtWarWith` / `AddPolicy`） | 两者都存在，我说反了 | worker-274 |
+| 3 | 「`MissionLogic` 是空派生」 | 它声明 10 个成员 | 我自己核出 |
+| 4 | 「`DeadHeroCreator` 同族入口」 | 全树 0 命中 | worker-343 |
+
+**共同结构**：**生成可信句子的速度快于验证它**，而机械判据**全部抓不到**（七节、行号在界、链接可解析、deep_pass 全绿）。**4 次里 3 次是 worker 读源码拦下的**，不是我拦下的。
+
+**为什么这次尤其值得记**：我已把提示写成「**内容提示（不是成员清单，你自己核）**」并加了免责句 —— **但免责句不降低危害**。若 worker 照抄，页面就会出现一个不存在的类型名，而那正是 H0 要禁的「看起来对但没人核过的断言」。**正确的修法不是加免责句，而是「不测不写」**：brief 里的每一个名字、每一句“事实”，必须由一条可复跑命令支撑，否则不写。
+
+**已执行**：本线后续 brief 的「内容提示」改为**只描述该写什么（角色/边界/主线）**，**不再出现任何类型名、方法名、成员名** —— 把命名完全交给读源码的人。
+
 ## 操作教训（本线实测，写给后续 Lead）
 
 ### 量具失败会报出「确信的错数」——不要直接拿它下结论

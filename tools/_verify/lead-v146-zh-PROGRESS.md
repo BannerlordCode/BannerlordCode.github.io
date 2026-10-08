@@ -895,6 +895,50 @@ DefinitionContext.cs:206  saveableTypeDefiner7.DefineRootClassTypes();          
 
 处置现状：worker-304 已按严格规则把那 4 条改成 `:254`/`:173`（**合规但精度下降**），已提交 `09373575ea` ⇒ **HEAD 不带锚表外引用**。
 
+## ✅ 裁定落地：精度规则 (B) + judge-fix 交接
+
+### 规则 (B)（boss #21676 裁定）
+
+引用**默认**取自锚点表，**但方法体内语句允许引用**，需**三条同时**满足：
+1. 每条方法体内引用必须由**可复现命令**核实，并**把原始输出贴回**（`awk 'NR==n' <file>` 打印出该行原文）；
+2. 必须写全 `File.cs:N`（**不得**裸 `:N`）；
+3. R2 时 `J13=0` 必须**真的覆盖到它**（修前 `ambiguous` 会静默跳过 ⇒ 对重名文件不成立）。
+
+> 理由（boss）：锚表规则的**目的是让伪造机械上不可能**；「逐条 `awk` 核实 + 贴回输出」同样达到这个目的且**不牺牲精度**。把 `DefinitionContext.cs:257`（`typeof(SaveableRootClassAttribute).Assembly;`，在 `:254` 方法体内）降级成 `:254` 反而**指向外围声明而非精确语句** —— 那是质量损失。
+
+### 已执行：`SaveableRootClassAttribute.md` 恢复精确引用（提交 `ead4edc3dd`）
+
+| 条件 | 实测 |
+| --- | --- |
+| ① `awk` 核实 | `awk NR==257` → `Assembly assembly = typeof(SaveableRootClassAttribute).Assembly;` · `awk NR==206` → `saveableTypeDefiner7.DefineRootClassTypes();` |
+| ② 无裸 `:N` | 引用分布：`DefinitionContext.cs:173/206/254/257×3` · `Game.cs:14×3` · `SaveableCoreTypeDefiner.cs:89×3` · `SaveableRootClassAttribute.cs:12` · `SaveableTypeDefiner.cs:130` |
+| ③ J13 真覆盖 | `ambiguous=0`（`DefinitionContext.cs` 全树 1 份）⇒ **`checked=14` 全部被核**（修前 12，恢复精确引用后 +2） |
+
+恢复后同时保留 `:254`（方法声明）与 `:257`（方法体内语句），并在「阶段循环里调 `DefineRootClassTypes()`」处补上调用点 `:206` —— 比原稿更完整且逐条可核。
+
+> ⚠ 条件 ③ 对**重名文件**（如 `LoadContext.cs`）在门禁洞修复前**不成立** —— 所以那一类页面暂不能用方法体内引用，必须等 judge-fix。
+
+### judge-fix 交接（boss 新建独立工具线；**我不动判分器**）
+
+boss 裁定：**任何内容线都不应修改自己的判据**（即使这次是「加强」而非「放宽」）。已向 boss 提交交接包，含：
+- **三条复现命令 + 原始输出**（`REF_RE` 不含 `/` · `includes('/')` 是死代码 · `ambiguous` 直接 `return`）；
+- **最小复现**（`find . -name LoadContext.cs` → 2 份 ⇒ `ambiguous=42`）；
+- **我的边界声明**（只确诊「机制 + 本线影响面」；**未**验证修 `REF_RE` 后是否引入新匹配歧义、**未**验证 `bySuffix` 兜底路径行为 —— 这两点必须由 judge-fix 独立判定，不得照抄）；
+- **我的承诺**：修复落地后由我独立复跑确认（发现者验证），要求 `ambiguous` 归零或显著下降、`J13` 覆盖条数 = `checked` 条数，且若某页由绿转红则逐条判它是不是**真缺陷**（那正是修复目的）。
+
+## 📏 读数更正：页数必须带口径
+
+我先前报的「169 页」与 boss #21676 里的 169 都是**陈旧读数**。重测（带单位）：
+
+```bash
+git ls-tree -r --name-only HEAD content/v1.4.6/zh/api/ | grep -c '\.md$'                                    # → 172（全部 .md）
+git ls-tree -r --name-only HEAD content/v1.4.6/zh/api/ | grep '\.md$' | grep -v '_index\.md$' | wc -l         # → 152（叶子页）
+git ls-tree -r --name-only HEAD content/v1.4.6/zh/api/ | grep -c '_index\.md$'                                # → 20（索引页）
+```
+
+⇒ **172 = 152 叶子页 + 20 索引页**；开工时 150 ⇒ 本线净增 **22 页**（批 6 的 9 + 批 7 已入库 7 + 批 8 的 6 = 22 ✅ 与账目自洽）。
+**今后报页数一律带口径**（总数 / 叶子 / 索引）—— 避免门禁 §6「计数必须带单位」那一类歧义。
+
 ## 操作教训（本线实测，写给后续 Lead）
 
 ### 量具失败会报出「确信的错数」——不要直接拿它下结论

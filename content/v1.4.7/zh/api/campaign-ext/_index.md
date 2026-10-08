@@ -1,6 +1,6 @@
 ---
 title: "Campaign ext — 战役的扩展面：行为、组件与组件接口"
-description: "TaleWorlds.CampaignSystem 的子命名空间所在目录：行为、组件、组件接口、对话、议题与 ObjectSystem。目前 18 页。"
+description: "TaleWorlds.CampaignSystem 的子命名空间所在目录：行为、组件、组件接口、对话、议题与 ObjectSystem。目前 30 页。"
 ---
 # Campaign ext — 战役的扩展面：行为、组件与组件接口
 
@@ -21,7 +21,7 @@ description: "TaleWorlds.CampaignSystem 的子命名空间所在目录：行为�
 
 `ComponentInterfaces` 与 `GameComponents` 是一对：`GameComponents` 里的每个 `Default*` 都是 `ComponentInterfaces` 里对应接口的官方实现。替换组件 = 写一个自己的实现并在加载时替换，这是组件化战役规则的主要手段。
 
-## 本区页面（18）
+## 本区页面（30）
 
 | 页面 | 讲的是什么 |
 | --- | --- |
@@ -44,7 +44,20 @@ description: "TaleWorlds.CampaignSystem 的子命名空间所在目录：行为�
 | [SettlementSecurityModel](./SettlementSecurityModel) | 聚落治安契约：治安每日变化量的全部修正项 |
 | [DefaultSettlementSecurityModel](./DefaultSettlementSecurityModel) | 官方实现：上限 100、漂移目标 50、税收三阈值等原版数值 |
 
-（上表 18 行 = 本桶 18 个页面；计数命令：`find content/v1.4.7/zh/api/campaign-ext -name '*.md' ! -name '_index.md' | wc -l`）
+| [PrisonerRecruitmentCalculationModel](./PrisonerRecruitmentCalculationModel) | 俘虏招募这条链路的抽象契约：顺从度阈值、每小时累积速度与可招募数量 |
+| [DefaultPrisonerRecruitmentCalculationModel](./DefaultPrisonerRecruitmentCalculationModel) | 默认俘虏招募模型：决定俘虏顺从值的增长速率、招募门槛与士气代价 |
+| [PartyTrainingModel](./PartyTrainingModel) | 战役层部队经验计算的抽象契约：分摊共享经验、结算战斗经验 |
+| [DefaultPartyTrainingModel](./DefaultPartyTrainingModel) | 默认部队经验模型：升级所需经验曲线、每日训练与战斗经验分摊 |
+| [PartyDesertionModel](./PartyDesertionModel) | 部队逃亡策略接口：决定每 tick 逃离部队的名册 |
+| [DefaultPartyDesertionModel](./DefaultPartyDesertionModel) | 默认逃兵模型：按士气阈值与薪资/兵力上限计算逃亡 |
+| [PartyImpairmentModel](./PartyImpairmentModel) | 定义部队陷入混乱状态与攻城脆弱期的时长与触发条件 |
+| [DefaultPartyImpairmentModel](./DefaultPartyImpairmentModel) | 默认混乱/脆弱状态模型：判定部队是否有资格陷入及其时长 |
+| [InventoryCapacityModel](./InventoryCapacityModel) | 背包容量与物品重量的抽象计算模型：一支部队能携带多少 |
+| [DefaultInventoryCapacityModel](./DefaultInventoryCapacityModel) | 默认背包容量与负重模型：按士兵、备用坐骑与牲畜计算 |
+| [VolunteerModel](./VolunteerModel) | 决定据点与英雄每天能产出多少志愿兵、以及最高可招档位 |
+| [DefaultVolunteerModel](./DefaultVolunteerModel) | 志愿兵招募的默认规则引擎：可招档位、每日产出概率 |
+
+（上表 30 行 = 本桶 30 个页面；计数命令：`find content/v1.4.7/zh/api/campaign-ext -name '*.md' ! -name '_index.md' | wc -l`）
 
 **这 18 页的读法**：前两页（`MBObjectBase` / `MBObjectManager`）是「往战役里塞自定义持久化对象」的入口；
 后面 16 页里，**每两页成一对** —— 一个 `XxxModel` 是**契约**（声明要算哪些量），

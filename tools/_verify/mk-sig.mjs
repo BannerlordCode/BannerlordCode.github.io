@@ -48,11 +48,17 @@ for (const rel of files) {
     console.error(`MISSING SOURCE: ${rel}`);
     process.exit(2);
   }
-  const lines = readFileSync(abs, 'utf8').split(/\r?\n/);
+  const raw = readFileSync(abs, 'utf8').split(/\r?\n/);
+  // ★ 行数修正（worker-356 实测拓到的 off-by-one）：文件以换行结尾时 `split` 会多出一个空元素
+  //   ⇒ `lines.length` 比真实行数多 1（例：DefaultPrisonerRecruitmentCalculationModel.cs 实测 `wc -l` = 123，
+  //   而 `split(/\r?\n/).length` = 124）。
+  //   表头写的是「N 必须 <= 总行数」，一个虚高的上界会误导写手，属「声称的测量值不对」家族。
+  //   ⇒ 去掉末尾空元素后再计数（同时也避免向表里写出一条虚假的空行号）。
+  const lines = raw.length && raw[raw.length - 1] === '' ? raw.slice(0, -1) : raw;
   const out = [];
   out.push('# 行号锚点表（只读抽取，不是正文来源）');
   out.push(`# 源文件: bannerlord-1.4.7/${rel}`);
-  out.push(`# 总行数: ${lines.length}   ← 页内所有 \`${basename(rel)}:N\` 的 N 必须 <= 这个数`);
+  out.push(`# 总行数: ${lines.length}   ← 页内所有 \`${basename(rel)}:N\` 的 N 必须 <= 这个数（= \`wc -l\`）`);
   out.push('# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。');
   out.push('# ★ 每条引用必须写 `File.cs:N`（带文件名），禁止裸 `:N` —— 裸引用会让 J13 检查不到它。');
   out.push('');

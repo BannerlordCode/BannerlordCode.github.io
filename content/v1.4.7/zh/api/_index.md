@@ -1,6 +1,6 @@
 ---
 title: "API 参考 — 按任务找入口"
-description: "v1.4.7 的 API 按命名空间分成 17 个桶：一个类型只属于一个桶，同桶重名用 Namespace__Type 区分。中文树当前 88 篇类页。"
+description: "v1.4.7 的 API 按命名空间分成 17 个桶：一个类型只属于一个桶，同桶重名用 Namespace__Type 区分。中文树当前 97 篇类页。"
 ---
 # API 参考 — 按任务找入口
 
@@ -8,7 +8,7 @@ description: "v1.4.7 的 API 按命名空间分成 17 个桶：一个类型只�
 
 下面两张表里的页数都是**当前的真实页数**。有 3,598 篇类页曾由脚本批量生成并一度挂在这些目录下，现已撤出文档树；每个桶的索引页都写明了自己覆盖哪个命名空间、约多少类型、当前几页。要查某个类型有没有页面，看 [缺口清单](../../GAPS)。
 
-## 有页面的桶（12 个，88 篇）
+## 有页面的桶（13 个，97 篇）
 
 | 桶 | 页数 | 覆盖 | 页面 |
 | --- | ---: | --- | --- |
@@ -17,6 +17,7 @@ description: "v1.4.7 的 API 按命名空间分成 17 个桶：一个类型只�
 | [core-extra](core-extra/) | 14 | `TaleWorlds.Core` 长尾 + 分类法兜底桶 | [Game](core-extra/Game) · [ViewModel](core-extra/ViewModel) · [BoardGameHelper](core-extra/BoardGameHelper) · [AIDifficulty](core-extra/AIDifficulty) · [BoardGameState](core-extra/BoardGameState) · [CaravanHelper](core-extra/CaravanHelper) · [AlleyHelper](core-extra/AlleyHelper) · [BarterHelper](core-extra/BarterHelper) · [BuildingHelper](core-extra/BuildingHelper) · [DialogHelper](core-extra/DialogHelper) · [EquipmentHelper](core-extra/EquipmentHelper) · [CraftingHelper](core-extra/CraftingHelper) · [ItemHelper](core-extra/ItemHelper) · [SkillHelper](core-extra/SkillHelper) |
 | [network](network/) | 12 | `TaleWorlds.Network` | [NetworkMessage](network/NetworkMessage) · [NetworkSession](network/NetworkSession) · [MessageContract](network/MessageContract) · [MessageContractHandlerManager](network/MessageContractHandlerManager) · [MessageInfo](network/MessageInfo) · [MessageProxy](network/MessageProxy) · [MessageServiceConnection](network/MessageServiceConnection) · [ConnectionState](network/ConnectionState) · [ClientsideSession](network/ClientsideSession) · [ServersideSession](network/ServersideSession) · [RESTClient](network/RESTClient) · [TickManager](network/TickManager) |
 | [system](system/) | 12 | `TaleWorlds.InputSystem` 等放行的运行时命名空间 | [Input](system/Input) · [InputContext](system/InputContext) · [InputState](system/InputState) · [IInputContext](system/IInputContext) · [IInputManager](system/IInputManager) · [EmptyInputContext](system/EmptyInputContext) · [EmptyInputManager](system/EmptyInputManager) · [GameKey](system/GameKey) · [GameKeyContext](system/GameKeyContext) · [HotKey](system/HotKey) · [HotKeyManager](system/HotKeyManager) · [Key](system/Key) |
+| [localization](localization/) | 9 | `TaleWorlds.Localization` 及其 `TextProcessor` / `LanguageProcessors` 子命名空间 | [TextObject](localization/TextObject) · [MBTextManager](localization/MBTextManager) · [LocalizedTextManager](localization/LocalizedTextManager) · [LanguageSpecificTextProcessor](localization/LanguageSpecificTextProcessor) · [TextProcessingContext](localization/TextProcessingContext) · [TextGrammarProcessor](localization/TextGrammarProcessor) · [VoiceObject](localization/VoiceObject) · [LocalizedVoiceManager](localization/LocalizedVoiceManager) · [LocalizationException](localization/LocalizationException) |
 | [sandbox](sandbox/) | 5 | `SandBox` 及其 `GauntletUI` / `View` / `ViewModelCollection` 子命名空间 | [AgentNavigator](sandbox/AgentNavigator) · [Add1000GoldCheat](sandbox/Add1000GoldCheat) · [Add100InfluenceCheat](sandbox/Add100InfluenceCheat) · [Add100RenownCheat](sandbox/Add100RenownCheat) · [AddCraftingMaterialsCheat](sandbox/AddCraftingMaterialsCheat) |
 | [mission](mission/) | 4 | 战斗入口类（按名字从 mission-ext 切出） | [Mission](mission/Mission) · [MissionState](mission/MissionState) · [MissionBehavior](mission/MissionBehavior) · [Agent](mission/Agent) |
 | [gui](gui/) | 3 | `ScreenSystem` / `GauntletUI` / `TwoDimension` | [ScreenManager](gui/ScreenManager) · [ScreenBase](gui/ScreenBase) · [ScreenLayer](gui/ScreenLayer) |
@@ -45,14 +46,14 @@ description: "v1.4.7 的 API 按命名空间分成 17 个桶：一个类型只�
 
 > `mission/` 与 `core/` 刻意做小，只放模组入口类；完整的 `TaleWorlds.MountAndBlade` 与基础层分别在 `mission-ext/` 与 `core-extra/`。
 
-## 两个待建的桶：本地化与战役剧情
+## 已建与待建的桶：localization 已建，storymode 待建
 
-`tools/_dir-map-canonical.json` 对 `TaleWorlds.Localization` 与 `StoryMode` 各有一条正式规则，`tools/_v147_treespec.md` 也把两者列为桶；`content/v1.3.0`、`v1.3.15`、`v1.4.5`、`v1.4.6`、`v1.5.3` 五棵树里这两个桶目录都存在，**只有 v1.4.7 缺**。按全量裁定（`tools/_SCOPE-DECISION-20260824.md`：六个版本、全部 public 类型），这两个桶要补齐，顺序是 localization → storymode。
+`tools/_dir-map-canonical.json` 对 `TaleWorlds.Localization` 与 `StoryMode` 各有一条正式规则，`tools/_v147_treespec.md` 也把两者列为桶；`content/v1.3.0`、`v1.3.15`、`v1.4.5`、`v1.4.6`、`v1.5.3` 五棵树里这两个桶目录都存在，**只有 v1.4.7 缺**。按全量裁定（`tools/_SCOPE-DECISION-20260824.md`：六个版本、全部 public 类型），两个桶都要补。
 
-- **本地化（`TaleWorlds.Localization`）** —— 55 个 `.cs`、21 个公开类型、约 518 KB 源码。模组作者最先遇到的 `TextObject` 就在这个模块里，游戏里一切本地化文本都通过它取值；同模块的 `Expressions` 与 `TextProcessor`（含各语言各自的 `LanguageSpecificTextProcessor` 实现）负责文本表达式与按语言分派的语法处理。
-- **战役剧情（`StoryMode`）** —— 89 个 `.cs`、101 个公开类型、约 978 KB 源码，分布在 `GameComponents`、`Missions`、`Quests` 等子命名空间，也就是战役任务与剧情脚本那一层；模块根目录的 `CampaignStoryMode` 是它的入口之一。
+- **本地化（`TaleWorlds.Localization`）** —— **已建**：[localization](localization/) 桶现在有 9 页，覆盖 21 个类型里的 9 个。模组作者最先遇到的 [TextObject](localization/TextObject) 就在这个模块里，游戏里一切本地化文本都通过它取值；同模块的 `Expressions` 与 `TextProcessor`（含各语言各自的 `LanguageSpecificTextProcessor` 实现）负责文本表达式与按语言分派的语法处理。
+- **战役剧情（`StoryMode`）** —— **待建**：89 个 `.cs`、101 个公开类型、约 978 KB 源码，分布在 `GameComponents`、`Missions`、`Quests` 等子命名空间，也就是战役任务与剧情脚本那一层；模块根目录的 `CampaignStoryMode` 是它的入口之一。
 
-**本页暂不给这两个桶放链接**：桶索引页要与该桶的第一批页面**同批落地**（先建空索引页会让读者以为那里本来就该有页面），所以这两个桶的行要等各自的首页面写出来后再补进上面那张表。
+**本页暂不给 `storymode` 放链接**：桶索引页要与该桶的第一批页面**同批落地**（先建空索引页会让读者以为那里本来就该有页面），所以那个桶的行要等它的首批页面写出来后再补进上面那张表。
 
 ## 依赖阅读顺序
 

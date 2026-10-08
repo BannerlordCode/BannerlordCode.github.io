@@ -13,7 +13,7 @@ description: "鞍具标记组件：20 行源码、零成员、零 XML 标签入�
 
 ## 概述
 
-`SaddleComponent` 全部源码 20 行，去掉反编译留下的 token 注释后只剩一个构造函数和一个 `GetCopy()` 覆写，**没有任何属性、字段或 `Deserialize` 覆写**。它的全部语义就是「存在性」：[ItemObject](../ItemObject) 的 `HasSaddleComponent` 读 `SaddleComponent != null`，而 `SaddleComponent` 是 `this.ItemComponent as SaddleComponent`。作为对照，[TradeItemComponent](../TradeItemComponent) 至少还有一个 `MoraleBonus`，[BannerComponent](../BannerComponent) 有 `BannerLevel` 与 `BannerEffect`，[HorseComponent](../HorseComponent) 有二十多个成员。所以它是这套「组件即标签」设计里最纯粹的标签实现——**它存在的唯一理由是让 `is SaddleComponent` 这个判定能成立。**
+`SaddleComponent` 全部源码 20 行，去掉反编译留下的 token 注释后只剩一个构造函数和一个 `GetCopy()` 覆写，**没有任何属性、字段或 `Deserialize` 覆写**。它的全部语义就是「存在性」：`ItemObject` 的 `HasSaddleComponent` 读 `SaddleComponent != null`，而 `SaddleComponent` 是 `this.ItemComponent as SaddleComponent`。作为对照，`TradeItemComponent` 至少还有一个 `MoraleBonus`，`BannerComponent` 有 `BannerLevel` 与 `BannerEffect`，`HorseComponent` 有二十多个成员。所以它是这套「组件即标签」设计里最纯粹的标签实现——**它存在的唯一理由是让 `is SaddleComponent` 这个判定能成立。**
 
 ## 心智模型
 
@@ -21,9 +21,9 @@ description: "鞍具标记组件：20 行源码、零成员、零 XML 标签入�
 
 那它为什么还在树里、还被人引用？因为**类型判定仍然有效**——历史物品数据里可能存在过鞍具定义，而 `DefaultItemCategorySelector` 与 `DefaultItemValueModel` 里留着对它的判定分支（见下文）。mod 要做兼容，就得知道这两处判定在等一个永远不会来的对象。
 
-第二个心智锚点是**它没有 `Deserialize` 覆写，所以走基类**。`ItemComponent.Deserialize` 会先 `Initialize()` 再读 `modifier_group` 属性并 `Game.Current.ObjectManager.GetObject<ItemModifierGroup>(text)`。也就是说**如果**你通过反射挂上了一个 `SaddleComponent`，它仍然能正确解析品质词缀组——这一点上它比 [TradeItemComponent](../TradeItemComponent)（直接调 `this.Initialize()` 绕过基类）更"正确"。
+第二个心智锚点是**它没有 `Deserialize` 覆写，所以走基类**。`ItemComponent.Deserialize` 会先 `Initialize()` 再读 `modifier_group` 属性并 `Game.Current.ObjectManager.GetObject<ItemModifierGroup>(text)`。也就是说**如果**你通过反射挂上了一个 `SaddleComponent`，它仍然能正确解析品质词缀组——这一点上它比 `TradeItemComponent`（直接调 `this.Initialize()` 绕过基类）更"正确"。
 
-第三个是**两个构造函数都不填 `Item`**。`public SaddleComponent(SaddleComponent saddleComponent) { }` 的**方法体是空的**——参数读了不用，`base.Item` 保持 null，`ItemModifierGroup` 也保持 null。所以 `saddleComponent.Item` 与 `saddleComponent.ItemModifierGroup` 在 1.4.6 恒为 null。而 `GetCopy()` 就是 `return new SaddleComponent(this)`，于是**副本和原对象的字段完全一致（都为空），它既不是深拷贝也不是浅拷贝，只是新建了一个空壳**。和 [ArmorComponent](../ArmorComponent)（漏拷 `IsNoSlim`）与 [HorseComponent](../HorseComponent)（只拷四个 int）的残缺不同，这里的残缺是"拷贝了零个字段"。
+第三个是**两个构造函数都不填 `Item`**。`public SaddleComponent(SaddleComponent saddleComponent) { }` 的**方法体是空的**——参数读了不用，`base.Item` 保持 null，`ItemModifierGroup` 也保持 null。所以 `saddleComponent.Item` 与 `saddleComponent.ItemModifierGroup` 在 1.4.6 恒为 null。而 `GetCopy()` 就是 `return new SaddleComponent(this)`，于是**副本和原对象的字段完全一致（都为空），它既不是深拷贝也不是浅拷贝，只是新建了一个空壳**。和 `ArmorComponent`（漏拷 `IsNoSlim`）与 `HorseComponent`（只拷四个 int）的残缺不同，这里的残缺是"拷贝了零个字段"。
 
 第四个是**它没有任何数据，所以调它的任何方法都没有意义**。没有 `GetXxx()`、没有数值、没有外观属性。想让鞍具有数值，只能自己派生：
 
@@ -50,10 +50,10 @@ public class MySaddleComponent : SaddleComponent
 | 成员 | 签名 | 这个成员是做什么用的 |
 | --- | --- | --- |
 | `.ctor` | `public SaddleComponent(SaddleComponent saddleComponent)` | **唯一构造器，方法体为空。** 参数 `saddleComponent` 读了不用；`base.Item` 与 `base.ItemModifierGroup` 都保持 null。**没有无参构造器、没有 `(ItemObject)` 构造器。** |
-| `GetCopy` | `public override ItemComponent GetCopy()` | `return new SaddleComponent(this);`。**拷贝零个字段**（结果与原对象字段完全相同，因为两者都为空）。与 [ArmorComponent](../ArmorComponent) 的「漏拷一个属性」和 [HorseComponent](../HorseComponent) 的「只拷四个 int」都不同——这里是「一个都不拷」。全树只被 [Crafting](../Crafting) 与 `CraftingCampaignBehavior` 调用。 |
-| 继承的 `Item` | `public ItemObject Item { get; set; }`（来自 [ItemComponent](../ItemComponent)） | **在本类型实例上恒为 null**，因为唯一构造器不写它。 |
-| 继承的 `ItemModifierGroup` | `public ItemModifierGroup ItemModifierGroup { get; protected set; }`（来自 [ItemComponent](../ItemComponent)） | **在没有覆写 `Deserialize` 的情况下**由 `ItemComponent.Deserialize` 的 `modifier_group` 属性解析。构造器不填，所以手工 `new` 出来的实例上是 null。 |
-| 继承的 `Deserialize` | `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`（来自 [ItemComponent](../ItemComponent)） | **本类型不覆写**，所以走基类：`Initialize()` + 解析 `modifier_group`。**依赖 `Game.Current`。** |
+| `GetCopy` | `public override ItemComponent GetCopy()` | `return new SaddleComponent(this);`。**拷贝零个字段**（结果与原对象字段完全相同，因为两者都为空）。与 `ArmorComponent` 的「漏拷一个属性」和 `HorseComponent` 的「只拷四个 int」都不同——这里是「一个都不拷」。全树只被 `Crafting` 与 `CraftingCampaignBehavior` 调用。 |
+| 继承的 `Item` | `public ItemObject Item { get; set; }`（来自 `ItemComponent`） | **在本类型实例上恒为 null**，因为唯一构造器不写它。 |
+| 继承的 `ItemModifierGroup` | `public ItemModifierGroup ItemModifierGroup { get; protected set; }`（来自 `ItemComponent`） | **在没有覆写 `Deserialize` 的情况下**由 `ItemComponent.Deserialize` 的 `modifier_group` 属性解析。构造器不填，所以手工 `new` 出来的实例上是 null。 |
+| 继承的 `Deserialize` | `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`（来自 `ItemComponent`） | **本类型不覆写**，所以走基类：`Initialize()` + 解析 `modifier_group`。**依赖 `Game.Current`。** |
 
 ## 怎么用
 
@@ -64,9 +64,9 @@ public class MySaddleComponent : SaddleComponent
 - 构造器 `public SaddleComponent(SaddleComponent saddleComponent)`（`:9`）——**参数是另一个 SaddleComponent，而且构造器体是空的**（`:9-11`）。
 - `public override ItemComponent GetCopy()`（`:14`）——实现就一句 `return new SaddleComponent(this);`（`:16`）。
 
-注意它**没有 `Deserialize` 覆写**——它没有任何需要从 XML 读的数据。它继承 [ItemComponent](../ItemComponent) 的 `Deserialize`（`ItemComponent.cs:28`），那条基类实现只负责填 `ItemModifierGroup`。
+注意它**没有 `Deserialize` 覆写**——它没有任何需要从 XML 读的数据。它继承 `ItemComponent` 的 `Deserialize`（`ItemComponent.cs:28`），那条基类实现只负责填 `ItemModifierGroup`。
 
-它同样受 `ItemObject` 的单槽限制：组件类型由物品类型决定，马匹装 [HorseComponent](../HorseComponent)、护甲装 [ArmorComponent](../ArmorComponent)。
+它同样受 `ItemObject` 的单槽限制：组件类型由物品类型决定，马匹装 `HorseComponent`、护甲装 `ArmorComponent`。
 
 ### 典型用法
 
@@ -184,7 +184,7 @@ public class MySaddleComponent : SaddleComponent
 - **继承本类型时受唯一构造器约束。** 基类没有无参构造器，派生类必须提供 `SaddleComponent(SaddleComponent)` 的转发。
 - **`DefaultItemValueModel.CalculateSaddleTier` 无条件返回 0f。** 于是 `ItemObject.Tierf` 恒为 0，`ItemObject.Tier` 计算出 `(ItemTiers)(-1)`——**枚举下标越界**。任何按 `Tier` switch 的代码都拿不到匹配分支。
 - **`DefaultItemCategorySelector` 的分类回退链末端是 `HorseEquipment`。** 它挂在一个长 else 链的末尾，只有前面全部落空才会命中。
-- **占用 [ItemObject](../ItemObject) 的单槽。** 挂上它就不能再有护甲 / 马匹 / 武器 / 贸易品组件——而这恰恰让「鞍具同时带护甲」这种常见设计无法实现。
+- **占用 `ItemObject` 的单槽。** 挂上它就不能再有护甲 / 马匹 / 武器 / 贸易品组件——而这恰恰让「鞍具同时带护甲」这种常见设计无法实现。
 - **不 `sealed`，可继承。** 但继承它并不能解决挂载问题。
 - **不进存档。**
 

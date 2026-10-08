@@ -302,7 +302,7 @@ tick 家族按粒度分层：`TickEvent(float dt)` 与 `MissionTickEvent(float d
 | `OnMissionStartedEvent` | `IMbEvent<IMission> OnMissionStartedEvent` | 任务开始 |
 | `AfterMissionStarted` | `IMbEvent<IMission> AfterMissionStarted` | 任务启动完成之后 |
 | `OnMissionEndedEvent` | `IMbEvent<IMission> OnMissionEndedEvent` | 任务结束 |
-| （无对应事件） | 见 [MissionBehavior](../../mission/MissionBehavior) 的 `OnMissionStateActivated()` | 本类没有「任务状态激活」这条战役事件。该钩子是 `MissionBehavior` 上的 `public virtual void OnMissionStateActivated()`，只能在任务内覆写 |
+| （无对应事件） | 见 `MissionBehavior` 的 `OnMissionStateActivated()` | 本类没有「任务状态激活」这条战役事件。该钩子是 `MissionBehavior` 上的 `public virtual void OnMissionStateActivated()`，只能在任务内覆写 |
 | `OnSiegeEventStartedEvent` | `IMbEvent<SiegeEvent> OnSiegeEventStartedEvent` | 围城开始 |
 | `OnSiegeEventEndedEvent` | `IMbEvent<SiegeEvent> OnSiegeEventEndedEvent` | 围城结束 |
 | `OnBlockadeActivatedEvent` | `IMbEvent<SiegeEvent> OnBlockadeActivatedEvent` | 封锁启动 |

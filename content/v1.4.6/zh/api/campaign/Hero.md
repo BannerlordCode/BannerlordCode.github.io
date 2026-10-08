@@ -11,7 +11,7 @@ description: "sealed 的领主实体：身份与状态（CharacterStates）、�
 
 ## 概述
 
-`Hero` 是战役里的人物实体，继承 [MBObjectBase](../../campaign-ext/MBObjectBase)。它把「一个人」拆成四层：`CharacterObject` 是不可变的兵种/人物模板（长相、职业、装备槽），`Hero` 是在这个模板上叠加的**可变战役状态**——家族、队伍、财富、关系、技能等级、特质、天赋、伤病、俘虏状态。
+`Hero` 是战役里的人物实体，继承 `MBObjectBase`。它把「一个人」拆成四层：`CharacterObject` 是不可变的兵种/人物模板（长相、职业、装备槽），`Hero` 是在这个模板上叠加的**可变战役状态**——家族、队伍、财富、关系、技能等级、特质、天赋、伤病、俘虏状态。
 
 它是 `sealed` 的。1.4.6 的 `Hero.cs` 里没有可继承的扩展点，因此 mod 只能通过 Behavior、事件与动作 API 修改领主，不能派生自己的 Hero 子类。想加自定义字段，要么挂 `Campaign.Current.AddEntityComponent<T>()`，要么放在 Behavior 里走 `IDataStore`。
 

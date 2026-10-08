@@ -13,7 +13,7 @@ description: "贸易品与食品组件：唯一由 InitializeTradeGood 程序化
 
 ## 概述
 
-`TradeItemComponent` 是贸易品与食物在 [ItemObject](../ItemObject) 单槽上的行为插件，全部源码 54 行，只带一个数据成员：`MoraleBonus`（XML 属性 `morale_bonus`，代表「让队伍士兵开心」的那类商品）。它在整个组件体系里的地位特殊：**它是六个派生类里唯一一个能被官方 API 程序化挂上去的**——[ItemObject](../ItemObject) 的静态工厂 `InitializeTradeGood(...)` 的固定收尾动作就是 `item.ItemComponent = new TradeItemComponent(); item.AfterInitialized(); item.ItemFlags |= ItemFlags.Civilian;`。它同时也是 [ItemObject](../ItemObject) 的 `FoodComponent` 属性返回的类型（**属性名叫 `FoodComponent`，返回类型是 `TradeItemComponent`**），以及 XML 里 `<Trade>` 标签的落点。
+`TradeItemComponent` 是贸易品与食物在 `ItemObject` 单槽上的行为插件，全部源码 54 行，只带一个数据成员：`MoraleBonus`（XML 属性 `morale_bonus`，代表「让队伍士兵开心」的那类商品）。它在整个组件体系里的地位特殊：**它是六个派生类里唯一一个能被官方 API 程序化挂上去的**——`ItemObject` 的静态工厂 `InitializeTradeGood(...)` 的固定收尾动作就是 `item.ItemComponent = new TradeItemComponent(); item.AfterInitialized(); item.ItemFlags |= ItemFlags.Civilian;`。它同时也是 `ItemObject` 的 `FoodComponent` 属性返回的类型（**属性名叫 `FoodComponent`，返回类型是 `TradeItemComponent`**），以及 XML 里 `<Trade>` 标签的落点。
 
 ## 心智模型
 
@@ -31,13 +31,13 @@ public override void Deserialize(MBObjectManager objectManager, XmlNode node)
 }
 ```
 
-对比其余五个组件全部以 `base.Deserialize(objectManager, node)` 开头。后果有两个：`ItemModifierGroup` **不会被解析**（XML 上的 `modifier_group` 属性被静默忽略），以及**不依赖 `Game.Current`**——这是六个组件里唯一一个 `Deserialize` 不摸 `Game.Current` 的（[ArmorComponent](../ArmorComponent) / [HorseComponent](../HorseComponent) / [ItemComponent](../ItemComponent) 都要用它解析词缀组或 `SkeletonScale`）。所以贸易品在品质系统里永远是「无词缀」状态。
+对比其余五个组件全部以 `base.Deserialize(objectManager, node)` 开头。后果有两个：`ItemModifierGroup` **不会被解析**（XML 上的 `modifier_group` 属性被静默忽略），以及**不依赖 `Game.Current`**——这是六个组件里唯一一个 `Deserialize` 不摸 `Game.Current` 的（`ArmorComponent` / `HorseComponent` / `ItemComponent` 都要用它解析词缀组或 `SkeletonScale`）。所以贸易品在品质系统里永远是「无词缀」状态。
 
-第三件是**单槽覆盖**。[ItemObject](../ItemObject) 的 `AddWeapon(WeaponComponentData, ItemModifierGroup)` 在 `this.WeaponComponent == null` 时执行 `this.ItemComponent = new WeaponComponent(this)`——**无条件覆盖已有的 `TradeItemComponent`**。所以「先 `InitializeTradeGood` 再 `AddWeapon`」这条常见写法会把贸易品组件连同它唯一的 `MoraleBonus` 一起丢掉。反过来，先 `AddWeapon` 再想补贸易品属性是做不到的，因为 `ItemComponent` 是 `private set`。
+第三件是**单槽覆盖**。`ItemObject` 的 `AddWeapon(WeaponComponentData, ItemModifierGroup)` 在 `this.WeaponComponent == null` 时执行 `this.ItemComponent = new WeaponComponent(this)`——**无条件覆盖已有的 `TradeItemComponent`**。所以「先 `InitializeTradeGood` 再 `AddWeapon`」这条常见写法会把贸易品组件连同它唯一的 `MoraleBonus` 一起丢掉。反过来，先 `AddWeapon` 再想补贸易品属性是做不到的，因为 `ItemComponent` 是 `private set`。
 
 第四个心智锚点：`MoraleBonus` 是 **`private set`**。没有公开的写入路径，XML 之外拿不到非零值。想给贸易品设士气加成，只能改 XML。而且因为 `Deserialize` 不解析 `modifier_group`，这个 `MoraleBonus` 也不会被词缀加工——它就是最终值。
 
-第五个是**两个构造器的语义完全不同**。`public TradeItemComponent()` 只把 `MoraleBonus` 置 0（这是给 `ItemObject` 工厂用的）；`public TradeItemComponent(TradeItemComponent a)` 复制 `MoraleBonus`。而 `GetCopy()` 是 `new TradeItemComponent(this)` ——**它是唯一一个真正完整的 `GetCopy()`**：数值拷了。相比之下 [ArmorComponent](../ArmorComponent) 漏拷 `IsNoSlim`，[HorseComponent](../HorseComponent) 只拷四个 int，[SaddleComponent](../SaddleComponent) 一个都不拷。但它**同样不拷 `ItemModifierGroup`**——所幸由于 `Deserialize` 绕过了基类，这个字段本来就是 null。
+第五个是**两个构造器的语义完全不同**。`public TradeItemComponent()` 只把 `MoraleBonus` 置 0（这是给 `ItemObject` 工厂用的）；`public TradeItemComponent(TradeItemComponent a)` 复制 `MoraleBonus`。而 `GetCopy()` 是 `new TradeItemComponent(this)` ——**它是唯一一个真正完整的 `GetCopy()`**：数值拷了。相比之下 `ArmorComponent` 漏拷 `IsNoSlim`，`HorseComponent` 只拷四个 int，`SaddleComponent` 一个都不拷。但它**同样不拷 `ItemModifierGroup`**——所幸由于 `Deserialize` 绕过了基类，这个字段本来就是 null。
 
 ## 关键成员
 
@@ -46,10 +46,10 @@ public override void Deserialize(MBObjectManager objectManager, XmlNode node)
 | `MoraleBonus` | `public int MoraleBonus { get; private set; }` | 队伍士气加成。XML 属性 `morale_bonus`，用 `XmlHelper.ReadInt` 读入。**`private set`，无公开写入路径**；因为 `Deserialize` 不解析词缀组，它也不会被 `ItemModifier` 加工。 |
 | `.ctor` | `public TradeItemComponent()` | 把 `MoraleBonus` 置 0。**由 `ItemObject.InitializeTradeGood` 与 `ItemObject.Deserialize` 的 `<Trade>` 分支调用。** |
 | `.ctor` | `public TradeItemComponent(TradeItemComponent a)` | 复制 `a.MoraleBonus`。**只由 `GetCopy()` 调用。** |
-| `GetCopy` | `public override ItemComponent GetCopy()` | `return new TradeItemComponent(this);`。**六个派生类里唯一完整的拷贝实现**（唯一的数值被复制）。仍不拷 `ItemModifierGroup` 与 `Item`。全树只被 [Crafting](../Crafting) 与 `CraftingCampaignBehavior` 调用。 |
+| `GetCopy` | `public override ItemComponent GetCopy()` | `return new TradeItemComponent(this);`。**六个派生类里唯一完整的拷贝实现**（唯一的数值被复制）。仍不拷 `ItemModifierGroup` 与 `Item`。全树只被 `Crafting` 与 `CraftingCampaignBehavior` 调用。 |
 | `Deserialize` | `public override void Deserialize(MBObjectManager objectManager, XmlNode node)` | **不调 `base.Deserialize`**，直接 `this.Initialize()` + `XmlHelper.ReadInt(node, "morale_bonus")`。**后果：XML 上的 `modifier_group` 属性被静默忽略，`ItemModifierGroup` 恒为 null。** 好的一面是**不依赖 `Game.Current`**，可以在这之前的安全阶段调用。 |
-| 继承的 `Item` | `public ItemObject Item { get; set; }`（来自 [ItemComponent](../ItemComponent)） | **在本类型实例上恒为 null**——两个构造器都不写 `base.Item`，而 `ItemObject` 挂载时也不回填。所以贸易品组件无法反查宿主物品。 |
-| 继承的 `ItemModifierGroup` | `public ItemModifierGroup ItemModifierGroup { get; protected set; }`（来自 [ItemComponent](../ItemComponent)） | **`protected set`，且因为 `Deserialize` 绕过基类，本类型实例上恒为 null。** 这是六个组件里唯一一个「词缀组字段存在但永远为空」的。 |
+| 继承的 `Item` | `public ItemObject Item { get; set; }`（来自 `ItemComponent`） | **在本类型实例上恒为 null**——两个构造器都不写 `base.Item`，而 `ItemObject` 挂载时也不回填。所以贸易品组件无法反查宿主物品。 |
+| 继承的 `ItemModifierGroup` | `public ItemModifierGroup ItemModifierGroup { get; protected set; }`（来自 `ItemComponent`） | **`protected set`，且因为 `Deserialize` 绕过基类，本类型实例上恒为 null。** 这是六个组件里唯一一个「词缀组字段存在但永远为空」的。 |
 | `AutoGeneratedInstanceCollectObjects` | `protected override void AutoGeneratedInstanceCollectObjects(List<object> collectedObjects)` | 存档引用收集钩子，实现是空的（只调 `base`）。 |
 
 ## 怎么用
@@ -64,7 +64,7 @@ public override void Deserialize(MBObjectManager objectManager, XmlNode node)
 - `public TradeItemComponent(TradeItemComponent a)`（`:35`）——拷贝构造器，`this.MoraleBonus = a.MoraleBonus;`（`:37`）。
 - 继承自基类 `ItemComponent(ItemObject item)`（`ItemComponent.cs:9` 的派生形式），XML 加载走的就是这条。
 
-`public override ItemComponent GetCopy()`（`:41`）返回 `new TradeItemComponent(this)`（`:43`）。`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`（`:47`）先调 `this.Initialize()`——那是继承自 [MBObjectBase](../../campaign-ext/MBObjectBase) 的 `public virtual void Initialize()`（`MBObjectBase.cs:76`，仅把 `IsInitialized` 置 true），再 `this.MoraleBonus = XmlHelper.ReadInt(node, "morale_bonus");`（`:50`）。
+`public override ItemComponent GetCopy()`（`:41`）返回 `new TradeItemComponent(this)`（`:43`）。`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`（`:47`）先调 `this.Initialize()`——那是继承自 `MBObjectBase` 的 `public virtual void Initialize()`（`MBObjectBase.cs:76`，仅把 `IsInitialized` 置 true），再 `this.MoraleBonus = XmlHelper.ReadInt(node, "morale_bonus");`（`:50`）。
 
 拿实例的入口是 `ItemObject.ItemComponent` 单槽字段，或 `MBObjectManager.Instance.GetObject<ItemObject>("物品 id")`。
 
@@ -91,9 +91,9 @@ var handMade = new TradeItemComponent();                     // :29，MoraleBonu
 
 ### 最容易踩的坑
 
-**用 `as` 转了却忘了判 null，或者反过来——以为非交易品一定是 null。** `ItemComponent` 是 `ItemObject` 的**单槽**字段：护甲装 [ArmorComponent](../ArmorComponent)、武器装 [WeaponComponent](../WeaponComponent)、马匹装 [HorseComponent](../HorseComponent)、鞍具装 [SaddleComponent](../SaddleComponent)。对任何非交易品读 `ItemComponent as TradeItemComponent` 都返回 null，紧接着 `comp.MoraleBonus` 空引用，而报错行与「物品类型不对」这个真实原因隔了一层。
+**用 `as` 转了却忘了判 null，或者反过来——以为非交易品一定是 null。** `ItemComponent` 是 `ItemObject` 的**单槽**字段：护甲装 `ArmorComponent`、武器装 `WeaponComponent`、马匹装 `HorseComponent`、鞍具装 `SaddleComponent`。对任何非交易品读 `ItemComponent as TradeItemComponent` 都返回 null，紧接着 `comp.MoraleBonus` 空引用，而报错行与「物品类型不对」这个真实原因隔了一层。
 
-第二个坑是 `Deserialize`（`:47`）里 `XmlHelper.ReadInt(node, "morale_bonus")` **没有做属性存在性检查**——对比 [ArmorComponent](../ArmorComponent) 里 `MultiMeshHasGenderVariations` 那种「先赋默认再看属性」 的写法，这里是直接读。所以一件被标成交易品、但 XML 里漏写 `morale_bonus` 的物品，会在**加载期**就抛异常，整个物品表加载失败——而不是像其它属性那样安静地取默认值。写自定义物品 XML 时这个属性是必需的。
+第二个坑是 `Deserialize`（`:47`）里 `XmlHelper.ReadInt(node, "morale_bonus")` **没有做属性存在性检查**——对比 `ArmorComponent` 里 `MultiMeshHasGenderVariations` 那种「先赋默认再看属性」 的写法，这里是直接读。所以一件被标成交易品、但 XML 里漏写 `morale_bonus` 的物品，会在**加载期**就抛异常，整个物品表加载失败——而不是像其它属性那样安静地取默认值。写自定义物品 XML 时这个属性是必需的。
 
 ## 真实示例
 
@@ -216,7 +216,7 @@ public class MyTradeComponent : ItemComponent
 ## 风险与边界
 
 - **`Deserialize` 不调 `base.Deserialize`。** XML 上的 `modifier_group` 属性被静默忽略，`ItemModifierGroup` 恒为 null。**贸易品不进品质词缀系统。** 自定义派生类务必反过来——始终 `base.Deserialize` 优先。
-- **`Item` 恒为 null。** 两个构造器都不写 `base.Item`，`ItemObject` 挂载时也不回填。**要拿宿主物品请从 [ItemObject](../ItemObject) 侧拿。**
+- **`Item` 恒为 null。** 两个构造器都不写 `base.Item`，`ItemObject` 挂载时也不回填。**要拿宿主物品请从 `ItemObject` 侧拿。**
 - **占用单槽，`AddWeapon` 会无声覆盖它。** `ItemObject.AddWeapon` 在 `WeaponComponent == null` 时 `new WeaponComponent(this)` 直接覆盖 `ItemComponent`。**「先 InitializeTradeGood 再 AddWeapon」会丢掉 `MoraleBonus`。**
 - **`MoraleBonus` 是 `private set`，XML 之外无法写入。** `InitializeTradeGood` 用的是无参构造器，恒为 0。
 - **`Deserialize` 依赖 `XmlHelper.ReadInt(node, "morale_bonus")`，`node` 为 null 时 NRE。** 手写调用必须自己保证节点。

@@ -304,7 +304,7 @@ if (nearest != null)
 
 ## 风险与边界
 
-- **sealed 不可继承**：同 [Hero](../Hero)，1.4.6 的 `Settlement` 没有继承扩展点。自定义数据放组件或 Behavior。
+- **sealed 不可继承**：同 `Hero`，1.4.6 的 `Settlement` 没有继承扩展点。自定义数据放组件或 Behavior。
 - **没有 `SettlementType` 枚举**：1.4.6 用 `IsTown` / `IsCastle` / `IsVillage` / `IsHideout` 与 `Town` / `Village` / `Hideout` 字段区分类型。凭记忆写 `settlement.SettlementType` 编译不过。
 - **所有围城成员都要先判 `SiegeEvent`**：它为 null 时 `SiegeStrategy`、`SiegeEngines`、`SetNextSiegeState()`、`GetAttackTarget(...)` 全都会崩。`SiegeStrategy` 本身继承 `MBObjectBase`，没有围城时它也可能非 null 但语义无效。
 - **`IsUnderRebellionAttack()` 是方法**：其它 `IsUnderSiege` / `IsUnderRaid` 是属性。混用会编译失败或读到错误的真值。

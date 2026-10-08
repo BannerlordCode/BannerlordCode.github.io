@@ -13,13 +13,13 @@ description: "品质词缀组：一个可按掉落权重随机产出 ItemModifie
 
 ## 概述
 
-`ItemModifierGroup` 回答一个问题：**这件物品能从哪些品质词缀里长出来，长出来的概率各是多少。** 它是一个 `MBObjectBase`（XML 加载的全局数据对象），内部持有三个列表：`MBList<ItemModifier> _itemModifiers`（词条本体）、`MBList<ValueTuple<ItemModifier, float>> _lootDropItemModifierScores`（战利品权重）、`MBList<ValueTuple<ItemModifier, float>> _productionDropItemModifierScores`（生产工坊权重）。两个权重表都由同一个私有方法 `InitializeDropScoreLists()` 从词条列表加上两个「无词缀」哨兵项构造而成。它在物品体系里是 [ItemModifierGroup](../ItemModifierGroup) → `ItemModifier` 这条链的**上游容器**，[ItemComponent](../ItemComponent) 的 `ItemModifierGroup` 属性指向它，[ItemObject](../ItemObject) 的合成武器路径通过 [Crafting](../Crafting) 引用它。
+`ItemModifierGroup` 回答一个问题：**这件物品能从哪些品质词缀里长出来，长出来的概率各是多少。** 它是一个 `MBObjectBase`（XML 加载的全局数据对象），内部持有三个列表：`MBList<ItemModifier> _itemModifiers`（词条本体）、`MBList<ValueTuple<ItemModifier, float>> _lootDropItemModifierScores`（战利品权重）、`MBList<ValueTuple<ItemModifier, float>> _productionDropItemModifierScores`（生产工坊权重）。两个权重表都由同一个私有方法 `InitializeDropScoreLists()` 从词条列表加上两个「无词缀」哨兵项构造而成。它在物品体系里是 `ItemModifierGroup` → `ItemModifier` 这条链的**上游容器**，`ItemComponent` 的 `ItemModifierGroup` 属性指向它，`ItemObject` 的合成武器路径通过 `Crafting` 引用它。
 
 ## 心智模型
 
 **记住「三份列表、两次初始化、一个反注册方向」这条主线。**
 
-装配方向是 `ItemModifier` → 组，而不是 组 → 词缀。`ItemModifier.Deserialize` 的最后几行是：`MBObjectManager.Instance.ReadObjectReferenceFromXml<ItemModifierGroup>("modifier_group", node)`，拿到组就 `itemModifierGroup.AddItemModifier(this)`。也就是说**组里没有词缀时，通常是词缀自己把自己注册进来的**。这也解释了 [ItemComponent](../ItemComponent) 的 `Deserialize` 为什么反方向解析同一个 `modifier_group` 属性——组件侧要拿到组，词缀侧要挂进组。
+装配方向是 `ItemModifier` → 组，而不是 组 → 词缀。`ItemModifier.Deserialize` 的最后几行是：`MBObjectManager.Instance.ReadObjectReferenceFromXml<ItemModifierGroup>("modifier_group", node)`，拿到组就 `itemModifierGroup.AddItemModifier(this)`。也就是说**组里没有词缀时，通常是词缀自己把自己注册进来的**。这也解释了 `ItemComponent` 的 `Deserialize` 为什么反方向解析同一个 `modifier_group` 属性——组件侧要拿到组，词缀侧要挂进组。
 
 **两次初始化是这个类型最大的坑。** `InitializeDropScoreLists()` 是私有的，只在 `ItemModifierGroup.Deserialize` 末尾被调一次。它遍历当时的 `_itemModifiers`，把每个词缀的 `LootDropScore` / `ProductionDropScore` 灌进两个权重表，**然后各追加一个 `(null, NoModifierLootScore)` / `(null, NoModifierProductionScore)` 哨兵项**，代表「这件物品可能不带词缀」。于是：**在 `Deserialize` 之后调 `AddItemModifier`，新词缀会出现在 `ItemModifiers` 里，但永远不会出现在两个权重表里**——也就是 `GetRandomItemModifierLootScoreBased()` 永远抽不到它。反过来，如果你在 `Deserialize` 之前调 `AddItemModifier`（比如在更早的加载阶段手动装配），它会进权重表，但 `NoModifierLootScore` / `NoModifierProductionScore` 此刻还是 0，「无词缀」这个选项权重为零。**两个方向各错一半，唯一正确姿势是让 `ItemModifier.Deserialize` 自己走完注册，然后谁都别再动。**
 
@@ -170,7 +170,7 @@ if (blade != null && blade.ItemComponent != null)
 - **反过来在 `Deserialize` 之前加，哨兵权重是 0。** `NoModifierLootScore` / `NoModifierProductionScore` 那时还没读入，「不带词缀」这个选项等价于不存在。
 - **`AddItemModifier` 不去重。** 重复注册同一 `ItemModifier` 会让权重表里出现同权重重复项，实际概率翻倍。
 - **`InitializeDropScoreLists` 不幂等。** 私有方法被重复调用（例如自定义子类 override `Deserialize` 时误调）会重复追加哨兵项。
-- **`GetRandom*` 可能返回 null。** 那是「无词缀」的正常结果，不是错误。全树唯一的调用方是 [Equipment](../Equipment) 的 `GetRandomEquipmentElements`。
+- **`GetRandom*` 可能返回 null。** 那是「无词缀」的正常结果，不是错误。全树唯一的调用方是 `Equipment` 的 `GetRandomEquipmentElements`。
 - **`ItemModifiers` 名字骗人。** 返回的 `MBReadOnlyList<T>` 继承自 `List<T>`，是 `TaleWorlds.Library` 的类型，**强转回 `List<T>` 就能改**。
 - **`GetModifiersBasedOnQuality` 每次分配新列表 + O(n) 扫描。** 不要在循环里调。
 - **两个概率源不可互换。** `LootDropScore` 与 `ProductionDropScore` 由不同的 XML 属性决定。

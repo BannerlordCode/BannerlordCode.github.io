@@ -42,7 +42,7 @@ description: "纯静态的信息通道：所有游戏方法都是对一组静态
 | `AddSystemNotification` | `public static void AddSystemNotification(string message)` | 往系统通知队列塞一条纯文本。转发 `OnAddSystemNotification`。**注意 `Clear()` 不会清这个事件**。 |
 | `ShowTooltip` | `public static void ShowTooltip(Type type, params object[] args)` | 按注册时用的 `TRegistered` 类型弹 tooltip。`args` 交给注册时的 `onRefreshData` 回调。找不到对应注册或事件为 null 都静默返回。 |
 | `HideTooltip` | `public static void HideTooltip()` | 收起 tooltip。转发 `OnHideTooltip`。 |
-| `ShowInquiry` | `public static void ShowInquiry(InquiryData data, bool pauseGameActiveState = false, bool prioritize = false)` | 弹出问答/确认窗口。`pauseGameActiveState` 为真时会冻结活动状态（配合 [GameStateManager](../GameStateManager) 的禁用请求机制）。转发 `OnShowInquiry`。 |
+| `ShowInquiry` | `public static void ShowInquiry(InquiryData data, bool pauseGameActiveState = false, bool prioritize = false)` | 弹出问答/确认窗口。`pauseGameActiveState` 为真时会冻结活动状态（配合 `GameStateManager` 的禁用请求机制）。转发 `OnShowInquiry`。 |
 | `ShowTextInquiry` | `public static void ShowTextInquiry(TextInquiryData textData, bool pauseGameActiveState = false, bool prioritize = false)` | 同上，但带输入框。转发 `OnShowTextInquiry`。 |
 | `HideInquiry` | `public static void HideInquiry()` | 关闭当前 inquiry。转发 `OnHideInquiry`。 |
 | `IsAnyInquiryActive` | `public static bool IsAnyInquiryActive()` | 是否有 inquiry 打开。`IsAnyInquiryActiveInternal`（`Func<bool>` 字段）为 null 时返回 false。 |
@@ -224,7 +224,7 @@ public class MyInquiryHook
 - **tooltip 注册表无淘汰。** `_registeredTypes` 是静态字典，只在 `UnregisterTooltip` 时减少。mod 热重载或重复注册会留下无效条目（重注册同键是覆盖，不抛）。
 - **`RegisterTooltip` 的 `OnRefreshData` 存为 `object`。** 从 `RegisteredTypes` 读出来必须自己转型成 `Action<TTooltip, object[]>`，强转失败就是 `InvalidCastException`。
 - **`UnregisterTooltip` 找不到只打日志。** 「我以为注销了」不代表真的注销了，静态字典里可能还挂着旧条目。
-- **`ShowInquiry` 的 `pauseGameActiveState: true` 会冻结活动状态。** 配合 [GameStateManager](../GameStateManager) 的 `RegisterActiveStateDisableRequest` 语义，忘记关窗口会让状态一直 `OnIdleTick`。
+- **`ShowInquiry` 的 `pauseGameActiveState: true` 会冻结活动状态。** 配合 `GameStateManager` 的 `RegisterActiveStateDisableRequest` 语义，忘记关窗口会让状态一直 `OnIdleTick`。
 
 ## 跨版本提示
 

@@ -13,13 +13,13 @@ description: "带名称与描述的 MBObjectBase 基类：PerkObject、FeatObjec
 
 ## 概述
 
-`PropertyObject` 是「一个可被 `MBObjectManager` 寻址、且带本地化名称与描述的数据对象」这条基线的抽象。它本身只有两个字段（`TextObject _name` 与 `TextObject _description`）和三个公开方法（`GetName()`、`Initialize(name, description)`、构造函数），70 行源码，是整个 [TaleWorlds.Core](../) 里最薄的非抽象基类之一。它存在的唯一理由是**给一整族内容对象提供统一的「名字 + 描述」契约**：`TaleWorlds.Core` 里的 [SkillObject](../SkillObject) 与 `BannerEffect`，以及 `TaleWorlds.CampaignSystem` 里的 `PerkObject` / `FeatObject` / `TraitObject` / `SkillEffect` / `CultureTrait` / `Figurehead` / `PolicyObject` 全部继承它。在存档侧它还有一个额外身份：`SaveableCoreTypeDefiner` 用 `AddClassDefinition(typeof(PropertyObject), 38, null)` 把它注册成可保存类型，`Campaign` 里的 `PropertyOwner<PropertyObject>` 与 `HeroDeveloper` 的 `Dictionary<PropertyObject, float>` 都以它为键类型。
+`PropertyObject` 是「一个可被 `MBObjectManager` 寻址、且带本地化名称与描述的数据对象」这条基线的抽象。它本身只有两个字段（`TextObject _name` 与 `TextObject _description`）和三个公开方法（`GetName()`、`Initialize(name, description)`、构造函数），70 行源码，是整个 `TaleWorlds.Core` 里最薄的非抽象基类之一。它存在的唯一理由是**给一整族内容对象提供统一的「名字 + 描述」契约**：`TaleWorlds.Core` 里的 `SkillObject` 与 `BannerEffect`，以及 `TaleWorlds.CampaignSystem` 里的 `PerkObject` / `FeatObject` / `TraitObject` / `SkillEffect` / `CultureTrait` / `Figurehead` / `PolicyObject` 全部继承它。在存档侧它还有一个额外身份：`SaveableCoreTypeDefiner` 用 `AddClassDefinition(typeof(PropertyObject), 38, null)` 把它注册成可保存类型，`Campaign` 里的 `PropertyOwner<PropertyObject>` 与 `HeroDeveloper` 的 `Dictionary<PropertyObject, float>` 都以它为键类型。
 
 ## 心智模型
 
 **把它当成 `MBObjectBase` 与「本地化元数据」之间的那层薄适配器。** `MBObjectBase.GetName()` 的默认实现返回 `new TextObject(this.StringId, null)`——用 StringId 当显示名，这对 `ItemObject` / `Monster` 这类有专门 Name 属性的对象无所谓，但对技能、专长、特性这类**名字本身就是内容**的对象就完全不够。`PropertyObject` 覆盖 `GetName()` 返回 `Name`，于是全树任何拿到 `MBObjectBase` 引用再调 `GetName()` 的通用代码（tooltip、列表项、AI 评估）都能拿到正确的中文显示名。**这就是这个基类的全部存在价值：让通用 UI 代码不需要知道具体类型就能显示名字。**
 
-第二个心智锚点是 **`Initialize` 只赋值，不调 `AfterInitialized()`**。它的实现是 `base.Initialize(); this._name = name; this._description = description;`。`base.Initialize()` 只是把 `IsInitialized` 置 true；`IsReady` 是在 `AfterInitialized()` 里、且**仅当 `IsRegistered` 为 true 时**才置 true。所以手工调 `Initialize` 造出来的对象 `IsReady` 永远是 false。看派生类怎么处理就知道这是有意还是疏忽：[BannerEffect](../Banner) 的 `Initialize` 显式在末尾补了一句 `base.AfterInitialized();`——**说明这是官方认可的标准收尾动作，每个自定义子类都要自己做。** 忘了补，对象在游戏里表现为「已初始化但未就绪」，具体症状是各种 `IsReady` 门禁把它当没加载完。
+第二个心智锚点是 **`Initialize` 只赋值，不调 `AfterInitialized()`**。它的实现是 `base.Initialize(); this._name = name; this._description = description;`。`base.Initialize()` 只是把 `IsInitialized` 置 true；`IsReady` 是在 `AfterInitialized()` 里、且**仅当 `IsRegistered` 为 true 时**才置 true。所以手工调 `Initialize` 造出来的对象 `IsReady` 永远是 false。看派生类怎么处理就知道这是有意还是疏忽：`BannerEffect` 的 `Initialize` 显式在末尾补了一句 `base.AfterInitialized();`——**说明这是官方认可的标准收尾动作，每个自定义子类都要自己做。** 忘了补，对象在游戏里表现为「已初始化但未就绪」，具体症状是各种 `IsReady` 门禁把它当没加载完。
 
 第三个是**两个字段都不做 null 保护**。`Name` 与 `Description` 的 getter 直接返回 `_name` / `_description`，构造器只调 `base(stringId)`，**不初始化这两个字段**。所以 `new PropertyObject("some_id")` 之后 `Name` 与 `Description` 都是 null，`GetName()` 返回 null。1.4.6 里没有 `MBObjectBase` 那种 `TextObject.GetEmpty()` 兜底。要判断显示名请用 `TextObject.IsNullOrEmpty(...)`，不要直接 `.ToString()`。
 
@@ -36,7 +36,7 @@ description: "带名称与描述的 MBObjectBase 基类：PerkObject、FeatObjec
 | `Name` | `public TextObject Name { get; }` | 本地化显示名，包装私有 `_name`。**构造后是 null**，因为构造器不初始化它。判空用 `TextObject.IsNullOrEmpty`。 |
 | `GetName` | `public override TextObject GetName()` | 覆盖 `MBObjectBase.GetName()`，返回 `this.Name` 而不是默认的 `new TextObject(StringId, null)`。**这是本类型存在的核心理由**——通用 UI / tooltip / AI 代码通过它拿显示名。 |
 | `Description` | `public TextObject Description { get; }` | 本地化描述，包装私有 `_description`。同样**构造后是 null**。 |
-| `.ctor` | `public PropertyObject(string stringId) : base(stringId)` | 只设 StringId。**没有无参构造器**，所以任何子类都必须显式转发一个 StringId（[BannerEffect](../Banner) 就是 `public BannerEffect(string stringId) : base(stringId)`）。 |
+| `.ctor` | `public PropertyObject(string stringId) : base(stringId)` | 只设 StringId。**没有无参构造器**，所以任何子类都必须显式转发一个 StringId（`BannerEffect` 就是 `public BannerEffect(string stringId) : base(stringId)`）。 |
 | `Initialize` | `public void Initialize(TextObject name, TextObject description)` | `base.Initialize()` 后赋值两个字段。**只置 `IsInitialized`，不调 `AfterInitialized()`**——子类必须自己补，否则 `IsReady` 永远为 false。 |
 | `_name` | `private TextObject _name` | 名字字段。无默认值，无 null 保护。 |
 | `_description` | `private TextObject _description` | 描述字段。同上。 |
@@ -55,7 +55,7 @@ description: "带名称与描述的 MBObjectBase 基类：PerkObject、FeatObjec
 - `public TextObject Description`（`:41`）——也是公开字段。
 - `public PropertyObject(string stringId)`（`:50`）与 `public void Initialize(TextObject name, TextObject description)`（`:56`）。
 
-内置派生类只有三个，全是 sealed 且都只有一个 `stringId` 构造器：[SkillObject](../SkillObject)（`SkillObject.cs:28`）、`BannerEffect`（`BannerEffect.cs:16`），以及英雄特质那一族。`Game.RegisterTypes` 也会把它们注册进 `MBObjectManager`（id 区间 2–53）。
+内置派生类只有三个，全是 sealed 且都只有一个 `stringId` 构造器：`SkillObject`（`SkillObject.cs:28`）、`BannerEffect`（`BannerEffect.cs:16`），以及英雄特质那一族。`Game.RegisterTypes` 也会把它们注册进 `MBObjectManager`（id 区间 2–53）。
 
 ### 典型用法
 
@@ -152,12 +152,12 @@ if (doctrine != null && Campaign.PlayerTraitDeveloper.HasProperty(doctrine))
 ## 风险与边界
 
 - **构造后 `Name` 与 `Description` 都是 null。** 构造器只设 StringId。要么走 `Initialize`，要么用 `TextObject.IsNullOrEmpty` 判空。**没有 `TextObject.GetEmpty()` 兜底。**
-- **`Initialize` 不调 `AfterInitialized()`。** 手工装配的实例 `IsReady` 永远 false（`AfterInitialized` 只在 `IsRegistered` 为 true 时才置 `IsReady`）。子类必须自己补，[BannerEffect](../Banner) 就是范例。
+- **`Initialize` 不调 `AfterInitialized()`。** 手工装配的实例 `IsReady` 永远 false（`AfterInitialized` 只在 `IsRegistered` 为 true 时才置 `IsReady`）。子类必须自己补，`BannerEffect` 就是范例。
 - **没有无参构造器。** 子类必须转发 StringId。
 - **子类必须覆盖 `GetName()` 才有意义。** 父类的实现只是返回 `Name`，如果子类改用别的字段存名字，就得同时覆盖 `GetName()`，否则通用 UI 会显示 null。
 - **实例哈希依赖 `Id`。** `MBObjectBase.GetHashCode()` 返回 `this.Id.GetHashCode()`，**未注册实例的 `Id` 是 `default(MBGUID)`，哈希全为 0**。而 `Campaign` 的 `PropertyOwner<PropertyObject>` 与 `HeroDeveloper` 的 `Dictionary<PropertyObject, float>` 正好拿它当键——**手工 `new` 的实例当键会互相覆盖。**
 - **`AutoGeneratedInstanceCollectObjects` 是空的。** 两个 `TextObject` 字段不进存档引用收集。实际影响有限，因为这些对象按 StringId 从 XML 重建。
-- **不是 `sealed`，是设计上的扩展基类。** 全树 8 个派生类分布在 `TaleWorlds.Core`（[SkillObject](../SkillObject)、`BannerEffect`）与 `TaleWorlds.CampaignSystem`（`PerkObject` / `FeatObject` / `TraitObject` / `SkillEffect` / `CultureTrait` / `Figurehead` / `PolicyObject`）两个程序集里。
+- **不是 `sealed`，是设计上的扩展基类。** 全树 8 个派生类分布在 `TaleWorlds.Core`（`SkillObject`、`BannerEffect`）与 `TaleWorlds.CampaignSystem`（`PerkObject` / `FeatObject` / `TraitObject` / `SkillEffect` / `CultureTrait` / `Figurehead` / `PolicyObject`）两个程序集里。
 - **全树无 `new PropertyObject(`。** 它只在继承位置出现。
 - **名字与描述可变。** `Initialize` 公开且无幂等保护，重复调用会覆盖已显示的名字。多语言切换或热重载时要小心。
 - **注意与 `ItemModifierGroup` 混淆。** 后者名字里有 `Group`，与本类型**没有任何继承或组合关系**，只是命名相似。

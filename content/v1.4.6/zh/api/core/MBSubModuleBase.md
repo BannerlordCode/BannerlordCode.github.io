@@ -14,7 +14,7 @@ description: "每个 mod 继承的基类：30 个空实现的生命周期回调�
 
 这是 mod 的「插件清单类」——每个 `SubModule.xml` 里声明的 `<SubModule>` 都会对应一个本类（或其派生类）的实例。它本身**没有任何实现**：30 个方法全是空的 `virtual`，存在的唯一意义是给游戏一个稳定的回调面。整个类 161 行、零字段、零属性。
 
-它被 [Module](../Module) 反射实例化：`AddSubModule` 取 `subModuleInfo.SubModuleClassTypeName` 对应的 `Type`，找**无参构造**（`BindingFlags.Instance | Public | NonPublic | CreateInstance`），把程序集里所有 `ManagedObject` / `DotNetObject` 派生类型注册进 `Managed.AddTypes`，然后 `constructor.Invoke(new object[0])`。所以你的子类**必须有无参构造**，且不能是泛型/抽象。
+它被 `Module` 反射实例化：`AddSubModule` 取 `subModuleInfo.SubModuleClassTypeName` 对应的 `Type`，找**无参构造**（`BindingFlags.Instance | Public | NonPublic | CreateInstance`），把程序集里所有 `ManagedObject` / `DotNetObject` 派生类型注册进 `Managed.AddTypes`，然后 `constructor.Invoke(new object[0])`。所以你的子类**必须有无参构造**，且不能是泛型/抽象。
 
 回调面分五组：加载期（`OnSubModuleLoad` / `RegisterSubModuleTypes` / `OnNewModuleLoad`）、开局期（`OnBeforeGameStart` / `OnGameStart` / `BeginGameStart` / `OnCampaignStart` / `OnGameInitializationFinished` …）、存档期（`RegisterSubModuleObjects(bool isSavedCampaign)` / `AfterRegisterSubModuleObjects` / `OnNewGameCreated` / `OnGameLoaded`）、帧与网络（`OnApplicationTick` / `AfterAsyncTickTick` / `OnNetworkTick`）、任务与模块启停（`OnMissionBehaviorInitialize` / `OnInitialState` / `OnSubModuleActivated` / `OnSubModuleDeactivated`）。
 
@@ -64,9 +64,9 @@ description: "每个 mod 继承的基类：30 个空实现的生命周期回调�
 | `OnBeforeMissionBehaviorInitialize` | `public virtual void OnBeforeMissionBehaviorInitialize(Mission mission)` | 任务 Behavior 挂载**之前**，早于上一条。 |
 | `OnInitialState` | `public virtual void OnInitialState()` | 模块进入初始状态时触发。 |
 | `OnNetworkTick` | `protected internal virtual void OnNetworkTick(float dt)` | 网络帧 tick。单人 mod 留空。 |
-| `OnSubModuleActivated` | `public virtual void OnSubModuleActivated()` | 对应 [Module](../Module) 的 `ActivateModule(moduleId)`：本模块被重新激活。适合重建缓存。 |
+| `OnSubModuleActivated` | `public virtual void OnSubModuleActivated()` | 对应 `Module` 的 `ActivateModule(moduleId)`：本模块被重新激活。适合重建缓存。 |
 | `OnSubModuleDeactivated` | `public virtual void OnSubModuleDeactivated()` | 对应 `DeactiveModule(moduleId)`：本模块被停用。**与 `OnSubModuleUnloaded` 不同**——这是模块级开关，不是程序集卸载。 |
-| `InitializeSubModuleGameObjects` | `public virtual void InitializeSubModuleGameObjects(Game game)` | 由 [Game](../../core-extra/Game) 的 `InitializeDefaultGameObjects()` 末尾调用，建 mod 的默认对象。 |
+| `InitializeSubModuleGameObjects` | `public virtual void InitializeSubModuleGameObjects(Game game)` | 由 `Game` 的 `InitializeDefaultGameObjects()` 末尾调用，建 mod 的默认对象。 |
 
 ## 怎么用
 
@@ -74,7 +74,7 @@ description: "每个 mod 继承的基类：30 个空实现的生命周期回调�
 
 `MBSubModuleBase` 是 `TaleWorlds.MountAndBlade/MBSubModuleBase.cs:8` 的 `public abstract class MBSubModuleBase`，162 行、31 个公开成员。**这是整个模组 API 的入口类型**——每个模组的 `SubModule.cs` 都继承它。
 
-**构造器是隐式无参的，实例由 [Module](../Module) 反射创建。** 宿主侧是 `public MBReadOnlyList<MBSubModuleBase> CollectSubModules()`（`Module.cs:97`，内部遍历 `moduleInfo.SubModules`），然后 `Module.cs:548`、`:565` 那两处 `foreach (MBSubModuleBase mbsubModuleBase in this.CollectSubModules())` 反射回调每一个。**所以你永远不 new 它，也拿不到一个稳定的引用。**
+**构造器是隐式无参的，实例由 `Module` 反射创建。** 宿主侧是 `public MBReadOnlyList<MBSubModuleBase> CollectSubModules()`（`Module.cs:97`，内部遍历 `moduleInfo.SubModules`），然后 `Module.cs:548`、`:565` 那两处 `foreach (MBSubModuleBase mbsubModuleBase in this.CollectSubModules())` 反射回调每一个。**所以你永远不 new 它，也拿不到一个稳定的引用。**
 
 **可见性分成两派，这是这一页最容易漏掉的事**：
 
@@ -111,7 +111,7 @@ public class MySubModule : MBSubModuleBase           // MBSubModuleBase.cs:8
 
 ### 最容易踩的坑
 
-**在 `OnSubModuleLoad()`（`:11`）里读 `Game.Current` 或 `Campaign.Current`。** 这是最早的钩子，`Module` 还没建出任何 `Game`——所以那两处都是 null 空引用。同理 `OnNewModuleLoad()`（`:31`）也不行。`Game.Current` 要等 [Game](../../core-extra/Game) 的 `CreateGame`，`Campaign.Current` 要等 `SetLoadingParameters`（`Campaign.cs:1873`）。
+**在 `OnSubModuleLoad()`（`:11`）里读 `Game.Current` 或 `Campaign.Current`。** 这是最早的钩子，`Module` 还没建出任何 `Game`——所以那两处都是 null 空引用。同理 `OnNewModuleLoad()`（`:31`）也不行。`Game.Current` 要等 `Game` 的 `CreateGame`，`Campaign.Current` 要等 `SetLoadingParameters`（`Campaign.cs:1873`）。
 
 **但反过来，最常见的真实事故是在 `OnGameStart(Game game, IGameStarter gameStarterObject)`（`:46`）里读 `Campaign.Current`。** 这个钩子由 `GameType` 驱动，时机早于战役初始化完成——此时读到的 `Campaign.Current` 要么是 null，要么是一个还没跑完 `OnInitialize()` 的半成品（`Campaign.OnInitialize()` 在 `Campaign.cs:1889` 起才建 `CampaignEvents`、`GameMenuManager`、各子系统）。后果是你在 `Campaign.MenuManager` 上拿到 null 而报错点完全看不出是时机问题。**战役相关的东西一律放到 `OnCampaignStart(Game, object)`（`:86`）或之后的钩子。**
 
@@ -195,7 +195,7 @@ protected override void RegisterSubModuleTypes()
 - **「回调只触发一次」是错的假设。** `OnMissionBehaviorInitialize` 每次进任务都会调；`OnApplicationTick` 每帧调；`OnGameStart` 在换局时会再调。任何「一次性的全局状态」都不能靠这些回调维护。
 - **`OnGameLoaded` 的 `initializerObject` 未必已执行。** 它可能是 `LoadCallbackInitializator`，晚初始化回调还没跑。`Game.LoadSaveGame` 里是 `InitializeObjects()` 在 `BeginLoading` 之前。
 - **`RegisterSubModuleObjects` 在读档路径也会调。** 不看 `isSavedCampaign` 就重复 `AddBehavior` 会导致同一 Behavior 注册两次。
-- **`DeactiveModule` 只对非原生模块生效。** [Module](../Module) 的实现里有 `!moduleInfo.IsNative` 判断，对官方模块调用是静默 no-op。
+- **`DeactiveModule` 只对非原生模块生效。** `Module` 的实现里有 `!moduleInfo.IsNative` 判断，对官方模块调用是静默 no-op。
 - **`protected internal` 覆写要用 `protected` 或 `public`。** 写 `private override` 或 `internal override` 编译不过。
 - **`OnSubModuleDeactivated` ≠ `OnSubModuleUnloaded`。** 前者由 `Module.DeactiveModule` 触发（模块开关），后者是程序集卸载。只在一个里清理资源会在另一个场景泄漏。
 

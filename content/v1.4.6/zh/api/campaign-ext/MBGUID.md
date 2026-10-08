@@ -37,7 +37,7 @@ description: "把类型编号与类型内序号压进一个 uint 的跨存档标
 | `MBGUID(uint objType, uint subId)` | `public MBGUID(uint objType, uint subId)` | 按 `(objType << 26) | subId` 拼装。`subId` 超出 67108863 时抛 `MBOutOfRangeException`。`objType` 不做范围校验，因此超过 63 的类型号会左移溢出、污染高位 |
 | `InternalValue` | `public uint InternalValue { get; }` | 底层那个 32 位整数的只读出口。要做序列化、手工构 ID 或调试打印时用它 |
 | `SubId` | `public uint SubId { get; }` | 低 26 位掩码后的结果（`_internalValue & 67108863U`）。**只在同一类型内唯一**，跨类型会重复 |
-| `GetTypeIndex` | `public uint GetTypeIndex()` | 高位类型号（`_internalValue >> 26`）。[MBObjectManager](../../campaign-ext/MBObjectManager) 的 `GetObject(MBGUID)` 靠它先定位类型记录 |
+| `GetTypeIndex` | `public uint GetTypeIndex()` | 高位类型号（`_internalValue >> 26`）。`MBObjectManager` 的 `GetObject(MBGUID)` 靠它先定位类型记录 |
 
 ### 比较
 

@@ -13,7 +13,7 @@ description: "物品词缀：XML 里的 ItemModifier 条目，通过 ItemModifie
 
 ## 概述
 
-313 行、15 个公开属性、11 个以 `Modify` 开头的方法，全部围绕一件事：**在物品基础数值上加一层修正**。它是被 [ItemModifierGroup](../ItemModifierGroup) 收集的词缀条目，`Deserialize` 读的是 XML 里 `ItemModifiers` 目录下的 `<ItemModifier>` 节点；游戏注册时用的是 `RegisterType<ItemModifier>("ItemModifier", "ItemModifiers", 6U, ...)`，加载入口是 `Game.LoadBasicFiles()` 里的 `ObjectManager.LoadXML("ItemModifiers", false)`。
+313 行、15 个公开属性、11 个以 `Modify` 开头的方法，全部围绕一件事：**在物品基础数值上加一层修正**。它是被 `ItemModifierGroup` 收集的词缀条目，`Deserialize` 读的是 XML 里 `ItemModifiers` 目录下的 `<ItemModifier>` 节点；游戏注册时用的是 `RegisterType<ItemModifier>("ItemModifier", "ItemModifiers", 6U, ...)`，加载入口是 `Game.LoadBasicFiles()` 里的 `ObjectManager.LoadXML("ItemModifiers", false)`。
 
 数值分两套，这是最容易看混的地方：
 
@@ -24,7 +24,7 @@ description: "物品词缀：XML 里的 ItemModifier 条目，通过 ItemModifie
 
 把一个 `ItemModifier` 想成**一张贴在物品上的属性增减贴纸**，它自己不知道贴在谁身上，只知道自己「加多少 / 乘多少」。真正的装配发生在所属的词缀组（`TaleWorlds.Core.ItemModifierGroup`）：`ItemModifier.Deserialize` 末尾读 `modifier_group` 属性拿到组，然后调组上的 `AddItemModifier` 把它塞进组自己的 `MBList<ItemModifier>`。所以**XML 里不写 `modifier_group` 的词缀加载完就是孤儿**，谁也拿不到。
 
-第二层是**怎么选**：组提供 `GetModifiersBasedOnQuality(ItemQuality)` 按品质返回候选、`GetRandomItemModifierLootScoreBased()` 按 `LootDropScore` 抽、`GetRandomItemModifierProductionScoreBased()` 按 `ProductionDropScore` 抽。选定一组词缀后，逐个调 `ModifyDamage` / `ModifySpeed` / `ModifyArmor` 之类把加成叠到 [ItemObject](../ItemObject) 的原始数值上。
+第二层是**怎么选**：组提供 `GetModifiersBasedOnQuality(ItemQuality)` 按品质返回候选、`GetRandomItemModifierLootScoreBased()` 按 `LootDropScore` 抽、`GetRandomItemModifierProductionScoreBased()` 按 `ProductionDropScore` 抽。选定一组词缀后，逐个调 `ModifyDamage` / `ModifySpeed` / `ModifyArmor` 之类把加成叠到 `ItemObject` 的原始数值上。
 
 三条真会咬人的边界：
 
@@ -123,7 +123,7 @@ List<ItemModifier> legends = group.GetModifiersBasedOnQuality(ItemQuality.Legend
 
 第二个坑是 `HitPoints`（`:54`）和 `StackCount`（`:59`）的类型是 **`short`**，不是 `int`。`short` 上限 32767，给武器加血时写一个 50000 的词缀会在反编译/读取时溢出成负数——表现是「加了血反而扣血」，而且不会抛异常。要更大范围就改用 `Damage`（`:34`）或分多条词缀。
 
-第三，`GetModifiersBasedOnQuality`（`ItemModifierGroup.cs:91`）返回的是 `List<ItemModifier>` 新实例（`:93` 里的 `.ToList()`），改它**不会**影响词缀组本体——想改本体只能用 [ItemModifierGroup](../ItemModifierGroup) 的 `AddItemModifier`。
+第三，`GetModifiersBasedOnQuality`（`ItemModifierGroup.cs:91`）返回的是 `List<ItemModifier>` 新实例（`:93` 里的 `.ToList()`），改它**不会**影响词缀组本体——想改本体只能用 `ItemModifierGroup` 的 `AddItemModifier`。
 
 按组取词缀并把修正叠到物品原始数值上（注意下限语义）：
 

@@ -15,7 +15,7 @@ description: "游戏状态基类：地图、锻造、部队、王国等界面各
 
 212 行，一个 `abstract` 基类，定义了游戏界面状态的生命周期契约。所有「打开某个界面」的 mod 需求最后都落在这里：`MapState` / `KingdomState` / `ClanState` / `PartyState` / `CraftingState` / `BarberState` / `EducationState` / `CharacterDeveloperState` / `GameOverState` / `VideoPlaybackState` / `BannerEditorState` / `CharacterCreationState` …… 全是它的派生类。
 
-它的职责只有两件：**转发四段生命周期**，以及**管理一串 `IGameStateListener`**。真正的压栈 / 出栈 / 每帧 tick 在 [GameStateManager](../GameStateManager) 那边。
+它的职责只有两件：**转发四段生命周期**，以及**管理一串 `IGameStateListener`**。真正的压栈 / 出栈 / 每帧 tick 在 `GameStateManager` 那边。
 
 四个 `internal` 桥接方法（`HandleInitialize` / `HandleFinalize` / `HandleActivate` / `HandleDeactivate`）是给管理器调的入口——它们先调本类对应的 `protected virtual` 钩子，再遍历监听器调同名方法。
 
@@ -90,8 +90,8 @@ description: "游戏状态基类：地图、锻造、部队、王国等界面各
 
 它是 UI / 逻辑状态栈的元素。用法是：
 
-- 继承它，覆写 `protected virtual void OnInitialize()`（`:121`）、`OnActivate()`（`:172`）、`OnDeactivate()`（`:188`）、`OnTick(float dt)`（`:194`）、`OnIdleTick(float dt)`（`:199`）、`OnFinalize()`（`:138`）、以及继承自 [MBObjectBase](../../campaign-ext/MBObjectBase) 的 `GetName()`。
-- **自己 `new` 出一个实例，再交给 [GameStateManager](../GameStateManager) 压栈**：`public void PushState(GameState gameState, int level = 0)`（`GameStateManager.cs:235`）和 `public void CleanAndPushState(GameState gameState, int level = 0)`（`GameStateManager.cs:259`）。两个方法都会先用 `Debug.FailedAssert("State should be changed from main thread", ...)` 检查线程（`GameStateManager.cs:239`）。
+- 继承它，覆写 `protected virtual void OnInitialize()`（`:121`）、`OnActivate()`（`:172`）、`OnDeactivate()`（`:188`）、`OnTick(float dt)`（`:194`）、`OnIdleTick(float dt)`（`:199`）、`OnFinalize()`（`:138`）、以及继承自 `MBObjectBase` 的 `GetName()`。
+- **自己 `new` 出一个实例，再交给 `GameStateManager` 压栈**：`public void PushState(GameState gameState, int level = 0)`（`GameStateManager.cs:235`）和 `public void CleanAndPushState(GameState gameState, int level = 0)`（`GameStateManager.cs:259`）。两个方法都会先用 `Debug.FailedAssert("State should be changed from main thread", ...)` 检查线程（`GameStateManager.cs:239`）。
 
 它自己也有两个**跨状态**的字段：`Predecessor`（`:13`）指向上一个状态，`IsActive`（`:23`）由 `Activated { get; private set; }`（`:169`）驱动——`OnActivate()`（`:172-175`）置 true，`OnDeactivate()`（`:188-191`）置 false。
 

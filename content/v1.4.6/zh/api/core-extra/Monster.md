@@ -13,7 +13,7 @@ description: "怪物/骨架定义：XML 里 Monsters 目录的条目，承载碰
 
 ## 概述
 
-1008 行、89 个公开成员，是 [FaceGen](../FaceGen) 层与渲染 / 物理层的中间表示。它不描述「一个种族」，也不描述「一段动画」，而是描述**一个可实例化的身体模板**：一具骨骼、一套碰撞胶囊、一个动作集代码，外加几十个 `sbyte` 骨骼索引告诉引擎「哪根骨头是主手、哪根是脚、哪根决定趴地上」。
+1008 行、89 个公开成员，是 `FaceGen` 层与渲染 / 物理层的中间表示。它不描述「一个种族」，也不描述「一段动画」，而是描述**一个可实例化的身体模板**：一具骨骼、一套碰撞胶囊、一个动作集代码，外加几十个 `sbyte` 骨骼索引告诉引擎「哪根骨头是主手、哪根是脚、哪根决定趴地上」。
 
 加载路径很短：`Game.RegisterTypes` 里 `objectManager.RegisterType<Monster>("Monster", "Monsters", 2U, true, false);`，紧接着 `Game.LoadBasicFiles()` 调 `this.ObjectManager.LoadXML("Monsters", false);`。**typeId 是 2，全游戏第二个被加载的定义类。**
 
@@ -21,7 +21,7 @@ description: "怪物/骨架定义：XML 里 Monsters 目录的条目，承载碰
 
 ## 心智模型
 
-把它想成**一份「身体装配图」**。角色数据（`CharacterObject`）说「这是谁、什么等级、什么性格」，`Monster` 说「他长什么样、怎么动、碰撞体在哪」。两者在生成 Agent 时汇合：`AgentData.Monster(name)` 选定一个 `Monster`，随后 [FaceGen](../FaceGen) 依 `Monster.ActionSetCode` 与种族生成外观。
+把它想成**一份「身体装配图」**。角色数据（`CharacterObject`）说「这是谁、什么等级、什么性格」，`Monster` 说「他长什么样、怎么动、碰撞体在哪」。两者在生成 Agent 时汇合：`AgentData.Monster(name)` 选定一个 `Monster`，随后 `FaceGen` 依 `Monster.ActionSetCode` 与种族生成外观。
 
 关键结构分五块：
 
@@ -170,7 +170,7 @@ Debug.Print("eyes standing=" + orc.StandingEyeHeight + " crouched=" + orc.Crouch
 Debug.Print("charge speed limit=" + orc.RelativeSpeedLimitForCharge, 0);
 ```
 
-按种族拿怪物——走 [FaceGen](../FaceGen) 的静态入口，注意实例未就绪时返回 null：
+按种族拿怪物——走 `FaceGen` 的静态入口，注意实例未就绪时返回 null：
 
 ```csharp
 Monster baseOne = FaceGen.GetBaseMonsterFromRace(0);

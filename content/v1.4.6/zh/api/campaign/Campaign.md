@@ -280,7 +280,7 @@ public override void OnGameInitializationFinished(Game game, object starterObjec
 
 ### 最容易踩的坑
 
-**在 `Campaign.Current` 还是 null 的阶段就去取它。** 它只在 `SetLoadingParameters`（`Campaign.cs:1871-1873`）里被赋值，所以 `MBSubModuleBase.OnSubModuleLoad`、`OnGameInitializationFinished` 之前这些都拿不到值；反过来它又在拆局时被置 null（`Campaign.cs:1646`），所以任何把 `Campaign.Current` 缓存进静态字段的代码在**换局之后就是悬空引用**——第二次进战役时你的 mod 会拿着上一局的 `Campaign` 去查 `Settlement`，查到的是已经销毁的世界。正确做法是每次现取，或者把缓存挂在 [CampaignBehaviorBase](../CampaignBehaviorBase) 实例上（它随局重建）。
+**在 `Campaign.Current` 还是 null 的阶段就去取它。** 它只在 `SetLoadingParameters`（`Campaign.cs:1871-1873`）里被赋值，所以 `MBSubModuleBase.OnSubModuleLoad`、`OnGameInitializationFinished` 之前这些都拿不到值；反过来它又在拆局时被置 null（`Campaign.cs:1646`），所以任何把 `Campaign.Current` 缓存进静态字段的代码在**换局之后就是悬空引用**——第二次进战役时你的 mod 会拿着上一局的 `Campaign` 去查 `Settlement`，查到的是已经销毁的世界。正确做法是每次现取，或者把缓存挂在 `CampaignBehaviorBase` 实例上（它随局重建）。
 
 同一个时间窗还有第二个坑：`Campaign.Models` 走的是 `SetBasicModels(campaignGameStarter.Models)`（`Campaign.cs:1915`），在**这行之前**读 `Campaign.Models` 拿到的是未初始化引用；`CreateGameManager()`（`:1920`）之前 `Game.Current.GameStateManager` 也还不存在。
 

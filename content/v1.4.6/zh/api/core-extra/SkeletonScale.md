@@ -218,7 +218,7 @@ Debug.Print("radiusAdder=" + mounted.MountRadiusAdder, 0);
 - **`MountRadiusAdder` 用 `float.Parse` 而不是 `TryParse`。** XML 里写错格式直接抛 `FormatException`，加载中断。
 - **索引只在同一个 `SkeletonModel` 内有效。** 换骨骼要重算，`SetBoneIndices` 不做任何失效检查。
 - **依赖 `TaleWorlds.Engine` 的 `Skeleton` 静态类。** 只有引擎层能完成名字到索引的翻译，纯逻辑层拿不到。
-- **挂载点有两处。** [HorseComponent](../HorseComponent) 的 `SkeletonScale` 属性（按字符串 id 从 `Game.Current.ObjectManager` 取），以及全局遍历那条路径（引擎初始化收尾时统一解析）。
+- **挂载点有两处。** `HorseComponent` 的 `SkeletonScale` 属性（按字符串 id 从 `Game.Current.ObjectManager` 取），以及全局遍历那条路径（引擎初始化收尾时统一解析）。
 
 ## 依赖关系
 

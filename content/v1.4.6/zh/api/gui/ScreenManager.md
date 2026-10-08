@@ -160,7 +160,7 @@ bool rightDown = ScreenManager.IsEnterButtonRDown;       // :52
 
 ### 最容易踩的坑
 
-**以为 `AddGlobalLayer` 只是「登记一下」，结果它的实现会重排整个全局层列表。** `:208` 起的循环比较的是 `ScreenManager._globalLayers[i].Layer.InputRestrictions.Order >= layer.Layer.InputRestrictions.Order`——**插入位置由 `InputRestrictions.Order` 决定，而那个值是在 [ScreenLayer](../ScreenLayer) 构造器里用 `new InputRestrictions(localOrder)` 定的**（`ScreenLayer.cs:94`）。后果是：`localOrder` 不是你想插的层级时，层会被排到完全不同的位置（输入优先级错乱），或者因为 Order 与已有层相同而被排到它后面。**Order 是输入优先级，不是 z-index**——这两件事在 Bannerlord 里恰好都用这一个数字，所以特别容易搞错。
+**以为 `AddGlobalLayer` 只是「登记一下」，结果它的实现会重排整个全局层列表。** `:208` 起的循环比较的是 `ScreenManager._globalLayers[i].Layer.InputRestrictions.Order >= layer.Layer.InputRestrictions.Order`——**插入位置由 `InputRestrictions.Order` 决定，而那个值是在 `ScreenLayer` 构造器里用 `new InputRestrictions(localOrder)` 定的**（`ScreenLayer.cs:94`）。后果是：`localOrder` 不是你想插的层级时，层会被排到完全不同的位置（输入优先级错乱），或者因为 Order 与已有层相同而被排到它后面。**Order 是输入优先级，不是 z-index**——这两件事在 Bannerlord 里恰好都用这一个数字，所以特别容易搞错。
 
 第二个坑是退订。`AddGlobalLayer` / `RemoveGlobalLayer`（`:208`、`:199`）在实现里都会 `Debug.Print` 并置 `_globalOrderDirty = true`（`:203`），而 `OnPushScreen`（`:68`）等六个事件都是 `public static event`——**跨 Screen 存活**。你如果在初始化时 `OnPushScreen += ...` 而从不 `-=`，每压一次界面就多一层处理器。退订必须传同一个委托实例，写 lambda 退不掉。
 

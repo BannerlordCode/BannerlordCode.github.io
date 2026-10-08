@@ -14,7 +14,7 @@ description: "状态栈管理器：维护有序的 GameState 列表，负责 pus
 
 这是 UI/逻辑状态的单页栈管理器。它内部维护一个 `List<GameState> _gameStates`（有序、不去重）、一个监听器列表、一个「用户请求暂停活动状态」的弱引用列表，以及一个待执行作业队列。核心动作只有四个：`PushState`、`PopState`、`CleanAndPushState`、`CleanStates`——后三者都只是**往队列里塞一个 job 然后立刻 `DoGameStateJobs()` 排干**，真正的状态迁移发生在 `OnPushState` / `OnPopState` / `OnCleanAndPushState` / `OnCleanStates` 这四个 private 方法里。
 
-游戏里有两个实例，通过 `GameStateManager.Current` 区分：`GameType.Game` 那一档是 [Game](../Game) 的私有栈（`Game.CreateGameManager()` 创建），`Global` 那一档是 [Module](../../core/Module) 构造函数里直接 new 出来的全局栈，后者在 `Module` 构造时就被赋给 `Current`，因此**整局游戏早期它才是当前栈**。
+游戏里有两个实例，通过 `GameStateManager.Current` 区分：`GameType.Game` 那一档是 `Game` 的私有栈（`Game.CreateGameManager()` 创建），`Global` 那一档是 `Module` 构造函数里直接 new 出来的全局栈，后者在 `Module` 构造时就被赋给 `Current`，因此**整局游戏早期它才是当前栈**。
 
 每个 `GameState` 带一个 `Level` 字段，`PushState` 用 `FindLastIndex(state => state.Level <= gameState.Level)` 决定插入位置——**Level 相同的 state 会插在已有同级 state 之后，Level 小的插在前面**。这就是「地图上盖一个菜单」这类嵌套能工作的原因。
 
@@ -44,7 +44,7 @@ description: "状态栈管理器：维护有序的 GameState 列表，负责 pus
 | `Listeners` | `public IReadOnlyCollection<IGameStateManagerListener> Listeners { get; }` | 只读视图，每次 get 都新建 `AsReadOnly()` 包装。**遍历它时不要增删监听器**。 |
 | `GameStates` | `public IEnumerable<GameState> GameStates { get; }` | 只读视图，顺序即栈底到栈顶。用它做调试输出比 `ActiveState` 信息量大。 |
 | `CurrentType` | `public GameStateManager.GameStateManagerType CurrentType { get; private set; }` | `Game` 或 `Global`，构造时确定。用来判断「我拿到的是不是局内栈」。 |
-| `Owner` | `public IGameStateManagerOwner Owner { get; private set; }` | 状态变化的通知目标。[Game](../Game) 或 [Module](../../core/Module)。栈空时会回调 `OnStateStackEmpty()`。 |
+| `Owner` | `public IGameStateManagerOwner Owner { get; private set; }` | 状态变化的通知目标。`Game` 或 `Module`。栈空时会回调 `OnStateStackEmpty()`。 |
 | `ActiveState` | `public GameState ActiveState { get; }` | 栈顶。**栈为空时返回 null**——不是抛异常。 |
 | `ActiveStateDisabledByUser` | `public bool ActiveStateDisabledByUser { get; }` | 只要禁用请求列表非空就为真。典型用途是「过场动画中冻结 UI 逻辑」，此时 `OnTick` 走 `OnIdleTick` 而不是 `OnTick`。 |
 | `StateActivateCommand` | `public static string StateActivateCommand` | 公开静态字段，控制台里用来强制切状态的命令名。改它会影响调试命令行行为。 |
@@ -74,7 +74,7 @@ description: "状态栈管理器：维护有序的 GameState 列表，负责 pus
 
 ### 怎么拿到它
 
-`GameStateManager` 是 `TaleWorlds.Core/GameStateManager.cs:9` 的 `public class GameStateManager`，**不继承 `MBObjectBase`**——它是 [GameState](../GameState) 栈的管理者。
+`GameStateManager` 是 `TaleWorlds.Core/GameStateManager.cs:9` 的 `public class GameStateManager`，**不继承 `MBObjectBase`**——它是 `GameState` 栈的管理者。
 
 公开构造器 `public GameStateManager(IGameStateManagerOwner owner, GameStateManager.GameStateManagerType gameStateManagerType)`（`:86`）。两个出口：
 

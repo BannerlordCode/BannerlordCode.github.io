@@ -109,7 +109,7 @@ description: "全局对象注册表：按类型与 StringId 登记所有 MBObjec
 
 ### 怎么拿到它
 
-`MBObjectManager` 是 `sealed class`（`TaleWorlds.ObjectSystem/MBObjectManager.cs:18`），**没有公开构造器**，唯一合法入口是静态属性 `public static MBObjectManager Instance { get; private set; }`（`:23`）。它由 `public static MBObjectManager Init()`（`:31`）创建——注意这个方法**不接收参数、内部就是 `Instance = new MBObjectManager()`**，而 `Game.CreateGame(...)` 内部第一步就会调它（见 [Game](../../core-extra/Game) 的 `RegisterTypes` 前置流程）。`Game` 也持有同实例的引用 `Game.ObjectManager`。
+`MBObjectManager` 是 `sealed class`（`TaleWorlds.ObjectSystem/MBObjectManager.cs:18`），**没有公开构造器**，唯一合法入口是静态属性 `public static MBObjectManager Instance { get; private set; }`（`:23`）。它由 `public static MBObjectManager Init()`（`:31`）创建——注意这个方法**不接收参数、内部就是 `Instance = new MBObjectManager()`**，而 `Game.CreateGame(...)` 内部第一步就会调它（见 `Game` 的 `RegisterTypes` 前置流程）。`Game` 也持有同实例的引用 `Game.ObjectManager`。
 
 生命周期上是：`MBObjectManager.Init()` → `Game.RegisterTypes(gameType, objectManager, gameManager)`（注册核心 16 个类型，id 2–53）→ 之后 mod 才能 `RegisterType<T>` 自己的类型。销毁走 `public void Destroy()`（`:39`），读档/开局后走 `public void ReInitialize()`（`:1469`）。
 

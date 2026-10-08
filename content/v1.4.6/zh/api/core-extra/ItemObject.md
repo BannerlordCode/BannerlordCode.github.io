@@ -12,7 +12,7 @@ description: "物品定义对象：XML 加载的核心数据类，承载 mesh/�
 
 ## 概述
 
-1378 行、60 多个公开成员，是 mod 加自定义物品时的核心类型。它是 `sealed` 的，继承 [MBObjectBase](../../campaign-ext/MBObjectBase)，因此**是一个 `MBObjectManager` 可寻址的全局数据对象**——不是存档对象。物品通过 `StringId`（XML 里的 `id`）引用，存档里只存 id，读档时按 id 重新从 XML 加载。
+1378 行、60 多个公开成员，是 mod 加自定义物品时的核心类型。它是 `sealed` 的，继承 `MBObjectBase`，因此**是一个 `MBObjectManager` 可寻址的全局数据对象**——不是存档对象。物品通过 `StringId`（XML 里的 `id`）引用，存档里只存 id，读档时按 id 重新从 XML 加载。
 
 设计上分三块：
 
@@ -26,7 +26,7 @@ description: "物品定义对象：XML 加载的核心数据类，承载 mesh/�
 
 1. **按 StringId 取物品**。`MBObjectManager.Instance.GetObject<ItemObject>("heavy_bearded_axe")`。物品必须先被 `RegisterType<ItemObject>`（`Game.RegisterTypes` 里 id 4）并 `LoadXML("Items", ...)` 加载。
 2. **造自定义物品（贸易品/程序化生成）**。`InitializeTradeGood(item, name, meshName, category, value, weight, itemType, isFood)` 是最直接的工厂——它内部 `Initialize()` → 填字段 → 装 `TradeItemComponent` → `AfterInitialized()` → 追加 `ItemFlags.Civilian`。`InitAsPlayerCraftedItem(ref item)` 只打一个「玩家锻造」标记。
-3. **造合成武器**。走 [Crafting](../Crafting) 的 `GenerateItem` / `CreatePreCraftedWeaponOnDeserialize`，产出带 `WeaponDesign` 的 `ItemObject`。
+3. **造合成武器**。走 `Crafting` 的 `GenerateItem` / `CreatePreCraftedWeaponOnDeserialize`，产出带 `WeaponDesign` 的 `ItemObject`。
 
 **最坑的一条是「空物品的哈希会撞码」**。`public ItemObject()` 无参构造器存在，而 `GetHashCode()` 是 `return (int)base.Id.SubId;`——`Id` 是 `MBGUID` 结构体，未注册的物品它的值是 `default(MBGUID)`，`SubId`（`uint`）为 **0**。所以**任意多个 `new ItemObject()` 的 `GetHashCode()` 全部返回 0**。别拿未注册物品当 `Dictionary` / `HashSet` 的键。**只有 `InitializeTradeGood` 之类工厂走完之后物品才是可用的。**
 
@@ -127,7 +127,7 @@ description: "物品定义对象：XML 加载的核心数据类，承载 mesh/�
 
 | 成员 | 签名 | 作用 |
 | --- | --- | --- |
-| `Deserialize` | `public override void Deserialize(MBObjectManager objectManager, XmlNode node)` | 处理 `<Item>` 定义。遇到 `<CraftedItem>` 节点转 [Crafting](../Crafting) 的合成武器路径。**结尾调 `Game.Current.ItemObjectDeserialized(this)` 触发 `OnItemDeserializedEvent`。** |
+| `Deserialize` | `public override void Deserialize(MBObjectManager objectManager, XmlNode node)` | 处理 `<Item>` 定义。遇到 `<CraftedItem>` 节点转 `Crafting` 的合成武器路径。**结尾调 `Game.Current.ItemObjectDeserialized(this)` 触发 `OnItemDeserializedEvent`。** |
 | `SetItemFlagsForCosmetics` | `public void SetItemFlagsForCosmetics(ItemFlags newFlags)` | 公开可写 `ItemFlags`。给外观物品（胡子、脸）换标志位。 |
 | `DetermineItemCategoryForItem` | `public void DetermineItemCategoryForItem()` | `ItemCategory == null` 时向 `Game.Current.BasicModels.ItemCategorySelector` 查询并写入。**依赖 `Game.Current`。** |
 | `DetermineValue` | `internal void DetermineValue()` | 用 `ItemValueModel.CalculateValue(this)` 重算 `Value`，模型为 null 时置 1。**internal，外部程序集调不到。** |
@@ -161,7 +161,7 @@ description: "物品定义对象：XML 加载的核心数据类，承载 mesh/�
 - **XML**：`Game.LoadBasicFiles()` → `MBObjectManager.LoadXML(...)`，物品表由 `MBGameManager.RegisterSubModuleObjects` 一侧加载。
 - **按 id**：`MBObjectManager.Instance.GetObject<ItemObject>("剑的 id")`
 - **代码建**：`public static ItemObject InitializeTradeGood(ItemObject item, TextObject name, string meshName, ItemCategory category, int value, float weight, ItemObject.ItemTypeEnum itemType, bool isFood = false)`（`:489`）——九个参数，模组造交易品走这条。
-- **锻造产物**：`public static ItemObject GetCraftedItemObjectFromHashedCode(string hashedCode)`（`:558`），内部对应 [Crafting](../Crafting) 的 `GenerateItem`。
+- **锻造产物**：`public static ItemObject GetCraftedItemObjectFromHashedCode(string hashedCode)`（`:558`），内部对应 `Crafting` 的 `GenerateItem`。
 - **武器类别**：`public static ItemObject GetItemFromWeaponKind(int weaponKind)`（`:999`）、`GetAmmoTypeForItemType(ItemObject.ItemTypeEnum)`（`:1056`）。
 
 **单槽组件**：`public ItemComponent ItemComponent { get; private set; }`（`:32`，setter private）。配套的便利属性全是 `as` 转型：`ArmorComponent`（`:359`）、`BannerComponent`（`:379`）、`HasArmorComponent`（`:369`）、`HasBannerComponent`（`:389`）。`public ItemObject.ItemTypeEnum Type;`（`:1283`）是**公开字段**。
@@ -196,7 +196,7 @@ ItemObject clone = new ItemObject(myGood);                // :449，:451 按引�
 
 ### 最容易踩的坑
 
-**用拷贝构造器 `new ItemObject(itemToCopy)`（`:449`）之后，改副本的组件，结果原件也跟着变。** `this.ItemComponent = itemToCopy.ItemComponent;`（`:451`）**是按引用赋值**，不是深拷贝。后果是给 `clone.ArmorComponent` 改护甲值会同时改到 `myGood` 以及所有从它拷贝出来的实例——而 `ItemComponent` 的所有属性几乎都是 `{ get; private set; }`，你无法「就地换掉」一个组件，只能改它的数值，所以这个共享污染很难避免。**要做真正独立的副本，构造完 `clone` 之后自己重新赋一份 `GetCopy()` 的结果**（注意 [WeaponComponent](../WeaponComponent) 的 `GetCopy()` 返回的是空壳，见那一页）。
+**用拷贝构造器 `new ItemObject(itemToCopy)`（`:449`）之后，改副本的组件，结果原件也跟着变。** `this.ItemComponent = itemToCopy.ItemComponent;`（`:451`）**是按引用赋值**，不是深拷贝。后果是给 `clone.ArmorComponent` 改护甲值会同时改到 `myGood` 以及所有从它拷贝出来的实例——而 `ItemComponent` 的所有属性几乎都是 `{ get; private set; }`，你无法「就地换掉」一个组件，只能改它的数值，所以这个共享污染很难避免。**要做真正独立的副本，构造完 `clone` 之后自己重新赋一份 `GetCopy()` 的结果**（注意 `WeaponComponent` 的 `GetCopy()` 返回的是空壳，见那一页）。
 
 第二个坑是 `ItemComponent` 的 setter 是 **private**（`:32`）且**单槽**。所以「给一个物品加第二个组件」在运行期做不到——组件类型在反序列化时按 `Type` 一次定好（见 `ItemObject.cs:784` 的 `new BannerComponent(this)`、`:809` 的 `new ArmorComponent(this)`）。想改物品类别必须改 XML 并重启。
 
@@ -283,7 +283,7 @@ Debug.Print("arrow air friction = " + friction, 0);
 
 ## 风险与边界
 
-- **`sealed`，不能继承。** 扩展只能靠 [ItemComponent](../ItemComponent) 派生类。
+- **`sealed`，不能继承。** 扩展只能靠 `ItemComponent` 派生类。
 - **不是存档对象。** 存档里存的是 StringId 引用，读档时按 id 重新加载 XML。**改 XML 不会改变已有存档里的物品表现**（物品定义变了，存档引用同一个 id 拿到的是新定义）。
 - **组件单槽。** `ItemComponent` 只有一个。`AddWeapon` 会覆盖 `InitializeTradeGood` 装上的 `TradeItemComponent`，食品标记丢失。
 - **组件访问器返回 null 不抛。** `WeaponComponent` / `HorseComponent` / `ArmorComponent` / `BannerComponent` / `SaddleComponent` / `FoodComponent` 全是 `as` 转型。**必须先用对应的 `HasXxxComponent` 判。**
@@ -295,7 +295,7 @@ Debug.Print("arrow air friction = " + friction, 0);
 - **`Type` 与 `ItemType` 是同一份数据。** 一个是公开字段、一个是属性包装。外部能通过 `Type` 绕过属性的意图。
 - **`ToString()` 返回 StringId 不是 Name。** 日志里看到的是 id 不是显示名。
 - **`SetItemFlagsForCosmetics` 直接改标志位。** 没有校验，误用会让普通物品被当成外观品。
-- **数值属性全是 `private set`。** 运行时改不了——要改得走 [Crafting](../Crafting) 的重建流程或 `internal DetermineValue()`。
+- **数值属性全是 `private set`。** 运行时改不了——要改得走 `Crafting` 的重建流程或 `internal DetermineValue()`。
 - **`Deserialize` 触发全局事件。** 结尾 `Game.Current.ItemObjectDeserialized(this)` 会广播 `OnItemDeserializedEvent`，mod 在那里做批量处理要考虑加载期性能。
 
 ## 跨版本提示

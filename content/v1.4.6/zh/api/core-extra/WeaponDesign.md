@@ -12,9 +12,9 @@ description: "一件合成武器的最终设计快照：构造时一次性算出
 
 ## 概述
 
-它是「锻造结果」的值对象，不是流程对象。构造器一次就把几何全部算完并冻结：`CalculatePivotDistances()` 顺 [CraftingTemplate](../CraftingTemplate) 的 `BuildOrders` 逐部件累加正负两侧的轴心偏移，写进 `_piecePivotDistances` / `TopPivotOffsets` / `BottomPivotOffsets`；`CalculateWeaponLength()` 给出 `CraftedWeaponLength`；`CalculateHolsterShiftAmount()` 给出 `HolsterShiftAmount`；最后把所有部件的 `CraftingPiece.AdditionalWeaponFlags` 或进 `WeaponFlags`。**构造完成后没有重新计算的入口**——想改几何只能造一个新的 `WeaponDesign`。
+它是「锻造结果」的值对象，不是流程对象。构造器一次就把几何全部算完并冻结：`CalculatePivotDistances()` 顺 `CraftingTemplate` 的 `BuildOrders` 逐部件累加正负两侧的轴心偏移，写进 `_piecePivotDistances` / `TopPivotOffsets` / `BottomPivotOffsets`；`CalculateWeaponLength()` 给出 `CraftedWeaponLength`；`CalculateHolsterShiftAmount()` 给出 `HolsterShiftAmount`；最后把所有部件的 `CraftingPiece.AdditionalWeaponFlags` 或进 `WeaponFlags`。**构造完成后没有重新计算的入口**——想改几何只能造一个新的 `WeaponDesign`。
 
-它同时是存档对象：`WeaponName` / `HandToBottomLength` 挂 `[SaveableProperty]`，`WeaponFlags` / `_usedPieces` / `_piecePivotDistances` / `CraftedWeaponLength` / `Template` / `TopPivotOffsets` / `BottomPivotOffsets` / `HolsterShiftAmount` 挂 `[SaveableField]`。读档路径由 [Crafting](../Crafting) 的 `InitializePreCraftedWeaponOnLoad` 接管。
+它同时是存档对象：`WeaponName` / `HandToBottomLength` 挂 `[SaveableProperty]`，`WeaponFlags` / `_usedPieces` / `_piecePivotDistances` / `CraftedWeaponLength` / `Template` / `TopPivotOffsets` / `BottomPivotOffsets` / `HolsterShiftAmount` 挂 `[SaveableField]`。读档路径由 `Crafting` 的 `InitializePreCraftedWeaponOnLoad` 接管。
 
 相等性只看 `HashedCode` 一个字符串，不看部件数组。
 
@@ -24,13 +24,13 @@ description: "一件合成武器的最终设计快照：构造时一次性算出
 
 1. 按 `CraftingPiece.PieceTypes`（`Blade=0 / Guard=1 / Handle=2 / Pommel=3`）摆满一个长度 ≥ 3 的 `WeaponDesignElement[]`；
 2. `new WeaponDesign(template, name, pieces, customId)` 一次性算出全部几何；
-3. 把结果交给 [Crafting](../Crafting) 去生成 `ItemObject`。
+3. 把结果交给 `Crafting` 去生成 `ItemObject`。
 
 第 3 步之后这个对象就是只读的快照——想「改一把刀」不是改它的字段，而是造一个新的再重新生成。
 
-**最坑的一条：`HashedCode` 是构造参数 `customId`，不给就是 `null`，而 `Equals` 只比这个字段。** 于是**所有没传 `customId` 造出来的设计两两 `Equals` 为 true、`GetHashCode()` 全部为 0**（`_cachedHashedCodeInt` 是 `[CachedData]`，只有 `HashedCode` 的 setter 被走过才会赋值）。把它们塞进 `Dictionary` / `HashSet` 会互相覆盖。[Crafting](../Crafting) 里 `GenerateItem(..., customId)` 与 `InitializePreCraftedWeaponOnLoad` 都会显式传 id，正是为了避开这个坑；手写代码若省掉就等着丢数据。
+**最坑的一条：`HashedCode` 是构造参数 `customId`，不给就是 `null`，而 `Equals` 只比这个字段。** 于是**所有没传 `customId` 造出来的设计两两 `Equals` 为 true、`GetHashCode()` 全部为 0**（`_cachedHashedCodeInt` 是 `[CachedData]`，只有 `HashedCode` 的 setter 被走过才会赋值）。把它们塞进 `Dictionary` / `HashSet` 会互相覆盖。`Crafting` 里 `GenerateItem(..., customId)` 与 `InitializePreCraftedWeaponOnLoad` 都会显式传 id，正是为了避开这个坑；手写代码若省掉就等着丢数据。
 
-第二条：**数组下标 0 / 1 / 2 是硬编码的。** `CalculateWeaponLength()` 读 `_piecePivotDistances[0]` 与 `_usedPieces[0].ScaledDistanceToNextPiece`；`CalculateHolsterShiftAmount()` 读 `UsedPieces[2].CraftingPiece.ItemHolsterPosShift`。所以数组长度必须 ≥ 3，否则构造时抛 `IndexOutOfRangeException`；第 2 槽（`Handle`）为 null 则是 `NullReferenceException`。**空槽要用 `WeaponDesignElement.GetInvalidPieceForType(...)` 填，不要留 null**——[Crafting](../Crafting) 的 `CreatePreCraftedWeaponOnDeserialize` 就是这么补洞的。
+第二条：**数组下标 0 / 1 / 2 是硬编码的。** `CalculateWeaponLength()` 读 `_piecePivotDistances[0]` 与 `_usedPieces[0].ScaledDistanceToNextPiece`；`CalculateHolsterShiftAmount()` 读 `UsedPieces[2].CraftingPiece.ItemHolsterPosShift`。所以数组长度必须 ≥ 3，否则构造时抛 `IndexOutOfRangeException`；第 2 槽（`Handle`）为 null 则是 `NullReferenceException`。**空槽要用 `WeaponDesignElement.GetInvalidPieceForType(...)` 填，不要留 null**——`Crafting` 的 `CreatePreCraftedWeaponOnDeserialize` 就是这么补洞的。
 
 第三条：**空槽位会让整个几何塌成 null 列表。** `CalculatePivotDistances` 遇到 `!weaponDesignElement.IsValid` 就只把 `_piecePivotDistances[i]` 写成 `float.NaN` 并 `continue`，**不调 `AddTopPivotOffset` / `AddBottomPivotOffset`**。若 4 个槽全是无效件，两个 offset 列表从头到尾没被初始化，随后读 `BottomPivotOffset` 就是 `NullReferenceException`。
 
@@ -77,7 +77,7 @@ description: "一件合成武器的最终设计快照：构造时一次性算出
 
 所以**它必须真的构造出来才能读到尺寸**——`CraftedWeaponLength`（`:337`）、`HolsterShiftAmount`（`:353`）、`PiecePivotDistances`（`:108`）都是构造时算完存下的。
 
-持有它的两个地方：[Crafting](../Crafting) 的 `CurrentWeaponDesign`（`Crafting.cs:32`，private set），以及 [Crafting](../Crafting) 的撤销/重做历史 `_history`。
+持有它的两个地方：`Crafting` 的 `CurrentWeaponDesign`（`Crafting.cs:32`，private set），以及 `Crafting` 的撤销/重做历史 `_history`。
 
 注意 `CalculatePivotDistances`（`:181`）在某个槽位无效时写的是 `float.NaN`：
 
@@ -145,7 +145,7 @@ Debug.Print("length=" + design.TotalLength + " flags=" + design.WeaponFlags, 0);
 Debug.Print("bottomPivot=" + design.BottomPivotOffset, 0);
 ```
 
-放进 [Crafting](../Crafting) 走完整生成路径：
+放进 `Crafting` 走完整生成路径：
 
 ```csharp
 CraftingTemplate template = CraftingTemplate.GetTemplateFromId("template_two_handed_sword");
@@ -202,7 +202,7 @@ Debug.Print("len unchanged: " + (lengthBefore == design.TotalLength), 0);
 - **`Template.BuildOrders` 里的 `PieceType` 必须被数组覆盖。** 模板声明了第 4 类部件而数组只有 4 项但索引越界（`PieceTypes` 最大到 `Pommel = 3`，实际不会越界；**但 `Template` 为 null 会**）——优先防 `Template` 空。
 - **`UsedPieces` / `PiecePivotDistances` 无防御性拷贝。** 拿到数组改了之后所有几何属性仍是旧值，且没有 API 能重算。
 - **`TopPivotOffsets` / `BottomPivotOffsets` 是公开可写字段。** 没有校验，误写会直接破坏渲染用的轴心数据。
-- **`SetWeaponName` 只改名。** 不会让已生成的 `ItemObject` 跟着变——那是 [Crafting](../Crafting) 的 `ReIndex` + `SetItemObject` 的活。
+- **`SetWeaponName` 只改名。** 不会让已生成的 `ItemObject` 跟着变——那是 `Crafting` 的 `ReIndex` + `SetItemObject` 的活。
 - **没有反序列化构造函数。** 它靠存档系统的 `AutoGeneratedInstanceCollectObjects` / `AutoGeneratedGetMemberValue*` 私有管道恢复，**这些是 `internal` / `protected`，外部程序集调不到**。想在存档外手工重建只能重新走构造器。
 
 ## 跨版本提示

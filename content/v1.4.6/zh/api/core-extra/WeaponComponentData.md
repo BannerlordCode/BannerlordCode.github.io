@@ -12,7 +12,7 @@ description: "一把武器形态的完整参数表：伤害、速度、手感、
 
 ## 概述
 
-725 行、约 50 个公开成员，是**一把武器形态的完整参数表**。它和 [ItemObject](../ItemObject) 的关系是：一件物品（斧）可以有好几个形态（一手斧、双持斧、投掷斧），每个形态就是一份 `WeaponComponentData`。它们由 [WeaponComponent](../WeaponComponent) 装在 `private readonly MBList<WeaponComponentData> _weaponList` 里，按下标暴露。
+725 行、约 50 个公开成员，是**一把武器形态的完整参数表**。它和 `ItemObject` 的关系是：一件物品（斧）可以有好几个形态（一手斧、双持斧、投掷斧），每个形态就是一份 `WeaponComponentData`。它们由 `WeaponComponent` 装在 `private readonly MBList<WeaponComponentData> _weaponList` 里，按下标暴露。
 
 **它不是 `MBObjectBase` 的子类**，也没有 `StringId`。整个类就是一个纯数据类，实例由 `WeaponComponent.Deserialize` 直接 `new` 出来再 `Deserialize(item, node)`。所以 `MBObjectManager.Instance.GetObject<WeaponComponentData>(...)` 是取不到东西的——取形态的正确路径是 `item.Weapons` / `item.PrimaryWeapon`。
 

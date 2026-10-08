@@ -220,7 +220,7 @@ public GauntletView Resolve(Widget clicked)
 - **`Update()` 只管尺寸。** 它不刷新数据绑定，也不做输入。数据变了要自己调 `RefreshBindingWithChildren`。
 - **根节点不接事件。** 构造时把 `DoNotAcceptEvents` 置 true 且尺寸策略为 `Fixed`。命中测试要靠里面的子控件，不会命中根节点本身。
 - **`IsReleased` 只被写不被读进逻辑。** 它是给你自己判断「这个对象还能不能用」的，`Release()` 之后任何调用都不安全。
-- **`OnItemRemoved` 是 internal。** 想在 mod 里卸载某个 prefab 类型，得走 [GauntletLayer](../../engine/GauntletLayer) 的 `ReleaseMovie`，或直接调 `WidgetFactory.OnUnload`。
+- **`OnItemRemoved` 是 internal。** 想在 mod 里卸载某个 prefab 类型，得走 `GauntletLayer` 的 `ReleaseMovie`，或直接调 `WidgetFactory.OnUnload`。
 - **命名空间错位。** 本类在 `TaleWorlds.GauntletUI.Data`，`GauntletLayer` 在 `TaleWorlds.Engine.GauntletUI`，`WidgetFactory` 在 `TaleWorlds.GauntletUI.PrefabSystem`。三个 `using` 缺一编译不过。
 
 ## 跨版本提示

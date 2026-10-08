@@ -60,50 +60,67 @@ EventBase evt = new MyEvent();
 
 ### 怎么拿到它
 
-另一个同名类 `EventManager` 是 **UI 事件**那一支：`TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/EventManager.cs`，`public class EventManager`（`GauntletUI/EventManager.cs:14`），1506 行。唯一入口是 `public static EventManager UIEventManager { get; private set; }`（`:44`）——全局单例，setter 是 private，由引擎在 UI 初始化时写入。
+游戏本体在 `Game.Current` 上持有一个实例：`Game.Current.EventManager`（属性在 `Game.cs:230`，`Game.Current` 本身在 `Game.cs:161`）。**不要自己 `new EventManager()`**（`TaleWorlds.Library/EventSystem/EventManager.cs:10`）——自己 new 出来的实例带自己的空字典，游戏本体的订阅和触发都发生在 `Game.Current` 那一份上，两边互不可见。
 
-注意它和 `TaleWorlds.Library/EventSystem/EventManager.cs` 的同名类型**完全无关**：后者是给 `EventBase` 派生的自定义事件用的 `RegisterEvent` / `TriggerEvent` 总线，两者没有继承关系也没有互相引用。引用时要用完整命名空间消歧。
+```csharp
+EventManager events = Game.Current.EventManager;   // Game.cs:230
+```
 
-它持有的是「当前这一帧的 UI 输入状态」：可点击区域（`UsableArea` `GauntletUI/EventManager.cs:24`、`LeftUsableAreaStart` `:29`、`TopUsableAreaStart` `:34`、`PageSize` `:39`）、指针（`MousePositionInReferenceResolution` `:48`、`IsControllerActive` `:59`）、控件栈（`Root` `:79`、`FocusedWidget` `:84`、`HoveredWidget` `:133`、`MouseOveredWidgets` `:167`、`DraggedWidget` `:221` 等），以及两个公开事件 `OnDragStarted`（`:69`）/ `OnDragEnded`（`:74`）。
+生命周期跟着 `Game` 走：`Game.Destroy()`（`Game.cs:373`）会调 `Clear()`（`TaleWorlds.Library/EventSystem/EventManager.cs:44`）并把属性置 null。所以**任何缓存下来的 `EventManager` 引用在换局后失效**——要用就每次现取，别存进静态字段。
 
 ### 典型用法
 
-在自定义 ViewModel 或 ScreenComponent 里读当前输入状态，决定是否消费这次点击：
+注册 → 触发 → 退订的完整往返，三步都在 `Game.Current.EventManager` 上：
 
 ```csharp
-using TaleWorlds.GauntletUI;
-
-EventManager ui = EventManager.UIEventManager;       // GauntletUI/EventManager.cs:44，单例
-
-// 焦点在哪个控件上
-Widget focused = ui.FocusedWidget;                    // GauntletUI/EventManager.cs:84
-bool modal = (focused != null) && focused.IsEnabled;  // Widget.cs:1178
-
-// 指针在可点击区域内吗（不是绝对坐标，是参考分辨率下的）
-Vector2 pointer = ui.MousePositionInReferenceResolution;          // GauntletUI/EventManager.cs:48
-if (ui.UsableArea.Contains(pointer))                             // GauntletUI/EventManager.cs:24
+// 读者侧事件类型：继承内核标记基类 EventBase，不属于游戏 API
+public class LedgerChangedEvent : EventBase
 {
-    // 当前悬停 / 正在拖拽的控件才是真正能拿到输入的那个
-    Widget target = ui.DraggedWidget ?? ui.HoveredWidget ?? ui.FocusedWidget;   // GauntletUI/EventManager.cs:221 / GauntletUI/EventManager.cs:133 / GauntletUI/EventManager.cs:84
-    if (target != null && target.IsVisible)                      // Widget.cs:1319
-    {
-        Debug.Print("hit " + target.Id, 0);
-    }
+    public int EntryCount;
+    public string Reason;
 }
 
-// 手柄 / 鼠标模式切换时重新绑定 UI
-ui.OnDragStarted += OnDragStarted;                     // GauntletUI/EventManager.cs:69
-ui.OnDragEnded += OnDragEnded;                         // GauntletUI/EventManager.cs:74
+// 1) 订阅（初始化时）：T 必须是 EventBase 的子类，否则静默不注册（TaleWorlds.Library/EventSystem/EventManager.cs:16）
+Game.Current.EventManager.RegisterEvent<LedgerChangedEvent>(OnLedgerChanged);
 
-// 上下文要自己从别处拿，不在它身上
-UIContext ctx = ui.Context;                            // GauntletUI/EventManager.cs:64
+// 2) 发布：把 new 直接写在实参里，让 T 被推断成具体类型（TaleWorlds.Library/EventSystem/EventManager.cs:38）
+Game.Current.EventManager.TriggerEvent(new LedgerChangedEvent { EntryCount = 12, Reason = "trade" });
+
+// 3) 退订：不写就一直在字典里，直到 Clear() 为止（TaleWorlds.Library/EventSystem/EventManager.cs:27）
+Game.Current.EventManager.UnregisterEvent<LedgerChangedEvent>(OnLedgerChanged);
+```
+
+处理器就是一个普通方法，签名和 `Action<T>` 对齐：
+
+```csharp
+private void OnLedgerChanged(LedgerChangedEvent evt)
+{
+    Debug.Print("ledger changed: " + evt.Reason + " (" + evt.EntryCount + ")", 0);
+}
+```
+
+两个「整表」操作：
+
+```csharp
+// Clear()：一次性退订所有类型的所有订阅，不可逆（TaleWorlds.Library/EventSystem/EventManager.cs:44）
+// Game.Destroy() 就是这么清场的（Game.cs:373）
+Game.Current.EventManager.Clear();
+
+// GetCloneOfEventDictionary()：拿一份订阅字典的克隆，改它不影响内部表（TaleWorlds.Library/EventSystem/EventManager.cs:50）
+IDictionary<Type, object> snapshot = Game.Current.EventManager.GetCloneOfEventDictionary();
+bool hasLedgerHandler = snapshot.ContainsKey(typeof(LedgerChangedEvent));
+Debug.Print("ledger subscribed: " + hasLedgerHandler, 0);
 ```
 
 ### 最容易踩的坑
 
-**把 `UIEventManager` 当成可以自己 new 的对象，或者在 UI 尚未初始化时读它。** 它只有 `public static EventManager UIEventManager { get; private set; }`（`GauntletUI/EventManager.cs:44`）这一个出口，没有公开构造器可用、setter 是 private。也就是说：**UI 起来之前它是 null，UI 拆掉之后也变回 null**。而它承载的字段（`FocusedWidget`、`HoveredWidget`、`DraggedWidget`、`MouseOveredWidgets`）全是「当前帧」的瞬时值——把任何一个缓存下来跨帧使用，拿到的就是过期状态，表现是 UI 反应慢半拍或者在高亮的控件上做操作。
+**按类型精确分发，不做继承链回溯。** `TriggerEvent<T>` 查的键是 `typeof(T)`（静态类型）：注册基类型收不到子类型事件，注册子类型也收不到基类型事件。传一个 `EventBase` 变量进去，`T` 被推断成 `EventBase`，而 `EventBase` 本身注册不上（`IsSubclassOf` 对自身返回 false）——**静默无动作，不报错**。
 
-更实际的坑：`OnDragStarted` / `OnDragEnded`（`GauntletUI/EventManager.cs:69`、`:74`）是**公开事件而不是委托字段**，这意味着退订只能用 `-=` 并且**必须传出与订阅时同一个委托实例**——如果你在订阅时写了一个 lambda（`ui.OnDragStarted += () => {...}`），退订时再写一个等价的 lambda 是**另一个对象**，`-=` 不会生效，处理器就永久留在了总线上，每开一次界面多挂一层。而且这两个事件是挂在全局单例上的，跨界面不自动清理。
+**`Clear()` 无差别且不可逆。** 它清掉所有人（包括游戏本体）的订阅，别在运行期当「只清我的」用；`Game.Destroy()` 会调它（`Game.cs:373`）。
+
+**`GetCloneOfEventDictionary()` 返回的是克隆，不是深拷贝。** 字典结构是新的，但值里的 `List<Action<T>>` 是共享引用——改副本里的列表会改到原字典。只用来做「订阅有没有变」的比较。
+
+**另有一个同名类 `TaleWorlds.GauntletUI.EventManager` 是 UI 输入状态，与本页无关。**
 
 ## 真实示例
 

@@ -1,0 +1,33 @@
+# 行号锚点表（只读抽取，不是正文来源）
+# 源文件: bannerlord-1.4.7/TaleWorlds.CampaignSystem/GameComponents/DefaultAgeModel.cs
+# 总行数: 285   ← 页内所有 `DefaultAgeModel.cs:N` 的 N 必须 <= 这个数（= `wc -l`）
+# 用法: 下面的 `行号: 原文` 直接抄进「关键成员」表尾；用途说明必须你自己读代码后写。
+# ★ 每条引用必须写 `File.cs:N`（带文件名），禁止裸 `:N` —— 裸引用会让 J13 检查不到它。
+
+## 类型声明行
+7: public class DefaultAgeModel : AgeModel
+
+## public / protected 面（按行号升序）
+7: public class DefaultAgeModel : AgeModel
+11: public override int BecomeInfantAge
+21: public override int BecomeChildAge
+31: public override int BecomeTeenagerAge
+41: public override int HeroComesOfAge
+51: public override int MiddleAdultHoodAge
+61: public override int BecomeOldAge
+71: public override int MaxAge
+80: public override void GetAgeLimitForLocation(CharacterObject character, out int minimumAge, out int maximumAge, string additionalTags = "")
+247: public const string TavernVisitorTag = "TavernVisitor";
+250: public const string TavernDrinkerTag = "TavernDrinker";
+253: public const string SlowTownsmanTag = "SlowTownsman";
+256: public const string TownsfolkCarryingStuffTag = "TownsfolkCarryingStuff";
+259: public const string BroomsWomanTag = "BroomsWoman";
+262: public const string DancerTag = "Dancer";
+265: public const string BeggarTag = "Beggar";
+268: public const string ChildTag = "Child";
+271: public const string TeenagerTag = "Teenager";
+274: public const string InfantTag = "Infant";
+277: public const string NotaryTag = "Notary";
+280: public const string BarberTag = "Barber";
+283: public const string AlleyGangMemberTag = "AlleyGangMember";
+

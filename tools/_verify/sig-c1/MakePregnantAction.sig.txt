@@ -1,0 +1,4 @@
+# MakePregnantAction  (TaleWorlds.CampaignSystem/Actions/MakePregnantAction.cs, 22 lines)
+   6  public static class MakePregnantAction
+   9  private static void ApplyInternal(Hero mother)
+  16  public static void Apply(Hero mother)

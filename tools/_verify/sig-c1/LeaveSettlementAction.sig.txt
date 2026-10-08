@@ -1,0 +1,4 @@
+# LeaveSettlementAction  (TaleWorlds.CampaignSystem/Actions/LeaveSettlementAction.cs, 59 lines)
+  10  public static class LeaveSettlementAction
+  13  public static void ApplyForParty(MobileParty mobileParty)
+  40  public static void ApplyForCharacterOnly(Hero hero)

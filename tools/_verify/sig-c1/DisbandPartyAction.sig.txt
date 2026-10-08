@@ -1,0 +1,4 @@
+# DisbandPartyAction  (TaleWorlds.CampaignSystem/Actions/DisbandPartyAction.cs, 55 lines)
+   9  public static class DisbandPartyAction
+  12  public static void StartDisband(MobileParty disbandParty)
+  46  public static void CancelDisband(MobileParty disbandParty)

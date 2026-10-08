@@ -781,6 +781,56 @@ node tools/nav-orphans.mjs  # → orphans=2 · by_tree={"v1.4.7":2} · **v1.4.6_
 
 > 这一条是防「为凑 `J8>2500B` 而写套话」——那正是 H0 想禁的模板句的另一条入口。
 
+## ⚠️ 标准更正（boss #21535）：成员行的准入不取决于 public/private
+
+**被作废的旧措辞**（我曾写进批 7/批 8 的 brief）：「「关键成员」表**只列 public / protected 成员**，private 成员移出表外」。
+
+**它错在哪**：另一条线实测发现，某个 Model 类的关键成员表里三个 **private 累加器**（`CalculateProsperityEffectOnSecurity` / `CalculateUnderSiegeEffectsOnSecurity` / `CalculateRaidedVillageEffectsOnSecurity`）**正是用户原话要的答案**（「写清楚这个类里面**每个方法是做什么用的**」）；拿掉它们，页面只剩覆写签名清单 —— **那是质量损失，不是合规**。
+
+**更正后的标准（三句话）**：
+1. **一个成员行是否进表，取决于「有没有解释价值 + 能不能给出行号引用」，不取决于 public/private。**
+   - 有解释价值 **且** 有可核行号 ⇒ **进表**（private 累加器、protected 钩子都算）。
+   - 有解释价值 **但拿不到可核行号** ⇒ 写成**表外散文**（本线处理 `private Mission Mission` 的做法仍然正确）。
+   - 无解释价值（纯转发 / 纯样板 getter）⇒ 不进表。
+2. **禁止的只有两件事**：为凑 `J8>2500B` 灌水散文；为凑 `checked ≥ members` 塞无价值的行。
+3. 每条引用（**无论 public/private**）都必须来自已验 J13-clean 的锚点表。
+
+> 与 boss 已批准的**小 public 面标准**（契约语义 + 真实使用点 + 一个可编译示例）并列：两者都是「**判据服务于内容，不是反过来**」的具体形式。
+
+### 已执行的机械后果：锚点抽取器扩展
+
+boss 明确指出：**抽取器应把 private/protected 辅助方法也抽进来**，否则写手只能去源码本体找行号、J13 风险上升。已改并提交 `a1a38cd209`：
+
+| 改动 | 内容 |
+| --- | --- |
+| 接受的访问修饰符 | `public` / `protected internal` / `protected` / `internal` / **`private`** |
+| 仍不抽 | `private`/`internal` 的**字段**（终符为 `;`/`=` 且无 `(`）—— 纯状态存储，解释价值低、数量大 |
+
+**正控与回归（实测）**：
+
+```bash
+# 正控：boss 举的那个例子现在可引用
+node tools/_verify/make-anchor-table.mjs <root> TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementSecurityModel.cs
+# → 225: private void CalculateProsperityEffectOnSecurity(Town town, ref ExplainedNumber explainedNumber)
+# → 231: private void CalculateUnderSiegeEffectsOnSecurity(...)
+# → 240: private void CalculateRaidedVillageEffectsOnSecurity(...)
+
+# 回归：无 private 成员的文件不受影响
+MissionLogic.cs  11 → 11（不变）
+```
+
+**三张在飞锚表已重生（纯增量，无锚点丢失）**：
+
+| 锚表 | 前 | 后 |
+| --- | --- | --- |
+| `b07-campaign.txt` | 112 | **166** |
+| `b07-mission.txt` | 280 | **309** |
+| `b08-savesys.txt` | 29 | **63**（`DefinitionContext` 7→35、`LoadContext` 10→16） |
+
+两个在飞 worker 已收到更正（`#21561` / `#21562`），并告知「不用返工，只是现在能多写内容」。
+
+> 注：批 8 的 `ISavedStruct`（1 个锚点）与两个 Attribute（各 2 个）仍然极窄 ⇒ 那三个继续走**小 public 面标准**（关键成员表 1~2 行**完全正确**，不得凑数）。
+
 ## 操作教训（本线实测，写给后续 Lead）
 
 ### 量具失败会报出「确信的错数」——不要直接拿它下结论

@@ -1,24 +1,24 @@
 ---
-title: 工具函数 / Utilities
-description: TaleWorlds.Native.dll 工具函数和辅助类参考
+title: Utilities
+description: TaleWorlds.Native.dll utility functions and helper classes reference
 ---
-# 工具函数 / Utilities
+# Utilities
 
 ## Mental Model
 
-Treat `工具函数` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
-
-## 概述 / Overview
-
-工具模块包含字符串处理、数学运算、日志系统等辅助功能。
+Treat `Utilities` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 The utilities module contains helper functions for string processing, math operations, logging system, etc.
 
-## 字符串 / String
+## Overview
+
+This module collects the low-level building blocks used across the engine: string types (`rglString_base` and variants), math value types (`Vec2`/`Vec3`/`Mat3`/`Vec4`/`rotator`), C++ exception classes, the MSVC regex node hierarchy, RTTI support, and producer/consumer primitives. Most mod code never calls these directly — they appear in crash logs, decompiled traces, and interop signatures.
+
+## String
 
 ### rglString_base
 
-字符串基类。
+String base class.
 
 ```cpp
 rglString_base::vftable
@@ -26,7 +26,7 @@ rglString_base::vftable
 
 ### rglVarString
 
-可变字符串。
+Variable-length string.
 
 ```cpp
 rglVarString::vftable
@@ -34,40 +34,40 @@ rglVarString::vftable
 
 ### rglConstString
 
-常量字符串模板类。
+Constant string template class.
 
 ```cpp
 rglConstString<N>::vftable
-// N 可以是 16, 32, 64, 128, 1024 等
+// N can be 16, 32, 64, 128, 1024, etc.
 ```
 
-## 数学 / Math
+## Math
 
 ### Vec2
 
-二维向量。
+Two-dimensional vector.
 
 ### Vec3
 
-三维向量。
+Three-dimensional vector.
 
 ### Mat3
 
-3x3 矩阵。
+3x3 matrix.
 
 ### Vec4
 
-四维向量。
+Four-dimensional vector.
 
 ### rotator
 
-旋转。
+Rotation representation.
 
-## 异常处理 / Exception Handling
+## Exception Handling
 
 ### exception
 
-异常基类。
+Exception base class.
 
 ```cpp
 exception::vftable
@@ -75,7 +75,7 @@ exception::vftable
 
 ### bad_alloc
 
-内存分配失败。
+Memory allocation failure.
 
 ```cpp
 bad_alloc::vftable
@@ -83,7 +83,7 @@ bad_alloc::vftable
 
 ### bad_cast
 
-类型转换失败。
+Type cast failure.
 
 ```cpp
 bad_cast::vftable
@@ -91,7 +91,7 @@ bad_cast::vftable
 
 ### bad_array_new_length
 
-数组长度无效。
+Invalid array length.
 
 ```cpp
 bad_array_new_length::vftable
@@ -99,7 +99,7 @@ bad_array_new_length::vftable
 
 ### domain_error
 
-域错误。
+Domain error.
 
 ```cpp
 domain_error::vftable
@@ -107,7 +107,7 @@ domain_error::vftable
 
 ### logic_error
 
-逻辑错误。
+Logic error.
 
 ```cpp
 logic_error::vftable
@@ -115,17 +115,17 @@ logic_error::vftable
 
 ### _com_error
 
-COM 错误。
+COM error.
 
 ```cpp
 _com_error::vftable
 ```
 
-## 正则表达式 / Regex
+## Regex
 
 ### _Node_base
 
-正则节点基类。
+Regex node base class.
 
 ```cpp
 _Node_base::vftable
@@ -133,7 +133,7 @@ _Node_base::vftable
 
 ### _Node_assert
 
-断言节点。
+Assertion node.
 
 ```cpp
 _Node_assert::vftable
@@ -141,7 +141,7 @@ _Node_assert::vftable
 
 ### _Node_back
 
-回溯节点。
+Backtracking node.
 
 ```cpp
 _Node_back::vftable
@@ -149,7 +149,7 @@ _Node_back::vftable
 
 ### _Node_base
 
-基础节点。
+Base node.
 
 ```cpp
 _Node_base::vftable
@@ -157,7 +157,7 @@ _Node_base::vftable
 
 ### _Node_capture
 
-捕获节点。
+Capture node.
 
 ```cpp
 _Node_capture::vftable
@@ -165,7 +165,7 @@ _Node_capture::vftable
 
 ### _Node_end_group
 
-结束组节点。
+End group node.
 
 ```cpp
 _Node_end_group::vftable
@@ -173,7 +173,7 @@ _Node_end_group::vftable
 
 ### _Node_end_rep
 
-结束重复节点。
+End repetition node.
 
 ```cpp
 _Node_end_rep::vftable
@@ -181,7 +181,7 @@ _Node_end_rep::vftable
 
 ### _Node_endif
 
-条件结束节点。
+Conditional end node.
 
 ```cpp
 _Node_endif::vftable
@@ -189,7 +189,7 @@ _Node_endif::vftable
 
 ### _Node_if
 
-条件节点。
+Conditional node.
 
 ```cpp
 _Node_if::vftable
@@ -197,7 +197,7 @@ _Node_if::vftable
 
 ### _Node_rep
 
-重复节点。
+Repetition node.
 
 ```cpp
 _Node_rep::vftable
@@ -205,17 +205,17 @@ _Node_rep::vftable
 
 ### _Root_node
 
-根节点。
+Root node.
 
 ```cpp
 _Root_node::vftable
 ```
 
-## 类型信息 / Type Info
+## Type Info
 
 ### type_info
 
-类型信息。
+Type information.
 
 ```cpp
 type_info::vftable
@@ -223,7 +223,7 @@ type_info::vftable
 
 ### filter
 
-过滤器。
+Filter.
 
 ```cpp
 filter::vftable
@@ -233,7 +233,7 @@ filter::vftable
 
 ### ProducerBase
 
-生产者基类。
+Producer base class.
 
 ```cpp
 ProducerBase::vftable
@@ -241,7 +241,7 @@ ProducerBase::vftable
 
 ### ImplicitProducer
 
-隐式生产者。
+Implicit producer.
 
 ```cpp
 ImplicitProducer::vftable
@@ -249,25 +249,25 @@ ImplicitProducer::vftable
 
 ### ExplicitProducer
 
-显式生产者。
+Explicit producer.
 
 ```cpp
 ExplicitProducer::vftable
 ```
 
-### FtlObject
+### ftlObject
 
-FTL 对象。
+FTL object.
 
 ```cpp
 ftlObject::vftable
 ```
 
-## 其他工具类 / Other Utility Classes
+## Other Utility Classes
 
 ### box
 
-盒子。
+Box.
 
 ```cpp
 box::vftable
@@ -275,7 +275,7 @@ box::vftable
 
 ### rotator
 
-旋转器。
+Rotator.
 
 ```cpp
 rotator::vftable
@@ -283,17 +283,17 @@ rotator::vftable
 
 ### Edit_data
 
-编辑数据。
+Edit data.
 
 ```cpp
 Edit_data::vftable
 ```
 
-## 任务回调 / Task Callbacks
+## Task Callbacks
 
 ### IResourceCallbacks
 
-资源回调接口。
+Resource callback interface.
 
 ```cpp
 IResourceCallbacks::vftable
@@ -301,27 +301,27 @@ IResourceCallbacks::vftable
 
 ### IReadingCallbacks
 
-读取回调接口。
+Reading callback interface.
 
 ```cpp
 IReadingCallbacks::vftable
 ```
 
-## 内存管理 / Memory Management
+## Memory Management
 
 ### rglMemory_allocator_base
 
-内存分配器基类。
+Memory allocator base class.
 
 ```cpp
 rglMemory_allocator_base::vftable
 ```
 
-## 配置 / Configuration
+## Configuration
 
 ### rglConfig
 
-配置。
+Configuration.
 
 ```cpp
 rglConfig::vftable
@@ -329,7 +329,7 @@ rglConfig::vftable
 
 ### rglDev_config
 
-开发者配置。
+Developer configuration.
 
 ```cpp
 rglDev_config::vftable
@@ -337,7 +337,7 @@ rglDev_config::vftable
 
 ### rglUser_config
 
-用户配置。
+User configuration.
 
 ```cpp
 rglUser_config::vftable
@@ -345,4 +345,14 @@ rglUser_config::vftable
 
 ## Usage Example
 
-// （占位示例已移除，见正文说明）
+```csharp
+// Example: utility types appear mainly in decompiled traces and crash logs.
+// When you see rglString_base or ftlObject in a stack trace, you are looking
+// at the engine's internal string / object plumbing, not mod-callable API.
+// Prefer the managed wrappers (NativeString, NativeArray) in mod code.
+```
+
+---
+
+**Last updated:** 2026-05-14  
+**Source version:** TaleWorlds.Native.dll v1.3.15

@@ -1,39 +1,39 @@
 ---
-title: 动画系统 / Animation System
-description: TaleWorlds.Native.dll 动画系统类参考
+title: Animation System
+description: TaleWorlds.Native.dll animation system class reference
 ---
-# 动画系统 / Animation System
+# Animation System
 
 ## Mental Model
 
-Treat `动画系统` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
-
-## 概述 / Overview
-
-动画系统管理游戏中的所有动画，包括人物动画、马匹动画、武器动画等。
+Treat `Animation System` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 The animation system manages all animations in the game, including character animations, horse animations, weapon animations, etc.
 
-## 动画树 / Animation Tree
+## Overview
+
+The animation system is built around a tree of animation nodes (`rglAnim_node` subclasses) evaluated per agent each frame. Each node type handles one concern — movement, IK, layering, morphing, capture — and the agent-level anim systems (`Human_anim_system`, `Horse_anim_system`) drive the tree. Animation clips (`Animation_clip_data` and subclasses) supply the raw keyframe data, blend parameters, and event metadata that the nodes consume.
+
+## Animation Tree
 
 ### rglAnim_tree
 
-动画树根节点。管理动画状态机。
+Animation tree root node. Manages the animation state machine.
 
 ```cpp
 rglAnim_tree::vftable
 ```
 
-**功能:**
-- 动画状态管理
-- 混合控制
-- 动画事件触发
+**Responsibilities:**
+- Animation state management
+- Blend control
+- Animation event triggering
 
-## 动画节点 / Animation Nodes
+## Animation Nodes
 
 ### rglAnim_node
 
-动画节点基类。
+Base class for all animation nodes.
 
 ```cpp
 rglAnim_node::vftable
@@ -41,7 +41,7 @@ rglAnim_node::vftable
 
 ### rglAnim_node_human_adjustments
 
-人物调整动画节点。
+Human adjustment animation node.
 
 ```cpp
 rglAnim_node_human_adjustments::vftable
@@ -49,7 +49,7 @@ rglAnim_node_human_adjustments::vftable
 
 ### rglAnim_node_horse_adjustments
 
-马匹调整动画节点。
+Horse adjustment animation node.
 
 ```cpp
 rglAnim_node_horse_adjustments::vftable
@@ -57,15 +57,17 @@ rglAnim_node_horse_adjustments::vftable
 
 ### rglAnim_node_movement
 
-移动动画节点。
+Movement animation node.
 
 ```cpp
 rglAnim_node_movement::vftable
 ```
 
+> Not found in native-1.2.9 or native-1.4.5; neither tree is v1.3.15, so existence in the v1.3.15 decompile cannot be ruled out — unverified in this environment.
+
 ### rglAnim_node_horse_movement
 
-马匹移动动画节点。
+Horse movement animation node.
 
 ```cpp
 rglAnim_node_horse_movement::vftable
@@ -73,7 +75,7 @@ rglAnim_node_horse_movement::vftable
 
 ### rglAnim_node_inverse_kinematics
 
-反向运动学动画节点。
+Inverse kinematics animation node.
 
 ```cpp
 rglAnim_node_inverse_kinematics::vftable
@@ -81,7 +83,7 @@ rglAnim_node_inverse_kinematics::vftable
 
 ### rglAnim_node_layer_system
 
-动画层级系统节点。
+Animation layer system node.
 
 ```cpp
 rglAnim_node_layer_system::vftable
@@ -89,7 +91,7 @@ rglAnim_node_layer_system::vftable
 
 ### Anim_node_morph
 
-动画变形节点。
+Animation morph node.
 
 ```cpp
 Anim_node_morph::vftable
@@ -97,17 +99,19 @@ Anim_node_morph::vftable
 
 ### Anim_node_capture
 
-动画捕获节点。
+Animation capture node.
 
 ```cpp
 Anim_node_capture::vftable
 ```
 
-## Agent 动画系统
+> Not found in native-1.2.9 or native-1.4.5; neither tree is v1.3.15, so existence in the v1.3.15 decompile cannot be ruled out — unverified in this environment.
+
+## Agent Animation Systems
 
 ### Agent_anim_system
 
-Agent 通用动画系统。
+Agent generic animation system.
 
 ```cpp
 Agent_anim_system::vftable
@@ -115,7 +119,7 @@ Agent_anim_system::vftable
 
 ### Agent_renderer
 
-Agent 渲染器。
+Agent renderer.
 
 ```cpp
 Agent_renderer::vftable
@@ -123,48 +127,48 @@ Agent_renderer::vftable
 
 ### Agent_anim_system
 
-Agent 动画系统实现。
+Agent animation system implementation.
 
 ```cpp
 Agent_anim_system::vftable
 ```
 
-## 人物动画系统
+## Human Animation System
 
 ### Human_anim_system
 
-人物动画系统。
+Human animation system.
 
 ```cpp
 Human_anim_system::vftable
 ```
 
-**控制:**
-- 行走/奔跑
-- 攻击动作
-- 防御动作
-- 特殊动作
+**Controls:**
+- Walk / run
+- Attack actions
+- Defense actions
+- Special actions
 
-## 马匹动画系统
+## Horse Animation System
 
 ### Horse_anim_system
 
-马匹动画系统。
+Horse animation system.
 
 ```cpp
 Horse_anim_system::vftable
 ```
 
-**控制:**
-- 马匹移动
-- 马匹奔跑
-- 马匹站立
+**Controls:**
+- Horse movement
+- Horse gallop
+- Horse idle
 
-## 武器动画系统
+## Weapon Animation Systems
 
 ### Weapon_with_rope_anim_system
 
-绳索武器动画系统。
+Rope weapon animation system.
 
 ```cpp
 Weapon_with_rope_anim_system::vftable
@@ -172,7 +176,7 @@ Weapon_with_rope_anim_system::vftable
 
 ### Rein_anim_system
 
-缰绳动画系统。
+Rein animation system.
 
 ```cpp
 Rein_anim_system::vftable
@@ -180,25 +184,25 @@ Rein_anim_system::vftable
 
 ### Holster_anim_system
 
-挂载动画系统。
+Holster animation system.
 
 ```cpp
-holster_script::vftable
+Holster_anim_system::vftable
 ```
 
 ### Weapon_meta_mesh
 
-武器元网格。
+Weapon meta mesh.
 
 ```cpp
 Weapon_meta_mesh::vftable
 ```
 
-## 动画剪辑 / Animation Clips
+## Animation Clips
 
 ### Animation_clip_item
 
-动画剪辑项。
+Animation clip item.
 
 ```cpp
 Animation_clip_item::vftable
@@ -206,7 +210,7 @@ Animation_clip_item::vftable
 
 ### Animation_clip_item_metadata
 
-动画剪辑项元数据。
+Animation clip item metadata.
 
 ```cpp
 Animation_clip_item_metadata::vftable
@@ -214,7 +218,7 @@ Animation_clip_item_metadata::vftable
 
 ### Animation_clip_data
 
-动画剪辑数据。
+Animation clip data.
 
 ```cpp
 Animation_clip_data::vftable
@@ -222,7 +226,7 @@ Animation_clip_data::vftable
 
 ### rglAnimation_clip_data
 
-rgl 动画剪辑数据。
+rgl animation clip data.
 
 ```cpp
 rglAnimation_clip_data::vftable
@@ -230,17 +234,17 @@ rglAnimation_clip_data::vftable
 
 ### rglAnimation_memory_manager_task
 
-动画内存管理任务。
+Animation memory manager task.
 
 ```cpp
 rglAnimation_memory_manager_task::vftable
 ```
 
-## 动画数据 / Animation Data
+## Animation Data
 
 ### rglAnimation_clip_bipedal_movement_and_ik_data
 
-双足移动和 IK 数据。
+Bipedal movement and IK data.
 
 ```cpp
 rglAnimation_clip_bipedal_movement_and_ik_data::vftable
@@ -248,7 +252,7 @@ rglAnimation_clip_bipedal_movement_and_ik_data::vftable
 
 ### rglAnimation_clip_blend_data
 
-动画混合数据。
+Animation blend data.
 
 ```cpp
 rglAnimation_clip_blend_data::vftable
@@ -256,7 +260,7 @@ rglAnimation_clip_blend_data::vftable
 
 ### rglAnimation_clip_displacement_data
 
-动画位移数据。
+Animation displacement data.
 
 ```cpp
 rglAnimation_clip_displacement_data::vftable
@@ -264,7 +268,7 @@ rglAnimation_clip_displacement_data::vftable
 
 ### rglAnimation_clip_hand_switch_data
 
-手部切换动画数据。
+Hand switch animation data.
 
 ```cpp
 rglAnimation_clip_hand_switch_data::vftable
@@ -272,7 +276,7 @@ rglAnimation_clip_hand_switch_data::vftable
 
 ### rglAnimation_clip_mount_change_data
 
-骑乘切换动画数据。
+Mount change animation data.
 
 ```cpp
 rglAnimation_clip_mount_change_data::vftable
@@ -280,7 +284,7 @@ rglAnimation_clip_mount_change_data::vftable
 
 ### rglAnimation_clip_particle_data
 
-动画粒子数据。
+Animation particle data.
 
 ```cpp
 rglAnimation_clip_particle_data::vftable
@@ -288,17 +292,17 @@ rglAnimation_clip_particle_data::vftable
 
 ### rglAnimation_clip_quadrupedal_movement_data
 
-四足移动动画数据。
+Quadrupedal movement animation data.
 
 ```cpp
 rglAnimation_clip_quadrupedal_movement_data::vftable
 ```
 
-## 骨骼 / Skeleton
+## Skeleton
 
 ### rglSkeleton
 
-骨骼。
+Skeleton.
 
 ```cpp
 rglSkeleton::vftable
@@ -306,7 +310,7 @@ rglSkeleton::vftable
 
 ### rglSkeleton_anim
 
-动画骨骼。
+Animated skeleton.
 
 ```cpp
 rglSkeleton_anim::vftable
@@ -314,17 +318,17 @@ rglSkeleton_anim::vftable
 
 ### rglSkeleton_model
 
-骨骼模型。
+Skeleton model.
 
 ```cpp
 rglSkeleton_model::vftable
 ```
 
-## 动画实例 / Animation Instance
+## Animation Instance
 
 ### animation_instance
 
-动画实例。
+Animation instance.
 
 ```cpp
 animation_instance::vftable
@@ -332,7 +336,7 @@ animation_instance::vftable
 
 ### rglNull_anim_tree
 
-空动画树。
+Null animation tree.
 
 ```cpp
 rglNull_anim_tree::vftable
@@ -340,17 +344,17 @@ rglNull_anim_tree::vftable
 
 ### rglDefault_anim_system
 
-默认动画系统。
+Default animation system.
 
 ```cpp
 rglDefault_anim_system::vftable
 ```
 
-## Morph 动画
+## Morph Animation
 
 ### rglMorph_anim
 
-变形动画。
+Morph animation.
 
 ```cpp
 rglMorph_anim::vftable
@@ -358,7 +362,7 @@ rglMorph_anim::vftable
 
 ### rglAsset_metadata_morph_anim
 
-变形动画资源元数据。
+Morph animation asset metadata.
 
 ```cpp
 rglAsset_metadata_morph_anim::vftable
@@ -366,4 +370,15 @@ rglAsset_metadata_morph_anim::vftable
 
 ## Usage Example
 
-// （占位示例已移除，见正文说明）
+```csharp
+// Example: the animation system is driven internally by the engine each frame.
+// Modders typically interact with it indirectly through agent actions and
+// Mount&Blade scripting rather than calling these vftables directly.
+// Use the native source reference to trace which anim node handles a given
+// action when debugging animation glitches or desyncs.
+```
+
+---
+
+**Last updated:** 2026-05-14  
+**Source version:** TaleWorlds.Native.dll v1.3.15

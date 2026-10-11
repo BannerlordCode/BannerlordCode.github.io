@@ -1,38 +1,38 @@
 ---
-title: 任务系统 / Mission System
-description: TaleWorlds.Native.dll 任务/战斗系统类参考
+title: Mission System
+description: TaleWorlds.Native.dll mission/battle system class reference
 ---
-# 任务系统 / Mission System
+# Mission System
 
 ## Mental Model
 
-Treat `任务系统` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
-
-## 概述 / Overview
-
-任务系统管理战斗场景中的实体、导航和寻路。
+Treat `Mission System` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 The mission system manages entities, navigation, and pathfinding in battle scenarios.
+
+## Overview
+
+The mission subsystem covers everything that lives inside a battle or scene mission: agents (soldiers, the player), missiles (arrows, thrown items), navigation helpers (`path_navigator`, `path_converger`), and town/scene management entities. Most mod interaction happens through the managed `Mission` API; these native classes are the engine-side implementation you see in decompiled traces.
 
 ## Agent
 
 ### Agent
 
-游戏实体代理。代表战斗中的士兵、玩家等。
+Game entity proxy. Represents soldiers, the player, etc. in battle.
 
 ```cpp
 Agent::vftable
 ```
 
-**功能:**
-- 移动控制
-- 攻击/防御
-- 生命值管理
-- 动画同步
+**Responsibilities:**
+- Movement control
+- Attack / defense
+- Health management
+- Animation synchronization
 
 ### Missile
 
-弹丸。弓箭、投掷物等。
+Projectile. Arrows, thrown items, etc.
 
 ```cpp
 Missile::vftable
@@ -40,17 +40,17 @@ Missile::vftable
 
 ### Item_holster_set
 
-物品挂载集。
+Item holster set.
 
 ```cpp
 Item_holster_set::vftable
 ```
 
-## 导航系统 / Navigation System
+## Navigation System
 
 ### path_navigator
 
-路径导航器。
+Path navigator.
 
 ```cpp
 path_navigator::vftable
@@ -58,7 +58,7 @@ path_navigator::vftable
 
 ### path_converger
 
-路径收敛器。
+Path converger.
 
 ```cpp
 path_converger::vftable
@@ -66,7 +66,7 @@ path_converger::vftable
 
 ### path_spline_sound_emitter
 
-路径样条音效发射器。
+Path spline sound emitter.
 
 ```cpp
 path_spline_sound_emitter::vftable
@@ -74,17 +74,17 @@ path_spline_sound_emitter::vftable
 
 ### barrier_builder
 
-障碍物构建器。
+Barrier builder.
 
 ```cpp
 barrier_builder::vftable
 ```
 
-## 城镇管理 / Town Management
+## Town Management
 
 ### town_entity_manager
 
-城镇实体管理器。
+Town entity manager.
 
 ```cpp
 town_entity_manager::vftable
@@ -92,7 +92,7 @@ town_entity_manager::vftable
 
 ### town_scene_manager
 
-城镇场景管理器。
+Town scene manager.
 
 ```cpp
 town_scene_manager::vftable
@@ -100,25 +100,27 @@ town_scene_manager::vftable
 
 ### rglTown_icon_component
 
-城镇图标组件。
+Town icon component.
 
 ```cpp
 rglTown_icon_component::vftable
 ```
 
-## 其他任务系统类 / Other Mission Classes
+## Other Mission Classes
 
 ### Ship_visual_creator
 
-船只视觉创建器。
+Ship visual creator.
 
 ```cpp
 Ship_visual_creator::vftable
 ```
 
+> Not found in native-1.2.9 or native-1.4.5; neither tree is v1.3.15, so existence in the v1.3.15 decompile cannot be ruled out — unverified in this environment.
+
 ### mass_selection
 
-大群选择。
+Mass selection.
 
 ```cpp
 mass_selection::vftable
@@ -126,7 +128,7 @@ mass_selection::vftable
 
 ### worldmap_budget_checker
 
-世界地图预算检查器。
+World map budget checker.
 
 ```cpp
 worldmap_budget_checker::vftable
@@ -134,4 +136,14 @@ worldmap_budget_checker::vftable
 
 ## Usage Example
 
-// （占位示例已移除，见正文说明）
+```csharp
+// Example: the mission system is driven by the engine during battles and scenes.
+// Modders interact through the managed Mission API (Agent, Missile, etc.) rather
+// than these native vftables. Use this reference to trace engine-side behavior
+// when debugging battle logic, pathfinding, or entity lifecycle issues.
+```
+
+---
+
+**Last updated:** 2026-05-14  
+**Source version:** TaleWorlds.Native.dll v1.3.15

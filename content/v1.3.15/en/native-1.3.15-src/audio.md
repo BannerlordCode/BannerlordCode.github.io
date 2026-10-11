@@ -1,24 +1,24 @@
 ---
-title: 音频系统 / Audio System
-description: TaleWorlds.Native.dll 音频系统类参考
+title: Audio System
+description: TaleWorlds.Native.dll audio system class reference
 ---
-# 音频系统 / Audio System
+# Audio System
 
 ## Mental Model
 
-Treat `音频系统` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
-
-## 概述 / Overview
-
-音频系统管理游戏中的所有声音，包括背景音乐、战斗音效、环境音效等。
+Treat `Audio System` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 The audio system manages all sounds in the game, including background music, battle sound effects, ambient sounds, etc.
 
-## 音效管理器 / Sound Manager
+## Overview
+
+The audio subsystem is built on FMOD. `rglFMOD_Sound_manager` is the live implementation; `rglNull_Sound_manager` and `rglNullSound_event` provide silent fallbacks (used on dedicated servers or when audio is disabled). Sound events (`rglSound_event` / `rglFMOD_Sound_event`) are played through emitters (`sound_emitter`, `ambient_sound_emitter`) attached to scene objects, with 3D positioning and distance attenuation handled by the manager.
+
+## Sound Manager
 
 ### rglSound_manager
 
-音效管理器基类。
+Sound manager base class.
 
 ```cpp
 rglSound_manager::vftable
@@ -26,20 +26,20 @@ rglSound_manager::vftable
 
 ### rglFMOD_Sound_manager
 
-FMOD 音效管理器实现。
+FMOD sound manager implementation.
 
 ```cpp
 rglFMOD_Sound_manager::vftable
 ```
 
-**功能:**
-- 音效播放控制
-- 音量管理
-- 混音控制
+**Responsibilities:**
+- Sound playback control
+- Volume management
+- Mixing control
 
 ### rglNull_Sound_manager
 
-空音效管理器（无声音）。
+Null sound manager (silent).
 
 ```cpp
 rglNull_Sound_manager::vftable
@@ -47,17 +47,17 @@ rglNull_Sound_manager::vftable
 
 ### rglNullSound_event
 
-空音效事件。
+Null sound event.
 
 ```cpp
 rglNullSound_event::vftable
 ```
 
-## 音效事件 / Sound Events
+## Sound Events
 
 ### rglSound_event
 
-音效事件。
+Sound event.
 
 ```cpp
 rglSound_event::vftable
@@ -65,30 +65,30 @@ rglSound_event::vftable
 
 ### rglFMOD_Sound_event
 
-FMOD 音效事件。
+FMOD sound event.
 
 ```cpp
 rglFMOD_Sound_event::vftable
 ```
 
-**类型:**
-- 单次播放 (One-shot)
-- 循环播放 (Looping)
-- 3D 空间音 (3D Spatial)
+**Types:**
+- One-shot
+- Looping
+- 3D spatial
 
 ### rglDedicated_server_fmod
 
-专用服务器 FMOD。
+Dedicated server FMOD.
 
 ```cpp
 rglDedicated_server_fmod::vftable
 ```
 
-## 音效发射器 / Sound Emitters
+## Sound Emitters
 
 ### sound_emitter
 
-音效发射器。
+Sound emitter.
 
 ```cpp
 sound_emitter::vftable
@@ -96,22 +96,22 @@ sound_emitter::vftable
 
 ### ambient_sound_emitter
 
-环境音效发射器。
+Ambient sound emitter.
 
 ```cpp
 ambient_sound_emitter::vftable
 ```
 
-**功能:**
-- 3D 位置
-- 音量衰减
-- 环境音效控制
+**Responsibilities:**
+- 3D positioning
+- Volume attenuation
+- Ambient sound control
 
-## 路径声音 / Path Sounds
+## Path Sounds
 
 ### path_spline_sound_emitter
 
-路径样条音效发射器。
+Path spline sound emitter.
 
 ```cpp
 path_spline_sound_emitter::vftable
@@ -119,7 +119,7 @@ path_spline_sound_emitter::vftable
 
 ### river_generator
 
-河流音效生成器。
+River sound generator.
 
 ```cpp
 river_generator::vftable
@@ -127,7 +127,7 @@ river_generator::vftable
 
 ### road_generator
 
-道路音效生成器。
+Road sound generator.
 
 ```cpp
 road_generator::vftable
@@ -135,17 +135,17 @@ road_generator::vftable
 
 ### road_instance
 
-道路实例。
+Road instance.
 
 ```cpp
 road_instance::vftable
 ```
 
-## 其他音频类 / Other Audio Classes
+## Other Audio Classes
 
 ### reverb_instance
 
-混响实例。
+Reverb instance.
 
 ```cpp
 reverb_instance::vftable
@@ -153,4 +153,15 @@ reverb_instance::vftable
 
 ## Usage Example
 
-// （占位示例已移除，见正文说明）
+```csharp
+// Example: the audio system is driven by the engine's scene and mission logic.
+// Modders rarely call these vftables directly; instead, sound behavior is
+// customized through module data (sound events, triggers) and the managed
+// scene/mission APIs. Use this reference to identify which emitter or manager
+// handles a sound when debugging missing or duplicated audio.
+```
+
+---
+
+**Last updated:** 2026-05-14  
+**Source version:** TaleWorlds.Native.dll v1.3.15

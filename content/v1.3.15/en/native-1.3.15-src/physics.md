@@ -1,24 +1,24 @@
 ---
-title: 物理引擎 / Physics Engine
-description: TaleWorlds.Native.dll 物理引擎类参考
+title: Physics Engine
+description: TaleWorlds.Native.dll physics engine class reference
 ---
-# 物理引擎 / Physics Engine
+# Physics Engine
 
 ## Mental Model
 
-Treat `物理引擎` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Treat `Physics Engine` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
-## 概述 / Overview
+## Overview
 
-物理引擎使用 NVIDIA PhysX 实现刚体物理、碰撞检测和约束系统。
+The physics engine uses NVIDIA PhysX for rigid body physics, collision detection, and constraint systems. It is structured around a world/body/shape/constraint model (`rglPhysics_engine_world`, `rglPhysics_engine_body`, `rglPhysics_engine_shape`, `rglPhysics_engine_constraint`) with both PhysX-backed and null implementations. PhysX integration is handled through callback interfaces (error, allocator, deletion listener, contact recorder, simulation events), collision filtering callbacks, raycasting, heightfields, a task system for async simulation, cloth simulation, and terrain collision helpers.
 
-The physics engine uses NVIDIA PhysX for rigid body physics, collision detection, and constraint systems.
+> **Verification note:** The following symbols were not found in native-1.2.9 or native-1.4.5; neither tree is v1.3.15, so existence in the v1.3.15 decompile cannot be ruled out — unverified in this environment: `rglNull_physics_engine_world`, `cloth_instance`, `cloth_simulation`, `cloth_collider`. Note that `cloth_simulation` exists only as function names (`cloth_simulation_system_ctor`, `material_set_cloth_simulation`) in the 1.4.5 header — no type or vftable by that name was found.
 
-## PhysX 回调接口 / PhysX Callback Interfaces
+## PhysX Callback Interfaces
 
 ### PxErrorCallback
 
-PhysX 错误回调。
+PhysX error callback interface. Receives error and warning messages from PhysX.
 
 ```cpp
 PxErrorCallback::vftable
@@ -26,7 +26,7 @@ PxErrorCallback::vftable
 
 ### rglPhysx_error_callback
 
-rgl PhysX 错误回调。
+rgl PhysX error callback implementation.
 
 ```cpp
 rglPhysx_error_callback::vftable
@@ -34,7 +34,7 @@ rglPhysx_error_callback::vftable
 
 ### PxAllocatorCallback
 
-PhysX 内存分配器回调。
+PhysX memory allocator callback interface.
 
 ```cpp
 PxAllocatorCallback::vftable
@@ -42,7 +42,7 @@ PxAllocatorCallback::vftable
 
 ### rglPhysx_allocator
 
-rgl PhysX 内存分配器。
+rgl PhysX memory allocator implementation.
 
 ```cpp
 rglPhysx_allocator::vftable
@@ -50,7 +50,7 @@ rglPhysx_allocator::vftable
 
 ### PhysxStackCacheAllocator
 
-PhysX 栈缓存分配器。
+PhysX stack cache allocator. Uses a stack-based allocation strategy with caching.
 
 ```cpp
 PhysxStackCacheAllocator::vftable
@@ -58,7 +58,7 @@ PhysxStackCacheAllocator::vftable
 
 ### PxConstraintAllocator
 
-PhysX 约束分配器。
+PhysX constraint allocator interface.
 
 ```cpp
 PxConstraintAllocator::vftable
@@ -66,7 +66,7 @@ PxConstraintAllocator::vftable
 
 ### TestConstraintAllocator
 
-测试用约束分配器。
+Test constraint allocator. Used in tests and debugging.
 
 ```cpp
 TestConstraintAllocator::vftable
@@ -74,7 +74,7 @@ TestConstraintAllocator::vftable
 
 ### PxContactRecorder
 
-PhysX 接触记录器。
+PhysX contact recorder interface. Records contact points during simulation.
 
 ```cpp
 PxContactRecorder::vftable
@@ -82,7 +82,7 @@ PxContactRecorder::vftable
 
 ### TestContactRecorder
 
-测试用接触记录器。
+Test contact recorder. Used in tests and debugging.
 
 ```cpp
 TestContactRecorder::vftable
@@ -90,7 +90,7 @@ TestContactRecorder::vftable
 
 ### TestContactRecorder2
 
-测试用接触记录器 2。
+Test contact recorder 2. Alternate test implementation.
 
 ```cpp
 TestContactRecorder2::vftable
@@ -98,7 +98,7 @@ TestContactRecorder2::vftable
 
 ### PxCacheAllocator
 
-PhysX 缓存分配器。
+PhysX cache allocator interface.
 
 ```cpp
 PxCacheAllocator::vftable
@@ -106,7 +106,7 @@ PxCacheAllocator::vftable
 
 ### TestCacheAllocator
 
-测试用缓存分配器。
+Test cache allocator. Used in tests and debugging.
 
 ```cpp
 TestCacheAllocator::vftable
@@ -114,7 +114,7 @@ TestCacheAllocator::vftable
 
 ### PxDeletionListener
 
-PhysX 删除监听器。
+PhysX deletion listener interface. Notifies when PhysX objects are destroyed.
 
 ```cpp
 PxDeletionListener::vftable
@@ -122,7 +122,7 @@ PxDeletionListener::vftable
 
 ### rglPhysX_deletion_listener
 
-rgl PhysX 删除监听器。
+rgl PhysX deletion listener implementation.
 
 ```cpp
 rglPhysX_deletion_listener::vftable
@@ -130,7 +130,7 @@ rglPhysX_deletion_listener::vftable
 
 ### PxInputData
 
-PhysX 输入数据。
+PhysX input data. Wraps data for PhysX serialization.
 
 ```cpp
 PxInputData::vftable
@@ -138,17 +138,17 @@ PxInputData::vftable
 
 ### PxInputStream
 
-PhysX 输入流。
+PhysX input stream interface. Reads serialized PhysX data.
 
 ```cpp
 PxInputStream::vftable
 ```
 
-## 物理世界 / Physics World
+## Physics World
 
 ### rglPhysics_engine_world
 
-物理世界基类。
+Physics world base class. Manages the physics simulation.
 
 ```cpp
 rglPhysics_engine_world::vftable
@@ -156,31 +156,31 @@ rglPhysics_engine_world::vftable
 
 ### rglPhysX_physics_engine_world
 
-PhysX 物理世界实现。
+PhysX physics world implementation.
 
 ```cpp
 rglPhysX_physics_engine_world::vftable
 ```
 
-**功能:**
-- 物理模拟
-- 碰撞检测
-- 射线投射
-- 形状查询
+**Capabilities:**
+- Physics simulation
+- Collision detection
+- Raycasting
+- Shape queries
 
 ### rglNull_physics_engine_world
 
-空物理世界（无物理）。
+Null physics world. No-op implementation used when physics is disabled.
 
 ```cpp
 rglNull_physics_engine_world::vftable
 ```
 
-## 刚体 / Rigid Bodies
+## Rigid Bodies
 
 ### rglPhysics_engine_body
 
-物理刚体基类。
+Physics rigid body base class.
 
 ```cpp
 rglPhysics_engine_body::vftable
@@ -188,32 +188,32 @@ rglPhysics_engine_body::vftable
 
 ### rglPhysX_physics_engine_body
 
-PhysX 刚体实现。
+PhysX rigid body implementation.
 
 ```cpp
 rglPhysX_physics_engine_body::vftable
 ```
 
-**属性:**
-- 质量 (Mass)
-- 位置 (Position)
-- 旋转 (Rotation)
-- 速度 (Velocity)
-- 角速度 (Angular Velocity)
+**Properties:**
+- Mass
+- Position
+- Rotation
+- Velocity
+- Angular velocity
 
 ### rglNull_physics_engine_body
 
-空物理刚体。
+Null physics rigid body. No-op implementation.
 
 ```cpp
 rglNull_physics_engine_body::vftable
 ```
 
-## 碰撞形状 / Collision Shapes
+## Collision Shapes
 
 ### rglPhysics_engine_shape
 
-碰撞形状基类。
+Collision shape base class.
 
 ```cpp
 rglPhysics_engine_shape::vftable
@@ -221,23 +221,23 @@ rglPhysics_engine_shape::vftable
 
 ### rglPhysX_physics_engine_shape
 
-PhysX 碰撞形状。
+PhysX collision shape implementation.
 
 ```cpp
 rglPhysX_physics_engine_shape::vftable
 ```
 
-**类型:**
-- 球体 (Sphere)
-- 盒子 (Box)
-- 胶囊 (Capsule)
-- 凸包 (Convex Hull)
-- 三角形网格 (Triangle Mesh)
-- 高度场 (Heightfield)
+**Types:**
+- Sphere
+- Box
+- Capsule
+- Convex hull
+- Triangle mesh
+- Heightfield
 
 ### rglNull_physics_engine_shape
 
-空碰撞形状。
+Null collision shape. No-op implementation.
 
 ```cpp
 rglNull_physics_engine_shape::vftable
@@ -245,17 +245,17 @@ rglNull_physics_engine_shape::vftable
 
 ### rglPhysics_material
 
-物理材质。
+Physics material. Defines friction and restitution for collision surfaces.
 
 ```cpp
 rglPhysics_material::vftable
 ```
 
-## 约束 / Constraints
+## Constraints
 
 ### rglPhysics_engine_constraint
 
-物理约束基类。
+Physics constraint base class.
 
 ```cpp
 rglPhysics_engine_constraint::vftable
@@ -263,31 +263,31 @@ rglPhysics_engine_constraint::vftable
 
 ### rglPhysX_physics_engine_constraint
 
-PhysX 约束实现。
+PhysX constraint implementation.
 
 ```cpp
 rglPhysX_physics_engine_constraint::vftable
 ```
 
-**类型:**
-- 球窝关节 (Spherical Joint)
-- 铰链关节 (Hinge Joint)
-- 滑动关节 (Prismatic Joint)
-- 固定约束 (Fixed Joint)
+**Types:**
+- Spherical joint
+- Hinge joint
+- Prismatic joint
+- Fixed joint
 
 ### rglNull_physics_engine_constraint
 
-空约束。
+Null constraint. No-op implementation.
 
 ```cpp
 rglNull_physics_engine_constraint::vftable
 ```
 
-## 碰撞过滤 / Collision Filtering
+## Collision Filtering
 
 ### rglPhysics_filter_callback
 
-物理过滤回调。
+Physics filter callback. Determines which bodies collide.
 
 ```cpp
 rglPhysics_filter_callback::vftable
@@ -295,7 +295,7 @@ rglPhysics_filter_callback::vftable
 
 ### rglPhysx_filter_callback
 
-PhysX 过滤回调。
+PhysX filter callback implementation.
 
 ```cpp
 rglPhysx_filter_callback::vftable
@@ -303,7 +303,7 @@ rglPhysx_filter_callback::vftable
 
 ### rglPhysX_simulation_filter
 
-PhysX 模拟过滤。
+PhysX simulation filter. Filters collisions during simulation.
 
 ```cpp
 rglPhysX_simulation_filter::vftable
@@ -311,7 +311,7 @@ rglPhysX_simulation_filter::vftable
 
 ### PxSimulationFilterCallback
 
-PhysX 模拟过滤回调。
+PhysX simulation filter callback interface.
 
 ```cpp
 PxSimulationFilterCallback::vftable
@@ -319,7 +319,7 @@ PxSimulationFilterCallback::vftable
 
 ### PxQueryFilterCallback
 
-PhysX 查询过滤回调。
+PhysX query filter callback interface. Filters raycast and shape query results.
 
 ```cpp
 PxQueryFilterCallback::vftable
@@ -327,7 +327,7 @@ PxQueryFilterCallback::vftable
 
 ### rglPhysics_filter_two_entities_callback
 
-两个实体过滤回调。
+Two-entity physics filter callback. Filters collisions between a specific pair of entities.
 
 ```cpp
 rglPhysics_filter_two_entities_callback::vftable
@@ -335,7 +335,7 @@ rglPhysics_filter_two_entities_callback::vftable
 
 ### PxSimulationEventCallback
 
-PhysX 模拟事件回调。
+PhysX simulation event callback interface. Receives collision and trigger events.
 
 ```cpp
 PxSimulationEventCallback::vftable
@@ -343,7 +343,7 @@ PxSimulationEventCallback::vftable
 
 ### rglPhysX_simulation_callback
 
-PhysX 模拟回调。
+PhysX simulation callback implementation.
 
 ```cpp
 rglPhysX_simulation_callback::vftable
@@ -351,7 +351,7 @@ rglPhysX_simulation_callback::vftable
 
 ### collide_only_with
 
-仅与指定实体碰撞。
+Collide only with a specific entity. Filter callback that restricts collisions to one target.
 
 ```cpp
 collide_only_with::vftable
@@ -359,17 +359,17 @@ collide_only_with::vftable
 
 ### collide_only_with_capsule
 
-仅与胶囊体碰撞。
+Collide only with a capsule. Filter callback that restricts collisions to a capsule shape.
 
 ```cpp
 collide_only_with_capsule::vftable
 ```
 
-## 射线投射 / Raycasting
+## Raycasting
 
 ### rglAgent_capsule_world
 
-Agent 胶囊世界。
+Agent capsule world. Manages capsule-based raycasting for agents.
 
 ```cpp
 rglAgent_capsule_world::vftable
@@ -377,17 +377,17 @@ rglAgent_capsule_world::vftable
 
 ### rglAgent_capsule_world_physx
 
-Agent 胶囊 PhysX 世界。
+Agent capsule PhysX world. PhysX-backed capsule raycasting for agents.
 
 ```cpp
 rglAgent_capsule_world_physx::vftable
 ```
 
-## 高度场 / Heightfield
+## Heightfield
 
 ### rglPhysics_engine_heightfield
 
-物理高度场地基类。
+Physics heightfield base class.
 
 ```cpp
 rglPhysics_engine_heightfield::vftable
@@ -395,17 +395,17 @@ rglPhysics_engine_heightfield::vftable
 
 ### rglPhysx_physics_engine_heightfield
 
-PhysX 高度场。
+PhysX heightfield implementation.
 
 ```cpp
 rglPhysx_physics_engine_heightfield::vftable
 ```
 
-## 任务系统 / Task System
+## Task System
 
 ### rglPhysx_task
 
-PhysX 任务基类。
+PhysX task base class.
 
 ```cpp
 rglPhysx_task::vftable
@@ -413,7 +413,7 @@ rglPhysx_task::vftable
 
 ### rglPhysx_async_simulate_task
 
-PhysX 异步模拟任务。
+PhysX asynchronous simulation task.
 
 ```cpp
 rglPhysx_async_simulate_task::vftable
@@ -421,7 +421,7 @@ rglPhysx_async_simulate_task::vftable
 
 ### rglPhysx_cpu_dispatcher
 
-PhysX CPU 调度器。
+PhysX CPU dispatcher. Schedules PhysX tasks across CPU threads.
 
 ```cpp
 rglPhysx_cpu_dispatcher::vftable
@@ -429,7 +429,7 @@ rglPhysx_cpu_dispatcher::vftable
 
 ### PxCpuDispatcher
 
-PhysX CPU 调度器接口。
+PhysX CPU dispatcher interface.
 
 ```cpp
 PxCpuDispatcher::vftable
@@ -437,7 +437,7 @@ PxCpuDispatcher::vftable
 
 ### rglPhysx_completion_task
 
-PhysX 完成任务。
+PhysX completion task. Signals when async PhysX work is done.
 
 ```cpp
 rglPhysx_completion_task::vftable
@@ -445,7 +445,7 @@ rglPhysx_completion_task::vftable
 
 ### PxBaseTask
 
-PhysX 基础任务。
+PhysX base task interface.
 
 ```cpp
 PxBaseTask::vftable
@@ -453,17 +453,17 @@ PxBaseTask::vftable
 
 ### PxLightCpuTask
 
-PhysX 轻量 CPU 任务。
+PhysX light CPU task. A low-overhead task for simple operations.
 
 ```cpp
 PxLightCpuTask::vftable
 ```
 
-## 特效 / Effects
+## Effects
 
 ### cloth_instance
 
-布料实例。
+Cloth instance. A single piece of simulated cloth.
 
 ```cpp
 cloth_instance::vftable
@@ -471,7 +471,7 @@ cloth_instance::vftable
 
 ### cloth_simulation
 
-布料模拟。
+Cloth simulation. Drives cloth physics for a cloth instance.
 
 ```cpp
 cloth_simulation::vftable
@@ -479,17 +479,17 @@ cloth_simulation::vftable
 
 ### cloth_collider
 
-布料碰撞体。
+Cloth collider. A collision shape that cloth interacts with.
 
 ```cpp
 cloth_collider::vftable
 ```
 
-## 地形碰撞 / Terrain Collision
+## Terrain Collision
 
 ### exclude_entity_callback
 
-排除实体回调。
+Exclude entity callback. Excludes a specific entity from terrain collision.
 
 ```cpp
 exclude_entity_callback::vftable
@@ -497,7 +497,7 @@ exclude_entity_callback::vftable
 
 ### ignore_entity_callback
 
-忽略实体回调。
+Ignore entity callback. Ignores a specific entity during collision.
 
 ```cpp
 ignore_entity_callback::vftable
@@ -505,7 +505,7 @@ ignore_entity_callback::vftable
 
 ### ignore_forward_collisions_callback
 
-忽略正向碰撞回调。
+Ignore forward collisions callback. Skips forward-facing collisions.
 
 ```cpp
 ignore_forward_collisions_callback::vftable
@@ -513,17 +513,17 @@ ignore_forward_collisions_callback::vftable
 
 ### Exclude_invalid_get_height_callback
 
-排除无效高度获取回调。
+Exclude invalid get-height callback. Skips invalid heightfield lookups.
 
 ```cpp
 Exclude_invalid_get_height_callback::vftable
 ```
 
-## 其他物理类 / Other Physics Classes
+## Other Physics Classes
 
 ### focus_raycast_callback
 
-焦点射线投射回调。
+Focus raycast callback. Handles raycasts for focus/targeting.
 
 ```cpp
 focus_raycast_callback::vftable
@@ -531,7 +531,7 @@ focus_raycast_callback::vftable
 
 ### missile_collide_callback
 
-弹丸碰撞回调。
+Missile collide callback. Handles missile collision events.
 
 ```cpp
 missile_collide_callback::vftable
@@ -539,7 +539,7 @@ missile_collide_callback::vftable
 
 ### missile_collide_with_exclude_entity_callback
 
-弹丸与排除实体碰撞回调。
+Missile collide with exclude entity callback. Handles missile collisions while excluding specific entities.
 
 ```cpp
 missile_collide_with_exclude_entity_callback::vftable
@@ -547,7 +547,7 @@ missile_collide_with_exclude_entity_callback::vftable
 
 ### object_mover
 
-物体移动器。
+Object mover. Moves physics objects programmatically.
 
 ```cpp
 object_mover::vftable
@@ -555,7 +555,7 @@ object_mover::vftable
 
 ### object_shaker
 
-物体震动器。
+Object shaker. Applies shake effects to physics objects.
 
 ```cpp
 object_shaker::vftable
@@ -563,7 +563,7 @@ object_shaker::vftable
 
 ### trajectory_visualizer
 
-轨迹可视化器。
+Trajectory visualizer. Draws predicted trajectories for debugging.
 
 ```cpp
 trajectory_visualizer::vftable
@@ -571,4 +571,15 @@ trajectory_visualizer::vftable
 
 ## Usage Example
 
-// （占位示例已移除，见正文说明）
+```csharp
+// Example: the physics engine is driven internally by the engine each frame.
+// Modders typically interact with it indirectly through agent behaviors,
+// missile scripts, and MB scripting rather than calling these vftables directly.
+// Use the native source reference to trace which physics callback or constraint
+// handles a given behavior when debugging physics glitches or desyncs.
+```
+
+---
+
+**Last updated:** 2026-10-08  
+**Source version:** TaleWorlds.Native.dll v1.3.15

@@ -1,39 +1,39 @@
 ---
-title: 网络系统 / Network System
-description: TaleWorlds.Native.dll 网络系统类参考
+title: Network System
+description: TaleWorlds.Native.dll network system class reference
 ---
-# 网络系统 / Network System
+# Network System
 
 ## Mental Model
 
-Treat `网络系统` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
-
-## 概述 / Overview
-
-网络系统处理多人游戏中的网络通信，包括 UDP 套接字、服务器/客户端会话等。
+Treat `Network System` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 The network system handles network communication in multiplayer games, including UDP sockets, server/client sessions, etc.
 
-## UDP 套接字 / UDP Sockets
+## Overview
+
+The network subsystem implements MBNet, the engine's UDP-based multiplayer transport. `MBNet_udp_socket` wraps the OS socket; `Udp_session_base` and its server/client subclasses manage per-player sessions, packet broadcast, and state synchronization. Receive and completion tasks (`Socket_receive_task`, `Completion_port_task`) drive the async I/O loop, while `Watchdog` monitors connection health.
+
+## UDP Sockets
 
 ### MBNet_udp_socket
 
-MBNet UDP 套接字。
+MBNet UDP socket.
 
 ```cpp
 MBNet_udp_socket::vftable
 ```
 
-**功能:**
-- UDP 数据发送
-- UDP 数据接收
-- 地址绑定
+**Responsibilities:**
+- UDP data send
+- UDP data receive
+- Address binding
 
-## 网络会话 / Network Sessions
+## Network Sessions
 
 ### Udp_session_base
 
-UDP 会话基类。
+UDP session base class.
 
 ```cpp
 Udp_session_base::vftable
@@ -41,35 +41,35 @@ Udp_session_base::vftable
 
 ### Serverside_udp_session
 
-服务器端 UDP 会话。
+Server-side UDP session.
 
 ```cpp
 Serverside_udp_session::vftable
 ```
 
-**功能:**
-- 玩家连接管理
-- 数据广播
-- 会话状态同步
+**Responsibilities:**
+- Player connection management
+- Data broadcast
+- Session state synchronization
 
 ### Clientside_udp_session
 
-客户端 UDP 会话。
+Client-side UDP session.
 
 ```cpp
 Clientside_udp_session::vftable
 ```
 
-**功能:**
-- 连接服务器
-- 数据发送
-- 延迟补偿
+**Responsibilities:**
+- Connect to server
+- Data send
+- Latency compensation
 
-## 任务系统 / Task System
+## Task System
 
 ### Socket_receive_task
 
-套接字接收任务。
+Socket receive task.
 
 ```cpp
 Socket_receive_task::vftable
@@ -77,7 +77,7 @@ Socket_receive_task::vftable
 
 ### sndbs_poll_task
 
-SNDB 轮询任务。
+SNDB poll task.
 
 ```cpp
 sndbs_poll_task::vftable
@@ -85,7 +85,7 @@ sndbs_poll_task::vftable
 
 ### CompletionTask
 
-完成任务。
+Completion task.
 
 ```cpp
 CompletionTask::vftable
@@ -93,17 +93,17 @@ CompletionTask::vftable
 
 ### Completion_port_task
 
-完成端口任务。
+Completion port task.
 
 ```cpp
 Completion_port_task::vftable
 ```
 
-## 其他网络类 / Other Network Classes
+## Other Network Classes
 
 ### Watchdog
 
-看门狗。
+Watchdog.
 
 ```cpp
 Watchdog::vftable
@@ -111,7 +111,7 @@ Watchdog::vftable
 
 ### WindowsWatchdog
 
-Windows 看门狗。
+Windows watchdog.
 
 ```cpp
 WindowsWatchdog::vftable
@@ -119,4 +119,14 @@ WindowsWatchdog::vftable
 
 ## Usage Example
 
-// （占位示例已移除，见正文说明）
+```csharp
+// Example: the network system is internal to the engine's multiplayer stack.
+// Modders do not call these vftables directly. Use this reference to identify
+// session or socket classes when analyzing multiplayer crash logs or
+// desync diagnostics.
+```
+
+---
+
+**Last updated:** 2026-05-14  
+**Source version:** TaleWorlds.Native.dll v1.3.15

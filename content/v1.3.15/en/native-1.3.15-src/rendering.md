@@ -1,24 +1,24 @@
 ---
-title: 渲染系统 / Rendering System
-description: TaleWorlds.Native.dll 渲染系统类参考
+title: Rendering System
+description: TaleWorlds.Native.dll rendering system class reference
 ---
-# 渲染系统 / Rendering System
+# Rendering System
 
 ## Mental Model
 
-Treat `渲染系统` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Treat `Rendering System` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
-## 概述 / Overview
+## Overview
 
-渲染系统负责游戏中所有视觉内容的渲染，包括网格、光照、阴影、后处理效果等。
+The rendering system is responsible for all visual content in the game, including meshes, lighting, shadows, post-processing effects, terrain, water, flora, particles, and weather. It is built around a scene/view model (`rglScene` + `rglScene_view`), a D3D11 GPU device layer (`rglGPU_device` and friends), and a large post-processing graph (`rglPostfx_graph` with many `rgl*_fxnode` subclasses). Render work is scheduled onto a dedicated render thread (`rglRender_thread`) via a family of task types, and all GPU resources flow through the asset factory and metadata pipeline (`rglAsset_factory_class`, `rglAsset_metadata*`).
 
-The rendering system is responsible for all visual content rendering in the game, including meshes, lights, shadows, post-processing effects, etc.
+> **Verification note:** The following symbols were not found in native-1.2.9 or native-1.4.5; neither tree is v1.3.15, so existence in the v1.3.15 decompile cannot be ruled out — unverified in this environment: `rglSSR_fxnode`, `rglWater_body`.
 
-## GPU 设备 / GPU Device
+## GPU Device
 
 ### rglGPU_device
 
-GPU 设备接口基类。
+Abstract GPU device interface. Base class for backend-specific device implementations.
 
 ```cpp
 rglGPU_device::vftable
@@ -26,17 +26,17 @@ rglGPU_device::vftable
 
 ### rglGPU_device_d3d11
 
-DirectX 11 GPU 设备实现。
+DirectX 11 GPU device implementation.
 
 ```cpp
 rglGPU_device_d3d11::vftable
 ```
 
-**平台:** Windows DirectX 11
+**Platform:** Windows DirectX 11
 
 ### rglGraphics_command_list
 
-图形命令列表。
+Graphics command list abstraction for recording GPU work.
 
 ```cpp
 rglGraphics_command_list::vftable
@@ -44,30 +44,30 @@ rglGraphics_command_list::vftable
 
 ### rglGraphics_command_list_d3d11
 
-DirectX 11 图形命令列表。
+DirectX 11 graphics command list implementation.
 
 ```cpp
 rglGraphics_command_list_d3d11::vftable
 ```
 
-## 场景 / Scene
+## Scene
 
 ### rglScene
 
-场景渲染器。管理场景中所有实体的渲染。
+Scene renderer. Manages rendering of all entities in a scene.
 
 ```cpp
 rglScene::vftable
 ```
 
-**主要方法:**
-- `AddEntity()` - 添加渲染实体
-- `RemoveEntity()` - 移除渲染实体
-- `Render()` - 执行场景渲染
+**Responsibilities:**
+- Add/remove render entities
+- Execute the scene render pass
+- Own scene-level render state
 
 ### rglScene_view
 
-场景视图。定义渲染视口和相机。
+Scene view. Defines the render viewport and camera for a scene.
 
 ```cpp
 rglScene_view::vftable
@@ -75,31 +75,31 @@ rglScene_view::vftable
 
 ### rglScene_view_clear_task
 
-场景视图清理任务。
+Task that clears the scene view (color, depth, and stencil buffers).
 
 ```cpp
 rglScene_view_clear_task::vftable
 ```
 
-## 实体 / Entity
+## Entity
 
 ### rglEntity
 
-渲染实体。场景中的基本渲染单元。
+Render entity. The basic renderable unit in a scene.
 
 ```cpp
 rglEntity::vftable
 ```
 
-**组成:**
-- 变换矩阵 (Transform)
-- 网格数据 (Mesh)
-- 材质 (Material)
-- 渲染状态 (Render State)
+**Composition:**
+- Transform matrix
+- Mesh data
+- Material
+- Render state
 
 ### rglEntity_component
 
-实体组件。
+Component that can be attached to a render entity.
 
 ```cpp
 rglEntity_component::vftable
@@ -107,31 +107,31 @@ rglEntity_component::vftable
 
 ### rglSimple_game_object
 
-简单游戏对象。
+Simple game object wrapper for lightweight renderables.
 
 ```cpp
 rglSimple_game_object::vftable
 ```
 
-## 网格 / Mesh
+## Mesh
 
 ### rglMesh
 
-网格渲染类。处理 3D 模型的几何数据和渲染。
+Mesh render class. Handles 3D model geometry data and rendering.
 
 ```cpp
 rglMesh::vftable
 ```
 
-**数据:**
-- 顶点数据 (Vertex Buffer)
-- 索引数据 (Index Buffer)
-- 材质 (Material)
-- 包围盒 (Bounding Box)
+**Data:**
+- Vertex buffer
+- Index buffer
+- Material
+- Bounding box
 
 ### rglMesh_vertex_buffer_data
 
-顶点缓冲区数据。
+Vertex buffer data container.
 
 ```cpp
 rglMesh_vertex_buffer_data::vftable
@@ -139,7 +139,7 @@ rglMesh_vertex_buffer_data::vftable
 
 ### rglMesh_index_buffer_data
 
-索引缓冲区数据。
+Index buffer data container.
 
 ```cpp
 rglMesh_index_buffer_data::vftable
@@ -147,7 +147,7 @@ rglMesh_index_buffer_data::vftable
 
 ### rglMesh_vertex_buffer_gpu_holder
 
-GPU 顶点缓冲区持有者。
+GPU-side holder for vertex buffer data.
 
 ```cpp
 rglMesh_vertex_buffer_gpu_holder::vftable
@@ -155,7 +155,7 @@ rglMesh_vertex_buffer_gpu_holder::vftable
 
 ### rglMesh_index_buffer_gpu_holder
 
-GPU 索引缓冲区持有者。
+GPU-side holder for index buffer data.
 
 ```cpp
 rglMesh_index_buffer_gpu_holder::vftable
@@ -163,7 +163,7 @@ rglMesh_index_buffer_gpu_holder::vftable
 
 ### rglMesh_clothing_properties
 
-网格布料属性。
+Clothing properties for a mesh.
 
 ```cpp
 rglMesh_clothing_properties::vftable
@@ -171,7 +171,7 @@ rglMesh_clothing_properties::vftable
 
 ### Meta_mesh
 
-元网格。用于程序化生成或变形网格。
+Meta mesh. Used for procedurally generated or morphed meshes.
 
 ```cpp
 Meta_mesh::vftable
@@ -179,7 +179,7 @@ Meta_mesh::vftable
 
 ### rglMeta_mesh
 
-rgl 元网格实现。
+rgl meta mesh implementation.
 
 ```cpp
 rglMeta_mesh::vftable
@@ -187,17 +187,17 @@ rglMeta_mesh::vftable
 
 ### rglMeta_mesh_clothing_properties
 
-元网格布料属性。
+Clothing properties for a meta mesh.
 
 ```cpp
 rglMeta_mesh_clothing_properties::vftable
 ```
 
-## 材质与着色器 / Material & Shader
+## Material & Shader
 
 ### rglShader
 
-着色器。定义渲染管线的可编程部分。
+Shader. Defines the programmable stages of the render pipeline.
 
 ```cpp
 rglShader::vftable
@@ -205,21 +205,21 @@ rglShader::vftable
 
 ### rglMaterial
 
-材质。定义表面的视觉属性。
+Material. Defines the visual properties of a surface.
 
 ```cpp
 rglMaterial::vftable
 ```
 
-**属性:**
-- 颜色 (Color)
-- 贴图 (Textures)
-- 光照模型 (Lighting Model)
-- 渲染状态 (Render State)
+**Properties:**
+- Color
+- Textures
+- Lighting model
+- Render state
 
 ### rglShader_compile_extensions_instance
 
-着色器编译扩展实例。
+Shader compile extensions instance.
 
 ```cpp
 rglShader_compile_extensions_instance::vftable
@@ -227,7 +227,7 @@ rglShader_compile_extensions_instance::vftable
 
 ### rglShader_compile_server_base
 
-着色器编译服务器基类。
+Base class for the shader compile server.
 
 ```cpp
 rglShader_compile_server_base::vftable
@@ -235,7 +235,7 @@ rglShader_compile_server_base::vftable
 
 ### rglShader_compile_server_sndbs
 
-着色器编译服务器实现。
+Shader compile server implementation (sndbs backend).
 
 ```cpp
 rglShader_compile_server_sndbs::vftable
@@ -243,31 +243,31 @@ rglShader_compile_server_sndbs::vftable
 
 ### rglShader_compile_task
 
-着色器编译任务。
+Asynchronous shader compilation task.
 
 ```cpp
 rglShader_compile_task::vftable
 ```
 
-## 纹理 / Texture
+## Texture
 
 ### rglTexture
 
-纹理。处理 2D 图像数据。
+Texture. Handles 2D image data.
 
 ```cpp
 rglTexture::vftable
 ```
 
-**类型:**
-- 2D 纹理
-- 立方体贴图
-- 渲染目标
-- 深度模板
+**Types:**
+- 2D texture
+- Cube map
+- Render target
+- Depth-stencil
 
 ### rglTexture_view
 
-纹理视图。
+Texture view (shader-resource view onto texture data).
 
 ```cpp
 rglTexture_view::vftable
@@ -275,7 +275,7 @@ rglTexture_view::vftable
 
 ### rglTexture_array_load_task
 
-纹理数组加载任务。
+Task that loads a texture array.
 
 ```cpp
 rglTexture_array_load_task::vftable
@@ -283,64 +283,64 @@ rglTexture_array_load_task::vftable
 
 ### rglTexture_release_later_task
 
-延迟释放纹理任务。
+Deferred texture release task.
 
 ```cpp
 rglTexture_release_later_task::vftable
 ```
 
-## 相机 / Camera
+## Camera
 
 ### rglCamera_object
 
-相机。定义渲染视角。
+Camera. Defines the render viewpoint.
 
 ```cpp
 rglCamera_object::vftable
 ```
 
-**属性:**
-- 位置 (Position)
-- 旋转 (Rotation)
-- 视场角 (FOV)
-- 近/远裁剪面 (Near/Far Plane)
+**Properties:**
+- Position
+- Rotation
+- Field of view
+- Near/far clip planes
 
 ### rglTableau_view
 
-Tableau 视图。
+Tableau view. Renders a static scene or portrait to an offscreen target.
 
 ```cpp
 rglTableau_view::vftable
 ```
 
-## 光照 / Lighting
+## Lighting
 
 ### rglLight
 
-光源。实现点光源、聚光灯、方向光等。
+Light source. Implements directional, point, and spot lights.
 
 ```cpp
 rglLight::vftable
 ```
 
-**类型:**
-- 方向光 (Directional Light)
-- 点光源 (Point Light)
-- 聚光灯 (Spot Light)
+**Types:**
+- Directional light
+- Point light
+- Spot light
 
 ### rglEnvironment_map_probe_record
 
-环境贴图探针记录。
+Environment map probe record.
 
 ```cpp
 rglEnvironment_map_probe_record::vftable
 ```
 
-## 地形 / Terrain
+## Terrain
 
 ### rglTerrain
 
-地形。程序化生成或加载的地形网格。
+Terrain. Procedurally generated or loaded terrain mesh.
 
 ```cpp
 rglTerrain::vftable
@@ -348,7 +348,7 @@ rglTerrain::vftable
 
 ### rglTerrain_node
 
-地形节点。
+Terrain node in the terrain tree.
 
 ```cpp
 rglTerrain_node::vftable
@@ -356,7 +356,7 @@ rglTerrain_node::vftable
 
 ### rglTerrain_layer_instance
 
-地形图层实例。
+Instance of a terrain layer.
 
 ```cpp
 rglTerrain_layer_instance::vftable
@@ -364,7 +364,7 @@ rglTerrain_layer_instance::vftable
 
 ### rglTerrain_renderer
 
-地形渲染器。
+Terrain renderer.
 
 ```cpp
 rglTerrain_renderer::vftable
@@ -372,17 +372,17 @@ rglTerrain_renderer::vftable
 
 ### rglTerrain_shaders_generate_headers_task
 
-地形着色器头文件生成任务。
+Task that generates terrain shader headers.
 
 ```cpp
 rglTerrain_shaders_generate_headers_task::vftable
 ```
 
-## 后处理 / Post-Processing
+## Post-Processing
 
 ### rglPostfx_graph
 
-后处理图。
+Post-processing graph. Chains post-processing nodes into a full-screen effect pipeline.
 
 ```cpp
 rglPostfx_graph::vftable
@@ -390,7 +390,7 @@ rglPostfx_graph::vftable
 
 ### rglPostfx_node
 
-后处理节点基类。
+Base class for all post-processing nodes.
 
 ```cpp
 rglPostfx_node::vftable
@@ -398,7 +398,7 @@ rglPostfx_node::vftable
 
 ### rglPostfx_compute_node
 
-后处理计算节点。
+Compute-shader post-processing node.
 
 ```cpp
 rglPostfx_compute_node::vftable
@@ -406,7 +406,7 @@ rglPostfx_compute_node::vftable
 
 ### rglDepth_chain_node
 
-深度链节点。
+Depth chain node. Builds a hierarchical depth representation for depth-based effects.
 
 ```cpp
 rglDepth_chain_node::vftable
@@ -414,7 +414,7 @@ rglDepth_chain_node::vftable
 
 ### rglHiZ_fxnode
 
-Hi-Z 节点。
+Hi-Z (hierarchical depth) node.
 
 ```cpp
 rglHiZ_fxnode::vftable
@@ -422,7 +422,7 @@ rglHiZ_fxnode::vftable
 
 ### rglSAO_fxnode
 
-SAO (屏幕空间环境光遮蔽) 节点。
+Screen-space ambient occlusion (SAO) node.
 
 ```cpp
 rglSAO_fxnode::vftable
@@ -430,7 +430,7 @@ rglSAO_fxnode::vftable
 
 ### rglSao_temporal_fxnode
 
-时域 SAO 节点。
+Temporal SAO accumulation node.
 
 ```cpp
 rglSao_temporal_fxnode::vftable
@@ -438,7 +438,7 @@ rglSao_temporal_fxnode::vftable
 
 ### rglDof_sep_node
 
-景深分离节点。
+Depth-of-field separation node.
 
 ```cpp
 rglDof_sep_node::vftable
@@ -446,7 +446,7 @@ rglDof_sep_node::vftable
 
 ### rglDof_blur_final_node
 
-景深模糊最终节点。
+Depth-of-field final blur node.
 
 ```cpp
 rglDof_blur_final_node::vftable
@@ -454,7 +454,7 @@ rglDof_blur_final_node::vftable
 
 ### rglSSR_fxnode
 
-屏幕空间反射节点。
+Screen-space reflections node.
 
 ```cpp
 rglSSR_fxnode::vftable
@@ -462,7 +462,7 @@ rglSSR_fxnode::vftable
 
 ### rglSsr_blur_fxnode
 
-SSR 模糊节点。
+SSR blur node.
 
 ```cpp
 rglSsr_blur_fxnode::vftable
@@ -470,7 +470,7 @@ rglSsr_blur_fxnode::vftable
 
 ### rglSsr_raycast_fxnode
 
-SSR 光线投射节点。
+SSR raycast node.
 
 ```cpp
 rglSsr_raycast_fxnode::vftable
@@ -478,7 +478,7 @@ rglSsr_raycast_fxnode::vftable
 
 ### rglTaa_filter_fxnode
 
-时间抗锯齿滤波节点。
+Temporal anti-aliasing (TAA) filter node.
 
 ```cpp
 rglTaa_filter_fxnode::vftable
@@ -486,7 +486,7 @@ rglTaa_filter_fxnode::vftable
 
 ### rglTaa_resolve_fxnode
 
-TAA 解析节点。
+TAA resolve node.
 
 ```cpp
 rglTaa_resolve_fxnode::vftable
@@ -494,7 +494,7 @@ rglTaa_resolve_fxnode::vftable
 
 ### rglFsr_upsample_node
 
-FSR (FidelityFX 超分辨率) 上采样节点。
+FidelityFX Super Resolution (FSR) upsample node.
 
 ```cpp
 rglFsr_upsample_node::vftable
@@ -502,7 +502,7 @@ rglFsr_upsample_node::vftable
 
 ### rglFsr_sharpen_node
 
-FSR 锐化节点。
+FSR sharpening node.
 
 ```cpp
 rglFsr_sharpen_node::vftable
@@ -510,7 +510,7 @@ rglFsr_sharpen_node::vftable
 
 ### rglDlss_fxnode
 
-DLSS (深度学习超级采样) 节点。
+NVIDIA DLSS (deep learning super sampling) node.
 
 ```cpp
 rglDlss_fxnode::vftable
@@ -518,7 +518,7 @@ rglDlss_fxnode::vftable
 
 ### rglShadowmap_combine_fxnode
 
-阴影图合并节点。
+Shadow map combine node.
 
 ```cpp
 rglShadowmap_combine_fxnode::vftable
@@ -526,7 +526,7 @@ rglShadowmap_combine_fxnode::vftable
 
 ### rglContour_final_fxnode
 
-轮廓最终节点。
+Contour (outline) final node.
 
 ```cpp
 rglContour_final_fxnode::vftable
@@ -534,7 +534,7 @@ rglContour_final_fxnode::vftable
 
 ### rglHalf_res_velocity_and_depth_node
 
-半分辨率速度和深度节点。
+Half-resolution velocity and depth node.
 
 ```cpp
 rglHalf_res_velocity_and_depth_node::vftable
@@ -542,15 +542,15 @@ rglHalf_res_velocity_and_depth_node::vftable
 
 ### rglPosftx_halfres_combine_node
 
-半分辨率合并节点。
+Half-resolution post-processing combine node.
 
 ```cpp
-rglPosftx_halfres_combine_node::vftable
+rglPosfx_halfres_combine_node::vftable
 ```
 
 ### rglHistory_node
 
-历史节点。
+History buffer node. Stores previous-frame data for temporal effects (TAA, SSR).
 
 ```cpp
 rglHistory_node::vftable
@@ -558,7 +558,7 @@ rglHistory_node::vftable
 
 ### rglHistogram_node
 
-直方图节点。
+Histogram node. Computes luminance histograms for auto-exposure.
 
 ```cpp
 rglHistogram_node::vftable
@@ -566,7 +566,7 @@ rglHistogram_node::vftable
 
 ### rglVt_resolve_node
 
-VT 解析节点。
+Virtual texture resolve node.
 
 ```cpp
 rglVt_resolve_node::vftable
@@ -574,7 +574,7 @@ rglVt_resolve_node::vftable
 
 ### rglConvolve_fxnode
 
-卷积节点。
+Generic convolution node.
 
 ```cpp
 rglConvolve_fxnode::vftable
@@ -582,7 +582,7 @@ rglConvolve_fxnode::vftable
 
 ### rglPingPong_fxnode
 
-乒乓缓冲节点。
+Ping-pong buffer node. Alternates read/write targets for iterative effects.
 
 ```cpp
 rglPingPong_fxnode::vftable
@@ -590,7 +590,7 @@ rglPingPong_fxnode::vftable
 
 ### rglSmaa_edge_detection_node
 
-SMAA 边缘检测节点。
+SMAA edge detection node.
 
 ```cpp
 rglSmaa_edge_detection_node::vftable
@@ -598,7 +598,7 @@ rglSmaa_edge_detection_node::vftable
 
 ### rglSmaa_blend_weight_calc_node
 
-SMAA 混合权重计算节点。
+SMAA blend weight calculation node.
 
 ```cpp
 rglSmaa_blend_weight_calc_node::vftable
@@ -606,7 +606,7 @@ rglSmaa_blend_weight_calc_node::vftable
 
 ### rglAfter_postfx_node
 
-后后处理节点。
+Final node after post-processing. Writes the completed frame to the backbuffer.
 
 ```cpp
 rglAfter_postfx_node::vftable
@@ -614,7 +614,7 @@ rglAfter_postfx_node::vftable
 
 ### rglPRT_renderer
 
-PRT 渲染器。
+PRT (precomputed radiance transfer) renderer.
 
 ```cpp
 rglPRT_renderer::vftable
@@ -622,7 +622,7 @@ rglPRT_renderer::vftable
 
 ### rglSSS_specular_add_fxnode
 
-SSS 镜面添加节点。
+Subsurface scattering (SSS) specular add node.
 
 ```cpp
 rglSSS_specular_add_fxnode::vftable
@@ -630,7 +630,7 @@ rglSSS_specular_add_fxnode::vftable
 
 ### rglSSS_fxnode
 
-SSS 节点。
+Subsurface scattering node.
 
 ```cpp
 rglSSS_fxnode::vftable
@@ -638,7 +638,7 @@ rglSSS_fxnode::vftable
 
 ### rglBeta_indicator_view
 
-Beta 指示器视图。
+Beta indicator view. Overlays a watermark on beta builds.
 
 ```cpp
 rglBeta_indicator_view::vftable
@@ -646,17 +646,17 @@ rglBeta_indicator_view::vftable
 
 ### rglCas_fxnode
 
-CAS (对比度自适应锐化) 节点。
+Contrast adaptive sharpening (CAS) node.
 
 ```cpp
 rglCas_fxnode::vftable
 ```
 
-## 植被 / Flora
+## Flora
 
 ### rglFlora_entity
 
-植被实体。
+Flora (vegetation) entity.
 
 ```cpp
 rglFlora_entity::vftable
@@ -664,7 +664,7 @@ rglFlora_entity::vftable
 
 ### rglFlora_kind
 
-植被种类。
+Flora kind. Describes a vegetation species or type.
 
 ```cpp
 rglFlora_kind::vftable
@@ -672,7 +672,7 @@ rglFlora_kind::vftable
 
 ### rglFlora_seasonal_kind
 
-季节性植被种类。
+Seasonal flora kind variant.
 
 ```cpp
 rglFlora_seasonal_kind::vftable
@@ -680,17 +680,17 @@ rglFlora_seasonal_kind::vftable
 
 ### rglFlora_render_task
 
-植被渲染任务。
+Asynchronous flora render task.
 
 ```cpp
 rglFlora_render_task::vftable
 ```
 
-## 水体 / Water
+## Water
 
 ### rglWater_body
 
-水体。
+Water body. Renders a water surface with reflection and refraction.
 
 ```cpp
 rglWater_body::vftable
@@ -698,7 +698,7 @@ rglWater_body::vftable
 
 ### water_body
 
-水体实现。
+Water body implementation.
 
 ```cpp
 water_body::vftable
@@ -706,17 +706,17 @@ water_body::vftable
 
 ### water_flowmap
 
-水流图。
+Water flow map. Texture describing current direction and speed for water surfaces.
 
 ```cpp
 water_flowmap::vftable
 ```
 
-## 粒子系统 / Particle System
+## Particle System
 
 ### rglGpu_particle_system
 
-GPU 粒子系统。
+GPU particle system.
 
 ```cpp
 rglGpu_particle_system::vftable
@@ -724,7 +724,7 @@ rglGpu_particle_system::vftable
 
 ### rglParticle_system_instanced
 
-实例化粒子系统。
+Instanced particle system.
 
 ```cpp
 rglParticle_system_instanced::vftable
@@ -732,7 +732,7 @@ rglParticle_system_instanced::vftable
 
 ### rglParticle_system_interpolator_base
 
-粒子系统插值器基类。
+Base class for particle system interpolators.
 
 ```cpp
 rglParticle_system_interpolator_base::vftable
@@ -740,7 +740,7 @@ rglParticle_system_interpolator_base::vftable
 
 ### rglParticle_system_interpolator_definition
 
-粒子系统插值器定义。
+Particle system interpolator definition.
 
 ```cpp
 rglParticle_system_interpolator_definition::vftable
@@ -748,7 +748,7 @@ rglParticle_system_interpolator_definition::vftable
 
 ### rglParticle_effect
 
-粒子效果。
+Particle effect. A configurable effect made of one or more emitters.
 
 ```cpp
 rglParticle_effect::vftable
@@ -756,17 +756,17 @@ rglParticle_effect::vftable
 
 ### rglParticle_emitter
 
-粒子发射器。
+Particle emitter. Spawns particles with initial parameters.
 
 ```cpp
 rglParticle_emitter::vftable
 ```
 
-## 特效 / Effects
+## Effects
 
 ### decal_instance
 
-贴花实例。
+Decal instance. A projected texture applied to a surface.
 
 ```cpp
 decal_instance::vftable
@@ -774,7 +774,7 @@ decal_instance::vftable
 
 ### decal_placer
 
-贴花放置器。
+Decal placer. Projects decals onto scene geometry.
 
 ```cpp
 decal_placer::vftable
@@ -782,7 +782,7 @@ decal_placer::vftable
 
 ### rglParticle_effect
 
-粒子效果。
+Particle effect (alternate entry point).
 
 ```cpp
 rglParticle_effect::vftable
@@ -790,7 +790,7 @@ rglParticle_effect::vftable
 
 ### rglVector_field
 
-向量场。
+Vector field. Applies directional forces to particles and cloth.
 
 ```cpp
 rglVector_field::vftable
@@ -798,17 +798,17 @@ rglVector_field::vftable
 
 ### flickering_light
 
-闪烁光源。
+Flickering light. Animated light source for torches, fire, and similar effects.
 
 ```cpp
 flickering_light::vftable
 ```
 
-## 渲染任务 / Render Tasks
+## Render Tasks
 
 ### rglFrame_move_task
 
-帧移动任务。
+Per-frame move/update task.
 
 ```cpp
 rglFrame_move_task::vftable
@@ -816,7 +816,7 @@ rglFrame_move_task::vftable
 
 ### rglRender_thread
 
-渲染线程。
+Render thread. Executes render tasks off the main thread.
 
 ```cpp
 rglRender_thread::vftable
@@ -824,7 +824,7 @@ rglRender_thread::vftable
 
 ### rglRender_thread_task
 
-渲染线程任务。
+Base task for the render thread.
 
 ```cpp
 rglRender_thread_task::vftable
@@ -832,7 +832,7 @@ rglRender_thread_task::vftable
 
 ### rglRender_thread_simple_task
 
-渲染线程简单任务。
+Simple render thread task.
 
 ```cpp
 rglRender_thread_simple_task::vftable
@@ -840,7 +840,7 @@ rglRender_thread_simple_task::vftable
 
 ### rglRender_thread_simple_unwaitable_task
 
-渲染线程不可等待简单任务。
+Fire-and-forget render thread task with no wait handle.
 
 ```cpp
 rglRender_thread_simple_unwaitable_task::vftable
@@ -848,7 +848,7 @@ rglRender_thread_simple_unwaitable_task::vftable
 
 ### rglRender_thread_waitable_task
 
-渲染线程可等待任务。
+Render thread task with a waitable completion handle.
 
 ```cpp
 rglRender_thread_waitable_task::vftable
@@ -856,7 +856,7 @@ rglRender_thread_waitable_task::vftable
 
 ### rglRender_thread_block_task
 
-渲染线程阻塞任务。
+Render thread blocking task.
 
 ```cpp
 rglRender_thread_block_task::vftable
@@ -864,7 +864,7 @@ rglRender_thread_block_task::vftable
 
 ### rglParallel_for_task
 
-并行 for 循环任务。
+Parallel-for loop task.
 
 ```cpp
 rglParallel_for_task::vftable
@@ -872,7 +872,7 @@ rglParallel_for_task::vftable
 
 ### rglOro_task
 
-Oro 任务。
+Oro task. Internal render-thread task type.
 
 ```cpp
 rglOro_task::vftable
@@ -880,17 +880,17 @@ rglOro_task::vftable
 
 ### Async_render_task
 
-异步渲染任务。
+Generic asynchronous render task.
 
 ```cpp
 Async_render_task::vftable
 ```
 
-## 资源管理 / Resource Management
+## Resource Management
 
 ### rglResource
 
-资源基类。
+Base class for render resources.
 
 ```cpp
 rglResource::vftable
@@ -898,7 +898,7 @@ rglResource::vftable
 
 ### rglAsset_factory_class
 
-资源工厂类。
+Asset factory. Creates render assets from metadata.
 
 ```cpp
 rglAsset_factory_class::vftable
@@ -906,7 +906,7 @@ rglAsset_factory_class::vftable
 
 ### rglAsset_load_filter
 
-资源加载过滤器。
+Asset load filter. Selects which assets to load.
 
 ```cpp
 rglAsset_load_filter::vftable
@@ -914,7 +914,7 @@ rglAsset_load_filter::vftable
 
 ### rglAsset_metadata
 
-资源元数据。
+Base asset metadata.
 
 ```cpp
 rglAsset_metadata::vftable
@@ -922,7 +922,7 @@ rglAsset_metadata::vftable
 
 ### rglAsset_metadata_texture
 
-纹理元数据。
+Texture asset metadata.
 
 ```cpp
 rglAsset_metadata_texture::vftable
@@ -930,7 +930,7 @@ rglAsset_metadata_texture::vftable
 
 ### rglAsset_metadata_shader
 
-着色器元数据。
+Shader asset metadata.
 
 ```cpp
 rglAsset_metadata_shader::vftable
@@ -938,7 +938,7 @@ rglAsset_metadata_shader::vftable
 
 ### rglAsset_metadata_material
 
-材质元数据。
+Material asset metadata.
 
 ```cpp
 rglAsset_metadata_material::vftable
@@ -946,7 +946,7 @@ rglAsset_metadata_material::vftable
 
 ### rglAsset_metadata_skeleton
 
-骨骼元数据。
+Skeleton asset metadata.
 
 ```cpp
 rglAsset_metadata_skeleton::vftable
@@ -954,7 +954,7 @@ rglAsset_metadata_skeleton::vftable
 
 ### rglAsset_metadata_geometry_file
 
-几何文件元数据。
+Geometry file asset metadata.
 
 ```cpp
 rglAsset_metadata_geometry_file::vftable
@@ -962,7 +962,7 @@ rglAsset_metadata_geometry_file::vftable
 
 ### rglPage_resolver_granite
 
-Granite 页面解析器。
+Granite virtual texture page resolver.
 
 ```cpp
 rglPage_resolver_granite::vftable
@@ -970,17 +970,17 @@ rglPage_resolver_granite::vftable
 
 ### rglEngine_async_loader_task
 
-引擎异步加载任务。
+Engine asynchronous asset load task.
 
 ```cpp
 rglEngine_async_loader_task::vftable
 ```
 
-## 天空盒 / Skybox
+## Skybox
 
 ### rglAtmosphere
 
-大气。
+Atmosphere. Renders the sky and atmospheric effects.
 
 ```cpp
 rglAtmosphere::vftable
@@ -988,7 +988,7 @@ rglAtmosphere::vftable
 
 ### rglInterpolated_atmosphere
 
-插值大气。
+Interpolated atmosphere. Blends between weather states over time.
 
 ```cpp
 rglInterpolated_atmosphere::vftable
@@ -996,7 +996,7 @@ rglInterpolated_atmosphere::vftable
 
 ### Weather
 
-天气。
+Weather state base class.
 
 ```cpp
 Weather::vftable
@@ -1004,7 +1004,7 @@ Weather::vftable
 
 ### Weather_rainy
 
-雨天。
+Rainy weather variant.
 
 ```cpp
 Weather_rainy::vftable
@@ -1012,17 +1012,17 @@ Weather_rainy::vftable
 
 ### Weather_snowy
 
-雪天。
+Snowy weather variant.
 
 ```cpp
 Weather_snowy::vftable
 ```
 
-## 遮蔽 / Occlusion
+## Occlusion
 
 ### rglSoftware_occlusion_rasterization_task
 
-软件遮挡光栅化任务。
+Software occlusion rasterization task.
 
 ```cpp
 rglSoftware_occlusion_rasterization_task::vftable
@@ -1030,7 +1030,7 @@ rglSoftware_occlusion_rasterization_task::vftable
 
 ### DepthBufferRasterizer
 
-深度缓冲光栅化器。
+Depth buffer rasterizer base class.
 
 ```cpp
 DepthBufferRasterizer::vftable
@@ -1038,7 +1038,7 @@ DepthBufferRasterizer::vftable
 
 ### DepthBufferRasterizerScalar
 
-标量深度缓冲光栅化器。
+Scalar depth buffer rasterizer.
 
 ```cpp
 DepthBufferRasterizerScalar::vftable
@@ -1046,7 +1046,7 @@ DepthBufferRasterizerScalar::vftable
 
 ### DepthBufferRasterizerSSE
 
-SSE 深度缓冲光栅化器。
+SSE-optimized depth buffer rasterizer.
 
 ```cpp
 DepthBufferRasterizerSSE::vftable
@@ -1054,17 +1054,17 @@ DepthBufferRasterizerSSE::vftable
 
 ### DepthBufferRasterizerAVX
 
-AVX 深度缓冲光栅化器。
+AVX-optimized depth buffer rasterizer.
 
 ```cpp
 DepthBufferRasterizerAVX::vftable
 ```
 
-## 视频 / Video
+## Video
 
 ### rglVideo_player
 
-视频播放器。
+Video player.
 
 ```cpp
 rglVideo_player::vftable
@@ -1072,7 +1072,7 @@ rglVideo_player::vftable
 
 ### rglVideo_player_view
 
-视频播放器视图。
+Video player view.
 
 ```cpp
 rglVideo_player_view::vftable
@@ -1080,7 +1080,7 @@ rglVideo_player_view::vftable
 
 ### rglVideo_player_vpx
 
-VPX 视频播放器。
+VPX (VP8/VP9) video player.
 
 ```cpp
 rglVideo_player_vpx::vftable
@@ -1088,17 +1088,17 @@ rglVideo_player_vpx::vftable
 
 ### rglVideo_player_get_frame_task
 
-视频获取帧任务。
+Asynchronous video frame fetch task.
 
 ```cpp
 rglVideo_player_get_frame_task::vftable
 ```
 
-## 其他渲染类 / Other Rendering Classes
+## Other Rendering Classes
 
 ### rglSkeleton_model
 
-骨骼模型。
+Skeleton model.
 
 ```cpp
 rglSkeleton_model::vftable
@@ -1106,7 +1106,7 @@ rglSkeleton_model::vftable
 
 ### rglSkinned_decal_records
 
-蒙皮贴花记录。
+Skinned decal records.
 
 ```cpp
 rglSkinned_decal_records::vftable
@@ -1114,7 +1114,7 @@ rglSkinned_decal_records::vftable
 
 ### rglRope
 
-绳索。
+Rope rendering.
 
 ```cpp
 rglRope::vftable
@@ -1122,7 +1122,7 @@ rglRope::vftable
 
 ### rglRope_physx
 
-PhysX 绳索。
+PhysX-simulated rope.
 
 ```cpp
 rglRope_physx::vftable
@@ -1130,7 +1130,7 @@ rglRope_physx::vftable
 
 ### Agent_visuals
 
-Agent 视觉。
+Agent visuals. Controls character appearance and equipment rendering.
 
 ```cpp
 Agent_visuals::vftable
@@ -1138,7 +1138,7 @@ Agent_visuals::vftable
 
 ### Corpse_renderer
 
-尸体渲染器。
+Corpse renderer.
 
 ```cpp
 Corpse_renderer::vftable
@@ -1146,7 +1146,7 @@ Corpse_renderer::vftable
 
 ### rglQuad_tree_atlas
 
-四叉树图集。
+Quad tree texture atlas.
 
 ```cpp
 rglQuad_tree_atlas::vftable
@@ -1154,7 +1154,7 @@ rglQuad_tree_atlas::vftable
 
 ### rglCompressor_interface
 
-压缩器接口。
+Compressor interface.
 
 ```cpp
 rglCompressor_interface::vftable
@@ -1162,7 +1162,7 @@ rglCompressor_interface::vftable
 
 ### rglData_compressor_lz4hc
 
-LZ4HC 数据压缩器。
+LZ4HC data compressor.
 
 ```cpp
 rglData_compressor_lz4hc::vftable
@@ -1170,7 +1170,7 @@ rglData_compressor_lz4hc::vftable
 
 ### rglMemory_block_typeless
 
-无类型内存块。
+Typeless memory block.
 
 ```cpp
 rglMemory_block_typeless::vftable
@@ -1178,7 +1178,7 @@ rglMemory_block_typeless::vftable
 
 ### rglMemory_allocator_base
 
-内存分配器基类。
+Base memory allocator.
 
 ```cpp
 rglMemory_allocator_base::vftable
@@ -1186,7 +1186,7 @@ rglMemory_allocator_base::vftable
 
 ### rglInterpolator_base
 
-插值器基类。
+Base interpolator.
 
 ```cpp
 rglInterpolator_base::vftable
@@ -1194,7 +1194,7 @@ rglInterpolator_base::vftable
 
 ### rglInterpolator
 
-插值器。
+Interpolator. Blends between values over time.
 
 ```cpp
 rglInterpolator::vftable
@@ -1202,7 +1202,7 @@ rglInterpolator::vftable
 
 ### rglInterpolator_base_definition
 
-插值器基类定义。
+Interpolator base definition.
 
 ```cpp
 rglInterpolator_base_definition::vftable
@@ -1210,4 +1210,15 @@ rglInterpolator_base_definition::vftable
 
 ## Usage Example
 
-// （占位示例已移除，见正文说明）
+```csharp
+// Example: the rendering system is driven internally by the engine each frame.
+// Modders typically interact with it indirectly through scene scripts, material
+// overrides, and the mission system rather than calling these vftables directly.
+// Use the native source reference to trace which postfx node or render task
+// handles a given visual feature when debugging rendering glitches.
+```
+
+---
+
+**Last updated:** 2026-10-08  
+**Source version:** TaleWorlds.Native.dll v1.3.15

@@ -84,3 +84,8 @@ CLASS3_UNDER20        = 237      （<20 CJK 字符，含 COMPLETE-TYPES.md 的 1
 - 2026-10-08：worker-340 交付 6 页（CJK=0），但复核发现 3 处需修：① `### FtlObject` 标题未改（代码块已改 `ftlObject`）；② animation.md 代码块 `Holster_script::vftable` 是错的（`Holster_script` 0 命中，应为 `Holster_anim_system`，1 命中）；③ 不可核实符号未在页面内标注。已续派修复。
 - 2026-10-08：worker-339 **未交付**（CJK 仍 1287/922/582，只做了核实没改写）。已续派要求立即完成改写，并带上 boss 三条裁定。
 - 等待两 worker 完成 → 独立验证（CJK=0、事实、链接、大小写一致）→ 审计报告 → 文件级 pathspec 提交。
+- 2026-10-08：**全部完成**。worker-339 交付 rendering/scene/physics（CJK=0，类型名全保留，不可核实符号逐条标注）。两 worker 均已验证并关闭。
+  - 提交：**`1b7ea5b57c`**（12 文件：9 页 + en-cjk-audit.md + en-cjk-audit.tsv + 本台账）。
+  - 审计报告：`tools/_verify/en-cjk-audit.md` + `tools/_verify/en-cjk-audit.tsv`（2,359 行）。
+  - audit-links 批后：BROKEN_LINKS=0，FILES_WITH_BROKEN=0。
+  - 修复后 en 树 CJK 实测：2,368 → **2,359**（C1=2,122 / C2=0 / C3=237）。

@@ -105,6 +105,26 @@ function lineOf(text, needle) {
 }
 
 /**
+ * How many times `needle` occurs in `text`. Non-overlapping.
+ * Used to REJECT a write instead of guessing a boundary: `indexOf` silently picks
+ * the FIRST marker, so a duplicated BEGIN widens "inside the block" over whatever
+ * prose sits between the two markers -- and that prose is hand-written.
+ */
+function countOf(text, needle) {
+  let n = 0;
+  for (let i = text.indexOf(needle); i >= 0; i = text.indexOf(needle, i + needle.length)) n++;
+  return n;
+}
+
+/** Character offset of the START of 1-based line `lineNo`. Counterpart of lineEnd(). */
+function lineStart(text, lineNo) {
+  const lines = text.split('\n');
+  let n = 0;
+  for (let i = 0; i < lineNo - 1; i++) n += lines[i].length + 1;
+  return n;
+}
+
+/**
  * assertStructuralScope({ mode, targetPath, originalText, newText, marker, tool })
  *
  * The write is legal iff ALL of these hold:
@@ -150,7 +170,23 @@ export function assertStructuralScope(args) {
   if (!underContent(targetPath)) throw deny('target is not under content/', targetPath);
   if (!isIndexFile(targetPath)) throw deny('target is not an _index.md', targetPath);
 
-  // (3) marker block must exist in both sides.
+  // (3) marker block must exist EXACTLY ONCE in both sides.
+  //     Uniqueness is checked BEFORE any boundary is computed, because lineOf() uses
+  //     indexOf and therefore resolves a duplicated marker to the first occurrence.
+  //     Concretely: BEGIN at 41 and 42, END at 3851 => the "block" would be 41..3851,
+  //     which silently contains hand-written navigation. That is a silent widening,
+  //     so it is now a loud failure instead. Fail closed, never "pick the first and hope".
+  const uniq = [];
+  for (const [side, text] of [['originalText', originalText], ['newText', newText]]) {
+    for (const which of ['begin', 'end']) {
+      const needle = marker[which], want = 1, got = countOf(text, needle);
+      if (got !== want) uniq.push(`${side}: ${which} marker occurs ${got}x, expected ${want}x`);
+    }
+  }
+  if (uniq.length) {
+    throw deny('marker is not unique -- refusing to guess the block boundary', uniq.join('; '));
+  }
+
   const bOld = lineOf(originalText, marker.begin);
   const eOld = lineOf(originalText, marker.end);
   const bNew = lineOf(newText, marker.begin);
@@ -172,8 +208,13 @@ export function assertStructuralScope(args) {
     return n;
   };
 
-  const headOld = originalText.slice(0, bOld), tailOld = originalText.slice(lineEnd(originalText, eOld));
-  const headNew = newText.slice(0, bNew), tailNew = newText.slice(lineEnd(newText, eNew));
+  // 🔴 bOld/bNew are LINE NUMBERS (see lineOf's return). Using one directly as a
+  //    character offset compares only the first `bOld` CHARACTERS of the head, so an
+  //    in-place rewrite of hand-written prose past that point passed unnoticed while
+  //    an edit that shifted the line count was caught only by the length mismatch.
+  //    lineStart() is the counterpart of lineEnd(); both sides use char offsets.
+  const headOld = originalText.slice(0, lineStart(originalText, bOld)), tailOld = originalText.slice(lineEnd(originalText, eOld));
+  const headNew = newText.slice(0, lineStart(newText, bNew)), tailNew = newText.slice(lineEnd(newText, eNew));
 
   if (headOld !== headNew) {
     throw deny('wrote outside the marker block (before BEGIN)', firstDiff(headOld, headNew, bOld));
@@ -279,6 +320,38 @@ function selftest() {
   } catch (e) { threw = e; }
   check('out-of-block edit before BEGIN -> violation', !!threw && threw.rule.includes('before BEGIN'));
 
+  // --- VIOLATION 2b: THE CASE THE TEST ABOVE COULD NOT SEE.
+  //     That case injected a LINE, which shifted BEGIN's line number, so the two
+  //     compared prefixes differed in LENGTH -- it passed for the wrong reason.
+  //     An in-place rewrite keeps the line count identical, which is the shape a
+  //     real "tidy up this prose" write takes. Head was compared as slice(0, <lineNo>)
+  //     instead of slice(0, <charOffset>), so this one sailed straight through.
+  const REALISTIC =
+    '---\ntitle: "Bucket"\n---\n\n## 模块心智模型\n\n这里是 marker 块之外的手写散文，内容很重要。\n\n' +
+    SECTION_INDEX_MARKER.begin + '\n- [A](../a)\n' + SECTION_INDEX_MARKER.end + '\n\n## Tail\n\n- [KEEP](../keep)\n';
+  const headProbe = (label, nextText) => {
+    threw = null;
+    try {
+      assertStructuralScope({ mode: 'apply', targetPath: 'C:/repo/content/v1.4.5/zh/api/campaign/_index.md',
+        originalText: REALISTIC, newText: nextText, tool: NAME });
+    } catch (e) { threw = e; }
+    check(label, !!threw && threw.rule.includes('before BEGIN'));
+  };
+  headProbe('in-place rewrite of head prose (line count unchanged) -> violation',
+    REALISTIC.replace('内容很重要。', '内容很重要!!!!'));
+  headProbe('deletion of an existing head line -> violation',
+    REALISTIC.replace('这里是 marker 块之外的手写散文，内容很重要。\n', ''));
+  {
+    // control: the SAME text edited INSIDE the block must still be accepted, or the
+    // fix above would be "reject everything" -- a fence with no door is not a fence.
+    let t = null;
+    try {
+      assertStructuralScope({ mode: 'apply', targetPath: 'C:/repo/content/v1.4.5/zh/api/campaign/_index.md',
+        originalText: REALISTIC, newText: REALISTIC.replace('- [A](../a)', '- [A](../a)\n- [B](../b)'), tool: NAME });
+    } catch (e) { t = e; }
+    check('in-block edit on the same realistic page -> still accepted', t === null);
+  }
+
   // --- VIOLATION 3: not an _index.md.
   threw = null;
   try {
@@ -305,6 +378,48 @@ function selftest() {
         originalText: BODY, newText: BODY, tool: who });
     } catch (e) { threw = e; }
     check(`${label} rejected by the guard`, !!threw && threw.rule.includes('allowlist'));
+  }
+
+  // --- VIOLATION 6: DUPLICATE MARKER. This is the silent-widening hole.
+  //     indexOf resolves to the FIRST marker, so BEGIN x2 + END x1 makes the block
+  //     span from the first BEGIN all the way to the END -- swallowing whatever
+  //     hand-written prose sits between them. It must be a loud failure instead.
+  const DUP =
+    '## Head\n\n手写散文，本该受保护。\n\n' +
+    SECTION_INDEX_MARKER.begin + '\n' + SECTION_INDEX_MARKER.begin + '\n\n- [A](../a)\n' +
+    SECTION_INDEX_MARKER.end + '\n\n## Tail\n\n- [KEEP](../keep)\n';
+  threw = null;
+  try {
+    assertStructuralScope({ mode: 'apply', targetPath: 'C:/repo/content/v1.4.5/zh/api/campaign-ext/_index.md',
+      originalText: DUP, newText: DUP.replace('- [A](../a)', '- [A](../a)\n- [B](../b)'), tool: NAME });
+  } catch (e) { threw = e; }
+  check('duplicate BEGIN marker -> violation', !!threw && threw.rule.includes('not unique'));
+  check('duplicate-marker violation names the counts it saw',
+    !!threw && /occurs 2x, expected 1x/.test(threw.message));
+  check('duplicate-marker violation carries a non-zero exit code',
+    threw ? violationExitCode(threw) !== 0 : false);
+  {
+    // the SAME duplicated-marker page, edited INSIDE the block: still must be refused.
+    // "we only refuse when the edit looks bad" is how a hole becomes permanent.
+    let t = null;
+    try {
+      assertStructuralScope({ mode: 'apply', targetPath: 'C:/repo/content/v1.4.5/zh/api/campaign-ext/_index.md',
+        originalText: DUP, newText: DUP, tool: NAME });
+    } catch (e) { t = e; }
+    check('duplicate marker refused even for a no-op write', !!t && t.rule.includes('not unique'));
+  }
+
+  // --- BOUNDARY PRECISION: a page whose block is EMPTY (markers only, no body).
+  //     "No bytes may move outside" is only a meaningful claim if the inside is
+  //     exactly the span between the markers -- assert the reported lines directly.
+  {
+    const EMPTY_BODY = '## Head\n\nhead only\n\n' + SECTION_INDEX_MARKER.begin + '\n' + SECTION_INDEX_MARKER.end + '\n\n## Tail\n';
+    let ok = null;
+    try { ok = assertStructuralScope({ mode: 'apply', targetPath: 'C:/repo/content/v1.4.5/zh/api/campaign/_index.md',
+      originalText: EMPTY_BODY, newText: EMPTY_BODY.replace(SECTION_INDEX_MARKER.begin + '\n',
+        SECTION_INDEX_MARKER.begin + '\n- [New](../new)\n'), tool: NAME }); } catch (e) { ok = e; }
+    check('empty block: writable region is exactly the marker span',
+      ok && ok.ok === true && ok.beginLine === 5 && ok.endLine === 7, `beginLine=${ok && ok.beginLine} endLine=${ok && ok.endLine}`);
   }
 
   // --- WALL direction: importing from a non-allowlisted tool must kill the process.

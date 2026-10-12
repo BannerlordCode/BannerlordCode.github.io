@@ -1,4 +1,5 @@
-// nav-section-index.mjs —— 把桶目录下所有子页补进该桶 _index.md 的【机械子页清单】。
+// nav-section-index.mjs —— 把桶目录下所有子页补进该桶 _index.md 的【机械子页清单】，
+//   并在块内维护一行机械计数「共 N 个子页」（N 与清单同一份 childrenOf 枚举）。
 //
 // 🔴 授权边界（boss 裁定，见 tools/_NAV-ARCHITECTURE.md）
 //   允许：只写 <!-- BEGIN SECTION INDEX --> ... <!-- END SECTION INDEX --> 之间的机械子页清单
@@ -155,9 +156,19 @@ function semantics(bucketDir, href, route, context = 'BUCKET_INDEX') {
   return 'LEVEL_' + up;
 }
 
+// ── 机械计数行（类1 修复）────────────────────────────────────────────────────
+// 块内固定一行「共 N 个子页」，N 与子页清单【同一份枚举】（childrenOf）算出 ——
+// 不是另数一遍磁盘，也不是从链接行里数出来。
+// 规范位置：BEGIN 之后第一行（block[0]）。
+// 🔴 检测只看 block[0] 这一行，不扫全块：块内链接行的描述里可能含「约 200 个…」这类
+//    字样（实测 v1.3.15/zh/api/campaign-ext 块内就有），全块扫计数模式会把人工行误判成
+//    计数行。工具只拥有固定位置的那一行，其余一概不碰。
+const COUNT_LINE_RE = /^>\s*共\s*(\d[\d,\s]*)\s*个子页\s*$/;
+function countLineFor(kids) { return `> 共 ${kids.length} 个子页`; }
+
 function planBucket(bkt) {
   const kids = childrenOf(bkt.dir);
-  if (!bkt.lines) return { bkt, kids, add: [], insertAt: null, note: 'NO_INDEX_MD', alreadyInProse: [], proposedLines: null };
+  if (!bkt.lines) return { bkt, kids, add: [], insertAt: null, note: 'NO_INDEX_MD', alreadyInProse: [], proposedLines: null, countAction: 'n/a' };
   const L = bkt.lines;
   const block = bkt.b >= 0 && bkt.e > bkt.b ? L.slice(bkt.b + 1, bkt.e) : [];
   const inBlock = new Set();
@@ -169,34 +180,50 @@ function planBucket(bkt) {
   while ((m = re2.exec(outside.join('\n')))) inProse.add(m[1]);
   const add = kids.filter((k) => !inBlock.has(k.href));
   const alreadyInProse = kids.filter((k) => !inBlock.has(k.href) && inProse.has(k.href));
+  // 计数行：N = kids.length —— 与上面 add 同一份 childrenOf 枚举（不是另数一遍磁盘）
+  const countLine = countLineFor(kids);
+  const cm = COUNT_LINE_RE.exec(block[0] || '');
+  let countAction;
+  if (cm) {
+    const n = parseInt(cm[1].replace(/[\s,]/g, ''), 10);
+    countAction = (n === kids.length) ? 'keep' : 'update';
+  } else countAction = 'insert';
   // 分组插入点：有 ### X 小节就插进对应小节，否则整体追加到块尾
   const letter = (n) => { const c = n[0].toUpperCase(); return /[A-Z]/.test(c) ? c : '#'; };
   const groups = {};
   for (const k of add) (groups[letter(k.name)] ||= []).push(k);
   let insertAt, proposedLines;
-  if (!add.length) { insertAt = null; proposedLines = null; }
+  if (!add.length && countAction === 'keep') { insertAt = null; proposedLines = null; }
   else {
-    const headIdx = [];
-    block.forEach((l, i) => { const h = headingRe.exec(l); if (h && h[1].length >= 3) headIdx.push(i); });
-    const ops = [];
-    for (const L2 of Object.keys(groups).sort()) {
-      const entries = groups[L2].sort((a, b) => a.name.localeCompare(b.name));
-      const target = headIdx.find((i) => block[i].trim() === `### ${L2}`);
-      if (target !== undefined) {
-        let stop = block.length;
-        for (let i = target + 1; i < block.length; i++) if (headingRe.test(block[i])) { stop = i; break; }
-        ops.push({ at: target + stop, lines: entries.map((k) => `- [${k.name}](${k.href})`) });
-      } else {
-        ops.push({ at: block.length, lines: [`### ${L2}`, '', ...entries.map((k) => `- [${k.name}](${k.href})`), ''] });
+    // 先落计数行（块内 index 0 = BEGIN 之后第一行），再在【同一份 base】上做分组插入
+    const base = [...block];
+    if (countAction === 'insert') {
+      // BEGIN 后原本没有空行（块首就是标题）时补一个空行隔开；否则插在既有空行之前
+      if ((block[0] || '').trim()) base.unshift(countLine, '');
+      else base.unshift(countLine);
+    } else if (countAction === 'update') base[0] = countLine;
+    if (add.length) {
+      const headIdx = [];
+      base.forEach((l, i) => { const h = headingRe.exec(l); if (h && h[1].length >= 3) headIdx.push(i); });
+      const ops = [];
+      for (const L2 of Object.keys(groups).sort()) {
+        const entries = groups[L2].sort((a, b) => a.name.localeCompare(b.name));
+        const target = headIdx.find((i) => base[i].trim() === `### ${L2}`);
+        if (target !== undefined) {
+          let stop = base.length;
+          for (let i = target + 1; i < base.length; i++) if (headingRe.test(base[i])) { stop = i; break; }
+          ops.push({ at: target + stop, lines: entries.map((k) => `- [${k.name}](${k.href})`) });
+        } else {
+          ops.push({ at: base.length, lines: [`### ${L2}`, '', ...entries.map((k) => `- [${k.name}](${k.href})`), ''] });
+        }
       }
+      ops.sort((a, c) => a.at - c.at);
+      for (const op of ops) base.splice(op.at, 0, ...op.lines);
     }
-    ops.sort((a, c) => a.at - c.at);
-    const newBlock = [...block];
-    for (const op of ops) newBlock.splice(op.at, 0, ...op.lines);
     insertAt = bkt.b + 1;
-    proposedLines = newBlock;
+    proposedLines = base;
   }
-  return { bkt, kids, add, alreadyInProse, insertAt, proposedLines, dup: bkt.dup };
+  return { bkt, kids, add, alreadyInProse, insertAt, proposedLines, dup: bkt.dup, countAction, countLine };
 }
 
 function applyPlan(p) {
@@ -205,7 +232,7 @@ function applyPlan(p) {
   const join = (arr) => arr.join(bkt.eol);          // 写回用【原 EOL】
   if (bkt.b < 0) {
     // 无 marker：在文件末尾新建一个 marker 块（纯追加，不碰任何已有行）
-    const body = ['', BEGIN, '', '## Parent Navigation', '', '- [API Reference](../)', '- [Version Home](../../)', '',
+    const body = ['', BEGIN, countLineFor(p.kids), '', '## Parent Navigation', '', '- [API Reference](../)', '- [Version Home](../../)', '',
       '## Child Pages — Alphabetical', ''];
     const groups = {};
     for (const k of p.add) { const c = k.name[0].toUpperCase(); (groups[/[A-Z]/.test(c) ? c : '#'] ||= []).push(k); }
@@ -223,13 +250,16 @@ function applyPlan(p) {
   return join(next);
 }
 
-/** 删除/改写行数：原文每一条非空行都必须在新文里原样出现（多重集口径）。纯插入 ⇒ 恒为 0。 */
-function deletedOrRewritten(original, next) {
+/** 删除/改写行数：原文每一条非空行都必须在新文里原样出现（多重集口径）。纯插入 ⇒ 恒为 0。
+ *  toolOwned：工具【自己拥有】的行（计数行）——过期时原地更新不算「删除人工内容」。
+ *  只在 countAction==='update' 时传入，且只豁免旧文 block[0]（BEGIN 后第一行）那一行。 */
+function deletedOrRewritten(original, next, toolOwned = null) {
   const pool = new Map();
   for (const l of next.split(/\r?\n/)) pool.set(l, (pool.get(l) || 0) + 1);
   let lost = 0;
   for (const l of original.split(/\r?\n/)) {
     if (!l.trim()) continue;
+    if (toolOwned && toolOwned.has(l)) continue;
     const n = pool.get(l) || 0;
     if (n === 0) { lost++; continue; }
     pool.set(l, n - 1);
@@ -254,7 +284,7 @@ function planSummary(p) {
   const { bkt } = p;
   const where = bkt.idx ? bkt.idx : '(缺 _index.md)';
   if (p.note === 'NO_INDEX_MD') return `BUCKET=${p.bkt.dir}  children=${p.kids.length}  PLANNED=0  NOTE=NO_INDEX_MD（目录没有 _index.md；新建整页超出「机械子页清单」授权，见 _NAV-ARCHITECTURE.md 待裁定项）`;
-  const head = `BUCKET=${bkt.dir}  children=${p.kids.length}  ALREADY_IN_BLOCK=${p.kids.length - p.add.length}  ADD=${p.add.length}  ALSO_LINKED_IN_PROSE=${p.alreadyInProse.length}  MARKER=${bkt.b >= 0 ? 'existing' : 'new'}  BEGIN=${bkt.beginCount} END=${bkt.endCount}${bkt.dup ? '  **DUPLICATE_MARKER**' : ''}`;
+  const head = `BUCKET=${bkt.dir}  children=${p.kids.length}  ALREADY_IN_BLOCK=${p.kids.length - p.add.length}  ADD=${p.add.length}  COUNT=${p.countAction}  ALSO_LINKED_IN_PROSE=${p.alreadyInProse.length}  MARKER=${bkt.b >= 0 ? 'existing' : 'new'}  BEGIN=${bkt.beginCount} END=${bkt.endCount}${bkt.dup ? '  **DUPLICATE_MARKER**' : ''}`;
   return head;
 }
 
@@ -308,6 +338,8 @@ async function selfTest() {
     ok('正常桶：marker 块之外全等', !outsideChanged(a.bkt, a.bkt.lines.join(a.bkt.eol), aNext));
     ok('正常桶：新条目进了 B 组', aNext.includes('### B') && aNext.includes('- [Alpha](./Alpha)') && aNext.includes('- [Sub](./Sub/)'));
     ok('正常桶：散文未被触碰', aNext.includes('keep me') && aNext.includes('prose'));
+    // ── 计数行（类1 修复）：N 与子页清单同一枚举（childrenOf）──
+    ok('正常桶：计数行紧跟 BEGIN', aNext.includes(BEGIN + '\n> 共 4 个子页\n'), aNext.split(/\r?\n/).slice(5, 9).join('|'));
 
     const b = P('t2/api');
     ok('重复 marker：确定性取第一个 BEGIN→第一个 END', b.bkt.beginCount === 2 && b.bkt.endCount === 1 && b.bkt.dup === true, `BEGIN=${b.bkt.beginCount} END=${b.bkt.endCount}`);
@@ -320,6 +352,7 @@ async function selfTest() {
     const cNext = applyPlan(c);
     ok('无 marker 桶：删除/改写行数 = 0', deletedOrRewritten(c.bkt.lines.join(c.bkt.eol), cNext) === 0);
     ok('无 marker 桶：原有散文逐行保留', c.bkt.lines.every((l) => cNext.includes(l)));
+    ok('无 marker 桶：新建块内含计数行', cNext.includes(BEGIN + '\n> 共 1 个子页\n'), cNext.split(/\r?\n/).slice(0, 8).join('|'));
 
     const d = P('t4/api');
     ok('无 _index.md 目录：只报告不新建整页', d.note === 'NO_INDEX_MD' && planSummary(d).includes('NO_INDEX_MD'));
@@ -328,7 +361,19 @@ async function selfTest() {
     fs.writeFileSync(path.join(dir, 't1/api/_index.md'), aNext);
     const a2 = P('t1/api');
     ok('幂等：第二次 ADD=0', a2.add.length === 0, `add=${a2.add.length}`);
+    ok('幂等：第二次计数行 keep', a2.countAction === 'keep', `countAction=${a2.countAction}`);
     ok('幂等：第二次内容逐字节相同', applyPlan(a2) === aNext);
+
+    // 计数行过期（N 与磁盘不符）→ 判 update、原地修正、全块仍只有一行计数
+    const stale = aNext.replace('> 共 4 个子页', '> 共 9 个子页');
+    fs.writeFileSync(path.join(dir, 't1/api/_index.md'), stale);
+    const a3 = P('t1/api');
+    ok('计数行过期：判为 update', a3.countAction === 'update', `countAction=${a3.countAction}`);
+    const a3Next = applyPlan(a3);
+    ok('计数行过期：N 被修正为同一枚举值', a3Next.includes('> 共 4 个子页') && !a3Next.includes('> 共 9 个子页'));
+    ok('计数行过期：全块仍只有一行计数', a3Next.split('\n').filter((l) => COUNT_LINE_RE.test(l)).length === 1);
+    ok('计数行过期：工具自有行替换不计入删除', deletedOrRewritten(stale, a3Next, new Set(['> 共 9 个子页'])) === 0);
+    ok('计数行过期：块外全等', !outsideChanged(a3.bkt, stale, a3Next));
 
     // 🔴 R2 的 fixture 必须走【真实 CLI】并断言【零写入】——
     // 只测一个纯函数，就是 R2 和它要防的那个越权「看起来有、实际没测过」的同一形态。
@@ -412,6 +457,7 @@ async function selfTest() {
         ok('CRLF fixture：写入为纯追加（N 0 形态）', after.length > before.length
           && after.split(CRLF).filter((l) => l && !before.includes(l)).length >= 2);
         ok('CRLF fixture：确实新增了链接', after.includes('- [Alpha](./Alpha)') && after.includes('- [Beta](./Beta)'));
+        ok('CRLF fixture：计数行也用 CRLF 落盘', after.includes('> 共 2 个子页' + CRLF), after.split(CRLF).slice(0, 4).join('|'));
       } finally { try { fs.rmSync(underContent, { recursive: true, force: true }); } catch {} }
     } finally { try { fs.rmSync(crlfDir, { recursive: true, force: true }); } catch {} }
 
@@ -531,7 +577,10 @@ const report = [];
 for (const p of plans) {
   const orig = p.bkt.lines ? p.bkt.lines.join(p.bkt.eol) : '';
   const next = p.note ? orig : applyPlan(p);
-  const del = p.note ? 0 : deletedOrRewritten(orig, next);
+  // 计数行是工具自有行：过期时原地更新（countAction==='update'）不算删除人工内容。
+  // 豁免集合只含旧文 block[0] —— 只有它匹配 COUNT_LINE_RE 且 N 过期才会走到 update。
+  p.toolOwned = p.countAction === 'update' ? new Set([p.bkt.lines[p.bkt.b + 1] || '']) : null;
+  const del = p.note ? 0 : deletedOrRewritten(orig, next, p.toolOwned);
   maxDeleted = Math.max(maxDeleted, del);
   totalAdded += p.add.length;
   report.push(planSummary(p));
@@ -601,7 +650,7 @@ for (const p of plans) {
   //    干脎地删掉多余的 BEGIN 属于「禁止改写已有内容」，需单独授权；
   //    但【跳过】一字节都不删，所以不需要任何授权，就能把「静默撑大」变成「写不进去」。
   if (p.dup) { SKIPPED.push(`${p.bkt.dir}\tDUPLICATE_MARKER（BEGIN=${p.bkt.beginCount} END=${p.bkt.endCount}）—— 拒绝写入；删除多余 marker 行需单独授权`); continue; }
-  if (!p.add.length) { SKIPPED.push(`${p.bkt.dir}\tADD=0（无缺失项，幂等）`); continue; }
+  if (!p.add.length && p.countAction === 'keep') { SKIPPED.push(`${p.bkt.dir}\tADD=0 COUNT_KEEP（无缺失项且计数行已正确，幂等）`); continue; }
   const orig = p.bkt.lines.join(p.bkt.eol);
   const next = applyPlan(p);
   try {
@@ -617,7 +666,7 @@ for (const p of plans) {
     written = true;
     // 写入后独立断言（不依赖写入逻辑本身）
     const back = fs.readFileSync(p.bkt.idx, 'utf8');
-    const lost = deletedOrRewritten(orig, back);
+    const lost = deletedOrRewritten(orig, back, p.toolOwned);
     const outChanged = outsideChanged(p.bkt, orig, back);
     if (lost !== 0 || outChanged) {
       fs.writeFileSync(p.bkt.idx, orig, 'utf8');   // 回滚

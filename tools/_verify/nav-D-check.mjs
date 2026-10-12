@@ -24,7 +24,7 @@ const allIndexes = walk(CONTENT);
 const withMarker = allIndexes.filter(p => fs.readFileSync(p, 'utf8').includes(BEGIN));
 
 // 数量措辞正则（类1）：N 个 / N 页 / N pages / N classes / N 篇 / N types
-const COUNT_RE = /\d[\d,\s]*\s*(?:个|页|pages|classes|篇|types|类页|类)\b/i;
+const COUNT_RE = /\d[\d,\s]*\s*(?:个|页|pages|classes|篇|types|类页|类)(?![\w])/i;
 
 // 链接正则
 const linkRe = /\[[^\]]*\]\(([^)\s]+)\)/g;

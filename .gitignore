@@ -9,4 +9,14 @@ Thumbs.db
 .vitepress/
 tmp/
 .sisyphus/
-.omo/
+# nav shards: regenerable output of tools/gen-nav-shards.mjs (NOT adopted; prev/next judged "do not do")
+data/nav/
+# scratch / regenerable process artifacts (never commit)
+nul
+.rev145tmp/
+_zola_*.log
+_probe_*.mjs
+_tmp_*.mjs
+tools/_verify/.tg-*.txt
+tools/_verify/_tmp/
+tools/_verify/_lead23-before/

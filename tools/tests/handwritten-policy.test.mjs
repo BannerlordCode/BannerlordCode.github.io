@@ -7,6 +7,7 @@ import {
   extractPageIdentity,
   makeTypeIdentity,
   resolveExplicitAlias,
+  stripMdNoise,
   isR1TargetType,
 } from '../lib/handwritten-policy.mjs';
 
@@ -193,4 +194,120 @@ test('isR1TargetType excludes declared platform noise but retains campaign types
   assert.equal(isR1TargetType({ namespace: 'TaleWorlds.PlatformService', typeName: 'LoginService' }), false);
   assert.equal(isR1TargetType({ namespace: 'NetworkMessages.FromServer', typeName: 'SyncMessage' }), false);
   assert.equal(isR1TargetType({ namespace: 'TaleWorlds.MountAndBlade', typeName: 'Lobby' }), false);
+});
+
+// ---------------------------------------------------------------------------
+// Overview family table: does every entry actually FIRE?
+// ---------------------------------------------------------------------------
+// A family regex that cannot match is the most dangerous defect in this module: the
+// gate still reports confident numbers, it just reports nonsense. The trap is concrete
+// and has already been hit once on this file — stripMdNoise() rewrites '-' to a space,
+// so a family written as /view-layer/ can NEVER match the "view layer" text it is
+// meant to detect, and it silently contributes 0 while looking perfectly present.
+// Every family is therefore asserted POSITIVELY: a page carrying that family's wording
+// must stop being deep_pass. A dead regex fails here immediately.
+const OVERVIEW_FAMILY_SAMPLES = [
+  ['f01', 'This type lives in and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members, and is read after the owning manager initializes it.'],
+  ['f02', 'This is a siege widget and a parent element used in the battle screen, so mod code must obtain it from the current screen instance rather than constructing its own.'],
+  ['f03', 'This is a rule model that usually defines how a subsystem should compute a bounded settlement value from its inputs, and is consulted once per model tick during settlement updates.'],
+  ['f04', 'This object behaves like a data carrier for the mission side information set, holding plain values that the owning mission logic reads and writes during agent spawning operations.'],
+  ['f05', 'This object represents a view layer object bound to a widget tree for the mission screen, so mod code reads it only after the screen is created and releases it when the mission ends.'],
+  ['f06', 'This is a handler used to run agreed response logic when the mission triggers a delegated order, and it is invoked by the mission side logic rather than called directly by mod code.'],
+  ['f07', 'This is a manager: it owns a subsystem of mission agents and their flags, so mod code asks it for state rather than keeping its own copy of the agent list.'],
+  ['f08', 'This is a component style object that carries the tunable layout values for a mission screen widget tree, so mod code replaces the whole object when it needs a different look.'],
+  ['f09', 'This is a controller whose job is less about storing mission state and more about routing input events from the mission screen into the agent behavior layer that consumes them.'],
+  ['f10', 'This sits closer to the behavior layer than to the data layer, so mod code should read it when it needs to know what the mission agent will do next on the following tick.'],
+  ['f11', 'This is a helper class that usually provides static logic for reading mission spawn settings, so mod code calls the static method rather than constructing an instance of its own.'],
+  ['f12', 'This is an exception type used to signal a mission side failure to the caller, so mod code should catch it at the mission boundary rather than letting it escape into the engine loop.'],
+  ['f13', 'This is the data binding bridge between the mission view model and the widget tree, so mod code updates the view model and the bound widgets follow without manual refresh calls.'],
+  ['f14', 'This is an attribute used to tag a type or member so the mission registration pass picks it up at load time, which is why mod code must place it on the declaration itself.'],
+];
+
+test('classifyPage keeps a hand-written overview page as deep_pass (control)', () => {
+  // Break caught: if this control ever stops being deep_pass, every family assertion
+  // below is passing for the wrong reason and proves nothing.
+  assert.equal(classifyPage('content/v1.3.15/en/api/campaign/Hero.md', deepPage()).status, 'deep_pass');
+});
+
+test('every Overview template family actually fires on its own wording', () => {
+  // Break caught: a family regex that never matches reports a confident, meaningless 0.
+  for (const [id, sample] of OVERVIEW_FAMILY_SAMPLES) {
+    // Precondition: a sample at or under the length gate would make overviewReal false for
+    // the wrong reason, and the assertion below would pass vacuously.
+    const normalised = stripMdNoise(sample);
+    assert.ok(normalised.length > 60,
+      `family ${id} sample normalises to ${normalised.length} chars; it must exceed the 60-char gate or this test proves nothing`);
+    const text = deepPage().replace(
+      /## Overview\n\n[\s\S]*?\n\n## Mental Model/,
+      `## Overview\n\n${sample}\n\n## Mental Model`
+    );
+    const result = classifyPage('content/v1.3.15/en/api/campaign/Hero.md', text);
+    assert.equal(result.status, 'stub', `family ${id} did not fire: status stayed ${result.status}`);
+  }
+});
+
+test('hyphens in source text are erased, so a hyphenated PATTERN would be dead', () => {
+  // Break caught: this is the exact regression the family table is vulnerable to.
+  // stripMdNoise() rewrites '-' to a space, and family patterns are matched against the
+  // NORMALISED text. Consequences, both asserted here because both are counter-intuitive:
+  //   - a hyphen in the WRITER's text is harmless: it normalises to a space and the
+  //     spaced pattern still catches it;
+  //   - a hyphen in the PATTERN is fatal: /view-layer/ can never match, so the family
+  //     silently contributes 0 while looking perfectly present in the source.
+  const normalised = stripMdNoise('represents a view-layer object');
+  assert.equal(normalised, 'represents a view layer object');
+  assert.equal(/view-layer/.test(normalised), false, 'a hyphenated pattern must be impossible to match');
+  assert.equal(/view layer/.test(normalised), true, 'the spaced pattern must match');
+
+  const overview = (spelling) => deepPage().replace(
+    /## Overview\n\n[\s\S]*?\n\n## Mental Model/,
+    `## Overview\n\nThis object represents a ${spelling} object bound to a widget tree for the mission screen, so mod code reads it only after the screen is created and released when the mission ends.\n\n## Mental Model`
+  );
+  assert.equal(
+    classifyPage('content/v1.3.15/en/api/campaign/Hero.md', overview('view layer')).status,
+    'stub',
+    'the spaced spelling MUST be caught'
+  );
+  assert.equal(
+    classifyPage('content/v1.3.15/en/api/campaign/Hero.md', overview('view-layer')).status,
+    'stub',
+    'a hyphen in the writer text is normalised away, so this must also be caught'
+  );
+});
+
+// ---------------------------------------------------------------------------
+// Mental boilerplate table: same question, opposite direction.
+// ---------------------------------------------------------------------------
+const MENTAL_BOILERPLATE_SAMPLES = [
+  ['阅读时先通过属性了解状态', '阅读时先通过属性了解状态，再逐个查看它的公开方法来确认调用时机，最后在合适的生命周期回调里使用它，而不是自己长期缓存一份副本再指望它自动刷新，否则两份状态很快就会不一致。'],
+  ['Read properties', 'Read properties first to understand state and methods for actions, then call the owning service at the right point in the mission tick instead of caching the value yourself.'],
+  ['先从命名空间', '先从命名空间 TaleWorlds.CampaignSystem 入手，先找到真正持有它的那一个管理器，再顺着它的调用链一路往下读，最后才回到这一页列出的方法上判断调用时机与顺序。'],
+  ['^Start from namespace', 'Start from namespace TaleWorlds.CampaignSystem, then follow the owning manager down to the behavior that mutates this value during a campaign tick, and only then decide where to hook.'],
+  ['入口或数据节点', '它是入口或数据节点，模组代码从这里进入整条链路，拿到它之后要顺着调用方继续往下读，而不是自己再造一份等价的数据结构出来，否则两份状态迟早会不一致，而且很难排查到底是哪一份先跑偏的。'],
+  ['entry point or data node', 'It is an entry point or data node in the flow, so mod code enters the chain here and follows the callers instead of building its own equivalent state and hoping they stay in sync.'],
+  ['extension point: first identify', 'Treat this as an extension point: first identify who creates it, who owns it, and who calls it, then decide whether to inherit from it or compose it in your own module layer.'],
+  ['型扩展点来理解', '把 X 当作一个 Widget 型扩展点来理解：先确认是谁创建了它、谁一直持有它、谁在运行时会调用它，再决定是继承、组合还是只读使用它，不要自己再造一份等价对象出来长期维护两份状态，否则迟早会对不上。'],
+];
+
+test('every Mental boilerplate entry actually fires on its own wording', () => {
+  // Break caught: a Mental entry that never matches leaves template pages looking written.
+  for (const [label, sample] of MENTAL_BOILERPLATE_SAMPLES) {
+    // Precondition, and this is the trap that already produced two vacuous assertions:
+    // mentalReal requires >80 normalised chars, so a short sample would be rejected by the
+    // LENGTH gate and the assertion would pass whether or not the pattern fires. Two zh
+    // samples sat at 72-73 chars and hid a deleted pattern completely.
+    const normalised = stripMdNoise(sample);
+    assert.ok(normalised.length > 80,
+      `mental entry "${label}" sample normalises to ${normalised.length} chars; it must exceed the 80-char gate or this test proves nothing`);
+    const text = deepPage().replace(
+      /## Mental Model\n\n[\s\S]*?\n\n## Dependencies/,
+      `## Mental Model\n\n${sample}\n\n## Dependencies`
+    );
+    const result = classifyPage('content/v1.3.15/en/api/campaign/Hero.md', text);
+    assert.equal(result.status, 'stub', `mental entry "${label}" did not fire: status stayed ${result.status}`);
+    // Deliberately NOT accepting 'weak-mental' here: weak-mental is the length gate, which is
+    // exactly the wrong-reason outcome this test exists to rule out.
+    assert.match(result.reasons.join(' '), /boilerplate-mental-model/,
+      `mental entry "${label}" fired for the wrong reason: ${JSON.stringify(result.reasons)}`);
+  }
 });

@@ -59,17 +59,18 @@ description: "TaleWorlds.CampaignSystem 的子命名空间所在目录：行为�
 
 | [AgeModel](./AgeModel) | 年龄阶段的抽象契约：婴儿/儿童/少年/成年/中年/老年的阈值与地点年龄限制 |
 | [DefaultAgeModel](./DefaultAgeModel) | 年龄阶段的默认实现：各阶段阈值数值与地点年龄限制的计算 |
+| [BarterModel](./BarterModel) | 还价规则的抽象契约：冷却天数、NPC 金币上限、溢价换关系的阶梯与物品议价罚项 |
 
-（上表 32 行 = 本桶 32 个页面；计数命令：`find content/v1.4.7/zh/api/campaign-ext -name '*.md' ! -name '_index.md' | wc -l`）
+（上表 33 行 = 本桶 33 个页面；计数命令：`find content/v1.4.7/zh/api/campaign-ext -name '*.md' ! -name '_index.md' | wc -l`）
 
-**这 18 页的读法**：前两页（`MBObjectBase` / `MBObjectManager`）是「往战役里塞自定义持久化对象」的入口；
-后面 16 页里，**每两页成一对** —— 一个 `XxxModel` 是**契约**（声明要算哪些量），
-一个 `DefaultXxxModel` 是**官方实现**（原版数值与公式）。想改游戏规则，先读契约确认自己能覆写什么，
+**这 33 页的读法**：前两页（`MBObjectBase` / `MBObjectManager`）是「往战役里塞自定义持久化对象」的入口；
+后面 31 页里，**每两页成一对** —— 一个 `XxxModel` 是**契约**（声明要算哪些量），
+一个 `DefaultXxxModel` 是**官方实现**（原版数值与公式），唯一的单页是 `BarterModel`（契约已写，其官方实现 `DefaultBarterModel` 的页面还没落笔）。想改游戏规则，先读契约确认自己能覆写什么，
 再读默认实现确认原版怎么算；两者在 `## 参见` 里互相链接。
 
 ## 尚未收录
 
-这个桶的扩展面主体**仍未落笔**：126 个 `ComponentInterfaces` 契约里已写 8 个（上表的 8 个 `XxxModel`），
+这个桶的扩展面主体**仍未落笔**：126 个 `ComponentInterfaces` 契约里已写 9 个（上表的 9 个 `XxxModel`），
 124 个 `GameComponents` 官方实现里已写 8 个，而 **135 个官方战役行为、43 个议题类、12 个对话类型**
 以及 `MBObjectManager` 之外的 MBO 基础设施，都还没有各自的页面。
 

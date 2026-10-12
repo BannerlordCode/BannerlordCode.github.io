@@ -1742,3 +1742,8 @@ $ node tools/_verify/lead-145zh-judge.mjs content/v1.4.7/zh/api/custombattle/Cus
 `**类型：**` 行必须存在（否则 classifyPage 判 `noise`）· 链接只许出现在 `参见`/`导航` ·
 `参见` ≥2 条可解析链接 · 逐成员写用途（非只列签名）· `File.cs:行号` 必须实测 · 真实可编译 C# 示例 ·
 U+FFFD=0 · 禁用串 0 · 每个链接目标实测存在（跨桶 `../../<bucket>/<Type>`）· 导航块逐字给定。
+
+## 2026-10-12 补记：BarterModel stub 由会话内直写填实
+- b6 brief 指派后 4 天无落盘（worker 静默），stub 仅含 5 个"待补"节。本次按 brief+sig 表（`tools/_verify/b6/BarterModel.sig.txt`）直写深页：4 成员全表 + 默认实现实测数值（冷却 3 天 / NPC 金币 25% / 溢价阶梯 `1000+100n²` / 罚项基线 0.4/-2.1/-8.4/-12.6）+ 真实 `.GetBarterPenalty(` 示例。
+- 四道门禁：j13-hard-gate PASS（deep_pass，9 项全绿）· audit-changed-links CHANGED=2 BROKEN=0 · nav-orphans 全树 0 · 桶表 33 行 = 磁盘 33 页。
+- 顺手补了桶 `_index.md` 缺的 BarterModel 行（此前 32 行 vs 33 页，计数失衡 1），并把"18 页的读法"/"已写 8 个契约"两处 stale 散文更新为 33 页 / 9 个契约。

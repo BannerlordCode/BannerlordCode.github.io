@@ -408,3 +408,110 @@ templates/partials/sidebar.html     984 B   mtime 12:43:35.073   ← 从未在 d
 | **原地覆盖 `nav-I-scope-decisions.md`** | **worker-110（孤儿）** | **13:51** | worker-101/I2 的原版丢失；**不可回放**（从未进 git、无副本）；Path A 证据已从存活碎片重建 |
 
 两个角色现均为 `Unknown target`（Boss 也无法取消），所以只能靠「**产物尽快入 git / 改名留档**」降低损失。
+
+---
+
+## 9. prev/next 恢复尝试：两个阻断级缺陷（实测，待 Boss 裁定）
+
+### 9.1 盘上实现（worker R2 落盘，2 文件 `M`）
+
+`templates/macros/page-navigation.html`（改为查表）+ `templates/section.html`（新增调用）。核心约束已满足：`git diff -- templates/ | grep -c '^+.*load_data'` = 2、`grep -c '^+.*(get_section|parent_section\.pages|page\.ancestors)'` = 0 ⇒ **无新增渲染期兄弟扫描** ✅。
+
+### 9.2 🔴 阻断缺陷 ①：每页 18.8MB `load_data`（情形乙）
+
+- **调用面（结构性确证）**：`page-navigation.html:10` 的 `load_data(path="data/page-navigation.json")` **无条件执行**；宏被 `templates/page.html:31`（**全部 leaf**）与 `templates/section.html:31`（section）调用 ⇒ 每页一次。
+- **渲染耗时实测**（我做的，`rc=0`，300 页 load-only，站 `%TEMP%/nav-render2`）：
+  ```
+  A: tiny data     2074 / 1012 / 1488 ms          (avg ≈ 1.5 s)
+  B: real 18.8MB   140212 / 131409 / 185803 ms    (avg ≈ 152 s)
+  ```
+  ⇒ **≈500 ms/页**，外推 ~39k 页 ≈ **5.4 小时** ⇒ 会推过 GitHub 的 6 小时上限。
+- **Zola 源码原因**：`load_data.rs:319-321` 缓存命中 `return Ok(cached_result.clone())`（每页深拷贝 + 全局 mutex）。
+- ⚠️ **有界读数（`-> Creating N pages`）对此无效**：它是 **page-creation 阶段、在渲染之前**，不测渲染耗时。
+
+### 9.3 🔴 阻断缺陷 ②：缺失 key 无兜底 ⇒ 完整构建会失败
+
+`page-navigation.html:11` 的 `{%- set node = nav_data.routes[route_key] -%}` 在 key 缺失时 **Tera 直接报错**（第 12 行 `if node is defined` 到不了）。最小站实测（可复跑）：
+```
+ERROR Reason: Variable `nav.routes["/missing/"]` not found in context
+              (the evaluated version was `nav.routes."~1missing~1"`)
+```
+真实站有 **321 条 leaf 不在 `page-navigation.json`**（287 在 v1.4.6/v1.4.7/v1.5.3 + 34 在已覆盖版本）⇒ **完整构建会在渲染这些页时失败**。
+
+### 9.4 待 Boss 裁定
+
+按 Boss #13388 ④，若实测确认回归 ⇒ 批准**乙案（按版本×语言分片）**，四条件：分片键=版本×语言；入库可复跑生成器；报分片/总/单页体积；★验收判据=**渲染耗时**（不用 page-creation 那行）。
+**待裁**：① 撤下当前实现（`git checkout -- templates/`，可回放）→ 按乙案重做（分片 + 兜底）？还是先只做兜底？② 类1 检测器是否授权修 `COUNT_RE`（去 `\b`）或让计数行双语化？
+
+### 9.6 🔴 定案（Boss #16182 / #16246 / #17136）：**两个阻断缺陷都属于【已撤回的实现】**
+
+Boss 直接读了当前 HEAD 的宏并更正了整条计划（我复核后同意）：
+
+```
+当前 HEAD 宏（38 行，工作区与 HEAD 逐字节一致）：
+   5  {%- for ancestor in page.ancestors -%}                      ← 渲染期祖先扫描
+   8  {%- if parent_path -%}                                      ← 有条件的
+   9  {%- set parent_section = get_section(path=parent_path) -%}
+  10  {%- set navigation = load_data(path="data/navigation.json") -%}  ← 152 KB，不是 18.8 MB
+  12  {%- if not (navigation.routes[route_key] is defined) -%}    ← 已有缺失 key 守卫
+调用点只有 templates/page.html:31（section.html 不调用）
+data/page-navigation.json（18.8 MB）→ 【未被任何模板引用】
+```
+
+**⇒ 实测结论（用当前 templates/，非副本；子集含缺 route leaf + section 页 + 根 `_index.md`）**：
+```
+zola build → -> Creating 2 pages (0 orphan) and 8 sections / Done in 689ms / Failed to render = 0  ✅
+产物: 'page-navigation-parent' 命中（渲染【父级】）；'rel="prev"|"next"' 【0 命中】
+```
+1. **line 12 的 `is defined` 守卫【有效】** ⇒ **兜底不需要**（Boss #16185 的条件项答案）；
+2. **当前版渲染的是【父级 + 相关】，不是 prev/next** ⇒ **prev/next 是【功能缺口】，不是缺陷**；
+3. **「每页 18.8MB」与「缺失 key 崩溃」都属于 R2 的已撤回实现** ⇒ §9.2/§9.3 的读数（≈500ms/页、166s vs 64s、崩溃）**不适用于当前版**；
+4. **当前版规模上无回归**：`content/v1.4.5` 全树 **16,513 页 / 808 s / rc=0 ≈ 49 ms/页** vs release 基线 **52 ms/页** ⇒ **同速** ⇒ **分片不需要**。
+
+**Boss 最终定性（#17136）**：**prev/next = 独立可选增强**（不是用户抱怨的对治）——lead-20 实测「下行 100.0% 在位（38,467/38,470 叶子可从自己桶索引到达）」，唯一缺口是**上行 783 页** ⇒ **布局层 breadcrumb** 无条件补上行；prev/next 是线性 affordance 且是用户外壳**有意移除**的。
+
+**分片产物处置**：`tools/gen-nav-shards.mjs`（7003 B，**可复跑资产 → 入库**）+ `data/nav/` **5187 片/26 MB**（**暂不入库**，等功能决策）。
+
+**★ 教训（写进方法）**：**当一个缺陷的载体被「撤回」后，所有针对该载体的测量都同时失效。**
+判据：**每次要基于某个实现下结论前，先确认它【当前在盘上】**（`git status -- <载体>` + 读该文件本身）。
+
+### 9.5 类1/类2 现状
+
+- **类2：33 → 1** ✅（S 的 Pass 1：`OK=32 / FAILED=0 / SKIPPED=1`，`TOTAL_ADD=229`、`DELETED=0`）；剩 1 条是 `content/_index.md` 的 `dirRel=''` 边际误报。
+- **类1：修复已 apply（Pass 2 `OK=100 / FAILED=1（根桶护栏拒）/ SKIPPED=3（DUPLICATE_MARKER）`），计数行已写入**（`content/v1.3.0/en/api/campaign/_index.md:6` = `> 共 1388 个子页`）；但 **`tools/_verify/nav-D-check.mjs` 的 `COUNT_RE` 因 `\b` 对 CJK 失效而假阴性**（实测 `"1388 个" -> false`、`"1388 pages" -> true`）⇒ 类1 报 103 是**检测器坏**，不是语料还有 103 条。
+
+---
+
+## 10. 新口径：「能走回去吗」——783 页无回程链接（lead-20 验证线，正对用户抱怨）
+
+**取数**：UTC 07:45:07Z 与 08:05:42Z 两次逐数一致。命令 `node <temp>/upcheck.mjs`（只读）。
+```
+TOTAL_PAGES=39037  LEAF_PAGES=38498  NO_UP_LINK_ALL=783  NO_UP_LINK_LEAF=684
+by tree: v1.4.5 362 / v1.3.15 218 / v1.5.3 138 / v1.3.0 36 / versions 18 / v1.4.7 10 / _index.md 1
+```
+**判据**：页内**没有任何 markdown 链接**落在「回父 section」形态 `^(\.\./)+(_index\.md)?$`。
+
+### 与 orphan 口径不矛盾（两把尺测两个量）
+
+| 口径 | 问的问题 | 读数 |
+|---|---|---|
+| orphan（`nav-orphans.mjs`） | 「有没有人链**进来**」 | **0** |
+| 回程（`upcheck.mjs`） | 「能不能**走回去**」 | **783** |
+
+这些页**有入边**（桶 `_index.md` 链到它们），缺的是**回程**。**用户的抱怨是后者。**
+lead-20 给了 3 条反证（有回程链接的页确实未被算入）⇒ 783 是「确实没有」，不是「判据没跑」。
+
+### 七节模板（含 `## 导航`）采用率 ⇒ 「缺导航」是常态
+
+v1.3.0/zh **4/5300** · v1.3.15/zh **231/5690** · v1.4.5/zh **344/9477** · v1.4.7/zh **0/48**
+⇒ 要修须先裁定「**是否要求全站统一**」，否则修完一批还剩一大批。
+**待裁**：是否把「回程链接」列为本线验收项（若是，783 是分母）。
+
+---
+
+## 11. 外部事件记录（非本线，仅登记）
+
+| 时刻（UTC） | 事件 | 归属 |
+|---|---|---|
+| 08:06:49Z | 全站门禁转红：`BROKEN_LINKS=1`（`v1.4.5/zh/api/campaign-ext/AcceptCallToWarOfferMapNotification.md:166` 的 `../InformationData`，真身在 `core-extra/`） | lead-18（已登记 open-defects 第 32 行） |
+| — | `tools/audit-changed-links.mjs` 入库（commit `963a586430`）：只审相对 HEAD 有改动的 `content/**/*.md`，秒级，复用 `audit-links.mjs` 解析语义 | lead-20 验证线 |

@@ -1,0 +1,8 @@
+content/v1.3.15/en/architecture/campaign-event-system.md
+content/v1.3.15/en/architecture/campaign-events.md
+content/v1.3.15/en/architecture/gamemodel-decorator.md
+content/v1.3.15/en/architecture/mission-lifecycle.md
+content/v1.3.15/zh/architecture/campaign-event-system.md
+content/v1.3.15/zh/architecture/campaign-events.md
+content/v1.3.15/zh/architecture/gamemodel-decorator.md
+content/v1.3.15/zh/architecture/mission-lifecycle.md

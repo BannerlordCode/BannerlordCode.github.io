@@ -1,0 +1,3 @@
+# InitializeWorkshopAction  (TaleWorlds.CampaignSystem/Actions/InitializeWorkshopAction.cs, 22 lines)
+   8  public static class InitializeWorkshopAction
+  11  public static void ApplyByNewGame(Workshop workshop, Hero workshopOwner, WorkshopType workshopType)

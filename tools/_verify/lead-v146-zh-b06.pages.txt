@@ -1,0 +1,30 @@
+# N=9 sampled=2026-10-07T16:40:00Z frozen=lead-v146-zh-b06 v1.4.6/zh/api/{campaign,mission-ext,save-system}
+# 来源：tools/_verify/missing-types-1.4.6-zh.txt（5,552 行 = 5,551 条目 + 1 行首注释）
+#   条目形如 `Namespace.Type`；桶归属用 tools/_dir-map-canonical.json（longest-prefix-wins，schemaVersion=5）
+#
+# 选取理由（按【public API 价值】排序 —— boss-3 #18031 / #19421）：
+#   本批全部是【战役 mod 与任务 mod 每天都要碰的入口 / 行为类】，不是零散 Action：
+#   · MobileParty（5,450 行）/ PartyBase（1,637）/ TroopRoster（925）—— 战役数据模型的心脏
+#   · Kingdom（1,389）/ MapEvent（2,771）/ CampaignEventDispatcher（2,867）—— 势力、遭遇战、事件总线
+#   · MissionLogic（70）/ MissionObject（399）—— 任务侧第一扩展点与战场物件基类
+#   · SaveContext（663）—— 存档序列化上下文（save-system 桶主线）
+#   同桶已写页面（campaign 19 张 / mission-ext 3 张 / save-system 5 张）里没有任何一个覆盖上述类型。
+#
+# ★ 本批 9 页【全部是新建】（派单前逐个 find 确认 missing，见 lead-v146-zh-PROGRESS.md 批 6 记录）
+# ★ 同批必须更新三个父索引（R2 由 lead 单写者执行）：
+#   · content/v1.4.6/zh/api/campaign/_index.md        → +6 行
+#   · content/v1.4.6/zh/api/mission-ext/_index.md     → +2 行
+#   · content/v1.4.6/zh/api/save-system/_index.md     → +1 行
+#   ★ 计数不变量：本批 9 页 ⇒ 三个索引合计必须新增恰好 9 行
+#
+# 尺：node tools/audit-links.mjs 批前 BROKEN_LINKS=0 / FILES_WITH_BROKEN=0
+#     node tools/nav-orphans.mjs 批前 total_pages=39186 orphans=0 orphan_parents=0
+content/v1.4.6/zh/api/campaign/MobileParty.md
+content/v1.4.6/zh/api/campaign/PartyBase.md
+content/v1.4.6/zh/api/campaign/TroopRoster.md
+content/v1.4.6/zh/api/campaign/Kingdom.md
+content/v1.4.6/zh/api/campaign/MapEvent.md
+content/v1.4.6/zh/api/campaign/CampaignEventDispatcher.md
+content/v1.4.6/zh/api/mission-ext/MissionLogic.md
+content/v1.4.6/zh/api/mission-ext/MissionObject.md
+content/v1.4.6/zh/api/save-system/SaveContext.md

@@ -133,10 +133,21 @@
 |--------|--------|--------|----------|------|
 | worker-A | `gamemodel-decorator.md` | v1.3.15 | `content/v1.3.15/zh/architecture/gamemodel-decorator.md` + `content/v1.3.15/en/architecture/gamemodel-decorator.md` | 双语 |
 | worker-B | `campaign-events.md` | v1.3.15 | `content/v1.3.15/zh/architecture/campaign-events.md` + `content/v1.3.15/en/architecture/campaign-events.md` | 双语 |
+| worker-B（补充） | `campaign-event-system.md` | v1.3.15 | `content/v1.3.15/zh/architecture/campaign-event-system.md` + `content/v1.3.15/en/architecture/campaign-event-system.md` | 双语；实际产出，与 `campaign-events.md` 分工互补 |
+
+**worker-B 实际产出登记（2026-10-07）**: 计划名 `campaign-events.md`，实际产出两页（均双语、互链）：
+- `campaign-event-system.md` = 三类协作心智模型（`CampaignEvents` / `CampaignEventDispatcher` / `CampaignEventReceiver` 如何协作）
+- `campaign-events.md` = 事件总线机械原理 + 接入手册（Behavior 订阅/退订、事件时机与生命周期）
+两页均已存在且 0 断链；避免下一批按计划名判「缺页」再重派（今日已发生 3 次）。
 | worker-C | `mission-lifecycle.md` | v1.3.15 | `content/v1.3.15/zh/architecture/mission-lifecycle.md` + `content/v1.3.15/en/architecture/mission-lifecycle.md` | 双语 |
 | worker-D | `ui-three-layers.md` | v1.3.15 | `content/v1.3.15/zh/architecture/ui-three-layers.md` + `content/v1.3.15/en/architecture/ui-three-layers.md` | 双语 |
 | worker-E | `save-object-graph.md` | v1.3.15 | `content/v1.3.15/zh/architecture/save-object-graph.md` + `content/v1.3.15/en/architecture/save-object-graph.md` | 双语 |
-| worker-F | `action-family.md` | v1.3.15 | `content/v1.3.15/zh/architecture/action-family.md` + `content/v1.3.15/en/architecture/action-family.md` | 双语 |
+| worker-F | `action-family.md` | v1.3.15 | `content/v1.3.15/zh/architecture/action-family.md` + `content/v1.3.15/en/architecture/action-family.md` | 双语；**两阶段形态**（见下） |
+
+**两阶段形态（boss-3 #12637，2026-10-07）**: 单阶段（读+写）必进读循环；改为每页一对 worker：
+- **阶段一（只读，落盘证据）**：worker 只交 `tools/_verify/arch-evidence/<slug>.md`，含 ① 目标类/成员源文件路径+声明行号（贴 grep 命令与原始输出）② 逐成员一行：签名|文件:行号|它做什么 ③ ≥3 条可编译调用示例候选（带 file:行号）④ 三条协作/层级关系 file:行号 证据 ⑤ 该页现在是否存在/字节数/六节情况。**禁止写正文、禁止继续读别的文件**（证据够 5 条就停）。
+- **阶段二（只写，不读源码）**：worker 拿到阶段一证据文件内容（直接贴在 brief 里），只做「把证据写成正文并落盘」。**不允许再去读源码**。要求：六节齐全+逐成员+引用边界检查+U+FFFD=0+补父索引链+批前/批后 audit-links 两套数。
+- **并发**: 每页一对 worker，仍守并发 ≤2。
 | worker-G | 移植 `crash-boundaries.md` 到 v1.3.0/v1.4.6/v1.4.7/v1.5.3 | 多版本 | 各版本 `content/*/zh/architecture/crash-boundaries.md` + `content/*/en/architecture/crash-boundaries.md` | 移植：重新核源，报告差异 |
 | worker-H | 移植 `developer-roadmap.md` 到 v1.3.0/v1.4.6/v1.4.7/v1.5.3 | 多版本 | 各版本 `content/*/zh/architecture/developer-roadmap.md` + `content/*/en/architecture/developer-roadmap.md` | 移植：重新核源，报告差异 |
 
@@ -222,8 +233,10 @@
 | 只读阶段 | ✅ 完成 | worker-86/87 已交付 |
 | ARCH-PLAN 落盘 | ✅ 完成 | 本文件 |
 | ARCH-PLAN 验收 | ✅ 完成 | boss-3 #10144 批准，带两条修正 |
-| 写作阶段 | ⏳ 待派出 | 修正已并入，可派出 worker A–H |
+| 写作阶段 | 🔄 进行中 | worker-A/B/C 已交付（gamemodel-decorator / campaign-events+bEvent-system / mission-lifecycle）；**第一批 P0-4/5/6（ui-three-layers / save-object-graph / action-family）已派 worker-D/E/F** |
 | 验收阶段 | ⏳ 待开始 | 写作完成后进行 |
+
+**lead-19 接手（2026-10-07）**: 实测门禁基线 BROKEN_LINKS=0 / orphans=0。`campaign-events.md` 已交付但**尚未入 `_index.md` SECTION INDEX**（当前靠 `campaign-event-system.md` 互链兜底，orphan=0）——第一批收尾时一并补入索引。进度落盘见 `tools/_verify/lead-arch2-PROGRESS.md`。
 
 ---
 

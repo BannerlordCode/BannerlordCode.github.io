@@ -1,0 +1,8 @@
+# DefaultSettlementGarrisonModel  (TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementGarrisonModel.cs, 105 lines)
+  16  public class DefaultSettlementGarrisonModel : SettlementGarrisonModel
+  19  public override ExplainedNumber GetMaximumDailyAutoRecruitmentCount(Town town, bool includeDescriptions = false)
+  27  public override ExplainedNumber CalculateBaseGarrisonChange(Settlement settlement, bool includeDescriptions = false)
+  39  public override int FindNumberOfTroopsToTakeFromGarrison(MobileParty mobileParty, Settlement settlement, float defaultIdealGarrisonStrengthPerWalledCenter = 0f)
+  81  public override float GetMaximumDailyRepairAmount(Settlement settlement)
+  99  private readonly TextObject RebellionText = GameTexts.FindText("str_rebel_settlement", null);
+ 102  private const int MaximumDailyAutoRecruitmentCount = 1;

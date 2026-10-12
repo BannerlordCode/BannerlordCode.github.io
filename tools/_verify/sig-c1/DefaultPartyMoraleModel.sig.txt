@@ -1,0 +1,23 @@
+# DefaultPartyMoraleModel  (TaleWorlds.CampaignSystem/GameComponents/DefaultPartyMoraleModel.cs, 311 lines)
+  15  public class DefaultPartyMoraleModel : PartyMoraleModel
+  19  public override float HighMoraleValue
+  28  public override int GetDailyStarvationMoralePenalty(PartyBase party)
+  34  public override int GetDailyNoWageMoralePenalty(MobileParty party)
+  40  private int GetStarvationMoralePenalty(MobileParty party)
+  46  private int GetNoWageMoralePenalty(MobileParty party)
+  52  public override float GetStandardBaseMorale(PartyBase party)
+  58  public override float GetVictoryMoraleChange(PartyBase party)
+  64  public override float GetDefeatMoraleChange(PartyBase party)
+  70  private void CalculateFoodVarietyMoraleBonus(MobileParty party, ref ExplainedNumber result)
+ 139  private void GetPartySizeMoraleEffect(MobileParty mobileParty, ref ExplainedNumber result)
+ 152  private static void CheckPerkEffectOnPartyMorale(MobileParty party, PerkObject perk, bool isInfoNeeded, TextObject newInfo, int perkEffect, out TextObject outNewInfo, out int outPerkEffect)
+ 171  private void GetMoraleEffectsFromPerks(MobileParty party, ref ExplainedNumber bonus)
+ 206  private float CalculateTroopTierRatio(MobileParty party)
+ 221  private void GetMoraleEffectsFromSkill(MobileParty party, ref ExplainedNumber bonus)
+ 231  public override ExplainedNumber GetEffectivePartyMorale(MobileParty mobileParty, bool includeDescription = false)
+ 293  private const float BaseMoraleValue = 50f;
+ 296  private readonly TextObject _recentEventsText = GameTexts.FindText("str_recent_events", null);
+ 299  private readonly TextObject _starvationMoraleText = GameTexts.FindText("str_starvation_morale", null);
+ 302  private readonly TextObject _noWageMoraleText = GameTexts.FindText("str_no_wage_morale", null);
+ 305  private readonly TextObject _foodBonusMoraleText = GameTexts.FindText("str_food_bonus_morale", null);
+ 308  private readonly TextObject _partySizeMoraleText = GameTexts.FindText("str_party_size_morale", null);

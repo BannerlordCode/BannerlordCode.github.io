@@ -1,0 +1,25 @@
+# N=10 sampled=2026-10-07T14:50:00Z frozen=lead-145zh-v146-b02 v1.4.6/zh/api/{modulemanager,campaign}
+# 来源：tools/_verify/missing-types-1.4.6-zh.txt（5,552 行 = 5,551 条目 + 1 行首注释）
+#   条目形如 `Namespace.Type`（不是裸类型名）；桶归属用 tools/_dir-map-canonical.json（longest-prefix-wins）
+#
+# 选取理由（按【mod 价值】排序，不按桶大小 —— boss-3 #18031）：
+#   ① 先收掉 modulemanager 桶【余下 3 条】（本桶共 8 条，b01 已交付 5 条）
+#   ② 再开 campaign 桶（640 条，mod 最常碰的桶之一）取前 7 条
+#
+# ★ 本批 10 页全部是【新建】（已逐个 ls 确认 missing）
+# ★ 同批必须更新两个父索引：
+#   · modulemanager/_index.md → 再 +3 行（ModuleType / SubModuleInfo / SubModuleTags）
+#   · campaign/_index.md → +7 行
+# ★ 计数不变量：本批 10 页 ⇒ 两个索引合计必须新增恰好 10 行
+#
+# 尺：sha256 16e9b98fb19b8eb479ae983c0045401cc776fcfff6f3f14125edcbc1445be23a
+content/v1.4.6/zh/api/modulemanager/ModuleType.md
+content/v1.4.6/zh/api/modulemanager/SubModuleInfo.md
+content/v1.4.6/zh/api/modulemanager/SubModuleTags.md
+content/v1.4.6/zh/api/campaign/AIBehaviorData.md
+content/v1.4.6/zh/api/campaign/ActionNotes.md
+content/v1.4.6/zh/api/campaign/AddCompanionAction.md
+content/v1.4.6/zh/api/campaign/AddHeroToPartyAction.md
+content/v1.4.6/zh/api/campaign/AdoptHeroAction.md
+content/v1.4.6/zh/api/campaign/BeHostileAction.md
+content/v1.4.6/zh/api/campaign/ChangeKingdomAction.md

@@ -1,0 +1,53 @@
+# DefaultPartySizeLimitModel  (TaleWorlds.CampaignSystem/GameComponents/DefaultPartySizeLimitModel.cs, 548 lines)
+  19  public class DefaultPartySizeLimitModel : PartySizeLimitModel
+  23  public override int MinimumNumberOfVillagersAtVillagerParty
+  32  public override ExplainedNumber GetPartyMemberSizeLimit(PartyBase party, bool includeDescriptions = false)
+  51  private ExplainedNumber CalculatePatrolPartySizeLimit(MobileParty mobileParty, bool includeDescriptions)
+  65  private int GetPatrolPartySizeLimitFromGuardHouseLevel(int level)
+  71  public override ExplainedNumber GetPartyPrisonerSizeLimit(PartyBase party, bool includeDescriptions = false)
+  81  private ExplainedNumber CalculateMobilePartyMemberSizeLimit(MobileParty party, bool includeDescriptions = false)
+ 128  public override ExplainedNumber CalculateGarrisonPartySizeLimit(Settlement settlement, bool includeDescriptions = false)
+ 142  private ExplainedNumber CalculateSettlementPartyPrisonerSizeLimitInternal(Settlement settlement, bool includeDescriptions = false)
+ 154  private ExplainedNumber CalculateMobilePartyPrisonerSizeLimitInternal(PartyBase party, bool includeDescriptions = false)
+ 167  private void AddMobilePartyLeaderPrisonerSizePerkEffects(PartyBase party, ref ExplainedNumber result)
+ 176  private void AddGarrisonOwnerPerkEffects(Settlement currentSettlement, ref ExplainedNumber result)
+ 186  public override int GetNextClanTierPartySizeEffectChangeForHero(Hero hero)
+ 193  private int GetTierEffectInternal(int tier, bool isHeroClanLeader)
+ 207  public override int GetAssumedPartySizeForLordParty(Hero leaderHero, IFaction partyMapFaction, Clan actualClan)
+ 219  public override int GetClanTierPartySizeEffectForHero(Hero hero)
+ 225  private void AddSettlementProjectBonuses(Settlement settlement, ref ExplainedNumber result)
+ 234  private void AddSettlementProjectPrisonerBonuses(Settlement settlement, ref ExplainedNumber result)
+ 243  private int GetCurrentPartySizeEffect(PartyBase party)
+ 249  private void CalculateBaseMemberSize(Hero partyLeader, IFaction partyMapFaction, Clan actualClan, ref ExplainedNumber result)
+ 308  private float GetPartySizeRatioForSize(PartyTemplateObject partyTemplate, int desiredSize)
+ 329  private float GetInitialPartySizeRatioForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)
+ 362  public override int GetIdealVillagerPartySize(Village village)
+ 375  public override TroopRoster FindAppropriateInitialRosterForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)
+ 426  public override List<Ship> FindAppropriateInitialShipsForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)
+ 459  private const int BaseMobilePartySize = 20;
+ 462  private const int BaseMobilePartyPrisonerSize = 10;
+ 465  private const int BaseSettlementPrisonerSize = 60;
+ 468  private const int BaseTownPrisonerSizeBonus = 40;
+ 471  private const int BaseGarrisonPartySize = 200;
+ 474  private const int BasePatrolPartySize = 10;
+ 477  private const int TownGarrisonSizeBonus = 200;
+ 480  private const int AdditionalPartySizeForCheat = 5000;
+ 483  private const int OneVillagerPerHearth = 40;
+ 486  private const int AdditionalPartySizeLimitPerTier = 15;
+ 489  private const int AdditionalPartySizeLimitForLeaderPerTier = 25;
+ 492  private readonly TextObject _leadershipSkillLevelBonusText = GameTexts.FindText("str_leadership_skill_level_bonus", null);
+ 495  private readonly TextObject _leadershipPerkUltimateLeaderBonusText = GameTexts.FindText("str_leadership_perk_bonus", null);
+ 498  private readonly TextObject _wallLevelBonusText = GameTexts.FindText("str_map_tooltip_wall_level", null);
+ 501  private readonly TextObject _baseSizeText = GameTexts.FindText("str_base_size", null);
+ 504  private readonly TextObject _clanTierText = GameTexts.FindText("str_clan_tier_bonus", null);
+ 507  private readonly TextObject _renownText = GameTexts.FindText("str_renown_bonus", null);
+ 510  private readonly TextObject _clanLeaderText = GameTexts.FindText("str_clan_leader_bonus", null);
+ 513  private readonly TextObject _factionLeaderText = GameTexts.FindText("str_faction_leader_bonus", null);
+ 516  private readonly TextObject _leaderLevelText = GameTexts.FindText("str_leader_level_bonus", null);
+ 519  private readonly TextObject _townBonusText = GameTexts.FindText("str_town_bonus", null);
+ 522  private readonly TextObject _minorFactionText = GameTexts.FindText("str_minor_faction_bonus", null);
+ 525  private readonly TextObject _currentPartySizeBonusText = GameTexts.FindText("str_current_party_size_bonus", null);
+ 528  private readonly TextObject _randomSizeBonusTemporary = new TextObject("{=hynFV8jC}Extra size bonus (Perk-like Effect)", null);
+ 531  private static bool _addAdditionalPartySizeAsCheat;
+ 534  private static bool _addAdditionalPrisonerSizeAsCheat;
+ 537  private enum LimitType

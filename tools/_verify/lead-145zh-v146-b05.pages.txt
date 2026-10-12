@@ -1,0 +1,27 @@
+# N=15 sampled=2026-10-07T15:58:00Z frozen=lead-145zh-v146-b05 v1.4.6/zh/api/campaign-ext
+# 来源：tools/_verify/missing-types-1.4.6-zh.txt（5,551 条目）
+#   桶归属用 tools/_dir-map-canonical.json（longest-prefix-wins）
+#
+# 选取理由：继续 campaign-ext 桶（741 条，boss-3 #19421 建议「先完成 campaign-ext」）
+#   本批 15 条全部是【CampaignBehaviorBase 的子类】—— 战役 mod 的主要扩展点
+#   其中 6 条属于 BarterBehaviors 子命名空间（交易系统），2 条是嵌套类型定义器
+#
+# ★ 同批必须更新 content/v1.4.6/zh/api/campaign-ext/_index.md
+#   ★ 计数不变量：本批 15 页 ⇒ 该索引必须新增恰好 15 行
+#
+# 尺：sha256 16e9b98fb19b8eb479ae983c0045401cc776fcfff6f3f14125edcbc1445be23a
+content/v1.4.6/zh/api/campaign-ext/AllianceCampaignBehaviorTypeDefiner.md
+content/v1.4.6/zh/api/campaign-ext/BanditInteractionsCampaignBehavior.md
+content/v1.4.6/zh/api/campaign-ext/BanditInteractionsCampaignBehaviorTypeDefiner.md
+content/v1.4.6/zh/api/campaign-ext/BanditSpawnCampaignBehavior.md
+content/v1.4.6/zh/api/campaign-ext/BannerCampaignBehavior.md
+content/v1.4.6/zh/api/campaign-ext/DiplomaticBartersBehavior.md
+content/v1.4.6/zh/api/campaign-ext/FiefBarterBehavior.md
+content/v1.4.6/zh/api/campaign-ext/GoldBarterBehavior.md
+content/v1.4.6/zh/api/campaign-ext/ItemBarterBehavior.md
+content/v1.4.6/zh/api/campaign-ext/LiftSiegeBarterBehavior.md
+content/v1.4.6/zh/api/campaign-ext/SetPrisonerFreeBarterBehavior.md
+content/v1.4.6/zh/api/campaign-ext/TransferPrisonerBarterBehavior.md
+content/v1.4.6/zh/api/campaign-ext/BattleCampaignBehavior.md
+content/v1.4.6/zh/api/campaign-ext/BuildingsCampaignBehavior.md
+content/v1.4.6/zh/api/campaign-ext/CampaignBattleRecoveryBehavior.md

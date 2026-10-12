@@ -1,0 +1,7 @@
+# PartySpeedModel  (TaleWorlds.CampaignSystem/ComponentInterfaces/PartySpeedModel.cs, 28 lines)
+   8  public abstract class PartySpeedModel : MBGameModel<PartySpeedModel>
+  12  public abstract float BaseSpeed { get; }
+  16  public abstract float MinimumSpeed { get; }
+  19  public abstract ExplainedNumber CalculateBaseSpeed(MobileParty party, bool includeDescriptions = false, int additionalTroopOnFootCount = 0, int additionalTroopOnHorseCount = 0);
+  22  public abstract ExplainedNumber CalculateFinalSpeed(MobileParty mobileParty, ExplainedNumber finalSpeed);
+  25  public abstract int GetSkeletalCrewCount(MobileParty party);

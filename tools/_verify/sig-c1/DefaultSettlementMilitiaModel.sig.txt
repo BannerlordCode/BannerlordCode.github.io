@@ -1,0 +1,20 @@
+# DefaultSettlementMilitiaModel  (TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementMilitiaModel.cs, 213 lines)
+  16  public class DefaultSettlementMilitiaModel : SettlementMilitiaModel
+  19  public override int MilitiaToSpawnAfterSiege(Town town)
+  25  public override ExplainedNumber CalculateMilitiaChange(Settlement settlement, bool includeDescriptions = false)
+  31  public override ExplainedNumber CalculateVeteranMilitiaSpawnChance(Settlement settlement)
+  66  public override void CalculateMilitiaSpawnRate(Settlement settlement, out float meleeTroopRate, out float rangedTroopRate)
+  73  private static ExplainedNumber CalculateMilitiaChangeInternal(Settlement settlement, bool includeDescriptions = false)
+ 149  private static void GetSettlementMilitiaChangeDueToPerks(Settlement settlement, ref ExplainedNumber result)
+ 167  private static void GetSettlementMilitiaChangeDueToPolicies(Settlement settlement, ref ExplainedNumber result)
+ 177  private static void GetSettlementMilitiaChangeDueToIssues(Settlement settlement, ref ExplainedNumber result)
+ 183  private static readonly TextObject BaseText = new TextObject("{=militarybase}Base", null);
+ 186  private static readonly TextObject FromHearthsText = new TextObject("{=ecdZglky}From Hearths", null);
+ 189  private static readonly TextObject FromProsperityText = new TextObject("{=cTmiNAlI}From Prosperity", null);
+ 192  private static readonly TextObject RetiredText = new TextObject("{=gHnfFi1s}Retired", null);
+ 195  private static readonly TextObject MilitiaFromMarketText = new TextObject("{=7ve3bQxg}Weapons From Market", null);
+ 198  private static readonly TextObject LowLoyaltyText = new TextObject("{=SJ2qsRdF}Low Loyalty", null);
+ 201  private static readonly TextObject CultureText = GameTexts.FindText("str_culture", null);
+ 204  private const int AutoSpawnMilitiaDayMultiplierAfterSiege = 25;
+ 207  private const int BaseFortificationMilitiaChange = 2;
+ 210  private const float BaseVillageMilitiaChange = 0.5f;

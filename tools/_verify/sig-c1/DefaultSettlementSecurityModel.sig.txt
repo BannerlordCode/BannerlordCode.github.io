@@ -1,0 +1,53 @@
+# DefaultSettlementSecurityModel  (TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementSecurityModel.cs, 502 lines)
+  20  public class DefaultSettlementSecurityModel : SettlementSecurityModel
+  24  public override int MaximumSecurityInSettlement
+  34  public override int SecurityDriftMedium
+  44  public override float MapEventSecurityEffectRadius
+  54  public override float HideoutClearedSecurityEffectRadius
+  64  public override int HideoutClearedSecurityGain
+  74  public override int ThresholdForTaxCorruption
+  84  public override int ThresholdForHigherTaxCorruption
+  94  public override int ThresholdForTaxBoost
+ 104  public override int SettlementTaxBoostPercentage
+ 114  public override int SettlementTaxPenaltyPercentage
+ 124  public override int ThresholdForNotableRelationBonus
+ 134  public override int ThresholdForNotableRelationPenalty
+ 144  public override int DailyNotableRelationBonus
+ 154  public override int DailyNotableRelationPenalty
+ 164  public override int DailyNotablePowerBonus
+ 174  public override int DailyNotablePowerPenalty
+ 183  public override ExplainedNumber CalculateSecurityChange(Town town, bool includeDescriptions = false)
+ 203  private void CalculateSettlementPatrolPartiesBonuses(Town town, ref ExplainedNumber result)
+ 219  private void CalculateSettlementProjectSecurityBonuses(Town town, ref ExplainedNumber result)
+ 225  private void CalculateProsperityEffectOnSecurity(Town town, ref ExplainedNumber explainedNumber)
+ 231  private void CalculateUnderSiegeEffectsOnSecurity(Town town, ref ExplainedNumber explainedNumber)
+ 240  private void CalculateRaidedVillageEffectsOnSecurity(Town town, ref ExplainedNumber explainedNumber)
+ 258  private void CalculateInfestedHideoutEffectsOnSecurity(Town town, ref ExplainedNumber explainedNumber)
+ 272  private void CalculateSecurityDrift(Town town, ref ExplainedNumber explainedNumber)
+ 278  private void CalculatePolicyEffectsOnSecurity(Town town, ref ExplainedNumber explainedNumber)
+ 306  private void CalculateGovernorEffectsOnSecurity(Town town, ref ExplainedNumber explainedNumber)
+ 311  private void CalculateGarrisonEffectsOnSecurity(Town town, ref ExplainedNumber result)
+ 354  private void CalculateStrengthOfGarrisonParty(PartyBase party, out float totalStrength, out float archerStrength, out float cavalryStrength)
+ 390  private void CalculatePerkEffectsOnSecurity(Town town, ref ExplainedNumber result)
+ 417  private void CalculateProjectEffectsOnSecurity(Town town, ref ExplainedNumber explainedNumber)
+ 422  private void CalculateIssueEffectsOnSecurity(Town town, ref ExplainedNumber explainedNumber)
+ 428  public override float GetLootedNearbyPartySecurityEffect(Town town, float sumOfAttackedPartyStrengths)
+ 434  public override float GetNearbyBanditPartyDefeatedSecurityEffect(Town town, float sumOfAttackedPartyStrengths)
+ 440  public override void CalculateGoldGainDueToHighSecurity(Town town, ref ExplainedNumber explainedNumber)
+ 447  public override void CalculateGoldCutDueToLowSecurity(Town town, ref ExplainedNumber explainedNumber)
+ 454  private const float GarrisonHighSecurityGain = 3f;
+ 457  private const float GarrisonLowSecurityPenalty = -3f;
+ 460  private const float NearbyHideoutPenalty = -2f;
+ 463  private const float VillageLootedSecurityEffect = -2f;
+ 466  private const float UnderSiegeSecurityEffect = -3f;
+ 469  private const float MaxProsperityEffect = -5f;
+ 472  private const float PerProsperityEffect = -0.0005f;
+ 475  private readonly TextObject GarrisonText = GameTexts.FindText("str_garrison", null);
+ 478  private readonly TextObject LootedVillagesText = GameTexts.FindText("str_looted_villages", null);
+ 481  private readonly TextObject CorruptionText = GameTexts.FindText("str_corruption", null);
+ 484  private readonly TextObject NearbyHideoutText = GameTexts.FindText("str_nearby_hideout", null);
+ 487  private readonly TextObject UnderSiegeText = GameTexts.FindText("str_under_siege", null);
+ 490  private readonly TextObject ProsperityText = GameTexts.FindText("str_prosperity", null);
+ 493  private readonly TextObject Security = GameTexts.FindText("str_security", null);
+ 496  private readonly TextObject SecurityDriftText = GameTexts.FindText("str_security_drift", null);
+ 499  private readonly TextObject PatrolPartiesText = GameTexts.FindText("str_patrol_parties", null);

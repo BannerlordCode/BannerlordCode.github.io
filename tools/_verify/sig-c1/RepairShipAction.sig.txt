@@ -1,0 +1,6 @@
+# RepairShipAction  (TaleWorlds.CampaignSystem/Actions/RepairShipAction.cs, 48 lines)
+  10  public static class RepairShipAction
+  13  private static void ApplyInternal(Ship ship, float newHitpoints, Settlement repairPort = null)
+  21  public static void Apply(Ship ship, Settlement repairPort)
+  33  public static void ApplyForFree(Ship ship)
+  39  public static void ApplyForBanditShip(Ship ship)

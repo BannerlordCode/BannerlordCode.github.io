@@ -1,0 +1,4 @@
+# SettlementProsperityModel  (TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementProsperityModel.cs, 17 lines)
+   8  public abstract class SettlementProsperityModel : MBGameModel<SettlementProsperityModel>
+  11  public abstract ExplainedNumber CalculateProsperityChange(Town fortification, bool includeDescriptions = false);
+  14  public abstract ExplainedNumber CalculateHearthChange(Village village, bool includeDescriptions = false);

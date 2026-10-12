@@ -1,0 +1,5 @@
+# PayForCrimeAction  (TaleWorlds.CampaignSystem/Actions/PayForCrimeAction.cs, 67 lines)
+  10  public static class PayForCrimeAction
+  13  private static void ApplyInternal(IFaction faction, CrimeModel.PaymentMethod paymentMethod)
+  55  public static float GetClearCrimeCost(IFaction faction, CrimeModel.PaymentMethod paymentMethod)
+  61  public static void Apply(IFaction faction, CrimeModel.PaymentMethod paymentMethod)

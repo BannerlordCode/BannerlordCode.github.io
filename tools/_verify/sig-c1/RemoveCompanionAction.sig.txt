@@ -1,0 +1,8 @@
+# RemoveCompanionAction  (TaleWorlds.CampaignSystem/Actions/RemoveCompanionAction.cs, 93 lines)
+   7  public static class RemoveCompanionAction
+  10  private static void ApplyInternal(Clan clan, Hero companion, RemoveCompanionAction.RemoveCompanionDetail detail)
+  56  public static void ApplyByFire(Clan clan, Hero companion)
+  62  public static void ApplyAfterQuest(Clan clan, Hero companion)
+  68  public static void ApplyByDeath(Clan clan, Hero companion)
+  74  public static void ApplyByByTurningToLord(Clan clan, Hero companion)
+  80  public enum RemoveCompanionDetail

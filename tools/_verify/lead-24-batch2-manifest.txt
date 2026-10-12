@@ -1,0 +1,17 @@
+# lead-24 批次 2 manifest — v1.4.7/zh/api/system 12 页
+# 生成时刻: 2026-10-07T20:30
+# 树: bannerlord-1.4.7 (无 Bannerlord.Source 层)
+# 路径形态: 相对树根的命名空间路径 (SandBox/Xxx.cs, TaleWorlds.InputSystem/Xxx.cs)
+
+content/v1.4.7/zh/api/system/GameKey.md dbfc61b5773616189eb4989d0ffa874358cedc4ab015bbe2c15ffbdc447d2881
+content/v1.4.7/zh/api/system/HotKey.md d973840964f1e25a4ad5860b84bcb469a1696be4a0b258b3fa4500d634469aea
+content/v1.4.7/zh/api/system/Key.md b885783965e8ad951dcae59f7f16bf6fcd7e9217d22a544c912d956acb32937f
+content/v1.4.7/zh/api/system/Input.md 939e4d9b06b047737b8e866564cc3c2838b63cdfc9c7c251cb22c440168bafd1
+content/v1.4.7/zh/api/system/GameKeyContext.md 7363d502ae2bddd29637cc768ac083cb99f65ab535c938db6abf541c117fed8f
+content/v1.4.7/zh/api/system/InputContext.md 77cbc73d7a415d3cd4bdf85f7ff1e90ed11ab9e5332147d9fed27abad48e0d76
+content/v1.4.7/zh/api/system/InputState.md 51fa443ca6192e2db0585b2d78e51370403a067dc050f06c296f14dc34f72b90
+content/v1.4.7/zh/api/system/HotKeyManager.md bc50dd05e45e0df07aa4c6ac9aa7dc9fefacca544eca45b0e97170020fff9515
+content/v1.4.7/zh/api/system/EmptyInputContext.md 7181990cb6bbd64d118068808dd25f51dd58ee79c4f9dcf5916e81552937f9a3
+content/v1.4.7/zh/api/system/EmptyInputManager.md 6f0b2b2a8af573b2f2944a078260fc88610065bcabbb1356da88f6c9769c3b44
+content/v1.4.7/zh/api/system/IInputContext.md 410bc787227ea86291dc1c6505e44d12eddfa860cf9797d96bc8e38d531152f0
+content/v1.4.7/zh/api/system/IInputManager.md 9e0dcb9bfee2f4433d20ce31f23699b2be236fdac1fdd8601c1e48bfbf551802

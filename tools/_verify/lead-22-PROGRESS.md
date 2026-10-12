@@ -725,6 +725,132 @@ Register()               2                0
 **状态**：按 boss-3 #15366 ①「不要再动它」**本线不自改**，待指派。
 **对检测器的建议**（已给 lead-18）：块内有裸 `:N` 且提到多于一个文件（哪怕另一个只是裸词）⇒ 报 UNCHECKABLE，不猜。
 
+## 40. 收口状态（2026-10-07T09:41Z）
+
+```
+6 页全部已入库且合规：
+  action-family ×2      commit 3f0b0d0c86   clean
+  ui-three-layers ×2    commit 9ab98aa8dd   clean
+  save-object-graph ×2  commit 4b7fdf420b   clean
+
+判分器: pass=3/6（zh×3；en×3 仅 J2/J10，裁定① 不适用）· deep_pass=6/6 · tier=6/6
+J3:    tree=bannerlord-1.3.15 · bad=0 · ambiguous=0（6/6 页）
+门禁:  FILES=39039 · BROKEN_LINKS=0 · FILES_WITH_BROKEN=0 · orphans=0
+audit-changed-links: CHANGED_FILES=0 · CHANGED_LINKS=0 · BROKEN_LINKS=0 · EXIT=0
+```
+
+### 只剩两件待他人决策（本线不自改）
+```
+① J13 那 1 行（zh+en 各一处）—— 需指派执行者
+   ★ 与「过期读数」无关：在 md5 5a849a4ae6c1 上确实复现（J13 报 3 条）
+   根因: zh 页第 160 行 ```csharp 围栏内写了裸 `:N`；该围栏唯一完整引用是 `SaveableTypeDefiner.cs:13`
+         ⇒ 裸引用被归给它，实际指 `SaveableCampaignTypeDefiner.cs`
+   修法: 写成完整引用 `SaveableCampaignTypeDefiner.cs:41/44/50/52`（1 行 × 2 页）
+② 裁定② zh 架构页 hub 形态 —— 建议加法（保留七节 + 新增 `## 常见误用`）
+```
+
+### 两个检测维度（不要用一个否掉另一个）
+```
+句子维度: X 出现在什么句子里 —— 「没有 X / X 不存在 / There is no X」是【正确用法】
+          ⇒ 防「否定句假阳性」（boss-3 反复强调的那条）
+行维度:   被引那一行是什么 —— 空行 / 纯注释 / 纯标点 ⇒ 可疑
+          ⇒ 防「行号在界内但引到注释行」（J13，本线 #15360 提议）
+本线实例：句子维度报 3 条命中【全是否定句】（正确）；
+          行维度报 3 条【全是真的】（我的裸引用确实归错文件）。
+⇒ 两个维度同时为「有」时，仍需分别判读；不可互相抵消。
+```
+
+## 41. ★ 终局：`save-object-graph` 判为【完成并已核】（boss-3 #15634）
+
+**Boss 终局指令**：停止该页工作、判为完成并已核，不再派 worker 碰它。
+理由：我要替换进去的两段文本（第 34–50 行 / 第 160–172 行）**当前文件里已一字不差存在** ⇒ 执行只会用正确内容覆盖正确内容。
+
+### 自证命令的原始输出（逐字，未编辑）
+```
+$ md5sum content/v1.3.15/zh/architecture/save-object-graph.md
+5a849a4ae6c190cb69340ea890431c4c *content/v1.3.15/zh/architecture/save-object-graph.md
+
+$ grep -c 'LoadGame' <path>                      → 0        （期望 0 ✅）
+$ grep -c 'SaveManager.cs:69' <path>             → 2        （期望 >=1 ✅）
+$ grep -n 'protected override void DefineClassTypes' <path>
+  114:- `SaveableCampaignTypeDefiner.cs:50` — `protected override void DefineClassTypes()`…
+  137:    protected override void DefineClassTypes()
+  167:    protected override void DefineClassTypes()          // SaveableTypeDefiner.cs:30   （期望 167 ✅）
+
+$ git log --oneline -1 -- <path>  → 4b7fdf420b
+$ git status --porcelain -- <path> → （空 = clean）
+```
+
+### 本线最终结论
+> **6 页全部已入库并合规；`save-object-graph` 由 Boss 独立核验为正确**
+> （H1+元数据块齐全 · `ISaveable`/`DefineTypes`/`ReadObject` 仅存于否定句 ·
+>  `SaveGame`/`LoadGame`/`WriteObject`/`Register()` 计数为 0 · 链接目标全部存在 · 门禁 0/0）。
+
+```
+pass=3/6（zh×3；en×3 仅 J2/J10）· deep_pass=6/6 · tier=6/6 · J3 tree=bannerlord-1.3.15 bad=0
+BROKEN_LINKS=0 · FILES_WITH_BROKEN=0 · orphans=0 · audit-changed-links EXIT=0
+归属: action-family ×2 @3f0b0d0c86 · ui-three-layers ×2 @9ab98aa8dd · save-object-graph ×2 @4b7fdf420b（均 clean）
+```
+
+### 仍待他人决策（本线不自改，不动已入库内容）
+```
+① J13 那 1 行（zh+en 各一处）—— 需指派执行者
+   ★ 与「过期读数」无关：在 md5 5a849a4ae6c1 上【确实复现】（J13 报 3 条）
+   修法: `SaveableCampaignTypeDefiner.cs:41/44/50/52`（1 行 × 2 页）
+② 裁定② zh 架构页 hub 形态 —— 建议加法（保留七节 + 新增 `## 常见误用`）
+```
+
+## 42. ★★ 未结的真缺陷：en 页 `### Example 3` 残留编造构造签名（当前 md5 可复现）
+
+**这条是我 FACTSPACK 的缺口，不是 worker 漏执行。**
+```
+$ md5sum content/v1.3.15/en/architecture/save-object-graph.md
+9e44e82d11c6967af1d5e97031b124d8        mtime 17:20:01        commit 4b7fdf420b
+$ grep -n 'MyTypeDefiner(DefinitionContext' <en 页>
+165:    public MyTypeDefiner(DefinitionContext context) : base(context) { }
+$ sed -n '13p' bannerlord-1.3.15/…/SaveableTypeDefiner.cs
+		protected SaveableTypeDefiner(int saveBaseId)     ← 真身收 int saveBaseId
+$ grep -c 'MyTypeDefiner(DefinitionContext' <zh 页>   → 0（zh 已修）
+```
+**⇒ en 页 165 行的构造签名是编的**（编译不过）。zh 页同处已是正确的 `base(1001)`。
+
+**根因**：`lead-22-save-graph-FACTSPACK.md` 的 `示例三` 替换文本**只覆盖 zh 路径**；
+en 那一节只给了表格 + `### Save Flow` 第 1 行 ⇒ **漏了 en 的 `### Example 3`**。
+**⇒ 教训：事实包按语言分节时，【每一节都要逐条核对 zh 节的改动项】，不能只给「镜像成英文」一句话。**
+
+**★ 无门禁抓得到它**：
+```
+$ node tools/_verify/lead-145zh-judge.mjs <en 页>
+FAIL … 仅 J2/J10 · J12=0 · J13 suspicious-lines=0
+```
+J13 只看【被引行】（空行/注释/标点），**不看代码块内容** ⇒ 一个编译不过的构造签名能全绿通过。
+与 §16 同族：**「结构判据全绿」不蕴含「内容为真」**；此处连 J13 也覆盖不到。
+
+**处置**：按 boss-3 #15634 ① 本线不自改；已请其指派执行者。
+修法 = en 页 163–172 行代码块与 zh 页 160–172 对齐 + 把裸 `:41 :44 :50 :52` 写成完整引用（= J13 那 3 条，一次改完）。
+
+### 本线最终教训（可跨线复用）
+```
+1. 报缺陷前必须先【在当前 md5 上复现】；复现不出就不报（boss-3 #15634 硬前置）
+2. 复测 = stat + md5sum + git log + 【git diff 归因】（§36）
+3. 「检测器报出 X 存在」≠「页面在编造 X」—— 看句子维度（否定句豁免）
+4. 「行号在界内」≠「引用正确」—— 看行维度（J13：被引行是否空行/注释/标点）
+5. 子串匹配会造成【假通过】（WriteObject 命中 WriteObjects）⇒ 存在性断言必须带 \b
+6. 「外部宣布的冻结 sha」不蕴含「实际跑的尺是那个版本」⇒ 引用尺自打的 sha
+7. 当证据对两个假设都成立时，它【没有判别力】；要去找能区分的观测（§35）
+8. 派单形态优先级：「事实包 + 纯转录」>「内联已核实事实 + 逐字骨架」>>「让 worker 自己核源 + 自己组织语言」
+```
+
+### 本线已交付的全部产物（均在 repo 内，零外泄）
+```
+content/v1.3.15/{zh,en}/architecture/{action-family,ui-three-layers,save-object-graph}.md   6 页
+tools/_verify/lead-22-PROGRESS.md            本文件（§1–§40，含全部判据、事故、裁定、读数）
+tools/_verify/lead-22-save-graph-FACTSPACK.md  事实包（zh/en 两份可直接粘贴的完整表格）
+tools/_verify/lead-22-b01.pages.txt / .buckets.txt  批次清单 + --batch-list 授权清单
+tools/_verify/lead-22-af.judge.json / lead-22-so.judge.json  判分器 JSON 留档
+tools/_verify/arch-before/lead22-*.md          四个文件的开工前留档（防覆盖）
+```
+
 ## 32. 行号口径事件全记录（“改尺不改内容”的实证）
 
 | 时间 | 事件 |

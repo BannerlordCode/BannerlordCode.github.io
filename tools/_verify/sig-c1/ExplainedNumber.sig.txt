@@ -1,0 +1,39 @@
+# ExplainedNumber  (TaleWorlds.CampaignSystem/ExplainedNumber.cs, 377 lines)
+  10  public struct ExplainedNumber
+  14  public float ResultNumber
+  24  public int RoundedResultNumber
+  35  public float BaseNumber { get; private set; }
+  39  public bool IncludeDescriptions
+  49  public float LimitMinValue
+  63  public float LimitMaxValue
+  78  public float SumOfFactors { get; private set; }
+  82  private float _unclampedResultNumber
+  91  public ExplainedNumber(float baseNumber = 0f, bool includeDescriptions = false, TextObject baseText = null)
+ 105  public string GetExplanations()
+ 123  public List<ValueTuple<string, float>> GetLines()
+ 133  public void AddFromExplainedNumber(ExplainedNumber explainedNumber, TextObject baseText)
+ 150  public void SubtractFromExplainedNumber(ExplainedNumber explainedNumber, TextObject baseText)
+ 167  public void Add(float value, TextObject description = null, TextObject variable = null)
+ 185  public void AddFactor(float value, TextObject description = null)
+ 199  public void LimitMin(float minValue)
+ 209  public void LimitMax(float maxValue, TextObject description = null)
+ 219  public void Clamp(float minValue, float maxValue)
+ 226  private static readonly TextObject LimitMinText = new TextObject("{=GNalaRaN}Minimum", null);
+ 229  private static readonly TextObject LimitMaxText = new TextObject("{=cfjTtxWv}Maximum", null);
+ 232  private static readonly TextObject BaseText = new TextObject("{=basevalue}Base", null);
+ 235  private float? _limitMinValue;
+ 238  private float? _limitMaxValue;
+ 241  private ExplainedNumber.StatExplainer _explainer;
+ 244  private class StatExplainer
+ 249  public List<ExplainedNumber.StatExplainer.ExplanationLine> Lines { get; private set; } = new List<ExplainedNumber.StatExplainer.ExplanationLine>();
+ 254  public ExplainedNumber.StatExplainer.ExplanationLine? BaseLine { get; private set; }
+ 259  public ExplainedNumber.StatExplainer.ExplanationLine? LimitMinLine { get; private set; }
+ 264  public ExplainedNumber.StatExplainer.ExplanationLine? LimitMaxLine { get; private set; }
+ 268  public List<ValueTuple<string, float>> GetLines(float baseNumber, float unclampedResultNumber, TextObject overrideBaseLineText = null, TextObject overrideMaximumLineText = null, TextObject overrideMinimumLineText = null)
+ 296  public void AddLine(string name, float number, ExplainedNumber.StatExplainer.OperationType opType)
+ 340  public enum OperationType
+ 355  public readonly struct ExplanationLine
+ 358  public ExplanationLine(string name, float number, ExplainedNumber.StatExplainer.OperationType operationType)
+ 366  public readonly float Number;
+ 369  public readonly string Name;
+ 372  public readonly ExplainedNumber.StatExplainer.OperationType OperationType;

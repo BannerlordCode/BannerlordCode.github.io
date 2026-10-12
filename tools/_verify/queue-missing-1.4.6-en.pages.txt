@@ -1,4 +1,5 @@
-# N=9092 sampled=2026-10-07T05:57:06.655Z
+# SUPERSEDED — use missing-types-1.4.6-en.txt
+# N=9092 sampled=2026-10-07T08:09:52.298Z
 BuildInfo
 EmptyGamepadNavigationContext
 Galaxy.Api.AvatarType

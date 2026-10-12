@@ -1,0 +1,48 @@
+# DefaultSettlementLoyaltyModel  (TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementLoyaltyModel.cs, 488 lines)
+  16  public class DefaultSettlementLoyaltyModel : SettlementLoyaltyModel
+  20  public override float HighLoyaltyProsperityEffect
+  30  public override int LowLoyaltyProsperityEffect
+  40  public override int ThresholdForTaxBoost
+  50  public override int ThresholdForTaxCorruption
+  60  public override int ThresholdForHigherTaxCorruption
+  70  public override int ThresholdForProsperityBoost
+  80  public override int ThresholdForProsperityPenalty
+  90  public override int AdditionalStarvationPenaltyStartDay
+ 100  public override int AdditionalStarvationLoyaltyEffect
+ 110  public override int RebellionStartLoyaltyThreshold
+ 124  public override int RebelliousStateStartLoyaltyThreshold
+ 138  public override int LoyaltyBoostAfterRebellionStartValue
+ 148  public override int MilitiaBoostPercentage
+ 158  public override float ThresholdForNotableRelationBonus
+ 168  public override int DailyNotableRelationBonus
+ 178  public override int SettlementLoyaltyChangeDueToSecurityThreshold
+ 188  public override int MaximumLoyaltyInSettlement
+ 198  public override int LoyaltyDriftMedium
+ 208  public override float HighSecurityLoyaltyEffect
+ 218  public override float LowSecurityLoyaltyEffect
+ 228  public override float SettlementOwnerDifferentCultureLoyaltyEffect
+ 237  public override ExplainedNumber CalculateLoyaltyChange(Town town, bool includeDescriptions = false)
+ 243  public override void CalculateGoldGainDueToHighLoyalty(Town town, ref ExplainedNumber explainedNumber)
+ 250  public override void CalculateGoldCutDueToLowLoyalty(Town town, ref ExplainedNumber explainedNumber)
+ 257  private ExplainedNumber CalculateLoyaltyChangeInternal(Town town, bool includeDescriptions = false)
+ 281  private void GetSettlementLoyaltyChangeDueToGovernorPerks(Town town, ref ExplainedNumber explainedNumber)
+ 325  private void GetSettlementLoyaltyChangeDueToNotableRelations(Town town, ref ExplainedNumber explainedNumber)
+ 349  private void GetSettlementLoyaltyChangeDueToOwnerCulture(Town town, ref ExplainedNumber explainedNumber)
+ 358  private void GetSettlementLoyaltyChangeDueToPolicies(Town town, ref ExplainedNumber explainedNumber)
+ 413  private void GetSettlementLoyaltyChangeDueToFoodStocks(Town town, ref ExplainedNumber explainedNumber)
+ 427  private void GetSettlementLoyaltyChangeDueToSecurity(Town town, ref ExplainedNumber explainedNumber)
+ 434  private void GetSettlementLoyaltyChangeDueToProjects(Town town, ref ExplainedNumber explainedNumber)
+ 440  private void GetSettlementLoyaltyChangeDueToIssues(Town town, ref ExplainedNumber explainedNumber)
+ 446  private void GetSettlementLoyaltyChangeDueToLoyaltyDrift(Town town, ref ExplainedNumber explainedNumber)
+ 452  private const float StarvationLoyaltyEffect = -1f;
+ 455  private const int AdditionalStarvationLoyaltyEffectAfterDays = 14;
+ 458  private const float NotableSupportsOwnerLoyaltyEffect = 0.5f;
+ 461  private const float NotableSupportsEnemyLoyaltyEffect = -0.5f;
+ 464  private readonly TextObject StarvingText = GameTexts.FindText("str_starving", null);
+ 467  private static readonly TextObject CultureText = new TextObject("{=YjoXyFDX}Owner Culture", null);
+ 470  private readonly TextObject NotableText = GameTexts.FindText("str_notable_relations", null);
+ 473  private readonly TextObject SecurityText = GameTexts.FindText("str_security", null);
+ 476  private readonly TextObject LoyaltyText = GameTexts.FindText("str_loyalty", null);
+ 479  private readonly TextObject LoyaltyDriftText = GameTexts.FindText("str_loyalty_drift", null);
+ 482  private readonly TextObject CorruptionText = GameTexts.FindText("str_corruption", null);
+ 485  private readonly TextObject GovernorText = GameTexts.FindText("str_notable_governor", null);

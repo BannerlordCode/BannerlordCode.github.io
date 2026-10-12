@@ -1,0 +1,11 @@
+# EndCaptivityAction  (TaleWorlds.CampaignSystem/Actions/EndCaptivityAction.cs, 125 lines)
+  12  public static class EndCaptivityAction
+  15  private static void ApplyInternal(Hero prisoner, EndCaptivityDetail detail, Hero facilitatior = null, bool showNotification = true)
+  70  public static void ApplyByReleasedAfterBattle(Hero character)
+  76  public static void ApplyByRansom(Hero character, Hero facilitator)
+  82  public static void ApplyByPeace(Hero character, Hero facilitator = null)
+  88  public static void ApplyByEscape(Hero character, Hero facilitator = null, bool showNotification = true)
+  94  public static void ApplyByDeath(Hero character)
+ 100  public static void ApplyByReleasedByChoice(FlattenedTroopRoster troopRoster)
+ 113  public static void ApplyByReleasedByChoice(Hero character, Hero facilitator = null)
+ 119  public static void ApplyByReleasedByCompensation(Hero character)

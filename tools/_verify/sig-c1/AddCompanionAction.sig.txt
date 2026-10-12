@@ -1,0 +1,4 @@
+# AddCompanionAction  (TaleWorlds.CampaignSystem/Actions/AddCompanionAction.cs, 26 lines)
+   6  public static class AddCompanionAction
+   9  private static void ApplyInternal(Clan clan, Hero companion)
+  20  public static void Apply(Clan clan, Hero companion)

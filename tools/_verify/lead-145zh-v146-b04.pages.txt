@@ -1,0 +1,23 @@
+# N=10 sampled=2026-10-07T15:36:00Z frozen=lead-145zh-v146-b04 v1.4.6/zh/api/campaign-ext
+# 来源：tools/_verify/missing-types-1.4.6-zh.txt（5,551 条目）
+#   桶归属用 tools/_dir-map-canonical.json（longest-prefix-wins）
+#
+# 选取理由：campaign-ext 桶（751 条，mod 最常碰的桶之一）
+#   本批 10 条【全部是 CampaignBehaviorBase 的子类】—— 这是战役 mod 的【主要扩展点】，
+#   比零散的 Action 类价值更高，所以整批取这一组。
+#
+# ★ 索引形态注意：campaign-ext/_index.md 的「尚未撰写的部分」是【表格】不是纯文本清单
+#   ⇒ 补链要加在 `## 已手写的类页（3 张）` 一节（参照批 3 对 campaign/_index.md 的做法）
+#   ★ 计数不变量：本批 10 页 ⇒ 该索引必须新增恰好 10 行
+#
+# 尺：sha256 16e9b98fb19b8eb479ae983c0045401cc776fcfff6f3f14125edcbc1445be23a
+content/v1.4.6/zh/api/campaign-ext/AgingCampaignBehavior.md
+content/v1.4.6/zh/api/campaign-ext/AiArmyMemberBehavior.md
+content/v1.4.6/zh/api/campaign-ext/AiEngagePartyBehavior.md
+content/v1.4.6/zh/api/campaign-ext/AiLandBanditPatrollingBehavior.md
+content/v1.4.6/zh/api/campaign-ext/AiMilitaryBehavior.md
+content/v1.4.6/zh/api/campaign-ext/AiPartyThinkBehavior.md
+content/v1.4.6/zh/api/campaign-ext/AiPatrollingBehavior.md
+content/v1.4.6/zh/api/campaign-ext/AiVisitSettlementBehavior.md
+content/v1.4.6/zh/api/campaign-ext/AllianceCampaignBehavior.md
+content/v1.4.6/zh/api/campaign-ext/BackstoryCampaignBehavior.md

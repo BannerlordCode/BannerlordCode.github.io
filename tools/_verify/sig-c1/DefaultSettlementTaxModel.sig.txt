@@ -1,0 +1,20 @@
+# DefaultSettlementTaxModel  (TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementTaxModel.cs, 239 lines)
+  15  public class DefaultSettlementTaxModel : SettlementTaxModel
+  19  public override float SettlementCommissionRateTown
+  29  public override float SettlementCommissionRateVillage
+  39  public override int SettlementCommissionDecreaseSecurityThreshold
+  49  public override int MaximumDecreaseBasedOnSecuritySecurity
+  58  public override float GetTownTaxRatio(Town town)
+  69  public override float GetVillageTaxRatio(Village village)
+  80  public override float GetTownCommissionChangeBasedOnSecurity(Town town, float commission)
+  92  public override ExplainedNumber CalculateTownTax(Town town, bool includeDescriptions = false)
+ 100  private float CalculateDailyTax(Town town, ref ExplainedNumber explainedNumber)
+ 115  private void CalculateDailyTaxInternal(Town town, ref ExplainedNumber result)
+ 147  private void CalculateSettlementTaxDueToSecurity(Town town, ref ExplainedNumber explainedNumber)
+ 162  private void CalculateSettlementTaxDueToLoyalty(Town town, ref ExplainedNumber explainedNumber)
+ 182  private void CalculateSettlementTaxDueToBuildings(Town town, ref ExplainedNumber result)
+ 189  private void CalculatePolicyGoldCut(Town town, float rawTax, ref ExplainedNumber explainedNumber)
+ 217  private void GetSettlementTaxChangeDueToIssues(Town center, ref ExplainedNumber result)
+ 223  public override int CalculateVillageTaxFromIncome(Village village, int marketIncome)
+ 233  private readonly TextObject ProsperityText = GameTexts.FindText("str_prosperity", null);
+ 236  private static readonly TextObject VeryLowLoyalty = new TextObject("{=CcQzFnpN}Very Low Loyalty", null);

@@ -1,0 +1,6 @@
+# SettlementGarrisonModel  (TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementGarrisonModel.cs, 24 lines)
+   9  public abstract class SettlementGarrisonModel : MBGameModel<SettlementGarrisonModel>
+  12  public abstract ExplainedNumber GetMaximumDailyAutoRecruitmentCount(Town town, bool includeDescriptions = false);
+  15  public abstract ExplainedNumber CalculateBaseGarrisonChange(Settlement settlement, bool includeDescriptions = false);
+  18  public abstract int FindNumberOfTroopsToTakeFromGarrison(MobileParty mobileParty, Settlement settlement, float idealGarrisonStrengthPerWalledCenter = 0f);
+  21  public abstract float GetMaximumDailyRepairAmount(Settlement settlement);

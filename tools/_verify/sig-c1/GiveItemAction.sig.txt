@@ -1,0 +1,5 @@
+# GiveItemAction  (TaleWorlds.CampaignSystem/Actions/GiveItemAction.cs, 62 lines)
+   9  public static class GiveItemAction
+  12  private static void ApplyInternal(Hero giver, Hero receiver, PartyBase giverParty, PartyBase receiverParty, in ItemRosterElement itemRosterElement)
+  50  public static void ApplyForHeroes(Hero giver, Hero receiver, in ItemRosterElement itemRosterElement)
+  56  public static void ApplyForParties(PartyBase giverParty, PartyBase receiverParty, in ItemRosterElement itemRosterElement)

@@ -155,6 +155,15 @@ LINKS_IN_FENCE_REACHING_EOF=17
 > 引用这三个数必须带定义。**331 已作废**；398 与 205 各自在自己的定义下成立，
 > **差额主要是 ANCHOR 口径，不是错误**。在口径冻结前，**没有单一权威值**。
 
+### 1.7 门禁判定的口径：可达性优先（boss 裁定原文，逐字）
+
+> 全仓 U+FFFD ≠ 0 是一份**已登记的既有缺陷**，路径见 §未结项。
+> **门禁判定按【本线改动页】**；全仓数字作为对账项打印，不参与判定。
+> 理由：全仓口径在既有缺陷清完前不可达，而**不可达的判据会恒红，恒红的判据会被忽略**。
+
+> 这是本会话**第四次**出现的同型问题，前面三次是：XML 语料判据（「.xml 在不在」恒为否 → 改成「该标注的有没有被标注」）、orphan 判据（「orphans = 0」4,312 不可达 → 改成「相对登记基线净增 0」）、轴①判据（「dead = 0」186 不可达 → 改成「相对登记基线净增 0」）。
+> **形态：判据本体改成可达的相对量，绝对数降级为对账项。** 前三次都改了根，第四次如果只写「按本线改动页判定」而不命名这个形态，第五次还会以别的名字回来。
+
 ## 2. orphan 分布（`node tools/nav-orphans.mjs --by-parent`）
 
 按版本树：
@@ -223,7 +232,34 @@ v1.4.6_orphans=0
 - 比对：`node tools/nav-verify.mjs --ci-compat --baseline tools/_nav-baseline-frozen-186.tsv`
   → `NEW_BROKEN` / `RESOLVED`，`NEW_BROKEN>0` **exit 1**
 
-### 3.2 197 的清单：已作废（保留在盘上）
+### 3.2 这两个数的采信链（不用再问人）
+
+boss 已定：**采信链挂在产生该数的动作上，不挂在转发者身上**。下面两段是完整链条。
+
+**① `186` 这个数怎么来的**
+
+| 步骤 | 值 | 出处 |
+|---|---|---|
+| 原始计数 | `BROKEN_LINKS=186` | `node tools/audit-links.mjs`（仓库自带 CI 门禁，`AUDIT_MODE=url`） |
+| 落盘 | 186 行数据 | `node tools/nav-verify.mjs --ci-compat --emit-baseline tools/_nav-baseline-frozen-186.tsv` |
+| 文件行数核算 | `wc -l` = 201，其中注释 14 行、列头 1 行 ⇒ **数据 186** | `201 − 14 − 1 = 186` |
+| 独立互证 | 186 条出现 → 去重 `(from,href,route)` 键 **162**，与工具打印的 `BASELINE_ROWS=162` 一致 | 两处独立算法同结果 |
+
+⚠️ 曾被误读成 187：那次把**列头行**（`from⇥href⇥route⇥…`）算进了数据行。文件名与头部无需改。
+
+**② `1305` 与 `1317` 是同一次动作的两种单位**
+
+| 量 | 值 | 出处 | 单位 |
+|---|---|---|---|
+| `added=` | 1305 | `tools/_nav-apply-batch3.txt`（mtime 2026-10-03 21:23:37），`APPLIED content/v1.4.5/zh/api/campaign added=1305` | **条目数** |
+| `numstat` | 1317 | `git diff --numstat`（21:33 量） | **行数** |
+
+行数构成（实测该桶 diff）：`1305` 条 `- [X](…)` + `4` 条 `### X` 分组标题 + `8` 条空行 = **1317**。
+两个数来自**同一次写入**，不是两次变更；该桶从头到尾只写过一次。
+
+> 曾被误读成「漏记了一次变更」：证据文件 `tools/_nav-apply-batch3.txt` 与 `tools/_nav-apply-batch3b.txt`
+> 分别是「batch3 三桶一次跑完」与「EOL 事故回滚后只重跑 campaign-ext 一个桶」，**campaign 桶不在 batch3b 里**。
+### 3.3 197 的清单：已作废（保留在盘上）
 
 `tools/_nav-baseline-broken-links.tsv` —— 197 行。**这是 worker-7 修语言级索引【之前】的基线，已作废。**
 worker-7 的工作把 `BROKEN_LINKS` 从 197 降到 **186**（`FILES_WITH_BROKEN` 52 → 48）。
@@ -474,6 +510,33 @@ CRLF 事故里 **护栏没有洞**：`assertStructuralScope()` 比较的是 `ori
 **两件事必须分开说（别混为一谈）**：
 - **批次边界**确实是护栏**看不见**的（属授权层 → R2 工具内强制 + fixture）；
 - **CRLF 这次护栏看见了**，是**输入不一致**，不是护栏盲区。
+### 7.4 本轮 5 个目标：**人工建空块 + 机器填**（与 §7.1 的三批是两种不同动作）
+
+§7.1 的三批是「**marker 块已存在**，工具只在块内追加」。本轮 5 个是「**块原本不存在**，先由人建空块，工具再填」——
+**两种动作不能混记**，验收面也不同（前者只验块内，后者要验人写的那部分）。
+
+| 目标 | 形态 | 人写部分 | 机器填入 | numstat / 删除行 |
+|---|---|---|---|---|
+| `content/v1.4.5/en/api/campaign/_index.md` | 已有页，补建空块 | 4 行（空 marker 块） | **1,360** | `1433 0` / 0（**CRLF 保住，CR=1534**） |
+| `content/v1.4.5/en/api/mission/_index.md` | 已有页，补建空块 | 4 行 | **75** | `121 0` / 0 |
+| `content/v1.4.7/en/api/engine/_index.md` | 已有页，补建空块 | 4 行 | **2** | `13 1`* / 0 |
+| `content/v1.5.3/zh/api/storymode/_index.md` | **新建整页** | frontmatter + 一段最小说明 + 空块 | **92** | **untracked** |
+| `content/v1.5.3/zh/api/localization/_index.md` | **新建整页** | frontmatter + 一段最小说明 + 空块 | **19** | **untracked** |
+
+- **谁 / 何时**：worker-5，2026-10-03T22:10（建块）→ `22:18:38`（`--apply` 填块）。
+- **依据哪份 dry-run**：`node tools/nav-section-index.mjs --dry-run --batch 4/4 --batch-list tools/_nav-batch4-list.txt …`
+  （报告 `TOTAL_ADD=1548  BUCKETS=5`，5 个桶全部 `MARKER=existing  BEGIN=1 END=1`）。
+- **apply 记录**：`tools/_nav-apply-batch4.txt`，`R2_OK: 5 个桶全部在本批次清单内`，`OK=5 FAILED=0 SKIPPED=0`。
+- \* `engine` 的 `13 1`：HEAD 该文件**末尾无换行**，写入后补齐 ⇒ git 渲染成一对 −/+；**真删除行 = 0**，末行内容逐字未变。
+
+⚠️ **两个新页是 untracked**，`git diff` 对它们为空 —— **必须用文件实测验收，不能看 diff**
+（`wc -l` / marker 计数 / CRLF 计数 / 逐条链接解析）。
+
+**本轮我自己制造过 3 条新断链并已修掉**（记在 §5，见下条）：新页散文里按直觉写了 `../campaign/` 与 `../mission-ext/`，
+而 v1.5.3/zh/api 下**只有 storymode / localization 两个桶有 `_index.md`**。
+
+**本轮结果**：`BROKEN_LINKS=186  FILES_WITH_BROKEN=48`（与冻结基线一致，`NEW_BROKEN=0`）；
+orphans **1,175 → 8**，`orphan_parents` 12 → 7，`v1.5.3` 从 12 → 0。
 ## 8. 未结项（本轮明确不做）
 
 ### 8.1 三批之后剩下的（2026-10-03 收口时的实测残余，**都不许本线自行处理**）
@@ -485,7 +548,44 @@ CRLF 事故里 **护栏没有洞**：`assertStructuralScope()` 比较的是 `ori
 | **根 = 1 个 orphan** | 站点首页 `content/_index.md`。worker-7 已重写并被版本根链回，**需复核是否已解** | **worker-7** 复核 |
 | **剩余 orphan 构成** | `orphans=1175`：`v1.4.5=1157` · `v1.5.3=12` · `v1.3.15=2` · `v1.3.0=2` · `v1.4.7=1` · 根 `=1`；`orphan_parents=12` | — |
 
-### 8.2 早前登记的未结项
+### 8.2 收口时残留的 orphan —— **只归因，不动手**（**注意：#1 已因工具 bug 修正而消失，见下方口径修正**）
+
+口径 `CALIBER=self-link-counts-as-inbound`；「入链」= 任何现存页的 inline 链接解析到该 route。
+
+> 🔴 **口径修正（2026-10-03T22:38，worker-5）**：下表原记的 **8 个**里，第 1 个（站点首页）
+> **不是内容缺陷，是 `tools/nav-orphans.mjs` 的读侧 bug**：`routeOf('_index.md')` 返回 `''`，
+> 而 `res('v1.4.5/','../')` 返回 `'/'`，两者永远匹配不上 ⇒ **首页结构性地永远是 orphan，
+> 加多少条回首页的链接都不改这个数字**。实测首页实有 **26 条入链**（6 个版本根 + versions hub 等）。
+> 修法：`keyOf()` 归一 lookup key（对外展示仍是 `''`）。**修后 orphans 8 → 7、父目录 7 → 6。**
+> ⇒ **`4,312 → 8` 这段里的「根页那 1 个」是工具 bug，不是内容缺陷；这条线并没有「修好首页」。**
+>
+> **headline 双口径（两个数都必须写，缺一个都会误导下个会话）：**
+>
+> | 口径 | 数字 | 含义 |
+> |---|---|---|
+> | 含根页 | **`4,312 → 8`** | 其中 **1 个是读侧 bug 造成的 phantom**；修 `routeOf` 前 `routeOf('_index.md')=''` 而 `res('x/','../')='/'`，永远匹配不上 |
+> | 真实内容改善 | **`4,311 → 7`** | 剔掉那个 phantom 之后的真实下降（12 个桶、5,302 条链接） |
+>
+> 只写 7 会**掩盖那个 bug 存在过**；只写 8 会让人以为**首页没修好**。
+> **根页那 1 个从始至终不是内容缺陷，而是口径缺陷 —— 它被一个坏尺子量出来的。**
+> **必须注明「其中根页 1 个在修 `routeOf` 前受此 bug 影响」。**
+> 同类教训：**同一个量具连续在同一处出错时，先怀疑「这个位置本身特殊」，而不是继续调过滤式。**
+
+| # | 路径 | 磁盘文件 | 现在是否真有入链 | 归因 / 该谁处理 |
+|---|---|---|---|---|
+| ~~1~~ | ~~`""`（内容根）~~ | ~~`content/_index.md`~~ | **是，26 条入链** | ✅ **已解** —— 工具 bug 修正后不再计为 orphan（**非内容改善**） |
+| 2 | `v1.3.0/en/api/mission/root/` | `…/mission/root/_index.md` | 否，0 入链 | v1.3.0 独有的 `root` 子目录索引，上级桶清单里没有它。**该版本树的桶索引归属，非本线** |
+| 3 | `v1.3.0/zh/api/mission/root/` | 同上（zh） | 否，0 入链 | 同 #2 |
+| 4 | `v1.3.15/en/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt/` | `.txt` 文件（被当成路由） | 否，0 入链 | **`.txt` 在本站不是页面**（Zola 只出 `.md` 路由），它永远无法被链到。属 native 源码树清单文件 |
+| 5 | `v1.3.15/zh/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt/` | 同上（zh） | 否，0 入链 | 同 #4 |
+| 6 | `v1.4.5/zh/api/system/AutoGeneratedSaveManager/` | `…/system/AutoGeneratedSaveManager.md` | 否，0 入链 | zh 侧同名页在 `campaign/` 等别的桶有入链；这条**同名跨桶副本**无入链。与 §8.3「2,314 例同名跨桶重复页」同源 |
+| 7 | `v1.4.5/zh/api/system/BoardGameState/` | `…/system/BoardGameState.md` | 否，0 入链 | 同 #6（同名跨桶） |
+| 8 | `v1.4.5/zh/architecture/milestone-report/` | `…/architecture/milestone-report.md` | 否，0 入链 | architecture 层的报告页，不在 API 桶体系内；需 architecture 层归属方处理 |
+
+**结论：修正后剩 7 个，0 个是本线能处理的。** 归因分四类：
+版本树独有子目录（#2#3）、非页面 `.txt`（#4#5）、同名跨桶副本（#6#7）、architecture 报告页（#8）。
+（站点首页那一项已因工具 bug 修正而消失，见上方口径修正。）
+### 8.3 早前登记的未结项
 
 | 项 | 数字 | 为什么现在不做 |
 |---|---|---|
@@ -497,6 +597,20 @@ CRLF 事故里 **护栏没有洞**：`assertStructuralScope()` 比较的是 `ori
 | ~~**`content/v1.5.3/` 缺根 `_index.md`**~~ | **已修** | 由 **worker-7** 新建 `content/v1.5.3/_index.md`，`/v1.5.3/` 路由不再断裂。**归属可追溯：不是本线做的。** |
 | **重复 marker** | 3 处 `BEGIN=2 END=1`（`v1.4.5/zh/api/campaign-ext`、`v1.3.15/{en,zh}/api/campaign-ext`） | 删多余 BEGIN 行属于 marker 块之外的改动，落在「禁止改动已有人工内容」与「只写 marker 块内」的缝里。boss 裁定**本轮及第二轮都不删**，作为待裁定项列在 dry-run 报告里。 |
 | **无 `_index.md` 的桶目录** | `v1.5.3/zh/api/storymode/`（92 子页）、`v1.5.3/zh/api/localization/`（19 子页） | 新建整页 = 新写正文，超出「机械子页清单」授权。dry-run 只报 `NOTE=NO_INDEX_MD`，不建。 |
+
+### 全仓 U+FFFD ≠ 0：6 页 / 16 处（**已派修**，修前状态如下）
+
+```
+content/v1.4.5/zh/api/campaign/AlleyLeaderDiedMapNotification.md   2 处
+content/v1.4.6/zh/api/campaign/Hero.md                            4 处
+content/v1.4.6/zh/api/core-extra/ArmorComponent.md                3 处
+content/v1.4.6/zh/api/core-extra/EventBase.md                    2 处
+content/v1.4.6/zh/api/mission-ext/ItemType.md                    3 处
+content/v1.4.6/zh/api/mission-ext/Team.md                         2 处
+```
+
+**状态：已派 lead-2 修**（逐字节定位、只替换那一个字符、判断不出原字就上报）。
+**不要写「已登记」就完事 —— 那是把一个待办伪装成一份档案**，下个会话会分不清它是在途还是遗留。
 | **同名跨桶的重复页（静默指错类型）** | **2,314 例**（同版本+同语言+跨桶同名；v1.4.5 = 2,243）。另有 dir-map 的 `legacyDuplicationEvidence.duplicatedTypeNames = 2,199`，那是**遗留证据**不是实测值，两者口径不同不可互替 | boss-1 裁定 2026-10-03：**横跨全部版本树，不是任何一条线的领地**；修法需逐类型判断两份副本哪份权威（2,314 例要真做，不是工具能推出来的）；容量已满；且**不进 BROKEN_LINKS 数字**（混进去会把可量化的断链变成混合指标）。**不要动那些重复页** —— 删哪一份是内容判断，不是链接判断。⛔ 已生效的禁令：同名跨桶时唯一合法动作是**查源码里的类型全名（附 File.cs:行号）**；按桶名 / 页面所在桶 / 同名就近推断桶一律禁止。依据：`collisionRule` 写着「Never write two files for one type」，而存量有 2,199 个名字违反它 ⇒「同名取同桶」会稳定指向另一份同名但不同的类型，**且链接不再报错**。详见 `tools/_DEAD-MEMBER-LIST.md` §1.1 与 `tools/_deadmember-scope.txt`。 |
 
 ---

@@ -1,0 +1,4 @@
+走无参构造器时，必须在推栈之前手工填 `Character`（`Filter` 没有 setter，只能留 null 表示「不限制」）：
+按官方 `Helpers` 的形状创建一个理发 state 并推入栈（对照 `InventoryScreenHelper.
+LastOrDefault<T>()` 找到栈里最近的那个 `BarberState`）：
+在 session 期间读取当前 state（`GameStateManager.

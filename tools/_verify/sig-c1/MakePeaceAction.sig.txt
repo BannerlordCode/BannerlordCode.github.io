@@ -1,0 +1,7 @@
+# MakePeaceAction  (TaleWorlds.CampaignSystem/Actions/MakePeaceAction.cs, 72 lines)
+  10  public static class MakePeaceAction
+  13  private static void ApplyInternal(IFaction faction1, IFaction faction2, int dailyTributeFrom1To2, int dailyTributeDuration, MakePeaceAction.MakePeaceDetail detail = MakePeaceAction.MakePeaceDetail.Default)
+  48  public static void Apply(IFaction faction1, IFaction faction2)
+  54  public static void ApplyByKingdomDecision(IFaction faction1, IFaction faction2, int dailyTributeFrom1To2, int dailyTributeDuration)
+  60  private const float DefaultValueForBeingLimitedAfterPeace = 100000f;
+  63  public enum MakePeaceDetail

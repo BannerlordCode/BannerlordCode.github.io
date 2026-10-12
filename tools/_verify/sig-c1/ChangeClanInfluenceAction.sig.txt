@@ -1,0 +1,4 @@
+# ChangeClanInfluenceAction  (TaleWorlds.CampaignSystem/Actions/ChangeClanInfluenceAction.cs, 22 lines)
+   6  public static class ChangeClanInfluenceAction
+   9  private static void ApplyInternal(Clan clan, float amount)
+  16  public static void Apply(Clan clan, float amount)

@@ -1,0 +1,8 @@
+# ChangeVillageStateAction  (TaleWorlds.CampaignSystem/Actions/ChangeVillageStateAction.cs, 53 lines)
+   8  public static class ChangeVillageStateAction
+  11  private static void ApplyInternal(Village village, Village.VillageStates newState, MobileParty raiderParty)
+  23  public static void ApplyBySettingToNormal(Settlement settlement)
+  29  public static void ApplyBySettingToBeingRaided(Settlement settlement, MobileParty raider)
+  35  public static void ApplyBySettingToBeingForcedForSupplies(Settlement settlement, MobileParty raider)
+  41  public static void ApplyBySettingToBeingForcedForVolunteers(Settlement settlement, MobileParty raider)
+  47  public static void ApplyBySettingToLooted(Settlement settlement, MobileParty raider)

@@ -1,0 +1,7 @@
+# ChangeGovernorAction  (TaleWorlds.CampaignSystem/Actions/ChangeGovernorAction.cs, 69 lines)
+   7  public static class ChangeGovernorAction
+  10  private static void ApplyInternal(Town fortification, Hero governor)
+  39  private static void ApplyGiveUpInternal(Hero governor)
+  48  public static void Apply(Town fortification, Hero governor)
+  54  public static void RemoveGovernorOf(Hero governor)
+  60  public static void RemoveGovernorOfIfExists(Town town)

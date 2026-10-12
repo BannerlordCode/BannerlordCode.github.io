@@ -1,0 +1,4 @@
+# GatherArmyAction  (TaleWorlds.CampaignSystem/Actions/GatherArmyAction.cs, 24 lines)
+   8  public static class GatherArmyAction
+  11  private static void ApplyInternal(MobileParty leaderParty, IMapPoint gatheringPoint, float playerInvolvement = 0f)
+  18  public static void Apply(MobileParty leaderParty, IMapPoint gatheringPoint)

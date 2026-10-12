@@ -1,0 +1,4 @@
+# ChangeCrimeRatingAction  (TaleWorlds.CampaignSystem/Actions/ChangeCrimeRatingAction.cs, 41 lines)
+   9  public static class ChangeCrimeRatingAction
+  12  private static void ApplyInternal(IFaction faction, float deltaCrimeRating, bool showNotification)
+  35  public static void Apply(IFaction faction, float deltaCrimeRating, bool showNotification = true)

@@ -1,0 +1,4 @@
+# MakeHeroFugitiveAction  (TaleWorlds.CampaignSystem/Actions/MakeHeroFugitiveAction.cs, 41 lines)
+   7  public static class MakeHeroFugitiveAction
+  10  private static void ApplyInternal(Hero fugitive, bool showNotification)
+  35  public static void Apply(Hero fugitive, bool showNotification = false)

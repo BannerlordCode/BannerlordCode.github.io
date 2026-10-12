@@ -1,0 +1,22 @@
+# N=5 sampled=2026-10-07T11:34:00Z frozen=lead-145zh-v146-b01 v1.4.6/zh/api/modulemanager
+# 来源：tools/_verify/missing-types-1.4.6-zh.txt（5,552 行 = 5,551 条目 + 1 行首注释；首行 N=5551）
+#   该清单条目形如 `Namespace.Type`（**不是**裸类型名 —— 我曾把它读成裸名并得到假的「393/400 无法解析」）。
+#   解析依据：tools/_verify/types-1.4.6.json（13,164 类型，各带 {namespace,name,kind,file}）
+#   桶归属依据：tools/_dir-map-canonical.json（规范 · longest-prefix-wins · fail-closed schemaVersion===5）
+#
+# 选取理由：modulemanager 是【最小桶】（8 条），单一源目录 TaleWorlds.ModuleManager/，命名空间干净
+#   ⇒ 先跑通 create-from-scratch 全流程（boss-3 建议「从最小的桶开始」）。
+#   本桶 8 条：DependedModule · IPlatformModuleExtension · ModuleCategory · ModuleHelper ·
+#              ModuleInfo · ModuleType · SubModuleInfo · SubModuleTags
+#   本批取前 5 条；剩 3 条留 b02。
+#
+# ★ 本批是【新建页】而非改写：这 5 个 .md 现在【不存在】⇒ 批前读数必然是 file-missing。
+# ★ 同批必须更新 content/v1.4.6/zh/api/modulemanager/_index.md：该页目前把 8 个类型名写成【纯文本】，
+#   并明确写着「没有任何一个指向尚未撰写的类页」⇒ 不把本批 5 个名字改成链接，这 5 页就是 orphan。
+#
+# 尺：sha256 16e9b98fb19b8eb479ae983c0045401cc776fcfff6f3f14125edcbc1445be23a（working-tree=clean）
+content/v1.4.6/zh/api/modulemanager/DependedModule.md
+content/v1.4.6/zh/api/modulemanager/IPlatformModuleExtension.md
+content/v1.4.6/zh/api/modulemanager/ModuleCategory.md
+content/v1.4.6/zh/api/modulemanager/ModuleHelper.md
+content/v1.4.6/zh/api/modulemanager/ModuleInfo.md

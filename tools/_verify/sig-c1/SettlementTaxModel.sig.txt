@@ -1,0 +1,11 @@
+# SettlementTaxModel  (TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementTaxModel.cs, 42 lines)
+   8  public abstract class SettlementTaxModel : MBGameModel<SettlementTaxModel>
+  12  public abstract float SettlementCommissionRateTown { get; }
+  16  public abstract float SettlementCommissionRateVillage { get; }
+  20  public abstract int SettlementCommissionDecreaseSecurityThreshold { get; }
+  24  public abstract int MaximumDecreaseBasedOnSecuritySecurity { get; }
+  27  public abstract float GetTownTaxRatio(Town town);
+  30  public abstract float GetVillageTaxRatio(Village village);
+  33  public abstract float GetTownCommissionChangeBasedOnSecurity(Town town, float commission);
+  36  public abstract ExplainedNumber CalculateTownTax(Town town, bool includeDescriptions = false);
+  39  public abstract int CalculateVillageTaxFromIncome(Village village, int marketIncome);

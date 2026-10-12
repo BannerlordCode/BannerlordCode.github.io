@@ -1,0 +1,17 @@
+# DefaultSettlementFoodModel  (TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementFoodModel.cs, 163 lines)
+  15  public class DefaultSettlementFoodModel : SettlementFoodModel
+  19  public override int FoodStocksUpperLimit
+  29  public override int NumberOfProsperityToEatOneFood
+  39  public override int NumberOfMenOnGarrisonToEatOneFood
+  49  public override int CastleFoodStockUpperLimitBonus
+  58  public override ExplainedNumber CalculateTownFoodStocksChange(Town town, bool includeMarketStocks = true, bool includeDescriptions = false)
+  64  private ExplainedNumber CalculateTownFoodChangeInternal(Town town, bool includeMarketStocks, bool includeDescriptions)
+ 133  private static void GetSettlementFoodChangeDueToIssues(Town town, ref ExplainedNumber explainedNumber)
+ 139  private readonly TextObject ProsperityText = GameTexts.FindText("str_prosperity", null);
+ 142  private readonly TextObject GarrisonText = GameTexts.FindText("str_garrison", null);
+ 145  private readonly TextObject LandsAroundSettlementText = GameTexts.FindText("str_lands_around_settlement", null);
+ 148  private readonly TextObject NormalVillagesText = GameTexts.FindText("str_normal_villages", null);
+ 151  private readonly TextObject RaidedVillagesText = GameTexts.FindText("str_raided_villages", null);
+ 154  private readonly TextObject VillagesUnderSiegeText = GameTexts.FindText("str_villages_under_siege", null);
+ 157  private readonly TextObject FoodBoughtByCiviliansText = GameTexts.FindText("str_food_bought_by_civilians", null);
+ 160  private const int FoodProductionPerVillage = 10;

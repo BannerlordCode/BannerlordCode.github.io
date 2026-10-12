@@ -1,0 +1,7 @@
+# SettlementFoodModel  (TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementFoodModel.cs, 30 lines)
+   8  public abstract class SettlementFoodModel : MBGameModel<SettlementFoodModel>
+  12  public abstract int FoodStocksUpperLimit { get; }
+  16  public abstract int NumberOfProsperityToEatOneFood { get; }
+  20  public abstract int NumberOfMenOnGarrisonToEatOneFood { get; }
+  24  public abstract int CastleFoodStockUpperLimitBonus { get; }
+  27  public abstract ExplainedNumber CalculateTownFoodStocksChange(Town town, bool includeMarketStocks = true, bool includeDescriptions = false);

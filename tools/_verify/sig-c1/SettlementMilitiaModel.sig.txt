@@ -1,0 +1,6 @@
+# SettlementMilitiaModel  (TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementMilitiaModel.cs, 23 lines)
+   8  public abstract class SettlementMilitiaModel : MBGameModel<SettlementMilitiaModel>
+  11  public abstract int MilitiaToSpawnAfterSiege(Town town);
+  14  public abstract ExplainedNumber CalculateMilitiaChange(Settlement settlement, bool includeDescriptions = false);
+  17  public abstract ExplainedNumber CalculateVeteranMilitiaSpawnChance(Settlement settlement);
+  20  public abstract void CalculateMilitiaSpawnRate(Settlement settlement, out float meleeTroopRate, out float rangedTroopRate);

@@ -1,0 +1,60 @@
+# DefaultPartySpeedCalculatingModel  (TaleWorlds.CampaignSystem/GameComponents/DefaultPartySpeedCalculatingModel.cs, 522 lines)
+  15  public class DefaultPartySpeedCalculatingModel : PartySpeedModel
+  19  public override float BaseSpeed
+  29  public override float MinimumSpeed
+  38  private ExplainedNumber CalculateLandBaseSpeed(MobileParty mobileParty, bool includeDescriptions = false, int additionalTroopOnFootCount = 0, int additionalTroopOnHorseCount = 0)
+ 168  public override ExplainedNumber CalculateBaseSpeed(MobileParty mobileParty, bool includeDescriptions = false, int additionalTroopOnFootCount = 0, int additionalTroopOnHorseCount = 0)
+ 174  public override int GetSkeletalCrewCount(MobileParty party)
+ 180  private void AddCargoStats(MobileParty mobileParty, ref int numberOfAvailableMounts, ref float totalWeightCarried, ref int herdSize)
+ 191  private float CalculateBaseSpeedForParty(int menCount)
+ 197  private ExplainedNumber GetOverburdenedEffect(MobileParty party, float totalWeightCarried, int partyCapacity, bool includeDescriptions)
+ 206  public override ExplainedNumber CalculateFinalSpeed(MobileParty mobileParty, ExplainedNumber finalSpeed)
+ 302  private float GetCargoEffect(float weightCarried, int partyCapacity)
+ 308  private float GetOverPartySizeEffect(int totalMenCount, int partySize)
+ 314  private float GetOverPrisonerSizeEffect(MobileParty mobileParty)
+ 322  private float GetHerdingModifier(int totalMenCount, int herdSize)
+ 337  private float GetWoundedModifier(int totalMenCount, int numWounded, MobileParty party)
+ 357  private float GetCavalryRatioModifier(int totalMenCount, int totalCavalryCount)
+ 367  private float GetMountedFootmenRatioModifier(int totalMenCount, int totalMountedFootmenCount)
+ 377  private void GetFootmenPerkBonus(MobileParty party, int totalMenCount, int totalFootmenCount, ref ExplainedNumber result)
+ 393  private float GetSizeModifierWounded(int totalMenCount, int totalWoundedMenCount)
+ 399  private float GetSizeModifierPrisoner(int totalMenCount, int totalPrisonerCount)
+ 405  private static readonly TextObject _textCargo = new TextObject("{=fSGY71wd}Cargo within capacity", null);
+ 408  private static readonly TextObject _textOverburdened = new TextObject("{=xgO3cCgR}Overburdened", null);
+ 411  private static readonly TextObject _textOverPartySize = new TextObject("{=bO5gL3FI}Men within party size", null);
+ 414  private static readonly TextObject _textOverPrisonerSize = new TextObject("{=Ix8YjLPD}Men within prisoner size", null);
+ 417  private static readonly TextObject _textCavalry = new TextObject("{=YVGtcLHF}Cavalry", null);
+ 420  private static readonly TextObject _textCavalryWeatherPenalty = new TextObject("{=Cb0k9KM8}Cavalry weather penalty", null);
+ 423  private static readonly TextObject _textKhuzaitCavalryBonus = new TextObject("{=yi07dBks}Khuzait cavalry bonus", null);
+ 426  private static readonly TextObject _textMountedFootmen = new TextObject("{=5bSWSaPl}Footmen on horses", null);
+ 429  private static readonly TextObject _textMountedFootmenWeatherPenalty = new TextObject("{=JAKoFNgt}Footmen on horses weather penalty", null);
+ 432  private static readonly TextObject _textWounded = new TextObject("{=aLsVKIRy}Wounded members", null);
+ 435  private static readonly TextObject _textPrisoners = new TextObject("{=N6QTvjMf}Prisoners", null);
+ 438  private static readonly TextObject _textHerd = new TextObject("{=NhAMSaWU}Herding", null);
+ 441  private static readonly TextObject _textHighMorale = new TextObject("{=aDQcIGfH}High morale", null);
+ 444  private static readonly TextObject _textLowMorale = new TextObject("{=ydspCDIy}Low morale", null);
+ 447  private static readonly TextObject _textCaravan = new TextObject("{=vvabqi2w}Caravan", null);
+ 450  private static readonly TextObject _textDisorganized = new TextObject("{=JuwBb2Yg}Disorganized", null);
+ 453  private static readonly TextObject _movingInForest = new TextObject("{=rTFaZCdY}Forest", null);
+ 456  private static readonly TextObject _fordEffect = new TextObject("{=NT5fwUuJ}Fording", null);
+ 459  private static readonly TextObject _night = new TextObject("{=fAxjyMt5}Night", null);
+ 462  private static readonly TextObject _snow = new TextObject("{=vLjgcdgB}Snow", null);
+ 465  private static readonly TextObject _desert = new TextObject("{=ecUwABe2}Desert", null);
+ 468  private static readonly TextObject _sturgiaSnowBonus = new TextObject("{=0VfEGekD}Sturgia snow bonus", null);
+ 471  private readonly TextObject _culture = GameTexts.FindText("str_culture", null);
+ 474  private const float MovingAtForestEffect = -0.2f;
+ 477  private const float MovingAtWaterEffect = -0.3f;
+ 480  private const float MovingAtNightEffect = -0.25f;
+ 483  private const float MovingOnSnowEffect = -0.125f;
+ 486  private const float MovingInDesertEffect = -0.1f;
+ 489  private const float CavalryEffect = 0.3f;
+ 492  private const float MountedFootMenEffect = 0.15f;
+ 495  private const float HerdEffect = -0.4f;
+ 498  private const float WoundedEffect = -0.05f;
+ 501  private const float CargoEffect = -0.02f;
+ 504  private const float OverburdenedEffect = -0.4f;
+ 507  private const float HighMoraleThreshold = 70f;
+ 510  private const float LowMoraleThreshold = 30f;
+ 513  private const float HighMoraleEffect = 0.05f;
+ 516  private const float LowMoraleEffect = -0.1f;
+ 519  private const float DisorganizedEffect = -0.4f;
